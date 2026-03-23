@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 const menuItems = [
-  { id: 0, label: "Visa", icon: Globe, path: "/visa-services" },
+  { id: 0, label: "Visa", icon: Globe, path: "our-services/visa-services" },
   { id: 1, label: "Flights", icon: Plane, path: "/air-tickets" },
   { id: 2, label: "Holidays", icon: Map, path: "/tour-packages" },
   { id: 3, label: "Activities", icon: Wind, path: "/activities" },

@@ -1,5 +1,6 @@
 // app/loading.js
 "use client";
+import Image from 'next/image';
 
 export default function Loading() {
   return (
@@ -10,11 +11,13 @@ export default function Loading() {
           <div className="absolute inset-0 animate-spin rounded-full border-t-2 border-b-2 border-[#ffcc00]"></div>
 
           {/* Animated Logo */}
-          <img
-            src="/eammu_holidays_logo.webp"
-            alt="Loading..."
-            className="h-full w-full object-contain animate-pulse px-2"
-          />
+          <Image
+           src="/eammu_holidays_logo.webp" 
+  alt="Eammu Holidays Logo" 
+  width={150} 
+  height={50} 
+  priority // Use priority for logos/above-the-fold content
+/>
         </div>
         <p className="text-[#005a31] font-bold text-lg animate-bounce">
           Welcome To Eammu ...

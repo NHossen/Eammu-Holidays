@@ -7,6 +7,7 @@ import BlogSection from "@/Components/BlogSection/BlogSection";
 
 
 
+
 const Blogs = () => {
   const blogFaqs = [
     {
@@ -82,6 +83,7 @@ const Blogs = () => {
 
   return (
     <>
+    
       {/* Next.js Structured Data */}
       <script
         type="application/ld+json"
