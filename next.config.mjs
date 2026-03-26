@@ -237,6 +237,11 @@ const nextConfig = {
   turbopack: {
     root: 'C:\\Users\\HP\\Desktop\\Armenia Visa\\pass\\Eammu\\eammu-holidays',
   },
+  reactStrictMode: true,
+   env: {
+    BLOGGER_API_KEY: process.env.BLOGGER_API_KEY,
+    BLOGGER_BLOG_ID: process.env.BLOGGER_BLOG_ID,
+  },
 };
 
 export default nextConfig;

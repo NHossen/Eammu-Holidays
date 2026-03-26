@@ -14,6 +14,7 @@ export default function Loading() {
           <Image
            src="/eammu_holidays_logo.webp" 
   alt="Eammu Holidays Logo" 
+  className="mt-2 animate-pulse"
   width={150} 
   height={50} 
   priority // Use priority for logos/above-the-fold content

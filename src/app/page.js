@@ -1,19 +1,35 @@
-// app/page.js
-"use client";
-
-import HeroSection from "@/Components/HeroSection/HeroSection";
-import { HelmetProvider, Helmet } from "react-helmet-async";
+import HeroSection from "@/Components/Server/HeroSection/HeroSection";
 import "./globals.css";
 
-export default function Home() {
-  return (
-    <HelmetProvider>
-      <Helmet>
-        <title>Eammu Holidays | Home</title>
-        <meta name="description" content="Welcome to Eammu Holidays" />
-      </Helmet>
+export const metadata = {
+  title: "Best Travel Agency in Bangladesh & Dubai | Visa & Tours",
+  description: "Top travel agency offering visa, tours, Umrah and holiday packages",
+  
+  keywords: ["travel agency Bangladesh", "Dubai visa", "tour packages"],
 
-      <HeroSection />
-    </HelmetProvider>
-  );
+  openGraph: {
+    title: "Eammu Holidays",
+    description: "Best travel services",
+    url: "https://eammu.com",
+    siteName: "Eammu Holidays",
+    images: [
+      {
+        url: "/eammuicon.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+  },
+
+  alternates: {
+    canonical: "https://eammu.com",
+  },
+};
+
+export default function Home() {
+  return <HeroSection />;
 }

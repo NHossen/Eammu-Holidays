@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-Disallow: /signup
-Disallow: /login
-
-Sitemap: https://eammu.com/sitemap.xml

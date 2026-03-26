@@ -49,40 +49,11 @@ export default function Header() {
   </p>
         </div>
 
-        <div className="relative">
-          <button
-            onClick={() => setLangOpen(!langOpen)}
-            className="flex items-center gap-1 text-white border border-white/30 px-2 py-1 rounded text-[10px] hover:bg-white/10 transition-colors"
-          >
-            <Globe size={12} />
-            <span className="hidden sm:inline">Lang</span>
-            <ChevronDown size={10} />
-          </button>
-
-          <AnimatePresence>
-            {langOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                className="absolute right-0 mt-2 w-28 bg-white rounded-xl shadow-2xl p-2 z-[70] border border-gray-100"
-              >
-                {["English", "বাংলা", "Հայերեն", "Русский"].map((lang) => (
-                  <button
-                    key={lang}
-                    className="block w-full text-left px-3 py-2 text-xs text-gray-700 hover:bg-green-50 hover:text-[#005a31] rounded-lg transition-colors"
-                  >
-                    {lang}
-                  </button>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        
       </motion.div>
 
       {/* ================= NAVBAR ================= */}
-      <nav className="fixed top-[55px] sm:top-[40px] w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+      <nav className="fixed top-[55px] sm:top-[38px] w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
           
           {/* Logo Section */}
@@ -122,11 +93,30 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="flex items-center">
-            <Link href="/contact">
-              <button className="bg-[#005a31] hover:bg-[#004225] text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-lg shadow-green-900/20 transition-all hover:scale-105 active:scale-95">
-                Book Now
-              </button>
-            </Link>
+                    {/* Customer Review Link */}
+  <Link 
+    href="/testimonials"
+    className="relative flex items-center gap-2 px-6 py-2.5 rounded-[10px] font-bold text-sm text-white shadow-[0_10px_20px_-10px_rgba(0,90,49,0.6)] 
+               bg-linear-to-r from-[#005a31] via-[#00a45a] to-[#005a31] bg-size-[200%_auto]
+               hover:bg-right transition-all duration-500 overflow-hidden cursor-pointer"
+  >
+    <motion.div
+      className="flex items-center gap-2 w-full h-full"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
+      {/* Shine Effect Animation */}
+      <motion.div 
+        className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent w-full h-full"
+        animate={{ x: ['-100%', '200%'] }}
+        transition={{ repeat: Infinity, duration: 2, ease: "linear", repeatDelay: 1 }}
+      />
+      
+      <span className="relative z-10"> Book Now</span>
+    </motion.div>
+  </Link>
           </div>
         </div>
       </nav>

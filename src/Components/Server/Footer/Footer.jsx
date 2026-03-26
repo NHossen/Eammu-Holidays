@@ -1,5 +1,3 @@
-"use client";
-
 import Link from 'next/link'; // Changed from react-router-dom
 import Image from 'next/image';
 
@@ -14,11 +12,13 @@ const Footer = () => {
                     {/* Brand Column */}
                     <div className="lg:col-span-4 space-y-5">
                         {/* Using standard img for local public path, or Image component */}
-                        <img 
-                            src="/eammu_holidays_Travel_agency.webp" 
-                            alt="Eammu Holidays Logo" 
-                            className="h-12 w-auto object-contain"
-                        />
+                     <Image
+  src="/eammu_holidays_Travel_agency.webp"
+  alt="Eammu Holidays Logo"
+  width={200} // adjust width as needed
+  height={48} // adjust height as needed
+  className="object-contain"
+/>
                         <h2 className="text-xl font-bold text-[#005a31]">
                             Your Trusted Travel Partner
                         </h2>
@@ -34,20 +34,81 @@ const Footer = () => {
                         <div>
                             <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6">Certified & Approved</h4>
                             <div className="flex flex-wrap gap-5 items-center">
-                                <img src="https://www.alliancealliance.com/wp-content/uploads/2018/03/IATA-icon.png" alt="IATA" className="h-8 transition-all" />
-                                <img src="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/product-categories/security-identity-compliance/compliance/approved/images/9f85a551-bd1b-4f4e-b831-b4e007d98a38.84c734e79f09168de3a939175a1d477caf47d179.png" alt="Govt" className="h-10 transition-all" />
-                                <img src="https://i.ibb.co/3yPCJrz7/Screenshot-2025-06-26-174513.png" alt="Certified" className="h-8 transition-all" />
-                                <img src="/Trustpilot_eammu_holidays.png" alt="Trustpilot Verified" className="h-8 transition-all" />
-                                <img src="/google_verfied_eammu_holidays.jpg" alt="Google Verified" className="h-[40px] transition-all" />
+                                 <Image
+    src="https://www.alliancealliance.com/wp-content/uploads/2018/03/IATA-icon.png"
+    alt="IATA"
+    width={90}
+    height={90}
+    className="transition-all"
+  />
+
+  <Image
+    src="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/product-categories/security-identity-compliance/compliance/approved/images/9f85a551-bd1b-4f4e-b831-b4e007d98a38.84c734e79f09168de3a939175a1d477caf47d179.png"
+    alt="Govt"
+    width={80}
+    height={80}
+    className="transition-all"
+  />
+
+  <Image
+    src="https://i.ibb.co/3yPCJrz7/Screenshot-2025-06-26-174513.png"
+    alt="Certified"
+    width={70}
+    height={70}
+    className="transition-all"
+  />
+
+  <Image
+    src="/Trustpilot_eammu_holidays.png"
+    alt="Trustpilot Verified"
+    width={100}
+    height={100}
+    className="transition-all"
+  />
+
+  <Image
+    src="/google_verfied_eammu_holidays.jpg"
+    alt="Google Verified"
+    width={100}
+    height={100}
+    className="transition-all"
+  />
                             </div>
                         </div>
                         <div>
                             <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6">We Accept</h4>
                             <div className="flex flex-wrap gap-5 items-center">
-                                <img src="https://1000logos.net/wp-content/uploads/2021/11/VISA-logo.png" alt="VISA" className="h-5" />
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard" className="h-8" />
-                                <img src="https://www.logo.wine/a/logo/BKash/BKash-bKash-Logo.wine.svg" alt="bKash" className="h-8" />
-                                <img src="https://miro.medium.com/v2/resize:fit:1400/1*1JMzKz_LENBDkVN83qyE0Q.png" alt="Rocket" className="h-6" />
+                                <Image
+    src="https://1000logos.net/wp-content/uploads/2021/11/VISA-logo.png"
+    alt="VISA"
+    width={50}
+    height={50}
+    className="object-contain"
+  />
+
+  <Image
+    src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+    alt="MasterCard"
+    width={40}
+    height={40}
+    className="object-contain"
+  />
+
+  <Image
+    src="https://www.logo.wine/a/logo/BKash/BKash-bKash-Logo.wine.svg"
+    alt="bKash"
+    width={60}
+    height={60}
+    className="object-contain"
+  />
+
+  <Image
+    src="https://miro.medium.com/v2/resize:fit:1400/1*1JMzKz_LENBDkVN83qyE0Q.png"
+    alt="Rocket"
+    width={60}
+    height={60}
+    className="object-contain"
+  />
                             </div>
                         </div>
                     </div>

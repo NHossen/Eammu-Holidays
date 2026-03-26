@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import BlogSection from "@/Components/BlogSection/BlogSection";
+import BlogSection from "@/Components/Client/BlogSection/BlogSection";
 
 
 
@@ -21,7 +21,7 @@ const Blogs = () => {
   ];
 
   const shorts = [
-    { id: "9lsBNCWdJrs", title: "FEEL THE HEAT! WITH EAMMU FIRE SHOW DESERT SAFARI" },
+    { id: "Xa_6Big09QM", title: "FEEL THE HEAT! WITH EAMMU FIRE SHOW DESERT SAFARI" },
     { id: "ZwbS9-cnE7U", title: "DESERT SAFARI DUBAI WITH EAMMU" },
     { id: "wBEWAeP8AEI", title: "THAILAND TOUR PACKAGES With Eammu" },
     { id: "HEKzY7yBb24", title: "Love Lake Dubai & Salt Lake Dubai Tour" },

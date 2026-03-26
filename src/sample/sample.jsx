@@ -8,7 +8,7 @@ import {
   Binoculars, Star, 
   ChevronLeft, ChevronRight,
 } from 'lucide-react';
-import PremiumNavBar from '../PremiumNavBar/PremiumNavBar';
+import PremiumNavBar from '../Client/PremiumNavBar/PremiumNavBar';
 
 
 const HeroSection = () => {
@@ -88,7 +88,7 @@ const HeroSection = () => {
     <div className="relative w-full overflow-hidden font-sans">
 
       {/* ================= HERO SECTION ================= */}
-      <div className="relative w-full bg-gradient-to-br from-[#72deff] via-[#d8ffd4] to-[#f5ff9e] overflow-hidden">
+      <div className="relative w-full bg-linear-to-br from-[#72deff] via-[#d8ffd4] to-[#f5ff9e] overflow-hidden">
 
         {/* ================= BACKGROUND SLIDER ================= */}
         <div className="absolute inset-0 z-0">
@@ -112,11 +112,11 @@ const HeroSection = () => {
           </AnimatePresence>
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/30 to-black/50" />
         </div>
 
         {/* ================= CONTENT WRAPPER ================= */}
-        <div className="relative z-10 min-h-[520px] sm:min-h-[600px] lg:min-h-[50vh] flex flex-col">
+        <div className="relative z-10 min-h-130 sm:min-h-150 lg:min-h-[50vh] flex flex-col">
 
           <PremiumNavBar />
 
@@ -141,7 +141,7 @@ const HeroSection = () => {
   <Link 
     href="/our-services"
     className="relative flex items-center gap-2 px-6 py-2.5 rounded-[10px] font-bold text-sm text-[#005a31] shadow-[0_10px_20px_-10px_rgba(255,204,0,0.5)] 
-               bg-gradient-to-r from-[#ffcc00] via-[#ffeca1] to-[#ffcc00] bg-[length:200%_auto]
+               bg-linear-to-r from-[#ffcc00] via-[#ffeca1] to-[#ffcc00] bg-size-[200%_auto]
                hover:bg-right transition-all duration-500 overflow-hidden cursor-pointer"
   >
     <motion.div
@@ -153,7 +153,7 @@ const HeroSection = () => {
     >
       {/* Shine Effect Animation */}
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent w-full h-full"
+        className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent w-full h-full"
         animate={{ x: ['-100%', '200%'] }}
         transition={{ repeat: Infinity, duration: 2, ease: "linear", repeatDelay: 1 }}
       />
@@ -166,7 +166,7 @@ const HeroSection = () => {
   <Link 
     href="/testimonials"
     className="relative flex items-center gap-2 px-6 py-2.5 rounded-[10px] font-bold text-sm text-white shadow-[0_10px_20px_-10px_rgba(0,90,49,0.6)] 
-               bg-gradient-to-r from-[#005a31] via-[#00a45a] to-[#005a31] bg-[length:200%_auto]
+               bg-linear-to-r from-[#005a31] via-[#00a45a] to-[#005a31] bg-size-[200%_auto]
                hover:bg-right transition-all duration-500 overflow-hidden cursor-pointer"
   >
     <motion.div
@@ -178,7 +178,7 @@ const HeroSection = () => {
     >
       {/* Shine Effect Animation */}
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent w-full h-full"
+        className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent w-full h-full"
         animate={{ x: ['-100%', '200%'] }}
         transition={{ repeat: Infinity, duration: 2, ease: "linear", repeatDelay: 1 }}
       />
@@ -197,12 +197,12 @@ const HeroSection = () => {
 
               {/* ================= PROMO CARD ================= */}
               <div className="w-full flex justify-center lg:justify-end">
-                <div className="relative w-full max-w-md h-[300px] sm:h-[260px] rounded-2xl overflow-hidden border border-white/30 shadow-2xl 
-                                bg-gradient-to-r from-[#005a31] via-[#009552] to-[#005a31] bg-[length:200%_auto]
+                <div className="relative w-full max-w-md h-75 sm:h-65 rounded-2xl overflow-hidden border border-white/30 shadow-2xl 
+                                bg-linear-to-r from-[#005a31] via-[#009552] to-[#005a31] bg-size-[200%_auto]
                                 hover:bg-right transition-all duration-1000">
 
                   <motion.div 
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full z-10 pointer-events-none"
+                    className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent w-full h-full z-10 pointer-events-none"
                     animate={{ x: ['-100%', '200%'] }}
                     transition={{ 
                       repeat: Infinity, 
@@ -244,7 +244,7 @@ const HeroSection = () => {
                             <div className="flex-1 border border-white/40 p-1.5 rounded bg-white/5">
                               Round Trip <br/><b>USD {promoSlides[promoIndex].price2}</b>
                             </div>
-                            <div className='lg:hidden relative h-[40px] w-12'>
+                            <div className='lg:hidden relative h-10 w-12'>
                                <Image 
                                 src="/eammu_white_logo.webp" 
                                 alt="Logo" 
@@ -282,7 +282,7 @@ const HeroSection = () => {
 
       {/* ================= BOTTOM CAROUSEL ================= */}
       <div className="bg-white py-10 px-4">
-        <div className="max-w-[1280px] mx-auto relative">
+        <div className="max-w-7xl mx-auto relative">
           <div
             ref={bottomRef}
             className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 hide-scrollbar"
@@ -300,7 +300,7 @@ const HeroSection = () => {
                     fill
                     className="object-fill" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent flex items-end p-3 pointer-events-none">
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent flex items-end p-3 pointer-events-none">
                     <p className="text-white font-bold text-xs sm:text-sm md:text-base line-clamp-1">
                       {slide.title}
                     </p>
@@ -311,13 +311,13 @@ const HeroSection = () => {
           </div>
 
           <button
-            className="hidden md:flex absolute left-[-20px] top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg text-gray-800 z-30 hover:bg-gray-50"
+            className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg text-gray-800 z-30 hover:bg-gray-50"
             onClick={() => setBottomIndex((prev) => (prev - 1 + bottomSlides.length) % bottomSlides.length)}
           >
             <ChevronLeft size={24} />
           </button>
           <button
-            className="hidden md:flex absolute right-[-20px] top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg text-gray-800 z-30 hover:bg-gray-50"
+            className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg text-gray-800 z-30 hover:bg-gray-50"
             onClick={() => setBottomIndex((prev) => (prev + 1) % bottomSlides.length)}
           >
             <ChevronRight size={24} />

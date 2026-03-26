@@ -1,0 +1,11 @@
+export default function robots() {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      Disallow: /signup
+      Disallow: /login
+    },
+    sitemap: "https://eammu.com/sitemap.xml",
+  };
+}
