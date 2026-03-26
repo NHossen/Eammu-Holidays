@@ -36,7 +36,7 @@ const Footer = () => {
                             <div className="flex flex-wrap gap-5 items-center">
                                  <Image
     src="https://www.alliancealliance.com/wp-content/uploads/2018/03/IATA-icon.png"
-    alt="IATA"
+    alt="IATA Approved Travel Agency Bangladesh"
     width={90}
     height={90}
     className="transition-all"
@@ -44,7 +44,7 @@ const Footer = () => {
 
   <Image
     src="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/product-categories/security-identity-compliance/compliance/approved/images/9f85a551-bd1b-4f4e-b831-b4e007d98a38.84c734e79f09168de3a939175a1d477caf47d179.png"
-    alt="Govt"
+    alt="Government Approved Travel Agency in Bangladesh"
     width={80}
     height={80}
     className="transition-all"
@@ -52,7 +52,7 @@ const Footer = () => {
 
   <Image
     src="https://i.ibb.co/3yPCJrz7/Screenshot-2025-06-26-174513.png"
-    alt="Certified"
+    alt="Certified travel agency in Bangladesh"
     width={70}
     height={70}
     className="transition-all"
@@ -60,7 +60,7 @@ const Footer = () => {
 
   <Image
     src="/Trustpilot_eammu_holidays.png"
-    alt="Trustpilot Verified"
+    alt="Trustpilot Verified Travel Agency in Bangladesh for Visa, Air Tickets, and Holiday Packages"
     width={100}
     height={100}
     className="transition-all"
@@ -68,7 +68,7 @@ const Footer = () => {
 
   <Image
     src="/google_verfied_eammu_holidays.jpg"
-    alt="Google Verified"
+    alt="Google Verified Travel Agency in Bangladesh for Visa, Air Tickets, and Holiday Packages"
     width={100}
     height={100}
     className="transition-all"
@@ -80,7 +80,7 @@ const Footer = () => {
                             <div className="flex flex-wrap gap-5 items-center">
                                 <Image
     src="https://1000logos.net/wp-content/uploads/2021/11/VISA-logo.png"
-    alt="VISA"
+    alt="VISA Payment Method Accepted by Eammu Holidays - Trusted Travel Agency in Bangladesh"
     width={50}
     height={50}
     className="object-contain"
@@ -88,7 +88,7 @@ const Footer = () => {
 
   <Image
     src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
-    alt="MasterCard"
+    alt="MasterCard Payment Method Accepted by Eammu Holidays - Trusted Travel Agency in Bangladesh"
     width={40}
     height={40}
     className="object-contain"
@@ -96,7 +96,7 @@ const Footer = () => {
 
   <Image
     src="https://www.logo.wine/a/logo/BKash/BKash-bKash-Logo.wine.svg"
-    alt="bKash"
+    alt="bKash Payment Method Accepted by Eammu Holidays - Trusted Travel Agency in Bangladesh"
     width={60}
     height={60}
     className="object-contain"
@@ -104,7 +104,7 @@ const Footer = () => {
 
   <Image
     src="https://miro.medium.com/v2/resize:fit:1400/1*1JMzKz_LENBDkVN83qyE0Q.png"
-    alt="Rocket"
+    alt="Rocket Payment Method Accepted by Eammu Holidays - Trusted Travel Agency in Bangladesh"
     width={60}
     height={60}
     className="object-contain"

@@ -201,7 +201,7 @@ export default function VisaClientContent() {
                 <div className="h-52 w-full relative">
                   <Image 
                     src={route.image} 
-                    alt={route.name} 
+                    alt={route.altText} 
                     fill 
                     className="object-cover group-hover:scale-105 transition-transform" 
                   />

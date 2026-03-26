@@ -66,12 +66,12 @@ const OurServices = () => {
         <div className="absolute inset-0 z-0">
           <Image 
             src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-            alt="Travel and Aviation Background" 
+            alt="Best Education Consultancy and Visa Services in Bangladesh - Eammu Holidays" 
             fill
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#005a31]/85 to-[#005a31]/40 shadow-inner"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-[#005a31]/85 to-[#005a31]/40 shadow-inner"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
@@ -82,10 +82,10 @@ const OurServices = () => {
           >
             <h1 className="text-4xl md:text-4xl font-black mb-6 tracking-tighter uppercase italic">
               Eammu Holidays | 
-              <span className="text-orange-400"> Travel Agency in Bangladesh</span>
+              <span className="text-orange-400">Leading Travel Agency in Bangladesh</span>
             </h1>
             <p className="text-lg md:text-xl text-green-50/90 max-w-5xl mx-auto font-medium leading-relaxed">
-              Eammu Holidays is a global travel agency providing visa application services, air ticket booking, 
+              Eammu Holidays is a Leading travel agency providing visa application services, air ticket booking, 
               tour packages, and Education consultancy. We help travelers from Bangladesh, UAE, 
               Armenia, and worldwide with tourist visas, work permits, and international travel solutions.
             </p>
@@ -103,7 +103,7 @@ const OurServices = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-[2rem] p-8 shadow-xl shadow-slate-200/60 border border-slate-100 flex flex-col justify-between hover:shadow-2xl hover:border-green-200 transition-all group"
+              className="bg-white rounded-4xl p-8 shadow-xl shadow-slate-200/60 border border-slate-100 flex flex-col justify-between hover:shadow-2xl hover:border-green-200 transition-all group"
             >
               <div>
                 <header className="flex justify-between items-start mb-8">

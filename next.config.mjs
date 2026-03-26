@@ -43,6 +43,7 @@ const nextConfig = {
       { protocol: "https", hostname: "blogger.googleusercontent.com", pathname: "/**" },
       { protocol: "https", hostname: "via.placeholder.com", pathname: "/**" },
       { protocol: "https", hostname: "eammu.com", pathname: "/**" },
+      { protocol: 'https', hostname: 'utilities-me.com', pathname: "/**" },
     ],
   },
   turbopack: {

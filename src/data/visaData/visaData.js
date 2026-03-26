@@ -359,12 +359,36 @@ export const countries = [
 ];
 
 export const popularRoutes = [
-  { name: "USA", image: "https://visadone.com/wp-content/uploads/2023/02/USA-VISA.png" },
-  { name: "UK", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkgBKQsFv4LdWUzfgaoMj5srhPn0vAuU9X6Q&s" },
-  { name: "Europe (Schengen)", image: "https://www.babaaztravels.com/wp-content/uploads/2023/05/Schengen-Visit-Visa-Requirements-Babaaz-Travels.jpeg" },
-  { name: "Canada", image: "https://pelicanmigration.com/wp-content/uploads/2024/01/Canada-Visitor-Visa.jpg" },
-  { name: "Japan", image: "https://www.babaaztravels.com/wp-content/uploads/2022/04/japan.jpg" },
-  { name: "Saudi Arabia", image: "https://www.utilities-me.com/cloud/2023/07/24/uXpUiIfF-Saudi-Arabia-visa-1200x846.jpg" },
+  { 
+    name: "USA", 
+    image: "https://visadone.com/wp-content/uploads/2023/02/USA-VISA.png",
+    altText: "USA Tourist and Student Visa Application Support"
+  },
+  { 
+    name: "UK", 
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkgBKQsFv4LdWUzfgaoMj5srhPn0vAuU9X6Q&s",
+    altText: "United Kingdom Student and Work Visa Services"
+  },
+  { 
+    name: "Europe (Schengen)", 
+    image: "https://www.babaaztravels.com/wp-content/uploads/2023/05/Schengen-Visit-Visa-Requirements-Babaaz-Travels.jpeg",
+    altText: "Schengen Europe Visit Visa Documentation Assistance"
+  },
+  { 
+    name: "Canada", 
+    image: "https://pelicanmigration.com/wp-content/uploads/2024/01/Canada-Visitor-Visa.jpg",
+    altText: "Canada Visitor Visa and Study Permit Processing"
+  },
+  { 
+    name: "Japan", 
+    image: "https://www.babaaztravels.com/wp-content/uploads/2022/04/japan.jpg",
+    altText: "Japan Tourist and Education Visa Consultancy"
+  },
+  { 
+    name: "Saudi Arabia", 
+    image: "https://utilities-me.com/cloud/2023/07/24/uXpUiIfF-Saudi-Arabia-visa-1200x846.jpg",
+    altText: "Saudi Arabia Umrah and Business Visa Services"
+  },
 ];
 
 export const categories = {
