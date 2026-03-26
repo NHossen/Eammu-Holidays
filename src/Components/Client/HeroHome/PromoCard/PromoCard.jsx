@@ -5,11 +5,46 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const promoSlides = [
-  { id: 1, title: "SHARJAH TO YEREVAN", price1: "135", price2: "255", img: "https://armenianweekly.com/wp-content/uploads/2024/08/Der-Tadeos-Barseghyan-and-parishioners-of-the-Armenian-Church-of-Our-Savior-at-Haghpat-monastery-Photo_-Armenian-Church-of-Our-Savior-Facebook.jpg" },
-  { id: 2, title: "DUBAI TO DHAKA", price1: "110", price2: "300", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" },
-  { id: 3, title: "DHAKA TO DUBAI", price1: "300", price2: "355", img: "https://tripjive.com/wp-content/uploads/2024/09/Khasia-Polli-in-Sylhet-travel-guide-1024x585.jpg" },
-  { id: 4, title: "JAPAN TO DHAKA", price1: "499", price2: "999", img: "https://japandeluxetours.com/uploads/2025/10/20251009212409_68e827f99d19b.jpg" },
-  { id: 5, title: "DHAKA TO MALDIVES", price1: "299", price2: "499", img: "https://afar.brightspotcdn.com/dims4/default/3da8482/2147483647/strip/true/crop/3000x1500+0+369/resize/1440x720!/quality/90/?url=https%3A%2F%2Fk3-prod-afar-media.s3.us-west-2.amazonaws.com%2Fbrightspot%2Fb2%2Ff4%2F9a1ebe3f427f8e5eb937f8df8998%2Ftravelguides-maldives-videomediastudioeurope-shutterstock.jpg" },
+  { 
+    id: 1, 
+    title: "SHARJAH TO YEREVAN", 
+    price1: "135", 
+    price2: "255", 
+    img: "https://armenianweekly.com/wp-content/uploads/2024/08/Der-Tadeos-Barseghyan-and-parishioners-of-the-Armenian-Church-of-Our-Savior-at-Haghpat-monastery-Photo_-Armenian-Church-of-Our-Savior-Facebook.jpg",
+    alt: "Cheap Flight Tickets from Sharjah to Yerevan - Best Airfare Deals by Eammu Holidays" 
+  },
+  { 
+    id: 2, 
+    title: "DUBAI TO DHAKA", 
+    price1: "110", 
+    price2: "300", 
+    img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
+    alt: "Affordable Dubai to Dhaka Flight Price and Airline Ticket Offers" 
+  },
+  { 
+    id: 3, 
+    title: "DHAKA TO DUBAI", 
+    price1: "300", 
+    price2: "355", 
+    img: "https://tripjive.com/wp-content/uploads/2024/09/Khasia-Polli-in-Sylhet-travel-guide-1024x585.jpg",
+    alt: "Dhaka to Dubai Air Ticket Booking with Leading Online Travel Agency Bangladesh" 
+  },
+  { 
+    id: 4, 
+    title: "JAPAN TO DHAKA", 
+    price1: "499", 
+    price2: "999", 
+    img: "https://japandeluxetours.com/uploads/2025/10/20251009212409_68e827f99d19b.jpg",
+    alt: "Discounted Airfare from Japan to Dhaka - Best Travel Agent Services" 
+  },
+  { 
+    id: 5, 
+    title: "DHAKA TO MALDIVES", 
+    price1: "299", 
+    price2: "499", 
+    img: "https://afar.brightspotcdn.com/dims4/default/3da8482/2147483647/strip/true/crop/3000x1500+0+369/resize/1440x720!/quality/90/?url=https%3A%2F%2Fk3-prod-afar-media.s3.us-west-2.amazonaws.com%2Fbrightspot%2Fb2%2Ff4%2F9a1ebe3f427f8e5eb937f8df8998%2Ftravelguides-maldives-videomediastudioeurope-shutterstock.jpg",
+    alt: "Maldives Tour Packages and Cheap Flight Tickets from Dhaka Bangladesh" 
+  },
 ];
 
 export default function PromoCard() {
@@ -52,12 +87,14 @@ export default function PromoCard() {
                     >
                       <div className="relative w-full sm:w-1/2 h-[45%] sm:h-full">
                         <Image 
-                          src={promoSlides[promoIndex].img} 
-                          alt={`${promoSlides[promoIndex].title} cheap flight ticket deal`}
-                          fill
-                          priority
-                          className="object-cover"
-                        />
+  src={promoSlides[promoIndex].img} 
+  // ডাইনামিক এবং প্রফেশনাল Alt Text
+  alt={promoSlides[promoIndex].alt || `${promoSlides[promoIndex].title} Flight Deals`}
+  fill 
+  priority 
+  className="object-cover"
+
+/>
                       </div>
 
                       <div className="w-full sm:w-1/2 p-4 flex flex-col justify-between text-white">

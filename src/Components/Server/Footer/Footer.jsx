@@ -14,7 +14,7 @@ const Footer = () => {
                         {/* Using standard img for local public path, or Image component */}
                      <Image
   src="/eammu_holidays_Travel_agency.webp"
-  alt="Eammu Holidays Logo"
+  alt="Trusted Travel Agency in Bangladesh for Visa, Air Tickets, and Holiday Packages"
   width={200} // adjust width as needed
   height={48} // adjust height as needed
   className="object-contain"
