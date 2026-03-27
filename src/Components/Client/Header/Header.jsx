@@ -42,8 +42,8 @@ export default function Header() {
      
 
       {/* ================= NAVBAR ================= */}
-      <nav className="fixed top-[55px] sm:top-[38px] w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
+      <nav className="fixed top-[42px] sm:top-[35px] w-full bg-white z-50 backdrop-blur-md shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 h-16 sm:h-16 flex items-center justify-between">
           
           {/* Logo Section */}
           <div className="flex items-center gap-4">
@@ -64,21 +64,57 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                href={item.path}
-                className={`text-sm font-semibold transition-all duration-300 hover:text-[#005a31] relative group ${
-                  pathname === item.path ? "text-[#005a31]" : "text-gray-600"
-                }`}
-              >
-                {item.name}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[#005a31] transition-all duration-300 group-hover:w-full ${pathname === item.path ? "w-full" : ""}`} />
-              </Link>
-            ))}
-          </div>
+         {/* Premium Desktop Menu with Gradient & Animation */}
+<div className="hidden lg:flex items-center gap-2 p-1.5 backdrop-blur-xl rounded-full">
+  {navItems.map((item) => {
+    const isActive = pathname === item.path;
+    
+    return (
+      <Link
+        key={item.path}
+        href={item.path}
+        className={`relative px-8 py-2.5 text-sm font-bold transition-all duration-500 rounded-full group ${
+          isActive ? "text-white" : "text-gray-400 hover:text-[#005a31]"
+        }`}
+      >
+        {/* 1. The Main Animated Liquid Capsule */}
+        {isActive && (
+          <motion.div
+            layoutId="nav-glow"
+            className="absolute inset-0 z-0 bg-gradient-to-r from-[#005a31] via-[#008a4a] to-[#005a31] shadow-[0_0_20px_rgba(0,138,74,0.5)]"
+            style={{ 
+              borderRadius: 9999,
+              backgroundSize: "200% 100%" 
+            }}
+            animate={{ 
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+            }}
+            transition={{
+              backgroundPosition: { duration: 5, repeat: Infinity, ease: "linear" },
+              layout: { type: "spring", bounce: 0.2, duration: 0.6 }
+            }}
+          >
+            {/* 2. Inner Shimmer Overlay */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-t from-white/10 to-transparent opacity-50" />
+          </motion.div>
+        )}
+        
+        {/* 3. Text Layer */}
+        <span className="relative z-10 tracking-wide uppercase text-[11px]">
+          {item.name}
+        </span>
+
+        {/* 4. Hover Glow (Only for non-active items) */}
+        {!isActive && (
+          <motion.span
+            className="absolute inset-0 z-0 bg-white/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+            layoutId="hover-bg"
+          />
+        )}
+      </Link>
+    );
+  })}
+</div>
 
           {/* CTA Button */}
           <div className="flex items-center">
@@ -162,7 +198,7 @@ export default function Header() {
       </AnimatePresence>
 
       {/* ================= SPACING ================= */}
-      <div className="pt-[100px] sm:pt-[120px]" />
+      <div className="pt-[50px] sm:pt-[50px]" />
     </>
   );
 }

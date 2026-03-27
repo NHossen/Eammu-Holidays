@@ -39,7 +39,7 @@ const PremiumNavBar = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % menuItems.length);
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 

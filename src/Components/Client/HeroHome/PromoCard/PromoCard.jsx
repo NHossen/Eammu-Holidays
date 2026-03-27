@@ -53,7 +53,7 @@ export default function PromoCard() {
   useEffect(() => {
     const timer = setInterval(() => {
       setPromoIndex((prev) => (prev + 1) % promoSlides.length);
-    }, 5000);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 

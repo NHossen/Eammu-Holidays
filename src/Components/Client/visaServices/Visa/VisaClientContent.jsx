@@ -9,17 +9,22 @@ const heroSlides = [
   { 
     id: 1, 
     image: '/flight_eammu.webp', 
-    // SEO Friendly Alt Text
-    altText: "Affordable International Flight Bookings and Travel Deals by Eammu Holidays", // High-value SEO Keyword
+    title: "Affordable International Flight Bookings",
+    desc: "Get the best travel deals and seamless flight reservations with Eammu Holidays.",
+    altText: "Affordable International Flight Bookings and Travel Deals by Eammu Holidays", 
   },
   { 
     id: 2, 
     image: '/eammu_banner.webp', 
+    title: "Global Visa Application Assistance",
+    desc: "Expert guidance for tourist, student, and work visas from Bangladesh to 25+ countries.",
     altText: "Global Visa Application Assistance and Tourist Services from Bangladesh",
   },
   { 
     id: 3, 
     image: '/plan_eammu.webp', 
+    title: "Personalized Tour & Vacation Planning",
+    desc: "Custom-made holiday packages designed to fit your dream travel experience.",
     altText: "Personalized Tour Packages and Vacation Planning with Eammu Holidays",
   },
 ];
@@ -27,15 +32,10 @@ const heroSlides = [
 export default function VisaClientContent() {
   const ITEMS_PER_PAGE = 3;
   const [currentHero, setCurrentHero] = useState(0);
-  
-  // প্যাজিনেশন স্টেট
-  const [pages, setPages] = useState({ 
-    america: 1, europe: 1, asia: 1, middleEast: 1, oceania: 1 
-  });
-
-  // ১. ডাইনামিক রেফারেন্স হোল্ডার
+  const [pages, setPages] = useState({ america: 1, europe: 1, asia: 1, middleEast: 1, oceania: 1 });
   const sectionRefs = useRef({});
 
+  // Fix: Automatic Slide Timer
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentHero((prev) => (prev + 1) % heroSlides.length);
@@ -64,54 +64,57 @@ export default function VisaClientContent() {
 
   return (
     <>
-      {/* --- HERO SECTION --- */}
-      <header className="relative w-full py-24 px-4 overflow-hidden min-h-125 flex items-center">
+     {/* --- UPDATED RESPONSIVE HERO SECTION --- */}
+      <header className="relative w-full min-h-[500px] md:min-h-[650px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentHero}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1.5 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-             {heroSlides.map((slide) => (
-  <div key={slide.id} 
-    className="relative h-125 w-full">
-    <Image 
-      src={slide.image} 
-      // SEO Friendly Alt: Fallback Mechanism সহ
-      alt={slide.altText || `International Travel Services and Tour Packages by Eammu Holidays`} 
-      fill 
-      priority // হিরো সেকশনের জন্য পারফরম্যান্স অপ্টিমাইজেশন
-      className="object-cover" 
-      sizes="100vw"
-    />
-  </div>
-))}
+              <Image 
+                src={heroSlides[currentHero].image} 
+                alt={heroSlides[currentHero].altText} 
+                fill 
+                priority 
+                className="object-cover" 
+                sizes="100vw"
+              />
             </motion.div>
           </AnimatePresence>
-          <div className="absolute inset-0 bg-black/30 bg-linear-to-b from-[#005a31]/40 to-black/70 z-10" />
+          {/* Enhanced Mobile Gradient Overlay */}
+          <div className="absolute inset-0 bg-black/40 bg-gradient-to-b from-[#005a31]/50 via-black/20 to-black/80 z-10" />
         </div>
 
-        <div className="container mx-auto text-center relative z-20 text-white">
-           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-white drop-shadow-lg">
-      Global Visa Application Services for Tourist & Student Visas
-    </h1>
-    
-    <p className="max-w-5xl mx-auto text-gray-100 text-lg mb-10 leading-relaxed drop-shadow-md">
-      Eammu provides professional <strong className="text-white">visa application services</strong> for 
-      tourist visas, student visas, and work permits in more than 25 countries including 
-      Canada, UK, Australia, Europe, and the USA. Our experts guide you with documentation, 
-      embassy requirements, and interview preparation to increase visa approval success.
-    </p>
-          <div className="flex flex-wrap justify-center gap-3">
+        <div className="container mx-auto px-4 text-center relative z-20 text-white mt-10 md:mt-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentHero}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1 className="text-3xl md:text-6xl font-extrabold mb-4 md:mb-6 drop-shadow-lg leading-tight">
+                {heroSlides[currentHero].title}
+              </h1>
+              <p className="max-w-3xl mx-auto text-sm md:text-xl text-gray-100 mb-8 md:mb-12 leading-relaxed drop-shadow-md px-4">
+                {heroSlides[currentHero].desc}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Responsive Quick Nav */}
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 max-w-4xl mx-auto">
             {['Asia', 'Europe', 'America', 'MiddleEast', 'Oceania', 'Popular'].map(cat => (
               <button 
                 key={cat} 
                 onClick={() => scrollToSection(cat)}
-                className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white hover:text-[#005a31] px-6 py-2 rounded-full transition-all font-bold text-sm"
+                className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white hover:text-[#005a31] px-4 py-2 md:px-8 md:py-3 rounded-full transition-all font-bold text-xs md:text-sm whitespace-nowrap"
               >
                 {cat === 'MiddleEast' ? 'Middle East' : cat}
               </button>

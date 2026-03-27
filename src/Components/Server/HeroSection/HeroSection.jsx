@@ -35,7 +35,7 @@ const HeroSection = () => {
 
                 <div className="flex flex-wrap justify-center lg:justify-start gap-3 text-xs">
                   <span>🏆 IATA Accredited</span>
-                  <span>📅 6+ Years Experience</span>
+                  <span>📅 14+ Years Experience</span>
                   <span>⭐ Google Rating 4.9/5</span>
                 </div>
               </div>
