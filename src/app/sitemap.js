@@ -32,6 +32,11 @@ export default function sitemap() {
       priority: 0.9,
       changeFrequency: "monthly",
     },
+    {
+      url: "/web-development-digital-marketing",
+      priority: 0.9,
+      changeFrequency: "monthly",
+    }
   ];
 
   return routes.map((route) => ({
