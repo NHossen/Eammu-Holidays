@@ -78,7 +78,7 @@ const PremiumNavBar = () => {
   className="absolute -top-8 sm:-top-12 w-[55px] h-[55px] sm:w-[80px] sm:h-[80px] 
              rounded-full flex items-center justify-center 
              shadow-[0_10px_20px_-10px_rgba(255,204,0,0.5)] z-30 pointer-events-auto 
-             overflow-hidden p-[3px] sm:p-[4px]" // Padding creates the "border" thickness
+             overflow-hidden p-[3px] sm:p-[3px]" // Padding creates the "border" thickness
 >
   {/* 1. THE ANIMATED GRADIENT BORDER LAYER */}
   <motion.div
@@ -95,7 +95,7 @@ const PremiumNavBar = () => {
   />
 
   {/* 2. THE MAIN BACKGROUND (Kept your original gradient & styles) */}
-  <div className="absolute inset-[3px] sm:inset-[4px] rounded-full z-10 
+  <div className="absolute inset-[2px] sm:inset-[2.5px] rounded-full z-10 
                   bg-gradient-to-r from-[#005a31] via-[#009552] to-[#005a31] 
                   bg-[length:200%_auto] hover:bg-right transition-all duration-500" />
 
