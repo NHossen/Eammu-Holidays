@@ -1,5 +1,6 @@
 import HeroSection from "@/Components/Server/HeroSection/HeroSection";
 import "./globals.css";
+import MainGradient from "@/Components/Client/HeroHome/MainGradient/MainGradient";
 
 export const metadata = {
   title: "Best Travel Agency in Bangladesh & Dubai | Visa & Tours",
@@ -31,5 +32,10 @@ export const metadata = {
 };
 
 export default function Home() {
-  return <HeroSection />;
+  return (
+    <>
+      <HeroSection />
+      <MainGradient />
+    </>
+  );
 }

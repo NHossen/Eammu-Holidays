@@ -72,29 +72,49 @@ const PremiumNavBar = () => {
         >
           <div className="relative w-[120px] -top-[1.2px] pointer-events-none bg-transparent" />
 
-          {/* FLOATING CIRCLE LINK */}
-          <Link
-            href={menuItems[activeIndex].path}
-            className="absolute -top-8 sm:-top-12 w-[55px] h-[55px] sm:w-[80px] sm:h-[80px]  bg-gradient-to-r from-[#005a31] via-[#009552] to-[#005a31] bg-[length:200%_auto]
-                       hover:bg-right transition-all duration-500  rounded-full 
-                       border-[3px] sm:border-[4px] border-[#ffffff] flex items-center justify-center 
-                       shadow-[0_10px_20px_-10px_rgba(255,204,0,0.5)] z-30 pointer-events-auto"
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                className="text-[#ffffff]"
-              >
-                {React.createElement(menuItems[activeIndex].icon, {
-                  size: typeof window !== "undefined" && window.innerWidth < 640 ? 22 : 32,
-                  strokeWidth: 2.5,
-                })}
-              </motion.div>
-            </AnimatePresence>
-          </Link>
+         {/* FLOATING CIRCLE LINK */}
+<Link
+  href={menuItems[activeIndex].path}
+  className="absolute -top-8 sm:-top-12 w-[55px] h-[55px] sm:w-[80px] sm:h-[80px] 
+             rounded-full flex items-center justify-center 
+             shadow-[0_10px_20px_-10px_rgba(255,204,0,0.5)] z-30 pointer-events-auto 
+             overflow-hidden p-[3px] sm:p-[4px]" // Padding creates the "border" thickness
+>
+  {/* 1. THE ANIMATED GRADIENT BORDER LAYER */}
+  <motion.div
+    className="absolute inset-[-150%] z-0"
+    style={{
+      background: "conic-gradient(from 0deg, #34A853, #FBBC05,white, #34A853)",
+    }}
+    animate={{ rotate: [360, 0] }}
+    transition={{
+      duration: 4,
+      repeat: Infinity,
+      ease: "linear",
+    }}
+  />
+
+  {/* 2. THE MAIN BACKGROUND (Kept your original gradient & styles) */}
+  <div className="absolute inset-[3px] sm:inset-[4px] rounded-full z-10 
+                  bg-gradient-to-r from-[#005a31] via-[#009552] to-[#005a31] 
+                  bg-[length:200%_auto] hover:bg-right transition-all duration-500" />
+
+  {/* 3. THE ICON LAYER (Kept original logic) */}
+  <AnimatePresence mode="wait">
+    <motion.div
+      key={activeIndex}
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.5 }}
+      className="relative z-20 text-[#ffffff]"
+    >
+      {React.createElement(menuItems[activeIndex].icon, {
+        size: typeof window !== "undefined" && window.innerWidth < 640 ? 22 : 32,
+        strokeWidth: 2.5,
+      })}
+    </motion.div>
+  </AnimatePresence>
+</Link>
         </motion.div>
 
         {/* MENU ITEMS */}
