@@ -72,7 +72,7 @@ const Premium3DCard = ({ service }) => {
 // --- Main Page Component ---
 export default function AgencyLanding() {
   return (
-    <main className="relative min-h-screen w-full bg-[#F8FAFC] overflow-x-hidden">
+    <main className="relative min-h-screen w-full overflow-x-hidden">
       
       {/* 1. BACKGROUND LAYER (Isolated to prevent affecting other components) */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
