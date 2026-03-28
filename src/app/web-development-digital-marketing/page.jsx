@@ -1,14 +1,15 @@
 
 
 import PremiumHero from '@/Components/Client/eammuGroupClient/EammuMarketing/PremiumHero/PremiumHero'
-import PremiumHero2 from '@/Components/Client/eammuGroupClient/EammuMarketing/PremiumHero/PremiumHero2'
+import PremiumCard from '@/Components/Client/eammuGroupClient/EammuMarketing/PremiumCard/PremiumCard'
 import React from 'react'
 
 export default function page() {
   return (
     <div>
      <PremiumHero />
-     <PremiumHero2/>
+     <PremiumCard />
+     
     </div>
   )
 }
