@@ -17,7 +17,7 @@ const services = [
     icon: <FaPassport />,
     title: "Global Visa Processing",
     description: "Comprehensive visa consultancy for F1, B1/B2, and work permits for USA, UK, Canada, and Schengen countries.",
-    link: "/visa-services",
+    link: "our-services/visa-services",
     keywords: "Student Visa, Tourist Visa, Work Permit"
   },
   {

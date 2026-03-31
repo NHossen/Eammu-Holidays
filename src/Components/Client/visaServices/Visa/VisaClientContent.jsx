@@ -128,9 +128,9 @@ export default function VisaClientContent() {
         <div className="bg-white p-8 rounded-3xl shadow-sm mb-16 border border-gray-100">
           <h2 className="text-center text-gray-500 font-semibold mb-6 uppercase tracking-widest text-xs">Direct Visa Application Links</h2>
           <div className="flex flex-wrap justify-center gap-2">
-            <Link href="/visa-services/tourist-visa-application-from-bangladesh" className="bg-[#005a31] text-white px-4 py-1.5 rounded-full text-sm hover:bg-gray-800 transition">Tourist Visa</Link>
-            <Link href="/visa-services/student-visa-application-from-bangladesh" className="bg-[#005a31] text-white px-4 py-1.5 rounded-full text-sm hover:bg-gray-800 transition">Student Visa</Link>
-            <Link href="/visa-services/work-visa-application-from-bangladesh" className="bg-[#005a31] text-white px-4 py-1.5 rounded-full text-sm hover:bg-gray-800 transition">Work Visa</Link>
+            <Link href="/our-services/visa-services/tourist-visa-from-bangladesh" className="bg-[#005a31] text-white px-4 py-1.5 rounded-full text-sm hover:bg-gray-800 transition">Tourist Visa</Link>
+            <Link href="/our-services/visa-services/student-visa-from-bangladesh" className="bg-[#005a31] text-white px-4 py-1.5 rounded-full text-sm hover:bg-gray-800 transition">Student Visa</Link>
+            <Link href="/our-services/visa-services/work-visa-from-bangladesh" className="bg-[#005a31] text-white px-4 py-1.5 rounded-full text-sm hover:bg-gray-800 transition">Work Visa</Link>
             {[ "USA", "UK", "Europe", "Canada", "Australia", "Germany", "Portugal", "Armenia", "Georgia", "Albania", "Dubai", "Qatar", "Japan", "China", "South Korea", "Spain", "Kosovo", "Serbia", "Thailand", "Singapore", "Malaysia", "Turkey" , "Indonesia" , "India" , "Saudi Arabia" , "Morocco" , "Brazil" , "South Africa" , "Azerbaijan" , "Cyprus" , "Srilanka" , "Russia" , "Montenegro" ].map((name) => (
               <Link 
                 key={name} 

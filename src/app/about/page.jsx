@@ -1,4 +1,5 @@
-import About from '@/Components/Client/About/About'
+
+import AboutServer from '@/Components/Server/AboutServer/AboutServer';
 import React from 'react'
 
 export const metadata = {
@@ -32,7 +33,9 @@ export const metadata = {
 export default function page() {
   return (
     <div>
-      <About />
+     {/* AboutServer already contains AboutClient inside it with all the data */}
+      <AboutServer />
+      
     </div>
   )
 }
