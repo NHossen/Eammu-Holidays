@@ -2,3 +2,45 @@
  @plugin "daisyui" {
    themes: light --default;
  }
+
+@utility glass-liquid-water {
+  /* 1. Base - Very slight transparency, light white tint */
+  background: rgba(255, 255, 255, 0.1);
+  color: #0d382d; /* Maintain the logo/text color */
+
+  /* 2. Water Refraction Core: 
+     A very high blur + intense saturation (colors 'pop' and 'warp' like water) */
+  backdrop-filter: blur(35px) saturate(280%);
+  -webkit-backdrop-filter: blur(35px) saturate(280%);
+
+  /* 3. The Water Bevel: 
+     A semi-sharp white border simulating a thick, clear edge. */
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  
+  /* 4. Complex Specular Highlights (Sheen):
+     - The first inset is a very strong, tight white highlight on the top left (the sun hitting water).
+     - The second inset is a soft reflection.
+     - The drop shadow uses a large, light black for depth.
+  */
+  box-shadow: 
+    inset 0 4px 6px -1px rgba(255, 255, 255, 0.8),   /* Critical: Specular top highlight */
+    inset 0 2px 2px -1px rgba(255, 255, 255, 0.3),   /* Soft reflection layer */
+    0 12px 50px -10px rgba(0, 0, 0, 0.25);          /* Deep floating shadow */
+
+  /* 5. Surface Layer Gradient:
+     Simulates a clean reflection and slightly varied thickness across the container.
+  */
+  background-image: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.3) 0%, 
+    rgba(255, 255, 255, 0.05) 30%, 
+    rgba(255, 255, 255, 0) 60%, 
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
+/* Optional: To make the text feel embedded, not just sitting on top */
+.glass-liquid-water h1, 
+.glass-liquid-water a {
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+}
