@@ -3,44 +3,39 @@
    themes: light --default;
  }
 
+/* Define the refined Liquid Water utility for full-screen bars */
 @utility glass-liquid-water {
-  /* 1. Base - Very slight transparency, light white tint */
-  background: rgba(255, 255, 255, 0.1);
-  color: #0d382d; /* Maintain the logo/text color */
+  /* 1. Base - We need this slightly darker for the green bar 
+     to maintain contrast for the yellow text */
+  background: rgba(255, 255, 255, 0.2); 
+  color: white; /* Base color for text */
 
   /* 2. Water Refraction Core: 
-     A very high blur + intense saturation (colors 'pop' and 'warp' like water) */
-  backdrop-filter: blur(35px) saturate(280%);
-  -webkit-backdrop-filter: blur(35px) saturate(280%);
+     Very high blur + intense saturation (makes the green "pop" through the glass) */
+  backdrop-filter: blur(40px) saturate(230%);
+  -webkit-backdrop-filter: blur(40px) saturate(230%);
 
   /* 3. The Water Bevel: 
-     A semi-sharp white border simulating a thick, clear edge. */
-  border: 1.5px solid rgba(255, 255, 255, 0.45);
+     A slightly white, semi-sharp border simulating a clear, thick edge. */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   
   /* 4. Complex Specular Highlights (Sheen):
-     - The first inset is a very strong, tight white highlight on the top left (the sun hitting water).
-     - The second inset is a soft reflection.
-     - The drop shadow uses a large, light black for depth.
+     - First inset: Strong white highlight on top left (the 'wet' edge).
+     - Second inset: Subtle black depth shadow.
+     - Drop shadow: Standard soft shadow.
   */
   box-shadow: 
-    inset 0 4px 6px -1px rgba(255, 255, 255, 0.8),   /* Critical: Specular top highlight */
-    inset 0 2px 2px -1px rgba(255, 255, 255, 0.3),   /* Soft reflection layer */
-    0 12px 50px -10px rgba(0, 0, 0, 0.25);          /* Deep floating shadow */
+    inset 0 2px 0 0 rgba(255, 255, 255, 0.5),   /* Specular top highlight */
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.05),    /* Subtle bottom depth */
+    0 4px 15px rgba(0, 0, 0, 0.05);           /* Soft drop shadow */
 
-  /* 5. Surface Layer Gradient:
-     Simulates a clean reflection and slightly varied thickness across the container.
+  /* 5. Surface Sheen Gradient Overlay:
+     Creates the variable reflection across the container.
   */
   background-image: linear-gradient(
-    135deg, 
-    rgba(255, 255, 255, 0.3) 0%, 
-    rgba(255, 255, 255, 0.05) 30%, 
-    rgba(255, 255, 255, 0) 60%, 
-    rgba(255, 255, 255, 0.1) 100%
+    to bottom,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.02) 100%
   );
 }
 
-/* Optional: To make the text feel embedded, not just sitting on top */
-.glass-liquid-water h1, 
-.glass-liquid-water a {
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
-}

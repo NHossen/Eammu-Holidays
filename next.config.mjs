@@ -45,6 +45,7 @@ const nextConfig = {
       { protocol: "https", hostname: "eammu.com", pathname: "/**" },
       { protocol: 'https', hostname: 'utilities-me.com', pathname: "/**" },
       
+      
     ],
   },
   turbopack: {

@@ -1,5 +1,10 @@
-{/* ================= NAVBAR ================= */}
-      <nav className="fixed top-[42px] sm:top-[35px] w-full bg-white z-50 backdrop-blur-md shadow-sm">
+import React from 'react'
+
+export default function SampleNav() {
+  return (
+    <div>
+      {/* ================= NAVBAR ================= */}
+      <nav className="fixed top-[42px] sm:top-[35px] w-full glass-liquid-water z-50 backdrop-blur-md shadow-sm">
         <div className="max-w-7xl mx-auto px-4 h-16 sm:h-16 flex items-center justify-between">
           
           {/* Logo Section */}
@@ -110,3 +115,6 @@
           </div>
         </div>
       </nav>
+    </div>
+  )
+}

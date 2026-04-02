@@ -76,7 +76,7 @@ export default function Header() {
         key={item.path}
         href={item.path}
         className={`relative px-8 py-2.5 text-md font-bold transition-all duration-500 rounded-full group flex items-center justify-center ${
-          isActive ? "text-gray-900" : "text-[#ffcc00] hover:text-gray-900"
+          isActive ? "text-[#005a31]" : "text-gray-900 hover:text-[#ffcc00]"
         }`}
       >
         {/* The Animated Multi-Color Border */}

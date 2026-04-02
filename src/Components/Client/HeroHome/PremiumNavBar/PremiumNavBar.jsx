@@ -46,7 +46,7 @@ const PremiumNavBar = () => {
   return (
     <div className="flex items-center justify-center w-full p-2 sm:p-6 mt-26">
       <nav className="relative flex items-center justify-around w-full max-w-5xl h-[65px] sm:h-[80px] 
-                      bg-gradient-to-r from-[#005a31] via-[#009552] to-[#005a31] bg-[length:200%_auto]
+                      glass-liquid-water bg-[length:200%_auto]
                       hover:bg-right transition-all duration-1000 rounded-[15px] shadow-2xl overflow-visible">
 
         {/* SHIMMER LAYER */}
@@ -96,7 +96,7 @@ const PremiumNavBar = () => {
 
   {/* 2. THE MAIN BACKGROUND (Kept your original gradient & styles) */}
   <div className="absolute inset-[2px] sm:inset-[2.5px] rounded-full z-10 
-                  bg-gradient-to-r from-[#005a31] via-[#009552] to-[#005a31] 
+                  bg-white 
                   bg-[length:200%_auto] hover:bg-right transition-all duration-500" />
 
   {/* 3. THE ICON LAYER (Kept original logic) */}
@@ -106,7 +106,7 @@ const PremiumNavBar = () => {
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.5 }}
-      className="relative z-20 text-[#ffffff]"
+      className="relative z-20 text-[#005f30]"
     >
       {React.createElement(menuItems[activeIndex].icon, {
         size: typeof window !== "undefined" && window.innerWidth < 640 ? 22 : 32,
