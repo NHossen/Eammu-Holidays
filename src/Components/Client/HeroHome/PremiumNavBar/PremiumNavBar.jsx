@@ -44,7 +44,7 @@ const PremiumNavBar = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center w-full p-2 sm:p-6 mt-26">
+    <div className="flex items-center justify-center w-full p-2 sm:p-8 mt-28">
       <nav className="relative flex items-center justify-around w-full max-w-5xl h-[65px] sm:h-[80px] 
                       glass-liquid-water bg-[length:200%_auto]
                       hover:bg-right transition-all duration-1000 rounded-[15px] shadow-2xl overflow-visible">

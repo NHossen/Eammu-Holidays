@@ -48,7 +48,7 @@ export default function Header() {
   */}
   <div className="max-w-7xl mx-auto px-4 h-16 sm:h-16 flex items-center justify-between">
           
-          {/* Logo Section */}
+          {/* Logo Section eammu_group_white /eammu_logo */}
           <div className="flex items-center gap-4">
             <button 
               onClick={() => setMobileMenuOpen(true)}
@@ -58,7 +58,7 @@ export default function Header() {
             </button>
             <Link href="/" className="relative h-[40px] w-[120px] sm:h-[50px] sm:w-[150px]">
               <Image
-                src="/eammu_logo.webp"
+                src="/eammu_group_white.webp"
                 alt="Eammu Holidays Logo"
                 fill
                 priority
