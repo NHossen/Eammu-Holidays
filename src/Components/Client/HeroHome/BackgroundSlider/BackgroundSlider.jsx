@@ -5,15 +5,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const bgSlides = [
   { 
-    url: "/sylhet_eammu.webp", 
+    url: "/love-lake-eammu.jpg", 
     alt: "Eammu Holidays - Leading Online Travel Agency in Bangladesh providing Sylhet Tour Packages" 
   },
   { 
-    url: "https://res.cloudinary.com/jerrick/image/upload/v1700547867/655c4d1a4132f6001d3a9423.jpg", 
+    url: "/desert_kamel_egypt.jpg", 
     alt: "Best Student Visa and Education Consultancy in Bangladesh for Global Universities" 
   },
   { 
-    url: "/beautiful-places-in-bangladesh.jpg", 
+    url: "/tree-view-maldives.jpg", 
     alt: "Explore Beautiful Places in Bangladesh with Eammu Holidays Travel and Tourism" 
   },
   { 
@@ -46,7 +46,7 @@ export default function BackgroundSlider() {
   />
         </motion.div>
       </AnimatePresence>
-      <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/30 to-black/50" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/10 via-black/20 to-black/30" />
     </div>
   );
 }

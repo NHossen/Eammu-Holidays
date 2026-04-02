@@ -58,7 +58,7 @@ export default function Header() {
             </button>
             <Link href="/" className="relative h-[40px] w-[120px] sm:h-[50px] sm:w-[150px]">
               <Image
-                src="/eammu_group_white.webp"
+                src="/eammu_logo.webp"
                 alt="Eammu Holidays Logo"
                 fill
                 priority
