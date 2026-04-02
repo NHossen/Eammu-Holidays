@@ -5,19 +5,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const bgSlides = [
   { 
-    url: "/love-lake-eammu.jpg", 
+    url: "https://res.klook.com/image/upload/fl_lossy.progressive,q_60/Mobile/City/afmqgg5h0jl9wnr1dfmf.jpg", 
     alt: "Eammu Holidays - Leading Online Travel Agency in Bangladesh providing Sylhet Tour Packages" 
   },
   { 
-    url: "/desert_kamel_egypt.jpg", 
+    url: "/the-love-island.webp", 
     alt: "Best Student Visa and Education Consultancy in Bangladesh for Global Universities" 
   },
   { 
-    url: "/tree-view-maldives.jpg", 
+    url: "/desert_kamel_egypt.jpg", 
     alt: "Explore Beautiful Places in Bangladesh with Eammu Holidays Travel and Tourism" 
   },
   { 
-    url: "https://res.klook.com/image/upload/fl_lossy.progressive,q_60/Mobile/City/afmqgg5h0jl9wnr1dfmf.jpg", 
+    url: "/ileand-2.png", 
     alt: "Trusted Visa Processing and Travel Services - Eammu Holidays Bangladesh" 
   }
 ];
