@@ -73,7 +73,7 @@ export default function PromoCard() {
             className="flex flex-col sm:flex-row h-full w-full"
           >
             {/* 2. IMAGE SECTION - Uses aspect-video on mobile to save space */}
-            <div className="relative w-full sm:w-1/2 aspect-video sm:aspect-auto sm:h-full overflow-hidden">
+            <div className="relative w-full sm:w-1/2 aspect-3/1.5 sm:aspect-auto sm:h-full overflow-hidden">
               <Image 
                 src={promoSlides[promoIndex].img} 
                 alt={promoSlides[promoIndex].alt}

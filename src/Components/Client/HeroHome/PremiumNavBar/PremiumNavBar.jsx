@@ -131,7 +131,7 @@ const PremiumNavBar = () => {
             >
               <div className={`transition-all duration-700 ease-in-out 
                 ${isActive ? "opacity-0 -translate-y-12 sm:-translate-y-16 scale-50" : "hover:opacity-100"}`}>
-                <Icon size={typeof window !== "undefined" && window.innerWidth < 640 ? 26 : 30} strokeWidth={2} className="text-[#ffcc00]" />
+                <Icon size={typeof window !== "undefined" && window.innerWidth < 640 ? 24 : 30} strokeWidth={1.8} className="text-[#ffcc00]" />
               </div>
 
               <span className={`text-[9.5px] xs:text-[8px] sm:text-[15px] font-bold transition-all duration-500
