@@ -10,7 +10,7 @@ const promoSlides = [
     title: "SHARJAH TO YEREVAN", 
     price1: "135", 
     price2: "255", 
-    img: "https://armenianweekly.com/wp-content/uploads/2024/08/Der-Tadeos-Barseghyan-and-parishioners-of-the-Armenian-Church-of-Our-Savior-at-Haghpat-monastery-Photo_-Armenian-Church-of-Our-Savior-Facebook.jpg",
+    img: "/the-love-island.webp",
     alt: "Cheap Flight Tickets" 
   },
   { 
@@ -18,7 +18,7 @@ const promoSlides = [
     title: "DUBAI TO DHAKA", 
     price1: "110", 
     price2: "300", 
-    img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
+    img: "/desert_kamel_egypt.jpg",
     alt: "Dubai to Dhaka Deals" 
   },
   { 
@@ -42,7 +42,7 @@ const promoSlides = [
     title: "DHAKA TO MALDIVES", 
     price1: "299", 
     price2: "499", 
-    img: "https://afar.brightspotcdn.com/dims4/default/3da8482/2147483647/strip/true/crop/3000x1500+0+369/resize/1440x720!/quality/90/?url=https%3A%2F%2Fk3-prod-afar-media.s3.us-west-2.amazonaws.com%2Fbrightspot%2Fb2%2Ff4%2F9a1ebe3f427f8e5eb937f8df8998%2Ftravelguides-maldives-videomediastudioeurope-shutterstock.jpg",
+    img: "/eammu_Tour.webp",
     alt: "Maldives Packages" 
   },
 ];

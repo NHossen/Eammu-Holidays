@@ -106,11 +106,11 @@ const PremiumNavBar = () => {
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.5 }}
-      className="relative z-20 text-[#005f30]"
+      className="relative z-20 text-[#005a31]"
     >
       {React.createElement(menuItems[activeIndex].icon, {
-        size: typeof window !== "undefined" && window.innerWidth < 640 ? 22 : 32,
-        strokeWidth: 2.5,
+        size: typeof window !== "undefined" && window.innerWidth < 640 ? 28 : 36,
+        strokeWidth: 2,
       })}
     </motion.div>
   </AnimatePresence>
@@ -131,11 +131,11 @@ const PremiumNavBar = () => {
             >
               <div className={`transition-all duration-700 ease-in-out 
                 ${isActive ? "opacity-0 -translate-y-12 sm:-translate-y-16 scale-50" : "hover:opacity-100"}`}>
-                <Icon size={typeof window !== "undefined" && window.innerWidth < 640 ? 20 : 24} className="text-[#ffcc00]" />
+                <Icon size={typeof window !== "undefined" && window.innerWidth < 640 ? 26 : 30} strokeWidth={2} className="text-[#ffcc00]" />
               </div>
 
-              <span className={`text-[8px] xs:text-[10px] sm:text-xs font-bold transition-all duration-500
-                ${isActive ? "text-[#ffcc00] translate-y-1 sm:translate-y-2" : "text-white translate-y-2 sm:translate-y-4"}`}>
+              <span className={`text-[9.5px] xs:text-[8px] sm:text-[15px] font-bold transition-all duration-500
+                ${isActive ? "text-[#005a31] -translate-y-1 sm:-translate-y-1" : "text-white translate-y-1 sm:translate-y-2"}`}>
                 {item.label}
               </span>
             </Link>

@@ -30,7 +30,7 @@ const Blogs = () => {
   const heroSlides = [
     {
       id: 1,
-      image: "/bangladesh_europe_couple.webp",
+      image: "/desert_kamel_egypt.jpg",
       badge: "Since 2022",
       title: "Latest Travel & Visa News From Eammu Travel",
       description: "Get the latest travel news, visa policy updates, immigration alerts, and tourism industry insights from Eammu Travel. Stay informed with real-time updates for travelers planning trips."
@@ -44,7 +44,7 @@ const Blogs = () => {
     },
     {
       id: 3,
-      image: "/sylhet_eammu.webp",
+      image: "/russia-tour-packages-from-india.webp",
       badge: "Travel Tips",
       title: "Travel Guides, Tourism Tips & Destination Insights",
       description: "Read expert travel guides, tourism tips, and destination insights from Bangladesh and around the world. Learn how to plan affordable holidays and discover top attractions."
@@ -112,7 +112,7 @@ const Blogs = () => {
                   className="object-cover scale-105"
                 />
                 
-                <div className="absolute inset-0 bg-black/30 bg-gradient-to-t from-black/70 via-transparent to-black/40 z-10"></div>
+                <div className="absolute inset-0 bg-black/10 bg-gradient-to-t from-black/20 via-transparent to-black/30 z-10"></div>
 
                 <div className="absolute inset-0 z-20 flex items-center justify-center">
                   <motion.div 
