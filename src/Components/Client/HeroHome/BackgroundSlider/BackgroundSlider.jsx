@@ -6,22 +6,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 const bgSlides = [
   { 
     url: "https://res.klook.com/image/upload/fl_lossy.progressive,q_60/Mobile/City/afmqgg5h0jl9wnr1dfmf.jpg", 
-    alt: "Eammu Holidays - Leading Online Travel Agency in Bangladesh providing Sylhet Tour Packages" 
+    alt: "Sylhet tea garden tour Bangladesh – popular travel destination and holiday packages from Dhaka" 
   },
   { 
     url: "/the-love-island.webp", 
-    alt: "Best Student Visa and Education Consultancy in Bangladesh for Global Universities" 
+    alt: "International student visa consultancy Bangladesh – study abroad and global university admission support" 
   },
   { 
     url: "/desert_kamel_egypt.jpg", 
-    alt: "Explore Beautiful Places in Bangladesh with Eammu Holidays Travel and Tourism" 
+    alt: "Desert travel experience and tour packages – Middle East holiday deals from Bangladesh" 
   },
   { 
     url: "/ileand-2.png", 
-    alt: "Trusted Visa Processing and Travel Services - Eammu Holidays Bangladesh" 
+    alt: "Maldives luxury island resort packages from Bangladesh – affordable honeymoon and holiday tours" 
   }
 ];
-
 export default function BackgroundSlider() {
   const [bgIndex, setBgIndex] = useState(0);
 

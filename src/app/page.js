@@ -5,7 +5,9 @@ import SpecialOffers from "@/Components/Client/HeroHome/SpecialOffers/SpecialOff
 import PosterGallery from "@/Components/Client/HeroHome/PosterGallery/PosterGallery";
 import SpecialDayBanner from "@/Components/Client/HeroHome/SpecialDayBanner/SpecialDayBanner";
 import VisaServices from "@/Components/Client/HeroHome/VisaServices/VisaServices";
-import WhyChoiceEammu from "@/Components/Client/HeroHome/WhyChoiceEammu/WhyChoiceEammu";
+import Caresoul_BG_Mix from "@/Components/Server/Caresoul_BG_Mix/Caresoul_BG_Mix";
+import Our_Succsses_State from "@/Components/Server/Our_Succsses_State/Our_Succsses_State";
+import TourPackages from "@/Components/Server/TourPackages/TourPackages";
 export const metadata = {
   title: "Best Travel Agency in Bangladesh & Dubai | Visa & Tours",
   description: "Top travel agency offering visa, tours, Umrah and holiday packages",
@@ -44,7 +46,10 @@ export default function Home() {
       <FlightOfferBanner />
       <VisaServices />
       <PosterGallery />
-      <WhyChoiceEammu />
+      <TourPackages />
+      <Caresoul_BG_Mix />
+      <Our_Succsses_State />
+      
       
 
     </>

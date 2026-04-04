@@ -42,7 +42,7 @@ export default function Header() {
      
 
       {/* ================= NAVBAR ================= */}
-    <nav className="fixed top-9 left-0 w-full z-50 glass-liquid-water transition-all duration-300">
+    <nav className="fixed top-13 md:top-9 left-0 w-full z-50 glass-liquid-water transition-all duration-300">
   {/* 1. glass-liquid-water is now on the full-width nav.
       2. Container below handles centering the logo and links.
   */}

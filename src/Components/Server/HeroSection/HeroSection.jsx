@@ -16,7 +16,7 @@ const HeroSection = () => {
         <div className="relative z-10 min-h-130 sm:min-h-150 lg:min-h-[50vh] flex flex-col">
           <PremiumNavBar />
 
-          <div className="flex-1 flex items-center py-10">
+          <div className="flex-1 flex items-center py-4">
             <div className="max-w-5xl mx-auto px-4 w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
               {/* LEFT SIDE: Text & Buttons (SEO Friendly) */}
@@ -27,7 +27,7 @@ const HeroSection = () => {
                 </h1>
 
                 <p className="text-sm md:text-base leading-relaxed mb-5 opacity-90">
-                  Eammu Holidays is a leading online travel agency in Bangladesh - offering flight bookings, worldwide visa assistance, Holiday Tour Packages, and exciting desert safari tours.
+                  Eammu Holidays is a leading <a href="/online-travel-agency-bangladesh">online travel agency in Bangladesh</a> - offering flight bookings, worldwide visa assistance, Holiday Tour Packages, and exciting desert safari tours. With expert guidance, we make international travel simple, affordable, and hassle-free
                 </p>
 
                 {/* Animated Buttons (Client Part) */}

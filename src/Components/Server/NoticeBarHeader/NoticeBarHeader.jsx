@@ -17,20 +17,12 @@ export default function NoticeBarHeader() {
         }}
       >
         <div className="flex-1 text-center">
-  <p className="relative z-10 text-white text-[11px] leading-tight sm:text-base font-bold text-liquid-vibrant">
-    📢 Enjoy 
-    <span className="text-[#FFD700] mx-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
-      20% OFF
-    </span> 
-    +
-    <span className="text-blue-50 font-bold italic ml-1"> 
-      FREE Visa Assistance
-    </span>.
-    <span className="block sm:inline ml-1">
-      One place for everything — 
-      <span className="text-[#FFD700] font-black uppercase ml-1">With Eammu</span>!
-    </span>
+  <p className="relative z-10 text-white text-sm text-center leading-snug sm:text-base sm:px-4">
+    📢 Enjoy <span className="text-[#ffcc00] font-bold">20% OFF</span> +
+    <span className="text-blue-200 font-semibold"> FREE Visa Assistance</span>.
+    One place for everything — <span className="text-[#ffcc00] font-bold">With Eammu</span> !
   </p>
+  
 </div>
       </motion.div>
     </div>

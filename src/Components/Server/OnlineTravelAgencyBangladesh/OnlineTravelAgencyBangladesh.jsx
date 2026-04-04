@@ -1,8 +1,8 @@
-// IMPORTANT: No 'use client' here. This is a Server Component.
+// OnlineTravelAgencyBangladesh.jsx
+// IMPORTANT: No 'use client' here. This is a Server Component for maximum SEO Indexing.
 
-// Fixed: Removed the ": Metadata" type to prevent the Build Error in .jsx files
 export const metadata = {
-  metadataBase: new URL('https://eammuholidays.com'),
+  metadataBase: new URL('https://eammu.com'),
   title: "Best Travel Agency in Bangladesh & UAE 2026 | Eammu Holidays",
   description:
     "Eammu Holidays: Top-rated IATA travel agency in Dhaka & Dubai. Expert visa assistance for USA, UK, Canada & Europe. Professional student consultancy & Umrah packages.",
@@ -37,9 +37,9 @@ export default function OnlineTravelAgencyBangladesh() {
     "@graph": [
       {
         "@type": "TravelAgency",
-        "@id": "https://eammuholidays.com/#organization",
+        "@id": "https://eammu.com/#organization",
         "name": "Eammu Holidays",
-        "url": "https://eammuholidays.com",
+        "url": "https://eammu.com",
         "telephone": "+8801700000000",
         "priceRange": "$$",
         "foundingDate": "2012",
@@ -71,135 +71,151 @@ export default function OnlineTravelAgencyBangladesh() {
     ]
   };
 
-  // Luxury Oasis Styling
-  const styles = {
-    container: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-      padding: '100px 20px', // Large gap for Header/Footer
-      fontFamily: 'system-ui, -apple-system, sans-serif',
-      color: '#1f2937',
-      lineHeight: '1.7',
-    },
-    heroSection: {
-      textAlign: 'center',
-      marginBottom: '80px',
-    },
-    title: {
-      fontSize: 'clamp(2.2rem, 5vw, 3.5rem)',
-      color: '#064e3b', // Moss Green
-      fontWeight: '900',
-      marginBottom: '25px',
-      lineHeight: '1.1',
-    },
-    cardGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-      gap: '30px',
-      margin: '50px 0',
-    },
-    featureCard: {
-      padding: '40px',
-      borderRadius: '20px',
-      backgroundColor: '#ffffff',
-      border: '1px solid #e5e7eb',
-      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05)',
-      borderTop: '5px solid #d4af37', // Gold Accent
-    },
-    accentHeader: {
-      color: '#064e3b',
-      fontSize: '1.8rem',
-      marginBottom: '20px',
-      fontWeight: '700',
-    },
-    badgeRow: {
-      display: 'flex',
-      justifyContent: 'center',
-      gap: '30px',
-      flexWrap: 'wrap',
-      marginBottom: '40px',
-    }
-  };
-
   return (
-    <main style={styles.container}>
+    <main className="max-w-7xl mx-auto px-5 py-18 text-gray-800 leading-relaxed font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <header style={styles.heroSection}>
-        <div style={styles.badgeRow}>
-          <span style={{color: '#d4af37', fontWeight: 'bold'}}>★ IATA Accredited</span>
-          <span style={{color: '#d4af37', fontWeight: 'bold'}}>★ 14+ Years Experience</span>
-          <span style={{color: '#d4af37', fontWeight: 'bold'}}>★ Google Rating 4.9/5</span>
-        </div>
-        <h1 style={styles.title}>Eammu Holidays: Your Trusted Travel Partner Since 2012</h1>
-        <p style={{ fontSize: '1.25rem', maxWidth: '900px', margin: '0 auto', color: '#4b5563' }}>
-          Providing world-class <strong>flight bookings</strong>, <strong>global visa assistance</strong>, 
-          and <strong>secure holiday planning</strong> from our offices in <strong>Dhaka, UAE, and Chittagong</strong>. 
-          Experience a seamless journey with the <strong>best travel agency in Bangladesh</strong>.
+      {/* SEO SECTION 1: THE H1 HERO */}
+      <header className="mb-16 text-center">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#005a31] mb-6 leading-tight">
+          Best Travel Agency in Bangladesh & UAE for 2026
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
+          Eammu Holidays is your premier <strong className="text-[#005a31]">online travel agency in Bangladesh</strong> and the <strong>United Arab Emirates</strong>. 
+          As an IATA-accredited partner, we provide unparalleled expertise in <strong>flight bookings</strong>, 
+          <strong>worldwide visa assistance</strong>, and exclusive <strong>holiday packages</strong>.
         </p>
       </header>
 
-      <article>
-        <section style={{ marginBottom: '80px' }}>
-          <h2 style={styles.accentHeader}>Professional Visa Assistance & Global Services</h2>
-          <p>
-            At Eammu Holidays, we understand that holidays are meant for relaxation and spending quality time with loved ones. 
-            It is imperative to have a <strong>real professional travel planner</strong> with the infrastructure and commitment to handle your journey. 
-            Our mission is to provide safe, comfortable, and memorable experiences through expert tour spot selection and secure processing.
-          </p>
+      {/* SEO SECTION 2: CORE MISSION & VISION */}
+      <section className="mb-16">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-[#005a31] mb-6 border-l-8 border-[#d4af37] pl-5">
+          Trusted Tour Operator & Professional Travel Planner
+        </h2>
+        <p className="text-lg mb-5 text-gray-700">
+          In the evolving landscape of global tourism, Eammu Holidays stands as the most <strong className="text-[#005a31]">trusted travel agency near me in Dhaka</strong>. 
+          Our mission is to bridge the gap between travelers and their dreams. We specialize in <strong>inbound and outbound tour operations</strong>, 
+          ensuring every journey includes experienced guides, premium hotel selections, and absolute security for you and your loved ones.
+        </p>
+        <p className="text-lg mb-5 text-gray-700">
+          Whether you are looking for <strong>air ticket booking in Bangladesh</strong> or complex <strong>international tourism itineraries</strong>, 
+          our team of real professionals is committed to providing a transparent and ethical travel experience.
+        </p>
+      </section>
 
-          <div style={styles.grid}>
-            <div style={styles.featureCard}>
-              <h3>USA, UK & Canada Visa</h3>
-              <p>Specialized documentation and interview preparation for visit, student, and business categories with high success rates.</p>
-            </div>
-            <div style={styles.featureCard}>
-              <h3>Europe Work Permit 2026</h3>
-              <p>Reliable processing for <strong>Work permit visa Europe</strong> including Poland, Romania, and Portugal for Bangladeshi citizens.</p>
-            </div>
-            <div style={styles.featureCard}>
-              <h3>Education Consultancy</h3>
-              <p>The leading <strong>education consultancy in Bangladesh</strong>. We help students secure university admissions and visas, often without IELTS.</p>
-            </div>
-            <div style={styles.featureCard}>
-              <h3>IATA Air Ticketing</h3>
-              <p>Get the <strong>cheapest air ticket booking in Bangladesh</strong> with real-time access to global GDS and airline systems.</p>
-            </div>
+      {/* SEO SECTION 3: VISA SERVICES */}
+      <section className="mb-16">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-[#005a31] mb-8 border-l-8 border-[#d4af37] pl-5">
+          Global Visa Assistance & Education Consultancy
+        </h2>
+        <p className="text-lg mb-8 text-gray-700">
+          Navigating visa requirements can be challenging. Eammu Holidays operates as a certified <strong>visa agency in Bangladesh</strong> with a focus on high success rates.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">USA, UK, & Canada Visa Experts</h3>
+            <p className="text-gray-600">
+              We provide end-to-end documentation support for <strong>USA visit visas</strong>, UK standard visitor visas, and Canada tourist visas. 
+              Our consultants ensure your application meets the latest 2026 immigration standards.
+            </p>
           </div>
-        </section>
+          <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Europe Work Permit 2026</h3>
+            <p className="text-gray-600">
+              Looking for a <strong>Europe work permit from Bangladesh</strong>? We offer specialized consulting for Poland, Romania, 
+              and Portugal work visas, ensuring legal and transparent processing for Bangladeshi workers.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Leading Education Consultancy</h3>
+            <p className="text-gray-600">
+              As the top <strong>education consultancy in Bangladesh</strong>, we assist students in securing admissions and 
+              <strong> student visas for UK, USA, and Canada</strong>. We help you find the right university even without IELTS.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        <section style={{ backgroundColor: '#f9fafb', padding: '60px', borderRadius: '30px' }}>
-          <h2 style={styles.accentHeader}>Why We Are the Leading Tour Operator in Bangladesh</h2>
-          <p>
-            Established with a view to develop sustainable tourism, Eammu Holidays has become the go-to destination for travelers seeking 
-            seamless online booking. Our inbound tours provide experienced guides, standard and luxury hotels, and high-priority security. 
-            Whether it’s a <strong>visit visa UAE</strong> or a <strong>Schengen visit visa</strong>, we handle every detail with transparent pricing.
-          </p>
-          <ul style={{ columns: 2, marginTop: '30px', fontWeight: '600' }}>
-            <li>✓ Full-service Travel Management</li>
-            <li>✓ 12+ Branch Network Support</li>
-            <li>✓ Certified Visa Consultants</li>
-            <li>✓ Personalized Tour Itineraries</li>
-            <li>✓ Transparent Pricing Model</li>
-            <li>✓ 24/7 Customer Support</li>
-          </ul>
-        </section>
+      {/* SEO SECTION 4: SPECIALIZED PACKAGES */}
+      <section className="mb-16 bg-gray-50 p-8 rounded-2xl">
+        <h2 className="text-3xl font-extrabold text-[#005a31] mb-6">Luxury Umrah Packages & Holiday Deals 2026</h2>
+        <p className="text-lg text-gray-700 italic">
+          Eammu Holidays is renowned for providing the <strong>best Umrah packages 2026</strong> from Dhaka and Dubai. 
+          Our religious tours are designed with comfort in mind, featuring hotels close to the Haram and dedicated ground support. 
+          Furthermore, our <strong>holiday packages in Bangladesh</strong> cover everything from the serene beaches of Cox's Bazar to the hills of Sylhet.
+        </p>
+      </section>
 
-        <section style={{ marginTop: '80px' }}>
-          <h2 style={styles.accentHeader}>Visit Our Offices</h2>
-          <p>
-            As a <strong>trusted travel agency near me in Dhaka</strong>, we operate across multiple branches. 
-            Our <strong>UAE office</strong> serves international clients with the best <strong>visit visa UAE prices</strong>, 
-            while our Bangladesh hubs in <strong>Dhaka, Chittagong, and Cumilla</strong> handle thousands of local applications annually.
-          </p>
-        </section>
-      </article>
+      {/* SEO SECTION 5: GLOBAL CONTACTS & LOCATIONS */}
+      <section className="mb-16">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-[#005a31] mb-8 border-l-8 border-[#d4af37] pl-5">
+          Visit Our Global Branch Network
+        </h2>
+        <p className="text-lg mb-10 text-gray-700">
+          With a strong presence in South Asia, the Middle East, and Europe, Eammu Holidays is truly a global brand. 
+          Find our offices below for the best <strong>visit visa UAE prices</strong> and local support.
+        </p>
 
-      {/* Spacing for Global Footer */}
-      <div style={{ height: '100px' }}></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Bangladesh Office */}
+          <article className="p-6 rounded-lg bg-gray-50 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#005a31] mb-3">📍 Cumilla, Bangladesh</h3>
+            <div className="text-sm text-gray-600 space-y-2">
+              <p><strong>Address:</strong> Office No-178, 1st Floor, Gomoti Tower, Cantonment, Cumilla</p>
+              <p><strong>Phone:</strong> +8801631312524, +8801701699743</p>
+              <p><strong>WhatsApp:</strong> +8801631312524</p>
+              <p><strong>Email:</strong> bangladesh@eammu.com</p>
+            </div>
+          </article>
+
+          {/* UAE Office */}
+          <article className="p-6 rounded-lg bg-gray-50 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#005a31] mb-3">📍 Business Bay, Dubai</h3>
+            <div className="text-sm text-gray-600 space-y-2">
+              <p><strong>Address:</strong> Business Bay, Dubai, United Arab Emirates</p>
+              <p><strong>Phone:</strong> +971507078334</p>
+              <p><strong>WhatsApp:</strong> +971507078334</p>
+              <p><strong>Email:</strong> dubai@eammu.com</p>
+            </div>
+          </article>
+
+          {/* Armenia Office */}
+          <article className="p-6 rounded-lg bg-gray-50 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#005a31] mb-3">📍 Yerevan, Armenia</h3>
+            <div className="text-sm text-gray-600 space-y-2">
+              <p><strong>Address:</strong> Eammu Holidays, Lambron 39, Yerevan</p>
+              <p><strong>Phone:</strong> +37494810585</p>
+              <p><strong>WhatsApp:</strong> +37494810585</p>
+              <p><strong>Email:</strong> armenia@eammu.com</p>
+            </div>
+          </article>
+
+          {/* Georgia Office */}
+          <article className="p-6 rounded-lg bg-gray-50 border border-gray-200">
+            <h3 className="text-lg font-bold text-[#005a31] mb-3">📍 Tbilisi, Georgia</h3>
+            <div className="text-sm text-gray-600 space-y-2">
+              <p><strong>Address:</strong> Levan Gotua Street #3, Tbilisi, Georgia</p>
+              <p><strong>Phone:</strong> +995574446218</p>
+              <p><strong>WhatsApp:</strong> +995574446218</p>
+              <p><strong>Email:</strong> georgia@eammu.com</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* SEO CALL TO ACTION SECTION */}
+      <section className="mt-20 p-10 bg-[#005a31] text-white rounded-3xl text-center">
+        <h2 className="text-3xl font-bold text-[#d4af37] mb-4">Start Your Journey with Eammu Holidays</h2>
+        <p className="text-xl max-w-3xl mx-auto opacity-90">
+          Join thousands of satisfied travelers who have chosen the <strong className="text-white">best travel agency in Bangladesh</strong> for their 
+          global adventures. From <strong>Schengen visit visas</strong> to <strong>UAE visit visa prices</strong>, 
+          we ensure your travel is hassle-free, professional, and secure.
+        </p>
+      </section>
     </main>
   );
 }

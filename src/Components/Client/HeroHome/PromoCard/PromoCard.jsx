@@ -7,27 +7,27 @@ import { motion, AnimatePresence } from 'framer-motion';
 const promoSlides = [
   { 
     id: 1, 
-    title: "SHARJAH TO YEREVAN", 
+    title: "DHAKA TO BALI", 
     price1: "135", 
     price2: "255", 
     img: "/the-love-island.webp",
-    alt: "Cheap Flight Tickets" 
+    alt: "Dhaka to Bali cheap flight tickets | Armenia travel deals from UAE" 
   },
   { 
     id: 2, 
-    title: "DUBAI TO DHAKA", 
+    title: "CAIRO TO DHAKA", 
     price1: "110", 
     price2: "300", 
     img: "/desert_kamel_egypt.jpg",
-    alt: "Dubai to Dhaka Deals" 
+    alt: "Cairo to Dhaka flight deals | affordable Egypt to Bangladesh air tickets" 
   },
   { 
     id: 3, 
-    title: "DHAKA TO DUBAI", 
+    title: "DHAKA TO SYLHET", 
     price1: "300", 
     price2: "355", 
     img: "https://tripjive.com/wp-content/uploads/2024/09/Khasia-Polli-in-Sylhet-travel-guide-1024x585.jpg",
-    alt: "Dhaka to Dubai Air Ticket" 
+    alt: "Dhaka to Sylhet flight tickets | best airfare Bangladesh to UAE travel" 
   },
   { 
     id: 4, 
@@ -35,7 +35,7 @@ const promoSlides = [
     price1: "499", 
     price2: "999", 
     img: "https://japandeluxetours.com/uploads/2025/10/20251009212409_68e827f99d19b.jpg",
-    alt: "Japan to Dhaka Airfare" 
+    alt: "Japan to Dhaka flight price | cheap airfare Japan to Bangladesh tickets" 
   },
   { 
     id: 5, 
@@ -43,7 +43,7 @@ const promoSlides = [
     price1: "299", 
     price2: "499", 
     img: "/eammu_Tour.webp",
-    alt: "Maldives Packages" 
+    alt: "Dhaka to Maldives holiday packages | budget Maldives trips from Bangladesh" 
   },
 ];
 

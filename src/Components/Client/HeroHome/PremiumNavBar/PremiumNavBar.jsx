@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 const menuItems = [
-  { id: 0, label: "Visa", icon: Globe, path: "our-services/visa-services" },
+  { id: 0, label: "Global Visa", icon: Globe, path: "our-services/visa-services" },
   { id: 1, label: "Flights", icon: Plane, path: "/air-tickets" },
   { id: 2, label: "Holidays", icon: Map, path: "/tour-packages" },
   { id: 3, label: "Activities", icon: Wind, path: "/activities" },
@@ -109,7 +109,7 @@ const PremiumNavBar = () => {
       className="relative z-20 text-[#005a31]"
     >
       {React.createElement(menuItems[activeIndex].icon, {
-        size: typeof window !== "undefined" && window.innerWidth < 640 ? 28 : 36,
+        size: typeof window !== "undefined" && window.innerWidth < 640 ? 26 : 36,
         strokeWidth: 2,
       })}
     </motion.div>
@@ -134,7 +134,7 @@ const PremiumNavBar = () => {
                 <Icon size={typeof window !== "undefined" && window.innerWidth < 640 ? 22 : 30} strokeWidth={1.8} className="text-[#ffcc00]" />
               </div>
 
-              <span className={`text-[9.5px] xs:text-[8px] sm:text-[15px] font-bold transition-all duration-500
+              <span className={`text-[9px] xs:text-[8px] sm:text-[15px] font-bold transition-all duration-500
                 ${isActive ? "text-[#005a31] -translate-y-1 sm:-translate-y-1" : "text-white translate-y-1 sm:translate-y-2"}`}>
                 {item.label}
               </span>
