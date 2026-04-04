@@ -44,7 +44,7 @@ const PremiumNavBar = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center w-full p-2 sm:p-8 mt-28">
+    <div className="flex items-center justify-center w-full p-2 sm:p-8 mt-30">
       <nav className="relative flex items-center justify-around w-full max-w-5xl h-[65px] sm:h-[80px] 
                       glass-liquid-water bg-[length:200%_auto]
                       hover:bg-right transition-all duration-1000 rounded-[15px] shadow-2xl overflow-visible">
@@ -134,7 +134,7 @@ const PremiumNavBar = () => {
                 <Icon size={typeof window !== "undefined" && window.innerWidth < 640 ? 22 : 30} strokeWidth={1.8} className="text-[#ffcc00]" />
               </div>
 
-              <span className={`text-[9px] xs:text-[8px] sm:text-[15px] font-bold transition-all duration-500
+              <span className={`text-[8.5px] xs:text-[8px] sm:text-[15px] font-bold transition-all duration-500
                 ${isActive ? "text-[#005a31] -translate-y-1 sm:-translate-y-1" : "text-white translate-y-1 sm:translate-y-2"}`}>
                 {item.label}
               </span>
