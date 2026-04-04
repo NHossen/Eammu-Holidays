@@ -8,6 +8,7 @@ import VisaServices from "@/Components/Client/HeroHome/VisaServices/VisaServices
 import Caresoul_BG_Mix from "@/Components/Server/Caresoul_BG_Mix/Caresoul_BG_Mix";
 import Our_Succsses_State from "@/Components/Server/Our_Succsses_State/Our_Succsses_State";
 import TourPackages from "@/Components/Server/TourPackages/TourPackages";
+import LandingModal from "@/Components/Client/LandingModal/LandingModal";
 export const metadata = {
   title: "Best Travel Agency in Bangladesh & Dubai | Visa & Tours",
   description: "Top travel agency offering visa, tours, Umrah and holiday packages",
@@ -40,6 +41,7 @@ export const metadata = {
 export default function Home() {
   return (
     <>
+      <LandingModal />
       <HeroSection />
       <SpecialDayBanner />
       <SpecialOffers />
