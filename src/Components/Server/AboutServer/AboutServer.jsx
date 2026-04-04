@@ -7,7 +7,7 @@ import Link from 'next/link';
 const heroSlides = [
   {
     id: 1,
-    image: "/sylhet_eammu.webp",
+    image: "/the-love-island.webp",
     badge: "Since 2022",
     highlight: "Eammu Holidays",
     title: "Premium Travel Agency Worldwide",

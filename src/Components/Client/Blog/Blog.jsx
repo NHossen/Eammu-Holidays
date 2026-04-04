@@ -5,9 +5,6 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import BlogSection from "@/Components/Client/BlogSection/BlogSection";
 
-
-
-
 const Blogs = () => {
   const blogFaqs = [
     {
@@ -83,17 +80,16 @@ const Blogs = () => {
 
   return (
     <>
-    
-      {/* Next.js Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
       />
 
       <main>
-        {/* --- Blog Hero Section with Automatic Carousel --- */}
-        <section className="relative min-h-[60vh] flex items-center justify-center py-20 px-4 overflow-hidden">
+        {/* --- Blog Hero Section (Fixed Padding) --- */}
+        <section className="relative min-h-[50vh] flex items-center justify-center py-28 px-4 overflow-hidden">
           
+          {/* Background Layer (Stays Absolute) */}
           <div className="absolute inset-0 z-0">
             <AnimatePresence mode="wait">
               <motion.div
@@ -111,33 +107,33 @@ const Blogs = () => {
                   priority
                   className="object-cover scale-105"
                 />
-                
                 <div className="absolute inset-0 bg-black/10 bg-gradient-to-t from-black/20 via-transparent to-black/30 z-10"></div>
-
-                <div className="absolute inset-0 z-20 flex items-center justify-center">
-                  <motion.div 
-                    initial="hidden"
-                    animate="visible"
-                    variants={fadeIn}
-                    className="max-w-7xl mx-auto text-center space-y-6 px-4"
-                  >
-                    <span className="inline-block px-5 py-2 bg-[#005a31] text-white rounded-full text-xs font-bold tracking-widest uppercase shadow-xl">
-                      {heroSlides[currentHero].badge}
-                    </span>
-
-                    <h1 className="text-3xl md:text-6xl font-extrabold text-white drop-shadow-2xl">
-                      {heroSlides[currentHero].title}
-                    </h1>
-
-                    <div className="w-24 h-1.5 bg-green-500 mx-auto rounded-full shadow-lg"></div>
-
-                    <p className="text-white font-medium max-w-4xl mx-auto text-lg md:text-xl drop-shadow-lg leading-relaxed">
-                      {heroSlides[currentHero].description}
-                    </p>
-                  </motion.div>
-                </div>
               </motion.div>
             </AnimatePresence>
+          </div>
+
+          {/* Content Layer (Changed to RELATIVE to respect padding) */}
+          <div className="relative z-20 w-full">
+            <motion.div 
+              initial="hidden"
+              animate="visible"
+              variants={fadeIn}
+              className="max-w-7xl mx-auto text-center space-y-6 px-4"
+            >
+              <span className="inline-block px-5 py-2 bg-[#005a31] text-white rounded-full text-xs font-bold tracking-widest uppercase shadow-xl">
+                {heroSlides[currentHero].badge}
+              </span>
+
+              <h1 className="text-3xl md:text-6xl font-extrabold text-white drop-shadow-2xl">
+                {heroSlides[currentHero].title}
+              </h1>
+
+              <div className="w-24 h-1.5 bg-green-500 mx-auto rounded-full shadow-lg"></div>
+
+              <p className="text-white font-medium max-w-4xl mx-auto text-lg md:text-xl drop-shadow-lg leading-relaxed">
+                {heroSlides[currentHero].description}
+              </p>
+            </motion.div>
           </div>
 
           {/* Progress Dots */}
@@ -156,8 +152,7 @@ const Blogs = () => {
         </section>
 
         <div className="px-4 md:px-6 lg:px-8 container mx-auto">
-
-          {/* --- Section 1: Dynamic Blogger Posts --- */}
+          {/* Section 1: Dynamic Blogger Posts */}
           <section className="py-12">
             <BlogSection />
           </section>

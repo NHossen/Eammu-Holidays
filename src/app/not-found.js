@@ -12,7 +12,7 @@ export default function Error({ error, reset }) {
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-green-50 to-white">
+    <div className="min-h-screen flex items-center justify-center px-4 py-26">
       <div className="max-w-2xl text-center">
         
         <div className="flex justify-center mb-8">

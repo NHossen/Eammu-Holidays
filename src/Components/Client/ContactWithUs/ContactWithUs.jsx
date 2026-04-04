@@ -47,7 +47,7 @@ const offices = [
 const heroSlides = [
   { 
     id: 1, 
-    image: "/sylhet_eammu.webp",
+    image: "/ileand-2.png",
     title: "Contact Eammu Holidays – Travel & Visa Support",
     description: "Contact Eammu Holidays for professional travel services, visa assistance, flight bookings, and international tour packages."
   },
@@ -160,7 +160,6 @@ const ContactWithUs = () => {
 
   return (
     <>
-      {/* Structured Data for Next.js */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
@@ -171,13 +170,10 @@ const ContactWithUs = () => {
       />
 
       <main>
-        {/* --- Hero Section with Carousel --- */}
-        <motion.section
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="relative py-32 px-4 text-center overflow-hidden min-h-[450px] flex items-center justify-center"
-        >
+        {/* --- Hero Section (Fixed Padding & Structure) --- */}
+        <section className="relative py-32 md:py-48 px-4 text-center overflow-hidden min-h-[500px] flex items-center justify-center">
+          
+          {/* Background Layer */}
           <div className="absolute inset-0 z-0">
             <AnimatePresence mode="wait">
               <motion.div
@@ -195,33 +191,40 @@ const ContactWithUs = () => {
                   priority
                   className="object-cover scale-105"
                 />
-                <div className="absolute inset-0 bg-black/50 z-10"></div>
-
-                <div className="absolute inset-0 z-20 flex items-center justify-center">
-                  <div className="container mx-auto px-4">
-                    <motion.h1 
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.2 }}
-                      className="text-3xl md:text-5xl font-extrabold mb-4 text-white drop-shadow-lg"
-                    >
-                      {heroSlides[currentHero].title}
-                    </motion.h1>
-                    
-                    <motion.p 
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.4 }}
-                      className="text-lg text-white max-w-5xl mx-auto font-medium leading-relaxed drop-shadow-md"
-                    >
-                      {heroSlides[currentHero].description}
-                    </motion.p>
-                  </div>
-                </div>
+                {/* Slightly darker overlay for better text readability */}
+                <div className="absolute inset-0 bg-black/20 z-10"></div>
               </motion.div>
             </AnimatePresence>
           </div>
-        </motion.section>
+
+          {/* Content Layer - Set to Relative to respect section padding */}
+          <div className="relative z-20 container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.h1 
+                key={`title-${currentHero}`}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                className="text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-white drop-shadow-lg"
+              >
+                {heroSlides[currentHero].title}
+              </motion.h1>
+              
+              <motion.p 
+                key={`desc-${currentHero}`}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-lg md:text-xl text-white max-w-4xl mx-auto font-medium leading-relaxed drop-shadow-md"
+              >
+                {heroSlides[currentHero].description}
+              </motion.p>
+            </motion.div>
+          </div>
+        </section>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
           
@@ -231,7 +234,7 @@ const ContactWithUs = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-10"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10"
           >
             {/* Office Info */}
             <div className="space-y-8">
@@ -264,7 +267,7 @@ const ContactWithUs = () => {
                       ))}
                     </p>
                   )}
-                  <div className="w-full h-48 mt-4 rounded-2xl overflow-hidden border border-gray-200">
+                  <div className="w-full h-48 mt-4 rounded-2xl overflow-hidden border border-gray-200 relative">
                     <iframe
                       src={office.map}
                       width="100%"
@@ -300,67 +303,69 @@ const ContactWithUs = () => {
             </div>
 
             {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100"
-            >
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">Send Us a Message</h2>
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">Your Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    required
-                    className="w-full border border-gray-200 rounded-2xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#005a31] transition"
-                    placeholder="Enter your name"
-                  />
-                </div>
+            <div className="lg:sticky lg:top-24 h-fit">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100"
+              >
+                <h2 className="text-3xl font-bold mb-6 text-gray-900">Send Us a Message</h2>
+                <form className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">Your Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      required
+                      className="w-full border border-gray-200 rounded-2xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#005a31] transition"
+                      placeholder="Enter your name"
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">Your Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    required
-                    className="w-full border border-gray-200 rounded-2xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#005a31] transition"
-                    placeholder="Enter your email"
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">Your Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      className="w-full border border-gray-200 rounded-2xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#005a31] transition"
+                      placeholder="Enter your email"
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-2">Your Message</label>
-                  <textarea
-                    id="message"
-                    rows="5"
-                    required
-                    className="w-full border border-gray-200 rounded-2xl px-5 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-[#005a31] transition"
-                    placeholder="How can we help you?"
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-2">Your Message</label>
+                    <textarea
+                      id="message"
+                      rows="5"
+                      required
+                      className="w-full border border-gray-200 rounded-2xl px-5 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-[#005a31] transition"
+                      placeholder="How can we help you?"
+                    />
+                  </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-[#005a31] text-white px-6 py-4 rounded-2xl font-bold hover:bg-green-900 transition shadow-lg shadow-green-100"
-                >
-                  Send Message
-                </button>
-              </form>
-            </motion.div>
+                  <button
+                    type="submit"
+                    className="w-full bg-[#005a31] text-white px-6 py-4 rounded-2xl font-bold hover:bg-green-900 transition shadow-lg shadow-green-100"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </motion.div>
+            </div>
           </motion.section>
 
           {/* FAQ Section */}
           <section className="mt-20 border-t border-gray-100 pt-16">
             <h2 className="text-3xl font-bold text-[#005a31] text-center mb-12">Frequently Asked Questions</h2>
-            <div className="space-y-6 max-w-4xl mx-auto">
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-green-200 transition-colors">
                 <h3 className="text-lg font-bold text-gray-800">Where are Eammu Holidays offices located?</h3>
                 <p className="text-gray-600 mt-2">We have physical offices in Bangladesh (Cumilla), UAE (Dubai), Armenia (Yerevan), and Georgia (Tbilisi) to serve you globally.</p>
               </div>
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+              <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-green-200 transition-colors">
                 <h3 className="text-lg font-bold text-gray-800">How can I apply for a visa through Eammu?</h3>
                 <p className="text-gray-600 mt-2">Simply reach out via WhatsApp or visit our branch. Our experts handle documentation for Canada, USA, UK, and Europe.</p>
               </div>

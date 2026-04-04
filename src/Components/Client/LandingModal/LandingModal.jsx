@@ -7,7 +7,7 @@ import { toast, Toaster } from 'react-hot-toast';
 
 const carouselImages = [
   { url: "https://www.dubaidesertsafaris.com/wp-content/uploads/2025/01/95100e6bbb4e0728dbb90a5033802b73.webp", title: "Desert Safari" },
-  { url: "/desert_kamel_egypt.jpg", title: "Thailand Tour" },
+  { url: "/desert_kamel_egypt.jpg", title: "Egypt Tour" },
   { url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=80", title: "Dubai Luxury" }
 ];
 
@@ -58,28 +58,33 @@ const LandingModal = () => {
         {isOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 overflow-hidden">
             
-            {/* Overlay */}
+            {/* --- Glass Liquid Overlay --- */}
             <motion.div 
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1 }} 
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="absolute inset-0 bg-black/70 backdrop-blur-[2px] cursor-pointer"
+              className="absolute inset-0 bg-white/10 backdrop-blur-[8px] cursor-pointer"
+              style={{
+                background: "radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.4) 100%)"
+              }}
             />
 
-            {/* Modal Container */}
+            {/* --- Modal Container: glass-liquid-water style --- */}
             <motion.div 
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative w-full max-w-4xl bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh] overflow-y-auto will-change-transform"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+              className="relative w-full max-w-4xl overflow-hidden flex flex-col md:flex-row max-h-[90vh] overflow-y-auto will-change-transform
+                         bg-white/70 backdrop-blur-[20px] rounded-[2rem] md:rounded-[3rem] 
+                         border border-white/40 shadow-[0_20px_50px_rgba(0,0,0,0.1),inset_0_0_20px_rgba(255,255,255,0.5)]"
             >
 
               {/* Close Button */}
               <button 
                 onClick={() => setIsOpen(false)}
-                className="absolute top-3 right-3 md:top-4 md:right-4 z-50 p-2 bg-white/80 hover:bg-white md:bg-gray-100 md:hover:bg-gray-200 rounded-full transition-all shadow-sm"
+                className="absolute top-4 right-4 md:top-6 md:right-6 z-50 p-2.5 bg-white/40 hover:bg-white/60 backdrop-blur-md rounded-full transition-all border border-white/50 shadow-inner"
                 aria-label="Close modal"
               >
                 <X size={18} className="text-gray-800" />
@@ -102,7 +107,7 @@ const LandingModal = () => {
                       alt={carouselImages[currentImg].title}
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-4 md:p-8">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex flex-col justify-end p-4 md:p-8">
                       <h3 className="text-white text-xl md:text-3xl font-black uppercase italic tracking-tighter leading-none">
                         {carouselImages[currentImg].title}
                       </h3>
@@ -125,7 +130,7 @@ const LandingModal = () => {
               </div>
 
               {/* RIGHT SIDE: Auth/Subscription Form */}
-              <div className="w-full md:w-1/2 p-5 sm:p-6 md:p-10 flex flex-col justify-center bg-white">
+              <div className="w-full md:w-1/2 p-5 sm:p-6 md:p-10 flex flex-col justify-center bg-transparent">
                 
                 <div className="text-center md:text-left">
                   <h2 className="text-2xl md:text-3xl font-black text-[#001f3f] mb-1">Welcome!</h2>
@@ -135,18 +140,18 @@ const LandingModal = () => {
                 </div>
 
                 {/* Google Auth Button */}
-                <button className="w-full flex items-center justify-center gap-3 border-[1.5px] border-gray-200 py-3 rounded-xl font-bold text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all mb-5 md:mb-6">
+                <button className="w-full flex items-center justify-center gap-3 border border-white/60 bg-white/30 backdrop-blur-sm py-3 rounded-xl font-bold text-gray-700 hover:bg-white/50 transition-all mb-5 md:mb-6 shadow-sm">
                   <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" className="w-5" alt="google logo" />
                   Continue with Google
                 </button>
 
                 {/* Divider */}
                 <div className="relative flex items-center mb-6 md:mb-8">
-                  <div className="flex-grow border-t border-gray-100"></div>
+                  <div className="flex-grow border-t border-black/5"></div>
                   <span className="mx-3 text-gray-400 text-[8px] md:text-[9px] font-black uppercase tracking-widest">
                     Or login with email
                   </span>
-                  <div className="flex-grow border-t border-gray-100"></div>
+                  <div className="flex-grow border-t border-black/5"></div>
                 </div>
 
                 {/* Email Form */}
@@ -161,13 +166,13 @@ const LandingModal = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="e.g. hello@eammu.com"
-                      className="w-full border-b-2 border-gray-100 focus:border-[#005a31] py-2 outline-none font-bold text-gray-800 transition-all placeholder:text-gray-300"
+                      className="w-full border-b-2 border-black/10 bg-transparent focus:border-[#005a31] py-2 outline-none font-bold text-gray-800 transition-all placeholder:text-gray-400"
                     />
                   </div>
                   
                   <button 
                     type="submit"
-                    className="w-full bg-[#005a31] text-white py-3.5 md:py-4 rounded-xl font-black uppercase tracking-[0.15em] text-[10px] md:text-[11px] hover:bg-[#004d2a] transition-all shadow-lg shadow-[#005a31]/10 active:scale-[0.98]"
+                    className="w-full bg-[#005a31] text-white py-3.5 md:py-4 rounded-xl font-black uppercase tracking-[0.15em] text-[10px] md:text-[11px] hover:bg-[#004d2a] transition-all shadow-lg shadow-[#005a31]/20 active:scale-[0.98]"
                   >
                     Get Started
                   </button>
