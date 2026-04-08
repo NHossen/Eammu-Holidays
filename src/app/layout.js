@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/Components/Client/Header/Header";
 import Footer from "@/Components/Server/Footer/Footer";
 import WhatsAppFloatingButton from "@/Components/Client/WhatsAppFloatingButton/WhatsAppFloatingButton";
+import Scroll from "@/Components/Client/Scroll/Scroll";
 
 
 
@@ -65,6 +66,7 @@ export default function RootLayout({ children }) {
         
         {children}
         <WhatsAppFloatingButton />
+        <Scroll />
         <Footer />
       </body>
     </html>
