@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Scroll() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button when page is scrolled down
+  // Toggle visibility based on scroll position
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.scrollY > 300) {
@@ -28,36 +28,46 @@ export default function Scroll() {
   };
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-[99] flex flex-col items-center gap-2 group"
-          aria-label="Scroll to top"
-        >
-          {/* The Animated Pill/Arrow Container */}
-          <div className="relative w-10 h-10 bg-[#005a31] rounded-full flex items-center justify-center shadow-lg border border-[#e7d000]/20 transition-colors group-hover:bg-[#004d2c]">
-            {/* The Specific 8x16 px Animated Icon */}
-            <motion.div 
-              animate={{ y: [2, -2, 2] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-              className="w-[8px] h-[16px] flex flex-col items-center justify-between"
+    <div className="fixed bottom-8 left-3 md:left-12 z-50">
+      <AnimatePresence>
+        {isVisible && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="flex items-center gap-3"
+          >
+            {/* Circular Icon Button */}
+            <button
+              onClick={scrollToTop}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white shadow-sm transition-colors hover:bg-gray-50"
+              aria-label="Scroll to top"
             >
-              <div className="w-full h-[2px] bg-[#e7d000] rotate-45 origin-left" />
-              <div className="w-[2px] h-full bg-[#e7d000]" />
-              <div className="w-full h-[2px] bg-[#e7d000] -rotate-45 origin-left" />
-            </motion.div>
-          </div>
-          
-          {/* Optional small text label */}
-          <span className="text-[10px] font-black uppercase tracking-tighter text-[#005a31] bg-white/80 px-2 py-0.5 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
-            Top
-          </span>
-        </motion.button>
-      )}
-    </AnimatePresence>
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-[#005a31]"
+              >
+                <path d="m18 15-6-6-6 6" />
+              </svg>
+            </button>
+
+       {/* Pill "Scroll to Top" Button - Hidden on mobile, visible on medium screens and up */}
+<button
+  onClick={scrollToTop}
+  className="hidden md:block rounded-[20px] bg-[#005a31] px-8 py-4 text-lg font-medium text-white shadow-lg transition-opacity hover:opacity-90"
+>
+  Scroll to Top
+</button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
