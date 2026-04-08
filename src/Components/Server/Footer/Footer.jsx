@@ -120,7 +120,7 @@ const Footer = () => {
                     {/* Column 1 */}
                     <nav className="flex flex-col space-y-3">
                         <header className="text-lg font-bold mb-2">Eammu Group</header>
-                        <Link href='/eammuimmigrationservices' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Holidays</Link>
+                        <Link href='/' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Holidays</Link>
                         <Link href='/web-development-digital-marketing' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu IT & Marketing</Link>
                         <Link href='/eammuevent' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Event Management</Link>
                         <Link href='/eammudairy' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Dairy & Poultry</Link>

@@ -10,15 +10,16 @@ import {
   Map, 
   Wind, 
   GraduationCap, 
-  Gift 
+  Gift ,
+  
 } from "lucide-react";
 
 const menuItems = [
   { id: 0, label: "Global Visa", icon: Globe, path: "our-services/visa-services" },
-  { id: 1, label: "Flights", icon: Plane, path: "/air-tickets" },
-  { id: 2, label: "Holidays", icon: Map, path: "/tour-packages" },
-  { id: 3, label: "Activities", icon: Wind, path: "/activities" },
-  { id: 4, label: "Study Abroad", icon: GraduationCap, path: "/visa-services/student-visa-application-from-bangladesh" },
+  { id: 1, label: "Flights", icon: Plane, path: "our-services/air-tickets" },
+  { id: 2, label: "Holidays", icon: Map, path: "our-services/tour-packages" },
+  { id: 3, label: "Things To Do", icon: Wind, path: "our-services/things-to-do" },
+  { id: 4, label: "Study Abroad", icon: GraduationCap, path: "our-services/study-abroad" },
   { id: 5, label: "Offers", icon: Gift, path: "/offers" },
 ];
 

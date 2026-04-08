@@ -31,7 +31,7 @@ const offices = [
     whatsapp: "+37494810585",
     email: ["armenia@eammu.com", "info@eammu.com"],
     map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.2435!2d44.5!3d40.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDA2JzAwLjAiTiA0NMKwMzAnMDAuMCJF!5e0!3m2!1sen!2sam!4v1631312524002!5m2!1sen!2sam",
-    website: "/travel-agency-armenia",
+    website: "/contact/travel-agency-armenia",
   },
   {
     location: "Tbilisi, Georgia",

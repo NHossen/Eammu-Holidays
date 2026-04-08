@@ -8,7 +8,7 @@ import { countries, popularRoutes, categories } from '@/data/visaData/visaData';
 const heroSlides = [
   { 
     id: 1, 
-    image: '/flight_eammu.webp', 
+    image: '/the-love-island.webp', 
     title: "Affordable International Flight Bookings",
     desc: "Get the best travel deals and seamless flight reservations with Eammu Holidays.",
     altText: "Affordable International Flight Bookings and Travel Deals by Eammu Holidays", 
@@ -22,7 +22,7 @@ const heroSlides = [
   },
   { 
     id: 3, 
-    image: '/plan_eammu.webp', 
+    image: '/russia-header.jpg', 
     title: "Personalized Tour & Vacation Planning",
     desc: "Custom-made holiday packages designed to fit your dream travel experience.",
     altText: "Personalized Tour Packages and Vacation Planning with Eammu Holidays",
@@ -87,7 +87,7 @@ export default function VisaClientContent() {
             </motion.div>
           </AnimatePresence>
           {/* Enhanced Mobile Gradient Overlay */}
-          <div className="absolute inset-0 bg-black/40 bg-gradient-to-b from-[#005a31]/50 via-black/20 to-black/80 z-10" />
+          <div className="absolute inset-0 bg-black/10 bg-gradient-to-b from-[#005a31]/10 via-black/20 to-black/30 z-10" />
         </div>
 
         <div className="container mx-auto px-4 text-center relative z-20 text-white mt-10 md:mt-0">
@@ -124,7 +124,7 @@ export default function VisaClientContent() {
       </header>
 
       <div className="container mx-auto px-4 py-12">
-        {/* --- QUICK LINKS SECTION --- */}
+        {/* --- QUICK LINKS SECTION ---/our-services/visa/usa-visa-application */}
         <div className="bg-white p-8 rounded-3xl shadow-sm mb-16 border border-gray-100">
           <h2 className="text-center text-gray-500 font-semibold mb-6 uppercase tracking-widest text-xs">Direct Visa Application Links</h2>
           <div className="flex flex-wrap justify-center gap-2">
@@ -134,7 +134,7 @@ export default function VisaClientContent() {
             {[ "USA", "UK", "Europe", "Canada", "Australia", "Germany", "Portugal", "Armenia", "Georgia", "Albania", "Dubai", "Qatar", "Japan", "China", "South Korea", "Spain", "Kosovo", "Serbia", "Thailand", "Singapore", "Malaysia", "Turkey" , "Indonesia" , "India" , "Saudi Arabia" , "Morocco" , "Brazil" , "South Africa" , "Azerbaijan" , "Cyprus" , "Srilanka" , "Russia" , "Montenegro" ].map((name) => (
               <Link 
                 key={name} 
-                href={`/visa-services/${name.toLowerCase().replace(' ', '-')}-visa-application`} 
+                href={`/our-services/visa/${name.toLowerCase().replace(' ', '-')}-visa-application`} 
                 className="px-4 py-1.5 bg-gray-50 border border-gray-200 text-gray-700 rounded-full text-sm hover:border-[#005a31] hover:text-[#005a31] transition"
               >
                 {name}
