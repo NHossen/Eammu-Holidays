@@ -134,60 +134,96 @@ const AlbaniaVisa = () => {
           <div className="lg:col-span-8 space-y-20">
             
             {/* Requirement Checklist */}
-           {/* --- EXPANDED DOCUMENT CHECKLIST SECTION --- */}
+{/* --- ALBANIA VISA DOCUMENT CHECKLIST --- */}
 <section className="py-20 px-6 max-w-7xl mx-auto">
-  <div className="flex items-center gap-5 mb-14">
-    <div className="bg-[#005a31] p-4 rounded-[1.25rem] text-white shadow-xl shadow-emerald-100">
-       <FileText size={32} />
+  <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+    <div className="flex items-center gap-5">
+      <div className="bg-[#005a31] p-4 rounded-[1.25rem] text-white shadow-xl shadow-emerald-100">
+        <FileText size={32} />
+      </div>
+      <div>
+        <h2 className="text-4xl font-black uppercase tracking-tight">Document Checklist</h2>
+        <p className="text-slate-500 font-medium mt-1">Requirements may vary based on your nationality</p>
+      </div>
     </div>
-    <h2 className="text-4xl font-black uppercase tracking-tight">DOCUMENT CHECKLIST</h2>
   </div>
 
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     
-    {/* 1. MANDATORY FOR ALL */}
-    <div className="bg-[#f8fafc] p-8 rounded-[2.5rem] border border-slate-100">
-      <h4 className="text-[#ff5722] font-black text-xs uppercase tracking-[0.2em] mb-6">Core Requirements</h4>
+    {/* 1. IDENTITY & TRAVEL DOCS */}
+    <div className="bg-[#f8fafc] p-8 rounded-[2.5rem] border border-slate-100 hover:border-emerald-200 transition-colors">
+      <h4 className="text-[#ff5722] font-black text-xs uppercase tracking-[0.2em] mb-6">Identity & Travel</h4>
       <div className="space-y-4">
-        <CheckItem text="Passport valid for 6+ months" />
-        <CheckItem text="2 Biometric Photos (47x36mm)" />
-        <CheckItem text="Digital Scan of National ID" />
+        <CheckItem text="Passport (Valid 6+ months beyond stay)" />
+        <CheckItem text="National ID (Digital Scan/Copy)" />
+        <CheckItem text="2 Biometric Photos (47x36mm, Rectangular)" />
+        <CheckItem text="Visa Application Form (Signed)" />
+      </div>
+    </div>
+
+    {/* 2. TRAVEL LOGISTICS */}
+    <div className="bg-[#f8fafc] p-8 rounded-[2.5rem] border border-slate-100 hover:border-emerald-200 transition-colors">
+      <h4 className="text-[#ff5722] font-black text-xs uppercase tracking-[0.2em] mb-6">Logistics & Itinerary</h4>
+      <div className="space-y-4">
+        <CheckItem text="Detailed Travel Itinerary" />
+        <CheckItem text="Round-trip Flight Reservation" />
+        <CheckItem text="Confirmed Hotel Booking/Address" />
         <CheckItem text="Travel Health Insurance (Min €30k)" />
       </div>
     </div>
 
-    {/* 2. FINANCIAL & TRAVEL */}
-    <div className="bg-[#f8fafc] p-8 rounded-[2.5rem] border border-slate-100">
-      <h4 className="text-[#ff5722] font-black text-xs uppercase tracking-[0.2em] mb-6">Financial & Logistics</h4>
+    {/* 3. FINANCIAL & PROFESSIONAL */}
+    <div className="bg-[#f8fafc] p-8 rounded-[2.5rem] border border-slate-100 hover:border-emerald-200 transition-colors">
+      <h4 className="text-[#ff5722] font-black text-xs uppercase tracking-[0.2em] mb-6">Financial & Work</h4>
       <div className="space-y-4">
-        <CheckItem text="6 Months Bank Statement" />
-        <CheckItem text="Confirmed Hotel Booking" />
-        <CheckItem text="Round-trip Flight Reservation" />
-        <CheckItem text="Proof of Employment/Business" />
+        <CheckItem text="6 Months Bank Statements" />
+        <CheckItem text="Proof of Employment/Business License" />
+        <CheckItem text="Proof of Ties (Family/Property/Job)" />
+        <CheckItem text="SOP (Statement of Purpose) - Optional" />
       </div>
     </div>
 
-    {/* 3. WORK & LONG STAY (TYPE D) */}
-    <div className="bg-[#005a31] p-8 rounded-[2.5rem] shadow-2xl text-white">
-      <h4 className="text-[#ff5722] font-black text-xs uppercase tracking-[0.2em] mb-6">Work Permit (Type D)</h4>
+    {/* 4. OFFICIAL CORRESPONDENCE */}
+    <div className="bg-[#f8fafc] p-8 rounded-[2.5rem] border border-slate-100 hover:border-emerald-200 transition-colors">
+      <h4 className="text-[#ff5722] font-black text-xs uppercase tracking-[0.2em] mb-6">Correspondence</h4>
       <div className="space-y-4">
-        <CheckItem light text="Attested Employment Contract" />
-        <CheckItem light text="Police Clearance Certificate" />
-        <CheckItem light text="Degree/Diploma (Notarized)" />
-        <CheckItem light text="Health Certificate (Fit to Work)" />
+        <CheckItem text="Cover Letter (Explaining visit)" />
+        <CheckItem text="Appointment Scheduling Confirmation" />
+        <CheckItem text="Police Clearance (For Type D)" />
+        <CheckItem text="Invitation Letter (If applicable)" />
       </div>
     </div>
 
+    {/* 5. HIGHLIGHTED WORK PERMIT SECTION */}
+    <div className="bg-[#005a31] md:col-span-2 p-8 rounded-[2.5rem] shadow-2xl text-white relative overflow-hidden">
+      <div className="relative z-10">
+        <h4 className="text-[#ff5722] font-black text-xs uppercase tracking-[0.2em] mb-6">Work Permit Requirements (Type D)</h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+          <CheckItem light text="Attested Employment Contract" />
+          <CheckItem light text="Degree/Diploma (Notarized)" />
+          <CheckItem light text="Health Certificate (Fit to Work)" />
+          <CheckItem light text="Company Registration in Albania" />
+        </div>
+      </div>
+      {/* Decorative Background Element */}
+      <div className="absolute -right-10 -bottom-10 opacity-10">
+        <ShieldCheck size={200} />
+      </div>
+    </div>
   </div>
 
   {/* Pro Tip Box */}
-  <div className="mt-10 p-6 bg-orange-50 border border-orange-100 rounded-2xl flex items-start gap-4">
-    <div className="bg-[#ff5722] text-white p-2 rounded-lg shrink-0">
-      <ShieldCheck size={20} />
+  <div className="mt-10 p-8 bg-orange-50 border border-orange-100 rounded-[2rem] flex flex-col md:flex-row items-center gap-6">
+    <div className="bg-[#ff5722] text-white p-4 rounded-2xl shadow-lg shrink-0">
+      <ShieldCheck size={32} />
     </div>
-    <p className="text-sm text-slate-700 font-medium leading-relaxed">
-      <strong className="text-[#005a31] font-black">EAMMU TIP:</strong> All documents for Work Permits must be translated into Albanian by a licensed translator. Our Dubai and Cumilla offices provide certified translation services as part of our premium package.
-    </p>
+    <div className="text-center md:text-left">
+      <p className="text-base text-slate-700 font-medium leading-relaxed">
+        <strong className="text-[#005a31] font-black uppercase text-sm block mb-1">Important Note:</strong> 
+        Requirements vary significantly by nationality. All documents for Work Permits must be translated into Albanian by a licensed translator. 
+        Our Dubai and Cumilla offices provide certified translation and <strong>Appointment Scheduling</strong> as part of our premium package.
+      </p>
+    </div>
   </div>
 </section>
 

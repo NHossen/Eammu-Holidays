@@ -1,9 +1,10 @@
+import UkVisa from '@/Components/Client/visaServices/Visa/TouristVisaBangladesh/VisaCountry/UkVisa/UkVisa'
 import React from 'react'
 
 export default function page() {
   return (
     <div>
-      <h1>Uk Visa Application</h1>
+      <UkVisa />
     </div>
   )
 }
