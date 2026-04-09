@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react';
 
@@ -10,66 +11,77 @@ const marketingMaterials = [
     id: 1, 
     src: "/visa-poster/europe_visa_poster.webp", 
     title: "Europe Visa Application",
+    href: "/our-services/visa/europe-visa-application",
     alt: "Schengen Europe visa application processing and consultancy in Bangladesh" 
   },
   { 
     id: 2, 
     src: "/visa-poster/Qatar Visa.webp", 
     title: "Qatar Visa Application",
+    href: "/our-services/visa/qatar-visa-application",
     alt: "Online Qatar tourist visa and work permit assistance for Bangladeshi citizens"
   },
   { 
     id: 3, 
     src: "/visa-poster/Canada Visa 2.webp", 
     title: "Canada Tourist Visa",
+    href: "/our-services/visa/canada-visa-application",
     alt: "Canada visitor visa application service and document checklist guidance"
   },
   { 
     id: 4, 
     src: "/visa-poster/China Visa.webp", 
     title: "China Visa Application",
+    href: "/our-services/visa/china-visa-application",
     alt: "China business and tourist visa processing center in Dhaka"
   },
   { 
     id: 5, 
     src: "/visa-poster/usa_visa_appointment.webp", 
     title: "USA Visa Appointment And Application",
+    href: "/our-services/visa/usa-visa-application",
     alt: "USA B1 B2 visa interview appointment scheduling and DS-160 form assistance"
   },
   { 
     id: 6, 
     src: "/visa-poster/malaysia_visa_application.webp", 
     title: "Malaysia Visa Application",
+    href: "/our-services/visa/malaysia-visa-application",
     alt: "Malaysia e-visa and sticker visa processing for tourists from Bangladesh"
   },
   { 
     id: 7, 
     src: "/visa-poster/thailand_singapore_visa_application.webp", 
     title: "Thailand & Singapore Visa Application",
+    href: "/our-services/visa/singapore-visa-application",
     alt: "Thailand and Singapore dual country tour visa assistance and package deals"
   },
   { 
     id: 8, 
     src: "/visa-poster/london_visa_application.webp", 
     title: "London Visa Application",
+    href: "/our-services/visa/uk-visa-application",
     alt: "UK Standard Visitor Visa application and London travel consultancy"
   },
   { 
     id: 9, 
     src: "/visa-poster/australia_tourist_visa_application.webp", 
     title: "Australia Tourist Visa Application",
+    href: "/our-services/visa/australia-visa-application",
     alt: "Australia subclass 600 visitor visa processing by Eammu Holidays"
   },
   { 
     id: 10, 
     src: "/visa-poster/indonesia_visa_application.webp", 
     title: "Indonesia Visa Application",
+    href: "/our-services/visa/indonesia-visa-application",
     alt: "Bali Indonesia tourist visa on arrival and e-visa services for travelers"
   },
   { 
     id: 11, 
     src: "/visa-poster/usa_and_europe_visa_application.webp", 
     title: "USA & Europe Visa Application",
+    href: "/our-services/visa/canada-visa-application",
     alt: "Worldwide visa consultancy for USA and Schengen countries by Eammu Holidays"
   },
 ];
@@ -113,36 +125,48 @@ const PosterGallery = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="flex flex-col cursor-pointer group"
-                  onClick={() => setSelectedImg(item)}
+                  className="flex flex-col group"
                 >
                   <div 
                     className={`relative w-full overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 transition-all duration-300 group-hover:shadow-2xl group-hover:border-[#005a31]/20
                     ${isFlyer ? 'aspect-[5/7]' : 'aspect-[5/5]'}`}
                   >
-                    <Image 
-                      src={item.src} 
-                      alt={item.alt} // Individual SEO Alt Text from Data
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                      className="object-contain p-3 transition-transform duration-700 ease-in-out group-hover:scale-110"
-                      priority={currentPage === 1}
-                    />
+                    {/* Image Link */}
+                    <Link href={item.href} className="relative block w-full h-full">
+                        <Image 
+                          src={item.src} 
+                          alt={item.alt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                          className="object-contain p-3 transition-transform duration-700 ease-in-out group-hover:scale-110"
+                          priority={currentPage === 1}
+                        />
+                    </Link>
 
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+                    {/* Lightbox trigger */}
+                    <div 
+                      className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center cursor-pointer pointer-events-none group-hover:pointer-events-auto"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setSelectedImg(item);
+                      }}
+                    >
                        <motion.div 
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
-                        className="bg-white p-4 rounded-full text-[#005a31] shadow-2xl"
+                        className="bg-white p-4 rounded-full text-[#005a31] shadow-2xl pointer-events-auto"
                        >
                           <Maximize2 size={32} />
                        </motion.div>
                     </div>
                   </div>
                   
-                  <h3 className="mt-5 font-extrabold text-slate-800 text-sm md:text-base uppercase tracking-tight group-hover:text-[#005a31] transition-colors">
-                    {item.title}
-                  </h3>
+                  {/* Button-style Title Link */}
+                  <Link href={item.href} className="mt-5 w-full">
+                    <h3 className="w-full py-3 px-4 bg-[#005a31] text-white text-center font-extrabold text-sm md:text-base uppercase tracking-tight rounded-xl transition-all duration-300 hover:bg-yellow-400 hover:text-slate-900 shadow-md hover:shadow-lg cursor-pointer">
+                        {item.title}
+                    </h3>
+                  </Link>
                 </motion.div>
               );
             })}

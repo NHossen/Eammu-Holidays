@@ -105,7 +105,7 @@ export default function PromoCard() {
               <div className="mt-3">
                        {/* Customer Review Link */}
  <Link 
-  href="/testimonials"
+  href="/air-tickets"
   className="relative flex items-center justify-center gap-2 px-6 py-2 rounded-[10px] font-bold text-sm text-white shadow-[0_10px_20px_-10px_rgba(0,90,49,0.6)] 
              bg-linear-to-r from-[#005a31] via-[#00a45a] to-[#005a31] bg-size-[200%_auto]
              hover:bg-right transition-all duration-500 overflow-hidden cursor-pointer"

@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 const FlightOfferBanner = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 py-6 md:py-8">
-      <Link href="/flights/offers" className="block group">
+      <Link href="/offers" className="block group">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
