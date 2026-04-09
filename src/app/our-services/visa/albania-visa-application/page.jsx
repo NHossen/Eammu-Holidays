@@ -1,4 +1,4 @@
-import AlbaniaVisa from '@/Components/Client/visaServices/Visa/TouristVisaBangladesh/VisaCountry/AlbaniaVisa/AlbaniaVisa'
+import AlbaniaVisa from '@/Components/Server/VisaCountry/AlbaniaVisa/AlbaniaVisa'
 import React from 'react'
 
 export default function page() {

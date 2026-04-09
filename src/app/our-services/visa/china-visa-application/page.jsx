@@ -1,10 +1,10 @@
-import UkVisa from '@/Components/Server/VisaCountry/UkVisa/UkVisa'
+import ChinaVisa from '@/Components/Server/VisaCountry/ChinaVisa/ChinaVisa'
 import React from 'react'
 
 export default function page() {
   return (
     <div>
-      <UkVisa />
+      <ChinaVisa />
     </div>
   )
 }

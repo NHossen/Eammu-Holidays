@@ -125,7 +125,7 @@ export default function TourPackages() {
       {/* VIEW ALL DEALS CTA */}
       <div className="flex flex-col items-center justify-center gap-4 mb-20">
         <a 
-          href="/all-tour-packages" 
+          href="/our-services/tour-packages" 
           className="inline-flex items-center justify-center px-10 border-2 border-[#005a31] text-[#005a31] font-black rounded-full hover:bg-[#005a31] hover:text-white transition-all duration-300 uppercase tracking-widest text-sm shadow-sm"
         >
           View All Tour Deals

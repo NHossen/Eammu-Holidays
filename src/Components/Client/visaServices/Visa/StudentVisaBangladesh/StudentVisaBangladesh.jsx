@@ -62,7 +62,7 @@ const StudentVisaBangladesh = () => {
       />
 
       {/* 🚀 Hero Section */}
-      <section className="relative min-h-[60vh] md:h-[75vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[65vh] md:h-[65vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <AnimatePresence mode="wait">
             <motion.div
