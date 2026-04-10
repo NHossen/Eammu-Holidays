@@ -58,7 +58,7 @@ export default function PromoCard() {
   }, []);
 
   return (
-    <div className="flex justify-center lg:justify-end w-full px-2">
+    <div className="flex justify-center lg:justify-end w-full px-2"> 
       {/* 1. LIQUID GLASS CONTAINER - h-auto for Mobile, h-64 for Desktop */}
       <div className="relative w-full max-w-md h-auto sm:h-64 rounded-2xl overflow-hidden shadow-2xl 
                       glass-liquid-water bg-[length:200%_auto] hover:bg-right transition-all duration-1000 border border-white/20">
