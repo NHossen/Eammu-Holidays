@@ -1,36 +1,148 @@
-const PosterCard = ({ image, badge, title, detail }) => (
-  <div className="relative rounded-3xl overflow-hidden aspect-square group cursor-pointer shadow-md">
-    <Image src={image} alt={title} fill className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-    <div className="absolute top-4 left-4"><span className="bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">{badge}</span></div>
-    <div className="absolute bottom-6 left-6"><h3 className="text-white font-black text-xl leading-tight uppercase">{title}</h3><p className="text-orange-400 font-bold text-xs uppercase tracking-widest">{detail}</p></div>
-  </div>
-);
+"use client";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const PosterCard = ({ image, badge, title, detail }) => (
-  <div className="relative rounded-3xl overflow-hidden group cursor-pointer shadow-md bg-gray-100" 
-       style={{ aspectRatio: '1 / 1' }}> {/* Force the 1:1 ratio */}
-    <Image 
-      src={image} 
-      alt={title} 
-      fill 
-      priority
-      sizes="(max-width: 768px) 100vw, 25vw"
-      className="object-cover group-hover:scale-110 transition-transform duration-700 z-0" 
+const promoSlides = [
+  { 
+    id: 1, 
+    title: "DHAKA TO BALI", 
+    price1: "135", 
+    price2: "255", 
+    img: "/the-love-island.webp",
+    alt: "Dhaka to Bali cheap flight tickets | Armenia travel deals from UAE" 
+  },
+  { 
+    id: 2, 
+    title: "CAIRO TO DHAKA", 
+    price1: "110", 
+    price2: "300", 
+    img: "/desert_kamel_egypt.jpg",
+    alt: "Cairo to Dhaka flight deals | affordable Egypt to Bangladesh air tickets" 
+  },
+  { 
+    id: 3, 
+    title: "DHAKA TO SYLHET", 
+    price1: "300", 
+    price2: "355", 
+    img: "https://tripjive.com/wp-content/uploads/2024/09/Khasia-Polli-in-Sylhet-travel-guide-1024x585.jpg",
+    alt: "Dhaka to Sylhet flight tickets | best airfare Bangladesh to UAE travel" 
+  },
+  { 
+    id: 4, 
+    title: "JAPAN TO DHAKA", 
+    price1: "499", 
+    price2: "999", 
+    img: "https://japandeluxetours.com/uploads/2025/10/20251009212409_68e827f99d19b.jpg",
+    alt: "Japan to Dhaka flight price | cheap airfare Japan to Bangladesh tickets" 
+  },
+  { 
+    id: 5, 
+    title: "DHAKA TO MALDIVES", 
+    price1: "299", 
+    price2: "499", 
+    img: "/eammu_Tour.webp",
+    alt: "Dhaka to Maldives holiday packages | budget Maldives trips from Bangladesh" 
+  },
+];
+
+export default function PromoCard() {
+  const [promoIndex, setPromoIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPromoIndex((prev) => (prev + 1) % promoSlides.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="flex justify-center lg:justify-end w-full px-2"> 
+      {/* 1. LIQUID GLASS CONTAINER - h-auto for Mobile, h-64 for Desktop */}
+      <div className="relative w-full max-w-md h-auto sm:h-64 rounded-2xl overflow-hidden shadow-2xl 
+                      glass-liquid-water bg-[length:200%_auto] hover:bg-right transition-all duration-1000 border border-white/20">
+        
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={promoIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="flex flex-col sm:flex-row h-full w-full"
+          >
+            {/* 2. IMAGE SECTION - Uses aspect-video on mobile to save space */}
+            <div className="relative w-full sm:w-1/2 aspect-3/1.5 sm:aspect-auto sm:h-full overflow-hidden">
+              <Image 
+                src={promoSlides[promoIndex].img} 
+                alt={promoSlides[promoIndex].alt}
+                fill 
+                priority 
+                className="object-cover"
+              />
+            </div>
+
+            {/* 3. CONTENT SECTION - Compact Padding */}
+            <div className="w-full sm:w-1/2 p-4 flex flex-col justify-between">
+              <div className="space-y-2">
+                <h2 className="text-sm sm:text-base font-black uppercase leading-tight text-white">
+                  {promoSlides[promoIndex].title}
+                </h2>
+
+                <div className="grid grid-cols-2 sm:grid-cols-1 gap-2 text-[10px] sm:text-[11px]">
+                  <div className="p-2 rounded-lg bg-white/40 border border-white/30 text-center sm:text-left">
+                    <span className="block text-[10px] font-bold text-gray-900 uppercase">One Way</span>
+                    <b className="text-[#005a31] text-[12px] font-bold">USD {promoSlides[promoIndex].price1}</b>
+                  </div>
+                  <div className="p-2 rounded-lg bg-white/40 border border-white/30 text-center sm:text-left">
+                    <span className="block text-[10px] font-bold text-gray-900 uppercase">Round Trip</span>
+                    <b className="text-[#005a31] text-[12px] font-bold">USD {promoSlides[promoIndex].price2}</b>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-3">
+                       {/* Customer Review Link */}
+ <Link 
+  href="/air-tickets"
+  className="relative flex items-center justify-center gap-2 px-6 py-2 rounded-[10px] font-bold text-sm text-white shadow-[0_10px_20px_-10px_rgba(0,90,49,0.6)] 
+             bg-linear-to-r from-[#005a31] via-[#00a45a] to-[#005a31] bg-size-[200%_auto]
+             hover:bg-right transition-all duration-500 overflow-hidden cursor-pointer"
+>
+  <motion.div
+    className="flex items-center justify-center gap-2" // Added justify-center and removed w-full
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+  >
+    {/* Shine Effect Animation */}
+    <motion.div 
+      className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent w-full h-full"
+      animate={{ x: ['-100%', '200%'] }}
+      transition={{ repeat: Infinity, duration: 2, ease: "linear", repeatDelay: 1 }}
     />
-    
-    {/* Ensure overlays are z-indexed above the image */}
-    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent pointer-events-none z-10" />
-    
-    <div className="absolute top-4 left-4 z-20">
-      <span className="bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">
-        {badge}
-      </span>
+    <span className="relative z-10">BOOK NOW</span>
+  </motion.div>
+</Link>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* 4. INDICATOR DOTS - Moved up slightly for mobile */}
+        <div className="absolute bottom-2 right-4 flex gap-1.5 z-30">
+          {promoSlides.map((_, i) => (
+            <div
+              key={i}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === promoIndex ? 'bg-[#ffffff] w-4' : 'bg-black/20 w-1.5'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
     </div>
-    
-    <div className="absolute bottom-6 left-6 z-20">
-      <h3 className="text-white font-black text-xl leading-tight uppercase">{title}</h3>
-      <p className="text-orange-400 font-bold text-xs uppercase tracking-widest">{detail}</p>
-    </div>
-  </div>
-);
+  );
+}
