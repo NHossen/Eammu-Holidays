@@ -11,6 +11,7 @@ import {
   FaUserShield, FaHandHoldingHeart, FaPlaneDeparture,
   FaBuilding, FaFileSignature, FaHistory
 } from "react-icons/fa";
+import TouristVisa from "@/Components/Client/visaServices/Visa/TouristVisaBangladesh/TouristVisa/TouristVisa";
 
 const TouristVisaBangladesh = () => {
   const fadeInUp = {
@@ -29,40 +30,9 @@ const TouristVisaBangladesh = () => {
   return (
     <div className="bg-[#fcfcfc] min-h-screen font-sans overflow-x-hidden">
       
-      {/* 🚀 Hero Section - Fixed 50vh Background Design */}
-      <section className="relative h-[65vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-            alt="Apply for Tourist Visa from Bangladesh 2026" 
-            fill
-            priority
-            className="object-cover"
-          />
-          {/* Enhanced Overlay for Readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#cfcfcf] via-[#005a31]/30 to-transparent"></div>
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-10 items-center">
-          <motion.div initial={{ x: -30, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
-            <span className="bg-orange-500 text-white px-4 py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest mb-4 inline-block shadow-lg">
-              #1 Visa Processing Agency in Bangladesh
-            </span>
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight leading-tight">
-              Seamless <span className="text-orange-400">Tourist Visa</span> <br /> 
-              Consultancy in Dhaka
-            </h1>
-            <p className="text-white/90 max-w-xl mb-8 leading-relaxed text-sm md:text-lg font-medium">
-              Expert documentation support for <strong>USA B1/B2, UK Standard Visitor, Canada V-1,</strong> and the <strong>29-country Schengen Area</strong>. We turn complex embassy requirements into approved visas.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="https://wa.me/8801631312524" className="bg-white text-[#005a31] px-8 py-4 rounded-2xl font-black hover:bg-orange-500 hover:text-white transition-all shadow-xl flex items-center justify-center gap-2 text-sm">
-                Get Free Assessment <FaArrowRight />
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <div>
+        <TouristVisa />
+      </div>
 
       {/* 🌍 SEO Content Section */}
       <section id="services" className="py-16 md:py-24 container mx-auto px-6">

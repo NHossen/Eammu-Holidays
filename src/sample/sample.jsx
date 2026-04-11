@@ -1,147 +1,131 @@
 "use client";
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
 
-const promoSlides = [
-  { 
-    id: 1, 
-    title: "DHAKA TO BALI", 
-    price1: "135", 
-    price2: "255", 
-    img: "/the-love-island.webp",
-    alt: "Dhaka to Bali cheap flight tickets | Armenia travel deals from UAE" 
-  },
-  { 
-    id: 2, 
-    title: "CAIRO TO DHAKA", 
-    price1: "110", 
-    price2: "300", 
-    img: "/desert_kamel_egypt.jpg",
-    alt: "Cairo to Dhaka flight deals | affordable Egypt to Bangladesh air tickets" 
-  },
-  { 
-    id: 3, 
-    title: "DHAKA TO SYLHET", 
-    price1: "300", 
-    price2: "355", 
-    img: "https://tripjive.com/wp-content/uploads/2024/09/Khasia-Polli-in-Sylhet-travel-guide-1024x585.jpg",
-    alt: "Dhaka to Sylhet flight tickets | best airfare Bangladesh to UAE travel" 
-  },
-  { 
-    id: 4, 
-    title: "JAPAN TO DHAKA", 
-    price1: "499", 
-    price2: "999", 
-    img: "https://japandeluxetours.com/uploads/2025/10/20251009212409_68e827f99d19b.jpg",
-    alt: "Japan to Dhaka flight price | cheap airfare Japan to Bangladesh tickets" 
-  },
-  { 
-    id: 5, 
-    title: "DHAKA TO MALDIVES", 
-    price1: "299", 
-    price2: "499", 
-    img: "/eammu_Tour.webp",
-    alt: "Dhaka to Maldives holiday packages | budget Maldives trips from Bangladesh" 
-  },
-];
+import { useState } from "react";
+import countries from "@/app/data/countries.json";
+import Link from "next/link";
+import { createSlug } from "@/app/lib/utils";
 
-export default function PromoCard() {
-  const [promoIndex, setPromoIndex] = useState(0);
+export default function CountriesPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedLetter, setSelectedLetter] = useState("All");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setPromoIndex((prev) => (prev + 1) % promoSlides.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
+  // 1. Filter Logic (Letter + Search)
+  const filteredCountries = countries.filter((c) => {
+    const matchesLetter = selectedLetter === "All" || c.country.startsWith(selectedLetter);
+    const matchesSearch = c.country.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesLetter && matchesSearch;
+  });
+
+  // 2. Pagination Logic
+  const totalPages = Math.ceil(filteredCountries.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredCountries.slice(indexOfFirstItem, indexOfLastItem);
+
+  const alphabet = ["All", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
 
   return (
-    <div className="flex justify-center lg:justify-end w-full px-2"> 
-      {/* 1. LIQUID GLASS CONTAINER - h-auto for Mobile, h-64 for Desktop */}
-      <div className="relative w-full max-w-md h-auto sm:h-64 rounded-2xl overflow-hidden shadow-2xl 
-                      glass-liquid-water bg-[length:200%_auto] hover:bg-right transition-all duration-1000 border border-white/20">
-        
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={promoIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="flex flex-col sm:flex-row h-full w-full"
-          >
-            {/* 2. IMAGE SECTION - Uses aspect-video on mobile to save space */}
-            <div className="relative w-full sm:w-1/2 aspect-3/1.5 sm:aspect-auto sm:h-full overflow-hidden">
-              <Image 
-                src={promoSlides[promoIndex].img} 
-                alt={promoSlides[promoIndex].alt}
-                fill 
-                priority 
-                className="object-cover"
+    <div className="min-h-screen bg-gray-50 p-6 md:p-10">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
+            Global Visa Applications
+          </h1>
+          <p className="text-gray-600">Select a country to start your application process.</p>
+        </div>
+
+        {/* Filter & Search Bar */}
+        <div className="mb-8 flex flex-col gap-4">
+          <div className="flex flex-wrap justify-center gap-2">
+            {alphabet.map((letter) => (
+              <button
+                key={letter}
+                onClick={() => { setSelectedLetter(letter); setCurrentPage(1); }}
+                className={`px-3 py-1 rounded-md text-sm font-medium transition ${
+                  selectedLetter === letter 
+                  ? "bg-green-600 text-white" 
+                  : "bg-white text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                {letter}
+              </button>
+            ))}
+          </div>
+          
+          <input
+            type="text"
+            placeholder="Search country..."
+            className="max-w-md mx-auto w-full p-3 rounded-full border border-gray-300 focus:ring-2 focus:ring-green-500 outline-none"
+            onChange={(e) => { setSearchTerm(e.target.value); setCurrentPage(1); }}
+          />
+        </div>
+
+        {/* Countries Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {currentItems.map((c, index) => (
+            <div 
+              key={`${c.code}-${index}`}
+              className="relative group h-64 rounded-2xl overflow-hidden shadow-lg bg-black"
+            >
+              {/* Background Flag Image with Overlay */}
+              <img 
+                src={c.flag} 
+                alt={c.country} 
+                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500"
               />
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-            {/* 3. CONTENT SECTION - Compact Padding */}
-            <div className="w-full sm:w-1/2 p-4 flex flex-col justify-between">
-              <div className="space-y-2">
-                <h2 className="text-sm sm:text-base font-black uppercase leading-tight text-white">
-                  {promoSlides[promoIndex].title}
+              {/* Card Content */}
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <h2 className="text-white text-xl font-bold mb-1">
+                  {c.country}
                 </h2>
-
-                <div className="grid grid-cols-2 sm:grid-cols-1 gap-2 text-[10px] sm:text-[11px]">
-                  <div className="p-2 rounded-lg bg-white/40 border border-white/30 text-center sm:text-left">
-                    <span className="block text-[10px] font-bold text-gray-900 uppercase">One Way</span>
-                    <b className="text-[#005a31] text-[12px] font-bold">USD {promoSlides[promoIndex].price1}</b>
-                  </div>
-                  <div className="p-2 rounded-lg bg-white/40 border border-white/30 text-center sm:text-left">
-                    <span className="block text-[10px] font-bold text-gray-900 uppercase">Round Trip</span>
-                    <b className="text-[#005a31] text-[12px] font-bold">USD {promoSlides[promoIndex].price2}</b>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-3">
-                       {/* Customer Review Link */}
- <Link 
-  href="/air-tickets"
-  className="relative flex items-center justify-center gap-2 px-6 py-2 rounded-[10px] font-bold text-sm text-white shadow-[0_10px_20px_-10px_rgba(0,90,49,0.6)] 
-             bg-linear-to-r from-[#005a31] via-[#00a45a] to-[#005a31] bg-size-[200%_auto]
-             hover:bg-right transition-all duration-500 overflow-hidden cursor-pointer"
->
-  <motion.div
-    className="flex items-center justify-center gap-2" // Added justify-center and removed w-full
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-  >
-    {/* Shine Effect Animation */}
-    <motion.div 
-      className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent w-full h-full"
-      animate={{ x: ['-100%', '200%'] }}
-      transition={{ repeat: Infinity, duration: 2, ease: "linear", repeatDelay: 1 }}
-    />
-    <span className="relative z-10">BOOK NOW</span>
-  </motion.div>
-</Link>
+                <p className="text-gray-300 text-xs mb-4 uppercase tracking-widest">
+                  Visa Application
+                </p>
+                
+                <Link
+                  href={`/visa/${createSlug(c.country)}-visa-application`}
+                  className="w-full py-2 bg-green-600 hover:bg-green-500 text-white text-center rounded-lg font-semibold transition shadow-md"
+                >
+                  Apply for {c.country}
+                </Link>
               </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* 4. INDICATOR DOTS - Moved up slightly for mobile */}
-        <div className="absolute bottom-2 right-4 flex gap-1.5 z-30">
-          {promoSlides.map((_, i) => (
-            <div
-              key={i}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === promoIndex ? 'bg-[#ffffff] w-4' : 'bg-black/20 w-1.5'
-              }`}
-            />
           ))}
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="mt-12 flex justify-center items-center gap-4">
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(p => p - 1)}
+              className="px-4 py-2 bg-white border rounded-lg disabled:opacity-50 hover:bg-gray-50"
+            >
+              Previous
+            </button>
+            <span className="text-gray-600 font-medium">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage(p => p + 1)}
+              className="px-4 py-2 bg-white border rounded-lg disabled:opacity-50 hover:bg-gray-50"
+            >
+              Next
+            </button>
+          </div>
+        )}
+
+        {filteredCountries.length === 0 && (
+          <div className="text-center py-20 text-gray-500">
+            No countries found matching your filter.
+          </div>
+        )}
       </div>
     </div>
   );
