@@ -189,6 +189,7 @@
   },
 
   "visa_fee_structure_2026": {
+     "embassy_visa_fee": "BDT 22,629 (approx. £115)",
     "standard_visitor_6_months": "BDT 22,629 (approx. £115)",
     "long_term_2_years": "BDT 84,818 (approx. £432)",
     "long_term_5_years": "BDT 151,365 (approx. £771)",
@@ -352,11 +353,11 @@
   },
 
   "visa_fee_structure_2026": {
-    "mrv_application_fee": "USD 185 (Payable in BDT at Eastern Bank Limited - approx. BDT 21,500 - 23,000)",
+    "embassy_visa_fee": "USD 185 (Payable in BDT at Eastern Bank Limited - approx. BDT 21,500 - 23,000)",
     "mandatory_visa_bond_2026": "USD 5,000 - 15,000 (New Requirement: Only if instructed by the Consular Officer post-interview)",
     "optional_vfs_delivery": {
       "premium_delivery": "BDT 1,000",
-      "document_pickup": "Free at designated locations (Dhaka, Chittagong, Sylhet)"
+      "document_pickup": "Free at designated locations (Dhaka, Chittagong, Sylhet)" 
     },
     "payment_policy": "MRV fee is non-refundable and valid for 365 days. Visa Bond is refundable upon verified return to Bangladesh."
   },
@@ -473,5 +474,167 @@
       "USA Visa Bond Rule for Bangladeshi 2026"
     ]
   }
-}
+},
+"canada": {
+    "title": "Comprehensive Canada Tourist Visa Guide 2026 for Bangladeshi Citizens",
+    "last_updated": "2026-04-11",
+    "description": "The definitive 2026 guide for Canada Temporary Resident Visa (TRV) applications in Bangladesh. Covering IRCC online submission, Biometric instructions at VFS Global, and updated financial solvency guidelines.",
+
+    "visa_category_details": {
+      "main_category": "Temporary Resident Visa (TRV)",
+      "visa_type": "Visitor Visa (V-1)",
+      "entry_type": "Multiple Entry (Standard)",
+      "purpose": [
+        "Leisure/Tourism",
+        "Family/Friend Visit",
+        "Business Meetings",
+        "Short-term Study (under 6 months)"
+      ],
+      "eligibility": "Holders of valid Bangladeshi Ordinary Passports"
+    },
+
+    "processing_time_metrics": {
+      "standard_turnaround": "15-60 working days",
+      "peak_season_delay": "60-90 working days (During Summer & Christmas holidays)",
+      "embassy_review_phase": "Varies by IRCC global workload; processing begins after Biometrics",
+      "express_service": "Unavailable (CAN+ program exists but is not a paid express service)",
+      "notes": "Processing time fluctuates significantly based on the volume of applications at the Singapore or Colombo hubs."
+    },
+
+    "visa_fee_structure_2026": {
+      "embassy_visa_fee": "CAD 100 (~BDT 8,800 - 9,500)",
+      "vfs_service_charge": "CAD 85 for Biometrics (~BDT 7,500 - 8,200)",
+      "optional_value_added_services": {
+        "sms_status_tracking": "BDT 246",
+        "courier_delivery_nationwide": "BDT 5,096",
+        "form_filling_assistance": "BDT 2,500",
+        "document_scanning_service": "BDT 1,500",
+        "premium_lounge_access": "BDT 8,409"
+      },
+      "payment_policy": "Online payment via Credit/Debit card for IRCC fees. VFS fees paid at center."
+    },
+
+    "stay_and_validity_rules": {
+      "standard_stay": "Up to 6 months per entry",
+      "extended_stay": "Possible via 'Visitor Record' application inside Canada",
+      "visa_validity_window": "Up to 10 years or until Passport Expiry",
+      "overstay_penalty": "Removal order, potential 1-year ban, and future visa denials",
+      "extension_possibility": "Allowed if applied 30 days before current status expires."
+    },
+
+    "technical_photo_specifications": {
+      "standard": "IRCC Digital & ICAO Compliant",
+      "dimensions": "35mm x 45mm (Rectangular)",
+      "background_color": "Plain White or Off-White",
+      "print_quality": "Professional lab print, Matte finish required",
+      "facial_metrics": "Head height must be 31mm to 36mm from chin to crown",
+      "strict_donots": [
+        "No digital alterations or background removal",
+        "No smiling (must have a neutral expression)",
+        "No white clothing (must contrast with background)",
+        "No eyewear that obscures eyes or creates glare"
+      ]
+    },
+
+    "comprehensive_requirements_checklist": {
+      "primary_documents": [
+        "Original Passport (Valid for duration of stay, recommended 1 year+)",
+        "Scanned copies of all previous passports (Visas and entry/exit stamps)",
+        "Digital Application Form (IMM 5257) & Family Information (IMM 5645)",
+        "Purpose of Travel Statement (Cover letter detailing roots in Bangladesh)",
+        "Invitation Letter (Required if visiting family/friends; must include inviter's PR/Citizenship status)"
+      ],
+      "financial_proofs": [
+        "Personal Bank Statement (Last 6 months, original with bank seal)",
+        "Bank Solvency Certificate (Mentioning balance in BDT and CAD equivalent)",
+        "Income Tax Returns (ITR) / Acknowledgement Slips for the last 3 years"
+      ],
+      "logistics_proofs": [
+        "Detailed Day-to-Day Itinerary (Matching the flight and hotel dates)",
+        "Flight Reservation (Confirmed PNR; actual ticket purchase not required)",
+        "Hotel Booking Confirmation (Covering the entire duration of the stay)"
+      ],
+      "occupation_specific": {
+        "corporate_employees": ["NOC with joining date and salary", "Salary Slips (Last 3 months)", "Visiting Card & Office ID"],
+        "entrepreneurs": ["Trade License (Translated & Notarized)", "Company Bank Statement (6 months)", "TIN & BIN Certificates"],
+        "students": ["ID Card Copy", "Leave Approval/NOC from Educational Institution", "Birth Certificate & Parents' Financial Docs"],
+        "government_officials": ["Government Order (GO) or NOC", "Official Passport (if applicable)"]
+      }
+    },
+
+    "financial_thresholds_2026": {
+      "solo_traveler_min": "BDT 800,000",
+      "solo_traveler_recommended": "BDT 1,200,000+",
+      "family_travel_min": "BDT 2,000,000+",
+      "logic": "Calculated at ~CAD 250 per day plus round-trip airfare and internal travel.",
+      "warning": "Sudden large deposits (Lump-sum) without source documents lead to 'Financial Misrepresentation' refusals."
+    },
+
+    "geospatial_submission_data": [
+      {
+        "center": "Canada Visa Application Centre Dhaka",
+        "address": "Delta Life Tower, 4th Floor, Plot No. 37, Road No. 90, Gulshan 2, Dhaka-1212",
+        "gps_coordinates": "23.7944, 90.4144",
+        "submission_hours": "09:00 - 15:00 (Sun-Thu, By Appointment)",
+        "passport_collection": "15:00 - 16:30 (Sun-Thu)"
+      },
+      {
+        "center": "Canada Visa Application Centre Sylhet",
+        "address": "7th Floor, Nirvana Inn, Mirza Jungle Road, Sylhet-3100",
+        "gps_coordinates": "24.8897, 91.8601",
+        "submission_hours": "09:00 - 14:00 (Sun-Thu, By Appointment)"
+      }
+    ],
+
+    "itinerary_design_strategy": {
+      "golden_route": "Toronto -> Niagara Falls -> Ottawa -> Montreal -> Quebec City",
+      "regional_focus": "British Columbia (Vancouver/Whistler) or Alberta (Banff/Jasper)",
+      "requirements": "Itinerary must align with the funds shown. Internal flights/trains (VIA Rail) should be mentioned."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk": ["Insufficient ties to home country", "Purpose of visit not credible", "Lump-sum bank deposits"],
+      "medium_risk": ["Single/Young applicants with low salary", "No previous history of travel to Tier-1 countries"],
+      "mitigation": "Include Asset Valuation (Land/Flat) and strong family ties documentation (Marriage/Birth certificates)."
+    },
+
+    "expert_approval_hacks": [
+      "Upload a 'Letter of Explanation' even if optional; it's the only way to 'speak' to the officer.",
+      "Ensure all Bengali documents are translated by an authorized translator and notarized.",
+      "Keep digital scans under 4MB per file as per IRCC portal limits.",
+      "Apply at least 4 months in advance to account for seasonal backlog."
+    ],
+
+    "additional_logistics_2026": {
+      "visit_japan_web": "N/A (Canada uses ArriveCAN for specific declarations, though mostly optional now).",
+      "currency_advice": "Canada is very card-friendly; use a multi-currency travel card for 90% of transactions.",
+      "jr_pass_note": "Consider a VIA Rail pass if traveling between Toronto and Montreal; book 3 months early for 'Escape' fares."
+    },
+
+    "faq_extended": [
+      {
+        "question": "Does Canada require a physical interview?",
+        "answer": "Almost never for visitor visas. Decisions are based entirely on the digital application and biometrics."
+      },
+      {
+        "question": "Is a sponsor allowed?",
+        "answer": "Yes, but they must provide 'Notice of Assessment' (NOA) and T4 slips to prove financial capability in Canada."
+      },
+      {
+        "question": "Can I apply for a 10-year Multiple Entry Visa?",
+        "answer": "IRCC automatically considers most applicants for a multiple-entry visa valid until passport expiry."
+      }
+    ],
+
+    "seo_and_metadata": {
+      "meta_title": "Canada Tourist Visa Bangladesh 2026 - IRCC Process & VFS Requirements",
+      "canonical_url": "https://example-visa-guide.com/bangladesh-to-canada-visa",
+      "keywords": [
+        "Canada Visa Fee Dhaka 2026",
+        "VFS Canada Bangladesh Appointment",
+        "Canada Visa Bank Balance for Bangladeshi",
+        "Canada Visitor Visa Requirements 2026"
+      ]
+    }
+  }
 }

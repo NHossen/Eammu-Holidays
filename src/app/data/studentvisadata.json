@@ -1,0 +1,210 @@
+{
+  "japan": {
+    "title": "Ultimate Japan Student Visa & Scholarship Guide 2026 for Bangladeshi Students",
+    "last_updated": "2026-04-12",
+    "description": "A complete roadmap for Bangladeshi students seeking higher education in Japan. Covering the COE process, MEXT and JASSO scholarship details, financial solvency requirements, and 2026 approval trends.",
+    
+    "visa_category_details": {
+      "main_category": "Long-Term Stay",
+      "visa_type": "Student Visa",
+      "entry_type": "Single Entry (Converted to Residence Card upon arrival)",
+      "purpose": [
+        "Japanese Language Studies",
+        "Undergraduate (Gakubu) Degree",
+        "Master’s / Doctoral Research",
+        "Vocational / Technical Training (Senmon Gakko)"
+      ],
+      "eligibility": "Applicants with an Admission Offer and an issued Certificate of Eligibility (COE)."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "MEXT (Monbukagakusho) Scholarship",
+          "benefits": "Full tuition waiver, monthly stipend (¥117,000 - ¥145,000), and round-trip airfare.",
+          "application_window": "April–May (Embassy Recommendation) or via University Recommendation.",
+          "selection_criteria": "High academic GPA, research proposal (for postgrads), and written exams."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "JASSO Reservation Program",
+          "benefits": "Monthly stipend of ¥48,000 for EJU high-scorers.",
+          "target": "Self-funded students with excellent entrance results."
+        },
+        {
+          "name": "Honjo International Scholarship Foundation",
+          "benefits": "Monthly stipend up to ¥210,000 for graduate students.",
+          "special_note": "Requires proficiency in Japanese or high-level English research."
+        }
+      ]
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 2,500,000 - 3,500,000 (Equivalent to 1st year tuition + ¥2,000,000 living costs)",
+      "sponsor_profile": "First-degree relative (Father/Mother) preferred with stable monthly income.",
+      "bank_history_requirement": "6 to 12 months of consistent transaction history; lump-sum deposits are highly scrutinized.",
+      "logic": "The Japanese Immigration Bureau requires proof that the student can survive without illegal work."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Original Passport (Valid for duration of stay)",
+        "Original COE (Certificate of Eligibility) + 1 Photocopy",
+        "Visa Application Form (Typed with QR Code)",
+        "One Photo (45mm x 45mm, White background)",
+        "Acceptance Letter from the Japanese Institution",
+        "Educational Certificates & Transcripts (Attested by Ministry of Education/Foreign Affairs)"
+      ],
+      "coe_phase_documents": [
+        "Financial Support Declaration Form",
+        "Sponsor's Bank Solvency & 6-month Statement",
+        "Sponsor's Income Tax Return (ITDR) for last 3 years",
+        "Relationship proof (Birth Certificate or Family Tree)",
+        "Language Proficiency Proof (JLPT N5+ or NAT-Test for language students; IELTS/TOEFL for English programs)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "2 - 3 months (Issued by regional Immigration Bureaus in Japan)",
+      "visa_processing_time": "5 - 10 working days after COE submission at JVAC",
+      "approval_chances": "High (90%+) once a COE is issued, provided documents are not forged.",
+      "interview_probability": "Medium. Students may be called for a basic interview to verify language skills or study intent."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Inconsistency between COE documents and Embassy visa application.",
+        "Lack of Japanese language ability (inability to answer basic questions in Japanese).",
+        "Fraudulent educational or financial documents.",
+        "Poor academic record without a valid explanation for study gaps."
+      ],
+      "mitigation_strategy": "Ensure all translations (Bengali to English/Japanese) are notarized and match the original data exactly."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 28 hours per week (requires 'Permission to Engage in Activity other than that Permitted' at the airport).",
+      "vacation_hours": "Up to 40 hours per week during long academic breaks.",
+      "visa_extension": "Renewable yearly or every 2 years based on enrollment status."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Can I apply for a student visa without a JLPT certificate?",
+        "answer": "For English-medium degree programs, IELTS/TOEFL is sufficient. For language schools, at least 150 hours of Japanese study or an N5 certificate is usually mandatory for COE approval."
+      },
+      {
+        "question": "Is there an age limit for Japanese student visas?",
+        "answer": "Technically no, but those over 30 or with a study gap of 5+ years face much stricter scrutiny regarding their motivation."
+      },
+      {
+        "question": "Can my spouse join me?",
+        "answer": "Only after you arrive and switch to a Dependent Visa, which usually requires showing a higher bank balance and stable living conditions."
+      }
+    ]
+  },
+  "canada": {
+    "title": "Comprehensive Canada Study Permit & Scholarship Guide 2026 for Bangladeshi Students",
+    "last_updated": "2026-04-12",
+    "description": "The definitive 2026 roadmap for Bangladeshi students pursuing higher education in Canada. Covering the PAL process, SDS vs. Non-SDS streams, GIC requirements, and updated cost-of-living thresholds.",
+    
+    "visa_category_details": {
+      "main_category": "Temporary Residence",
+      "visa_type": "Study Permit",
+      "entry_type": "TRV (Temporary Resident Visa) or eTA (Electronic Travel Authorization)",
+      "purpose": [
+        "ESL/FSL Language Training",
+        "Undergraduate (Bachelor's) Degree",
+        "Post-Graduate (Master’s / PhD) Research",
+        "Diploma / Advanced Diploma Programs (DLIs)"
+      ],
+      "eligibility": "Applicants with a Letter of Acceptance (LOA) and a Provincial Attestation Letter (PAL) from a DLI."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "Vanier Canada Graduate Scholarships",
+          "benefits": "$50,000 per year for three years for doctoral students.",
+          "application_window": "Typically closes in October/November for the following academic year.",
+          "selection_criteria": "Academic excellence, research potential, and demonstrated leadership skills."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "Lester B. Pearson International Scholarship",
+          "benefits": "Full tuition, books, incidental fees, and full residence support for four years.",
+          "target": "Exceptional undergraduate students at the University of Toronto."
+        },
+        {
+          "name": "Canada ASEAN Scholarships and Educational Exchanges for Development (SEED)",
+          "benefits": "Funding for short-term study or research for students from ASEAN/Specific regions.",
+          "special_note": "Focused on mid-career professionals and students in specific sustainable development fields."
+        }
+      ]
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 3,500,000 - 5,000,000 (1st year tuition + $20,635 CAD GIC/Living + Travel)",
+      "sponsor_profile": "Immediate family (Parents) with clear Proof of Funds and 'Source of Wealth' documentation.",
+      "bank_history_requirement": "Consistent 6-month history; large unexplained deposits lead to immediate 'Personal Assets' concerns.",
+      "logic": "IRCC requires proof that students can support themselves without depending on off-campus employment."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport (Minimum 6 months validity beyond intended stay)",
+        "Letter of Acceptance (LOA) from a Designated Learning Institution (DLI)",
+        "Provincial Attestation Letter (PAL) - Mandatory for most 2026 undergrad applications",
+        "Recent Digital Photo (35mm x 45mm, White background)",
+        "Custodianship Declaration (For minor students under 18/19)",
+        "Educational Credentials (WES evaluation highly recommended for Master's)"
+      ],
+      "coe_phase_documents": [
+        "Study Plan / Statement of Purpose (SOP) explaining why Canada and why this specific program",
+        "Guaranteed Investment Certificate (GIC) of $20,635 CAD (via Scotiabank/CIBC)",
+        "Proof of Tuition Payment for the first year",
+        "CAQ (For students intending to study in Quebec)",
+        "Language Proficiency (IELTS Academic 6.0-6.5+ or PTE Academic for SDS eligibility)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "8 - 12 weeks (Global average for Bangladesh via the Non-SDS or SDS stream)",
+      "visa_processing_time": "20 - 45 days after Biometrics and Medical completion",
+      "approval_chances": "Variable (65% - 85%); higher for Master’s/PhD and those with strong GIC/SOP documentation.",
+      "interview_probability": "Low. Decisions are primarily document-based; medical exam is mandatory."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Dual Intent/Vague ties to home country (Section 216(1) concerns).",
+        "Weak Statement of Purpose (SOP) that doesn't justify the career progression.",
+        "Insufficient financial proof or lack of a GIC (for high-risk profiles).",
+        "Mismatch between previous education and the proposed program in Canada."
+      ],
+      "mitigation_strategy": "Submit a robust 'Property & Family Ties' evaluation and clear 'Tax Returns' for sponsors."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 24 hours per week off-campus (2026 policy) during academic sessions.",
+      "vacation_hours": "Full-time hours permitted during scheduled summer or winter breaks.",
+      "visa_extension": "Eligible for Post-Graduation Work Permit (PGWP) of up to 3 years depending on program length."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Can I apply for a Canada student visa with PTE?",
+        "answer": "Yes, IRCC accepts PTE Academic for the SDS stream (minimum 60 score) and regular applications."
+      },
+      {
+        "question": "What is a PAL and do I need it in 2026?",
+        "answer": "A Provincial Attestation Letter is mandatory for most undergraduate and college students to prove they fall under the provincial cap."
+      },
+      {
+        "question": "Can I bring my family while I study?",
+        "answer": "Currently, only spouses of students in Master's/Doctoral or professional programs are eligible for an Open Work Permit."
+      }
+    ]
+  }
+}

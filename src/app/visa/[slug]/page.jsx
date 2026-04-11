@@ -29,7 +29,7 @@ export default async function CountryPage({ params }) {
   if (!country) return <div className="p-20 text-center font-serif text-2xl">Country data not found.</div>;
 
   return (
-    <div className="min-h-screen bg-[#FDFCFB] text-[#2D2D2D] font-sans">
+    <div className="min-h-screen text-[#2D2D2D] font-sans">
       {/* LUXURY HERO SECTION */}
       <div className="relative bg-[#f5c800] py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
@@ -331,7 +331,7 @@ export default async function CountryPage({ params }) {
       </div>
 
       {/* FAQ SECTION */}
-      <div className="bg-gray-100 py-24">
+      <div className="py-16">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-black text-center mb-16 italic tracking-tight uppercase">
             Frequently Asked <span className="text-[#C5A059]">Questions</span>

@@ -11,6 +11,7 @@ import {
   FaBriefcase, FaHandHoldingUsd, FaFileContract
 } from "react-icons/fa";
 import TopStudyDestinations from "./TopStudyDestinations/TopStudyDestinations";
+import StudentVisa from "./StudentVisa/StudentVisa";
 
 const StudentVisaBangladesh = () => {
   const fadeInUp = {
@@ -26,20 +27,7 @@ const StudentVisaBangladesh = () => {
     { name: "Australia", desc: "Subclass 500 Visa support.", icon: "🇦🇺", color: "bg-green-50 text-green-600" },
   ];
 
-  const [currentHero, setCurrentHero] = useState(0);
 
-  const heroSlides = [
-    { id: 1, image: "https://etias.com/assets/uploads/imagery/blog/study-abroad-safety-guide-hero.jpg" },
-    { id: 2, image: "https://www.universityliving.com/blog/wp-content/uploads/2022/10/Banner-Image-1.webp" },
-    { id: 3, image: "https://www.applyboard.com/wp-content/uploads/2023/01/Quiz_-Which-Destination-Country-Should-I-Study-Abroad-In.png" }
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentHero((prev) => (prev + 1) % heroSlides.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [heroSlides.length]);
 
   return (
     <div className="bg-[#fcfcfc] min-h-screen font-sans overflow-x-hidden">
@@ -61,72 +49,7 @@ const StudentVisaBangladesh = () => {
         }) }}
       />
 
-      {/* 🚀 Hero Section */}
-      <section className="relative h-[65vh] md:h-[65vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentHero}
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1.05 }}
-              exit={{ opacity: 0, scale: 1 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="absolute inset-0"
-            >
-              <img 
-                src={heroSlides[currentHero].image} 
-                alt="Study Abroad Consultancy Bangladesh" 
-                fill
-                priority
-                className="object-cover"
-              />
-            </motion.div>
-          </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-tr from-[#c2c2c2] via-[#005700]/10 to-transparent z-10"></div>
-        </div>
-
-        <div className="container mx-auto px-6 relative z-20 grid lg:grid-cols-2 gap-10 items-center pt-24 pb-12 md:py-0">
-          <motion.div initial={{ x: -30, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.8 }} className="text-center md:text-left">
-            <span className="bg-orange-500 text-white px-5 py-2 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest mb-6 inline-flex items-center gap-2 shadow-lg">
-              <FaAward /> Trusted Education Partner 2026
-            </span>
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1]">
-              Study Abroad <br /> 
-              <span className="text-orange-400 drop-shadow-md italic text-5xl md:text-7xl">From Bangladesh</span>
-            </h1>
-            <p className="text-white/90 max-w-xl mb-10 leading-relaxed text-base md:text-xl font-bold">
-              Secure your future with expert <strong>student visa consultancy</strong>. Expert processing for <strong>UK, USA, Canada, & Australia</strong>.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <a href="https://wa.me/8801631312524" className="bg-white text-[#005a31] px-10 py-4 rounded-2xl font-black hover:bg-orange-500 hover:text-white transition-all shadow-2xl flex items-center justify-center gap-2 text-sm md:text-base uppercase tracking-tighter">
-                Apply for 2026 Intake <FaArrowRight />
-              </a>
-            </div>
-          </motion.div>
-          
-          <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="hidden lg:block">
-              <div className="bg-white/10 backdrop-blur-xl p-10 rounded-[4rem] border border-white/20 shadow-2xl">
-                <div className="grid grid-cols-2 gap-8">
-                    <StatCard count="500+" label="Student Placed" />
-                    <StatCard count="150+" label="Universities" />
-                    <StatCard count="95%" label="Visa Success" />
-                    <StatCard count="100%" label="Support" />
-                </div>
-              </div>
-          </motion.div>
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-3">
-          {heroSlides.map((_, i) => (
-            <div 
-              key={i} 
-              className={`h-1 rounded-full transition-all duration-700 ${
-                i === currentHero ? 'w-12 bg-orange-400' : 'w-4 bg-white/30'
-              }`} 
-            />
-          ))}
-        </div>
-      </section>
+    <StudentVisa />
 
       <TopStudyDestinations />
 
