@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+src/app/data/countries.json
+src/app/data/studentvisadata.json
+src/app/data/visadata.json
