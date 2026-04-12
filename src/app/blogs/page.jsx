@@ -1,41 +1,80 @@
 import Blogs from '@/Components/Client/Blog/Blog'
 import React from 'react'
 
-// --- SEO METADATA ---
+// --- SEO METADATA (BLOG PAGE) ---
 export const metadata = {
-  title: 'Travel News - Eammu Holidays | Leading Travel Agency in Bangladesh',
-  description: 'Stay updated with the latest visa requirements, travel tips, and destination guides for USA, UK, Canada, and Europe. Expert advice from Eammu Holidays.',
-  keywords: [
-    'Visa processing blog', 
-    'Student visa updates 2026', 
-    'Travel agency Bangladesh blog', 
-    'Tourist visa requirements', 
-    'Eammu Holidays news'
-  ],
-  alternates: {
-    canonical: 'https://eammu.com/blogs',
+  metadataBase: new URL("https://www.eammu.com"),
+
+  title: {
+    default:
+      "Travel Blog & Visa Guides 2026 | Eammu Holidays",
+    template: "%s | Eammu Holidays Blog",
   },
+
+  description:
+    "Explore the latest travel updates, visa requirements, and destination guides for Dubai, Europe, UK, USA, and more. Get expert tips, step-by-step visa guides, and travel insights from Eammu Holidays.",
+
+  keywords: [
+    "visa guide 2026",
+    "travel blog Bangladesh",
+    "Dubai visa updates",
+    "Europe visa requirements",
+    "UK tourist visa guide",
+    "USA visa process",
+    "travel tips international",
+    "Eammu Holidays blog",
+    "visa application help"
+  ],
+
+  alternates: {
+    canonical: "https://www.eammu.com/blogs",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
   openGraph: {
-    title: 'Travel Blog & Visa Guides | Eammu Holidays',
-    description: 'Latest travel news and comprehensive visa application guides worldwide.',
-    url: 'https://eammu.com/blogs',
-    siteName: 'Eammu Holidays',
+    type: "website",
+    url: "https://www.eammu.com/blogs",
+    siteName: "Eammu Holidays",
+
+    title:
+      "Travel Blog, Visa Guides & Latest Updates",
+
+    description:
+      "Stay updated with visa rules, travel tips, and destination guides worldwide. Expert insights from Eammu Holidays.",
+
     images: [
       {
-        url: 'https://eammu.com/blog-banner.webp', // Make sure this image exists in your public folder
+        url: "/blog-banner.webp",
         width: 1200,
         height: 630,
-        alt: 'Eammu Holidays Travel Blog',
+        alt: "Travel blog with visa guides and updates",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+
+    locale: "en_US",
   },
+
   twitter: {
-    card: 'summary_large_image',
-    title: 'Travel Blog & Visa Guides | Eammu Holidays',
-    description: 'Latest travel news and comprehensive visa application guides.',
-    images: ['https://eammu.com/blog-banner.webp'],
+    card: "summary_large_image",
+    title:
+      "Travel Blog & Visa Updates | Eammu Holidays",
+    description:
+      "Latest visa guides, travel tips, and destination insights for international travelers.",
+    images: ["/blog-banner.webp"],
+  },
+
+  icons: {
+    icon: "/emf.jpg",
   },
 };
 

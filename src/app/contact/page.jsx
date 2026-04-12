@@ -4,37 +4,68 @@ import ContactWithUs from '@/Components/Client/ContactWithUs/ContactWithUs'
 import React from 'react'
 
 export const metadata = {
-  title: 'Contact Eammu Holidays | Global Visa & Travel Support',
-  description: 'Reach Eammu Holidays for expert visa assistance and travel planning. Visit our offices in Cumilla (Bangladesh), Dubai (UAE), Yerevan (Armenia), and Tbilisi (Georgia).',
+  metadataBase: new URL("https://www.eammu.com"),
+
+  title:
+    "Contact Eammu Holidays | Visa & Travel Support in Bangladesh, Dubai, Armenia & Georgia",
+
+  description:
+    "Need help with visas or travel planning? Contact Eammu Holidays for fast and reliable support. Visit our offices in Cumilla (Bangladesh), Dubai (UAE), Yerevan (Armenia), and Tbilisi (Georgia) or connect via phone, WhatsApp, and email.",
+
   keywords: [
-    'Contact Eammu Holidays',
-    'Travel Agency Cumilla Bangladesh',
-    'Visa Support Dubai Business Bay',
-    'Travel Agency Yerevan Armenia',
-    'Tbilisi Georgia Travel Office',
-    'Apply for Canada Visa Bangladesh',
-    'USA Visa support Cumilla'
+    "contact travel agency Bangladesh",
+    "visa support Cumilla",
+    "Dubai travel agency contact",
+    "Eammu Holidays phone number",
+    "travel agency Business Bay Dubai",
+    "visa consultant Bangladesh contact",
+    "international travel agency contact",
+    "Eammu Holidays office locations"
   ],
+
   alternates: {
-    canonical: 'https://eammu.com/contact',
+    canonical: "https://www.eammu.com/contact",
   },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
   openGraph: {
-    title: 'Contact Eammu Holidays – Global Office Locations',
-    description: 'Connect with our travel experts in Bangladesh, UAE, Armenia, and Georgia for 24/7 visa and tour support.',
-    url: 'https://eammu.com/contact',
-    siteName: 'Eammu Holidays',
+    type: "website",
+    url: "https://www.eammu.com/contact",
+    siteName: "Eammu Holidays",
+
+    title:
+      "Contact Eammu Holidays – Global Travel & Visa Experts",
+
+    description:
+      "Get in touch with Eammu Holidays for visa assistance, tour packages, and travel services. Offices in Bangladesh, UAE, Armenia & Georgia.",
+
     images: [
       {
-        url: 'https://eammu.com/sylhet_eammu.webp', 
+        url: "/preview-banner.webp",
         width: 1200,
         height: 630,
-        alt: 'Eammu Holidays Global Contact Center',
+        alt: "Contact Eammu Holidays travel and visa support",
       },
     ],
-    type: 'website',
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Contact Eammu Holidays",
+    description:
+      "Reach our travel experts for visa services, tours, and travel support worldwide.",
+    images: ["/preview-banner.webp"],
+  },
+
+  icons: {
+    icon: "/emf.jpg",
   },
 };
-
 export default function page() {
   return (
     <div>

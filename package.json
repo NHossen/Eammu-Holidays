@@ -12,6 +12,8 @@
     "daisyui": "^5.5.19",
     "flowbite-react": "^0.12.17",
     "lucide-react": "^0.577.0",
+    "mongodb": "^7.1.1",
+    "mongoose": "^9.4.1",
     "motion": "^12.38.0",
     "next": "16.2.1",
     "next-sitemap": "^4.2.3",

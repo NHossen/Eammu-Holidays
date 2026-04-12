@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
   const d = visadata[cleanSlug];
   
   return {
-    title: d?.seo_and_metadata?.meta_title || "Visa Application Guide 2026",
+    title: d?.seo_and_metadata?.meta_title || "Tourist Visa Application Guide | Requirements, Fees & Process",
     description: d?.description,
     alternates: { canonical: d?.seo_and_metadata?.canonical_url },
     keywords: d?.seo_and_metadata?.keywords?.join(", "),

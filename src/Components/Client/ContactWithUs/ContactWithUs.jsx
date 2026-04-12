@@ -13,7 +13,7 @@ const offices = [
     whatsapp: "+8801631312524",
     email: ["bangladesh@eammu.com", "info@eammu.com"],
     map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.3475734898495!2d91.139884!3d23.483984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDI5JzAyLjMiTiA5McKwMDgnMjMuNiJF!5e0!3m2!1sen!2sbd!4v1631312524000!5m2!1sen!2sbd",
-    website: "/travel-agency-bangladesh",
+    website: "/contact/travel-agency-bangladesh",
   },
   {
     location: "Business Bay, Dubai, UAE",
@@ -22,7 +22,7 @@ const offices = [
     whatsapp: "+971507078334",
     email: ["dubai@eammu.com", "info@eammu.com"],
     map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178652414707!2d55.2708!3d25.185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6834751ac001%3A0x8cf6347c00000000!2sBusiness%20Bay%20-%20Dubai!5e0!3m2!1sen!2sae!4v1631312524001!5m2!1sen!2sae",
-    website: "/travel-agency-dubai",
+    website: "/contact/travel-agency-dubai",
   },
   {
     location: "Lambron 39, Yerevan, Armenia",
@@ -40,7 +40,7 @@ const offices = [
     whatsapp: "+995574446218",
     email: ["georgia@eammu.com", "info@eammu.com"],
     map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.5!2d44.7!3d41.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQyJzAwLjAiTiA0NMKwNDInMDAuMCJF!5e0!3m2!1sen!2sge!4v1631312524003!5m2!1sen!2sge",
-    website: "/travel-agency-georgia",
+    website: "/contact/travel-agency-georgia",
   },
 ];
 

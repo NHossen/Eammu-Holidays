@@ -31,7 +31,7 @@ export default async function StudentVisaPage({ params }) {
   return (
     <div className="min-h-screen text-[#2D2D2D] font-sans">
       {/* ACADEMIC HERO SECTION */}
-      <div className="relative bg-[#004a99] py-24 overflow-hidden">
+      <div className="relative bg-[#dabeff] py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12">
           <div className="relative group">
@@ -237,7 +237,7 @@ export default async function StudentVisaPage({ params }) {
       </div>
 
       {/* FAQ SECTION */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-16">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-black text-center mb-16 italic tracking-tight uppercase">
             Student <span className="text-blue-600">FAQ</span>
