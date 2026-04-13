@@ -10,6 +10,7 @@ import Our_Succsses_State from "@/Components/Server/Our_Succsses_State/Our_Succs
 import TourPackages from "@/Components/Server/TourPackages/TourPackages";
 import LandingModal from "@/Components/Client/LandingModal/LandingModal";
 
+
 export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
 

@@ -19,7 +19,7 @@ const menuItems = [
   { id: 1, label: "Flights", icon: Plane, path: "our-services/air-tickets" },
   { id: 2, label: "Holidays", icon: Map, path: "our-services/tour-packages" },
   { id: 3, label: "Things To Do", icon: Wind, path: "our-services/things-to-do" },
-  { id: 4, label: "Study Abroad", icon: GraduationCap, path: "our-services/study-abroad" },
+  { id: 4, label: "Study Abroad", icon: GraduationCap, path: "/study-abroad" },
   { id: 5, label: "Offers", icon: Gift, path: "/offers" },
 ];
 

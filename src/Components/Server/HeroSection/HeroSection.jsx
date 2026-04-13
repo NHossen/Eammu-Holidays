@@ -4,6 +4,7 @@ import BottomCarousel from '@/Components/Client/HeroHome/BottomCarousel/BottomCa
 import HeroButtons from '@/Components/Client/HeroHome/HeroButtons/HeroButtons';
 import PremiumNavBar from '@/Components/Client/HeroHome/PremiumNavBar/PremiumNavBar';
 import PromoCard from '@/Components/Client/HeroHome/PromoCard/PromoCard';
+import VisaSearchBar from '@/Components/Client/HeroHome/VisaSearchBar/VisaSearchBar';
 
 
 const HeroSection = () => {
@@ -15,7 +16,7 @@ const HeroSection = () => {
 
         <div className="relative z-10 min-h-130 sm:min-h-150 lg:min-h-[50vh] flex flex-col">
           <PremiumNavBar />
-
+<VisaSearchBar />
           <div className="flex-1 flex items-center py-4">
   {/* 1. On mobile: We use "flex flex-col-reverse" to put the Card on top and Text on bottom.
       2. On desktop (lg): We switch to "grid grid-cols-2" for side-by-side layout.
@@ -48,8 +49,11 @@ const HeroSection = () => {
       <PromoCard />
     </div>
 
+    
+
   </div>
 </div>
+
         </div>
       </div>
 

@@ -46,7 +46,7 @@ const promoSlides = [
   { 
     id: 18, category: "visa", title: "STUDY IN UK", 
     label1: "IELTS Req.", price1: "6.0", label2: "Stay Back", price2: "2 Years", 
-    badge: "No IELTS", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070", link: "/our-services/study-abroad", alt: "UK Study" 
+    badge: "No IELTS", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070", link: "/study-abroad", alt: "UK Study" 
   },
   { 
     id: 3, category: "flight", title: "DHAKA TO LONDON", 
