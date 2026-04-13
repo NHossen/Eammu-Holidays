@@ -11,10 +11,11 @@ import {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const cleanSlug = slug.replace("-student-visa", "");
+  const country = countries.find((c) => createSlug(c.country) === cleanSlug);
   const d = visadata[cleanSlug];
   
   return {
-    title: d?.title || "Student Visa Application Guide 2026",
+    title: d?.title || `${country.country} Student Visa Application And Requirements`,
     description: d?.description,
     keywords: "student visa requirements 2026, scholarship guide, study abroad, COE process",
   };
@@ -49,12 +50,15 @@ export default async function StudentVisaPage({ params }) {
                 {d?.visa_category_details?.visa_type}
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black mb-4 tracking-tighter italic drop-shadow-lg">
-              {country.country} <span className="text-[#f5c800]">Study</span>
+            <h1 className="text-3xl md:text-4xl font-black mb-4 tracking-tighter italic drop-shadow-lg">
+             <span className="text-[#f5c800]">Study in </span> {country.country} 
             </h1>
-            <h2 className="text-xl md:text-2xl font-medium text-white/80 mb-6 max-w-3xl leading-relaxed">
-              {d?.title}
+            <h2>
+              Study in the {country.country}: Your Gateway to World-Class Education and Global Opportunities
             </h2>
+            <h3 className="text-xl md:text-2xl font-medium text-white/80 mb-6 max-w-3xl leading-relaxed">
+              {d?.title}
+            </h3>
             <p className="text-white/70 max-w-2xl text-lg leading-relaxed font-light mb-4">
               {d?.description}
             </p>

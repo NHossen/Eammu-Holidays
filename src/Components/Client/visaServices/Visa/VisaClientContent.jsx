@@ -69,7 +69,7 @@ export default function VisaClientContent() {
     <>
  
      {/* --- UPDATED RESPONSIVE HERO SECTION --- */}
-      <header className="relative w-full min-h-[500px] md:min-h-[650px] flex items-center justify-center overflow-hidden">
+      <header className="relative pt-14 w-full min-h-[500px] md:min-h-[650px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <AnimatePresence mode="wait">
             <motion.div
@@ -117,7 +117,7 @@ export default function VisaClientContent() {
           </div>
 
           {/* Responsive Quick Nav */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 max-w-4xl mx-auto mb-12">
             {['Asia', 'Europe', 'America', 'MiddleEast', 'Oceania', 'Popular'].map(cat => (
               <button 
                 key={cat} 

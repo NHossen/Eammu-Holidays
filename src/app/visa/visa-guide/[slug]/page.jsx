@@ -61,7 +61,7 @@ export default async function VisaDetails({ params }) {
     <div className="min-h-screen bg-slate-50/50 pb-20 font-sans antialiased text-slate-900">
       
       {/* 1. Cinematic Header */}
-      <div className="relative bg-[#e9b200] py-20 overflow-hidden">
+      <div className="relative bg-[#02c7e0] py-26 overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-blue-500 rounded-full blur-[120px]"></div>
         </div>
@@ -69,14 +69,20 @@ export default async function VisaDetails({ params }) {
         <div className="max-w-6xl mx-auto px-6 relative z-10 text-center">
           <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-8">
             <img src={originData.flag} className="w-6 h-4 object-cover" alt="" />
-            <span className="text-white text-[10px] font-black uppercase tracking-widest">Official Protocol</span>
+            <span className="text-white text-[10px] font-black uppercase tracking-widest">Official Protocol - Eammu Holidays</span>
             <img src={destinationData.flag} className="w-6 h-4 object-cover" alt="" />
           </div>
 
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight capitalize">
             {destinationName} Visa <span className="text-blue-600">Requirements</span> <br />
-            <span className="text-2xl md:text-3xl font-light text-slate-400">for {originName} Citizens</span>
+            <span className="text-2xl md:text-3xl font-light text-slate-800">for {originName} Citizens</span>
           </h1>
+          <h2>
+            Dreaming of a trip to {destinationName} ?
+          </h2>
+          <p>
+            Obtaining a Tourist Visa to {destinationName} from {originName} is now effortlessly straightforward with Eammu Holidays. Say goodbye to the hassle of embassy visits, long waits, and complex paperwork. Our user-friendly online application process allows you to secure your Tourist Visa swiftly and efficiently, so you can focus on embracing the breathtaking landscapes and diverse culture that {destinationName} has to offer!
+          </p>
         </div>
       </div>
 
@@ -88,8 +94,8 @@ export default async function VisaDetails({ params }) {
             {/* 2. Quick Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: 'Validity', value: '90-180 Days', icon: '📅' },
-                { label: 'Entry', value: 'Multi-Entry', icon: '🛂' },
+                { label: 'Validity', value: '3--180 Days', icon: '📅' },
+                { label: 'Entry', value: 'Single-Entry or Multi-Entry', icon: '🛂' },
                 { label: 'Process', value: 'High Success', icon: '⚡' },
                 { label: 'Fee Est.', value: 'Check Below', icon: '💰' }
               ].map((stat, i) => (

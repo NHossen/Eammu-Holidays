@@ -10,10 +10,11 @@ import {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const cleanSlug = slug.replace("-visa-application", "");
+  const country = countries.find((c) => createSlug(c.country) === cleanSlug);
   const d = visadata[cleanSlug];
   
   return {
-    title: d?.seo_and_metadata?.meta_title || "Tourist Visa Application Guide | Requirements, Fees & Process",
+    title: d?.seo_and_metadata?.meta_title || `${country.country} Visa - Requirements, Price and Application`,
     description: d?.description,
     alternates: { canonical: d?.seo_and_metadata?.canonical_url },
     keywords: d?.seo_and_metadata?.keywords?.join(", "),
@@ -49,8 +50,8 @@ export default async function CountryPage({ params }) {
                 {d?.visa_category_details?.visa_type}
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-4 tracking-tighter italic drop-shadow-lg">
-              {country.country} <span className="text-[#267700]">Visa</span>
+            <h1 className="text-3xl md:text-5xl font-black text-white mb-4 tracking-tighter italic drop-shadow-lg">
+              {country.country} <span className="text-[#267700]"> Tourist Visa</span>
             </h1>
             <h2 className="text-xl md:text-2xl font-medium text-black/80 mb-6 max-w-3xl leading-relaxed">
               {d?.title}
