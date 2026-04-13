@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { countries, popularRoutes, categories } from '@/data/visaData/visaData';
+import VisaSearchBar from '../../HeroHome/VisaSearchBar/VisaSearchBar';
 
 
 
@@ -93,7 +94,7 @@ export default function VisaClientContent() {
           <div className="absolute inset-0 bg-black/10 bg-gradient-to-b from-[#005a31]/10 via-black/20 to-black/30 z-10" />
         </div>
 
-        <div className="container mx-auto px-4 text-center relative z-20 text-white mt-10 md:mt-0">
+        <div className="container mx-auto px-4 text-center relative z-20 mt-10 md:mt-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentHero}
@@ -102,7 +103,7 @@ export default function VisaClientContent() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-3xl md:text-6xl font-extrabold mb-4 md:mb-6 drop-shadow-lg leading-tight">
+              <h1 className="text-white text-3xl md:text-6xl font-extrabold mb-4 md:mb-6 drop-shadow-lg leading-tight">
                 {heroSlides[currentHero].title}
               </h1>
               <p className="max-w-3xl mx-auto text-sm md:text-xl text-gray-100 mb-8 md:mb-12 leading-relaxed drop-shadow-md px-4">
@@ -111,13 +112,17 @@ export default function VisaClientContent() {
             </motion.div>
           </AnimatePresence>
 
+          <div className='mb-12'>
+            <VisaSearchBar />
+          </div>
+
           {/* Responsive Quick Nav */}
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 max-w-4xl mx-auto">
             {['Asia', 'Europe', 'America', 'MiddleEast', 'Oceania', 'Popular'].map(cat => (
               <button 
                 key={cat} 
                 onClick={() => scrollToSection(cat)}
-                className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white hover:text-[#005a31] px-4 py-2 md:px-8 md:py-3 rounded-full transition-all font-bold text-xs md:text-sm whitespace-nowrap"
+                className="bg-white/10 backdrop-blur-md border text-white border-white/20 hover:bg-white hover:text-[#005a31] px-4 py-2 md:px-8 md:py-3 rounded-full transition-all font-bold text-xs md:text-sm whitespace-nowrap"
               >
                 {cat === 'MiddleEast' ? 'Middle East' : cat}
               </button>
