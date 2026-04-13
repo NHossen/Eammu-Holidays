@@ -12,11 +12,7 @@ export default function VisaSearchBar() {
     <div className="w-full max-w-5xl mx-auto px-4">
       {/* Unified Container with dynamic padding */}
       <div className="bg-white/70 backdrop-blur-2xl  p-2 md:p-3 lg:p-3 rounded-2xl md:rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] border border-white">
-        
-        {/* Title stays centered and clean */}
-        <h2 className="text-center text-xl md:text-2xl font-black text-slate-900 mb-2 md:mb-3 tracking-tight">
-          Check Your Visa Requirements  
-        </h2>
+
 
         {/* Action Row - Responsive logic ensures it stays balanced */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center gap-2">
@@ -79,9 +75,9 @@ export default function VisaSearchBar() {
           {/* Action Button - Full width on mobile, auto-width on desktop */}
           <Link 
             href={`/visa/visa-guide/${createSlug(destination)}-visa-for-${createSlug(origin)}`}
-            className="w-full md:w-auto bg-slate-900 hover:bg-blue-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-[1.5rem] md:rounded-[2rem] font-black transition-all active:scale-95 flex items-center justify-center gap-2 group whitespace-nowrap shadow-xl md:ml-2"
+            className="w-full md:w-auto bg-green-800 hover:bg-yellow-500 text-white px-6 md:px-10 py-4 md:py-5 rounded-[1.5rem] md:rounded-[2rem] font-black transition-all active:scale-95 flex items-center justify-center gap-2 group whitespace-nowrap shadow-xl md:ml-2"
           >
-            <span className="text-sm md:text-base">Verify</span>
+            <span className="text-sm md:text-base">Check Your Visa Requirements</span>
             <svg className="group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14m-7-7 7 7-7 7"/>
             </svg>
