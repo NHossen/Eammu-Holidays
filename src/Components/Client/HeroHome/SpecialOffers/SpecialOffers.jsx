@@ -2,16 +2,17 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
 const offerData = [
-  { id: 1, category: 'Airlines', title: "Fly to New Destinations with Up To 33% Off", logo: "https://hblimg.mmtcdn.com/content/hubble/img/bangkok/mmt/destination/m_Bangkok-landscape_l_400_640.jpg", link: "/offers", details: "Fly to New Destinations", alt: "Special flight discount offer to Bangkok" },
-  { id: 2, category: 'Airlines', title: "Get Up to 32% Discount on Selected European Routes", logo: "https://img.freepik.com/free-photo/beautiful-girl-standing-boat-looking-mountains-ratchaprapha-dam-khao-sok-national-park-surat-thani-province-thailand_335224-849.jpg?semt=ais_user_personalization&w=740&q=80", link: "/offers", details: "Get Up to 32% Discount", alt: "Discounted airfare for European travel" },
+  { id: 1, category: 'Airlines', title: "Fly to New Destinations with Up To 33% Off", logo: "/flight-offer.avif", link: "/offers", details: "Fly to New Destinations", alt: "Special flight discount offer to Bangkok" },
+  { id: 2, category: 'Airlines', title: "Get Up to 32% Discount on Selected European Routes", logo: "/thailand-flight-lowest-fare.avif", link: "/offers", details: "Get Up to 32% Discount", alt: "Discounted airfare for European travel" },
   { id: 3, category: 'Airlines', title: "Best airline ticket offers for domestic flights With 15% off", logo: "/airline-discount-offer.webp", link: "/offers", details: "Best airline ticket offers", alt: "Domestic flight ticket deals" },
-  { id: 5, category: 'Tours', title: "Get Exclusive Deals on International Flights", logo: "https://img.freepik.com/premium-photo/airplane-landing-sunset_114775-23.jpg?semt=ais_user_personalization&w=740&q=80", link: "/offers", details: "Get Exclusive Deals", alt: "International flight booking deals" },
+  { id: 5, category: 'Tours', title: "Get Exclusive Deals on International Flights", logo: "/dubai-tour-with-eammu.webp", link: "/offers", details: "Get Exclusive Deals", alt: "International flight booking deals" },
   { id: 6, category: 'Others', title: "Book cheap flights to top international destinations today.", logo: "/cheapflights_eammu_offer.webp", link: "/offers", details: "Book cheap flights", alt: "Cheap international flight tickets" },
-  { id: 7, category: 'Tours', title: "Fly to new destinations with exclusive travel discounts get Up to 48% Off This Eid", logo: "https://media.istockphoto.com/id/1011241694/photo/thai-traditional-wooden-longtail-boat-and-beautiful-sand-beach.jpg?s=612x612&w=0&k=20&c=3Al0xNJgX7LXSiNFbbZFLG2DcHIEtO_XDdgvvRBImUk=", link: "/offers", details: "Fly to new destinations", alt: "Eid special travel discount" },
-  { id: 8, category: 'Tours', title: "Travel the world with unbeatable airfare deals with Up to 38% Off This Eid", logo: "https://img.freepik.com/premium-photo/dubai-skyline-evening_114775-22.jpg?semt=ais_user_personalization&w=740&q=80", link: "/offers", details: "Travel This Eid", alt: "Dubai skyline travel deals" },
+  { id: 7, category: 'Tours', title: "Fly to new destinations with exclusive travel discounts get Up to 48% Off This Eid", logo: "/thailand-tour-eammu-new.jpg", link: "/offers", details: "Fly to new destinations", alt: "Eid special travel discount" },
+  { id: 8, category: 'Tours', title: "Travel the world with unbeatable airfare deals with Up to 38% Off This Eid", logo: "/dubai-skyline-evening.avif", link: "/offers", details: "Travel This Eid", alt: "Dubai skyline travel deals" },
 ];
 
 const SpecialOffers = () => {

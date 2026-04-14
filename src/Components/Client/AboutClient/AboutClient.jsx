@@ -190,7 +190,7 @@ export default function AboutClient({ heroSlides = [], stats = [], services = []
                 <div className="relative h-64 overflow-hidden">
                   <Image 
                     src={service.img} 
-                    alt={service.title} 
+                    alt={service.alt} 
                     fill 
                     className="object-cover transition-transform duration-700 group-hover:scale-110" 
                   />
@@ -202,7 +202,7 @@ export default function AboutClient({ heroSlides = [], stats = [], services = []
                   <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">{service.desc}</p>
                   
                   <Link href={service.link} className="inline-flex items-center text-[#005a31] font-bold uppercase text-xs tracking-wider group-hover:text-[#ffcc00] transition-colors duration-300">
-                    Explore
+                    {service.btn}
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>

@@ -94,7 +94,7 @@ export default async function VisaDetails({ params }) {
             {/* 2. Quick Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
-                { label: 'Validity', value: '3--180 Days', icon: '📅' },
+                { label: 'Validity', value: '30-180 Days', icon: '📅' },
                 { label: 'Entry', value: 'Single-Entry or Multi-Entry', icon: '🛂' },
                 { label: 'Process', value: 'High Success', icon: '⚡' },
                 { label: 'Fee Est.', value: 'Check Below', icon: '💰' }

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import visaData from '@/app/data/countries.json';
 import { createSlug } from '@/app/lib/utils';
+import Image from 'next/image';
 
 export default function VisaSearchBar() {
   const [origin, setOrigin] = useState('bangladesh');
@@ -20,7 +21,7 @@ export default function VisaSearchBar() {
           {/* Origin Selection */}
           <div className="flex-1 min-w-0 bg-slate-50/50 px-4 py-2 md:py-3 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 hover:border-blue-200 transition-all flex items-center gap-3 group">
             <div className="w-8 h-5 rounded-sm overflow-hidden shadow-sm shrink-0 border border-slate-200">
-              <img 
+              <img
                 src={visaData.find(c => c.country.toLowerCase() === origin)?.flag} 
                 className="w-full h-full object-cover" 
                 alt="" 

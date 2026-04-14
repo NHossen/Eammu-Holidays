@@ -45,12 +45,54 @@ const stats = [
 ];
 
 const services = [
-  { title: "Immigration & Visa", img: "https://i.ibb.co/ymnSDKYb/481769971-122262749468017871-3083837242661680362-n.jpg", link: "/", desc: "Expert assistance for student visas, PR, and work permits for UAE, Canada, and Europe.", btn: "Explore Visa Options" },
-  { title: "IT & Digital Marketing", img: "https://www.marenkoeppen.com/wp-content/uploads/marenkoeppen_IT-Marketing_web-1.png", link: "/web-development-digital-marketing", desc: "Cutting-edge web development, SEO, and lead generation for global startups.", btn: "Get IT Support" },
-  { title: "Event Management", img: "https://onewayeventproductions.com/wp-content/uploads/2019/05/1WAYAVBestPracticesEventManagment.jpeg", link: "/eammuevent", desc: "Creating unforgettable corporate events and luxury weddings globally.", btn: "Book Consultation" },
-  { title: "Fashion & Lifestyle", img: "https://i1.adis.ws/i/canon/pro-fashion-photography-technique-tips-1-new_e6eef04e6fe9434e9d9427a0220ef27c.jpeg", link: "/eammufashion", desc: "Premium apparel blending traditional Bangladeshi craft with Dubai style.", btn: "Shop Collection" },
-  { title: "Dairy & Agro", img: "https://img-cdn.krishijagran.com/82661/dairy-schemes.jpg", link: "/eammudairy", desc: "Ethical and sustainable farming providing fresh organic produce.", btn: "Order Fresh" },
-  { title: "Textile & Industry", img: "https://curiosityuntamed.com/wp-content/uploads/2021/01/Learn-About-1536x865.jpg", link: "/eammutextile", desc: "Sustainable manufacturing of premium fabrics and eco-friendly garments.", btn: "Bulk Inquiry" },
+  { 
+    title: "Immigration & Visa", 
+    img: "/eammu-visa-services.jpg", 
+    alt: "Professional visa processing services for UAE, Canada, and Europe travel and immigration",
+    link: "/", 
+    desc: "Expert assistance for student visas, PR, and work permits for UAE, Canada, and Europe.", 
+    btn: "Explore Visa Options" 
+  },
+  { 
+    title: "IT & Digital Marketing", 
+    img: "/it-marketing-eammu.png", 
+    alt: "Professional web development and digital marketing agency services for startups",
+    link: "/web-development-digital-marketing", 
+    desc: "Cutting-edge web development, SEO, and lead generation for global startups.", 
+    btn: "Get IT Support" 
+  },
+  { 
+    title: "Event Management", 
+    img: "/event-eammu-holidays.jpeg", 
+    alt: "Luxury corporate event planning and wedding management services",
+    link: "/eammuevent", 
+    desc: "Creating unforgettable corporate events and luxury weddings globally.", 
+    btn: "Book Consultation" 
+  },
+  { 
+    title: "Fashion & Lifestyle", 
+    img: "/eammu-fashion.jpeg", 
+    alt: "Premium apparel collection featuring traditional and modern fashion styles",
+    link: "/eammufashion", 
+    desc: "Premium apparel blending traditional Bangladeshi craft with Dubai style.", 
+    btn: "Shop Collection" 
+  },
+  { 
+    title: "Dairy & Agro", 
+    img: "/eammu-dairy-farm.avif", 
+    alt: "Sustainable organic dairy farming and agricultural produce",
+    link: "/eammudairy", 
+    desc: "Ethical and sustainable farming providing fresh organic produce.", 
+    btn: "Order Fresh" 
+  },
+  { 
+    title: "Textile & Industry", 
+    img: "/eammu-textile.jpg", 
+    alt: "Eco-friendly textile manufacturing and premium fabric production",
+    link: "/eammutextile", 
+    desc: "Sustainable manufacturing of premium fabrics and eco-friendly garments.", 
+    btn: "Bulk Inquiry" 
+  },
 ];
 
 const faqs = [
