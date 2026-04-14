@@ -14,14 +14,14 @@ const offers = [
     title: "Summer Special Discount",
     slug: "summer-special-discount",
     description: "Get 15% off on all international tour packages booked before July 31.",
-    image: "https://img.freepik.com/premium-vector/summer-sale-template-clipart-poster-summer-promo-limited-time-offer-with-watermelon-ice-cream_572288-4518.jpg?semt=ais_hybrid&w=740",
+    image: "/summer-offer.avif",
   },
   {
     id: 2,
     title: "Student Visa Promo",
     slug: "student-visa-promo",
     description: "Flat $100 off on student visa processing fees for select countries.",
-    image: "https://www.shutterstock.com/image-vector/limited-offer-banner-sale-clock-600nw-1912324219.jpg",
+    image: "/limited-offer.webp",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const offers = [
     title: "Family Tour Package Offer",
     slug: "family-tour-package",
     description: "Book for 4 or more family members and get special group discounts.",
-    image: "https://offercdn.paytm.com/blog/2023/03/friends-family-app.png",
+    image: "/friends-family-offer.avif",
   },
   {
     id: 5,

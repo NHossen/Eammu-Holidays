@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import countries from "@/app/data/countries.json";
 import Link from "next/link";
 import { createSlug } from "@/app/lib/utils";
+import Image from "next/image";
 
 export default function StudentVisa() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,11 +13,20 @@ export default function StudentVisa() {
   const itemsPerPage = 8;
 
   // Images taken from your public folder structure
-  const slides = [
-    "/the-love-island.webp",
-    "/top-travel-agency-bangladesh.webp",
-    "/travel_banner_second_part_one.webp"
-  ];
+ const slides = [
+  {
+    src: "/denmark-bottom-slides.jpg",
+    alt: "International students exploring Copenhagen while studying abroad in Denmark"
+  },
+  {
+    src: "/study-uk-banner.jpg",
+    alt: "UK student visa guide for international applicants at a British university campus"
+  },
+  {
+    src: "/russia-header.jpg",
+    alt: "Student life and higher education opportunities for foreigners in Russia"
+  }
+];
 
   // Automatic Slide Logic
   useEffect(() => {
@@ -42,7 +52,7 @@ export default function StudentVisa() {
   const alphabet = ["All", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
 
   return (
-    <div className="min-h-screen bg-[#f9fafc] text-[#1a1c1e]">
+    <div className="min-h-screen text-[#1a1c1e]">
       
       {/* --- HERO SECTION WITH AUTOMATIC SLIDES & SEARCH INSIDE --- */}
       <div className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden py-22">
@@ -55,9 +65,11 @@ export default function StudentVisa() {
             }`}
           >
             <img
-              src={img}
-              alt="Hero Background"
+              src={img.src}
+              alt={img.alt}
               className="w-full h-full object-cover"
+              width='1800'
+              height='900'
             />
             {/* Darker overlay to make search box pop */}
             <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />

@@ -2,7 +2,7 @@ export const countries = [
   {
     name: "USA",
     description: "Tourist, Student, and Work visa services for the United States with guidance through DS-160 and I-20 support.",
-    image: "https://visadone.com/wp-content/uploads/2023/02/USA-VISA.png",
+    image: "/usa",
     altText: "USA Student and Tourist Visa Application Services with DS-160 Support",
     link: "/our-services/visa/usa-visa-application",
   },
@@ -361,7 +361,7 @@ export const countries = [
 export const popularRoutes = [
   { 
     name: "USA", 
-    image: "https://visadone.com/wp-content/uploads/2023/02/USA-VISA.png",
+    image: "/usa",
     altText: "USA Tourist and Student Visa Application Support"
   },
   { 

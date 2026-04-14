@@ -8,37 +8,37 @@ import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 const studyDestinations = [
   { 
     title: "Study In USA", 
-    img: "https://globalgateways.co.in/wp-content/uploads/2025/01/study-abroad-usa.jpg", 
+    img: "/study-abroad-usa-bottom.jpg", 
     alt: "USA Student Visa",
-    link: "/visa-services/usa-visa-application",
+    link: "/study-abroad/student-visa/united-states",
     scholarship: "70%" 
   },
   { 
     title: "Study In CANADA", 
-    img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800", 
+    img: "/study-canada-jpg.jpg", 
     alt: "Canada Student Visa",
-    link: "/visa-services/canada-visa-application",
+    link: "/study-abroad/student-visa/canada",
     scholarship: "50%" 
   },
   { 
     title: "Study In UK", 
-    img: "https://www.studyinternational.com/wp-content/uploads/2018/12/shutterstock_1184766868-e1545041071424.jpg", 
+    img: "/study-uk-banner.jpg", 
     alt: "UK Student Visa",
-    link: "/visa-services/uk-visa-application",
+    link: "/study-abroad/student-visa/united-kingdom",
     scholarship: "40%" 
   },
   { 
     title: "Study In EUROPE", 
-    img: "https://pmlholidays.com/admin/production/images/blogs/Europe.jpg", 
+    img: "/schengen-visa-with-eammu-new.jpg", 
     alt: "Europe Student Visa",
-    link: "/visa-services/europe-visa-application",
+    link: "/study-abroad/student-visa/european-union",
     scholarship: "30%" 
   },
   { 
     title: "Study In AUSTRALIA", 
-    img: "https://www.idp.com/australia/blog/content/dam/idp-australia/blogs/wp-content/uploads/2019/07/study-in-australia-idp-idp-australia.jpg", 
+    img: "/eammu_travel_final.webp", 
     alt: "Australia Student Visa",
-    link: "/visa-services/australia-visa-application",
+    link: "/study-abroad/student-visa/australia",
     scholarship: "25%" 
   },
 ];

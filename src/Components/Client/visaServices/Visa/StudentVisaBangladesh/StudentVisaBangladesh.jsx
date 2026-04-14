@@ -104,7 +104,7 @@ const StudentVisaBangladesh = () => {
               <div className="absolute -inset-4 bg-[#005a31]/5 rounded-[3.5rem] rotate-3 -z-10"></div>
               <div className="relative w-full h-[450px] md:h-[600px] rounded-[3rem] overflow-hidden shadow-2xl">
                 <Image 
-                  src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                  src="/study-usa.jpg" 
                   alt="Bangladeshi Student Success Abroad" 
                   fill
                   className="object-cover"
