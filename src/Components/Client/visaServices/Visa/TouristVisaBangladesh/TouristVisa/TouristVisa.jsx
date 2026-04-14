@@ -149,7 +149,7 @@ export default function TouristVisa() {
                 </div>
                 
                 <Link
-                  href={`/visa/${createSlug(c.country)}-visa-application`}
+                  href={`/visa/${createSlug(c.country)}-visa`}
                   className="w-full py-3.5 bg-gradient-to-b from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-center rounded-xl font-semibold transition-all duration-200 shadow-md shadow-green-100 hover:shadow-green-200 active:scale-[0.98] active:shadow-inner"
                 >
                     Apply for {c.country}

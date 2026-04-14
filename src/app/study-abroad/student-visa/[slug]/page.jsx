@@ -10,7 +10,7 @@ import {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const cleanSlug = slug.replace("-student-visa", "");
+  const cleanSlug = slug.replace("", "");
   const country = countries.find((c) => createSlug(c.country) === cleanSlug);
   const d = visadata[cleanSlug];
   
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
 
 export default async function StudentVisaPage({ params }) {
   const { slug } = await params;
-  const cleanSlug = slug.replace("-student-visa", "");
+  const cleanSlug = slug.replace("", "");
   const country = countries.find((c) => createSlug(c.country) === cleanSlug);
   const d = visadata[cleanSlug];
 

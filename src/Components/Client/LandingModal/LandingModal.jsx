@@ -6,7 +6,7 @@ import { X, CheckCircle } from 'lucide-react';
 import { toast, Toaster } from 'react-hot-toast';
 
 const carouselImages = [
-  { url: "https://www.dubaidesertsafaris.com/wp-content/uploads/2025/01/95100e6bbb4e0728dbb90a5033802b73.webp", title: "Desert Safari" },
+  { url: "/dubai-safari.webp", title: "Desert Safari" },
   { url: "/desert_kamel_egypt.jpg", title: "Egypt Tour" },
   { url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=80", title: "Dubai Luxury" }
 ];

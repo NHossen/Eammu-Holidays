@@ -7,106 +7,106 @@ import { motion, AnimatePresence } from 'framer-motion';
 const promoSlides = [
   // Interleaved mix for automatic variety
   { 
-    id: 1, category: "visa", title: "SCHENGEN VISA", 
+    id: 1, category: "VISA", title: "SCHENGEN VISA", 
     label1: "Processing", price1: "20 Days", label2: "Total Fees", price2: "15,500", 
-    badge: "Schengen", img: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?q=80&w=2070", link: "/our-services/visa/denmark-visa-application", alt: "Denmark visa" 
+    badge: "Schengen", img: "/schengen-visa-promo.jpg", link: "/visa/denmark-visa", alt: "Denmark visa Application" 
   },
 
   { 
-    id: 13, category: "flight", title: "DHAKA TO BALI", 
-    label1: "One Way", price1: "135", label2: "Round Trip", price2: "255", 
-    badge: "Hot Deal", img: "/the-love-island.webp", link: "/air-tickets", alt: "Bali flight" 
+    id: 13, category: "FLIGHT", title: "DHAKA TO BALI", 
+    label1: "One Way", price1: "335", label2: "Round Trip", price2: "555", 
+    badge: "Hot Deal", img: "/the-love-island.webp", link: "/air-tickets", alt: "Cheap Flights to Bali" 
   },
   { 
-    id: 6, category: "tour", title: "SYLHET TEA TOUR", 
+    id: 6, category: "SYLHET TOUR", title: "SYLHET TEA TOUR", 
     label1: "Duration", price1: "3D / 2N", label2: "Starting", price2: "6,500", 
-    badge: "Best Seller", img: "https://tripjive.com/wp-content/uploads/2024/09/Khasia-Polli-in-Sylhet-travel-guide-1024x585.jpg", link: "/our-services/tour-packages", alt: "Sylhet tour" 
+    badge: "Best Seller", img: "/Sylhet-travel-guide-promo.jpg", link: "/our-services/tour-packages", alt: "Sylhet tour travel guide" 
   },
 
   { 
-    id: 17, category: "visa", title: "STUDY IN USA", 
+    id: 17, category: "VISA", title: "STUDY IN USA", 
     label1: "Scholarship", price1: "70%", label2: "Consultancy", price2: "FREE", 
-    badge: "Fall 2026", img: "/study-usa.jpg", link: "/our-services/study-abroad", alt: "USA Study" 
+    badge: "Fall 2026", img: "/study-usa.jpg", link: "/study-abroad/student-visa/united-states", alt: "Study in USA" 
   },
   { 
-    id: 2, category: "flight", title: "JAPAN TO DHAKA", 
+    id: 2, category: "FLIGHT", title: "JAPAN TO DHAKA", 
     label1: "One Way", price1: "499", label2: "Round Trip", price2: "999", 
-    badge: "Best Fare", img: "https://japandeluxetours.com/uploads/2025/10/20251009212409_68e827f99d19b.jpg", link: "/air-tickets", alt: "Japan flight" 
+    badge: "Best Fare", img: "/japan-tour-promo.jpg", link: "/air-tickets", alt: "japan cheapest flight" 
   },
   { 
-    id: 7, category: "tour", title: "MALDIVES ESCAPE", 
+    id: 7, category: "MALDIVES TOUR", title: "MALDIVES ESCAPE", 
     label1: "Stay", price1: "4D / 3N", label2: "All Incl.", price2: "45,000", 
     badge: "Honeymoon", img: "/eammu_Tour.webp", link: "/our-services/tour-packages", alt: "Maldives tour" 
   },
   { 
-    id: 14, category: "visa", title: "CANADA VISITOR", 
+    id: 14, category: "VISA", title: "CANADA TOURIST VISA", 
     label1: "Validity", price1: "10 Years", label2: "Service Fee", price2: "25,000", 
-    badge: "Trending", img: "/canada_visa_from_india.webp", link: "/our-services/visa/canada-visa-application", alt: "Canada visa" 
+    badge: "Trending", img: "/tourist_canada.jpg", link: "/visa/canada-visa", alt: "Canada tourist visa" 
   },
   { 
-    id: 18, category: "visa", title: "STUDY IN UK", 
+    id: 18, category: "VISA", title: "STUDY IN UK", 
     label1: "IELTS Req.", price1: "6.0", label2: "Stay Back", price2: "2 Years", 
-    badge: "No IELTS", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070", link: "/study-abroad", alt: "UK Study" 
+    badge: "No IELTS", img: "/study-in-uk-promo.jpg", link: "/study-abroad/student-visa/united-kingdom", alt: "Study in UK" 
   },
   { 
-    id: 3, category: "flight", title: "DHAKA TO LONDON", 
+    id: 3, category: "FLIGHT", title: "DHAKA TO LONDON", 
     label1: "Economy", price1: "650", label2: "Premium", price2: "1150", 
-    badge: "Direct", img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070", link: "/air-tickets", alt: "London flight" 
+    badge: "Direct", img: "/dhaka-to-london-promo.jpeg", link: "/air-tickets", alt: "dhaka to London flight" 
   },
   { 
-    id: 8, category: "tour", title: "SAJEK VALLEY", 
+    id: 8, category: "BANGLADESH TOUR", title: "SAJEK VALLEY", 
     label1: "Cloud Tour", price1: "3D / 2N", label2: "Starting", price2: "5,500", 
-    badge: "Adventure", img: "https://images.unsplash.com/photo-1623491708899-7313017a4253?q=80&w=2070", link: "/our-services/tour-packages", alt: "Sajek tour" 
+    badge: "Adventure", img: "/bangladesh-tour-promo.jpg", link: "/our-services/tour-packages", alt: "Sajek tour" 
   },
   { 
-    id: 15, category: "visa", title: "SINGAPORE E-VISA", 
-    label1: "Time", price1: "3 Days", label2: "Fees", price2: "5,500", 
-    badge: "Instant", img: "https://images.unsplash.com/photo-1525625239513-94c947523285?q=80&w=2070", link: "/our-services/visa/singapore-visa-application", alt: "Singapore visa" 
+    id: 15, category: "SINGAPORE VISA", title: "SINGAPORE E-VISA", 
+    label1: "Time", price1: "3 Days", label2: "Fees", price2: "7,500", 
+    badge: "Instant", img: "/singapore-tour-promo.jpg", link: "/visa/singapore-visa", alt: "Singapore e visa" 
   },
   { 
-    id: 19, category: "visa", title: "STUDY IN GERMANY", 
+    id: 19, category: "STUDENT VISA", title: "STUDY IN GERMANY", 
     label1: "Tuition", price1: "FREE", label2: "Job Search", price2: "1.5 Years", 
-    badge: "Public Uni", img: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=2070", link: "/our-services/study-abroad", alt: "Germany Study" 
+    badge: "Public Uni", img: "/study-in-germany-promo.jpg", link: "/study-abroad/student-visa/germany", alt: "Germany Study" 
   },
   { 
-    id: 4, category: "flight", title: "CAIRO TO DHAKA", 
-    label1: "One Way", price1: "310", label2: "Round Trip", price2: "580", 
+    id: 4, category: "FLIGHT", title: "CAIRO TO DHAKA", 
+    label1: "One Way", price1: "610", label2: "Round Trip", price2: "980", 
     badge: "Special", img: "/desert_kamel_egypt.jpg", link: "/air-tickets", alt: "Egypt flight" 
   },
   { 
-    id: 9, category: "tour", title: "EID EGYPT TOUR", 
+    id: 9, category: "EGYPT TOUR", title: "EID EGYPT TOUR", 
     label1: "History", price1: "7D / 6N", label2: "Total Cost", price2: "95,000", 
-    badge: "Eid Promo", img: "/desert_kamel_egypt.jpg", link: "/our-services/tour-packages", alt: "Egypt tour" 
+    badge: "Eid Promo", img: "/egypt-tour-promo.jpg", link: "/our-services/tour-packages", alt: "Egypt tour" 
   },
   { 
-    id: 16, category: "visa", title: "THAILAND E-VISA", 
+    id: 16, category: "VISA", title: "THAILAND E-VISA", 
     label1: "Express", price1: "48 Hours", label2: "Official Fee", price2: "4,200", 
-    badge: "Quick", img: "https://images.unsplash.com/photo-1528181304800-2f140819898f?q=80&w=2070", link: "/our-services/visa/thailand-visa-application", alt: "Thai visa" 
+    badge: "Quick", img: "/thailand-tour-promo.webp", link: "/visa/thailand-visa", alt: "Thai e visa" 
   },
   { 
-    id: 20, category: "visa", title: "STUDY IN CANADA", 
+    id: 20, category: "VISA", title: "STUDY IN CANADA", 
     label1: "Intake", price1: "Sept '26", label2: "Admission", price2: "Direct", 
-    badge: "SDS Visa", img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070", link: "/our-services/study-abroad", alt: "Canada Study" 
+    badge: "SDS Visa", img: "/study-canada-jpg.jpg", link: "/study-abroad/student-visa/canada", alt: "Canada Study" 
   },
   { 
-    id: 5, category: "flight", title: "DHAKA TO JEDDAH", 
+    id: 5, category: "FLIGHT", title: "DHAKA TO JEDDAH", 
     label1: "Umrah Spcl", price1: "420", label2: "Flexible", price2: "790", 
-    badge: "Umrah", img: "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=2070", link: "/air-tickets", alt: "Jeddah flight" 
+    badge: "Umrah", img: "/saudi-arabia-promo.jpg", link: "/air-tickets", alt: "Jeddah flight" 
   },
   { 
-    id: 10, category: "tour", title: "DUBAI SAFARI", 
-    label1: "Evening", price1: "3,200", label2: "VIP Camel", price2: "5,500", 
-    badge: "Popular", img: "https://www.dubaidesertsafaris.com/wp-content/uploads/2025/01/95100e6bbb4e0728dbb90a5033802b73.webp", link: "/our-services/things-to-do", alt: "Desert safari" 
+    id: 10, category: "DUBAI TOUR", title: "DUBAI SAFARI", 
+    label1: "Evening", price1: "3,200", label2: "VIP Camel", price2: "8,500", 
+    badge: "Popular", img: "/dubai-safari.webp", link: "/our-services/things-to-do", alt: "Desert safari dubai" 
   },
   { 
-    id: 11, category: "tour", title: "ABU DHABI SAFARI", 
+    id: 11, category: "ABU DHABI CITY TOUR", title: "ABU DHABI CITY TOUR", 
     label1: "Sunrise", price1: "4,500", label2: "Private", price2: "12,000", 
-    badge: "Premium", img: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=2070", link: "/our-services/things-to-do", alt: "Safari" 
+    badge: "Premium", img: "/abu-dhabi-tour-promo.jpg", link: "/our-services/things-to-do", alt: "Abu Dhabi city tour" 
   },
   { 
-    id: 12, category: "tour", title: "OVERNIGHT SAFARI", 
+    id: 12, category: "HOT AIR BALLOON", title: "HOT AIR BALLOON SAFARI", 
     label1: "Night Stay", price1: "8,500", label2: "Camp Tent", price2: "15,000", 
-    badge: "Romantic", img: "https://images.unsplash.com/photo-1539762130874-f7911ee65a75?q=80&w=2070", link: "/our-services/things-to-do", alt: "Camp" 
+    badge: "Romantic", img: "/hot-air-ballon-promo.jpg", link: "/our-services/things-to-do", alt: "HOT AIR BALLOON SAFARI" 
   }
 ];
 

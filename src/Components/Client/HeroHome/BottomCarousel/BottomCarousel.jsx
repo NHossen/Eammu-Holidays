@@ -12,12 +12,12 @@ const bottomSlides = [
     category: "visa",
     title: "DENMARK VISA", 
     type: "Sticker Visa",
-    validity: "90 Days",
-    processingTime: "15-20 Working Days",
-    price: "BDT 15,500",
-    img: "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?q=80&w=2070&auto=format&fit=crop", 
+    validity: "15 TO 90 Days",
+    processingTime: "15-30 Working Days",
+    price: "BDT 19,900",
+    img: "/denmark-bottom-slides.jpg", 
     alt: "Denmark Schengen Visa",
-    link: "/our-services/visa/denmark-visa-application" 
+    link: "/visa/denmark-visa" 
   },
   { 
     id: 1, 
@@ -25,11 +25,11 @@ const bottomSlides = [
     title: "ALBANIA VISA", 
     type: "E-Visa / Sticker",
     validity: "As per approval",
-    processingTime: "10-15 Working Days",
+    processingTime: "10-25 Working Days",
     price: "BDT 12,000",
     img: "/albania_visa_from_bangladesh.webp", 
     alt: "Albania Visa Services",
-    link: "/our-services/visa/albania-visa-application" 
+    link: "/visa/albania-visa" 
   },
   { 
     id: 2, 
@@ -41,31 +41,31 @@ const bottomSlides = [
     price: "Contact for Quote",
     img: "/canada_visa_from_india.webp", 
     alt: "Canada Visa success",
-    link: "/our-services/visa/canada-visa-application" 
+    link: "/visa/canada-visa" 
   },
   { 
     id: 3, 
     category: "visa",
     title: "SINGAPORE VISA", 
     type: "E-Visa",
-    validity: "35 Days / 2 Years",
+    validity: "30 Days",
     processingTime: "3-5 Working Days",
-    price: "BDT 5,500",
-    img: "https://www.agoda.com/wp-content/uploads/2019/06/Singapore-Itinerary-Marina-Bay-Sands.jpg", 
+    price: "BDT 7,500",
+    img: "/singapore-tour-promo.jpg", 
     alt: "Singapore Visa Support",
-    link: "/our-services/visa/singapore-visa-application" 
+    link: "/visa/singapore-visa" 
   },
   { 
     id: 4, 
     category: "visa",
     title: "EUROPE (SCHENGEN)", 
     type: "Short Stay Sticker",
-    validity: "90 Days",
+    validity: "30 TO 90 Days",
     processingTime: "15-30 Days",
     price: "BDT 18,500",
-    img: "https://pmlholidays.com/admin/production/images/blogs/Europe.jpg", 
+    img: "/schengen-visa-promo.jpg", 
     alt: "Schengen Visa Bangladesh",
-    link: "/our-services/visa/europe-visa-application" 
+    link: "/visa/european-union-visa" 
   },
   { 
     id: 5, 
@@ -74,8 +74,8 @@ const bottomSlides = [
     type: "E-Visa",
     validity: "21-120 Days",
     processingTime: "7 Working Days",
-    price: "BDT 8,500",
-    img: "https://www.gokite.travel/wp-content/uploads/2021/05/Armenia-tour-packages-from-dubai_11zon-870x480.webp", 
+    price: "BDT 5,500",
+    img: "/Armenia-tour-from-bangladesh-bottom.webp", 
     alt: "Armenia Visa application",
     link: "/our-services/visa/armenia-visa-application" 
   },
@@ -88,7 +88,7 @@ const bottomSlides = [
     duration: "2 Nights / 3 Days",
     includes: "Luxury Resort + Breakfast + Car",
     price: "BDT 6,500",
-    img: "https://royalbengaltours.com/wp-content/uploads/2017/08/Cycle-through-the-most-beautiful-tea-estates-of-Sreemangal-and-Sylhet-area.webp", 
+    img: "/Sylhet-travel-guide-promo.jpg", 
     alt: "Sylhet Tour Package",
     link: "/our-services/tour-packages" 
   },
@@ -99,7 +99,7 @@ const bottomSlides = [
     duration: "Full Day (8 AM - 6 PM)",
     includes: "Rickshaw ride + Lunch + Guide",
     price: "BDT 2,500",
-    img: "https://toursntripsbd.com/wp-content/uploads/2016/06/PB100664-180x152-1.jpg", 
+    img: "/dhaka-tour-bottom.jpg", 
     alt: "Dhaka Sightseeing",
     link: "/our-services/tour-packages" 
   },
@@ -109,8 +109,8 @@ const bottomSlides = [
     title: "DESERT SAFARI DUBAI", 
     duration: "Evening (6 Hours)",
     includes: "BBQ + Dune Bash + Camels",
-    price: "BDT 3,800",
-    img: "https://res.klook.com/image/upload/q_85/c_fill,w_750/v1666942368/blog/gu90kcnlehlie93a2mks.jpg", 
+    price: "BDT 9,800",
+    img: "/desert_kamel_egypt.jpg", 
     alt: "Dubai Desert Safari",
     link: "/our-services/things-to-do" 
   },
@@ -120,8 +120,8 @@ const bottomSlides = [
     title: "COX'S BAZAR BEACH", 
     duration: "3 Nights / 4 Days",
     includes: "Air Ticket + 4* Hotel + Meals",
-    price: "BDT 14,999",
-    img: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?q=80&w=2074&auto=format&fit=crop", 
+    price: "BDT 6,999",
+    img: "/coxs-bazar-tour-bangladesh.jpg", 
     alt: "Coxs Bazar Beach Tour",
     link: "/our-services/tour-packages" 
   },
@@ -155,7 +155,7 @@ const bottomSlides = [
     validUntil: "Limited Time Only",
     img: "/eammu_evisa_offer.webp", 
     alt: "Visa Combo Discounts",
-    link: "/our-services/visa/thailand-visa-application" 
+    link: "/visa/thailand-visa" 
   },
   { 
     id: 13, 
@@ -163,7 +163,7 @@ const bottomSlides = [
     title: "FLIGHT DEALS", 
     promo: "Cashback on Air Tickets",
     validUntil: "Domestic & International",
-    img: "https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?q=80&w=2070&auto=format&fit=crop", 
+    img: "/cheapflights_eammu_offer.webp", 
     alt: "Cheap Flight Deals",
     link: "/offers" 
   },
@@ -175,9 +175,9 @@ const bottomSlides = [
     title: "STUDY IN USA", 
     detail: "70% Scholarship Available",
     note: "Admission & Visa Guidance",
-    img: "https://globalgateways.co.in/wp-content/uploads/2025/01/study-abroad-usa.jpg", 
+    img: "/study-abroad-usa-bottom.jpg", 
     alt: "Higher Studies in USA",
-    link: "/our-services/study-abroad" 
+    link: "/study-abroad/student-visa/united-states" 
   },
   { 
     id: 15, 
@@ -185,19 +185,19 @@ const bottomSlides = [
     title: "STUDY IN UK", 
     detail: "Post-Study Work Permit",
     note: "Top Ranked Universities",
-    img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070&auto=format&fit=crop", 
+    img: "/study-uk-banner.jpg", 
     alt: "Study in UK",
-    link: "/our-services/study-abroad" 
+    link: "/our-services/study-abroad/student-visa/united-kingdom" 
   },
   { 
     id: 16, 
     category: "service",
-    title: "PASSPORT RENEWAL", 
-    detail: "E-Passport Assistance",
+    title: "STUDY IN ALBANIA", 
+    detail: "Post-Study",
     note: "Form Fill-up & Correction",
-    img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format&fit=crop", 
-    alt: "Passport Support",
-    link: "/our-services/passport" 
+    img: "/albania_visa_from_bangladesh.webp", 
+    alt: "Albania Study Visa Services",
+    link: "/our-services/study-abroad/student-visa/albania" 
   },
   { 
     id: 17, 
@@ -205,7 +205,7 @@ const bottomSlides = [
     title: "HOTEL BOOKING", 
     detail: "Over 500,000 Hotels",
     note: "Corporate Rates Available",
-    img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop", 
+    img: "/hotel-booking.jpg", 
     alt: "Hotel Reservation Services",
     link: "/our-services" 
   },
