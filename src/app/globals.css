@@ -8,7 +8,7 @@
   /* 1. Base - We need this slightly darker for the green bar 
      to maintain contrast for the yellow text */
   background: rgba(255, 255, 255, 0.2); 
-  color: white; /* Base color for text */
+  color: rgb(0, 0, 0); /* Base color for text */
 
   /* 2. Water Refraction Core: 
      Very high blur + intense saturation (makes the green "pop" through the glass) */

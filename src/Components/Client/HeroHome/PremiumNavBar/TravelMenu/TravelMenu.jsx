@@ -77,8 +77,8 @@ export default function TravelMenu() {
                   }}
                   className="flex-shrink-0 relative flex flex-col items-center px-4 sm:px-6 py-1.5 transition-all outline-none"
                 >
-                  <Icon size={18} className={`mb-0.5 ${isActive ? 'text-blue-900' : 'text-gray-400'}`} />
-                  <span className={`text-[10px] sm:text-[11px] font-extrabold whitespace-nowrap tracking-tight ${isActive ? 'text-blue-900' : 'text-gray-400'}`}>
+                  <Icon size={18} className={`mb-0.5 ${isActive ? 'text-green-800' : 'text-gray-400'}`} />
+                  <span className={`text-[10px] sm:text-[11px] font-extrabold whitespace-nowrap tracking-tight ${isActive ? 'text-green-800' : 'text-gray-400'}`}>
                     {tab.label}
                   </span>
                   {isActive && (
@@ -149,32 +149,93 @@ export default function TravelMenu() {
               </div>
             )}
 
-            {/* --- STUDY ABROAD TAB --- */}
-            {activeTab === 'study' && (
-              <div className="space-y-3 w-full">
-                <div className="flex flex-col items-center gap-2 max-w-4xl mx-auto w-full">
-                  <h2 className="text-sm sm:text-lg font-black text-gray-800 text-center tracking-tight leading-none">Find Study Abroad Programs</h2>
-                  <div className="relative w-full max-w-2xl">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={14} />
-                    <input 
-                      type="text"
-                      placeholder="Search destination country..."
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-100 rounded-xl text-[13px] font-bold outline-none"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-4xl mx-auto w-full">
-                  {filteredStudyCountries.map((c) => (
-                    <Link key={c.code} href={`/study-abroad/student-visa/${createSlug(c.country)}`} className="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:border-yellow-400 transition-all">
-                      <div className="h-14 bg-gray-100"><img src={c.flag} alt={c.country} className="w-full h-full object-cover" /></div>
-                      <div className="p-1.5 text-center"><p className="text-[10px] font-black text-gray-800 truncate">{c.country}</p></div>
-                    </Link>
-                  ))}
-                </div>
+           {/* --- STUDY ABROAD TAB --- */}
+{activeTab === 'study' && (
+  <div className="space-y-4 w-full">
+    <div className="flex flex-col items-center gap-2 max-w-4xl mx-auto w-full relative">
+      <h2 className="text-sm sm:text-lg font-black text-gray-800 text-center tracking-tight leading-none">
+        Find Your Higher Study Destinations
+      </h2>
+      
+      {/* Search & Auto-suggestion Input */}
+      <div className="relative w-full max-w-2xl">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={14} />
+        <input 
+          type="text"
+          placeholder="Search destination country..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-100 rounded-xl text-[13px] font-bold outline-none focus:border-yellow-400 transition-colors"
+        />
+
+        {/* Auto-suggestion Dropdown */}
+        <AnimatePresence>
+          {searchTerm.length > 0 && (
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="absolute z-50 left-0 right-0 top-full mt-1 bg-white border border-gray-100 shadow-xl rounded-xl overflow-hidden"
+            >
+              {countries
+                .filter(c => c.country.toLowerCase().includes(searchTerm.toLowerCase()))
+                .slice(0, 5)
+                .map((c) => (
+                  <Link
+                    key={c.code}
+                    href={`/study-abroad/student-visa/${createSlug(c.country)}`}
+                    className="flex items-center gap-3 px-4 py-2 hover:bg-slate-50 transition-colors border-b border-gray-50 last:border-none"
+                  >
+                    <img src={c.flag} className="w-6 h-4 object-cover rounded-sm" alt="" />
+                    <span className="text-[13px] font-bold text-gray-700">{c.country}</span>
+                  </Link>
+                ))}
+              {countries.filter(c => c.country.toLowerCase().includes(searchTerm.toLowerCase())).length === 0 && (
+                <div className="px-4 py-3 text-[12px] text-gray-400 font-medium">No countries found</div>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+
+    {/* Top Destinations Section (Shows when not searching) */}
+    <div className="w-full max-w-4xl mx-auto">
+      <div className="flex items-center justify-between mb-2">
+        <p className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Top Destinations</p>
+        <div className="h-[1px] flex-1 bg-slate-100 ml-4"></div>
+      </div>
+      
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        {/* You can manually pick top countries or use slice */}
+        {countries
+          .filter(c => ["Canada", "European Union", "United States", "Australia"].includes(c.country))
+          .map((c) => (
+            <Link 
+              key={c.code} 
+              href={`/study-abroad/student-visa/${createSlug(c.country)}`} 
+              className="group relative bg-white border border-gray-100 rounded-xl overflow-hidden hover:border-yellow-400 hover:shadow-md transition-all"
+            >
+              <div className="h-16 bg-gray-100 overflow-hidden">
+                <img 
+                  src={c.flag} 
+                  alt={c.country} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                />
               </div>
-            )}
+              <div className="p-2 text-center bg-white">
+                <p className="text-[11px] font-black text-gray-800 truncate">{c.country}</p>
+              </div>
+              {/* Optional Hot Badge */}
+              <div className="absolute top-1 right-1 bg-red-500 text-white text-[7px] font-black px-1.5 py-0.5 rounded-full uppercase">
+                Hot
+              </div>
+            </Link>
+          ))}
+      </div>
+    </div>
+  </div>
+)}
 
             {/* --- FLIGHT TAB --- */}
             {activeTab === 'flight' && (
