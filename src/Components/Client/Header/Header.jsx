@@ -160,7 +160,7 @@ export default function Header() {
                   animate={{ x: ['-100%', '200%'] }}
                   transition={{ repeat: Infinity, duration: 2, ease: "linear", repeatDelay: 1 }}
                 />
-                <span className="relative z-10"> Book Now</span>
+                <span className="relative z-10">GET TOUCH</span>
               </motion.div>
             </Link>
           </div>

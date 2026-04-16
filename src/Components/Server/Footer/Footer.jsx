@@ -122,22 +122,22 @@ const Footer = () => {
                         <header className="text-lg font-bold mb-2">Eammu Group</header>
                         <Link href='/' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Holidays</Link>
                         <Link href='/web-development-digital-marketing' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu IT & Marketing</Link>
-                        <Link href='/eammuevent' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Event Management</Link>
-                        <Link href='/eammudairy' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Dairy & Poultry</Link>
-                        <Link href='/eammufashion' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Fashion</Link>
-                        <Link href='/eammutextile' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Textile & Industry</Link>
-                        <Link href='/flyzoo' className="text-[#005a31] font-semibold text-[15px]">Flyzoo</Link>
+                        <Link href='/event-management' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Event Management</Link>
+                        <Link href='/eammu-dairy-poultry' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Dairy & Poultry</Link>
+                        <Link href='/eammu-fashion' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Fashion</Link>
+                        <Link href='/eammu-textile-bangladesh' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Eammu Textile & Industry</Link>
+                        
                     </nav>
 
                     {/* Column 2 */}
                     <nav className="flex flex-col space-y-3">
                         <header className="text-lg font-bold mb-2">Useful Links</header>
                         <Link href='/eammu-social-responsibility' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Social Responsibility</Link>
-                        <Link href='/eammunewsfeeds' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Newsfeeds</Link>
-                        <Link href='/messagefromleadingteam' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Our Leading Team</Link>
+                        <Link href='/news-feeds' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Newsfeeds</Link>
+                        <Link href='/our-leading-team' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Our Leading Team</Link>
                         <Link href='/careers' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Careers</Link>
-                        <Link href='/eammuterms' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Privacy Policy</Link>
-                        <Link href='/whychoiceeammu' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Why Choose Us</Link>
+                        <Link href='/terms-privacy-policy' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Privacy Policy</Link>
+                        <Link href='/travel-resources' className="text-[#696969] hover:text-[#005a31] transition-all text-[15px]">Travel Resources</Link>
                     </nav>
 
                     {/* Column 3 */}
@@ -162,8 +162,8 @@ const Footer = () => {
                                 <button className="btn bg-[#005a31] text-white border-none join-item px-4 h-12">Go</button>
                             </div>
                             <div className="flex gap-2">
-                                <Link href='/login' className="flex-1 text-center py-2 text-sm border border-[#005a31] text-[#005a31] rounded-md hover:bg-[#005a31] hover:text-white transition-all">Log in</Link>
-                                <Link href='/signup' className="flex-1 text-center py-2 text-sm bg-[#005a31] text-white rounded-md hover:bg-black transition-all">Sign Up</Link>
+                                <Link href='/log-in' className="flex-1 text-center py-2 text-sm border border-[#005a31] text-[#005a31] rounded-md hover:bg-[#005a31] hover:text-white transition-all">Log in</Link>
+                                <Link href='/sign-up' className="flex-1 text-center py-2 text-sm bg-[#005a31] text-white rounded-md hover:bg-black transition-all">Sign Up</Link>
                             </div>
                         </div>
                     </div>

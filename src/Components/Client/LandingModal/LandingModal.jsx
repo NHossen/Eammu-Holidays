@@ -17,15 +17,26 @@ const LandingModal = () => {
   const [email, setEmail] = useState('');
 
   useEffect(() => {
-    // Preload images
+    // 1. Preload images
     carouselImages.forEach((image) => {
       const img = new Image();
       img.src = image.url;
     });
 
-    // Auto-open modal after 1.5 seconds
-    const timer = setTimeout(() => setIsOpen(true), 1500);
-    return () => clearTimeout(timer);
+    // 2. Logic for showing modal
+    // We use sessionStorage so it persists across refreshes/navigation 
+    // but resets when the tab is closed.
+    const hasSeenModal = sessionStorage.getItem('hasSeenLandingModal');
+
+    if (!hasSeenModal) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+        // Mark as seen immediately so navigation/refresh doesn't trigger it again 
+        // if it's already popped up once.
+        sessionStorage.setItem('hasSeenLandingModal', 'true');
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   useEffect(() => {

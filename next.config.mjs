@@ -48,9 +48,7 @@ const nextConfig = {
       
     ],
   },
-  turbopack: {
-    root: 'C:\\Users\\HP\\Desktop\\Armenia Visa\\pass\\Eammu\\eammu-holidays',
-  },
+  turbopack: { root: 'C:\\Users\\HP\\Desktop\\Armenia Visa\\pass\\Eammu\\eammu-holidays', },
   reactStrictMode: true,
   env: {
     BLOGGER_API_KEY: process.env.BLOGGER_API_KEY,

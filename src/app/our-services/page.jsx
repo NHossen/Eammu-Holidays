@@ -31,7 +31,7 @@ const services = [
     icon: <FaSuitcaseRolling />,
     title: "Holiday Packages",
     description: "Customized holiday deals, Umrah packages, and luxury group tours tailored to your preferences.",
-    link: "/tour-packages",
+    link: "/our-services/tour-packages",
     keywords: "Honeymoon Packages, Group Tours"
   },
   {
@@ -45,14 +45,14 @@ const services = [
     icon: <FaShieldAlt />,
     title: "USA Interview Preparation",
     description: "Expert coaching to crack the USA Visa Interview. Specialized 'Target USA' program for success.",
-    link: "/usa-visa-interview-prep",
+    link: "/target-usa-visa-interview-preparation",
     keywords: "Visa Interview Coaching, USA Mock Interview"
   },
   {
     icon: <FaUniversity />,
     title: "IELTS & Study Abroad academy",
     description: "Official support for IELTS preparation and immigration consultancy for Canada and Australia.",
-    link: "/target-ielts-and-immigration-center",
+    link: "/target-ielts-immigration-center",
     keywords: "Study Abroad, Immigration Support"
   },
 ];
@@ -82,7 +82,7 @@ const OurServices = () => {
           >
             <h1 className="text-4xl md:text-4xl font-black mb-6 tracking-tighter uppercase italic">
               Eammu Holidays | 
-              <span className="text-orange-400">Leading Travel Agency in Bangladesh</span>
+              <span className="text-orange-400"> Leading Travel Agency in Bangladesh</span>
             </h1>
             <p className="text-lg md:text-xl text-green-50/90 max-w-5xl mx-auto font-medium leading-relaxed">
               Eammu Holidays is a Leading travel agency providing visa application services, air ticket booking, 
