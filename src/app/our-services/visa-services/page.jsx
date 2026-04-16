@@ -4,25 +4,112 @@ import { countries } from '@/data/visaData/visaData';
 import Link from 'next/link';
 
 export const metadata = {
-  title: "Visa Consultancy Bangladesh | Leading Travel Agency Bangladesh",
-  description: "Eammu Holidays provides expert visa services for Tourist, Student, and Work visas across USA, UK, Europe, Canada, Australia, Japan, UAE, Malaysia, and more.",
-  keywords: "Visa services Bangladesh, USA tourist visa, UK student visa, Canada visitor visa, Europe work visa, Hajj & Umrah packages",
-  alternates: { canonical: 'https://eammu.com/visa-services' },
+  metadataBase: new URL("https://www.eammu.com"),
+
+  title: {
+    default:
+      "Visa Services & Processing | Tourist, Work & Student Visa Assistance",
+    template: "%s | Eammu Holidays Visa Services",
+  },
+
+  description:
+    "Get expert visa services with Eammu Holidays. We assist with tourist visas, work permits, student visas, and business visas for Dubai, Europe, UK, USA, Canada, and more. Fast processing and trusted support from Bangladesh and UAE.",
+
+  keywords: [
+    "visa services Bangladesh",
+    "Dubai visa processing",
+    "tourist visa application",
+    "work permit Europe",
+    "student visa consultancy",
+    "UK USA Canada visa help",
+    "visa consultant Bangladesh",
+    "international visa services",
+    "visa agency near me",
+    "fast visa processing"
+  ],
+
+  alternates: {
+    canonical:
+      "https://www.eammu.com/our-services/visa-services",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    url: "https://www.eammu.com/our-services/visa-services",
+    siteName: "Eammu Holidays",
+
+    title:
+      "Visa Services & Travel Visa Assistance Worldwide",
+
+    description:
+      "Apply for tourist, work, and student visas with expert guidance. Trusted visa services from Bangladesh and Dubai.",
+
+    images: [
+      {
+        url: "/preview-banner.webp",
+        width: 1200,
+        height: 630,
+        alt: "Visa services for Dubai Europe UK USA Canada",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Visa Services | Tourist, Work & Student Visas",
+    description:
+      "Fast and reliable visa processing with expert support.",
+    images: ["/preview-banner.webp"],
+  },
+
+  icons: {
+    icon: "/emf.jpg",
+  },
 };
 
 export default function VisaServicesPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": "Eammu Holidays",
-    "url": "https://eammu.com",
-    "telephone": "+8801631312524",
-    "areaServed": countries.map(c => ({ "@type": "Country", "name": c.name })),
-  };
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      serviceType: "Visa Services",
+      provider: {
+        "@type": "TravelAgency",
+        name: "Eammu Holidays"
+      },
+      areaServed: [
+        "Bangladesh",
+        "UAE",
+        "Armenia",
+        "Georgia"
+      ],
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceLocation: {
+          "@type": "Place",
+          name: "Eammu Holidays Offices"
+        }
+      }
+    }),
+  }}
+/>
 
       {/* Hero এবং Filterable Content সব এই Client Component এ থাকবে */}
       <VisaClientContent />

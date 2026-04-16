@@ -14,10 +14,62 @@ export async function generateMetadata({ params }) {
   const country = countries.find((c) => createSlug(c.country) === cleanSlug);
   const d = visadata[cleanSlug];
   
+  const title =
+    d?.title ||
+    (country
+      ? `${country.country} Student Visa Application & Requirements | Scholarships`
+      : "Student Visa Guide 2026 | Eammu Holidays");
+
+  const description =
+    d?.description ||
+     `Complete guide for ${country?.country || "international"} student visa application, requirements, and scholarship opportunities for studying abroad in 2026.`;
+
+
   return {
-    title: d?.title || `${country.country} Student Visa Application And Requirements`,
-    description: d?.description,
-    keywords: "student visa requirements 2026, scholarship guide, study abroad, COE process",
+    metadataBase: new URL("https://www.eammu.com"),
+
+    title,
+    description,
+
+    keywords: [
+      "student visa requirements 2026",
+      "study abroad visa guide",
+      "COE process",
+      "student visa application",
+      country?.country && `${country.country} student visa`,
+    ].filter(Boolean),
+
+    alternates: {
+      canonical: `https://www.eammu.com/student-visa/${cleanSlug}`,
+    },
+
+    openGraph: {
+      title,
+      description,
+      url: `https://www.eammu.com/student-visa/${cleanSlug}`,
+      siteName: "Eammu Holidays",
+      type: "article",
+      images: [
+        {
+          url: "/eammu_banner_four.webp",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/eammu_banner_four.webp"],
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 

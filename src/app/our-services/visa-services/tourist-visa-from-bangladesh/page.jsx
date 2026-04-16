@@ -1,45 +1,100 @@
 import TouristVisaBangladesh from "@/Components/Client/visaServices/Visa/TouristVisaBangladesh/TouristVisaBangladesh";
 
-export const metadata= {
-  title: 'Tourist Visa Application from Bangladesh | Best Travel Agency Dhaka',
-  description: 'Apply for a tourist visa from Bangladesh to USA, UK, Canada, Australia, and Schengen countries. Eammu Holidays provides expert documentation support, consultation, and high visa approval rates.',
-  keywords: 'tourist visa Application Bangladesh, USA tourist visa Dhaka, UK tourist Application visa Bangladesh, Canada visitor visa Application, Schengen visa Application Bangladesh, Eammu Holidays visa agency, travel agency Bangladesh',
-  alternates: {
-    canonical: 'https://eammu.com/visa-services/tourist-visa-application-from-bangladesh',
-  },
-  openGraph: {
-    type: 'website',
-    title: 'Tourist Visa from Bangladesh | Eammu Holidays',
-    description: 'Eammu Holidays helps Bangladeshi travelers get tourist visas for USA, UK, Canada, Australia, and Europe.',
-    images: ['https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'],
-  },
-}
+export const metadata = {
+  metadataBase: new URL("https://www.eammu.com"),
 
-// You can add the JSON-LD script here as well:
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "TravelAgency",
-  "name": "Eammu Holidays",
-  "url": "https://eammu.com",
-  "logo": "https://eammu.com/images/logo.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Gomoti Tower, 1st Floor, Cantonment",
-    "addressLocality": "Cumilla",
-    "addressCountry": "BD"
+  title: {
+    default:
+      "Tourist Visa from Bangladesh | Visit Visa Processing & Assistance",
+    template: "%s | Eammu Holidays Tourist Visa",
   },
-  "contactPoint": [
-    { "@type": "ContactPoint", "telephone": "+8801631312524", "contactType": "customer service" }
-  ]
+
+  description:
+    "Apply for a tourist visa from Bangladesh بسهولة with Eammu Holidays. We provide expert assistance for Dubai, UK, Europe, USA, Canada, and more with fast processing and simple documentation.",
+
+  keywords: [
+    "tourist visa from Bangladesh",
+    "visit visa Bangladesh",
+    "Dubai tourist visa Bangladesh",
+    "Europe visit visa",
+    "UK tourist visa Bangladesh",
+    "USA visit visa process",
+    "Canada tourist visa",
+    "visa agency Bangladesh",
+    "apply visit visa online",
+    "travel visa Bangladesh"
+  ],
+
+  alternates: {
+    canonical:
+      "https://www.eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    url: "https://www.eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
+    siteName: "Eammu Holidays",
+
+    title:
+      "Tourist Visa from Bangladesh | Easy Travel Visa Support",
+
+    description:
+      "Get tourist visa assistance for Dubai, UK, USA, Canada, and Europe with expert guidance and fast approval.",
+
+    images: [
+      {
+        url: "/preview-banner.webp",
+        width: 1200,
+        height: 630,
+        alt: "Tourist visa services from Bangladesh for international travel",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Tourist Visa from Bangladesh | Visit Visa Help",
+    description:
+      "Apply for visit visas بسهولة with expert support.",
+    images: ["/preview-banner.webp"],
+  },
+
+  icons: {
+    icon: "/emf.jpg",
+  },
 };
+
 
 export default function Page() {
   return (
     <>
       <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      serviceType: "Tourist Visa Services",
+      provider: {
+        "@type": "TravelAgency",
+        name: "Eammu Holidays"
+      },
+      areaServed: "Bangladesh"
+    }),
+  }}
+/>
       <TouristVisaBangladesh />
     </>
   )

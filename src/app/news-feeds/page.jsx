@@ -10,7 +10,78 @@ import {
   Sparkles,
   Clock
 } from 'lucide-react';
+export const metadata = {
+  metadataBase: new URL("https://www.eammu.com"),
 
+  title: {
+    default:
+      "Travel News & Visa Updates 2026 | Eammu Holidays",
+    template: "%s | Travel News | Eammu Holidays",
+  },
+
+  description:
+    "Stay updated with the latest travel news, visa policy changes, flight updates, and tourism trends worldwide. Get real-time insights and expert updates from Eammu Holidays.",
+
+  keywords: [
+    "travel news 2026",
+    "visa updates latest",
+    "Dubai visa news",
+    "flight updates international",
+    "tourism news global",
+    "visa policy changes",
+    "travel restrictions updates",
+    "Eammu Holidays news"
+  ],
+
+  alternates: {
+    canonical: "https://www.eammu.com/news-feeds",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    url: "https://www.eammu.com/news-feeds",
+    siteName: "Eammu Holidays",
+
+    title:
+      "Latest Travel News & Visa Updates Worldwide",
+
+    description:
+      "Get real-time travel news, visa updates, and tourism insights from trusted experts at Eammu Holidays.",
+
+    images: [
+      {
+        url: "/preview-banner.webp",
+        width: 1200,
+        height: 630,
+        alt: "Latest travel news and visa updates worldwide",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Travel News & Visa Updates 2026",
+    description:
+      "Stay updated with global travel trends, visa changes, and tourism news.",
+    images: ["/preview-banner.webp"],
+  },
+
+  icons: {
+    icon: "/emf.jpg",
+  },
+};
 
 const EammuNewsfeeds = () => {
   return (
