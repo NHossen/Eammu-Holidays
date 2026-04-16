@@ -4,7 +4,7 @@ export default function sitemap() {
   const routes = [
     // ================= HOME =================
     {
-      url: "",
+      url: "/",
       priority: 1.0,
       changeFrequency: "daily",
     },
@@ -59,7 +59,7 @@ export default function sitemap() {
       changeFrequency: "weekly",
     },
 
-    // Visa Sub Pages (HIGH VALUE SEO)
+    // Visa Sub Pages
     {
       url: "/our-services/visa-services/student-visa-from-bangladesh",
       priority: 0.9,
@@ -120,7 +120,8 @@ export default function sitemap() {
   ];
 
   return routes.map((route) => ({
-    url: `${baseUrl}${route.url}`,
+    // Use URL object to prevent double slashes (e.g., //about)
+    url: new URL(route.url, baseUrl).href,
     lastModified: new Date(),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
