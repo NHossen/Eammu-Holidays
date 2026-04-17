@@ -7,7 +7,7 @@ export const metadata = {
 
   title: {
     default:
-      "Travel Blog & Visa Guides 2026 | Eammu Holidays",
+      "Premium Education Consultancy | Travel Blog & Visa Guides 2026 | Eammu Holidays",
     template: "%s | Eammu Holidays Blog",
   },
 

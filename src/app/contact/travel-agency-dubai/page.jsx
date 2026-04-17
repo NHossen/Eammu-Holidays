@@ -1,3 +1,4 @@
+import TravelAgencyDubai from '@/Components/Client/TravelAgency/TravelAgencyDubai/TravelAgencyDubai';
 import React from 'react'
 
 export const metadata = {
@@ -67,7 +68,7 @@ export const metadata = {
 export default function page() {
   return (
     <div>
-      <h1>Dubai</h1>
+      <TravelAgencyDubai />
     </div>
   )
 }

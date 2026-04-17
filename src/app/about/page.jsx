@@ -4,10 +4,10 @@ import React from 'react'
 
 export const metadata = {
   title:
-    "About Eammu Holidays | Trusted Travel & Visa Experts in Bangladesh, Dubai & Beyond",
+    "Leading Online Travel Agency Bangladesh | Trusted Travel & Visa Experts in Bangladesh, Dubai & Beyond",
 
   description:
-    "Learn about Eammu Holidays, a trusted international travel agency offering visa services, Umrah packages, flight booking, and luxury tours. With offices in Bangladesh, Dubai, Armenia, and Georgia, we help travelers explore the world بسهولة and confidently.",
+    "Leading Online Travel Agency Bangladesh ,Learn about Eammu Holidays, a trusted international travel agency offering visa services, Umrah packages, flight booking, and luxury tours. With offices in Bangladesh, Dubai, Armenia, and Georgia, we help travelers explore the world بسهولة and confidently.",
 
   keywords: [
     "about Eammu Holidays",

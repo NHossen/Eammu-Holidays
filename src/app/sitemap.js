@@ -42,9 +42,10 @@ export default function sitemap() {
     { url: "/our-services/visa-services/work-visa-from-bangladesh", priority: 0.9, changeFrequency: "monthly" },
     { url: "/target-ielts-immigration-center", priority: 0.8, changeFrequency: "monthly" },
     { url: "/target-usa-visa-interview-preparation", priority: 0.8, changeFrequency: "monthly" },
+    { url: "/study-abroad/student-visa/canada", priority: 0.8, changeFrequency: "monthly" },
   ];
 
-  // Specific Country Visa Application Pages
+  // Specific Country Visa Application Pages /study-abroad/student-visa/canada
   const visaCountries = [
     "albania", "armenia", "australia", "azerbaijan", "brazil", "canada", "china", 
     "cyprus", "dubai", "europe", "georgia", "germany", "india", "indonesia", 
