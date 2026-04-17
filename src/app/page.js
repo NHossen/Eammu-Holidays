@@ -9,6 +9,7 @@ import Caresoul_BG_Mix from "@/Components/Server/Caresoul_BG_Mix/Caresoul_BG_Mix
 import Our_Succsses_State from "@/Components/Server/Our_Succsses_State/Our_Succsses_State";
 import TourPackages from "@/Components/Server/TourPackages/TourPackages";
 import LandingModal from "@/Components/Client/LandingModal/LandingModal";
+import VisaSearch from "@/Components/Client/visaServices/Visa/TouristVisaBangladesh/TouristVisa/VisaSearch/VisaSearch";
 
 
 export const metadata = {
@@ -165,6 +166,7 @@ const jsonLd = {
       <main >
       <LandingModal />
       <HeroSection />
+      <VisaSearch />
       <SpecialDayBanner />
       <SpecialOffers />
       <FlightOfferBanner />

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import countries from "@/app/data/countries.json";
 import Link from "next/link";
 import { createSlug } from "@/app/lib/utils";
+import VisaSearch from "./VisaSearch/VisaSearch";
 
 export default function TouristVisa() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -120,6 +121,8 @@ export default function TouristVisa() {
           </div>
         </div>
       </div>
+
+      <VisaSearch />
 
       <div className="max-w-[1400px] mx-auto p-6 md:p-10 lg:p-16">
         {/* Countries Grid */}
