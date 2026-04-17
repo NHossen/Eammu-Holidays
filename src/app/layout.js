@@ -111,24 +111,23 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-<Script
-          id="tp-verification"
-          strategy="beforeInteractive" // Loads as early as possible
-          // These replace your data-noptimize and data-no-defer
-          data-noptimize="1"
-          data-cfasync="false"
-        >
-          {`
-            (function () {
+     <head>
+        {/* The White Label Engine */}
+        <Script
+          id="white-label-init"
+          strategy="afterInteractive" // Loads after page is interactive for better speed
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
                 var script = document.createElement("script");
                 script.async = 1;
-                script.src = 'https://tpembars.com/NTE4NjQ1.js?t=518645';
+                script.type = "module";
+                script.src = "https://tpwidg.com/wl_web/main.js?wl_id=16389";
                 document.head.appendChild(script);
-            })();
-          `}
-        </Script>
-
+              })();
+            `,
+          }}
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
