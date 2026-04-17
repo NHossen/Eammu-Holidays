@@ -4,6 +4,7 @@ import Header from "@/Components/Client/Header/Header";
 import Footer from "@/Components/Server/Footer/Footer";
 import WhatsAppFloatingButton from "@/Components/Client/WhatsAppFloatingButton/WhatsAppFloatingButton";
 import Scroll from "@/Components/Client/Scroll/Scroll";
+import Script from "next/script";
 
 
 
@@ -110,7 +111,25 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      
+      <head>
+<Script
+          id="tp-verification"
+          strategy="beforeInteractive" // Loads as early as possible
+          // These replace your data-noptimize and data-no-defer
+          data-noptimize="1"
+          data-cfasync="false"
+        >
+          {`
+            (function () {
+                var script = document.createElement("script");
+                script.async = 1;
+                script.src = 'https://tpembars.com/NTE4NjQ1.js?t=518645';
+                document.head.appendChild(script);
+            })();
+          `}
+        </Script>
+
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
         

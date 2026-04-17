@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://eammu-holidays.vercel.app";
+  const baseUrl = "https://eammu.com";
 
   const staticRoutes = [
     // Main Pages
@@ -16,15 +16,15 @@ export default function sitemap() {
     { url: "/our-services", priority: 0.9, changeFrequency: "weekly" },
     { url: "/study-abroad", priority: 0.95, changeFrequency: "weekly" },
     { url: "/study-abroad/student-visa", priority: 0.9, changeFrequency: "weekly" },
-    { url: "/visa", priority: 0.95, changeFrequency: "weekly" },
-    { url: "/visa/visa-guide", priority: 0.9, changeFrequency: "weekly" },
+    { url: "/visa", priority: 0.95, changeFrequency: "daily" },
+    { url: "/visa/visa-guide", priority: 0.9, changeFrequency: "daily" },
     { url: "/flight-booking", priority: 0.8, changeFrequency: "monthly" },
     { url: "/event-management", priority: 0.7, changeFrequency: "monthly" },
     
     // Regional/Agency Contacts
-    { url: "/contact/travel-agency-armenia", priority: 0.7, changeFrequency: "monthly" },
+    { url: "/contact/travel-agency-armenia", priority: 0.7, changeFrequency: "daily" },
     { url: "/contact/travel-agency-bangladesh", priority: 0.7, changeFrequency: "monthly" },
-    { url: "/contact/travel-agency-dubai", priority: 0.7, changeFrequency: "monthly" },
+    { url: "/contact/travel-agency-dubai", priority: 0.7, changeFrequency: "daily" },
     { url: "/contact/travel-agency-georgia", priority: 0.7, changeFrequency: "monthly" },
     { url: "/online-travel-agency-bangladesh", priority: 0.8, changeFrequency: "monthly" },
 
