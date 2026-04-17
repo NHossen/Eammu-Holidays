@@ -39,6 +39,9 @@ export default function TravelMenu() {
       c.country.toLowerCase().includes(searchTerm.toLowerCase())
     ).slice(0, 4); 
   }, [searchTerm]);
+// ... inside your component ...Flight
+// ... inside your component ...
+const [isInteracting, setIsInteracting] = useState(false);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -50,7 +53,7 @@ export default function TravelMenu() {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-2 font-sans relative mt-24 mb-4">
+    <div className="w-full max-w-6xl mx-auto p-2 font-sans relative mt-24 mb-4">
       
       {/* 1. FLOATING MENU BAR */}
       <div className="relative z-20 flex justify-center px-2">
@@ -237,21 +240,44 @@ export default function TravelMenu() {
   </div>
 )}
 
-            {/* --- FLIGHT TAB --- */}
-            {activeTab === 'flight' && (
-              <div className="space-y-3 w-full text-center">
-                <h2 className="text-sm sm:text-lg font-black text-gray-800 tracking-tight leading-none">Search Cheap Air Tickets</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-4xl mx-auto w-full">
-                  {['From', 'To', 'Departure', 'Class'].map((label, i) => (
-                    <div key={label} className="bg-slate-50 border border-slate-100 p-2 rounded-xl text-left">
-                      <p className="text-[8px] font-black text-slate-400 uppercase leading-none mb-0.5">{label}</p>
-                      <p className="text-[13px] font-bold">{['Dhaka', 'Toronto', 'Select Date', 'Economy'][i]}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+{/* --- FLIGHT TAB --- */}
+{activeTab === 'flight' && (
+  <div className="space-y-2 w-full text-center">
 
+    {/* OUTER WRAPPER */}
+    <div
+      className={`w-full relative rounded-xl bg-white/40 overflow-hidden transition-all duration-300 ease-in-out
+        ${isInteracting ? 'h-[520px] z-50' : 'h-[120px] sm:h-[110px] z-10'}`}
+      onMouseEnter={() => setIsInteracting(true)}
+      onMouseLeave={() => setIsInteracting(false)}
+    >
+
+      {/* SCROLL CONTAINER (FORCES Y ONLY) */}
+      <div className="w-full h-full overflow-y-auto overflow-x-hidden">
+
+        <iframe
+          src="/travelpayouts.html"
+          scrolling="yes"
+          className="w-full h-[900px] border-0"
+          style={{
+            background: 'transparent',
+            display: 'block'
+          }}
+        />
+
+      </div>
+
+      {/* CLICK TO EXPAND OVERLAY */}
+      {!isInteracting && (
+        <div
+          className="absolute inset-0 z-20 cursor-pointer"
+          onClick={() => setIsInteracting(true)}
+        />
+      )}
+
+    </div>
+  </div>
+)}
             {/* --- TOUR TAB --- */}
             {activeTab === 'tour' && (
               <div className="space-y-3 w-full text-center">
@@ -288,20 +314,21 @@ export default function TravelMenu() {
           </motion.div>
         </AnimatePresence>
 
-        {/* --- PERFECTLY CENTERED OVERLAPPING BUTTON --- */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex justify-center w-full px-8">
-          <Link 
-            href={
-              activeTab === 'visa' ? `/visa/visa-guide/${createSlug(destination)}-visa-for-${createSlug(origin)}` : 
-              activeTab === 'study' ? "/study-abroad/student-visa" : 
-              activeTab === 'flight' ? "/our-services/air-tickets" :
-              activeTab === 'tour' ? "/our-services/tour-packages" : "/our-services/things-to-do"
-            } 
-            className="w-full sm:w-64 bg-[#FFC107] hover:bg-yellow-500 text-blue-950 py-3.5 rounded-xl font-black text-sm uppercase shadow-xl text-center active:scale-95 transition-all"
-          >
-            Search {activeTab === 'activities' ? 'Activities' : activeTab === 'visa' ? 'Visa' : activeTab}
-          </Link>
-        </div>
+       {/* --- PERFECTLY CENTERED OVERLAPPING BUTTON --- */}
+{activeTab !== 'flight' && (
+  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex justify-center w-full px-8">
+    <Link 
+      href={
+        activeTab === 'visa' ? `/visa/visa-guide/${createSlug(destination)}-visa-for-${createSlug(origin)}` : 
+        activeTab === 'study' ? "/study-abroad/student-visa" : 
+        activeTab === 'tour' ? "/our-services/tour-packages" : "/our-services/things-to-do"
+      } 
+      className="w-full sm:w-64 bg-[#FFC107] hover:bg-yellow-500 text-blue-950 py-3.5 rounded-xl font-black text-sm uppercase shadow-xl text-center active:scale-95 transition-all"
+    >
+      Search {activeTab === 'activities' ? 'Activities' : activeTab === 'visa' ? 'Visa' : activeTab}
+    </Link>
+  </div>
+)}
       </div>
     </div>
   );
