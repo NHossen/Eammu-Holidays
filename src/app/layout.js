@@ -111,24 +111,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-     <head>
-        {/* The White Label Engine */}
-        <Script
-          id="white-label-init"
-          strategy="afterInteractive" // Loads after page is interactive for better speed
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                var script = document.createElement("script");
-                script.async = 1;
-                script.type = "module";
-                script.src = "https://tpwidg.com/wl_web/main.js?wl_id=16389";
-                document.head.appendChild(script);
-              })();
-            `,
-          }}
-        />
-      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
         

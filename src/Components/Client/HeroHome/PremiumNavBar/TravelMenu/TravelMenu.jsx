@@ -237,27 +237,20 @@ export default function TravelMenu() {
   </div>
 )}
 
-{/* --- FLIGHT TAB --- */}
-{activeTab === 'flight' && (
-  <div className="space-y-3 w-full text-center">
-    <h2 className="text-sm sm:text-lg font-black text-gray-800 tracking-tight leading-none">
-      Search Cheap Air Tickets
-    </h2>
-    
-    {/* METASEARCH WIDGET CONTAINER */}
-    <div className="max-w-4xl mx-auto w-full">
-      <div id="tpwl-search" className="w-full min-h-[100px]">
-        {/* The widget will automatically load its search bar here */}
-      </div>
-    </div>
-
-    {/* SEARCH RESULTS CONTAINER */}
-    {/* It is important to have the results container ready on the same page */}
-    <div className="max-w-6xl mx-auto w-full mt-8">
-      <div id="tpwl-tickets" className="w-full min-h-[400px]"></div>
-    </div>
-  </div>
-)}
+            {/* --- FLIGHT TAB --- */}
+            {activeTab === 'flight' && (
+              <div className="space-y-3 w-full text-center">
+                <h2 className="text-sm sm:text-lg font-black text-gray-800 tracking-tight leading-none">Search Cheap Air Tickets</h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-4xl mx-auto w-full">
+                  {['From', 'To', 'Departure', 'Class'].map((label, i) => (
+                    <div key={label} className="bg-slate-50 border border-slate-100 p-2 rounded-xl text-left">
+                      <p className="text-[8px] font-black text-slate-400 uppercase leading-none mb-0.5">{label}</p>
+                      <p className="text-[13px] font-bold">{['Dhaka', 'Toronto', 'Select Date', 'Economy'][i]}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* --- TOUR TAB --- */}
             {activeTab === 'tour' && (
