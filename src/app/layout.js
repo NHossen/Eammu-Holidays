@@ -29,7 +29,7 @@ export const metadata = {
   },
 
   description:
-    "Eammu Holidays is a trusted global travel agency offering tourist visas, Dubai tours, Umrah packages, flight booking, and international holiday packages from Bangladesh, UAE, Armenia, and Georgia.",
+    "Eammu Holidays is a leading online travel agency in Bangladesh - offering flight bookings, worldwide visa assistance, Holiday Tour Packages, and exciting desert safari tours. With expert guidance, we make international travel simple, affordable, and hassle-free",
 
   keywords: [
     "travel agency Bangladesh",

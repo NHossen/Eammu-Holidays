@@ -17,7 +17,7 @@ export const metadata = {
 
   title: {
     default:
-      "Best Travel Agency in Bangladesh, Dubai & Georgia | Visa, Tours & Umrah 2026",
+      "Leading Travel Agency in Bangladesh | Leading Education Consultancy in Bangladesh | Dhaka Travel Agency",
     template: "%s | Eammu Holidays",
   },
 
