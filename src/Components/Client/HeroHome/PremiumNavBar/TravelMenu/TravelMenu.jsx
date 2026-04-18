@@ -247,7 +247,7 @@ const [isInteracting, setIsInteracting] = useState(false);
     {/* OUTER WRAPPER */}
     <div
       className={`w-full relative rounded-xl bg-white/40 overflow-hidden transition-all duration-300 ease-in-out
-        ${isInteracting ? 'h-[520px] z-50' : 'h-[120px] sm:h-[110px] z-10'}`}
+        ${isInteracting ? 'h-[380px] sm:h-[520px] z-50' : 'h-[220px] sm:h-[110px] z-10'}`}
       onMouseEnter={() => setIsInteracting(true)}
       onMouseLeave={() => setIsInteracting(false)}
     >

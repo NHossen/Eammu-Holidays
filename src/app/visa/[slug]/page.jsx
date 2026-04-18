@@ -51,7 +51,7 @@ export default async function CountryPage({ params }) {
               </span>
             </div>
             <h1 className="text-3xl md:text-5xl font-black text-white mb-4 tracking-tighter italic drop-shadow-lg">
-              {country.country} <span className="text-[#267700]"> Tourist Visa</span>
+              {country.country} <span className="text-[#267700]"> Tourist Visa Requirements</span>
             </h1>
             <h2 className="text-xl md:text-2xl font-medium text-black/80 mb-6 max-w-3xl leading-relaxed">
               {d?.title}
@@ -92,8 +92,8 @@ export default async function CountryPage({ params }) {
             <div className="flex items-center gap-4 mb-10">
               <div className="p-3 bg-green-50 rounded-2xl text-green-600"><CheckCircle size={28} /></div>
               <div>
-                <h2 className="text-3xl font-bold text-[#1A1A1A]">Required Documents</h2>
-                <p className="text-gray-400 text-sm">Mandatory submission files for Bangladeshi applicants</p>
+                <h2 className="text-3xl font-bold text-[#1A1A1A]">{country.country} Required Documents</h2>
+                <p className="text-gray-400 text-sm">Mandatory submission files for All applicants</p>
               </div>
             </div>
             
@@ -151,7 +151,7 @@ export default async function CountryPage({ params }) {
             <section className="bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100">
               <div className="flex items-center gap-4 mb-8">
                 <div className="p-3 bg-orange-50 rounded-xl text-orange-600"><Map size={24} /></div>
-                <h2 className="text-2xl font-bold tracking-tight">Itinerary Strategy</h2>
+                <h2 className="text-2xl font-bold tracking-tight">Travel Itinerary Strategy</h2>
               </div>
               <div className="space-y-4">
                 <div className="p-4 bg-gray-50 rounded-2xl border-l-4 border-[#C5A059]">
@@ -193,7 +193,7 @@ export default async function CountryPage({ params }) {
             <div className="relative z-10">
               <div className="flex items-center gap-4 mb-10">
                 <div className="p-3 bg-white rounded-2xl shadow-sm text-orange-600"><Lightbulb size={28} /></div>
-                <h2 className="text-3xl font-black text-gray-900 tracking-tight italic uppercase">Insider Approval Hacks</h2>
+                <h2 className="text-3xl font-black text-gray-900 tracking-tight italic uppercase">{country.country} Visa Approval Hacks</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {d?.expert_approval_hacks.map((hack, i) => (
@@ -214,7 +214,7 @@ export default async function CountryPage({ params }) {
           <div className="bg-[#ffe0a7] p-8 rounded-[2rem] text-white shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#C5A059]/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
             <h3 className="text-xl font-bold mb-8 flex items-center gap-2 italic">
-              <CreditCard className="text-[#C5A059]" /> Cost Estimator 2026
+              <CreditCard className="text-[#C5A059]" /> Cost Estimator
             </h3>
             <div className="space-y-4 mb-8">
               <div className="flex justify-between text-gray-400 text-sm">
@@ -290,7 +290,7 @@ export default async function CountryPage({ params }) {
           <div className="bg-red-50 p-8 rounded-[2rem] border border-red-100">
              <div className="flex items-center gap-3 mb-6 text-red-700">
               <AlertTriangle size={22} />
-              <h3 className="font-bold text-lg italic">Rejection Risk Matrix</h3>
+              <h3 className="font-bold text-lg italic">{country.country} Visa Rejection Risk</h3>
             </div>
             <div className="space-y-4">
               {d?.rejection_risk_matrix?.high_risk.map((risk, i) => (
@@ -299,7 +299,7 @@ export default async function CountryPage({ params }) {
                 </div>
               ))}
               <div className="mt-6 p-4 bg-white rounded-xl text-xs text-gray-600 border border-red-200 leading-relaxed">
-                <b className="text-green-700 block mb-1">PRO-TIP:</b>
+                <b className="text-green-700 block mb-1">PRO-TIPS:</b>
                 {d?.rejection_risk_matrix?.mitigation}
               </div>
             </div>
@@ -312,30 +312,85 @@ export default async function CountryPage({ params }) {
             </h3>
             <div className="space-y-4 text-xs font-medium text-gray-600">
               <div className="p-3 bg-white rounded-lg shadow-sm border border-gray-100">
-                <b className="text-black block mb-1">Visit Japan Web:</b> {d?.additional_logistics_2026?.visit_japan_web}
+                <b className="text-black block mb-1">Visit {country.country} Web:</b> {d?.additional_logistics_2026?.visit_japan_web}
               </div>
               <div className="p-3 bg-white rounded-lg shadow-sm border border-gray-100">
-                <b className="text-black block mb-1">Currency Advice:</b> {d?.additional_logistics_2026?.currency_advice}
+                <b className="text-black block mb-1">{country.country} Currency Advice:</b> {d?.additional_logistics_2026?.currency_advice}
               </div>
               <div className="p-3 bg-white rounded-lg shadow-sm border border-gray-100">
-                <b className="text-black block mb-1">JR Pass Note:</b> {d?.additional_logistics_2026?.jr_pass_note}
+                <b className="text-black block mb-1">{country.country} Pass Note:</b> {d?.additional_logistics_2026?.jr_pass_note}
               </div>
             </div>
           </div>
           <div className="bg-[#C5A059] p-8 rounded-[2rem] flex flex-col justify-center items-center text-center text-white">
               <HelpCircle size={48} className="mb-4 opacity-50" />
               <p className="font-bold text-lg mb-2 italic underline decoration-white/30">Need Help?</p>
-              <p className="text-sm opacity-90 leading-relaxed">Our experts provide professional form-filling & photo verification.</p>
+              <p className="text-sm opacity-90 leading-relaxed">Our experts provide professional form-filling & photo verification for {country.country} Visa.</p>
               <p className="text-green-800">support@eammu.com</p>
             </div>
         </aside>
       </div>
+       
+       {/* YOUTUBE VIDEO SECTION */}
+<div className="py-16">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-4xl font-black text-center mb-16 italic tracking-tight uppercase">
+      Watch & Learn <span className="text-[#C5A059]">About {country.country} Visa Process</span>
+    </h2>
+    
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {d?.youtube_video_options.map((video, index) => {
+        // Extracting YouTube ID for the thumbnail
+        const videoId = video.video_link.split('v=')[1];
+        const thumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
+        return (
+          <div key={index} className="group relative bg-white rounded-[2rem] overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl hover:border-[#C5A059] transition-all duration-500">
+            {/* Thumbnail Container */}
+            <div className="relative aspect-video overflow-hidden">
+              <img 
+                src={thumbUrl} 
+                alt={video.video_title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              {/* Play Button Overlay */}
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                <div className="w-16 h-16 bg-[#C5A059] rounded-full flex items-center justify-center text-white shadow-2xl transform group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Video Info */}
+            <div className="p-6">
+              <h3 className="font-black text-lg text-[#1A1A1A] mb-4 leading-tight group-hover:text-[#C5A059] transition-colors line-clamp-2 italic">
+                {video.video_title}
+              </h3>
+              <a 
+                href={video.video_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400 group-hover:text-[#C5A059] transition-colors"
+              >
+                Watch on YouTube 
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</div>
       {/* FAQ SECTION */}
       <div className="py-16">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-black text-center mb-16 italic tracking-tight uppercase">
-            Frequently Asked <span className="text-[#C5A059]">Questions</span>
+            Frequently Asked <span className="text-[#C5A059]">Questions For {country.country} Visa Application</span>
           </h2>
           <div className="space-y-6">
             {d?.faq_extended.map((item, i) => (

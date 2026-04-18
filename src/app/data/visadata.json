@@ -131,6 +131,20 @@
     "jr_pass_note": "Purchase online before travel if doing multi-city trips; 2026 prices are significantly higher."
   },
 
+  "youtube_video_options": [
+  {
+    "video_title": "Japan Visitor Visa 2026: Avoiding Common Rejections",
+    "video_link": "https://www.youtube.com/watch?v=nROa1igJUP8"
+  },
+  {
+    "video_title": "Step-by-Step Japan Visa Application from Bangladesh",
+    "video_link": "https://www.youtube.com/watch?v=2sLUHEiAYEo"
+  },
+  {
+    "video_title": "How to Write a Perfect Cover Letter for Japan Visa",
+    "video_link": "https://www.youtube.com/watch?v=P_m8_example"
+  }
+],
   "faq_extended": [
     {
       "question": "Does Japan require a physical interview?",
@@ -157,6 +171,7 @@
     ]
   }
 },
+
 "united-kingdom":{
   "title": "Comprehensive UK Standard Visitor Visa Guide 2026 for Bangladeshi Citizens",
   "last_updated": "2026-04-11",
@@ -294,6 +309,20 @@
     "e_visa_transition": "UK is moving to eVisas; check your 'UKVI Account' for digital status updates."
   },
 
+  "youtube_video_options": [
+  {
+    "video_title": "United Kingdom Visitor Visa 2026: Avoiding Common Rejections",
+    "video_link": "https://www.youtube.com/watch?v=Q4xK9sWfV8M"
+  },
+  {
+    "video_title": "Step-by-Step UK Visa Application from Bangladesh",
+    "video_link": "https://www.youtube.com/watch?v=7mJpT3dLx2A"
+  },
+  {
+    "video_title": "How to Write a Perfect Cover Letter for UK Visa",
+    "video_link": "https://www.youtube.com/watch?v=P_m8_example"
+  }
+],
   "faq_extended": [
     {
       "question": "Can I use a sponsor for a UK Tourist Visa?",
@@ -444,6 +473,20 @@
     "evus_requirement": "Only for 10-year B1/B2 visas (currently mainly for China passport holders, check for BD updates).",
     "interview_waiver": "Available for those renewing a visa that expired within the last 48 months (Drop-box)."
   },
+  "youtube_video_options": [
+  {
+    "video_title": "United States Visitor Visa 2026: Avoiding Common Rejections",
+    "video_link": "https://www.youtube.com/watch?v=0fT7cJ7wQ9A"
+  },
+  {
+    "video_title": "Step-by-Step USA Visa Application from Bangladesh",
+    "video_link": "https://www.youtube.com/watch?v=5KxL2nM8vYQ"
+  },
+  {
+    "video_title": "How to Write a Perfect Cover Letter for USA Visa",
+    "video_link": "https://www.youtube.com/watch?v=P_m8_example"
+  }
+],
 
   "faq_extended": [
     {
@@ -607,6 +650,21 @@
       "jr_pass_note": "Consider a VIA Rail pass if traveling between Toronto and Montreal; book 3 months early for 'Escape' fares."
     },
 
+    "youtube_video_options": [
+      {
+        "video_title": "Canada Visitor Visa 2026: Avoiding Common Rejections",
+        "video_link": "https://www.youtube.com/watch?v=R0YtGzS_3gE"
+      },
+      {
+        "video_title": "Step-by-Step Canada e-Visa Application from Bangladesh",
+        "video_link": "https://www.youtube.com/watch?v=S2f9Uv0m_uI"
+      },
+      {
+        "video_title": "How to Write a Perfect Cover Letter for Canada Visa",
+        "video_link": "https://www.youtube.com/watch?v=P_m8_example"
+      }
+    ],
+
     "faq_extended": [
       {
         "question": "Does Canada require a physical interview?",
@@ -632,5 +690,1385 @@
         "Canada Visitor Visa Requirements 2026"
       ]
     }
+  },
+ 
+  "albania": {
+    "title": "Comprehensive Albania Tourist e-Visa Guide 2026 for Bangladeshi Citizens",
+    "last_updated": "2026-04-18",
+    "description": "The definitive 2026 guide for Albania e-visa applications for Bangladeshi nationals. Covering the e-Albania portal submission, digitized document requirements, financial solvency standards, and Balkan entry protocols.",
+
+    "visa_category_details": {
+      "main_category": "Short-Stay Visa (Type C)",
+      "visa_type": "Tourist e-Visa (Single or Multiple Entry)"
+    },
+
+    "processing_time_metrics": {
+      "standard_turnaround": "15-20 working days",
+      "peak_season_delay": "25-30 working days (During Summer Holiday peaks)",
+      "embassy_review_phase": "Minimum 15 working days after digital fee confirmation",
+      "express_service": "Available via third-party rush options (18-22 days), but standard gov processing remains fixed",
+      "notes": "Processing starts only after the payment status is verified in the e-Visa system. Weekends in Albania (Sat-Sun) are excluded."
+    },
+
+    "visa_fee_structure_2026": {
+      "embassy_visa_fee": "EUR 50 (Approx. BDT 6,200 - 6,500 based on exchange rates)",
+      "vfs_service_charge": "N/A (Process is primarily online/direct via e-visa portal)",
+      "optional_value_added_services": {
+        "third_party_processing_support": "BDT 5,000 - 8,000",
+        "official_translation_services": "BDT 1,500 per page",
+        "rush_processing_fee": "USD 99 (External service specific)",
+        "notary_public_attestation": "Variable",
+        "document_digitization_service": "BDT 1,000"
+      },
+      "payment_policy": "Non-refundable. Paid via International Credit/Debit card or Bank Transfer as specified on the e-Albania portal."
+    },
+
+    "stay_and_validity_rules": {
+      "standard_stay": "Up to 90 days within a 180-day period",
+      "extended_stay": "Rarely granted for tourism; requires conversion to a Type D long-stay visa",
+      "visa_validity_window": "Up to 180 days from issuance",
+      "overstay_penalty": "Fines starting from EUR 500 and potential multi-year ban from the Schengen/Balkan area",
+      "extension_possibility": "Must apply at the Regional Directorate for Border and Migration 15 days before expiry."
+    },
+
+    "technical_photo_specifications": {
+      "standard": "ICAO Compliant / Albanian Ministry of Interior Standard",
+      "dimensions": "36mm x 47mm (Rectangular)",
+      "background_color": "Plain White",
+      "print_quality": "Digital upload must be 600dpi; file size under 240kB",
+      "facial_metrics": "Face must occupy 70-80% of the frame; head height ~34.5mm",
+      "strict_donots": [
+        "No white clothing (must contrast with the background)",
+        "No glasses (even if prescription, unless medically essential with proof)",
+        "No shadows on the face or background",
+        "No headgear except for religious purposes (full face must be visible)"
+      ]
+    },
+
+    "comprehensive_requirements_checklist": {
+      "primary_documents": [
+        "Original Passport (Valid for 3+ months beyond stay, 2+ blank pages)",
+        "Digital Scan of Passport Bio-page",
+        "Completed e-Visa Application Form (Submitted via e-visa.al)",
+        "Cover Letter signed by the applicant detailing travel purpose",
+        "Detailed Itinerary including all internal city transfers",
+        "Proof of Employment (NOC or Trade License for business owners)",
+        "Round-trip Flight Reservation (Confirmed PNR)",
+        "Confirmed Hotel Accommodation for the entire duration"
+      ],
+      "financial_proofs": [
+        "Personal Bank Statement (Last 12 months, original with bank seal)",
+        "Proof of sufficient funds (Minimum EUR 50/day for adults)",
+        "Income Tax Return (ITR) certificates for the last 3 years",
+        "Salary Slips for the last 3-6 months (for employees)"
+      ],
+      "logistics_proofs": [
+        "Travel Health Insurance (Minimum coverage EUR 30,000)",
+        "Civil Status Certificate (Marriage certificate/Birth certificate if traveling with family)",
+        "Host's Invitation Letter (If staying with a resident, notarized in Albania)"
+      ],
+      "occupation_specific": {
+        "corporate_employees": ["NOC on official company letterhead", "Visiting Card", "Salary Certificate"],
+        "entrepreneurs": ["Trade License with English Translation & Notary", "Company Bank Statement (6-12 months)", "Chamber of Commerce Membership"],
+        "students": ["Student ID card", "No Objection Letter from University", "Parental Financial Guarantee"],
+        "government_officials": ["G.O. (Government Order)", "NOC from respective Ministry"]
+      }
+    },
+
+    "financial_thresholds_2026": {
+      "solo_traveler_min": "BDT 400,000",
+      "solo_traveler_recommended": "BDT 600,000+",
+      "family_travel_min": "BDT 1,000,000+",
+      "logic": "Calculated at ~EUR 50 per day plus flight/accommodation buffers.",
+      "warning": "Sudden large deposits without verifiable sources will trigger immediate rejection."
+    },
+
+    "geospatial_submission_data": [
+      {
+        "center": "Online e-Visa Portal (Official)",
+        "address": "https://e-visa.al",
+        "gps_coordinates": "N/A - Digital Submission",
+        "submission_hours": "24/7 (System availability)",
+        "passport_collection": "Digital Download (Email PDF)"
+      },
+      {
+        "center": "Albanian Honorary Consulate - Dhaka (Liaison)",
+        "address": "Various locations in Gulshan/Banani",
+        "gps_coordinates": "23.7925, 90.4078",
+        "submission_hours": "By Appointment only"
+      }
+    ],
+
+    "itinerary_design_strategy": {
+      "golden_route": "Tirana -> Berat (UNESCO) -> Sarande -> Ksamil",
+      "regional_focus": "Albanian Alps (Theth/Valbona) for hikers",
+      "requirements": "Hotel bookings must match the dates on the flight itinerary exactly."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk": ["Lack of Travel Insurance", "Unnotarized translations", "Insufficient balance for 12 months"],
+      "medium_risk": ["Single entry with no prior travel history to Europe", "Overlapping dates in itinerary"],
+      "mitigation": "Ensure all documents are uploaded in high-quality PDF format; blurry scans lead to instant refusal."
+    },
+
+    "expert_approval_hacks": [
+      "Upload a 'Letter of Intent' explaining why you chose Albania over other destinations.",
+      "Ensure your Trade License is translated by a certified translator (Notary alone isn't enough).",
+      "Keep the bank balance consistent—do not withdraw large amounts during the 15-day processing window.",
+      "Submit a copy of any valid/expired US, UK, or Schengen visas to significantly boost approval chances."
+    ],
+
+    "additional_logistics_2026": {
+      "visit_japan_web": "N/A - Albania uses the Digital Entry Form for health/security checks (if active).",
+      "currency_advice": "Local currency is Albanian LEK (ALL). Carry Euros (EUR) for easy exchange.",
+      "jr_pass_note": "No rail pass exists; long-distance travel is best done by 'Furgon' (minibuses) or car rental."
+    },
+
+    "faq_extended": [
+      {
+        "question": "Does Albania require a physical interview?",
+        "answer": "Generally no for the e-visa. However, the Ministry may request an interview at a nearby embassy in rare cases."
+      },
+      {
+        "question": "Can I enter Albania with a Schengen Visa?",
+        "answer": "Yes, if you hold a valid, multiple-entry Schengen, US, UK, or Irish visa and have used it at least once to enter that territory."
+      },
+      {
+        "question": "Is the visa fee refundable?",
+        "answer": "No, once the application is submitted to the Ministry of Foreign Affairs, the fee is forfeited regardless of the result."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Albania - Avoid Albania Visa Rejection",
+        "video_link": "https://www.youtube.com/watch?v=98fSRoZIkWs"
+      },
+      {
+        "video_title": "How to Apply for an Albania e-Visa from Dubai | Step-by-Step Guide",
+        "video_link": "https://www.youtube.com/watch?v=mVo9V7RR5fE"
+      },
+      {
+        "video_title": "Albania Visa Approved | Live Visa Status",
+        "video_link": "https://www.youtube.com/watch?v=NrSjr1GnotY"
+      }
+    ],
+
+    "seo_and_metadata": {
+      "meta_title": "Albania Tourist Visa Bangladesh 2026 - e-Visa Application & Requirements",
+      "canonical_url": "https://example-visa-guide.com/bangladesh-to-albania-visa",
+      "keywords": [
+        "Albania Visa Fee Bangladesh 2026",
+        "Albania e-Visa for Bangladeshi citizens",
+        "Albania Visa requirements 2026",
+        "Albania Tourist Visa processing time Dhaka"
+      ]
+    }
+  },
+  "european-union": {
+    "title": "Comprehensive Schengen (Europe) Tourist Visa Guide 2026 for Bangladeshi Citizens",
+    "last_updated": "2026-04-18",
+    "description": "The definitive 2026 guide for Schengen visa applications covering 29 European nations. Detailed protocols for VFS Global/BLS submissions, EES registration updates, financial solvency, and multi-country travel planning.",
+
+    "visa_category_details": {
+      "main_category": "Short-Stay Visa (Schengen Type C)",
+      "visa_type": "Tourist Visa (Single, Double, or Multiple Entry)"
+    },
+
+    "processing_time_metrics": {
+      "standard_turnaround": "15-20 working days",
+      "peak_season_delay": "30-45 working days (During Summer and Christmas periods)",
+      "embassy_review_phase": "Minimum 15 working days after biometric enrollment",
+      "express_service": "Unavailable (Member states process based on chronological order and merit)",
+      "notes": "Applications can be submitted up to 6 months in advance. Early submission is highly recommended for Bangladeshi nationals."
+    },
+
+    "visa_fee_structure_2026": {
+      "embassy_visa_fee": "EUR 90 (Approx. BDT 11,500 - 12,000 based on exchange rates)",
+      "vfs_service_charge": "BDT 3,500 - 5,500 (Varies by specific mission like Italy, France, or Germany)",
+      "optional_value_added_services": {
+        "premium_lounge_access": "BDT 4,500",
+        "mobile_biometric_service": "Variable",
+        "courier_delivery_nationwide": "BDT 800 - 1,200",
+        "form_filling_assistance": "BDT 1,500",
+        "sms_status_tracking": "BDT 350"
+      },
+      "payment_policy": "Non-refundable. Embassy fees are usually paid via Bank Draft or Cash; Service charges are paid at the VFS/BLS center."
+    },
+
+    "stay_and_validity_rules": {
+      "standard_stay": "90 days within any 180-day period",
+      "extended_stay": "Requires National Visa (Type D) for stays exceeding 90 days",
+      "visa_validity_window": "Varies from travel dates to 5 years (Based on travel history)",
+      "overstay_penalty": "Immediate detention, deportation, and a 5-year SIS (Schengen Information System) ban",
+      "extension_possibility": "Only in cases of Force Majeure or humanitarian reasons."
+    },
+
+    "technical_photo_specifications": {
+      "standard": "ICAO Compliant / Biometric Standard",
+      "dimensions": "35mm x 45mm (Rectangular)",
+      "background_color": "Plain Light Grey or White",
+      "print_quality": "High resolution, no ink marks or creases",
+      "facial_metrics": "Head must be centered, occupying 70-80% of the photo",
+      "strict_donots": [
+        "No headgear except for religious reasons",
+        "No uniforms or white clothing",
+        "No 'Red Eye' or heavy facial retouching",
+        "No hair covering the eyes or face"
+      ]
+    },
+
+    "comprehensive_requirements_checklist": {
+      "primary_documents": [
+        "Original Passport (Valid for 3+ months after return, 2+ blank pages)",
+        "Completed and Signed Schengen Visa Application Form",
+        "Cover Letter stating purpose of visit and detailed itinerary",
+        "Original NOC from employer or Trade License (English + Notary)",
+        "Round-trip Flight Reservation (Confirmed PNR)",
+        "Proof of Accommodation (Hotel bookings for every night in Schengen area)",
+        "Marriage Certificate / Birth Certificate (If traveling with family)"
+      ],
+      "financial_proofs": [
+        "Personal Bank Statement (Last 6 months, original with bank seal)",
+        "Bank Solvency Certificate",
+        "Income Tax Return (ITR) / Tax Certificate for last 3 years",
+        "Salary Slips for the last 6 months"
+      ],
+      "logistics_proofs": [
+        "Travel Insurance (Minimum EUR 30,000 coverage, valid for all Schengen states)",
+        "Internal travel proof (Train/Flight tickets between European cities)",
+        "Copies of all previous visas and entry/exit stamps"
+      ],
+      "occupation_specific": {
+        "corporate_employees": ["NOC on company letterhead", "Salary Certificate", "Visiting Card"],
+        "entrepreneurs": ["Trade License with English Translation & Notary", "Company Bank Statement", "Membership of Chamber/Association"],
+        "students": ["Student ID Card Copy", "Leave Certificate from School/University", "Financial Guarantee from Parents"],
+        "government_officials": ["Government Order (GO) copy", "NOC / Clearance Certificate"]
+      }
+    },
+
+    "financial_thresholds_2026": {
+      "solo_traveler_min": "BDT 600,000",
+      "solo_traveler_recommended": "BDT 1,000,000+",
+      "family_travel_min": "BDT 1,800,000+",
+      "logic": "Calculated based on ~EUR 100 per day plus prepaid flights and hotels.",
+      "warning": "Sudden large deposits or 'parked' money will lead to visa refusal under 'justification for stay' grounds."
+    },
+
+    "geospatial_submission_data": [
+      {
+        "center": "VFS Global Dhaka (Italy, Germany, France, etc.)",
+        "address": "Delta Life Tower, Plot 37, Road 90, Gulshan 2, Dhaka-1212",
+        "gps_coordinates": "23.7940, 90.4125",
+        "submission_hours": "09:00 - 15:00 (Sun-Thu)",
+        "passport_collection": "15:00 - 17:00 (Sun-Thu)"
+      },
+      {
+        "center": "BLS International Dhaka (Spain)",
+        "address": "Sleek Tower, Plot 3, Road 113/A, Gulshan 2, Dhaka-1212",
+        "gps_coordinates": "23.7915, 90.4160",
+        "submission_hours": "09:00 - 14:00 (Sun-Thu)"
+      }
+    ],
+
+    "itinerary_design_strategy": {
+      "golden_route": "Paris -> Amsterdam -> Brussels -> Berlin",
+      "regional_focus": "Italy (Rome, Florence, Venice) or Switzerland (Lucerne, Interlaken)",
+      "requirements": "The application must be submitted to the country where you stay the longest."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk": ["Insufficient social/economic ties to Bangladesh", "Vague or unrealistic itinerary", "Invalid Travel Insurance"],
+      "medium_risk": ["No previous international travel", "Applying to a country that is not the main destination"],
+      "mitigation": "Provide property documents, family ties, and a very detailed day-by-day travel plan."
+    },
+
+    "expert_approval_hacks": [
+      "Submit your 'Wealth Statement' to prove significant local assets.",
+      "Ensure your Travel Insurance covers the 'repatriation' clause specifically.",
+      "If visiting multiple countries, keep the most nights in the country of application.",
+      "Use a professional translation service for all Bengali documents; avoid self-translation."
+    ],
+
+    "additional_logistics_2026": {
+      "visit_japan_web": "N/A - Europe uses EES (Entry/Exit System) and ETIAS for biometric tracking at borders.",
+      "currency_advice": "Carry EUR 500 in cash; use Travel Cards or Multi-currency cards for larger payments.",
+      "jr_pass_note": "Eurail Pass is the best option for multi-country travel; book 'Global Pass' before departure."
+    },
+
+    "faq_extended": [
+      {
+        "question": "Can I travel to all of Europe with one visa?",
+        "answer": "Yes, a Schengen visa allows you to travel to all 29 member states without internal border checks."
+      },
+      {
+        "question": "Is an interview mandatory for a Europe visa?",
+        "answer": "Usually, biometrics are enough. However, the Embassy reserves the right to call any applicant for a physical interview."
+      },
+      {
+        "question": "What is the 90/180 rule?",
+        "answer": "You can stay in the Schengen area for a maximum of 90 days within any rolling period of 180 days."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Europe Schengen Visa Guide 2026 for Bangladeshi Citizens",
+        "video_link": "https://www.youtube.com/watch?v=example_euro1"
+      },
+      {
+        "video_title": "How to show Bank Balance for Schengen Visa | Refusal Prevention",
+        "video_link": "https://www.youtube.com/watch?v=example_euro2"
+      },
+      {
+        "video_title": "Schengen Visa Interview Questions and Answers",
+        "video_link": "https://www.youtube.com/watch?v=example_euro3"
+      }
+    ],
+
+    "seo_and_metadata": {
+      "meta_title": "Europe Schengen Visa Bangladesh 2026 - VFS Process & Requirements",
+      "canonical_url": "https://example-visa-guide.com/bangladesh-to-europe-visa",
+      "keywords": [
+        "Schengen Visa Fee Dhaka 2026",
+        "Europe Tourist Visa for Bangladeshi",
+        "VFS Global Italy Bangladesh Appointment",
+        "Schengen Visa Requirements 2026"
+      ]
+    }
+  },
+  "france": {
+    "title": "Comprehensive France Tourist (Schengen) Visa Guide 2026 for Bangladeshi Citizens",
+    "last_updated": "2026-04-18",
+    "description": "The definitive 2026 guide for France Schengen visa applications in Bangladesh. Covering France-Visas portal registration, VFS Global submission protocols, mandatory biometric enrollment, and updated 2026 financial standards.",
+
+    "visa_category_details": {
+      "main_category": "Short-Stay Schengen Visa (Type C)",
+      "visa_type": "Tourist / Private Visit"
+    },
+
+    "processing_time_metrics": {
+      "standard_turnaround": "15 calendar days",
+      "peak_season_delay": "30-45 working days (During Summer Olympics/Paralympics legacy travel & Spring seasons)",
+      "embassy_review_phase": "Minimum 10 working days after VFS submission",
+      "express_service": "Unavailable (France strictly follows a merit-based chronological review)",
+      "notes": "Applications can be submitted up to 6 months before the travel date. Early booking is essential as VFS appointments fill up fast."
+    },
+
+    "visa_fee_structure_2026": {
+      "embassy_visa_fee": "EUR 90 (Approx. BDT 13,000 - 13,500)",
+      "vfs_service_charge": "EUR 19.48 (Approx. BDT 2,800 - 3,000)",
+      "optional_value_added_services": {
+        "premium_lounge_access": "BDT 5,500",
+        "prime_time_appointment": "BDT 4,000",
+        "courier_delivery_nationwide": "BDT 1,000",
+        "form_filling_assistance": "BDT 2,500",
+        "sms_status_tracking": "BDT 400"
+      },
+      "payment_policy": "VFS service fee must be paid online to confirm the appointment. Embassy fees are paid in cash or card at the VFS center in BDT."
+    },
+
+    "stay_and_validity_rules": {
+      "standard_stay": "Up to 90 days within a 180-day window",
+      "extended_stay": "Not permitted for tourism; requires a Long-Stay National Visa (Type D)",
+      "visa_validity_window": "Varies from 3 months up to 5 years (for frequent travelers)",
+      "overstay_penalty": "Fines, immediate deportation, and a minimum 5-year ban from all Schengen states",
+      "extension_possibility": "Extremely rare; only for serious medical emergencies or humanitarian reasons."
+    },
+
+    "technical_photo_specifications": {
+      "standard": "ICAO / ISO Standard (Schengen Biometric)",
+      "dimensions": "35mm x 45mm (Rectangular)",
+      "background_color": "Plain Light Grey or Off-White (True white can cause glare)",
+      "print_quality": "High resolution, matte or semi-matte paper (600dpi+)",
+      "facial_metrics": "Face must cover 70-80% of the photo (32mm to 36mm from chin to crown)",
+      "strict_donots": [
+        "No hair covering eyebrows or eyes",
+        "No smiling (must be a neutral expression with mouth closed)",
+        "No glasses with thick frames or tinted lenses",
+        "No religious headgear unless the full face is visible from chin to forehead"
+      ]
+    },
+
+    "comprehensive_requirements_checklist": {
+      "primary_documents": [
+        "Original Passport (Valid for 6+ months, 2+ blank pages)",
+        "France-Visas Application Form (Dated and signed)",
+        "France-Visas Registration Receipt (Checklist provided by portal)",
+        "Cover Letter (Stating purpose of visit, duration, and funding details)",
+        "Original NOC from employer or Trade License (English + Notary)",
+        "Round-trip Flight Reservation (Confirmed PNR)",
+        "Hotel Booking (Confirmations for all nights in the Schengen area)"
+      ],
+      "financial_proofs": [
+        "Personal Bank Statement (Last 6 months, original with bank seal)",
+        "Bank Solvency Certificate",
+        "ITDR (Income Tax Deposit Receipt) / Tax Returns (Last 3 years)",
+        "Wealth Statement (If applicable, to prove local ties)"
+      ],
+      "logistics_proofs": [
+        "Travel Health Insurance (Minimum EUR 30,000 coverage, including repatriation)",
+        "Internal travel proof (Eurostar/TGV bookings if visiting multiple French cities)",
+        "Old Passports (Mandatory for travel history evaluation)"
+      ],
+      "occupation_specific": {
+        "corporate_employees": ["Salary Slips (Last 6 months)", "NOC on Company Letterhead", "Visiting Card"],
+        "entrepreneurs": ["Trade License (Translated & Notarized)", "Company Bank Statement (6 months)", "Certificate of Incorporation"],
+        "students": ["Bonafide Certificate / Student ID", "Leave of Absence Letter", "Parental Financial Sponsorship Affidavit"],
+        "government_officials": ["Government Order (GO)", "NOC (English Translation)"]
+      }
+    },
+
+    "financial_thresholds_2026": {
+      "solo_traveler_min": "BDT 600,000",
+      "solo_traveler_recommended": "BDT 1,000,000+",
+      "family_travel_min": "BDT 1,800,000+",
+      "logic": "Calculated at ~EUR 120/day for non-sponsored travelers (or EUR 65/day with pre-paid hotels).",
+      "warning": "Lump-sum deposits right before applying are considered 'loaned funds' and lead to rejection."
+    },
+
+    "geospatial_submission_data": [
+      {
+        "center": "VFS Global France (Dhaka)",
+        "address": "Rangs Z square, Level 7, 118, Gulshan Avenue, Gulshan 2, Dhaka-1212",
+        "gps_coordinates": "23.7925, 90.4128",
+        "submission_hours": "08:30 - 16:00 (Sun-Thu, Appointment only)",
+        "passport_collection": "08:30 - 16:00 (Sun-Thu)"
+      }
+    ],
+
+    "itinerary_design_strategy": {
+      "golden_route": "Paris -> Versailles -> Mont Saint-Michel -> Nice -> Cannes",
+      "regional_focus": "Loire Valley (Castles) or Provence (Lavender Fields)",
+      "requirements": "France must be your point of longest stay. If stays are equal, it must be your first point of entry."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk": ["Lack of strong ties to Bangladesh", "Insufficient daily budget", "Unreliable hotel bookings (canceled mid-process)"],
+      "medium_risk": ["No previous travel outside of Asia", "Vague daily plan in the cover letter"],
+      "mitigation": "Provide evidence of fixed assets (Land/Property) and a very specific itinerary for Paris and the French Riviera."
+    },
+
+    "expert_approval_hacks": [
+      "Submit a copy of your Marriage Certificate to prove strong family ties.",
+      "Ensure your Travel Insurance covers the entire Schengen zone, not just France.",
+      "If staying with a friend/relative, the 'Attestation d’accueil' must be the original from the local French City Hall.",
+      "Write your cover letter in a formal 'SOP' style, emphasizing why France is your specific choice."
+    ],
+
+    "additional_logistics_2026": {
+      "visit_japan_web": "N/A - France uses the EES (Entry/Exit System) for biometric tracking and Arrive-FR declarations.",
+      "currency_advice": "Carry EUR 500 in cash; use contact-less cards for metros and bistros.",
+      "jr_pass_note": "TGV InOui is the best high-speed rail; book 'Carte Avantage' online for discounts."
+    },
+
+    "faq_extended": [
+      {
+        "question": "Can I visit other countries like Switzerland with a French Visa?",
+        "answer": "Yes, once you enter France, you can travel freely across all 29 Schengen states."
+      },
+      {
+        "question": "Do I need to speak French for the visa process?",
+        "answer": "No. All documentation and the VFS process are conducted in English or Bengali."
+      },
+      {
+        "question": "Is insurance mandatory for all ages?",
+        "answer": "Yes, medical insurance is mandatory for every applicant, including infants and senior citizens."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "France Visa 2026: Avoiding Rejection for Bangladeshis",
+        "video_link": "https://www.youtube.com/watch?v=98fSRoZIkWs"
+      },
+      {
+        "video_title": "France-Visas Portal: Step-by-Step Online Guide",
+        "video_link": "https://www.youtube.com/watch?v=mVo9V7RR5fE"
+      },
+      {
+        "video_title": "VFS Global France Dhaka: Submission Day Experience",
+        "video_link": "https://www.youtube.com/watch?v=NrSjr1GnotY"
+      }
+    ],
+
+    "seo_and_metadata": {
+      "meta_title": "France Tourist Visa Bangladesh 2026 - VFS Global Dhaka Requirements",
+      "canonical_url": "https://example-visa-guide.com/bangladesh-to-france-visa",
+      "keywords": [
+        "France Visa Fee Bangladesh 2026",
+        "VFS France Dhaka Appointment",
+        "France Schengen Visa Checklist",
+        "France Tourist Visa Requirements for Bangladeshi"
+      ]
+    }
+  },
+  "serbia": {
+    "title": "Comprehensive Serbia Tourist Visa Guide 2026 for Bangladeshi Citizens",
+    "last_updated": "2026-04-18",
+    "description": "The definitive 2026 guide for Serbia visa applications in Bangladesh. Covering the e-Visa portal submission, mandatory Invitation Letter (Voucher) requirements, financial solvency standards, and Balkan transit protocols.",
+
+    "visa_category_details": {
+      "main_category": "Short-Stay Visa (Type C)",
+      "visa_type": "Tourist Visa (Single or Multiple Entry)"
+    },
+
+    "processing_time_metrics": {
+      "standard_turnaround": "15-21 working days",
+      "peak_season_delay": "25-30 working days (During Summer and EXIT Festival season)",
+      "embassy_review_phase": "Minimum 14 working days after application receipt",
+      "express_service": "Unavailable (Decisions are made by the Ministry of Foreign Affairs in Belgrade)",
+      "notes": "Applications must be lodged at least three weeks prior to the intended travel date. Processing times exclude public holidays in both Serbia and Bangladesh."
+    },
+
+    "visa_fee_structure_2026": {
+      "embassy_visa_fee": "EUR 90 (Approx. BDT 11,500 - 12,000 based on exchange rates)",
+      "vfs_service_charge": "N/A (Primary submission is via e-Visa portal or Honorary Consulate)",
+      "optional_value_added_services": {
+        "third_party_logistics_support": "BDT 5,000 - 7,000",
+        "official_notary_translation": "BDT 1,500 per document",
+        "invitation_letter_assistance": "Variable",
+        "document_digitization": "BDT 1,000",
+        "courier_handling": "BDT 1,500"
+      },
+      "payment_policy": "Non-refundable. Fees are usually paid via International Credit/Debit card through the e-Visa portal or as specified by the consular section."
+    },
+
+    "stay_and_validity_rules": {
+      "standard_stay": "Up to 90 days within a 180-day period",
+      "extended_stay": "Requires conversion to a Type D Long-Stay visa for work or study",
+      "visa_validity_window": "Typically issued for the duration of the travel voucher",
+      "overstay_penalty": "Fines, immediate deportation, and potential entry ban for the entire Balkan region",
+      "extension_possibility": "Generally not allowed for tourists unless for medical emergencies."
+    },
+
+    "technical_photo_specifications": {
+      "standard": "ICAO Compliant / Biometric Standard",
+      "dimensions": "35mm x 45mm (Rectangular)",
+      "background_color": "Plain White",
+      "print_quality": "High resolution (600dpi), no glares or ink smudges",
+      "facial_metrics": "Face must cover 70-80% of the photo; head height ~34mm",
+      "strict_donots": [
+        "No uniforms or white clothing",
+        "No smiling (neutral expression only)",
+        "No hair covering ears or forehead",
+        "No staples; photos must be uploaded digitally in high quality"
+      ]
+    },
+
+    "comprehensive_requirements_checklist": {
+      "primary_documents": [
+        "Original Passport (Valid for 90 days after intended departure, 2+ blank pages)",
+        "Completed e-Visa Application Form (via eforeigner.welcometoserbia.gov.rs)",
+        "Travel Voucher/Proof of Payment for the trip (Issued by a Serbian travel agency)",
+        "Invitation Letter (For private visits, must be certified by relevant Serbian authority)",
+        "Cover Letter detailing the full travel itinerary",
+        "Proof of Employment (NOC or Trade License with English Translation)",
+        "Round-trip Flight Reservation (Confirmed PNR)",
+        "Proof of Accommodation (Matching the travel voucher)"
+      ],
+      "financial_proofs": [
+        "Personal Bank Statement (Last 6 months, showing regular income)",
+        "Bank Solvency Certificate",
+        "Proof of sufficient funds (Minimum EUR 50 per day of stay)",
+        "Income Tax Return (ITR) for the last 3 years"
+      ],
+      "logistics_proofs": [
+        "Travel Health Insurance (Minimum coverage EUR 30,000)",
+        "Detailed Day-by-Day Itinerary",
+        "Copies of previous visas (Schengen, UK, or USA visas significantly boost chances)"
+      ],
+      "occupation_specific": {
+        "corporate_employees": ["NOC on official company letterhead", "Salary Certificate", "Visiting Card"],
+        "entrepreneurs": ["Trade License with English Translation & Notary", "Company Bank Statement (6 months)", "Membership of Chamber/Association"],
+        "students": ["Student ID card", "Leave Certificate from University", "Parental Financial Guarantee"],
+        "government_officials": ["Government Order (GO) copy", "NOC / Clearance Certificate"]
+      }
+    },
+
+    "financial_thresholds_2026": {
+      "solo_traveler_min": "BDT 400,000",
+      "solo_traveler_recommended": "BDT 700,000+",
+      "family_travel_min": "BDT 1,200,000+",
+      "logic": "Calculated at ~EUR 50 per day plus flight and hotel prepayments.",
+      "warning": "Lump-sum deposits without clear source of income will result in visa refusal."
+    },
+
+    "geospatial_submission_data": [
+      {
+        "center": "Online e-Visa Portal (Official)",
+        "address": "https://eforeigner.welcometoserbia.gov.rs",
+        "gps_coordinates": "N/A - Digital Submission",
+        "submission_hours": "24/7 (System availability)",
+        "passport_collection": "Digital E-visa PDF via Email"
+      },
+      {
+        "center": "Honorary Consulate of Serbia (Dhaka)",
+        "address": "House # 27, Road # 5, Nikunja # 1, Khilkhet, Dhaka-1229",
+        "gps_coordinates": "23.8290, 90.4180",
+        "submission_hours": "09:00 - 14:00 (Sun-Thu, By Appointment)"
+      }
+    ],
+
+    "itinerary_design_strategy": {
+      "golden_route": "Belgrade -> Novi Sad -> Niš -> Zlatibor",
+      "regional_focus": "Tara National Park or Đerdap Gorge",
+      "requirements": "Every night must be accounted for in the travel agency voucher or certified invitation."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk": ["Uncertified Invitation Letter", "Insufficient daily budget (less than EUR 50/day)", "Missing travel health insurance"],
+      "medium_risk": ["No previous European travel history", "Vague purpose of visit"],
+      "mitigation": "Ensure the Invitation Letter is officially verified by the Serbian municipal authorities."
+    },
+
+    "expert_approval_hacks": [
+      "Obtain a certified voucher from a registered Serbian tour operator to act as a 'guarantee'.",
+      "Mention any valid Schengen or US visas; Serbia often allows entry without a separate visa for holders of these.",
+      "Register with the local police (White Card) within 24 hours of arrival—this is mandatory.",
+      "Keep at least 30% more funds in your account than the estimated cost of the trip."
+    ],
+
+    "additional_logistics_2026": {
+      "visit_japan_web": "N/A - Serbia requires a 'White Card' registration at the local police station upon arrival.",
+      "currency_advice": "Local currency is Serbian Dinar (RSD). Euros are widely accepted for exchange.",
+      "jr_pass_note": "No rail pass; travel between Belgrade and Novi Sad is best via the 'Soko' high-speed train."
+    },
+
+    "faq_extended": [
+      {
+        "question": "Can I enter Serbia with a Schengen Visa?",
+        "answer": "Yes, holders of valid multiple-entry Schengen, US, or UK visas can usually enter Serbia for up to 90 days without a separate Serbian visa."
+      },
+      {
+        "question": "Is the 'White Card' mandatory?",
+        "answer": "Yes. If you stay in a hotel, they do it for you. If staying in a private apartment, you must visit the police station within 24 hours."
+      },
+      {
+        "question": "Does Serbia require a physical interview?",
+        "answer": "Usually no for the e-Visa, but the Consulate in Dhaka or the Embassy in New Delhi may request one in specific cases."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Serbia - Avoid Serbia Visa Rejection",
+        "video_link": "https://www.youtube.com/watch?v=98fSRoZIkWs"
+      },
+      {
+        "video_title": "How to Apply for a Serbia e-Visa | Step-by-Step Guide 2026",
+        "video_link": "https://www.youtube.com/watch?v=mVo9V7RR5fE"
+      },
+      {
+        "video_title": "Serbia Visa Approved | Travel Experience & Documents",
+        "video_link": "https://www.youtube.com/watch?v=NrSjr1GnotY"
+      }
+    ],
+
+    "seo_and_metadata": {
+      "meta_title": "Serbia Tourist Visa Bangladesh 2026 - e-Visa Process & Requirements",
+      "canonical_url": "https://example-visa-guide.com/bangladesh-to-serbia-visa",
+      "keywords": [
+        "Serbia Visa Fee Bangladesh 2026",
+        "Serbia e-Visa for Bangladeshi citizens",
+        "Serbia Visa Honorary Consulate Dhaka",
+        "Serbia Visa Requirements for Tourist"
+      ]
+    }
+  },
+  "australia": {
+    "title": "Comprehensive Australia Visitor Visa (Subclass 600) Guide 2026 for Bangladeshi Citizens",
+    "last_updated": "2026-04-18",
+    "description": "The definitive 2026 guide for Australia Visitor visa applications. Covering ImmiAccount online lodgement, biometric collection at VFS Global, GTE (Genuine Temporary Entrant) requirements, and financial solvency standards for Bangladeshi nationals.",
+
+    "visa_category_details": {
+      "main_category": "Visitor Visa (Subclass 600)",
+      "visa_type": "Tourist Stream (Apply outside Australia)"
+    },
+
+    "processing_time_metrics": {
+      "standard_turnaround": "25-35 working days",
+      "peak_season_delay": "45-60 working days (During December-January and July-August school holidays)",
+      "embassy_review_phase": "Minimum 20 working days after biometric enrollment",
+      "express_service": "Unavailable (Processing is chronological; however, CAN+ priority exists for certain frequent travelers)",
+      "notes": "Processing times fluctuate based on application volume and the complexity of background checks. Biometric delays will extend these timelines."
+    },
+
+    "visa_fee_structure_2026": {
+      "embassy_visa_fee": "AUD 195 (Approx. BDT 17,000 - 18,500 based on exchange rates)",
+      "vfs_service_charge": "BDT 2,845 (Biometric Collection Service Fee)",
+      "optional_value_added_services": {
+        "online_lodgement_assistance": "BDT 500",
+        "document_scanning_service": "BDT 1,500",
+        "sms_status_tracking": "BDT 350",
+        "premium_lounge_access": "BDT 4,000",
+        "walk_in_service_fee": "BDT 14,400 (In addition to standard fees)"
+      },
+      "payment_policy": "Visa fees must be paid online via ImmiAccount using an International Credit/Debit card. VFS service fees are paid locally in BDT."
+    },
+
+    "stay_and_validity_rules": {
+      "standard_stay": "Up to 3, 6, or 12 months (As granted by the department)",
+      "extended_stay": "Requires applying for a new visa or a visa extension within Australia if no 'No Further Stay' condition is applied",
+      "visa_validity_window": "Usually granted for 1 year with multiple entries",
+      "overstay_penalty": "Immediate visa cancellation, 3-year re-entry ban (Condition 8503), and potential detention",
+      "extension_possibility": "Must be applied for at least 2 weeks before the current visa expires."
+    },
+
+    "technical_photo_specifications": {
+      "standard": "Australian Department of Home Affairs Digital Standard",
+      "dimensions": "35mm to 40mm wide x 45mm to 50mm high (Rectangular)",
+      "background_color": "Plain White or Light Grey",
+      "print_quality": "High-resolution digital scan (600dpi+), between 70KB and 3.5MB",
+      "facial_metrics": "Face must occupy 70-80% of the frame (32mm to 36mm from chin to crown)",
+      "strict_donots": [
+        "No glasses (unless for medical reasons with a certificate)",
+        "No smiling or exaggerated expressions",
+        "No hair covering any part of the face",
+        "No digital retouching or filters"
+      ]
+    },
+
+    "comprehensive_requirements_checklist": {
+      "primary_documents": [
+        "Original Passport (Valid for 6+ months, copy of all pages with stamps/visas)",
+        "Completed Online Application via ImmiAccount",
+        "National ID Card (NID) copy with English translation",
+        "Family Information Form (Details of all immediate family members)",
+        "Cover Letter/Statement of Purpose (Detailing planned activities and return intent)",
+        "Detailed Day-by-Day Itinerary",
+        "Employment Evidence (NOC or Trade License with Notary)",
+        "Evidence of enrollment (For students)"
+      ],
+      "financial_proofs": [
+        "Personal Bank Statement (Last 6 months, original with bank seal)",
+        "Bank Solvency Certificate",
+        "Pay Slips (Last 3-6 months)",
+        "Income Tax Return (ITR) certificates for the last 3 years",
+        "Credit Card statements (Optional, to show additional liquidity)"
+      ],
+      "logistics_proofs": [
+        "Hotel Bookings or Invitation Letter (If staying with family/friends)",
+        "Proof of Host's Status (Passport copy or Citizenship certificate of inviter)",
+        "Health Insurance (Recommended for stays over 3 months or for applicants over 75)"
+      ],
+      "occupation_specific": {
+        "corporate_employees": ["NOC on official company letterhead", "Visiting Card", "Salary Certificate"],
+        "entrepreneurs": ["Trade License with English Translation", "Company Bank Statement (6 months)", "TIN/VAT Certificate"],
+        "students": ["Student ID card", "Leave Approval Letter from school/university", "Parental Financial Support Letter"],
+        "government_officials": ["Government Order (GO)", "NOC (English Translation)"]
+      }
+    },
+
+    "financial_thresholds_2026": {
+      "solo_traveler_min": "BDT 600,000",
+      "solo_traveler_recommended": "BDT 1,000,000+",
+      "family_travel_min": "BDT 1,800,000+",
+      "logic": "Calculated to cover airfare (~BDT 150k), accommodation, and ~AUD 200 daily living costs.",
+      "warning": "Sudden large deposits without verifiable history are the primary reason for 'Lack of Genuine Visitor' refusals."
+    },
+
+    "geospatial_submission_data": [
+      {
+        "center": "VFS Global Australian Biometric Collection Centre (Dhaka)",
+        "address": "Delta Life Tower (4th Floor), Plot # 37, Road # 90, Gulshan North, Dhaka-1212",
+        "gps_coordinates": "23.7940, 90.4125",
+        "submission_hours": "09:00 - 16:00 (Sun-Thu, Appointment only)",
+        "passport_collection": "N/A (Visa is electronic; decision via email)"
+      },
+      {
+        "center": "VFS Global Australian Biometric Collection Centre (Sylhet)",
+        "address": "4th Floor, Nirvana Inn, Mirza Jungle Road, Ramer Digir Par, Sylhet-3100",
+        "gps_coordinates": "24.8890, 91.8650",
+        "submission_hours": "09:00 - 14:00 (Sun-Thu)"
+      }
+    ],
+
+    "itinerary_design_strategy": {
+      "golden_route": "Sydney (Opera House) -> Melbourne (Great Ocean Road) -> Gold Coast",
+      "regional_focus": "Great Barrier Reef (Cairns) or Perth (Western Australia)",
+      "requirements": "Itinerary must match the financial capacity shown in the bank statements."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk": ["Lack of strong employment/economic ties to Bangladesh", "Vague travel plans", "No prior travel history"],
+      "medium_risk": ["Insufficient funds for the proposed duration", "Inconsistent information in the Family Form"],
+      "mitigation": "Include property deeds, family certificates, and a letter from your employer guaranteeing your job upon return."
+    },
+
+    "expert_approval_hacks": [
+      "Upload a 'Genuine Temporary Entrant' (GTE) statement specifically addressing why you must return to Bangladesh.",
+      "If you have a US or UK visa, highlight this in your application for faster processing.",
+      "Ensure all translated documents are done by a 'Certified Translator'—Home Affairs is strict on this.",
+      "Include photos of your family and property in Bangladesh to demonstrate 'Incentive to Return'."
+    ],
+
+    "additional_logistics_2026": {
+      "visit_japan_web": "N/A - Australia uses the 'Digital Passenger Declaration' (DPD) if required for health/security.",
+      "currency_advice": "Australian Dollar (AUD). Credit cards are used for almost 95% of transactions (Contactless is standard).",
+      "jr_pass_note": "No national rail pass equivalent; domestic flights (Qantas/Jetstar) are the primary mode of inter-city travel."
+    },
+
+    "faq_extended": [
+      {
+        "question": "Is Australia a paper visa or a sticker?",
+        "answer": "Australia issues 100% electronic visas (e-Visas). There is no sticker or stamp in your passport; the visa is linked to your passport number."
+      },
+      {
+        "question": "Do I need a medical exam for a tourist visa?",
+        "answer": "Generally only if you are over 75, plan to stay more than 6 months, or will enter a hospital/healthcare environment."
+      },
+      {
+        "question": "What is the 'No Further Stay' condition?",
+        "answer": "Condition 8503 means you cannot apply for most other visas while you are in Australia; you must leave before applying for another."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Australia Visitor Visa 2026: Avoid These 5 Refusal Reasons",
+        "video_link": "https://www.youtube.com/watch?v=98fSRoZIkWs"
+      },
+      {
+        "video_title": "How to Apply for Australia Subclass 600 from Bangladesh | Step-by-Step",
+        "video_link": "https://www.youtube.com/watch?v=mVo9V7RR5fE"
+      },
+      {
+        "video_title": "Australia Biometrics Experience at VFS Global Dhaka",
+        "video_link": "https://www.youtube.com/watch?v=NrSjr1GnotY"
+      }
+    ],
+
+    "seo_and_metadata": {
+      "meta_title": "Australia Visitor Visa Bangladesh 2026 - Subclass 600 Guide & VFS",
+      "canonical_url": "https://example-visa-guide.com/bangladesh-to-australia-visa",
+      "keywords": [
+        "Australia Visa Fee Bangladesh 2026",
+        "Subclass 600 Visa Requirements for Bangladeshi",
+        "VFS Australia Biometrics Dhaka",
+        "Australia Tourist Visa Processing Time 2026"
+      ]
+    }
+  },
+  "china": {
+    "title": "Comprehensive China Tourist (L) Visa Guide 2026 for Bangladeshi Citizens",
+    "last_updated": "2026-04-18",
+    "description": "The definitive 2026 guide for China Tourist (L) visa applications in Bangladesh. Covering the COVA (China Online Visa Application) system, tiered fee structures based on travel history, and mandatory biometric/interview protocols at the Dhaka CVASC.",
+
+    "visa_category_details": {
+      "main_category": "Tourist Visa (L)",
+      "visa_type": "Sticker Visa (Single, Double, or Multiple Entry)"
+    },
+
+    "processing_time_metrics": {
+      "standard_turnaround": "6-8 working days",
+      "peak_season_delay": "10-15 working days (During Canton Fair and Spring Festival periods)",
+      "embassy_review_phase": "Minimum 4 working days for express; 6-8 days for regular after CVASC submission",
+      "express_service": "Available (4th working day collection if submitted before 12:00 PM)",
+      "notes": "Processing starts only after the 'Passport to be submitted' status appears on the COVA portal. Blackout dates apply during Chinese public holidays."
+    },
+
+    "visa_fee_structure_2026": {
+      "embassy_visa_fee": "BDT 9,000 - 11,000 (Single Entry, varies by profile)",
+      "vfs_service_charge": "BDT 3,500 - 5,000 (Charged by the Visa Application Service Center)",
+      "optional_value_added_services": {
+        "express_processing_surcharge": "BDT 2,500 - 4,000",
+        "multiple_entry_surcharge_1yr": "BDT 14,500 (Total inclusive)",
+        "multiple_entry_surcharge_2yr": "BDT 16,000 (Total inclusive)",
+        "premium_lounge_access": "BDT 3,500",
+        "form_filling_assistance": "BDT 2,000"
+      },
+      "payment_policy": "Paid in cash or bank draft at the Visa Center (CVASC) at the time of submission. Fees are non-refundable."
+    },
+
+    "stay_and_validity_rules": {
+      "standard_stay": "30 days per visit",
+      "extended_stay": "Requires application at the Exit and Entry Administration of Public Security Bureau (PSB) in China",
+      "visa_validity_window": "90 days (Single Entry) up to 2 years (Multiple Entry)",
+      "overstay_penalty": "Fines of RMB 500 per day, detention, and potential deportation/blacklisting",
+      "extension_possibility": "Must be applied for 7 days before the current stay expires."
+    },
+
+    "technical_photo_specifications": {
+      "standard": "COVA Digital & Printed Standard",
+      "dimensions": "33mm x 48mm (Rectangular)",
+      "background_color": "Plain White",
+      "print_quality": "High resolution, lab-print on glossy paper (not matte)",
+      "facial_metrics": "Face width 15-22mm; head height 28-33mm; face must cover 70-80% of the frame",
+      "strict_donots": [
+        "Ears must be fully visible (Mandatory requirement)",
+        "No glasses (even if prescription) unless for medical reasons with proof",
+        "No smiling (neutral expression with mouth closed)",
+        "No white clothing (must contrast with the white background)"
+      ]
+    },
+
+    "comprehensive_requirements_checklist": {
+      "primary_documents": [
+        "Original Passport (Valid for 6+ months, 2+ blank pages)",
+        "Completed COVA Online Form (Printed and signed)",
+        "Confirmation of Online Visa Application (AVAS confirmation page)",
+        "Cover Letter signed by the applicant detailing travel purpose",
+        "Confirmed Air Ticket (Round trip)",
+        "Hotel Booking Confirmation",
+        "TIN Certificate and Last Year's Tax Return"
+      ],
+      "financial_proofs": [
+        "Personal Bank Statement (Last 6 months, original with seal)",
+        "Bank Solvency Certificate (Original copy)",
+        "Minimum Balance: BDT 300,000 per person",
+        "Business Bank Statement (For entrepreneurs)"
+      ],
+      "logistics_proofs": [
+        "Detailed Day-by-Day Travel Itinerary",
+        "Trade License (For business owners - Translated and Notarized)",
+        "NOC / Office ID / Salary Slips (For employees)",
+        "Nikah Nama / Marriage Certificate (If traveling with spouse - Notarized)"
+      ],
+      "occupation_specific": {
+        "corporate_employees": ["NOC on company letterhead", "Salary Slips (2 months)", "Visiting Card"],
+        "entrepreneurs": ["Trade License with QR Code (English + Notary)", "Company Letterhead Pad", "Certificate of Incorporation"],
+        "students": ["Student ID Card", "Leave Certificate from Institution", "Birth Certificate"],
+        "government_officials": ["Government Order (GO)", "NOC from respective Ministry"]
+      }
+    },
+
+    "financial_thresholds_2026": {
+      "solo_traveler_min": "BDT 300,000",
+      "solo_traveler_recommended": "BDT 500,000+",
+      "family_travel_min": "BDT 800,000+",
+      "logic": "Based on a minimum daily requirement of USD 100-150 plus flight/hotel coverage.",
+      "warning": "Sudden large deposits or accounts with no transaction history carry a high risk of rejection."
+    },
+
+    "geospatial_submission_data": [
+      {
+        "center": "Chinese Visa Application Service Center (CVASC) Dhaka",
+        "address": "3rd Floor, Praasad Trade Center, 6 Kemal Ataturk Avenue, Banani, Dhaka-1213",
+        "gps_coordinates": "23.7938, 90.4060",
+        "submission_hours": "09:00 - 15:00 (Sun-Thu, Appointment only)",
+        "passport_collection": "09:00 - 16:00 (Sun-Thu)"
+      },
+      {
+        "center": "Embassy of the P.R. China (For Interviews)",
+        "address": "Plot 2 & 4, Embassy Road, Baridhara, Dhaka-1212",
+        "gps_coordinates": "23.7995, 90.4192",
+        "submission_hours": "10:00 - 12:00 (Working days for interviews)"
+      }
+    ],
+
+    "itinerary_design_strategy": {
+      "golden_route": "Beijing (Great Wall) -> Shanghai (The Bund) -> Xi'an (Terracotta Army)",
+      "regional_focus": "Guangzhou (Trade Focus) or Chengdu (Panda Sanctuary)",
+      "requirements": "Itinerary must be consistent with the hotel bookings and flight dates."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk": ["Fresh passport with no travel history (Interview Mandatory)", "Incomplete COVA form data", "Photos with hidden ears"],
+      "medium_risk": ["Insufficient bank balance for the number of travelers", "Unverifiable Trade License"],
+      "mitigation": "Ensure your photo is lab-printed and your bank statement shows a consistent 6-month history."
+    },
+
+    "expert_approval_hacks": [
+      "Ensure ears and eyebrows are completely visible in the photo to avoid instant rejection at the counter.",
+      "If you have a fresh passport, be prepared for a 5-minute interview regarding your profession.",
+      "Mention previous travel to China or G7 countries (USA, UK, etc.) to waive the interview for Single Entry.",
+      "The 'Visa for China' portal status must say 'Passport to be submitted' before you visit the center."
+    ],
+
+    "additional_logistics_2026": {
+      "visit_japan_web": "N/A - China uses the 'China Customs' health/entry declaration QR code via WeChat or a web link.",
+      "currency_advice": "Local currency is Chinese Yuan (RMB/CNY). Alipay and WeChat Pay are essential; cash is rarely used.",
+      "jr_pass_note": "No rail pass; book High-Speed Rail (HSR) tickets via 12306 or Trip.com 15 days in advance."
+    },
+
+    "faq_extended": [
+      {
+        "question": "Is an interview mandatory for China?",
+        "answer": "Yes for fresh passports or those with limited travel history. It is usually waived for frequent travelers to China or OECD countries."
+      },
+      {
+        "question": "Can I apply for a 2-year multiple entry visa?",
+        "answer": "Yes, provided you have already held a Multiple Entry Chinese visa after the year 2022."
+      },
+      {
+        "question": "Does China allow dual citizenship entry?",
+        "answer": "China does not recognize dual nationality for Chinese citizens, but for Bangladeshis, it simply requires your NID/Passport declaration."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "China Tourist Visa 2026: New COVA Rules & Photo Specs",
+        "video_link": "https://www.youtube.com/watch?v=98fSRoZIkWs"
+      },
+      {
+        "video_title": "How to Apply for a China Visa from Bangladesh | Step-by-Step",
+        "video_link": "https://www.youtube.com/watch?v=mVo9V7RR5fE"
+      },
+      {
+        "video_title": "China Visa Interview Experience & Questions in Dhaka",
+        "video_link": "https://www.youtube.com/watch?v=NrSjr1GnotY"
+      }
+    ],
+
+    "seo_and_metadata": {
+      "meta_title": "China Tourist Visa Bangladesh 2026 - CVASC Dhaka Process & Fees",
+      "canonical_url": "https://example-visa-guide.com/bangladesh-to-china-visa",
+      "keywords": [
+        "China Visa Fee Dhaka 2026",
+        "CVASC Bangladesh Appointment",
+        "China Visa Photo Requirements Bangladesh",
+        "China Tourist Visa for Bangladeshi Citizens"
+      ]
+    }
+  },
+  "india": {
+    "title": "Comprehensive India Tourist Visa Guide 2026 for Bangladeshi Citizens",
+    "last_updated": "2026-04-18",
+    "description": "The definitive 2026 guide for Indian visa applications in Bangladesh. Covering IVAC online form submission, port-specific annotations, financial solvency requirements, and the extensive network of submission centers across Bangladesh.",
+
+    "visa_category_details": {
+      "main_category": "Tourist Visa (T)",
+      "visa_type": "Sticker Visa (Single or Multiple Entry)"
+    },
+
+    "processing_time_metrics": {
+      "standard_turnaround": "7-15 working days",
+      "peak_season_delay": "20-25 working days (During Eid holidays, Puja, and Winter peaks)",
+      "embassy_review_phase": "Minimum 5 working days after IVAC submission",
+      "express_service": "Medical visas prioritized; standard tourism follows chronological processing",
+      "notes": "Processing times are subject to the specific IVAC branch and current workload. e-Visa is NOT available for Bangladeshi passport holders."
+    },
+
+    "visa_fee_structure_2026": {
+      "embassy_visa_fee": "Gratis (No visa fee for Bangladeshi citizens for most categories)",
+      "vfs_service_charge": "BDT 800 - 1,000 (IVAC Processing Fee)",
+      "optional_value_added_services": {
+        "sms_status_tracking": "BDT 250",
+        "courier_delivery": "BDT 300 - 500",
+        "form_filling_assistance": "BDT 500",
+        "premium_lounge_access": "BDT 2,500"
+      },
+      "payment_policy": "IVAC fees must be paid through authorized channels (BKash, Rocket, or designated banks) before the appointment."
+    },
+
+    "stay_and_validity_rules": {
+      "standard_stay": "Up to 90 days per visit",
+      "extended_stay": "Requires registration with FRRO (Foreigners Regional Registration Office) in India",
+      "visa_validity_window": "Usually 6 months to 1 year (Multiple Entry)",
+      "overstay_penalty": "Significant fines, potential detention, and difficulty in obtaining future Indian visas",
+      "extension_possibility": "Rare for tourists; usually only for medical emergencies."
+    },
+
+    "technical_photo_specifications": {
+      "standard": "Indian High Commission Standard",
+      "dimensions": "2 inch x 2 inch (51mm x 51mm) - Square",
+      "background_color": "Plain White",
+      "print_quality": "High-quality matte or glossy print, no staples or ink marks",
+      "facial_metrics": "Face must occupy 70-80% of the frame; head height 25mm to 35mm",
+      "strict_donots": [
+        "No white clothing (Must contrast with the white background)",
+        "Ears and eyebrows must be clearly visible",
+        "No shadows on the face or background",
+        "No glasses or headgear except for religious purposes"
+      ]
+    },
+
+    "comprehensive_requirements_checklist": {
+      "primary_documents": [
+        "Original Passport (Valid for 6+ months, 2+ blank pages)",
+        "Completed Online Form (indianvisaonline.gov.in) with signature",
+        "Copy of National ID Card (NID) or Birth Certificate (English)",
+        "Utility Bill Copy (Electricity/Gas/Water) not older than 3 months",
+        "All previous passports must be submitted",
+        "Proof of Profession (NOC or Trade License with Notary)"
+      ],
+      "financial_proofs": [
+        "Personal Bank Statement (Last 6 months, minimum balance BDT 20,000/person)",
+        "Bank Solvency Certificate (Original with bank seal)",
+        "Endorsement of USD 200 per person on passport (Alternative to bank statement)"
+      ],
+      "logistics_proofs": [
+        "Travel Route details (Entry and Exit ports must be specified)",
+        "Invitation Letter (For private visits) or Hotel Booking (For tourism)",
+        "Flight or Train reservations (Optional but recommended for air/rail entry)"
+      ],
+      "occupation_specific": {
+        "corporate_employees": ["NOC on official company letterhead", "Salary Certificate", "Visiting Card"],
+        "entrepreneurs": ["Trade License with English Translation & Notary", "Company Pad & Business Card"],
+        "students": ["Student ID card copy", "NOC from School/College/University"],
+        "government_officials": ["Government Order (GO) or NOC from the Ministry"]
+      }
+    },
+
+    "financial_thresholds_2026": {
+      "solo_traveler_min": "BDT 20,000",
+      "solo_traveler_recommended": "BDT 50,000+",
+      "family_travel_min": "BDT 100,000+",
+      "logic": "Minimum balance requirement is low, but consistent transaction history is vital.",
+      "warning": "Ensure the address on your utility bill matches the address on your visa application exactly."
+    },
+
+    "geospatial_submission_data": [
+      {
+        "center": "IVAC Dhaka (Jamuna Future Park)",
+        "address": "Floor-G1, South Court, Jamuna Future Park, Progoti Sharani, Dhaka",
+        "gps_coordinates": "23.8135, 90.4242",
+        "submission_hours": "09:00 - 15:30 (Sun-Thu)",
+        "passport_collection": "10:00 - 16:00 (Sun-Thu)"
+      },
+      {
+        "center": "IVAC Cumilla",
+        "address": "211, Gangchil, Kandirpar, Nazrul Avenue, 1st Floor, Cumilla",
+        "gps_coordinates": "23.4607, 91.1809",
+        "submission_hours": "09:00 - 13:00 (Sun-Thu)"
+      },
+      {
+        "center": "IVAC Chittagong",
+        "address": "1872, CDA Avenue, East Nasirabad, City Center, 2nd Floor, Chattogram",
+        "gps_coordinates": "22.3590, 91.8210",
+        "submission_hours": "09:00 - 13:00 (Sun-Thu)"
+      }
+    ],
+
+    "itinerary_design_strategy": {
+      "golden_route": "Kolkata -> Delhi -> Agra (Taj Mahal) -> Jaipur",
+      "regional_focus": "Darjeeling/Sikkim (Nature) or Chennai/Vellore (Medical/Shopping)",
+      "requirements": "Port of entry (e.g., Benapole, Gede, or Air) must be chosen carefully during the application."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk": ["Address mismatch between NID and Utility bill", "Missing previous passports", "Photos in white clothing"],
+      "medium_risk": ["Inconsistent port of entry/exit", "Unclear NOC details"],
+      "mitigation": "Double-check that the name spelling on all documents (NID, Passport, Bank, Utility) is identical."
+    },
+
+    "expert_approval_hacks": [
+      "Select 'By Road - Haridaspur' (Benapole) if you want the most flexible land entry option.",
+      "Ensure your photo is a recent 2x2 inch square—standard passport size photos are often rejected.",
+      "A valid utility bill is the most critical document for proving your current residence.",
+      "Keep a gap of 2 months between visits if you have already stayed for a long duration on a previous visa."
+    ],
+
+    "additional_logistics_2026": {
+      "visit_japan_web": "N/A - India uses the 'Air Suvidha' or similar health portals only during active health mandates.",
+      "currency_advice": "Indian Rupee (INR). Carry BDT to exchange at the border or use International Travel Cards.",
+      "jr_pass_note": "Indian Railways (IRCTC) is the lifeline; use 'Foreign Tourist Quota' for easier seat availability."
+    },
+
+    "faq_extended": [
+      {
+        "question": "Can I get an Indian e-Visa?",
+        "answer": "No, Bangladeshi citizens are currently ineligible for e-Visas. You must apply through an IVAC center."
+      },
+      {
+        "question": "Can I change my port of entry later?",
+        "answer": "You can usually enter through any of the 24 international airports and 3 specific sea ports regardless of the port on your visa, but land borders are strict."
+      },
+      {
+        "question": "How long is the 2-month gap rule?",
+        "answer": "The mandatory 2-month gap between visits has been largely relaxed for tourists, but check the 'Endorsement' on your specific visa sticker."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Indian Visa Application Step-by-Step 2026 | New IVAC Rules",
+        "video_link": "https://www.youtube.com/watch?v=98fSRoZIkWs"
+      },
+      {
+        "video_title": "How to Avoid Indian Visa Rejection: Address & Utility Bill Guide",
+        "video_link": "https://www.youtube.com/watch?v=mVo9V7RR5fE"
+      },
+      {
+        "video_title": "IVAC Dhaka Submission Process: My Personal Experience",
+        "video_link": "https://www.youtube.com/watch?v=NrSjr1GnotY"
+      }
+    ],
+
+    "seo_and_metadata": {
+      "meta_title": "India Tourist Visa Bangladesh 2026 - IVAC Dhaka & Cumilla Process",
+      "canonical_url": "https://example-visa-guide.com/bangladesh-to-india-visa",
+      "keywords": [
+        "Indian Visa Fee Bangladesh 2026",
+        "IVAC Dhaka Appointment",
+        "India Visa Photo Size Bangladesh",
+        "Indian Visa Requirements for Bangladeshi"
+      ]
+    }
+  },
+  "armenia": {
+    "title": "Comprehensive Armenia Tourist Visa Guide 2026 for Bangladeshi Citizens",
+    "last_updated": "2026-04-18",
+    "description": "The definitive 2026 guide for Armenia visa applications for Bangladeshi nationals. Note that Bangladesh is currently on the 'Invitation-Only' list, requiring a verified host or agency in Armenia before applying for a sticker visa at the embassy.",
+
+    "visa_category_details": {
+      "main_category": "Visitor Visa",
+      "visa_type": "Sticker Visa (e-Visa only available for Bangladeshi holders of valid US/UK/Schengen/GCC residence permits until July 2026)"
+    },
+
+    "processing_time_metrics": {
+      "standard_turnaround": "15-20 working days",
+      "peak_season_delay": "25-35 working days (Summer and New Year peaks)",
+      "embassy_review_phase": "10 working days after invitation approval and passport submission",
+      "express_service": "Not officially available for invitation-based categories",
+      "notes": "The primary delay is the approval of the Invitation Letter by the Ministry of Foreign Affairs/Police in Armenia, which can take 2-4 weeks."
+    },
+
+    "visa_fee_structure_2026": {
+      "embassy_visa_fee": "AMD 3,000 (Approx. BDT 900 - 1,100 for 21-day single entry)",
+      "vfs_service_charge": "N/A (Submissions are typically direct or via authorized agents to New Delhi)",
+      "optional_value_added_services": {
+        "invitation_processing_fee": "AMD 5,000 (Paid in Armenia by the host)",
+        "notary_translation_services": "BDT 2,000 per set",
+        "visa_logistics_agent_fee": "BDT 15,000 - 25,000 (For New Delhi submission)",
+        "travel_insurance_premium": "BDT 3,000 - 5,000"
+      },
+      "payment_policy": "Consular fees are paid online via the Armenian MFA portal or bank transfer as directed by the Embassy in New Delhi."
+    },
+
+    "stay_and_validity_rules": {
+      "standard_stay": "Up to 21 or 120 days (Based on visa type granted)",
+      "extended_stay": "Can be extended for 60 days at the Migration and Citizenship Service in Yerevan",
+      "visa_validity_window": "Usually 90 days from the date of issue",
+      "overstay_penalty": "Fines starting from AMD 50,000 and potential deportation",
+      "extension_possibility": "Must apply 15 days before expiry."
+    },
+
+    "technical_photo_specifications": {
+      "standard": "ICAO Compliant",
+      "dimensions": "35mm x 45mm (Rectangular)",
+      "background_color": "Plain White",
+      "print_quality": "High resolution, matte finish, no ink marks",
+      "facial_metrics": "Face must cover 70-80% of the area",
+      "strict_donots": [
+        "No glasses (unless medically necessary)",
+        "No smiling (neutral expression)",
+        "No white clothing",
+        "No hair covering the face or eyes"
+      ]
+    },
+
+    "comprehensive_requirements_checklist": {
+      "primary_documents": [
+        "Original Passport (Valid for 6 months beyond stay)",
+        "Approved Invitation Letter (Verified by MFA/Police in Armenia)",
+        "Completed and Signed Visa Application Form",
+        "Cover Letter detailing travel purpose and duration",
+        "NOC from Employer or Trade License (Translated & Notarized)",
+        "Round-trip Flight Reservation",
+        "Hotel Booking Confirmation (Must match invitation details)"
+      ],
+      "financial_proofs": [
+        "Personal Bank Statement (Last 6 months, original seal)",
+        "Bank Solvency Certificate",
+        "Minimum balance recommendation: BDT 400,000+",
+        "Income Tax Returns (Last 3 years)"
+      ],
+      "logistics_proofs": [
+        "Mandatory Travel Insurance (Minimum EUR 30,000 coverage)",
+        "Civil status documents (If traveling as a family)",
+        "Copy of valid/expired visas of other countries (USA, UK, Schengen)"
+      ],
+      "occupation_specific": {
+        "corporate_employees": ["NOC on letterhead", "Visiting Card", "Salary Slips"],
+        "entrepreneurs": ["Trade License (English + Notary)", "Company Bank Statement", "Membership Certificate"],
+        "students": ["ID Card Copy", "NOC from Institution", "Sponsorship Letter"],
+        "government_officials": ["Government Order (GO)", "NOC from Ministry"]
+      }
+    },
+
+    "financial_thresholds_2026": {
+      "solo_traveler_min": "BDT 300,000",
+      "solo_traveler_recommended": "BDT 500,000+",
+      "family_travel_min": "BDT 1,000,000+",
+      "logic": "Requires proof of daily funds (~USD 50/day) plus return airfare and accommodation.",
+      "warning": "Unexplained large deposits will lead to suspicion regarding 'Genuine Visitor' status."
+    },
+
+    "geospatial_submission_data": [
+      {
+        "center": "Embassy of Armenia in New Delhi (Nearest for Bangladeshis)",
+        "address": "D-133, Anand Niketan, New Delhi, Delhi 110021, India",
+        "gps_coordinates": "28.5830, 77.1645",
+        "submission_hours": "09:00 - 13:00 (Mon-Fri)",
+        "passport_collection": "16:00 - 17:00 (Mon-Fri)"
+      },
+      {
+        "center": "Online e-Visa Portal (Restricted Access)",
+        "address": "https://evisa.mfa.am",
+        "gps_coordinates": "N/A - Digital Submission",
+        "submission_hours": "24/7 (Only for eligible residence permit holders)",
+        "passport_collection": "Digital Download"
+      }
+    ],
+
+    "itinerary_design_strategy": {
+      "golden_route": "Yerevan -> Garni -> Geghard -> Lake Sevan",
+      "regional_focus": "Dilijan (Little Switzerland) or Tatev Monastery (Longest Cable Car)",
+      "requirements": "The invitation letter from the Armenian host must explicitly list these destinations."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk": ["Applying without an MFA-approved invitation", "Missing Mandatory Travel Insurance", "Lack of professional ties"],
+      "medium_risk": ["Inconsistent hotel booking vs invitation", "Low bank balance"],
+      "mitigation": "Ensure your host in Armenia submits the invitation through the 'e-request.am' portal for verification."
+    },
+
+    "expert_approval_hacks": [
+      "Special 2026 Rule: If you have a UAE/GCC Residence Permit, you can apply for an e-Visa or entry until July 1st, 2026.",
+      "Always include a copy of your Trade License or NOC even for personal visits.",
+      "Ensure the invitation is printed on a registered Armenian company's letterhead if traveling for business.",
+      "Travel insurance must specifically mention 'Republic of Armenia' or 'Global' coverage."
+    ],
+
+    "additional_logistics_2026": {
+      "visit_japan_web": "N/A - Armenia requires a standard customs declaration for currency over USD 10,000.",
+      "currency_advice": "Local currency is Armenian Dram (AMD). USD/EUR are easily exchanged in Yerevan.",
+      "jr_pass_note": "No rail pass; inter-city travel is best by 'Marshrutka' (minibuses) or Yandex Taxi."
+    },
+
+    "faq_extended": [
+      {
+        "question": "Can I get a visa on arrival in Armenia?",
+        "answer": "No. Bangladeshi citizens must obtain a visa in advance via the Embassy or e-Visa (if holding qualifying permits)."
+      },
+      {
+        "question": "Do I need to go to New Delhi for the interview?",
+        "answer": "Usually, documents can be sent via an authorized agent, but the Embassy reserves the right to call for a physical interview."
+      },
+      {
+        "question": "Is Armenia part of the Schengen area?",
+        "answer": "No. Armenia is an independent country; a Schengen visa does not grant entry unless specifically used as a basis for their 2026 exemption rule."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Armenia - Avoid Armenia Visa Rejection",
+        "video_link": "https://www.youtube.com/watch?v=98fSRoZIkWs"
+      },
+      {
+        "video_title": "How to Apply for an Armenia Visa from Bangladesh | 2026 Guide",
+        "video_link": "https://www.youtube.com/watch?v=mVo9V7RR5fE"
+      },
+      {
+        "video_title": "Armenia Visa Approved | Document Checklist & Timeline",
+        "video_link": "https://www.youtube.com/watch?v=NrSjr1GnotY"
+      }
+    ],
+
+    "seo_and_metadata": {
+      "meta_title": "Armenia Tourist Visa Bangladesh 2026 - Requirements & Invitation Guide",
+      "canonical_url": "https://example-visa-guide.com/bangladesh-to-armenia-visa",
+      "keywords": [
+        "Armenia Visa for Bangladeshi Citizens 2026",
+        "Armenia Invitation Letter Requirements",
+        "Armenia Visa Fee Dhaka",
+        "Armenia e-Visa Eligibility 2026"
+      ]
+    }
   }
+
 }

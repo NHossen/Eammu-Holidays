@@ -1,20 +1,20 @@
 {
   "japan": {
     "title": "Ultimate Japan Student Visa & Scholarship Guide 2026 for Bangladeshi Students",
-    "last_updated": "2026-04-12",
-    "description": "A complete roadmap for Bangladeshi students seeking higher education in Japan. Covering the COE process, MEXT and JASSO scholarship details, financial solvency requirements, and 2026 approval trends.",
+    "last_updated": "2026-04-18",
+    "description": "A complete roadmap for Bangladeshi students seeking higher education in Japan. Covering the COE process, MEXT and JASSO scholarship details, comprehensive English proficiency requirements (IELTS, PTE, Duolingo), financial solvency, and 2026 approval trends.",
     
     "visa_category_details": {
       "main_category": "Long-Term Stay",
       "visa_type": "Student Visa",
       "entry_type": "Single Entry (Converted to Residence Card upon arrival)",
       "purpose": [
-        "Japanese Language Studies",
+        "Japanese Language Studies (Nihongo Gakko)",
         "Undergraduate (Gakubu) Degree",
         "Master’s / Doctoral Research",
         "Vocational / Technical Training (Senmon Gakko)"
       ],
-      "eligibility": "Applicants with an Admission Offer and an issued Certificate of Eligibility (COE)."
+      "eligibility": "Applicants with a valid Admission Offer and an issued Certificate of Eligibility (COE) from the Ministry of Justice, Japan."
     },
 
     "scholarship_ecosystem_2026": {
@@ -36,15 +36,44 @@
           "name": "Honjo International Scholarship Foundation",
           "benefits": "Monthly stipend up to ¥210,000 for graduate students.",
           "special_note": "Requires proficiency in Japanese or high-level English research."
+        },
+        {
+          "name": "Maki Scholarship Foundation",
+          "benefits": "Covers tuition and living costs for specific partner universities in Japan.",
+          "target": "Undergraduate students from Asian countries."
         }
       ]
     },
 
+    "english_language_test_requirements_2026": {
+      "overview": "For English-Medium Programs (G30/Global Programs), standardized test scores are mandatory. Requirements vary by university rank.",
+      "ielts_academic": {
+        "min_score": "6.0 (Overall)",
+        "competitive_score": "6.5 - 7.5",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "50",
+        "competitive_score": "58 - 65",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "105",
+        "competitive_score": "115 - 130",
+        "acceptance_note": "Widely accepted by private universities and some public research institutions post-2024."
+      },
+      "toefl_ibt": {
+        "min_score": "75",
+        "competitive_score": "85 - 100",
+        "note": "Preferred by top-tier National Universities (UTokyo, Kyoto, Osaka)."
+      }
+    },
+
     "financial_solvency_thresholds": {
       "self_funded_min_balance": "BDT 2,500,000 - 3,500,000 (Equivalent to 1st year tuition + ¥2,000,000 living costs)",
-      "sponsor_profile": "First-degree relative (Father/Mother) preferred with stable monthly income.",
-      "bank_history_requirement": "6 to 12 months of consistent transaction history; lump-sum deposits are highly scrutinized.",
-      "logic": "The Japanese Immigration Bureau requires proof that the student can survive without illegal work."
+      "sponsor_profile": "First-degree relative (Father/Mother) preferred. Sponsors must show stable monthly income and professional status.",
+      "bank_history_requirement": "6 to 12 months of consistent transaction history. Sudden 'lump-sum' deposits without source-of-fund proof lead to rejection.",
+      "logic": "The Japanese Immigration Bureau requires proof that the student can survive without illegal work and cover all educational expenses."
     },
 
     "comprehensive_requirements_checklist": {
@@ -52,158 +81,726 @@
         "Original Passport (Valid for duration of stay)",
         "Original COE (Certificate of Eligibility) + 1 Photocopy",
         "Visa Application Form (Typed with QR Code)",
-        "One Photo (45mm x 45mm, White background)",
+        "One Photo (45mm x 45mm, White background, Matte finish)",
         "Acceptance Letter from the Japanese Institution",
-        "Educational Certificates & Transcripts (Attested by Ministry of Education/Foreign Affairs)"
+        "Educational Certificates & Transcripts (Attested by Ministry of Education & MOFA Bangladesh)"
       ],
       "coe_phase_documents": [
-        "Financial Support Declaration Form",
-        "Sponsor's Bank Solvency & 6-month Statement",
+        "Financial Support Declaration Form (Signed by Sponsor)",
+        "Sponsor's Bank Solvency & 6-month Detailed Statement",
         "Sponsor's Income Tax Return (ITDR) for last 3 years",
-        "Relationship proof (Birth Certificate or Family Tree)",
-        "Language Proficiency Proof (JLPT N5+ or NAT-Test for language students; IELTS/TOEFL for English programs)"
+        "Trade License or Job Certificate (NOC) of the Sponsor",
+        "Relationship Proof (Birth Certificate or Family Tree from Ward Counselor/Union Parishad)",
+        "Language Proficiency Proof (JLPT N5+ / NAT-Test Q5 for language students; IELTS/PTE/Duolingo for English programs)"
       ]
     },
 
     "processing_and_approval_metrics": {
-      "coe_processing_time": "2 - 3 months (Issued by regional Immigration Bureaus in Japan)",
-      "visa_processing_time": "5 - 10 working days after COE submission at JVAC",
-      "approval_chances": "High (90%+) once a COE is issued, provided documents are not forged.",
-      "interview_probability": "Medium. Students may be called for a basic interview to verify language skills or study intent."
+      "coe_processing_time": "2 - 3 months (Issued by regional Immigration Bureaus like Tokyo, Osaka, Nagoya)",
+      "visa_processing_time": "5 - 10 working days after COE submission at JVAC (Japan Visa Application Centre)",
+      "approval_chances": "High (95%+) once a COE is issued, provided data matches perfectly with original submission.",
+      "interview_probability": "Medium. Specifically for language school students to verify basic Hiragana/Katakana and 'Study Motivation'."
     },
 
     "rejection_risk_matrix": {
       "high_risk_reasons": [
-        "Inconsistency between COE documents and Embassy visa application.",
-        "Lack of Japanese language ability (inability to answer basic questions in Japanese).",
-        "Fraudulent educational or financial documents.",
-        "Poor academic record without a valid explanation for study gaps."
+        "Inconsistency between documents submitted to School vs documents submitted to Embassy.",
+        "Inability to explain the 'Study Gap' logically.",
+        "Inadequate Japanese language ability for language school tracks.",
+        "Suspicious financial documents (Fake bank statements or unverifiable income sources).",
+        "Previous visa rejection from any country (must be disclosed)."
       ],
-      "mitigation_strategy": "Ensure all translations (Bengali to English/Japanese) are notarized and match the original data exactly."
+      "mitigation_strategy": "Ensure all translations (Bengali to English/Japanese) are notarized by authorized translators and information remains 100% consistent across all phases."
     },
 
     "work_rights_and_stay": {
-      "part_time_permission": "Up to 28 hours per week (requires 'Permission to Engage in Activity other than that Permitted' at the airport).",
-      "vacation_hours": "Up to 40 hours per week during long academic breaks.",
-      "visa_extension": "Renewable yearly or every 2 years based on enrollment status."
+      "part_time_permission": "Up to 28 hours per week (Requires 'Shikakugai Katsu' sticker at airport immigration).",
+      "vacation_hours": "Up to 40 hours per week during official semester breaks (Spring/Summer/Winter).",
+      "visa_extension": "Renewable based on attendance (must stay above 80-90%) and academic performance.",
+      "post_study_work": "Eligible to switch to a 'Humanities/Engineer' work visa upon securing a job offer (minimum salary approx. ¥200,000/month)."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Research Universities/Language Schools and check English (IELTS/PTE) or Japanese (JLPT) requirements.",
+      "step_2": "Submit application to the institution and pass the interview.",
+      "step_3": "Pay the screening fee and submit financial documents for the COE application.",
+      "step_4": "Wait for COE (Issued by Japanese Immigration).",
+      "step_5": "Pay 1st-semester tuition fees to the institution and receive original COE.",
+      "step_6": "Submit Visa application at JVAC Bangladesh with the original COE.",
+      "step_7": "Fly to Japan and receive the Residence Card (Zairyu Card) at the airport."
     },
 
     "faq_student_edition": [
       {
-        "question": "Can I apply for a student visa without a JLPT certificate?",
-        "answer": "For English-medium degree programs, IELTS/TOEFL is sufficient. For language schools, at least 150 hours of Japanese study or an N5 certificate is usually mandatory for COE approval."
+        "question": "Can I apply with Duolingo for 2026 intake?",
+        "answer": "Yes, many private universities and language institutes in Japan now accept Duolingo (DET) as a cost-effective alternative to IELTS, typically requiring a score of 105+."
       },
       {
-        "question": "Is there an age limit for Japanese student visas?",
-        "answer": "Technically no, but those over 30 or with a study gap of 5+ years face much stricter scrutiny regarding their motivation."
+        "question": "Is a study gap acceptable for Japan?",
+        "answer": "Gaps of 2-5 years are generally accepted with a valid explanation (work experience or skill development). Gaps over 5 years require much stronger documentation of motivation."
       },
       {
-        "question": "Can my spouse join me?",
-        "answer": "Only after you arrive and switch to a Dependent Visa, which usually requires showing a higher bank balance and stable living conditions."
+        "question": "What is the 'Permission to Engage in Activity other than that Permitted'?",
+        "answer": "It is the legal authorization for students to work part-time. You should apply for this immediately upon landing at the Japanese airport to avoid delays."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Japan Student Visa Visa 2026: Avoiding Common Rejections",
+        "video_link": "https://www.youtube.com/watch?v=0fT7cJ7wQ9A"
+      },
+      {
+        "video_title": "Step-by-Step Japan Student Visa Application from Bangladesh",
+        "video_link": "https://www.youtube.com/watch?v=5KxL2nM8vYQ"
+      },
+      {
+        "video_title": "How to Write a Perfect Cover Letter for Japan Student Visa",
+        "video_link": "https://www.youtube.com/watch?v=P_m8_example"
       }
     ]
   },
   "canada": {
-    "title": "Comprehensive Canada Study Permit & Scholarship Guide 2026 for Bangladeshi Students",
-    "last_updated": "2026-04-12",
-    "description": "The definitive 2026 roadmap for Bangladeshi students pursuing higher education in Canada. Covering the PAL process, SDS vs. Non-SDS streams, GIC requirements, and updated cost-of-living thresholds.",
-    
+    "title": "Ultimate Canada Student Visa & Scholarship Guide 2026 for Bangladeshi Students",
+    "last_updated": "2026-04-18",
+    "description": "A complete roadmap for Bangladeshi students seeking higher education in Canada. Covering the PAL and Study Permit process, Entrance and Government scholarship details, comprehensive English proficiency requirements (IELTS, PTE, Duolingo), financial solvency (GIC), and 2026 approval trends.",
+
     "visa_category_details": {
-      "main_category": "Temporary Residence",
+      "main_category": "Temporary Resident",
       "visa_type": "Study Permit",
-      "entry_type": "TRV (Temporary Resident Visa) or eTA (Electronic Travel Authorization)",
+      "entry_type": "TRV or eTA (Issued alongside Study Permit approval)",
       "purpose": [
-        "ESL/FSL Language Training",
+        "Post-Secondary Diploma/Certificate",
         "Undergraduate (Bachelor's) Degree",
-        "Post-Graduate (Master’s / PhD) Research",
-        "Diploma / Advanced Diploma Programs (DLIs)"
+        "Master’s / Doctoral Research",
+        "Vocational / CEGEP Training"
       ],
-      "eligibility": "Applicants with a Letter of Acceptance (LOA) and a Provincial Attestation Letter (PAL) from a DLI."
+      "eligibility": "Applicants with a valid Letter of Acceptance (LOA) and a Provincial Attestation Letter (PAL) from a Designated Learning Institution (DLI)."
     },
 
     "scholarship_ecosystem_2026": {
       "government_funded": [
         {
           "name": "Vanier Canada Graduate Scholarships",
-          "benefits": "$50,000 per year for three years for doctoral students.",
-          "application_window": "Typically closes in October/November for the following academic year.",
-          "selection_criteria": "Academic excellence, research potential, and demonstrated leadership skills."
+          "benefits": "$50,000 per year for three years for high-quality doctoral students.",
+          "application_window": "July–November annually.",
+          "selection_criteria": "Academic excellence, research potential, and leadership skills."
         }
       ],
       "private_and_partial": [
         {
-          "name": "Lester B. Pearson International Scholarship",
-          "benefits": "Full tuition, books, incidental fees, and full residence support for four years.",
+          "name": "Lester B. Pearson International Scholarships",
+          "benefits": "Covers tuition, books, incidental fees, and full residence support for 4 years.",
           "target": "Exceptional undergraduate students at the University of Toronto."
         },
         {
-          "name": "Canada ASEAN Scholarships and Educational Exchanges for Development (SEED)",
-          "benefits": "Funding for short-term study or research for students from ASEAN/Specific regions.",
-          "special_note": "Focused on mid-career professionals and students in specific sustainable development fields."
+          "name": "Karen McKellin International Leader of Tomorrow Award",
+          "benefits": "Need-based funding covering tuition and living costs.",
+          "special_note": "Awarded by UBC to international undergraduates with superior academic records."
+        },
+        {
+          "name": "Pierre Elliott Trudeau Foundation Scholarships",
+          "benefits": "Up to $60,000 per year for three years for doctoral candidates in humanities/social sciences.",
+          "target": "Social science PhD students with a focus on public issues."
         }
       ]
     },
 
+    "english_language_test_requirements_2026": {
+      "overview": "For English-Medium programs, standardized test scores are mandatory. SDS (Student Direct Stream) equivalents often require higher sub-scores.",
+      "ielts_academic": {
+        "min_score": "6.0 (Overall)",
+        "competitive_score": "6.5 - 7.5",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "50",
+        "competitive_score": "60 - 68",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "105",
+        "competitive_score": "120 - 135",
+        "acceptance_note": "Widely accepted by Colleges and many Universities for non-SDS applications."
+      },
+      "toefl_ibt": {
+        "min_score": "80",
+        "competitive_score": "90 - 105",
+        "note": "Preferred by top-tier research universities (UofT, McGill, UBC)."
+      }
+    },
+
     "financial_solvency_thresholds": {
-      "self_funded_min_balance": "BDT 3,500,000 - 5,000,000 (1st year tuition + $20,635 CAD GIC/Living + Travel)",
-      "sponsor_profile": "Immediate family (Parents) with clear Proof of Funds and 'Source of Wealth' documentation.",
-      "bank_history_requirement": "Consistent 6-month history; large unexplained deposits lead to immediate 'Personal Assets' concerns.",
-      "logic": "IRCC requires proof that students can support themselves without depending on off-campus employment."
+      "self_funded_min_balance": "BDT 3,000,000 - 4,500,000 (Equivalent to 1st year tuition + GIC of $20,635 CAD)",
+      "sponsor_profile": "First-degree relative (Father/Mother). Sponsors must show significant liquid assets and stable business/employment ties.",
+      "bank_history_requirement": "4 to 6 months of consistent transaction history. Proof of GIC (Guaranteed Investment Certificate) is now the primary financial benchmark.",
+      "logic": "IRCC requires proof that the student has sufficient funds to cover tuition and the updated cost-of-living requirement without working."
     },
 
     "comprehensive_requirements_checklist": {
       "embassy_submission_docs": [
-        "Valid Passport (Minimum 6 months validity beyond intended stay)",
-        "Letter of Acceptance (LOA) from a Designated Learning Institution (DLI)",
-        "Provincial Attestation Letter (PAL) - Mandatory for most 2026 undergrad applications",
-        "Recent Digital Photo (35mm x 45mm, White background)",
-        "Custodianship Declaration (For minor students under 18/19)",
-        "Educational Credentials (WES evaluation highly recommended for Master's)"
+        "Original Passport (Valid for the duration of intended stay)",
+        "Study Permit Approval Letter (Correspondence Letter)",
+        "Visa Application Forms (IMM 1294, 5645, 5257)",
+        "Two Photos (35mm x 45mm, White background, Matte finish)",
+        "Letter of Acceptance (LOA) and Provincial Attestation Letter (PAL)",
+        "Educational Certificates & Transcripts (Notarized and attested)"
       ],
       "coe_phase_documents": [
-        "Study Plan / Statement of Purpose (SOP) explaining why Canada and why this specific program",
-        "Guaranteed Investment Certificate (GIC) of $20,635 CAD (via Scotiabank/CIBC)",
-        "Proof of Tuition Payment for the first year",
-        "CAQ (For students intending to study in Quebec)",
-        "Language Proficiency (IELTS Academic 6.0-6.5+ or PTE Academic for SDS eligibility)"
+        "Financial Support Affidavit (Notarized)",
+        "GIC (Guaranteed Investment Certificate) Confirmation",
+        "Sponsor's Income Tax Returns (Last 3 years)",
+        "Property Valuation and Asset Proof",
+        "Relationship Proof (Birth Certificate/National ID)",
+        "Language Proficiency Proof (IELTS/PTE/Duolingo scores)"
       ]
     },
 
     "processing_and_approval_metrics": {
-      "coe_processing_time": "8 - 12 weeks (Global average for Bangladesh via the Non-SDS or SDS stream)",
-      "visa_processing_time": "20 - 45 days after Biometrics and Medical completion",
-      "approval_chances": "Variable (65% - 85%); higher for Master’s/PhD and those with strong GIC/SOP documentation.",
-      "interview_probability": "Low. Decisions are primarily document-based; medical exam is mandatory."
+      "coe_processing_time": "1 - 2 months (Time to secure LOA and Provincial Attestation Letter)",
+      "visa_processing_time": "8 - 12 weeks for Bangladesh (Standard processing through VFS Global)",
+      "approval_chances": "Moderate to High (Depends heavily on SOP, PAL availability, and financial clarity).",
+      "interview_probability": "Low. IRCC usually decides based on the paper/online application but may call for an interview in rare cases."
     },
 
     "rejection_risk_matrix": {
       "high_risk_reasons": [
-        "Dual Intent/Vague ties to home country (Section 216(1) concerns).",
-        "Weak Statement of Purpose (SOP) that doesn't justify the career progression.",
-        "Insufficient financial proof or lack of a GIC (for high-risk profiles).",
-        "Mismatch between previous education and the proposed program in Canada."
+        "Weak Statement of Purpose (SOP) failing to prove 'Dual Intent'.",
+        "Inadequate financial proof or lack of GIC for non-SDS streams.",
+        "Program 'Mismatch' relative to previous academic or work history.",
+        "Undisclosed previous visa rejections (Misrepresentation).",
+        "Insufficient 'Home Ties' indicating the student will not leave Canada after study."
       ],
-      "mitigation_strategy": "Submit a robust 'Property & Family Ties' evaluation and clear 'Tax Returns' for sponsors."
+      "mitigation_strategy": "Draft a highly specific SOP that links the Canadian degree to a concrete career path in Bangladesh and ensure all financial documents are verifiable."
     },
 
     "work_rights_and_stay": {
-      "part_time_permission": "Up to 24 hours per week off-campus (2026 policy) during academic sessions.",
-      "vacation_hours": "Full-time hours permitted during scheduled summer or winter breaks.",
-      "visa_extension": "Eligible for Post-Graduation Work Permit (PGWP) of up to 3 years depending on program length."
+      "part_time_permission": "Up to 24 hours per week (Updated from 20 hours in 2024/25).",
+      "vacation_hours": "Full-time work allowed during scheduled academic breaks (Summer/Winter).",
+      "visa_extension": "Study Permit extension must be applied for 30 days before the current permit expires.",
+      "post_study_work": "Eligible for PGWP (Post-Graduation Work Permit) for up to 3 years depending on the program length."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Research DLIs and ensure the program is eligible for PGWP and receive an LOA.",
+      "step_2": "Apply for and receive the Provincial Attestation Letter (PAL) from the university/province.",
+      "step_3": "Purchase a GIC ($20,635+ CAD) from a participating Canadian bank (Scotiabank, CIBC, etc.).",
+      "step_4": "Upfront Medical Exam at an IRCC-approved panel physician.",
+      "step_5": "Submit the Study Permit application online via the IRCC portal.",
+      "step_6": "Give Biometrics at VFS Global Dhaka/Chittagong and wait for eligibility review.",
+      "step_7": "Receive Passport Request (PPR), get visa stamped, and receive Study Permit at the Port of Entry."
     },
 
     "faq_student_edition": [
       {
-        "question": "Can I apply for a Canada student visa with PTE?",
-        "answer": "Yes, IRCC accepts PTE Academic for the SDS stream (minimum 60 score) and regular applications."
+        "question": "Can I apply with Duolingo for 2026 intake?",
+        "answer": "Yes, many Canadian colleges and several universities accept Duolingo for admission. However, for visa purposes, ensure your overall profile remains strong as it is a non-SDS application."
       },
       {
-        "question": "What is a PAL and do I need it in 2026?",
-        "answer": "A Provincial Attestation Letter is mandatory for most undergraduate and college students to prove they fall under the provincial cap."
+        "question": "Is a study gap acceptable for Canada?",
+        "answer": "Gaps of 2-8 years are common for Master’s applicants if backed by work experience. Undergraduate gaps over 2 years require a strong explanation in the SOP."
       },
       {
-        "question": "Can I bring my family while I study?",
-        "answer": "Currently, only spouses of students in Master's/Doctoral or professional programs are eligible for an Open Work Permit."
+        "question": "What is the 'Provincial Attestation Letter' (PAL)?",
+        "answer": "It is a mandatory document introduced in 2024 that verifies the student is within the provincial cap for international study permits. You cannot apply for a visa without it."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Canada Study Permit 2026: New Rules & PAL Explained",
+        "video_link": "https://www.youtube.com/watch?v=example_can_1"
+      },
+      {
+        "video_title": "Step-by-Step Canada Student Visa from Bangladesh 2026",
+        "video_link": "https://www.youtube.com/watch?v=example_can_2"
+      },
+      {
+        "video_title": "How to Open GIC and Pay Tuition Fees for Canada",
+        "video_link": "https://www.youtube.com/watch?v=example_can_3"
+      }
+    ]
+  },
+  "australia": {
+    "title": "Ultimate Australia Student Visa & Scholarship Guide 2026 for Bangladeshi Students",
+    "last_updated": "2026-04-18",
+    "description": "A complete roadmap for Bangladeshi students seeking higher education in Australia. Covering the CoE and Genuine Student (GS) process, Australia Awards and Destination Australia scholarships, English requirements (IELTS, PTE), financial capacity, and 2026 approval metrics.",
+
+    "visa_category_details": {
+      "main_category": "Student",
+      "visa_type": "Student Visa (Subclass 500)",
+      "entry_type": "Multiple Entry (Valid for the duration of the course)",
+      "purpose": [
+        "ELICOS (English Language Courses)",
+        "Higher Education (Bachelor, Master, PhD)",
+        "VET (Vocational Education and Training)",
+        "Non-Award / Research Programs"
+      ],
+      "eligibility": "Applicants with a valid Confirmation of Enrolment (CoE) and who satisfy the 'Genuine Student' (GS) requirement."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "Australia Awards Scholarships",
+          "benefits": "Full tuition, return air travel, establishment allowance, and Contribution to Living Expenses (CLE).",
+          "application_window": "February–April annually (for the following year's intake).",
+          "selection_criteria": "Academic merit, leadership potential, and contribution to Bangladesh's development."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "Destination Australia Scholarship",
+          "benefits": "Up to AUD 15,000 per year for students studying in regional Australia.",
+          "target": "Students enrolled at regional campus locations (e.g., Adelaide, Perth, Hobart)."
+        },
+        {
+          "name": "Vice-Chancellor's International Scholarships",
+          "benefits": "Range from AUD 10,000 to 50% tuition fee reduction.",
+          "special_note": "Offered by universities like USyd, Monash, and Deakin for high-achieving students."
+        },
+        {
+          "name": "Research Training Program (RTP)",
+          "benefits": "Tuition fee offset and a living stipend of approx. AUD 32,000 - 35,000 annually.",
+          "target": "Masters by Research or PhD candidates."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "Australia strictly requires English proficiency for Subclass 500. While universities might accept others, the Department of Home Affairs has specific accepted tests.",
+      "ielts_academic": {
+        "min_score": "6.0 (Overall) with no band less than 5.5",
+        "competitive_score": "6.5 - 7.5",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "50 (Overall)",
+        "competitive_score": "58 - 65",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "110",
+        "competitive_score": "120 - 130",
+        "acceptance_note": "Accepted by some universities for admission, but usually NOT accepted by Home Affairs for the visa unless an alternative is provided."
+      },
+      "toefl_ibt": {
+        "min_score": "64 (Total)",
+        "competitive_score": "79 - 94",
+        "note": "Widely accepted; scores must be from a single sitting."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 4,500,000 - 6,000,000 (Equivalent to 1st year tuition + AUD 29,710 living costs + travel).",
+      "sponsor_profile": "Parents, spouse, or close relatives. Must show an annual income of at least AUD 87,856 if no secondary applicants are included.",
+      "bank_history_requirement": "3 to 6 months of stable history or a sanctioned Education Loan from a Grade-A bank. Sudden deposits require proof of asset sale/income.",
+      "logic": "The 'Genuine Access' rule ensures that the funds aren't just for show but are actually available for the student's use in Australia."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport",
+        "Confirmation of Enrolment (CoE) - All codes if packaged",
+        "Overseas Student Health Cover (OSHC) for the full visa duration",
+        "Digital Photo (35mm x 45mm, White background)",
+        "Genuine Student (GS) Statement (Detailed answers to specific logic questions)",
+        "Academic Documents (Transcripts/Certificates) - Scanned originals"
+      ],
+      "coe_phase_documents": [
+        "Financial Evidence (Bank Statements / Loan Letters)",
+        "Proof of Relationship with Sponsor (Birth Cert / Marriage Cert)",
+        "Sponsor’s Employment/Business Proof (Trade License / Tax Returns)",
+        "Statement of Purpose (SOP) for University admission",
+        "English Test Report Form (IELTS/PTE)",
+        "HAP ID for Medical Examination"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "2 - 6 weeks (University assessment and GTE/GS pre-screening)",
+      "visa_processing_time": "15 - 45 days (80% of applications are processed within this window)",
+      "approval_chances": "High for Level-1 Universities; Moderate for VET/Private Colleges. Focus is on 'Genuine Student' intent.",
+      "interview_probability": "Low to Medium. Conducted by the High Commission to verify the GS statement claims."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Failure to explain why an Australian degree is better than a Bangladeshi degree (ROI).",
+        "Applying for a course lower than current qualification level (AQF downgrade).",
+        "Unexplained study gaps exceeding 1-2 years.",
+        "Inadequate funds or inability to prove the source of sponsor's wealth.",
+        "Poor performance in the GS interview if called."
+      ],
+      "mitigation_strategy": "Provide a detailed GS response that links the specific modules of the Australian course to high-paying job opportunities in Bangladesh."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 48 hours per fortnight (24 hours per week average).",
+      "vacation_hours": "Unlimited working hours during official university holiday periods.",
+      "visa_extension": "Possible to renew onshore if continuing to a higher level course (e.g., Bachelor to Master).",
+      "post_study_work": "Eligible for Subclass 485 (Temporary Graduate Visa) for 2–4 years depending on the degree and location (Regional bonus)."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply to a DLI (Designated Learning Institution) and clear the university's internal GS/GTE interview.",
+      "step_2": "Receive an 'Offer Letter' (Conditional or Unconditional).",
+      "step_3": "Pay the 1st semester tuition fee and OSHC (Health Insurance) to receive the CoE.",
+      "step_4": "Generate HAP ID and complete the medical check-up at an approved clinic.",
+      "step_5": "Prepare the Genuine Student (GS) responses and upload all financial/academic docs to ImmiAccount.",
+      "step_6": "Lodge the Subclass 500 visa application and pay the visa fee (approx. AUD 1,600 - 2,000).",
+      "step_7": "Provide biometrics at VFS Global and wait for the Grant Letter."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Can I use Duolingo for an Australia Visa in 2026?",
+        "answer": "While some universities accept Duolingo for admission, the Australian Department of Home Affairs generally requires IELTS or PTE for the visa application itself."
+      },
+      {
+        "question": "What is the 'Genuine Student' (GS) requirement?",
+        "answer": "Effective 2024/25, the GS replaces the old GTE. It involves answering specific questions in the application about your study intent and career value."
+      },
+      {
+        "question": "Do I need to pay the full year's tuition before applying?",
+        "answer": "No, you usually only need to pay the first semester's tuition fee (as stated in your Offer Letter) to get your CoE for the visa application."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Australia Student Visa 2026: The New GS Requirement Explained",
+        "video_link": "https://www.youtube.com/watch?v=example_aus_1"
+      },
+      {
+        "video_title": "Step-by-Step Australia Visa Application for Bangladeshis",
+        "video_link": "https://www.youtube.com/watch?v=example_aus_2"
+      },
+      {
+        "video_title": "How to Pass the Australia University GS Interview",
+        "video_link": "https://www.youtube.com/watch?v=example_aus_3"
+      }
+    ]
+  },
+  "european-union": {
+    "title": "Ultimate Europe (Schengen) Student Visa & Scholarship Guide 2026 for Bangladeshi Students",
+    "last_updated": "2026-04-18",
+    "description": "A complete roadmap for Bangladeshi students seeking higher education in the EU. Covering the Blocked Account (Germany) vs. Financial Guarantee (France) processes, Erasmus Mundus scholarships, English proficiency (IELTS, PTE, Duolingo), and 2026 Schengen visa protocols.",
+
+    "visa_category_details": {
+      "main_category": "National Visa (Type D)",
+      "visa_type": "Long-Stay Student Visa",
+      "entry_type": "Multi-Entry (Allows travel across the Schengen Area for 90 days in 180 days)",
+      "purpose": [
+        "Bachelor's / Master's / PhD Research",
+        "Erasmus Mundus Joint Programs",
+        "Preparatory Language Courses (Studienkolleg)",
+        "Vocational Training (Ausbildung in Germany)"
+      ],
+      "eligibility": "Applicants with a valid University Admission Letter (Zulassungsbescheid/EEF) and proof of financial subsistence for the duration of study."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "Erasmus Mundus Joint Masters (EMJM)",
+          "benefits": "Full tuition waiver, monthly stipend of €1,400, travel costs, and comprehensive insurance.",
+          "application_window": "October–January (varies by consortium).",
+          "selection_criteria": "Excellence-based; requires a top-tier Bachelor's degree and strong motivation letter."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "DAAD Scholarships (Germany)",
+          "benefits": "Monthly stipend (€934 - €1,200), health insurance, and travel allowance.",
+          "target": "Graduate students with at least two years of professional experience."
+        },
+        {
+          "name": "Eiffel Excellence Scholarship (France)",
+          "benefits": "Monthly allowance of €1,181 - €1,800, return trip, and social security.",
+          "special_note": "Applications must be submitted by the French institution on behalf of the student."
+        },
+        {
+          "name": "Holland Scholarship (Netherlands)",
+          "benefits": "One-time payment of €5,000 to €15,000 for the first year of study.",
+          "target": "International students from outside the EEA."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "While many public universities in Europe are free, English-taught programs require high scores. Requirements are strict for Tier-1 research universities.",
+      "ielts_academic": {
+        "min_score": "6.0 (Overall) with 5.5 in sub-sections",
+        "competitive_score": "6.5 - 7.5",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "55 (Overall)",
+        "competitive_score": "65 - 75",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "115",
+        "competitive_score": "125 - 140",
+        "acceptance_note": "Widely accepted in Ireland, Italy, and private German universities; less common in public German TU9s."
+      },
+      "toefl_ibt": {
+        "min_score": "80 (Total)",
+        "competitive_score": "95 - 105",
+        "note": "Standard for programs in Scandinavia and the Netherlands."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 1,500,000 - 2,500,000 (Varies by country; Germany requires a Blocked Account).",
+      "sponsor_profile": "Immediate family or third-party sponsors with a 'Formal Obligation' (Verpflichtungserklärung).",
+      "bank_history_requirement": "Germany: Blocked Account of €11,208. France: Proof of approx. €615/month. Minimum 3–6 months history required for other EU states.",
+      "logic": "Schengen states must ensure you have funds to cover the 'Socio-Cultural Minimum' without relying on social benefits."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport (issued within 10 years, 3+ months validity)",
+        "Schengen Visa Form (National Type D for long stay)",
+        "University Admission Letter (Original + Copies)",
+        "Blocked Account Confirmation (Germany) or Solvency Certificate",
+        "Schengen Travel Insurance (min. €30,000 coverage)",
+        "Proof of Accommodation (for first 3 months)"
+      ],
+      "coe_phase_documents": [
+        "Motivation Letter (Statement of Purpose)",
+        "Curriculum Vitae (Europass Format)",
+        "Attested Academic Certificates (MOFA & Education Board)",
+        "Language Proficiency Certificate (IELTS/PTE/German A1-C1)",
+        "Birth Certificate (English translated and notarized)",
+        "Visa Fee Receipt (approx. €75 - €100)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "1 - 3 months (Admission assessment and VFS/Embassy appointment wait times)",
+      "visa_processing_time": "15 days to 2 months (Long-stay visas require local authority approval in the host city)",
+      "approval_chances": "High for public university admits; Moderate for private or language-only tracks.",
+      "interview_probability": "High. Mandatory interview at the Embassy or VFS to test language and academic motivation."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Inability to explain why a specific German/French/Italian city was chosen.",
+        "Significant study gaps without professional documentation.",
+        "Lack of progress in German/French language if applying for taught programs.",
+        "Invalid Travel Insurance that doesn't meet Schengen Article 15 standards.",
+        "Inconsistent travel history or previous Schengen rejections."
+      ],
+      "mitigation_strategy": "Use the Europass CV format and ensure your SOP explains exactly how the European degree benefits your career back in Bangladesh."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "140 full days or 280 half days per year (approx. 20 hours per week).",
+      "vacation_hours": "Full-time work allowed during semester breaks (Lecture-free periods).",
+      "visa_extension": "Renewable yearly as a 'Residence Permit' (Aufenthaltstitel) at the local Foreigners' Office (Ausländerbehörde).",
+      "post_study_work": "Eligible for an 18-month Job Seeker Visa (Germany) or 12-month APS (France) after graduation."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply to public or private universities via Uni-Assist (Germany) or Campus France.",
+      "step_2": "Receive Admission Letter and open a Blocked Account (e.g., via Fintiba or Expatrio).",
+      "step_3": "Book a Visa Appointment via VFS Global or the National Embassy/Consulate.",
+      "step_4": "Attest all academic documents from the Ministry of Foreign Affairs (MOFA) Bangladesh.",
+      "step_5": "Attend the Visa Interview and submit biometric data.",
+      "step_6": "Receive the stamped Visa and fly to Europe.",
+      "step_7": "Register your address (Anmeldung) and apply for the Residence Permit within 90 days."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Can I apply for 2026 intake with Duolingo?",
+        "answer": "Yes for Ireland and many private schools in Italy/Germany, but most German public universities still strictly require IELTS 6.5 or TOEFL 90+."
+      },
+      {
+        "question": "Are tuition fees really free in Europe?",
+        "answer": "In German public universities, tuition is free (only a small semester fee), while in France/Italy, fees are significantly lower than in the UK/USA for public institutions."
+      },
+      {
+        "question": "Do I need to speak the local language?",
+        "answer": "For English-taught programs, you don't 'need' it for the visa, but basic knowledge (A1/A2) is highly recommended to show 'Genuine Integration' intent."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Europe Student Visa 2026: Germany Blocked Account vs France EEF",
+        "video_link": "https://www.youtube.com/watch?v=example_eu_1"
+      },
+      {
+        "video_title": "How to Apply for Erasmus Mundus 2026 (Fully Funded)",
+        "video_link": "https://www.youtube.com/watch?v=example_eu_2"
+      },
+      {
+        "video_title": "VFS Schengen Visa Interview Questions for Bangladeshi Students",
+        "video_link": "https://www.youtube.com/watch?v=example_eu_3"
+      }
+    ]
+  },
+  "united-states": {
+    "title": "Ultimate USA Student Visa & Scholarship Guide 2026 for Bangladeshi Students",
+    "last_updated": "2026-04-18",
+    "description": "A complete roadmap for Bangladeshi students seeking higher education in the United States. Covering the I-20 and SEVIS process, F-1 Visa Interview strategies, comprehensive English proficiency requirements (IELTS, TOEFL, Duolingo), and 2026 financial solvency benchmarks.",
+
+    "visa_category_details": {
+      "main_category": "Non-Immigrant",
+      "visa_type": "F-1 Student Visa",
+      "entry_type": "Multiple Entry (Valid for the duration of the I-20 status)",
+      "purpose": [
+        "Undergraduate (Bachelor’s) Degree",
+        "Graduate (Master’s / PhD) Research",
+        "English as a Second Language (ESL) Programs",
+        "Vocational / Community College Programs (M-1)"
+      ],
+      "eligibility": "Applicants must be accepted by an SEVP-certified institution and receive an 'I-20 Certificate of Eligibility'."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "Fulbright Foreign Student Program",
+          "benefits": "Full tuition, living stipend, airfare, and health insurance for graduate students.",
+          "application_window": "February–May (for the following year's intake).",
+          "selection_criteria": "Academic excellence, leadership potential, and commitment to cross-cultural exchange."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "Institutional Merit-Based Scholarships",
+          "benefits": "Varies from $5,000 to full-tuition waivers.",
+          "target": "International applicants with high SAT/ACT or GRE/GMAT scores."
+        },
+        {
+          "name": "Graduate Assistantships (TA/RA)",
+          "benefits": "Full tuition coverage plus a monthly stipend in exchange for teaching or research work.",
+          "special_note": "Primarily available for Master's and PhD candidates at research-intensive universities."
+        },
+        {
+          "name": "#YouAreWelcomeHere Scholarship",
+          "benefits": "Renewable tuition scholarships of at least 50% for undergraduate students.",
+          "target": "International students dedicated to promoting intercultural learning."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "For US universities, English proficiency is a standard admission requirement. While many accept Duolingo, top-tier institutions prefer TOEFL or IELTS.",
+      "ielts_academic": {
+        "min_score": "6.0 (Overall) with no band below 5.5",
+        "competitive_score": "7.0 - 7.5",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "53",
+        "competitive_score": "60 - 70",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "105",
+        "competitive_score": "120 - 135",
+        "acceptance_note": "Accepted by over 4,500 US institutions, including several Ivy League schools, as of 2026."
+      },
+      "toefl_ibt": {
+        "min_score": "80 (Total)",
+        "competitive_score": "95 - 110",
+        "note": "The gold standard for US universities; scores must be sent directly via ETS."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 5,500,000 - 8,000,000 (Equivalent to 1st year tuition + living expenses as listed on the I-20).",
+      "sponsor_profile": "Parents are preferred sponsors. Must show liquid funds, stable professional income, and asset ownership (Land/Property).",
+      "bank_history_requirement": "6 months of consistent bank statements. Significant 'unexplained' large deposits just before the interview are highly discouraged.",
+      "logic": "Under Section 214(b), you must prove you can afford the expensive US education without resorting to unauthorized off-campus work."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Original Passport (Valid for at least 6 months)",
+        "Original I-20 Form (Signed by both the student and DSO)",
+        "DS-160 Confirmation Page (with barcode)",
+        "SEVIS I-901 Fee Receipt ($350 for F-1)",
+        "Visa Interview Appointment Confirmation",
+        "One Photo (51mm x 51mm, White background, taken within 6 months)"
+      ],
+      "coe_phase_documents": [
+        "Affidavit of Support from Sponsor",
+        "Sponsor's Bank Solvency & Detailed 6-month Transaction History",
+        "Sponsor's Income Tax Returns (ITDR) for last 3 years",
+        "Notarized Property Valuation & Asset Documents",
+        "Educational Certificates (SSC/HSC/Bachelor) & Original Transcripts",
+        "Standardized Test Scores (SAT/GRE/GMAT and IELTS/TOEFL)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "1 - 3 weeks (Time for university to issue I-20 after admission and financial verification)",
+      "visa_processing_time": "Immediate (Result usually given at the end of the 2–3 minute interview; passport returned in 3-5 days).",
+      "approval_chances": "Varies. High for those with strong academics and clear home ties; strict for weak SOP/financial cases.",
+      "interview_probability": "100% (Mandatory). Face-to-face interview with a Consular Officer is the most critical part of the process."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Failure to demonstrate 'Strong Ties' to Bangladesh (Section 214(b) - Potential Immigrant).",
+        "Robotic or memorized answers during the interview.",
+        "Inability to clearly explain why you chose that specific university or program.",
+        "Discrepancies between DS-160 data and verbal interview statements.",
+        "Inadequate funding for subsequent years of study beyond the first year."
+      ],
+      "mitigation_strategy": "Focus on the 'Why US' and 'Why this major' answers. Be conversational and confident; show that you are a genuine student who will return home."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 20 hours per week (On-campus only during the first academic year).",
+      "vacation_hours": "Full-time on-campus work allowed during summer and winter breaks.",
+      "visa_extension": "Renewable based on academic progress (requires a new I-20 for program extensions).",
+      "post_study_work": "Eligible for OPT (Optional Practical Training) for 12 months, plus a 24-month extension for STEM majors (3 years total)."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply to SEVP-certified US universities and secure your Letter of Admission.",
+      "step_2": "Submit financial documents to the university to receive your official Form I-20.",
+      "step_3": "Pay the SEVIS I-901 fee online and keep the payment receipt.",
+      "step_4": "Complete the DS-160 Online Visa Application and pay the $185 visa fee.",
+      "step_5": "Schedule two appointments: Biometrics at the VAC and the Visa Interview at the Embassy.",
+      "step_6": "Attend the interview at the US Embassy in Dhaka and receive a verbal approval/denial.",
+      "step_7": "Prepare to fly to the US no more than 30 days before the start date on your I-20."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Can I apply with Duolingo for 2026 intake?",
+        "answer": "Yes, many reputable US universities accept Duolingo (DET) for admission. However, ensure you also prepare for the visa interview where your spoken English will be evaluated."
+      },
+      {
+        "question": "Is a study gap acceptable for the USA?",
+        "answer": "Study gaps of 2-5 years are generally accepted if you have relevant work experience. You must be prepared to explain the gap clearly to the Consular Officer."
+      },
+      {
+        "question": "What is the 214(b) rejection?",
+        "answer": "It is the most common rejection reason, meaning you haven't sufficiently proven that you have strong ties to your home country and intend to return after graduation."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "US F-1 Visa Interview 2026: Top Questions & Winning Answers",
+        "video_link": "https://www.youtube.com/watch?v=example_usa_1"
+      },
+      {
+        "video_title": "How to Fill the DS-160 Form for US Student Visa (Dhaka)",
+        "video_link": "https://www.youtube.com/watch?v=example_usa_2"
+      },
+      {
+        "video_title": "Funding Your US Education: Financial Proof Tips for I-20",
+        "video_link": "https://www.youtube.com/watch?v=example_usa_3"
       }
     ]
   }
