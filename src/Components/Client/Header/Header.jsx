@@ -27,7 +27,7 @@ const menuGroups = [
   {
     title: "Travel",
     items: [
-      { label: "Flight", icon: Plane, path: "/our-services/air-tickets" },
+      { label: "Flight", icon: Plane, path: "/flight-booking" },
       { label: "Offers", icon: Gift, path: "/offers" },
       { label: "Tour", icon: Palmtree, path: "/our-services/tour-packages" },
       { label: "Visa", icon: FileText, path: "/our-services/visa-services" },

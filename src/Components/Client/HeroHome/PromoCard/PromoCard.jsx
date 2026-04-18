@@ -15,7 +15,7 @@ const promoSlides = [
   { 
     id: 13, category: "flight", title: "DHAKA TO BALI", 
     label1: "One Way", price1: "435", label2: "Round Trip", price2: "855", 
-    badge: "Hot Deal", img: "/the-love-island.webp", link: "/air-tickets", alt: "Cheap Flights to Bali" 
+    badge: "Hot Deal", img: "/the-love-island.webp", link: "/flight-booking", alt: "Cheap Flights to Bali" 
   },
   { 
     id: 6, category: "tour", title: "SYLHET TEA TOUR", 
@@ -31,7 +31,7 @@ const promoSlides = [
   { 
     id: 2, category: "flight", title: "JAPAN TO DHAKA", 
     label1: "One Way", price1: "699", label2: "Round Trip", price2: "999", 
-    badge: "Best Fare", img: "/japan-tour-promo.jpg", link: "/air-tickets", alt: "japan cheapest flight" 
+    badge: "Best Fare", img: "/japan-tour-promo.jpg", link: "/flight-booking", alt: "japan cheapest flight" 
   },
   { 
     id: 7, category: "tour", title: "MALDIVES ESCAPE", 
@@ -51,7 +51,7 @@ const promoSlides = [
   { 
     id: 3, category: "flight", title: "DHAKA TO LONDON", 
     label1: "Economy", price1: "650", label2: "Premium", price2: "1150", 
-    badge: "Direct", img: "/dhaka-to-london-promo.jpeg", link: "/air-tickets", alt: "dhaka to London flight" 
+    badge: "Direct", img: "/dhaka-to-london-promo.jpeg", link: "/flight-booking", alt: "dhaka to London flight" 
   },
   { 
     id: 8, category: "tour", title: "SAJEK VALLEY", 
@@ -71,7 +71,7 @@ const promoSlides = [
   { 
     id: 4, category: "flight", title: "CAIRO TO DHAKA", 
     label1: "One Way", price1: "610", label2: "Round Trip", price2: "980", 
-    badge: "Special", img: "/desert_kamel_egypt.jpg", link: "/air-tickets", alt: "Egypt flight" 
+    badge: "Special", img: "/desert_kamel_egypt.jpg", link: "/flight-booking", alt: "Egypt flight" 
   },
   { 
     id: 9, category: "tour", title: "EID EGYPT TOUR", 
@@ -91,7 +91,7 @@ const promoSlides = [
   { 
     id: 5, category: "flight", title: "DHAKA TO JEDDAH", 
     label1: "Umrah Spcl", price1: "420", label2: "Flexible", price2: "790", 
-    badge: "Umrah", img: "/saudi-arabia-promo.jpg", link: "/air-tickets", alt: "Jeddah flight" 
+    badge: "Umrah", img: "/saudi-arabia-promo.jpg", link: "/flight-booking", alt: "Jeddah flight" 
   },
   { 
     id: 10, category: "tour", title: "DUBAI SAFARI", 

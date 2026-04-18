@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
 const offerData = [
-  { id: 1, category: 'Airlines', title: "Fly to New Destinations with Up To 33% Off", logo: "/flight-offer.avif", link: "/offers", details: "Fly to New Destinations", alt: "Special flight discount offer to Bangkok" },
-  { id: 2, category: 'Airlines', title: "Get Up to 32% Discount on Selected European Routes", logo: "/thailand-flight-lowest-fare.avif", link: "/offers", details: "Get Up to 32% Discount", alt: "Discounted airfare for European travel" },
+  { id: 1, category: 'Airlines', title: "Fly to New Destinations with Up To 33% Off", logo: "/flight-offer.avif", link: "/flight-booking", details: "Fly to New Destinations", alt: "Special flight discount offer to Bangkok" },
+  { id: 2, category: 'Airlines', title: "Get Up to 32% Discount on Selected European Routes", logo: "/thailand-flight-lowest-fare.avif", link: "/flight-booking", details: "Get Up to 32% Discount", alt: "Discounted airfare for European travel" },
   { id: 3, category: 'Airlines', title: "Best airline ticket offers for domestic flights With 15% off", logo: "/airline-discount-offer.webp", link: "/offers", details: "Best airline ticket offers", alt: "Domestic flight ticket deals" },
   { id: 5, category: 'Tours', title: "Get Exclusive Deals on International Flights", logo: "/dubai-tour-with-eammu.webp", link: "/offers", details: "Get Exclusive Deals", alt: "International flight booking deals" },
   { id: 6, category: 'Others', title: "Book cheap flights to top international destinations today.", logo: "/cheapflights_eammu_offer.webp", link: "/offers", details: "Book cheap flights", alt: "Cheap international flight tickets" },

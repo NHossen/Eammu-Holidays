@@ -1,37 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
     <style>
         body {
             margin: 0;
             padding: 0;
             background: transparent;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-
-        /* DO NOT hide results container on localhost */
-        #tpwl-search {
+        /* Ensure the container expands with the results */
+        #tpwl-widget {
             width: 100%;
+            min-height: 100vh;
         }
     </style>
 </head>
-
-<body>
-
-
 <body>
 
 <div id="tpwl-search"></div>
 <div id="tpwl-tickets"></div>
 
-</body>
-
-<script
-    type="module"
-    async
-    src="https://tpwidg.com/wl_web/main.js?wl_id=16401">
+  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
+  (function () {
+        var script = document.createElement("script");
+        script.async = 1;
+        script.type = "module";
+        script.src = "https://tpwidg.com/wl_web/main.js?wl_id=16389";
+        document.head.appendChild(script);
+      })();
 </script>
 
 </body>
