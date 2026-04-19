@@ -50,10 +50,12 @@ export default function TourPackages() {
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter leading-none">
             Exclusive Holiday Packages
           </h2>
-          <p className="text-slate-500 font-medium mt-4 max-w-2xl leading-relaxed">
-            Eammu Holidays provides guaranteed <strong>Schengen visa appointments</strong> within weeks. 
-          Book your dream 2026 European tour from the <strong className="text-[#005a31]">best travel agency in Bangladesh and UAE</strong>.
-          </p>
+         <p className="text-slate-500 font-medium mt-4 max-w-7xl leading-relaxed">
+  Eammu Holidays offers fast and guaranteed <strong>Schengen visa appointments</strong> within weeks, making your Europe travel plans easier and stress-free. 
+  Book your dream <strong>2026 Europe tour packages</strong> with flights, hotels, and visa support from the 
+  <strong className="text-[#005a31]"> best online travel agency in Bangladesh and UAE</strong>. 
+  Explore top destinations like Paris, Switzerland, Italy, Spain, and more with trusted travel experts.
+</p>
         </div>
 
 
@@ -123,16 +125,16 @@ export default function TourPackages() {
       </div>
 
       {/* VIEW ALL DEALS CTA */}
-      <div className="flex flex-col items-center justify-center gap-4 mb-20">
+      <div className="flex flex-col items-center justify-center gap-4 mb-4">
         <a 
           href="/our-services/tour-packages" 
           className="inline-flex items-center justify-center px-10 border-2 border-[#005a31] text-[#005a31] font-black rounded-full hover:bg-[#005a31] hover:text-white transition-all duration-300 uppercase tracking-widest text-sm shadow-sm"
         >
           View All Tour Deals
         </a>
-        <p className="text-sm text-gray-500 font-medium italic">
-          Discover 50+ more exclusive destinations across Europe, Asia, and Africa.
-        </p>
+        <p className="text-sm text-gray-500 font-medium italic leading-relaxed">
+  Explore 50+ exclusive travel destinations across Europe, Asia, and Africa with Eammu Holidays. Discover affordable holiday packages, luxury vacations, family tours, honeymoon trips, cultural experiences, and adventure travel deals. Book international flights, hotels, visa assistance, and customized tour packages to top destinations with one of the leading online travel agencies in Bangladesh.
+</p>
       </div>
     </section>
   );

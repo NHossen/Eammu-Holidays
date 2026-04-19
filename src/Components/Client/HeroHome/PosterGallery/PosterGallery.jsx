@@ -106,9 +106,9 @@ const PosterGallery = () => {
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter leading-none">
             Global Visa Assistance
           </h2>
-          <p className="text-slate-500 font-medium mt-4 max-w-2xl leading-relaxed">
-            Eammu Holidays provides professional worldwide visa application assistance for travelers, tourists, and business visitors in Bangladesh.
-          </p>
+         <p className="text-slate-500 font-sm mt-4 max-w-7xl leading-relaxed">
+  Eammu Holidays is a leading <strong>worldwide visa consultancy in Bangladesh</strong>, providing professional <strong>visa application assistance</strong> for tourists, business travelers, students, and family visit visas. We specialize in <strong>Schengen visa services, UK visa, USA visa, Canada visa, Australia visa, Dubai visa, and Europe work permit guidance</strong> with complete documentation support, embassy appointment assistance, travel consultation, and fast processing. Trusted for high success rates, we are recognized as one of the <strong>best online travel agencies in Bangladesh and UAE</strong> for secure, reliable, and affordable international visa solutions, travel planning, and global immigration support.
+</p>
         </div>
 
         {/* Dynamic Grid */}

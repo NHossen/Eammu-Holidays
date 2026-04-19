@@ -65,7 +65,7 @@ const services = [
     title: "Event Management", 
     img: "/event-eammu-holidays.jpeg", 
     alt: "Luxury corporate event planning and wedding management services",
-    link: "/eammuevent", 
+    link: "/event-management", 
     desc: "Creating unforgettable corporate events and luxury weddings globally.", 
     btn: "Book Consultation" 
   },
@@ -73,7 +73,7 @@ const services = [
     title: "Fashion & Lifestyle", 
     img: "/eammu-fashion.jpeg", 
     alt: "Premium apparel collection featuring traditional and modern fashion styles",
-    link: "/eammufashion", 
+    link: "/eammu-fashion", 
     desc: "Premium apparel blending traditional Bangladeshi craft with Dubai style.", 
     btn: "Shop Collection" 
   },
@@ -81,7 +81,7 @@ const services = [
     title: "Dairy & Agro", 
     img: "/eammu-dairy-farm.avif", 
     alt: "Sustainable organic dairy farming and agricultural produce",
-    link: "/eammudairy", 
+    link: "/eammu-dairy-poultry", 
     desc: "Ethical and sustainable farming providing fresh organic produce.", 
     btn: "Order Fresh" 
   },
@@ -89,7 +89,7 @@ const services = [
     title: "Textile & Industry", 
     img: "/eammu-textile.jpg", 
     alt: "Eco-friendly textile manufacturing and premium fabric production",
-    link: "/eammutextile", 
+    link: "/eammu-textile-bangladesh", 
     desc: "Sustainable manufacturing of premium fabrics and eco-friendly garments.", 
     btn: "Bulk Inquiry" 
   },

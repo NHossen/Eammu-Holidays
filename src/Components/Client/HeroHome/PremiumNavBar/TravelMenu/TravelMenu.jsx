@@ -165,7 +165,7 @@ const [isInteracting, setIsInteracting] = useState(false);
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={14} />
         <input 
           type="text"
-          placeholder="Search destination country..."
+          placeholder="Search  Your Study destination ..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-100 rounded-xl text-[13px] font-bold outline-none focus:border-yellow-400 transition-colors"

@@ -1,8 +1,8 @@
 {
   "japan": {
-    "title": "Ultimate Japan Student Visa & Scholarship Guide 2026 for Bangladeshi Students",
+    "title": "Japan Student Visa & Scholarship Guide 2026 for international Students",
     "last_updated": "2026-04-18",
-    "description": "A complete roadmap for Bangladeshi students seeking higher education in Japan. Covering the COE process, MEXT and JASSO scholarship details, comprehensive English proficiency requirements (IELTS, PTE, Duolingo), financial solvency, and 2026 approval trends.",
+    "description": "A complete roadmap for international students seeking higher education in Japan. Covering the COE process, MEXT and JASSO scholarship details, comprehensive English proficiency requirements (IELTS, PTE, Duolingo), financial solvency, and 2026 approval trends.",
     
     "visa_category_details": {
       "main_category": "Long-Term Stay",
@@ -161,9 +161,9 @@
     ]
   },
   "canada": {
-    "title": "Ultimate Canada Student Visa & Scholarship Guide 2026 for Bangladeshi Students",
+    "title": "Canada Student Visa & Scholarship Guides for international Students",
     "last_updated": "2026-04-18",
-    "description": "A complete roadmap for Bangladeshi students seeking higher education in Canada. Covering the PAL and Study Permit process, Entrance and Government scholarship details, comprehensive English proficiency requirements (IELTS, PTE, Duolingo), financial solvency (GIC), and 2026 approval trends.",
+    "description": "A complete roadmap for international students seeking higher education in Canada. Covering the PAL and Study Permit process, Entrance and Government scholarship details, comprehensive English proficiency requirements (IELTS, PTE, Duolingo), financial solvency (GIC), and 2026 approval trends.",
 
     "visa_category_details": {
       "main_category": "Temporary Resident",
@@ -322,9 +322,9 @@
     ]
   },
   "australia": {
-    "title": "Ultimate Australia Student Visa & Scholarship Guide 2026 for Bangladeshi Students",
+    "title": "Australia Student Visa & Scholarship Guide 2026 for international Students",
     "last_updated": "2026-04-18",
-    "description": "A complete roadmap for Bangladeshi students seeking higher education in Australia. Covering the CoE and Genuine Student (GS) process, Australia Awards and Destination Australia scholarships, English requirements (IELTS, PTE), financial capacity, and 2026 approval metrics.",
+    "description": "A complete roadmap for international students seeking higher education in Australia. Covering the CoE and Genuine Student (GS) process, Australia Awards and Destination Australia scholarships, English requirements (IELTS, PTE), financial capacity, and 2026 approval metrics.",
 
     "visa_category_details": {
       "main_category": "Student",
@@ -483,9 +483,9 @@
     ]
   },
   "european-union": {
-    "title": "Ultimate Europe (Schengen) Student Visa & Scholarship Guide 2026 for Bangladeshi Students",
+    "title": "Europe (Schengen) Student Visa & Scholarship Guide for international Students",
     "last_updated": "2026-04-18",
-    "description": "A complete roadmap for Bangladeshi students seeking higher education in the EU. Covering the Blocked Account (Germany) vs. Financial Guarantee (France) processes, Erasmus Mundus scholarships, English proficiency (IELTS, PTE, Duolingo), and 2026 Schengen visa protocols.",
+    "description": "A complete roadmap for international students seeking higher education in the EU. Covering the Blocked Account (Germany) vs. Financial Guarantee (France) processes, Erasmus Mundus scholarships, English proficiency (IELTS, PTE, Duolingo), and 2026 Schengen visa protocols.",
 
     "visa_category_details": {
       "main_category": "National Visa (Type D)",
@@ -644,9 +644,9 @@
     ]
   },
   "united-states": {
-    "title": "Ultimate USA Student Visa & Scholarship Guide 2026 for Bangladeshi Students",
+    "title": "United States America (USA) Student Visa & Scholarship Guide for international Students",
     "last_updated": "2026-04-18",
-    "description": "A complete roadmap for Bangladeshi students seeking higher education in the United States. Covering the I-20 and SEVIS process, F-1 Visa Interview strategies, comprehensive English proficiency requirements (IELTS, TOEFL, Duolingo), and 2026 financial solvency benchmarks.",
+    "description": "A complete roadmap for international students seeking higher education in the United States. Covering the I-20 and SEVIS process, F-1 Visa Interview strategies, comprehensive English proficiency requirements (IELTS, TOEFL, Duolingo), and 2026 financial solvency benchmarks.",
 
     "visa_category_details": {
       "main_category": "Non-Immigrant",
@@ -801,6 +801,1777 @@
       {
         "video_title": "Funding Your US Education: Financial Proof Tips for I-20",
         "video_link": "https://www.youtube.com/watch?v=example_usa_3"
+      }
+    ]
+  },
+  "albania": {
+    "title": "Albania Student Visa & Residency Guide for International Students",
+    "last_updated": "2026-04-19",
+    "description": "A complete roadmap for international students seeking higher education in Albania. Covering the Type D/ST Visa and Residence Permit process, government and university scholarships, language requirements (English/Albanian), financial capacity, and 2026 approval metrics.",
+
+    "visa_category_details": {
+      "visa_type": "Student Visa",
+      "main_category": "Student",
+      "video_type": "Long-Stay Visa (Type D/ST)",
+      "entry_type": "Single/Multiple Entry (Converted to Residence Permit upon arrival)",
+      "purpose": [
+        "Language Courses (Albanian)",
+        "Higher Education (Bachelor, Master, PhD)",
+        "Vocational Training Programs",
+        "Student Exchange / Research Programs"
+      ],
+      "eligibility": "Applicants with a Letter of Acceptance from an accredited Albanian HEI (Higher Education Institution) and proof of tuition payment."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "Ministry of Education and Sports Scholarships",
+          "benefits": "Full or partial tuition waivers and monthly stipends for specific bilateral partner countries.",
+          "application_window": "May–July annually (for the October intake).",
+          "selection_criteria": "Academic excellence, reciprocity agreements, and field of study relevance."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "Erasmus+ Key Action 1 (International Credit Mobility)",
+          "benefits": "Monthly stipend (approx. €800) and travel cost coverage for exchange semesters.",
+          "target": "Students from partner universities outside the EU studying in Tirana or Durrës."
+        },
+        {
+          "name": "University Merit Discounts",
+          "benefits": "Range from 10% to 50% tuition fee reduction.",
+          "special_note": "Offered by private institutions like University of New York Tirana (UNYT) or Epoka University."
+        },
+        {
+          "name": "Excellence Fund for Researchers",
+          "benefits": "Research grants covering laboratory fees and field-work expenses.",
+          "target": "Doctoral students and researchers in STEM or Albanian heritage studies."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "Albanian universities offering English-taught programs require proof of proficiency. For the Type D visa, the Ministry of Interior validates these for student status.",
+      "ielts_academic": {
+        "min_score": "5.5 (Overall) for Bachelor; 6.0 - 6.5 for Masters",
+        "competitive_score": "6.5 - 7.0",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "45 (Overall)",
+        "competitive_score": "55 - 62",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "95",
+        "competitive_score": "105 - 120",
+        "acceptance_note": "Widely accepted by private international universities in Albania for initial admission."
+      },
+      "toefl_ibt": {
+        "min_score": "60 (Total)",
+        "competitive_score": "75 - 90",
+        "note": "Required by most English-medium institutions; must be verifiable online."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 1,200,000 - 1,800,000 (Covering tuition + living costs of approx. €300/month + travel).",
+      "sponsor_profile": "Parents or legal guardians. Must demonstrate a monthly income or savings sufficient to cover the student's stay in Albania.",
+      "bank_history_requirement": "3 to 6 months of active bank history. Notarized affidavit of support is mandatory for the visa application.",
+      "logic": "The 'Sufficient Means of Subsistence' rule ensures students can sustain themselves without illegal employment during their studies."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport (Valid for at least 3 months beyond visa expiry)",
+        "Certificate of Admission (Letter of Acceptance) from the University",
+        "Proof of Accommodation in Albania (Lease agreement or Dorm certificate)",
+        "Digital Photo (47mm x 36mm, White background)",
+        "Criminal Record Clearance (Police Clearance) from home country",
+        "Travel Health Insurance (Valid for the duration of stay)"
+      ],
+      "coe_phase_documents": [
+        "Proof of Tuition Fee Payment (Bank Transfer Receipt)",
+        "Notarized Financial Guarantee (Affidavit of Support)",
+        "Academic Diploma/Transcripts (Apostilled or legalized by Ministry)",
+        "English or Albanian Language Proficiency Certificate",
+        "Medical Certificate showing absence of infectious diseases",
+        "Visa Application Form (Completed via E-Albania portal)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "1 - 3 weeks (University admission and document verification)",
+      "visa_processing_time": "15 - 30 days (Processing via the E-Albania portal and Consulate)",
+      "approval_chances": "High for students with authenticated documents and clear admission letters.",
+      "interview_probability": "Medium. Usually conducted at the nearest Albanian Embassy/Consulate to verify intent."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Submission of forged or non-apostilled academic documents.",
+        "Inability to prove accommodation arrangements in Albania.",
+        "Police clearance certificate that is older than 6 months.",
+        "Insufficient funds in the sponsor's account compared to the cost of living.",
+        "Failure to register on the E-Albania portal correctly."
+      ],
+      "mitigation_strategy": "Ensure all documents are translated into Albanian by a licensed translator and legalized by the relevant Ministry of Foreign Affairs."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 20 hours per week during the semester for international students.",
+      "vacation_hours": "Full-time work allowed during summer and winter breaks.",
+      "visa_extension": "Must apply for a Residence Permit (Leje Qëndrimi) within 30 days of arrival in Albania.",
+      "post_study_work": "Eligible to apply for a 9-month job-seeking permit upon graduation from an Albanian University."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply to an accredited Albanian University and receive a formal Letter of Acceptance.",
+      "step_2": "Pay the required tuition deposit and obtain a receipt for the visa file.",
+      "step_3": "Legalize/Apostille academic certificates and police clearance in your home country.",
+      "step_4": "Apply for the Long-Stay Type D/ST Visa via the E-Albania online portal.",
+      "step_5": "Submit physical documents to the Albanian Embassy/Consulate for biometric verification.",
+      "step_6": "Travel to Albania and register with the local police/migration office within 30 days.",
+      "step_7": "Apply for the physical Residence Permit card (valid for 1 year, renewable)."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Can I study in Albania in English?",
+        "answer": "Yes, many private and some public universities offer programs in English, particularly in Business, IT, and International Relations."
+      },
+      {
+        "question": "Do I need to translate my documents?",
+        "answer": "Yes, all documents for the visa and residence permit must be translated into Albanian and notarized."
+      },
+      {
+        "question": "Is the Albanian student visa a Schengen visa?",
+        "answer": "No, Albania is not in the Schengen Area yet. A Type D visa allows stay in Albania only, though you may visit nearby Balkan countries based on your nationality."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "How to Apply for Albania Student Visa 2026 Online",
+        "video_link": "https://www.youtube.com/watch?v=example_alb_1"
+      },
+      {
+        "video_title": "Cost of Living & Student Life in Tirana, Albania",
+        "video_link": "https://www.youtube.com/watch?v=example_alb_2"
+      },
+      {
+        "video_title": "Applying for Albania Residence Permit: Step by Step",
+        "video_link": "https://www.youtube.com/watch?v=example_alb_3"
+      }
+    ]
+  },
+  "united_kingdom": {
+    "title": "United Kingdom Student Visa & Graduate Route Guide 2026 for International Students",
+    "last_updated": "2026-04-19",
+    "description": "A complete roadmap for international students seeking higher education in the UK. Covering the CAS and Student Visa (formerly Tier 4) process, GREAT and Commonwealth scholarships, English requirements (IELTS UKVI, PTE Academic), financial capacity, and 2026 approval metrics.",
+
+    "visa_category_details": {
+      "main_category": "Student",
+      "visa_type": "Student Visa",
+      "entry_type": "Multiple Entry (Valid for the duration of the course plus a wrap-up period)",
+      "purpose": [
+        "English Language Courses (Short-term or Pre-sessional)",
+        "Higher Education (Bachelor, Master, PhD)",
+        "Further Education / Vocational Courses",
+        "Student Union Sabbatical Officer"
+      ],
+      "eligibility": "Applicants with a valid Confirmation of Acceptance for Studies (CAS) from a licensed Student Sponsor and who achieve 70 points under the Points-Based System."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "Chevening Scholarships",
+          "benefits": "Full tuition, monthly stipend, travel costs, and arrival/homeward departure allowances.",
+          "application_window": "August–November annually (for the following year's intake).",
+          "selection_criteria": "Leadership potential, strong academic background, and commitment to returning home to lead change."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "GREAT Scholarships",
+          "benefits": "Minimum of £10,000 towards tuition fees for a one-year postgraduate course.",
+          "target": "Students from specific countries (including Bangladesh) studying at participating UK universities."
+        },
+        {
+          "name": "Commonwealth Master’s Scholarships",
+          "benefits": "Full tuition fees, airfare, and a monthly living allowance.",
+          "special_note": "Targeted at talented individuals from low and middle-income Commonwealth countries."
+        },
+        {
+          "name": "University-Specific Global Excellence Awards",
+          "benefits": "Range from £2,000 to full tuition fee waivers.",
+          "target": "High-achieving students applying to universities like Exeter, Manchester, or UCL."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "The UK Home Office requires proof of English proficiency. While universities may assess their own students for degree-level courses, specific SEVTs are often required.",
+      "ielts_academic": {
+        "min_score": "6.0 (Overall) with no band less than 5.5",
+        "competitive_score": "6.5 - 7.5",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "59 (Overall)",
+        "competitive_score": "65 - 75",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "105",
+        "competitive_score": "120 - 135",
+        "acceptance_note": "Accepted by many universities for admission, but check if the university uses it to vouch for your level on the CAS."
+      },
+      "toefl_ibt": {
+        "min_score": "72 (Total)",
+        "competitive_score": "90 - 100",
+        "note": "Accepted by most UK universities; must be the Home Edition or standard iBT."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 4,500,000 - 6,500,000 (Equivalent to remaining 1st year tuition + living costs of £1,334/mo in London or £1,023/mo outside London).",
+      "sponsor_profile": "Self, Parents, or legal guardians. Third-party sponsors are generally not accepted unless they are official financial sponsors (government/international orgs).",
+      "bank_history_requirement": "Funds must be held in the account for a consecutive 28-day period ending no more than 31 days before the application date.",
+      "logic": "The '28-Day Rule' is strictly enforced to ensure the money is genuinely available and not borrowed temporarily for the visa application."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport",
+        "Confirmation of Acceptance for Studies (CAS) Statement",
+        "Tuberculosis (TB) Test Certificate from an approved clinic",
+        "Digital Photo (Standard UK Passport size)",
+        "Proof of Financial Support (Bank statements held for 28 days)",
+        "ATAS Certificate (If required for specific STEM/Research courses)"
+      ],
+      "coe_phase_documents": [
+        "Academic Certificates and Transcripts listed on the CAS",
+        "English Language Proficiency Certificate (IELTS/PTE)",
+        "Immigration Health Surcharge (IHS) Payment Confirmation",
+        "Consent Letter from parents (if student is under 18)",
+        "Previous BRP or Visa copies (if applying from within or previously in the UK)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "1 - 4 weeks (University credibility interview and CAS issuance)",
+      "visa_processing_time": "15 working days (Standard) or 5 working days (Priority service available in most regions)",
+      "approval_chances": "High if the CAS is valid and the 28-day financial rule is met perfectly.",
+      "interview_probability": "Medium. Credibility interviews by UKVI are used to verify the student's genuine intent to study."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Failing the 28-day financial rule by even a single day or a small currency fluctuation.",
+        "Inability to explain the course choice or career path during the credibility interview.",
+        "Submitting documents that are not in English without a professional translation.",
+        "Significant and unexplained gaps in education history.",
+        "Failure to disclose previous visa refusals from any country."
+      ],
+      "mitigation_strategy": "Double-check bank statements against the OANDA exchange rate on the day of application and prepare a thorough Statement of Purpose."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 20 hours per week during term time for degree-level students.",
+      "vacation_hours": "Full-time work allowed during official university vacation periods.",
+      "visa_extension": "Possible to extend onshore if moving to a new course that shows academic progression.",
+      "post_study_work": "Eligible for the Graduate Route (PSW) visa, allowing 2 years (3 years for PhD) of work in the UK after graduation."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply to a UK university and receive a Conditional/Unconditional Offer.",
+      "step_2": "Meet all offer conditions (English, Financials) and pass the university's Pre-CAS interview.",
+      "step_3": "Pay the tuition deposit to the university to trigger the issuance of the CAS.",
+      "step_4": "Book and complete the TB Test at a UKVI-approved medical center.",
+      "step_5": "Ensure funds have matured for 28 days, then complete the online visa application.",
+      "step_6": "Pay the Visa Fee (approx. £490) and the Immigration Health Surcharge (IHS).",
+      "step_7": "Attend the VFS Global appointment for biometrics and wait for the passport return."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "What is the Immigration Health Surcharge (IHS)?",
+        "answer": "It is a mandatory fee paid during the visa application that allows international students to use the National Health Service (NHS) in the UK."
+      },
+      {
+        "question": "Can I bring my family (dependants)?",
+        "answer": "As of January 2024, only students on postgraduate research programs (like PhDs) or government-sponsored courses can bring dependants."
+      },
+      {
+        "question": "Do I need to pay the full tuition before the visa?",
+        "answer": "No, you only need to pay the deposit required by the university. However, the remaining balance must be shown in your bank account for 28 days."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "UK Student Visa 2026: The 28-Day Financial Rule Explained",
+        "video_link": "https://www.youtube.com/watch?v=example_uk_1"
+      },
+      {
+        "video_title": "How to Prepare for the UKVI Credibility Interview",
+        "video_link": "https://www.youtube.com/watch?v=example_uk_2"
+      },
+      {
+        "video_title": "Graduate Route 2026: Working in the UK after Graduation",
+        "video_link": "https://www.youtube.com/watch?v=example_uk_3"
+      }
+    ]
+  },
+  "germany": {
+    "title": "Germany Student Visa & Residency Guide 2026 for International Students",
+    "last_updated": "2026-04-19",
+    "description": "A complete roadmap for international students seeking higher education in Germany. Covering the APS process, Blocked Account (Sperrkonto) requirements, DAAD scholarships, English/German language proficiency, and 2026 work-hour updates.",
+
+    "visa_category_details": {
+      "main_category": "Student",
+      "visa_type": "Student Visa (National Visa Type D)",
+      "entry_type": "Multiple Entry (Converted to a Residence Permit within 90 days)",
+      "purpose": [
+        "Studienkolleg (Preparatory Courses)",
+        "Higher Education (Bachelor, Master, PhD)",
+        "Language Intensive Courses (Non-academic)",
+        "Exchange Programs / Research Stays"
+      ],
+      "eligibility": "Applicants with a valid University Admission Letter (Zulassungsbescheid) and an APS Certificate (where applicable, e.g., Bangladesh, India, China)."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "DAAD Scholarships (EPOS & Study Scholarships)",
+          "benefits": "Monthly stipend of €934 - €1,200, health insurance, travel allowance, and a one-time study grant.",
+          "application_window": "Varies by program; typically October–December for the following winter semester.",
+          "selection_criteria": "Strong academic record, professional experience (for EPOS), and a convincing motivation letter."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "Deutschlandstipendium",
+          "benefits": "€300 per month (co-funded by the government and private sponsors).",
+          "target": "High-achieving students regardless of nationality or income level."
+        },
+        {
+          "name": "Erasmus+ Key Action 1",
+          "benefits": "Monthly living allowance (approx. €450–€600) for exchange semesters.",
+          "special_note": "Available to students at partner universities outside the EU for short-term study."
+        },
+        {
+          "name": "Friedrich Ebert / Konrad Adenauer Foundations",
+          "benefits": "Monthly stipend and social/political networking opportunities.",
+          "target": "Students with excellent grades and a commitment to social/political values."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "German universities strictly follow the CEFR standards. English-taught programs require IELTS/PTE, while German-taught programs require TestDaF or DSH.",
+      "ielts_academic": {
+        "min_score": "6.0 (Overall) for most Public Universities",
+        "competitive_score": "6.5 - 7.0 (with no band less than 6.0)",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "58 (Overall)",
+        "competitive_score": "65 - 72",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "105",
+        "competitive_score": "115 - 125",
+        "acceptance_note": "Accepted by several private universities and some public applied science universities."
+      },
+      "toefl_ibt": {
+        "min_score": "80 (Total)",
+        "competitive_score": "90 - 100",
+        "note": "Widely accepted; scores must be verifiable via the ETS portal."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 1,500,000 - 1,600,000 (Equivalent to the mandatory Blocked Account amount of €11,904).",
+      "sponsor_profile": "Immediate family members via a 'Verpflichtungserklärung' (Formal obligation letter) signed at a German Aliens' Authority or Embassy.",
+      "bank_history_requirement": "For Blocked Accounts (Fintiba, Expatrio, Coracle), funds must be deposited before the visa interview. No 3-month history is required if using a Blocked Account.",
+      "logic": "The 'Sperrkonto' (Blocked Account) ensures that the student has exactly €992 per month available for living expenses throughout the first year."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport",
+        "Admission Letter (Zulassungsbescheid)",
+        "APS Certificate (Original)",
+        "Blocked Account Confirmation (Blocking Confirmation)",
+        "Motivation Letter (LOM) - Personally written and signed",
+        "Biometric Photos (35mm x 45mm, Neutral background)"
+      ],
+      "coe_phase_documents": [
+        "Academic Degrees & Transcripts (Notarized & Translated if needed)",
+        "Curriculum Vitae (CV) in tabular format",
+        "Proof of Language Proficiency (IELTS/TestDaF)",
+        "Travel Health Insurance (Valid until enrollment)",
+        "Proof of Application Fee payment (if via Uni-Assist)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "4 - 8 weeks (Uni-Assist evaluation + University departmental check)",
+      "visa_processing_time": "4 - 6 weeks (Coordination between the Embassy and the local Ausländerbehörde in Germany)",
+      "approval_chances": "Very high if academic credentials are verified via APS and the Blocked Account is funded.",
+      "interview_probability": "High. Embassy officers conduct interviews to verify the student's motivation and study plan."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Inability to explain the choice of a specific city or university in Germany.",
+        "Significant academic gaps without a valid explanation or professional certificate.",
+        "Applying for a Master's degree that is not 'consecutive' (unrelated to Bachelor's).",
+        "Inadequate German language skills for programs with a German-taught component.",
+        "Submitting a generic Motivation Letter copied from the internet."
+      ],
+      "mitigation_strategy": "Focus the Motivation Letter on the German university's specific research focus and how the degree will help your career back in your home country."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "140 full days or 280 half days per year (Increased in 2024/2026).",
+      "vacation_hours": "Full-time work allowed during semester breaks (Vorlesungsfreie Zeit).",
+      "visa_extension": "Students must apply for a Residence Permit (Aufenthaltstitel) at the local Foreigners' Office after arriving.",
+      "post_study_work": "Eligible for an 18-month Job-Seeker Visa after graduation to find a role related to your studies."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply for APS verification (mandatory for Bangladesh/India) to certify your academic documents.",
+      "step_2": "Submit university applications via Uni-Assist or directly to the University portal.",
+      "step_3": "Open a Blocked Account (e.g., Expatrio, Fintiba) and transfer €11,904.",
+      "step_4": "Book a visa appointment at the German Embassy (slots can be limited; book early).",
+      "step_5": "Attend the interview with all original documents and the APS certificate.",
+      "step_6": "Wait for visa approval and travel to Germany (usually allowed to enter 2 weeks before semester).",
+      "step_7": "Register your address (Anmeldung) and convert your visa to a Residence Permit."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Are there tuition fees at public universities?",
+        "answer": "Most public universities have zero tuition fees, but you must pay a 'Semester Contribution' (approx. €200–€400) which includes a public transport ticket."
+      },
+      {
+        "question": "Do I need to speak German to get a visa?",
+        "answer": "For English-taught programs, no. However, basic German (A1/A2) is highly recommended for daily life and is viewed positively by visa officers."
+      },
+      {
+        "question": "Can I use the Blocked Account money immediately?",
+        "answer": "No, you can only withdraw €992 per month after you arrive in Germany and open a local bank account to link with the blocked one."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Germany Blocked Account 2026: How to Transfer Funds Safely",
+        "video_link": "https://www.youtube.com/watch?v=example_ger_1"
+      },
+      {
+        "video_title": "The APS Certificate Explained: Mandatory Step for BD Students",
+        "video_link": "https://www.youtube.com/watch?v=example_ger_2"
+      },
+      {
+        "video_title": "Germany Student Visa Interview: Most Common Questions",
+        "video_link": "https://www.youtube.com/watch?v=example_ger_3"
+      }
+    ]
+  },
+  "malaysia": {
+    "title": "Malaysia Student Visa & EMGS Guide 2026 for International Students",
+    "last_updated": "2026-04-19",
+    "description": "A complete roadmap for international students seeking higher education in Malaysia. Covering the EMGS VAL process, eVAL/eVisa stages, MIS and university scholarships, English requirements (IELTS, PTE, Linguaskill), financial capacity, and 2026 approval metrics.",
+
+    "visa_category_details": {
+      "main_category": "Student",
+      "visa_type": "Student Pass (Social Visit Pass for entry)",
+      "entry_type": "Single Entry Visa (SEV) to enter, Multiple Entry Student Pass after endorsement",
+      "purpose": [
+        "Language Intensive Programs (IEP)",
+        "Higher Education (Diploma, Bachelor, Master, PhD)",
+        "Professional and Skill-based Certificates",
+        "Mobility / Exchange Programs"
+      ],
+      "eligibility": "Applicants with a valid University Offer Letter and a Visa Approval Letter (VAL) issued by Education Malaysia Global Services (EMGS)."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "Malaysia International Scholarship (MIS)",
+          "benefits": "Full tuition fees and a monthly living allowance of approx. RM 1,500.",
+          "application_window": "March–April annually (for the September intake).",
+          "selection_criteria": "Outstanding academic records (GPA 3.0+), research proposal (for Master/PhD), and leadership potential."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "MTCP Scholarship",
+          "benefits": "Tuition fees, living allowance, book/tool allowance, and return air tickets.",
+          "target": "Postgraduate students from developing countries under the Malaysian Technical Cooperation Programme."
+        },
+        {
+          "name": "Vice-Chancellor/President’s Merit Awards",
+          "benefits": "25% to 100% tuition fee waivers.",
+          "special_note": "Offered by top private universities like Taylor’s, Sunway, and APU for high-achieving applicants."
+        },
+        {
+          "name": "Graduate Research Assistantship (GRA)",
+          "benefits": "Monthly stipend (RM 2,000 - 3,000) and tuition fee waivers.",
+          "target": "Master by Research and PhD candidates at Public Universities (UM, UPM, USM)."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "EMGS and Malaysian universities require English proficiency for Student Pass issuance. Some students may enter for English courses (IEP) first if they don't meet the primary goal.",
+      "ielts_academic": {
+        "min_score": "5.0 - 5.5 (Overall) for Bachelor; 6.0 for Masters",
+        "competitive_score": "6.0 - 6.5",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "42 - 47 (Overall)",
+        "competitive_score": "50 - 58",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "95",
+        "competitive_score": "105 - 115",
+        "acceptance_note": "Accepted by most private universities for admission and EMGS processing."
+      },
+      "toefl_ibt": {
+        "min_score": "40 - 60 (Total)",
+        "competitive_score": "79 - 90",
+        "note": "Widely accepted; MyBest scores are generally not accepted for visa purposes."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 1,000,000 - 1,500,000 (Equivalent to 1st year tuition + approx. USD 5,000 for living costs).",
+      "sponsor_profile": "Self, Parents, or close relatives. Must provide a bank solvency certificate and 3-6 months of bank statements.",
+      "bank_history_requirement": "3 months of stable history. Some universities require the full first-year tuition to be paid before issuing the final VAL support.",
+      "logic": "The 'Financial Capability' check ensures the student can afford the low cost of living in Malaysia without depending on illegal work."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport (Minimum 18 months validity remaining)",
+        "eVAL (Electronic Visa Approval Letter) from EMGS",
+        "Offer Letter from a Malaysian Educational Institution",
+        "Digital Photo (35mm x 45mm, White background)",
+        "Yellow Fever Vaccination Certificate (if coming from high-risk zones)",
+        "eVisa / SEV (Single Entry Visa) approval printout"
+      ],
+      "coe_phase_documents": [
+        "All Passport Pages (including blank pages) scanned in color",
+        "Academic Certificates & Transcripts (Attested by Ministry of Education)",
+        "Health Declaration Form (Self-declaration for EMGS application)",
+        "English Test Report (IELTS/PTE/TOEFL)",
+        "Personal Bond payment receipt (collected by the university)",
+        "Pre-arrival Medical Screening Report"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "2 - 4 weeks (University screening and EMGS application creation)",
+      "visa_processing_time": "14 - 21 working days (For eVAL issuance); 2-5 days for eVisa after eVAL.",
+      "approval_chances": "Very high (95%+) if academic documents are genuine and health declaration is clear.",
+      "interview_probability": "Very Low. Most applications are processed digitally based on documents."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Passport validity less than 18 months at the time of application.",
+        "Poor quality scans of passport pages or incorrect photo dimensions (35x45mm).",
+        "Discrepancies between names on academic certificates and the passport.",
+        "Medical conditions listed as 'unfit' (e.g., Hepatitis B/C, HIV, Tuberculosis).",
+        "Unexplained study gaps exceeding 3-5 years for undergraduate applicants."
+      ],
+      "mitigation_strategy": "Ensure all documents are high-resolution color scans. Use the EMGS mobile app to track 'Yellow' and 'Green' status percentages daily."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 20 hours per week, but ONLY during semester breaks or holidays of more than 7 days.",
+      "vacation_hours": "Full-time work is still technically restricted; focus is on the 'Student' status.",
+      "visa_extension": "Renewable annually onshore. The university's visa office handles the Student Pass renewal.",
+      "post_study_work": "Eligible for the 'Social Visit Pass (Long Term)' for 1 year if graduated from selected top universities (Graduate Pass)."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply to a Malaysian University and receive your 'Letter of Offer'.",
+      "step_2": "University applies for your VAL (Visa Approval Letter) through the EMGS portal.",
+      "step_3": "Complete the 'Health Declaration' and pay the EMGS processing fees (approx. RM 2,000 - 3,000).",
+      "step_4": "Once eVAL is issued (70%-80% on EMGS tracking), apply for an eVisa (Single Entry Visa) online.",
+      "step_5": "Travel to Malaysia and clear immigration using your eVAL and eVisa.",
+      "step_6": "Within 7 days of arrival, undergo the 'Post-Arrival Medical Screening' at an EMGS panel clinic.",
+      "step_7": "Submit your passport to the university to get the 'Student Pass' sticker (Endorsement)."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Can I work while studying in Malaysia in 2026?",
+        "answer": "Work is strictly limited to 20 hours per week during semester breaks only. International students are not allowed to work during the active semester."
+      },
+      {
+        "question": "What is the 'EMGS Tracking' percentage?",
+        "answer": "It is a digital progress bar. 35% means EMGS approval, and 70% means the Immigration Department has issued your eVAL."
+      },
+      {
+        "question": "Is the medical check-up mandatory?",
+        "answer": "Yes. You must pass both a pre-arrival declaration and a strict post-arrival medical test (blood/urine/X-ray) in Malaysia."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Malaysia Student Visa 2026: Tracking Your EMGS Percentage",
+        "video_link": "https://www.youtube.com/watch?v=example_mys_1"
+      },
+      {
+        "video_title": "How to Apply for Malaysia eVisa (SEV) After eVAL",
+        "video_link": "https://www.youtube.com/watch?v=example_mys_2"
+      },
+      {
+        "video_title": "Post-Arrival Medical Screening in Malaysia: A Student Guide",
+        "video_link": "https://www.youtube.com/watch?v=example_mys_3"
+      }
+    ]
+  },
+  "netherlands": {
+    "title": "Netherlands Student Visa & Orientation Year Guide 2026 for International Students",
+    "last_updated": "2026-04-19",
+    "description": "A complete roadmap for international students seeking higher education in the Netherlands. Covering the MVV and VVR process via the TEV procedure, Holland and Orange Knowledge scholarships, English requirements (IELTS, PTE), financial capacity, and 2026 post-study orientation metrics.",
+
+    "visa_category_details": {
+      "main_category": "Student",
+      "visa_type": "Long-stay Visa (MVV) & Residence Permit (VVR)",
+      "entry_type": "Single Entry (MVV) to enter, converted to Multiple Entry Residence Permit upon arrival",
+      "purpose": [
+        "Preparatory / Foundation Year",
+        "Higher Education (Bachelor, Master, PhD)",
+        "Vocational Training (Secondary Vocational Education)",
+        "Research under Directive (EU) 2016/801"
+      ],
+      "eligibility": "Applicants must be admitted to a recognized educational institution (sponsor) and meet the study progress requirements (50% of ECTS credits annually)."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "NL Scholarship (formerly Holland Scholarship)",
+          "benefits": "One-time grant of €5,000, €10,000, or €15,000 for the first year of study.",
+          "application_window": "November–May annually (for the September intake).",
+          "selection_criteria": "Non-EEA nationality, excellence in academics, and application to a participating research or applied sciences university."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "Orange Tulip Scholarship (OTS)",
+          "benefits": "Varies by institution; typically partial to full tuition fee waivers.",
+          "target": "Talented students from specific countries including Vietnam, India, and Indonesia."
+        },
+        {
+          "name": "Erasmus+ Study Grant",
+          "benefits": "Monthly stipend (approx. €450 - €600) for exchange students from partner universities.",
+          "special_note": "Aims to promote mobility between European and non-European higher education institutions."
+        },
+        {
+          "name": "University Excellence Scholarships",
+          "benefits": "Full tuition waivers plus a modest living stipend.",
+          "target": "Offered by universities like TU Delft (Justus & Louise van Effen) and Utrecht (Utrecht Excellence Scholarship)."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "Dutch universities require a high level of English for international programs. The IND accepts standard tests, but universities set specific minimum thresholds for admission.",
+      "ielts_academic": {
+        "min_score": "6.0 (Overall) for Bachelor; 6.5 for Master programs",
+        "competitive_score": "7.0 (with no band less than 6.5)",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "61 (Overall)",
+        "competitive_score": "66 - 72",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "110",
+        "competitive_score": "125 - 135",
+        "acceptance_note": "Accepted by many Universities of Applied Sciences (HBO) but less common for Research Universities (WO)."
+      },
+      "toefl_ibt": {
+        "min_score": "80 (Total) for Bachelor; 90 - 100 for Master",
+        "competitive_score": "100+",
+        "note": "Most institutions do not accept the Home Edition; scores must be from a test center."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 1,600,000 - 2,000,000 (Equivalent to the IND requirement of approx. €1,218/month for living costs + 1st year tuition).",
+      "sponsor_profile": "Self-funded or a legal resident in the Netherlands/abroad. Notarized financial guarantee is required if someone else is paying.",
+      "bank_history_requirement": "Funds must be 'freely accessible'. Universities often require students to transfer the full living amount and tuition to the university's account as a deposit.",
+      "logic": "The 'Proof of Financial Means' ensures students can focus on their studies without needing to work more than the allowed 16 hours per week."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport",
+        "MVV Issue Form (MVV-aanvraagformulier)",
+        "Digital Photo (compliant with Dutch passport standards)",
+        "Admission Letter from a Dutch Higher Education Institution",
+        "Tuberculosis (TB) test commitment (for specific countries)",
+        "Biometric data collection receipt"
+      ],
+      "coe_phase_documents": [
+        "Academic Diplomas & Transcripts (Translated into English/Dutch/German/French)",
+        "Proof of Financial Means (Bank statements or Scholarship award)",
+        "Antecedents Certificate (Background check/Criminal record declaration)",
+        "Proof of English Proficiency (IELTS/PTE)",
+        "Proof of Health Insurance (Private or Aon Student Insurance)",
+        "Legalized Birth Certificate (often required for local municipality registration)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "2 - 6 weeks (University assessment and institutional sponsorship approval)",
+      "visa_processing_time": "60 - 90 days (Total TEV procedure time via the IND)",
+      "approval_chances": "Very high if the sponsoring university approves the application and financial deposit is paid.",
+      "interview_probability": "Very Low. The process is primarily document-based and managed by the university's international office."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Failure to meet the 'Study Progress' rule (less than 50% credits) if already in the NL.",
+        "Providing bank statements where funds are not 'freely accessible' or are in a frozen account.",
+        "Incomplete legalization of documents (Apostille or Embassy legalization missing).",
+        "Discrepancies between the application details and the Antecedents Certificate.",
+        "Missing the strict university deadline for document submission (often June/July)."
+      ],
+      "mitigation_strategy": "Use the university's pre-screening service and ensure the 'Proof of Financial Means' is submitted as a direct transfer to the university trust account if offered."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 16 hours per week throughout the year.",
+      "vacation_hours": "Full-time work allowed only in June, July, and August.",
+      "visa_extension": "The VVR is valid for the duration of the course + 3 months; handled by the university.",
+      "post_study_work": "Eligible for the 'Orientation Year' (Zoekjaar) permit, giving 1 year to find a job as a highly skilled migrant."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply to a Dutch university and receive an Unconditional Admission Letter.",
+      "step_2": "The University initiates the TEV procedure (MVV and VVR) on your behalf.",
+      "step_3": "Pay the tuition fees and living expenses deposit directly to the university's bank account.",
+      "step_4": "Upload all required legal documents (Birth Cert, Passport, Financial proof) to the university portal.",
+      "step_5": "Wait for the IND approval letter; then book an appointment at the Dutch Embassy to collect the MVV sticker.",
+      "step_6": "Travel to the Netherlands and register at the local City Hall (Gemeente) to get your BSN.",
+      "step_7": "Collect your biometric Residence Permit (VVR) card from the IND office."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "What is the BSN and why do I need it?",
+        "answer": "The BSN (Burgerservicenummer) is your unique citizen service number. You need it to open a bank account, work, and use healthcare in the Netherlands."
+      },
+      {
+        "question": "Can I switch to a work visa after my studies?",
+        "answer": "Yes. Upon graduation, you can apply for a one-year 'Orientation Year' permit. If you find a job with a recognized sponsor, you can switch to a Highly Skilled Migrant visa."
+      },
+      {
+        "question": "Is insurance mandatory for the visa?",
+        "answer": "Yes. You must have adequate health and liability insurance. Most students use specialized providers like Aon or IPS until they start working."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Netherlands Student Visa 2026: The TEV Procedure Explained",
+        "video_link": "https://www.youtube.com/watch?v=example_nl_1"
+      },
+      {
+        "video_title": "How to Register at the City Hall (BSN) in the Netherlands",
+        "video_link": "https://www.youtube.com/watch?v=example_nl_2"
+      },
+      {
+        "video_title": "Finding a Room in the Netherlands: Student Housing Crisis Guide",
+        "video_link": "https://www.youtube.com/watch?v=example_nl_3"
+      }
+    ]
+  },
+  "france": {
+    "title": "France Student Visa & Campus France Guide 2026 for International Students",
+    "last_updated": "2026-04-19",
+    "description": "A complete roadmap for international students seeking higher education in France. Covering the Études en France (EEF) procedure, VLS-TS visa validation, Eiffel Excellence scholarships, language requirements (DELF/IELTS), financial capacity, and 2026 residency updates.",
+
+    "visa_category_details": {
+      "main_category": "Student",
+      "visa_type": "Long-Stay Student Visa (VLS-TS)",
+      "entry_type": "Multiple Entry (Valid as a residence permit once validated online)",
+      "purpose": [
+        "Higher Education (Licence, Master, PhD)",
+        "Grande École Programs",
+        "Language & Cultural Programs (over 3 months)",
+        "Preparatory Classes (CPGE)"
+      ],
+      "eligibility": "Applicants with an official acceptance letter from a French institution and completion of the Campus France 'Études en France' procedure (for applicable countries)."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "France Excellence Eiffel Scholarship",
+          "benefits": "Monthly allowance (€1,181 for Master / €1,800 for PhD), return airfare, social security, and cultural activities.",
+          "application_window": "October–January annually (application submitted by the French institution).",
+          "selection_criteria": "Academic excellence (top 10%), international experience, and priority fields like STEM, Law, or Economics."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "Erasmus+ Mobility Grants",
+          "benefits": "Monthly stipend ranging from €300 to €600 for exchange students within Europe.",
+          "target": "Students enrolled in European partner universities participating in credit mobility."
+        },
+        {
+          "name": "Charpak Scholarship (Regional Focus)",
+          "benefits": "Tuition fee waiver up to €5,000 and living allowance for students from specific regions like India.",
+          "special_note": "Includes a simplified visa procedure and priority for university housing (CROUS)."
+        },
+        {
+          "name": "Institutional Merit Scholarships",
+          "benefits": "Varies; often provides 20% to 50% tuition reduction for the first year.",
+          "target": "Offered by Business Schools (HEC, INSEAD) and private engineering schools based on GMAT/GRE scores."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "For English-taught programs, French proficiency is not mandatory for the visa, but English scores are required. For French-taught programs, DELF/DALF is essential.",
+      "ielts_academic": {
+        "min_score": "6.0 (Overall) for most programs",
+        "competitive_score": "6.5 - 7.5",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "50 (Overall)",
+        "competitive_score": "58 - 65",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "105",
+        "competitive_score": "120 - 130",
+        "acceptance_note": "Accepted by an increasing number of Business and Design schools; check university-specific lists."
+      },
+      "toefl_ibt": {
+        "min_score": "72 (Total)",
+        "competitive_score": "90 - 100",
+        "note": "Widely accepted; some institutions may require specific section minimums (e.g., 20 in Writing)."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 1,200,000 - 1,500,000 (Equivalent to €615/month for the full academic year + tuition fees).",
+      "sponsor_profile": "Parents or legal guardians. Must provide a signed financial guarantee (Attestation de prise en charge) and proof of professional income.",
+      "bank_history_requirement": "3 to 6 months of bank statements showing regular income. Blocked accounts (Studely/Fintiba) are highly recommended for faster processing.",
+      "logic": "The 'Minimum Resource' rule ensures students can cover basic living costs without relying on part-time work, which is capped by law."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport (Valid for at least 3 months after visa expiry)",
+        "France-Visas Application Receipt & Form",
+        "EEF (Études en France) Confirmation / Campus France ID",
+        "Official Acceptance Letter (Attestation d'admission)",
+        "Proof of Accommodation for the first 3 months (Lease/CROUS letter/Host letter)",
+        "Digital Photo (35mm x 45mm, ISO/IEC standards)"
+      ],
+      "coe_phase_documents": [
+        "Academic Diplomas & Transcripts (Certified translations if not in English/French)",
+        "CV and Motivation Letter (Study plan)",
+        "Language Proficiency Certificate (IELTS/PTE or DELF/TCF)",
+        "Birth Certificate (Legalized/Apostilled for future CAF applications)",
+        "Travel Insurance (Schengen-compliant for the first 90 days)",
+        "Financial Guarantee Documents (Statements/Sponsor IDs)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "2 - 5 weeks (Campus France academic interview and document validation)",
+      "visa_processing_time": "10 - 20 working days (After the Consulate appointment)",
+      "approval_chances": "High for students with a consistent academic path and clear professional goals.",
+      "interview_probability": "High. The Campus France interview is mandatory for most students to evaluate academic intent."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Lack of coherence between the chosen course and previous academic background.",
+        "Inadequate accommodation proof (e.g., hotel booking for only 2 days).",
+        "Inability to justify study gaps or lack of career progression.",
+        "Sponsor's income insufficient to cover the €615/month requirement after their own expenses.",
+        "Poor performance during the Campus France interview (Language or Motivation)."
+      ],
+      "mitigation_strategy": "Highlight the ROI of a French degree in your home country and secure a 'Certificat d'hébergement' if staying with a host."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 964 hours per year (approx. 60% of full-time legal work).",
+      "vacation_hours": "Full-time work allowed during university holidays.",
+      "visa_extension": "Must validate the VLS-TS online within 3 months of arrival. Renewal is done at the local Prefecture.",
+      "post_study_work": "Eligible for a 1-year Temporary Residence Permit (RECE) to find a job or start a business after graduation."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Create an account on the 'Études en France' (EEF) platform and upload your academic dossier.",
+      "step_2": "Attend the mandatory Campus France academic interview (online or in-person).",
+      "step_3": "Receive the 'Accord de la commission' (Campus France approval) once the interview is validated.",
+      "step_4": "Complete the online application on the France-Visas portal and pay the visa fee (€50 - €99).",
+      "step_5": "Book an appointment at VFS Global or TLScontact for biometric submission.",
+      "step_6": "Collect your visa and, within 3 months of arrival in France, validate your VLS-TS on the ANEF portal.",
+      "step_7": "Register for the French Social Security (L'Assurance Maladie) and apply for CAF housing benefits."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "What is CAF and can international students apply?",
+        "answer": "CAF is the French housing subsidy. Most international students are eligible to receive a monthly refund (approx. €100–€200) on their rent."
+      },
+      {
+        "question": "Do I need to speak French to get a student visa?",
+        "answer": "No, if your program is taught in English. However, having an A1/A2 level certificate is viewed very positively during the interview."
+      },
+      {
+        "question": "Is the student visa also a residency permit?",
+        "answer": "Yes. The VLS-TS serves as a residence permit, but only after you validate it online and pay the fiscal stamp fee (€50) after arriving."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "How to Pass the Campus France Academic Interview 2026",
+        "video_link": "https://www.youtube.com/watch?v=example_fra_1"
+      },
+      {
+        "video_title": "Step-by-Step Guide: Validating Your VLS-TS Visa Online",
+        "video_link": "https://www.youtube.com/watch?v=example_fra_2"
+      },
+      {
+        "video_title": "Applying for CAF: How to Get Money Back on Your Rent in France",
+        "video_link": "https://www.youtube.com/watch?v=example_fra_3"
+      }
+    ]
+  },
+  "russia": {
+    "title": "Russia Student Visa & University Enrollment Guide 2026 for International Students",
+    "last_updated": "2026-04-19",
+    "description": "A complete roadmap for international students seeking higher education in Russia. Covering the GUVM/MIA Invitation process, Russian Government Scholarships (Education in Russia), HIV/AIDS certification requirements, financial capacity, and 2026 migration registration rules.",
+
+    "visa_category_details": {
+      "main_category": "Student",
+      "visa_type": "Student Visa (Учебная виза)",
+      "entry_type": "Single Entry (Initially 90 days, extended to Multiple Entry upon arrival)",
+      "purpose": [
+        "Preparatory Department (Russian Language Course)",
+        "Higher Education (Bachelor, Master, PhD)",
+        "Clinical Residency / Specialization",
+        "Short-term Research / Internship"
+      ],
+      "eligibility": "Applicants with an official invitation letter issued by the Ministry of Internal Affairs (MIA) or the Ministry of Foreign Affairs (MFA) via the host university."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "Russian Government Scholarship (Quota)",
+          "benefits": "Full tuition coverage, monthly maintenance allowance (stipend), and reduced-cost dormitory housing.",
+          "application_window": "September–January annually (via the 'Education in Russia' portal).",
+          "selection_criteria": "Academic merit, competitive entrance exams, and successful interview at the local Russian House (Rossotrudnichestvo)."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "Open Doors: Russian Scholarship Project",
+          "benefits": "Tuition-free enrollment in Master's or PhD programs at top Russian universities (Global Universities Association).",
+          "target": "Talented international students competing in subject-specific Olympiads.",
+          "special_note": "Winners can apply to any university in Russia without entrance exams."
+        },
+        {
+          "name": "University-Specific Merit Grants",
+          "benefits": "Varies from 25% to 75% tuition discount for the first year.",
+          "target": "High-achieving students at institutions like HSE University, ITMO, or RUDN."
+        },
+        {
+          "name": "Free Preparatory Year",
+          "benefits": "Zero-cost intensive Russian language and subject-specific training before the degree starts.",
+          "target": "All government quota recipients who do not speak Russian at a B2 level."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "For programs taught in English, most universities require proof of proficiency. However, if studying in Russian after a preparatory year, no external English test is required.",
+      "ielts_academic": {
+        "min_score": "5.5 - 6.0 (Overall)",
+        "competitive_score": "6.5",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "46 - 50 (Overall)",
+        "competitive_score": "58+",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "95",
+        "competitive_score": "110+",
+        "acceptance_note": "Accepted by several international-facing universities like HSE or Innopolis for admission."
+      },
+      "toefl_ibt": {
+        "min_score": "70 (Total)",
+        "competitive_score": "85 - 95",
+        "note": "Standard iBT is widely accepted; certificates must be provided during the university admission phase."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 800,000 - 1,200,000 (Equivalent to 1st year tuition + approx. $3,000 - $5,000 for living costs).",
+      "sponsor_profile": "Self, Parents, or legal guardians. Must provide a bank statement and a sponsorship letter (translated into Russian if required).",
+      "bank_history_requirement": "Current balance must reflect the ability to pay for the first year. Russia is generally flexible on the 'history' length but strict on the total amount.",
+      "logic": "The 'Financial Guarantee' check ensures students can afford the affordable cost of living in Russia without illegal employment."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport (Minimum 18 months validity from visa start date)",
+        "Original Invitation Letter (Paper or Electronic MIA format)",
+        "HIV/AIDS Test Certificate (Negative, issued within the last 3 months)",
+        "Visa Application Form (Completed at visa.kdmid.ru)",
+        "One Photo (35mm x 45mm, White background)",
+        "Academic Certificates (Legalized/Apostilled and translated into Russian)"
+      ],
+      "coe_phase_documents": [
+        "Standard Medical Health Certificate (Proof of fitness to study)",
+        "Chest X-ray (Tuberculosis clearance report)",
+        "Proof of Relationship with Sponsor (Birth certificate/ID)",
+        "English or Russian Language Proficiency proof",
+        "Tuition Fee Payment Receipt (for self-funded students)",
+        "Travel Health Insurance (Valid in the Russian Federation)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "30 - 45 days (MIA Invitation processing time after university approval)",
+      "visa_processing_time": "4 - 20 working days (Consulate processing time depending on the urgency fee paid)",
+      "approval_chances": "Very high (98%+) provided the official MIA Invitation is genuine and the HIV test is negative.",
+      "interview_probability": "Low. Interviews are rare unless there is a discrepancy in the motivation or documents."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Passport validity less than 18 months at the time of the visa application.",
+        "Positive HIV test result (Mandatory ground for visa denial/deportation).",
+        "Expired HIV certificate (Must be within 3 months of the embassy date).",
+        "Discrepancies in the spelling of names between the Invitation and the Passport.",
+        "Failure to legalize/apostille academic documents in the home country."
+      ],
+      "mitigation_strategy": "Always use a specialized translation agency for the 'Notarized Russian Translation' of your degree and passport."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Full-time students can work without a separate work permit during their spare time.",
+      "vacation_hours": "Unlimited work permitted during official university holidays.",
+      "visa_extension": "The initial 90-day visa must be extended to a 1-year multi-entry visa at the local migration office (GUVM) after arrival.",
+      "post_study_work": "Eligible for a Simplified Permanent Residence Permit (VNR) or temporary stay for job-seeking after graduation from a state-accredited university."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply to a Russian university and secure an 'Admission Letter'.",
+      "step_2": "Wait for the university to apply for your official Invitation via the Ministry of Internal Affairs (MIA).",
+      "step_3": "Undergo the mandatory medical tests, specifically the HIV/AIDS test, at an approved clinic.",
+      "step_4": "Once the original/electronic Invitation arrives, complete the online form at visa.kdmid.ru.",
+      "step_5": "Submit your passport, invitation, and HIV certificate to the Russian Embassy/Consulate or Visa Center.",
+      "step_6": "Travel to Russia and complete 'Migration Registration' with your university within 7 business days.",
+      "step_7": "Submit documents to the university’s international office for the 1-year visa extension (Endorsement)."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Is the HIV test really mandatory for the Russian visa?",
+        "answer": "Yes. A negative HIV/AIDS test result is a federal requirement for all international student visas and must be presented at the embassy and for annual extensions."
+      },
+      {
+        "question": "Do I need to speak Russian to apply?",
+        "answer": "No. You can apply for English-taught programs or enroll in a 'Podfak' (Preparatory Faculty) to learn Russian from scratch for one year."
+      },
+      {
+        "question": "What is Migration Registration?",
+        "answer": "It is a legal notice that tells the government where you are living. Your university or dormitory must register you every time you enter the country or change cities."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "How to Get a Russian Student Invitation (MIA/MFA) in 2026",
+        "video_link": "https://www.youtube.com/watch?v=example_rus_1"
+      },
+      {
+        "video_title": "Russia Migration Registration: The 7-Day Rule Explained",
+        "video_link": "https://www.youtube.com/watch?v=example_rus_2"
+      },
+      {
+        "video_title": "Life as an International Student in Moscow vs. Saint Petersburg",
+        "video_link": "https://www.youtube.com/watch?v=example_rus_3"
+      }
+    ]
+  },
+  "turkey": {
+    "title": "Turkey Student Visa & Residence Permit Guide 2026 for International Students",
+    "last_updated": "2026-04-19",
+    "description": "A complete roadmap for international students seeking higher education in Turkey. Covering the Student Entry Visa, e-Ikamet (Residence Permit) process, Türkiye Bursları (Government Scholarships), English/Turkish proficiency requirements, financial capacity, and 2026 work-hour updates.",
+
+    "visa_category_details": {
+      "main_category": "Student",
+      "visa_type": "Student Entry Visa (Öğrenci Vizesi) & Residence Permit",
+      "entry_type": "Single Entry (Sticker visa for entry, converted to a Residence Permit card after arrival)",
+      "purpose": [
+        "Turkish Language Courses (TÖMER)",
+        "Higher Education (Associate, Bachelor, Master, PhD)",
+        "Medical Residency (TUS/DUS)",
+        "Student Exchange / Research Projects"
+      ],
+      "eligibility": "Applicants with an official Acceptance Letter from a Turkish university recognized by the Council of Higher Education (YÖK)."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "Türkiye Scholarships (Türkiye Bursları)",
+          "benefits": "Full tuition, monthly stipend (₺4,500 - ₺9,000), free accommodation, health insurance, and return flight tickets.",
+          "application_window": "January 10 – February 20 annually.",
+          "selection_criteria": "Minimum academic GPA (70% for undergrad, 75% for grad, 90% for medicine) and successful interview performance."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "University Merit Discounts",
+          "benefits": "Range from 25% to 100% tuition fee reduction.",
+          "target": "High-achieving international students at private institutions like Sabancı, Bilkent, or Koç University."
+        },
+        {
+          "name": "Islamic Development Bank (IsDB) - Türkiye Bursları Joint Program",
+          "benefits": "Full funding specifically for students from IsDB member countries.",
+          "special_note": "Focuses on sustainability-related fields and technology."
+        },
+        {
+          "name": "TÜBİTAK Research Fellowships",
+          "benefits": "Monthly stipend and research grants.",
+          "target": "International PhD students and researchers in STEM fields."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "For English-taught programs, universities require international test scores. If scores are missing, students must pass the university's internal Proficiency Exam or attend a one-year prep school.",
+      "ielts_academic": {
+        "min_score": "6.0 (Overall) with no band less than 5.5",
+        "competitive_score": "6.5 - 7.0",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "55 - 60 (Overall)",
+        "competitive_score": "65 - 75",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "100",
+        "competitive_score": "115 - 125",
+        "acceptance_note": "Increasingly accepted by private foundation universities for direct entry into departments."
+      },
+      "toefl_ibt": {
+        "min_score": "72 - 79 (Total)",
+        "competitive_score": "90+",
+        "note": "The most widely recognized test across both public and private Turkish universities."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 800,000 - 1,200,000 (Equivalent to approx. $6,000 - $10,000 covering tuition + living costs of $500-600/month).",
+      "sponsor_profile": "Parents or legal guardians. Must provide a notarized sponsorship letter and 3-6 months of bank statements.",
+      "bank_history_requirement": "3 months of active bank history. Statements must be stamped and issued within 15 days of the visa appointment.",
+      "logic": "The 'Financial Guarantee' ensures students can sustain themselves given the rising cost of living and inflation in major cities like Istanbul and Ankara."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport (at least 6 months validity remaining)",
+        "Official Acceptance Letter from the Turkish University",
+        "Biometric Photos (50mm x 50mm, White background)",
+        "Proof of Financial Means (Bank statements/Scholarship letter)",
+        "Travel Health Insurance (Valid for 90 days)",
+        "Completed Pre-Application Form from the Konsolosluk portal"
+      ],
+      "coe_phase_documents": [
+        "Academic Diplomas & Transcripts (Translated into Turkish and Notarized)",
+        "Equivalency Certificate (Denklik Belgesi) - can be initiated after arrival",
+        "Student Certificate (Öğrenci Belgesi) - obtained after university enrollment",
+        "Proof of Address in Turkey (Dormitory letter or notarized rental contract)",
+        "Police Clearance Certificate (if requested by the specific consulate)",
+        "Residence Permit Card Fee Receipt (approx. ₺964 - ₺3,500 including service)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "2 - 4 weeks (University admission and invitation issuance)",
+      "visa_processing_time": "15 - 45 days (Depending on the volume at the Turkish Embassy/Consulate)",
+      "approval_chances": "High for students with clear admission letters and valid financial documents.",
+      "interview_probability": "Medium. Usually a brief interview at the Consulate regarding study plans and funding."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Submitting an acceptance letter from an institution not recognized by YÖK.",
+        "Bank statements that do not show a consistent or sufficient balance for tuition.",
+        "Passport validity of less than 6 months at the time of entry.",
+        "Failure to apply for the Residence Permit (İkamet) within 30 days of arrival.",
+        "Using a tourist e-visa for a long-term academic program."
+      ],
+      "mitigation_strategy": "Ensure your sponsorship letter is notarized and translates clearly to Turkish or English. Always verify your university’s YÖK status before paying any deposit."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "International students can work up to 24 hours per week (post-2024 update).",
+      "vacation_hours": "Full-time work is generally restricted; students are expected to maintain academic focus.",
+      "visa_extension": "Must apply for a Student Residence Permit via the e-Ikamet portal within 30 days of arrival.",
+      "post_study_work": "Eligible to apply for a 'Short-Term Residence Permit' for 1 year for job-seeking purposes after graduation."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply to a Turkish university and receive your official 'Kabul Mektubu' (Acceptance Letter).",
+      "step_2": "Complete the online pre-application on the Turkish Ministry of Foreign Affairs website.",
+      "step_3": "Attend your appointment at the Turkish Embassy/VFS Global with your financial and academic files.",
+      "step_4": "Once the entry visa is granted, travel to Turkey and complete your university enrollment.",
+      "step_5": "Apply for the 'Student Residence Permit' online via the e-Ikamet (goc.gov.tr) portal within 30 days.",
+      "step_6": "Attend the appointment at the Provincial Directorate of Migration Management (İl Göç İdaresi).",
+      "step_7": "Receive your physical Residence Permit ID card via PTT (Turkish Post) at your registered address."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Do I need a student visa if I have a green passport or e-visa?",
+        "answer": "Yes. Even if you can enter for tourism, you must enter with a 'Student Visa' to be eligible for a long-term Student Residence Permit."
+      },
+      {
+        "question": "Can I study in English in Turkey?",
+        "answer": "Yes, many private and some major public universities (like METU or Boğaziçi) offer programs entirely in English."
+      },
+      {
+        "question": "Is health insurance mandatory for the residence permit?",
+        "answer": "Yes. You must have either a private Turkish health insurance policy or register for the government SGK (General Health Insurance) after arrival."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Turkey Student Visa 2026: Step-by-Step Pre-Application Guide",
+        "video_link": "https://www.youtube.com/watch?v=example_tr_1"
+      },
+      {
+        "video_title": "How to Apply for the e-Ikamet (Residence Permit) in Turkey",
+        "video_link": "https://www.youtube.com/watch?v=example_tr_2"
+      },
+      {
+        "video_title": "Student Life in Istanbul: Budget, Housing, and Transport",
+        "video_link": "https://www.youtube.com/watch?v=example_tr_3"
+      }
+    ]
+  },
+  "hungary": {
+    "title": "Hungary Student Visa & Stipendium Hungaricum Guide 2026 for International Students",
+    "last_updated": "2026-04-19",
+    "description": "A complete roadmap for international students seeking higher education in Hungary. Covering the Residence Permit for Study Purposes (D-type visa), the prestigious Stipendium Hungaricum scholarship, English requirements (IELTS/TOEFL), financial solvency, and 2026 post-study work rights.",
+
+    "visa_category_details": {
+      "main_category": "Student",
+      "visa_type": "D-type Student Visa (Residence Permit for Study Purposes)",
+      "entry_type": "Single Entry (30 days to enter, converted to a Residence Permit card upon arrival)",
+      "purpose": [
+        "Preparatory Courses (Hungarian/English Language)",
+        "Higher Education (Bachelor, Master, PhD)",
+        "One-tier Master's Programs (Medicine/Dentistry)",
+        "Vocational and Research Training"
+      ],
+      "eligibility": "Applicants with an Unconditional Letter of Acceptance from a recognized Hungarian Higher Education Institution (HEI) and proof of paid tuition or scholarship award."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "Stipendium Hungaricum Scholarship",
+          "benefits": "Full tuition waiver, monthly stipend (HUF 43,700 for BA/MA; up to HUF 180,000 for PhD), free dormitory or accommodation contribution (HUF 40,000/mo), and medical insurance.",
+          "application_window": "November – January 15 annually (via the Tempus Public Foundation portal).",
+          "selection_criteria": "Academic excellence, nomination by the home country's partner authority, and successful university entrance exams/interviews."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "Erasmus+ Key Action 1",
+          "benefits": "Monthly living grant (approx. €450 - €600) for exchange semesters at Hungarian partner universities.",
+          "target": "International students from partner countries outside the EU."
+        },
+        {
+          "name": "Christian Young People Scholarship",
+          "benefits": "Full scholarship (similar to Stipendium Hungaricum) for students from specific regions experiencing humanitarian crises.",
+          "target": "Christian minority students for Bachelor, Master, and PhD levels."
+        },
+        {
+          "name": "University Merit Discounts",
+          "benefits": "10% to 50% tuition reduction for top-performing self-funded students.",
+          "special_note": "Common at private institutions like International Business School (IBS) or Corvinus University."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "Hungarian universities are strict about CEFR B2 level proficiency for degree programs. For Stipendium Hungaricum, specific thresholds are set by the host university.",
+      "ielts_academic": {
+        "min_score": "5.5 (Overall) for Bachelor; 6.0 - 6.5 for Master/PhD",
+        "competitive_score": "6.5 - 7.0",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "58 (Overall)",
+        "competitive_score": "65 - 72",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "100",
+        "competitive_score": "115 - 125",
+        "acceptance_note": "Widely accepted for initial admission and foundation years at most private and some public universities."
+      },
+      "toefl_ibt": {
+        "min_score": "72 - 80 (Total)",
+        "competitive_score": "90 - 100",
+        "note": "Acceptance varies by department; scores must be verifiable online."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 1,200,000 - 1,500,000 (Equivalent to approx. €10,000 covering 1st year tuition + living costs of €600-800/month).",
+      "sponsor_profile": "Self, Parents, or legal guardians. Must provide a notarized letter of guarantee and 6 months of bank statements.",
+      "bank_history_requirement": "6 months of stable transactions. Sudden large deposits without explanation may lead to refusal.",
+      "logic": "The 'Sufficient Subsistence' rule requires students to show they can live comfortably in Hungary (approx. HUF 250,000/month) without immediate employment."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport (Valid for 3+ months beyond intended stay)",
+        "Appendix 14: Residence Permit for the Purpose of Studies (D-visa form)",
+        "Official Acceptance Letter (Letter of Admission) from the University",
+        "Biometric Photo (35mm x 45mm, White background)",
+        "Proof of Accommodation (Dormitory certificate or notarized lease agreement)",
+        "Proof of Financial Means (Bank statements or Scholarship award letter)"
+      ],
+      "coe_phase_documents": [
+        "Academic Degrees & Transcripts (Translated into English/Hungarian)",
+        "Police Clearance Certificate (Apostilled/Legalized by MFA)",
+        "Comprehensive Health Insurance (Minimum €30,000 coverage)",
+        "Flight Reservation (One-way or Round-trip)",
+        "Proof of Tuition Fee Payment (Bank transfer receipt)",
+        "Birth Certificate (Legalized for future local registration)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "2 - 4 weeks (University evaluation and admission letter issuance)",
+      "visa_processing_time": "15 - 30 days (Processing via the National Directorate-General for Aliens Policing - NDGAP)",
+      "approval_chances": "High for students with authenticated documents and verified scholarship status.",
+      "interview_probability": "High. Consular officers often conduct an interview to verify the student's motivation and financial stability."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Insufficient bank balance relative to the cost of living and tuition.",
+        "Providing an unconfirmed or informal housing arrangement (e.g., just a hotel booking).",
+        "Academic documents that are not legalized or lack the proper translation.",
+        "Inability to explain the study plan or why the specific Hungarian university was chosen.",
+        "Previous Schengen visa rejections that were not disclosed in the application."
+      ],
+      "mitigation_strategy": "Ensure your housing proof includes the 'Title Deed' (Tulajdoni lap) of the property if staying in private rental accommodation."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 30 hours per week during the semester (Updated for 2026).",
+      "vacation_hours": "Full-time work allowed (up to 90 days or 66 working days per year) during breaks.",
+      "visa_extension": "Must apply for the physical Residence Permit card at the local immigration office within 30 days of arrival.",
+      "post_study_work": "Eligible for a 9-month 'Study-to-Work' Residence Permit to find a job or start a business after graduation."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply to a Hungarian university or via the Stipendium Hungaricum portal and receive your 'Letter of Admission'.",
+      "step_2": "Pay the tuition fee deposit (if self-funded) and secure your accommodation certificate/lease.",
+      "step_3": "Complete the online application via the 'Enter Hungary' portal (if applicable) or book an Embassy appointment.",
+      "step_4": "Attend the visa interview at the Hungarian Consulate or VFS Global with all legalized documents.",
+      "step_5": "Once the D-visa sticker is issued, travel to Hungary within the 30-day validity window.",
+      "step_6": "Visit the local Immigration Office (OIF/NDGAP) within 30 days of arrival to submit biometrics.",
+      "step_7": "Receive your physical Residence Permit card and register your address to get an Address Card (Lakcímkártya)."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Can I travel to other Schengen countries with a Hungarian student visa?",
+        "answer": "Yes. Once you have your physical Residence Permit card, you can travel freely within the Schengen Area for up to 90 days in any 180-day period."
+      },
+      {
+        "question": "What is the 'Address Card' and why is it important?",
+        "answer": "The 'Lakcímkártya' is an official document proving your place of residence. It is required for opening a bank account, getting a tax ID, and local health services."
+      },
+      {
+        "question": "Do I need to learn Hungarian for the visa?",
+        "answer": "No, if your program is in English. However, Stipendium Hungaricum recipients are usually required to take basic Hungarian language and culture classes."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Applying for Stipendium Hungaricum 2026: Success Tips",
+        "video_link": "https://www.youtube.com/watch?v=example_hun_1"
+      },
+      {
+        "video_title": "Hungary Student Visa Interview: Questions and Answers",
+        "video_link": "https://www.youtube.com/watch?v=example_hun_2"
+      },
+      {
+        "video_title": "Cost of Living in Budapest: 2026 Student Budget Guide",
+        "video_link": "https://www.youtube.com/watch?v=example_hun_3"
+      }
+    ]
+  },
+  "romania": {
+    "title": "Romania Student Visa & Residence Permit Guide 2026 for International Students",
+    "last_updated": "2026-04-19",
+    "description": "A complete roadmap for international students seeking higher education in Romania. Covering the D/SD Long-Stay Visa, Ministry of Education Acceptance Letters, MFA scholarships, financial subsistence requirements, and 2026 work-hour regulations.",
+
+    "visa_category_details": {
+      "main_category": "Student",
+      "visa_type": "Long-Stay Visa for Studies (Type D/SD)",
+      "entry_type": "Multiple Entry (Initially valid for 90 days, extended to a Residence Permit upon arrival)",
+      "purpose": [
+        "Pre-graduate, Graduate, and Postgraduate Studies",
+        "Romanian Language Preparatory Year",
+        "Student Exchange Programs",
+        "PhD and Scientific Research"
+      ],
+      "eligibility": "Applicants must have a Letter of Acceptance from the Romanian Ministry of Education and be enrolled in an accredited state or private institution for full-time education."
+    },
+
+    "scholarship_ecosystem_2026": {
+      "government_funded": [
+        {
+          "name": "Romania Government Scholarship (MFA)",
+          "benefits": "Full tuition waiver, free accommodation in student dormitories, and a monthly stipend (approx. €65 - €85 depending on degree level).",
+          "application_window": "Typically mid-January to March 31 annually via the 'Study in Romania' portal.",
+          "selection_criteria": "Non-EU citizens with strong academic records; selection is based on file evaluation by the Ministry of Foreign Affairs (MFA) and Ministry of Education."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "Eugen Ionescu Scholarships",
+          "benefits": "Financial support for PhD and postdoctoral research stays (3–6 months) at partner universities.",
+          "target": "Students from member countries of the Francophonie (OIF)."
+        },
+        {
+          "name": "CEEPUS Exchange Grants",
+          "benefits": "Monthly living allowance and accommodation support for short-term student mobility.",
+          "target": "Students from Central and South-Eastern Europe participating in regional exchange networks."
+        },
+        {
+          "name": "University-Specific Merit Scholarships",
+          "benefits": "Partial tuition fee waivers for high-performing self-funded students.",
+          "special_note": "Common at major hubs like UBB Cluj, University of Bucharest, and Politehnica Bucharest."
+        }
+      ]
+    },
+
+    "english_language_test_requirements_2026": {
+      "overview": "If the study program is in English, students must provide a recognized certificate. If studying in Romanian, a preparatory year is mandatory unless a B2 certificate is already held.",
+      "ielts_academic": {
+        "min_score": "5.5 - 6.0 (Overall) for Bachelor; 6.0 - 6.5 for Master programs",
+        "competitive_score": "6.5+",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "50 (Overall)",
+        "competitive_score": "58 - 65",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "100",
+        "competitive_score": "110 - 120",
+        "acceptance_note": "Accepted by many private and technical universities for admission, but check with the specific Faculty first."
+      },
+      "toefl_ibt": {
+        "min_score": "72 (Total)",
+        "competitive_score": "85 - 95",
+        "note": "Widely accepted; scores must be sent directly to the university or verified via the ETS portal."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 1,000,000 - 1,400,000 (Calculated as the minimum gross salary/month × duration of the visa, plus the 1st year tuition fee).",
+      "sponsor_profile": "Immediate family members. Requires a notarized sponsorship letter (Engagement of Maintenance) and proof of the sponsor's income.",
+      "bank_history_requirement": "Last 3 months of bank statements. Sudden large deposits are highly scrutinized; account activity must appear logical and stable.",
+      "logic": "The 'Means of Support' rule requires students to show roughly €500–€700 per month for the duration of the visa to cover living expenses in Romania."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport (at least 6 months validity remaining)",
+        "Ministry of Education Letter of Acceptance (Original + Copy)",
+        "Proof of Tuition Fee Payment for at least one academic year",
+        "Proof of Financial Means (Bank statements/Sponsorship)",
+        "Criminal Record Certificate (Police Clearance) legalized/apostilled",
+        "Travel Medical Insurance (Minimum €30,000 coverage)"
+      ],
+      "coe_phase_documents": [
+        "Academic Diplomas & Transcripts (Authorized translation into Romanian/English)",
+        "Birth Certificate (Legalized/Apostilled and translated)",
+        "Medical Certificate (Stating the applicant does not suffer from contagious diseases)",
+        "Visa Application Form (Type D) filled and signed",
+        "2 Recent Color Photos (3x4 cm)",
+        "Proof of Accommodation (University dorm contract or notarized rental lease)"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "2 - 6 weeks (Ministry of Education evaluation of academic files)",
+      "visa_processing_time": "30 - 45 days (After submitting the file to the Romanian Consulate/Embassy)",
+      "approval_chances": "High if the Letter of Acceptance is verified and the tuition fee is paid in full.",
+      "interview_probability": "Medium. Most consulates require a brief interview to verify language skills and study intent."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Incomplete or un-notarized financial documents (e.g., bank statements without a wet signature).",
+        "Failure to prove full payment of the first year's tuition fee.",
+        "Significant academic gaps that cannot be justified by professional work experience.",
+        "Inconsistent information between the visa interview and the submitted study plan.",
+        "Medical certificate lacking specific clearance for 'infectious and contagious diseases'."
+      ],
+      "mitigation_strategy": "Ensure all academic and civil documents have the correct Hague Apostille or Ministry of Foreign Affairs legalization before translation."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 4 hours per day (20 hours per week) without a separate work permit.",
+      "vacation_hours": "Increased hours are often possible during semester breaks with university approval.",
+      "visa_extension": "Must apply for a Residence Permit (Permis de Ședere) at the General Inspectorate for Immigration (IGI) at least 30 days before the 90-day entry visa expires.",
+      "post_study_work": "Eligible for a 9-month extension after graduation to search for a job or start a business (introduced in 2024/2025)."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply for university admission and receive the Ministry of Education 'Letter of Acceptance'.",
+      "step_2": "Pay the full 1st year tuition fee to the university's account and save the transfer receipt.",
+      "step_3": "Gather and legalize/apostille all academic and criminal record documents.",
+      "step_4": "Register on the E-Visa portal (eviza.mae.ro) and upload your digital dossier.",
+      "step_5": "Attend the in-person appointment at the Romanian Embassy for biometrics and document submission.",
+      "step_6": "Upon arrival in Romania, visit the IGI office within the first 60 days to apply for your Residence Permit card.",
+      "step_7": "Undergo a local medical check-up in Romania if required for the residence permit finalization."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Is Romania part of the Schengen Area for students?",
+        "answer": "As of 2024/2025, Romania is partially in Schengen (air/sea). A Romanian student residence permit allows travel to other Schengen countries for 90 days in any 180-day period."
+      },
+      {
+        "question": "Can I study in Romania for free?",
+        "answer": "Only if you win the MFA or Ministry of Education scholarship. Otherwise, non-EU students must pay tuition fees, which are among the lowest in the EU."
+      },
+      {
+        "question": "Do I need to speak Romanian to live there?",
+        "answer": "In major cities like Bucharest or Cluj, English is widely spoken. However, basic Romanian is helpful for administrative tasks at the Immigration office."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Romania Student Visa 2026: Financial Proof & Bank Statements",
+        "video_link": "https://www.youtube.com/watch?v=example_rou_1"
+      },
+      {
+        "video_title": "How to Apply for the Romanian MFA Scholarship: Full Tutorial",
+        "video_link": "https://www.youtube.com/watch?v=example_rou_2"
+      },
+      {
+        "video_title": "Applying for your Romanian Residence Permit (Permis de Ședere)",
+        "video_link": "https://www.youtube.com/watch?v=example_rou_3"
+      }
+    ]
+  },
+  "cyprus": {
+    "title": "Cyprus Student Visa & Residency Guide for International Students",
+    "last_updated": "2026-04-19",
+    "description": "A complete roadmap for international students seeking higher education in Cyprus. Covering the Entry Permit process, the 'Pink Slip' (Temporary Residence Permit), university scholarships, English proficiency, mandatory medical screenings, and work rights in specific sectors.",
+
+    "visa_category_details": {
+      "main_category": "Student",
+      "visa_type": "Entry Permit & Temporary Residence Permit (Pink Slip)",
+      "entry_type": "Single Entry Permit (to enter), converted to a Multiple Entry Residence Card after arrival",
+      "purpose": [
+        "Higher Education (Bachelor, Master, PhD)",
+        "Language Foundation Programs",
+        "Exchange and Research Stays",
+        "Professional Vocational Training"
+      ],
+      "eligibility": "Applicants must be enrolled in a full-time program at a recognized Cypriot college or university and have their documents cleared by the Migration Department."
+    },
+
+    "scholarship_ecosystem": {
+      "government_funded": [
+        {
+          "name": "Cyprus Government Scholarship (State Scholarship Foundation)",
+          "benefits": "Varies; can include partial tuition coverage and monthly stipends for excellence.",
+          "application_window": "Varies by year; usually announced through the Ministry of Education and Culture.",
+          "selection_criteria": "Based strictly on academic merit and the applicant's country of origin (bilateral agreements)."
+        }
+      ],
+      "private_and_partial": [
+        {
+          "name": "International Student Scholarship (Undergraduate)",
+          "benefits": "Automatic 50% tuition fee reduction for most international undergraduate students.",
+          "target": "All new international students at many private universities (e.g., CIU, EUC)."
+        },
+        {
+          "name": "Academic Excellence / Merit Scholarship",
+          "benefits": "75% to 100% tuition fee waivers.",
+          "target": "High-achieving students with a CGPA above 3.50 or outstanding high school grades."
+        },
+        {
+          "name": "Athletic & Sibling Scholarships",
+          "benefits": "10% to 25% additional discounts on tuition.",
+          "special_note": "Offered to students participating in university sports teams or for multiple family members enrolled at the same time."
+        }
+      ]
+    },
+
+    "english_language_test_requirements": {
+      "overview": "Cypriot institutions follow the CEFR framework. While many offer an internal foundation year, direct entry into degree programs requires standardized test scores.",
+      "ielts_academic": {
+        "min_score": "5.0 - 5.5 (Overall) for Bachelor; 6.0 - 6.5 for Master programs",
+        "competitive_score": "6.5 (no band less than 6.0)",
+        "validity": "2 Years"
+      },
+      "pte_academic": {
+        "min_score": "50 - 58 (Overall)",
+        "competitive_score": "60 - 66",
+        "validity": "2 Years"
+      },
+      "duolingo_det": {
+        "min_score": "95 - 100",
+        "competitive_score": "115+",
+        "acceptance_note": "Accepted by several private universities for admission and placement into the English prep school."
+      },
+      "toefl_ibt": {
+        "min_score": "71 - 79 (Total)",
+        "competitive_score": "80 - 90",
+        "note": "Widely accepted; scores must be verifiable via the ETS portal or a certified copy."
+      }
+    },
+
+    "financial_solvency_thresholds": {
+      "self_funded_min_balance": "BDT 1,400,000 - 1,800,000 (Equivalent to €12,000 - €15,000 covering tuition, living expenses, and a return ticket).",
+      "sponsor_profile": "Immediate family. Must provide an 'Affidavit of Support' and a bank letter confirming the ability to fund the entire duration of study.",
+      "bank_history_requirement": "6 months of stable history. Statements must be original, stamped, and signed by the bank manager.",
+      "logic": "The Migration Department requires proof of at least €7,000 - €9,000 for living costs alone, plus the total annual tuition fee."
+    },
+
+    "comprehensive_requirements_checklist": {
+      "embassy_submission_docs": [
+        "Valid Passport (at least 2 years validity remaining)",
+        "Original Acceptance Letter from the Cypriot institution",
+        "Police Clearance Certificate (Apostilled, valid for 6 months)",
+        "Original Bank Letter & Statements (last 6 months)",
+        "HIV, Hepatitis B/C, and Syphilis Test Results (Originals)",
+        "Chest X-Ray Report for Tuberculosis (Original)"
+      ],
+      "coe_phase_documents": [
+        "Academic Certificates (Apostilled/Legalized by MFA)",
+        "Tuition Fee Receipt (Minimum payment of €3,000 often required)",
+        "Non-Refundable Application Fee Receipt (approx. €100 - €150)",
+        "Health Insurance Policy (Valid in Cyprus)",
+        "Cash in hand of at least €2,000 for arrival personal expenses",
+        "MHE (Ministry of Higher Education) approval/stamps where applicable"
+      ]
+    },
+
+    "processing_and_approval_metrics": {
+      "coe_processing_time": "2 - 4 weeks (University screening and Ministry of Education approval)",
+      "visa_processing_time": "4 - 8 weeks (Migration Department review and Entry Permit issuance)",
+      "approval_chances": "Good if medicals are clear and documents are apostilled; high scrutiny on bank statement stability.",
+      "interview_probability": "High. The Cyprus Consulate often conducts a personal interview to verify the student's background and intentions."
+    },
+
+    "rejection_risk_matrix": {
+      "high_risk_reasons": [
+        "Positive medical results for Hepatitis, HIV, or Tuberculosis.",
+        "Providing bank statements that are older than 3 months or have irregular deposits.",
+        "Passport validity less than 18-24 months.",
+        "Inability to present original apostilled academic documents at the airport or embassy.",
+        "Failing to prove that the first year's tuition has been partially or fully paid."
+      ],
+      "mitigation_strategy": "Double-check the apostille requirements for your specific country of residence and ensure medical tests are within the 4-month validity window."
+    },
+
+    "work_rights_and_stay": {
+      "part_time_permission": "Up to 20 hours per week (Allowed ONLY after the first 6 months/1st semester).",
+      "vacation_hours": "Full-time work allowed (38 hours per week) during official university breaks.",
+      "visa_extension": "Must apply for the Temporary Residence Permit (Pink Slip) within 7 days of arrival in Cyprus.",
+      "post_study_work": "Eligible for a 6 to 12-month extension for job-seeking purposes depending on the degree and sector."
+    },
+
+    "step_by_step_application_roadmap": {
+      "step_1": "Apply to a Cypriot university and receive your 'Letter of Acceptance'.",
+      "step_2": "Pay the initial tuition fee and application fee as requested by the university.",
+      "step_3": "Undergo medical tests and gather police clearance; have all documents apostilled/legalized.",
+      "step_4": "The university submits your file to the Migration Department in Cyprus for an Entry Permit.",
+      "step_5": "Once the Entry Permit is issued, book an appointment at the Cyprus Embassy for the visa sticker.",
+      "step_6": "Travel to Cyprus and undergo a second medical check-up at a local government lab.",
+      "step_7": "Submit your passport and biometrics to the Migration office for your physical Residence Card (Pink Slip)."
+    },
+
+    "faq_student_edition": [
+      {
+        "question": "Can I work immediately after arriving in Cyprus?",
+        "answer": "No. International students must wait until they have completed their first academic semester before they are legally allowed to work part-time."
+      },
+      {
+        "question": "What is the 'Pink Slip'?",
+        "answer": "It is the colloquial name for the Temporary Residence Permit. You must keep this card with you at all times as proof of your legal status in Cyprus."
+      },
+      {
+        "question": "Is North Cyprus (TRNC) different from the Republic of Cyprus?",
+        "answer": "Yes. This guide covers the Republic of Cyprus (South). North Cyprus has a separate visa regime and students there cannot freely enter the South or other Schengen countries."
+      }
+    ],
+
+    "youtube_video_options": [
+      {
+        "video_title": "Cyprus Student Visa: Apostille & Medical Documents Guide",
+        "video_link": "https://www.youtube.com/watch?v=example_cyp_1"
+      },
+      {
+        "video_title": "How to Apply for your Cyprus Residence Permit (Pink Slip)",
+        "video_link": "https://www.youtube.com/watch?v=example_cyp_2"
+      },
+      {
+        "video_title": "Part-Time Jobs in Cyprus for International Students: The Reality",
+        "video_link": "https://www.youtube.com/watch?v=example_cyp_3"
       }
     ]
   }

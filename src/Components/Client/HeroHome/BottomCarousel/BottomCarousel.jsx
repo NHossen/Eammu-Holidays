@@ -16,7 +16,7 @@ const bottomSlides = [
     processingTime: "15-30 Working Days",
     price: "BDT 19,900",
     img: "/denmark-bottom-slides.jpg", 
-    alt: "Denmark Schengen Visa",
+    alt: "Denmark Schengen Visa Application From Bangladesh",
     link: "/visa/denmark-visa" 
   },
   { 
@@ -52,7 +52,7 @@ const bottomSlides = [
     processingTime: "3-5 Working Days",
     price: "BDT 7,500",
     img: "/singapore-tour-promo.jpg", 
-    alt: "Singapore Visa Support",
+    alt: "Singapore Visa Support by Eammu Holidays",
     link: "/visa/singapore-visa" 
   },
   { 
@@ -64,7 +64,7 @@ const bottomSlides = [
     processingTime: "15-30 Days",
     price: "BDT 18,500",
     img: "/schengen-visa-promo.jpg", 
-    alt: "Schengen Visa Bangladesh",
+    alt: "Schengen Visa For Bangladesh",
     link: "/visa/european-union-visa" 
   },
   { 
@@ -77,7 +77,7 @@ const bottomSlides = [
     price: "BDT 5,500",
     img: "/Armenia-tour-from-bangladesh-bottom.webp", 
     alt: "Armenia Visa application",
-    link: "/our-services/visa/armenia-visa-application" 
+    link: "/visa/armenia-visa" 
   },
 
   // --- TOUR PACKAGES ---
@@ -89,7 +89,7 @@ const bottomSlides = [
     includes: "Luxury Resort + Breakfast + Car",
     price: "BDT 6,500",
     img: "/Sylhet-travel-guide-promo.jpg", 
-    alt: "Sylhet Tour Package",
+    alt: "Sylhet Tour Package by Best Tour Operator",
     link: "/our-services/tour-packages" 
   },
   { 
@@ -187,7 +187,7 @@ const bottomSlides = [
     note: "Top Ranked Universities",
     img: "/study-uk-banner.jpg", 
     alt: "Study in UK",
-    link: "/our-services/study-abroad/student-visa/united-kingdom" 
+    link: "/study-abroad/student-visa/united-kingdom" 
   },
   { 
     id: 16, 
@@ -197,7 +197,7 @@ const bottomSlides = [
     note: "Form Fill-up & Correction",
     img: "/albania_visa_from_bangladesh.webp", 
     alt: "Albania Study Visa Services",
-    link: "/our-services/study-abroad/student-visa/albania" 
+    link: "/study-abroad/student-visa/albania" 
   },
   { 
     id: 17, 

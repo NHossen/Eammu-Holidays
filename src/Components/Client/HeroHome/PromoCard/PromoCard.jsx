@@ -9,24 +9,24 @@ const promoSlides = [
   { 
     id: 1, category: "visa", title: "SCHENGEN VISA", 
     label1: "Processing", price1: "20 Days", label2: "Total Fees", price2: "19,500", 
-    badge: "Schengen", img: "/schengen-visa-promo.jpg", link: "/visa/denmark-visa", alt: "Denmark visa Application" 
+    badge: "Schengen", img: "/schengen-visa-promo.jpg", link: "/visa/denmark-visa", alt: "Denmark visa Application From Bangladesh" 
   },
 
   { 
     id: 13, category: "flight", title: "DHAKA TO BALI", 
     label1: "One Way", price1: "435", label2: "Round Trip", price2: "855", 
-    badge: "Hot Deal", img: "/the-love-island.webp", link: "/flight-booking", alt: "Cheap Flights to Bali" 
+    badge: "Hot Deal", img: "/the-love-island.webp", link: "/flight-booking", alt: "Cheap Flights to Bali - Best Travel Agency Bangladesh" 
   },
   { 
     id: 6, category: "tour", title: "SYLHET TEA TOUR", 
     label1: "Duration", price1: "3D / 2N", label2: "Starting", price2: "6,500", 
-    badge: "Best Seller", img: "/Sylhet-travel-guide-promo.jpg", link: "/our-services/tour-packages", alt: "Sylhet tour travel guide" 
+    badge: "Best Seller", img: "/Sylhet-travel-guide-promo.jpg", link: "/our-services/tour-packages", alt: "Leading Travel Agency Bangladesh Sylhet tour travel guide" 
   },
 
   { 
     id: 17, category: "visa", title: "STUDY IN USA", 
     label1: "Scholarship", price1: "70%", label2: "Consultancy", price2: "FREE", 
-    badge: "Fall 2026", img: "/study-usa.jpg", link: "/study-abroad/student-visa/united-states", alt: "Study in USA" 
+    badge: "Fall 2026", img: "/study-usa.jpg", link: "/study-abroad/student-visa/united-states", alt: "Study in USA - From Bangladesh" 
   },
   { 
     id: 2, category: "flight", title: "JAPAN TO DHAKA", 
