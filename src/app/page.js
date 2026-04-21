@@ -10,6 +10,7 @@ import Our_Succsses_State from "@/Components/Server/Our_Succsses_State/Our_Succs
 import TourPackages from "@/Components/Server/TourPackages/TourPackages";
 import LandingModal from "@/Components/Client/LandingModal/LandingModal";
 import VisaSearch from "@/Components/Client/visaServices/Visa/TouristVisaBangladesh/TouristVisa/VisaSearch/VisaSearch";
+import VisaSearchBar from "@/Components/Client/VisaProcessingTimeTracker/VisaSearchBar/VisaSearchBar";
 
 
 export const metadata = {
@@ -168,6 +169,7 @@ const jsonLd = {
       <HeroSection />
       <VisaSearch />
       <SpecialDayBanner />
+      <VisaSearchBar />
       <SpecialOffers />
       <FlightOfferBanner />
       <VisaServices />

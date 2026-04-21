@@ -26,7 +26,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/visa-guide",
+    canonical: "https://www.eammu.com/visa/visa-guide",
   },
 
   robots: {
@@ -42,7 +42,7 @@ export const metadata = {
 
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/visa-guide",
+    url: "https://www.eammu.com/visa/visa-guide",
     siteName: "Eammu Holidays",
 
     title:
