@@ -334,14 +334,14 @@ export default function VisaProcessingSlugPage() {
   const RELATED = Object.entries(countryData.types).filter(([k]) => k !== activeType);
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white font-sans my-20">
 
       {/* ── BREADCRUMB ──────────────────────────────────────────────────── */}
       <div className="bg-slate-50 border-b border-slate-100 px-6 py-3">
         <div className="container mx-auto max-w-6xl flex items-center gap-2 text-xs text-slate-400 font-semibold">
           <Link href="/" className="hover:text-[#005a31]">Home</Link>
           <ChevronRight size={12} />
-          <Link href="/visa-processing-time-tracker" className="hover:text-[#005a31]">Visa Processing Time Tracker</Link>
+          <Link href="/travel-resources/visa-processing-time-tracker" className="hover:text-[#005a31]">Visa Processing Time Tracker</Link>
           <ChevronRight size={12} />
           <span className="text-slate-600 truncate">{nationalityName} → {countryData.name}</span>
         </div>
@@ -353,7 +353,7 @@ export default function VisaProcessingSlugPage() {
           {countryData.flag}
         </div>
         <div className="container mx-auto max-w-6xl relative z-10">
-          <Link href="/visa-processing-time-tracker" className="inline-flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-[#005a31] mb-8 transition-colors">
+          <Link href="/travel-resources/visa-processing-time-tracker" className="inline-flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-[#005a31] mb-8 transition-colors">
             <ArrowLeft size={16} /> Back to Tracker
           </Link>
 
@@ -560,7 +560,7 @@ export default function VisaProcessingSlugPage() {
                   {RELATED.map(([k, v]) => (
                     <Link
                       key={k}
-                      href={`/visa-processing-time-tracker/${slug}?type=${k}`}
+                      href={`/travel-resources/visa-processing-time-tracker/${slug}?type=${k}`}
                       className="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-[#005a31]/8 border border-transparent hover:border-[#005a31]/20 transition-all"
                     >
                       <div>
@@ -584,7 +584,7 @@ export default function VisaProcessingSlugPage() {
           <h2 className="text-3xl font-black text-white mb-4">Check Another Country</h2>
           <p className="text-green-200/70 font-medium mb-8">Search 195+ countries and all visa types</p>
           <Link
-            href="/visa-processing-time-tracker"
+            href="/travel-resources/visa-processing-time-tracker"
             className="inline-flex items-center gap-3 bg-amber-400 text-[#004d2c] px-10 py-5 rounded-2xl font-black hover:bg-white transition-all shadow-xl"
           >
             <Timer size={20} /> Back to Visa Tracker

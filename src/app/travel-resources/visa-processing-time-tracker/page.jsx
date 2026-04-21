@@ -112,7 +112,7 @@ export default function VisaProcessingTimeTracker() {
     }
     setError("");
     const slug = makeSlug(nationality, destination, visaType);
-    window.location.href = `/visa-processing-time-tracker/${slug}?type=${visaType}`;
+    window.location.href = `/travel-resources/visa-processing-time-tracker/${slug}?type=${visaType}`;
   };
 
   return (

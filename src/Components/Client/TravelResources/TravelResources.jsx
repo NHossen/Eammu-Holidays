@@ -76,7 +76,7 @@ const TravelResources = () => {
           </p>
 
           {/* ── QUICK ACCESS TOOL CARDS ─────────────────────────────────── */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
+          <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-16">
             
             {/* Card 1 — Travel Document Generator */}
             <a
@@ -155,6 +155,48 @@ const TravelResources = () => {
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-2 bg-[#004d2c] group-hover:bg-amber-400 text-white group-hover:text-[#004d2c] px-6 py-3 rounded-2xl font-black text-sm transition-all duration-300">
                     Build Checklist <ArrowRight size={16} />
+                  </div>
+                </div>
+              </div>
+            </a>
+                {/* Card 3 — Travel Document Generator */}
+            <a
+              href="/travel-resources/visa-processing-time-tracker"
+              className="group relative bg-[#004d2c] rounded-[2.5rem] p-8 text-left overflow-hidden hover:scale-[1.02] transition-all duration-300 shadow-xl hover:shadow-2xl"
+            >
+              {/* Decorative ring */}
+              <div className="absolute -top-10 -right-10 w-44 h-44 rounded-full border-[20px] border-white/5 group-hover:border-white/10 transition-all duration-500" />
+              <div className="absolute -bottom-8 -left-8 w-32 h-32 rounded-full border-[12px] border-white/5" />
+
+              <div className="relative z-10">
+                {/* Icon pill */}
+                <div className="inline-flex items-center gap-2 bg-amber-400 text-[#004d2c] px-4 py-2 rounded-2xl mb-6">
+                  <FileEdit size={18} strokeWidth={2.5} />
+                  <span className="text-xs font-black uppercase tracking-widest">Smart Visa Processing Time Tracker</span>
+                </div>
+
+                <h2 className="text-2xl md:text-3xl font-black text-white leading-tight mb-3">
+                 Check Visa Processing <br />Time
+                </h2>
+
+                {/* Tags note */}
+                <p className="text-green-200/70 text-sm font-medium mb-2 leading-relaxed">
+                  Check Visa Processing Time instantly
+                </p>
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {["Schengen", "USA", "UK", "Canada", "Australia"].map(tag => (
+                    <span key={tag} className="bg-slate-50 text-[#004d2c] text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-xl border border-slate-200">
+                      {tag}
+                    </span>
+                  ))}
+                  <span className="bg-white/10 text-green-100 text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-xl border border-white/10">
+                    & more
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 bg-amber-400 text-[#004d2c] px-6 py-3 rounded-2xl font-black text-sm group-hover:bg-white transition-all duration-300">
+                    Track Visa Now <ArrowRight size={16} />
                   </div>
                 </div>
               </div>
