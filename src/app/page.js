@@ -11,6 +11,7 @@ import TourPackages from "@/Components/Server/TourPackages/TourPackages";
 import LandingModal from "@/Components/Client/LandingModal/LandingModal";
 import VisaSearch from "@/Components/Client/visaServices/Visa/TouristVisaBangladesh/TouristVisa/VisaSearch/VisaSearch";
 import VisaSearchBar from "@/Components/Client/VisaProcessingTimeTracker/VisaSearchBar/VisaSearchBar";
+import CountrySearchBar from "@/Components/Client/visaServices/Visa/StudentVisaBangladesh/StudentVisa/Countrysearchbar/Countrysearchbar";
 
 
 export const metadata = {
@@ -167,12 +168,13 @@ const jsonLd = {
       <main >
       <LandingModal />
       <HeroSection />
-      <VisaSearch />
+      <CountrySearchBar />
       <SpecialDayBanner />
       <VisaSearchBar />
       <SpecialOffers />
       <FlightOfferBanner />
       <VisaServices />
+      <VisaSearch />
       <PosterGallery />
       <TourPackages />
       <Caresoul_BG_Mix />
