@@ -1,10 +1,18 @@
 // app/sitemap.js
-// Serves: /sitemap.xml
-// Contains: static + studentVisa + visaSlug routes only
+// Serves:
+//   /sitemap.xml       → id=0  (static + studentVisa + visaSlug)
+//   /sitemap/1.xml     → id=1  (visaGuide pages 1–50000)
+//   /sitemap/2.xml     → id=2  (visaGuide pages 50001–end)
+//   /sitemap/3.xml     → id=3  (processingTime pages 1–50000)
+//   /sitemap/4.xml     → id=4  (processingTime pages 50001–end)
 
 import rawVisaData from "@/app/data/countries.json";
 import { createSlug } from "@/app/lib/utils";
 
+const CHUNK_SIZE = 50_000;
+const visaTypes = ["sticker", "e-visa", "transit", "sticker-extended"];
+
+// ── Safely convert JSON → flat array ──────────────────────────────────────
 function toArray(json) {
   if (Array.isArray(json)) return json;
   if (json && typeof json === "object") {
@@ -20,21 +28,23 @@ function toArray(json) {
 }
 
 const visaData = toArray(rawVisaData);
+const N = visaData.length;
 
-function getSlug(entry, ...keys) {
-  for (const key of keys) {
-    if (entry[key] && typeof entry[key] === "string") {
-      return createSlug(entry[key]);
-    }
-  }
-  return "";
-}
+// Pre-build slugs once
+const slugs = visaData.map((e) =>
+  createSlug(e.slug || e.country || e.name || e.title || e.destination || "")
+);
 
-export default function sitemap() {
+// ── Counts ─────────────────────────────────────────────────────────────────
+const TOTAL_PAIRS = N * (N - 1);
+const TOTAL_PROCESSING = TOTAL_PAIRS * visaTypes.length;
+
+// ── Static routes ──────────────────────────────────────────────────────────
+function buildStaticRoutes() {
   const baseUrl = "https://eammu.com";
   const now = new Date();
 
-  const staticRoutes = [
+  const staticUrls = [
     { url: "/", priority: 1.0, changeFreq: "daily" },
     { url: "/about", priority: 0.8, changeFreq: "monthly" },
     { url: "/contact", priority: 0.8, changeFreq: "monthly" },
@@ -114,26 +124,101 @@ export default function sitemap() {
     { url: "/target-usa-visa-interview-preparation", priority: 0.8, changeFreq: "monthly" },
   ];
 
+  // studentVisa routes
   const studentVisaRoutes = visaData
     .map((entry) => {
-      const slug = getSlug(entry, "slug", "country", "name", "title");
+      const slug = slugs[visaData.indexOf(entry)];
       if (!slug) return null;
       return { url: `/study-abroad/student-visa/${slug}`, priority: 0.85, changeFreq: "monthly" };
     })
     .filter(Boolean);
 
+  // visaSlug routes
   const visaSlugRoutes = visaData
-    .map((entry) => {
-      const slug = getSlug(entry, "slug", "country", "name", "title", "destination");
+    .map((entry, i) => {
+      const slug = slugs[i];
       if (!slug) return null;
       return { url: `/visa/${slug}-visa`, priority: 0.85, changeFreq: "weekly" };
     })
     .filter(Boolean);
 
-  return [...staticRoutes, ...studentVisaRoutes, ...visaSlugRoutes].map((route) => ({
-    url: `${baseUrl}${route.url.startsWith("/") ? route.url : `/${route.url}`}`,
+  return [...staticUrls, ...studentVisaRoutes, ...visaSlugRoutes].map((r) => ({
+    url: `${baseUrl}${r.url.startsWith("/") ? r.url : `/${r.url}`}`,
     lastModified: now,
-    changeFrequency: route.changeFreq,
-    priority: route.priority,
+    changeFrequency: r.changeFreq,
+    priority: r.priority,
   }));
+}
+
+// ── visaGuide: convert flat index → URL ───────────────────────────────────
+function visaGuideUrl(index) {
+  const row = Math.floor(index / (N - 1));
+  let col = index % (N - 1);
+  if (col >= row) col += 1;
+  const dest = slugs[row];
+  const nat = slugs[col];
+  if (!dest || !nat) return null;
+  return `https://eammu.com/visa/visa-guide/${dest}-visa-for-${nat}`;
+}
+
+// ── processingTime: convert flat index → URL ──────────────────────────────
+function processingTimeUrl(index) {
+  const typeIndex = index % visaTypes.length;
+  const pairIndex = Math.floor(index / visaTypes.length);
+  const row = Math.floor(pairIndex / (N - 1));
+  let col = pairIndex % (N - 1);
+  if (col >= row) col += 1;
+  const dest = slugs[row];
+  const nat = slugs[col];
+  if (!dest || !nat) return null;
+  return `https://eammu.com/travel-resources/visa-processing-time-tracker/${dest}-national-visa-processing-time-for-${nat}?type=${visaTypes[typeIndex]}`;
+}
+
+// ── generateSitemaps — tell Next.js how many chunks total ─────────────────
+export function generateSitemaps() {
+  const visaGuideChunks = Math.ceil(TOTAL_PAIRS / CHUNK_SIZE);
+  const processingChunks = Math.ceil(TOTAL_PROCESSING / CHUNK_SIZE);
+
+  // id=0        → static routes
+  // id=1..vG    → visaGuide chunks
+  // id=vG+1..   → processingTime chunks
+  const total = 1 + visaGuideChunks + processingChunks;
+  return Array.from({ length: total }, (_, i) => ({ id: i }));
+}
+
+// ── Default export ─────────────────────────────────────────────────────────
+export default function sitemap({ id = 0 } = {}) {
+  const now = new Date();
+  const visaGuideChunks = Math.ceil(TOTAL_PAIRS / CHUNK_SIZE);
+
+  // id=0 → static + studentVisa + visaSlug
+  if (id === 0) {
+    return buildStaticRoutes();
+  }
+
+  // id=1..visaGuideChunks → visaGuide
+  if (id <= visaGuideChunks) {
+    const chunkIndex = id - 1;
+    const start = chunkIndex * CHUNK_SIZE;
+    const end = Math.min(start + CHUNK_SIZE, TOTAL_PAIRS);
+    const entries = [];
+    for (let i = start; i < end; i++) {
+      const url = visaGuideUrl(i);
+      if (!url) continue;
+      entries.push({ url, lastModified: now, changeFrequency: "monthly", priority: 0.8 });
+    }
+    return entries;
+  }
+
+  // id=visaGuideChunks+1.. → processingTime
+  const chunkIndex = id - 1 - visaGuideChunks;
+  const start = chunkIndex * CHUNK_SIZE;
+  const end = Math.min(start + CHUNK_SIZE, TOTAL_PROCESSING);
+  const entries = [];
+  for (let i = start; i < end; i++) {
+    const url = processingTimeUrl(i);
+    if (!url) continue;
+    entries.push({ url, lastModified: now, changeFrequency: "weekly", priority: 0.7 });
+  }
+  return entries;
 }
