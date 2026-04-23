@@ -179,12 +179,10 @@ export default function sitemap() {
   const visaGuideRoutes = visaData
     .map((entry) => {
       const dest = getSlug(entry,
-        "destination", "destinationCountry", "destinationSlug",
-        "to", "toCountry", "country", "name"
+         "slug", "country", "name", "title", "destination"
       );
       const nat = getSlug(entry,
-        "nationality", "nationalityCountry", "nationalitySlug",
-        "from", "fromCountry", "origin", "applicant"
+         "slug", "country", "name", "title", "destination"
       );
       if (!dest || !nat) return null;
       return {
