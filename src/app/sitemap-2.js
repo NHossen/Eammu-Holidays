@@ -1,23 +1,13 @@
 // app/sitemap-2.js
-// Contains: visaGuideRoutes (~90,000 pages)
-//
-// Split strategy:
-//   id=0 → first 50,000 entries
-//   id=1 → remaining entries (up to 40,000)
-//
-// Next.js will expose these as:
-//   /sitemap/2        (id=0, pages 1–50000)
-//   /sitemap/2?id=1   (id=1, pages 50001–end)
-//
-// Usage: Next.js App Router requires both generateSitemaps() and the default
-//        export to accept a { id } param when you want multiple pages.
+// Serves: /sitemap/2.xml      (id=0, pages 1–50000)
+//         /sitemap/2.xml?id=1 (id=1, pages 50001–end)
+// Contains: visaGuideRoutes (~N² country pairs)
 
-import rawVisaData    from "@/app/data/countries.json";
+import rawVisaData from "@/app/data/countries.json";
 import { createSlug } from "@/app/lib/utils";
 
 const CHUNK_SIZE = 50_000;
 
-// ── Safely convert JSON value → flat array ─────────────────────────────────
 function toArray(json) {
   if (Array.isArray(json)) return json;
   if (json && typeof json === "object") {
@@ -33,61 +23,50 @@ function toArray(json) {
 }
 
 const visaData = toArray(rawVisaData);
+const N = visaData.length;
+// Total pairs = N * (N - 1)  [excluding same-country pairs]
+const TOTAL_PAIRS = N * (N - 1);
 
-function getSlug(entry, ...keys) {
-  for (const key of keys) {
-    if (entry[key] && typeof entry[key] === "string") {
-      return createSlug(entry[key]);
-    }
-  }
-  return "";
+// Pre-build slug array once at module load (strings only, cheap)
+const slugs = visaData.map(
+  (e) => createSlug(e.slug || e.country || e.name || e.title || e.destination || "")
+);
+
+// ── Convert a flat pair index → URL without building the full array ────────
+function pairIndexToUrl(index) {
+  // index runs 0..(N*(N-1)-1) skipping i===j
+  const row = Math.floor(index / (N - 1));
+  let col = index % (N - 1);
+  if (col >= row) col += 1; // skip diagonal (same country)
+  const dest = slugs[row];
+  const nat = slugs[col];
+  if (!dest || !nat) return null;
+  return `/visa/visa-guide/${dest}-visa-for-${nat}`;
 }
 
-// ── Build the full visaGuideRoutes array ──────────────────────────────────
-// Pattern: /visa/visa-guide/[dest]-visa-for-[nat]
-function buildVisaGuideRoutes() {
-  return visaData.flatMap((entry) => {
-    const dest = getSlug(entry, "slug", "country", "name", "title", "destination");
-    if (!dest) return [];
-
-    return visaData
-      .map((country) => {
-        const nat = createSlug(
-          country.name || country.country || country.title || ""
-        );
-        if (!nat || nat === dest) return null;
-        return {
-          url: `/visa/visa-guide/${dest}-visa-for-${nat}`,
-          priority: 0.8,
-          changeFreq: "monthly",
-        };
-      })
-      .filter(Boolean);
-  });
-}
-
-// ── Tell Next.js how many sitemap pages to generate ───────────────────────
 export function generateSitemaps() {
-  const total = buildVisaGuideRoutes().length;
-  const count = Math.ceil(total / CHUNK_SIZE);
-  // Returns [{id:0}, {id:1}, ...] — one per chunk
+  const count = Math.ceil(TOTAL_PAIRS / CHUNK_SIZE);
   return Array.from({ length: count }, (_, i) => ({ id: i }));
 }
 
-// ── Default export receives { id } from Next.js ───────────────────────────
 export default function sitemap({ id = 0 } = {}) {
   const baseUrl = "https://eammu.com";
-  const now     = new Date();
-
-  const allRoutes = buildVisaGuideRoutes();
+  const now = new Date();
 
   const start = id * CHUNK_SIZE;
-  const chunk = allRoutes.slice(start, start + CHUNK_SIZE);
+  const end = Math.min(start + CHUNK_SIZE, TOTAL_PAIRS);
+  const entries = [];
 
-  return chunk.map((route) => ({
-    url: `${baseUrl}${route.url.startsWith("/") ? route.url : `/${route.url}`}`,
-    lastModified: now,
-    changeFrequency: route.changeFreq,
-    priority: route.priority,
-  }));
+  for (let i = start; i < end; i++) {
+    const url = pairIndexToUrl(i);
+    if (!url) continue;
+    entries.push({
+      url: `${baseUrl}${url}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    });
+  }
+
+  return entries;
 }

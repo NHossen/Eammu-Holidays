@@ -1,21 +1,139 @@
-// app/sitemap.js — Root sitemap
-//
-// Next.js automatically discovers all sitemap files in /app that follow
-// the naming convention:  sitemap.js | sitemap-N.js
-//
-// This file handles the root /sitemap.xml which Google uses as the entry point.
-// It re-exports the static+student+slug routes from sitemap-1.js so that
-// /sitemap.xml itself is valid and crawlable.
-//
-// Full sitemap index served by Next.js:
-//   /sitemap.xml         ← this file  (static + studentVisa + visaSlug)
-//   /sitemap/1.xml       ← sitemap-1.js (same content, explicit)
-//   /sitemap/2.xml       ← sitemap-2.js id=0  (visaGuide pages 1–50000)
-//   /sitemap/2.xml?id=1  ← sitemap-2.js id=1  (visaGuide pages 50001–90000)
-//   /sitemap/3.xml       ← sitemap-3.js id=0  (processingTime pages 1–50000)
-//   /sitemap/3.xml?id=1  ← sitemap-3.js id=1  (processingTime pages 50001–90000)
-//
-// NOTE: rawStudentVisaData (studentvisadata.json) is NOT imported anywhere —
-//       it was unused. All slug generation uses countries.json only.
+// app/sitemap.js
+// Serves: /sitemap.xml
+// Contains: static + studentVisa + visaSlug routes only
 
-export { default } from "@/app/sitemap-1";
+import rawVisaData from "@/app/data/countries.json";
+import { createSlug } from "@/app/lib/utils";
+
+function toArray(json) {
+  if (Array.isArray(json)) return json;
+  if (json && typeof json === "object") {
+    const commonKeys = ["data", "countries", "visas", "items", "list", "results"];
+    for (const key of commonKeys) {
+      if (Array.isArray(json[key])) return json[key];
+    }
+    const arrayKey = Object.keys(json).find((k) => Array.isArray(json[k]));
+    if (arrayKey) return json[arrayKey];
+    return Object.values(json);
+  }
+  return [];
+}
+
+const visaData = toArray(rawVisaData);
+
+function getSlug(entry, ...keys) {
+  for (const key of keys) {
+    if (entry[key] && typeof entry[key] === "string") {
+      return createSlug(entry[key]);
+    }
+  }
+  return "";
+}
+
+export default function sitemap() {
+  const baseUrl = "https://eammu.com";
+  const now = new Date();
+
+  const staticRoutes = [
+    { url: "/", priority: 1.0, changeFreq: "daily" },
+    { url: "/about", priority: 0.8, changeFreq: "monthly" },
+    { url: "/contact", priority: 0.8, changeFreq: "monthly" },
+    { url: "/careers", priority: 0.7, changeFreq: "monthly" },
+    { url: "/testimonials", priority: 0.8, changeFreq: "weekly" },
+    { url: "/blogs", priority: 0.9, changeFreq: "weekly" },
+    { url: "/news-feeds", priority: 0.8, changeFreq: "daily" },
+    { url: "/offers", priority: 0.9, changeFreq: "weekly" },
+    { url: "/log-in", priority: 0.5, changeFreq: "yearly" },
+    { url: "/sign-up", priority: 0.5, changeFreq: "yearly" },
+    { url: "/terms-privacy-policy", priority: 0.4, changeFreq: "yearly" },
+    { url: "/naeem-hossen", priority: 0.6, changeFreq: "monthly" },
+    { url: "/our-leading-team", priority: 0.6, changeFreq: "monthly" },
+    { url: "/pdf-editor", priority: 0.5, changeFreq: "monthly" },
+    { url: "/our-services", priority: 0.9, changeFreq: "weekly" },
+    { url: "/our-services/things-to-do", priority: 0.7, changeFreq: "monthly" },
+    { url: "/our-services/tour-packages", priority: 0.8, changeFreq: "weekly" },
+    { url: "/our-services/visa-services", priority: 0.9, changeFreq: "weekly" },
+    { url: "/our-services/visa-services/student-visa-from-bangladesh", priority: 0.9, changeFreq: "monthly" },
+    { url: "/our-services/visa-services/tourist-visa-from-bangladesh", priority: 0.9, changeFreq: "monthly" },
+    { url: "/our-services/visa-services/work-visa-from-bangladesh", priority: 0.9, changeFreq: "monthly" },
+    { url: "/our-services/visa/albania-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/armenia-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/australia-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/azerbaijan-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/brazil-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/canada-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/china-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/cyprus-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/dubai-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/europe-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/georgia-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/germany-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/india-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/indonesia-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/japan-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/kosovo-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/malaysia-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/montenegro-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/morocco-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/portugal-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/qatar-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/russia-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/saudi-arabia-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/serbia-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/singapore-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/south-africa-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/south-korea-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/spain-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/srilanka-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/thailand-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/turkey-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/uk-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/our-services/visa/usa-visa-application", priority: 0.8, changeFreq: "monthly" },
+    { url: "/study-abroad", priority: 0.95, changeFreq: "weekly" },
+    { url: "/study-abroad/student-visa", priority: 0.9, changeFreq: "weekly" },
+    { url: "/visa", priority: 0.95, changeFreq: "daily" },
+    { url: "/visa/visa-guide", priority: 0.9, changeFreq: "daily" },
+    { url: "/travel-resources", priority: 0.8, changeFreq: "weekly" },
+    { url: "/travel-resources/travel-document-generator", priority: 0.7, changeFreq: "monthly" },
+    { url: "/travel-resources/visa-checklist-generator", priority: 0.7, changeFreq: "monthly" },
+    { url: "/travel-resources/visa-processing-time-tracker", priority: 0.8, changeFreq: "weekly" },
+    { url: "/contact/travel-agency-armenia", priority: 0.7, changeFreq: "monthly" },
+    { url: "/contact/travel-agency-bangladesh", priority: 0.7, changeFreq: "monthly" },
+    { url: "/contact/travel-agency-dubai", priority: 0.7, changeFreq: "monthly" },
+    { url: "/contact/travel-agency-georgia", priority: 0.7, changeFreq: "monthly" },
+    { url: "/online-travel-agency-bangladesh", priority: 0.8, changeFreq: "monthly" },
+    { url: "/eammu-dairy-poultry", priority: 0.6, changeFreq: "monthly" },
+    { url: "/eammu-fashion", priority: 0.6, changeFreq: "monthly" },
+    { url: "/eammu-fashion/eammu-store", priority: 0.6, changeFreq: "monthly" },
+    { url: "/eammu-social-responsibility", priority: 0.6, changeFreq: "monthly" },
+    { url: "/eammu-textile-bangladesh", priority: 0.6, changeFreq: "monthly" },
+    { url: "/web-development-digital-marketing", priority: 0.7, changeFreq: "monthly" },
+    { url: "/flight-booking", priority: 0.8, changeFreq: "monthly" },
+    { url: "/event-management", priority: 0.7, changeFreq: "monthly" },
+    { url: "/target-ielts-immigration-center", priority: 0.8, changeFreq: "monthly" },
+    { url: "/target-usa-visa-interview-preparation", priority: 0.8, changeFreq: "monthly" },
+  ];
+
+  const studentVisaRoutes = visaData
+    .map((entry) => {
+      const slug = getSlug(entry, "slug", "country", "name", "title");
+      if (!slug) return null;
+      return { url: `/study-abroad/student-visa/${slug}`, priority: 0.85, changeFreq: "monthly" };
+    })
+    .filter(Boolean);
+
+  const visaSlugRoutes = visaData
+    .map((entry) => {
+      const slug = getSlug(entry, "slug", "country", "name", "title", "destination");
+      if (!slug) return null;
+      return { url: `/visa/${slug}-visa`, priority: 0.85, changeFreq: "weekly" };
+    })
+    .filter(Boolean);
+
+  return [...staticRoutes, ...studentVisaRoutes, ...visaSlugRoutes].map((route) => ({
+    url: `${baseUrl}${route.url.startsWith("/") ? route.url : `/${route.url}`}`,
+    lastModified: now,
+    changeFrequency: route.changeFreq,
+    priority: route.priority,
+  }));
+}
