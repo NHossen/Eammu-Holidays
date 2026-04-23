@@ -156,7 +156,7 @@ export default function sitemap() {
   // Tries: slug → country → name → title
   const studentVisaRoutes = studentvisadata
     .map((entry) => {
-      const slug = getSlug(entry,"name");
+      const slug = getSlug(entry,"slug");
       if (!slug) return null;
       return { url: `/study-abroad/student-visa/${slug}`, priority: 0.85, changeFreq: "monthly" };
     })
