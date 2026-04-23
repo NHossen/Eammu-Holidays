@@ -126,7 +126,7 @@ export default async function sitemap({ id }) {
     currentChunk = allDynamicRoutes.slice(start, end);
   }
 
-  // C. Final Formatting
+  // C. Final Formattifsdng
   return currentChunk.map((route) => ({
     url: `${BASE_URL}${route.url.startsWith("/") ? route.url : `/${route.url}`}`,
     lastModified: now,
