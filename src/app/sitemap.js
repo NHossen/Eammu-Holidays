@@ -176,42 +176,62 @@ export default function sitemap() {
   // ── /visa/visa-guide/[slug] ───────────────────────────────────────────────
   // Pattern: [destination]-visa-for-[nationality]
   // Tries common field name pairs for destination and nationality/origin
-  const visaGuideRoutes = visaData
-    .map((entry) => {
-      const dest = getSlug(entry,
-         "slug", "country", "name", "title", "destination"
-      );
-      const nat = getSlug(entry,
-         "slug", "country", "name", "title", "destination"
-      );
-      if (!dest || !nat) return null;
-      return {
-        url: `/visa/visa-guide/${dest}-visa-for-${nat}`,
-        priority: 0.8,
-        changeFreq: "monthly",
-      };
-    })
-    .filter(Boolean);
+  const visaGuideRoutes = visaData.flatMap((entry) => {
+  const dest = getSlug(
+    entry,
+    "slug",
+    "country",
+    "name",
+    "title",
+    "destination"
+  );
+
+  if (!dest) return [];
+
+  return rawVisaData.map((country) => {
+    const nat = createSlug(
+      country.name || country.country || country.title
+    );
+
+    if (!nat || nat === dest) return null; // same country skip
+
+    return {
+      url: `/visa/visa-guide/${dest}-visa-for-${nat}`,
+      priority: 0.8,
+      changeFreq: "monthly",
+    };
+  }).filter(Boolean);
+});
 
   // ── /travel-resources/visa-processing-time-tracker/[slug] ────────────────
   // Pattern: [dest]-national-visa-processing-time-for-[nat]?type=[type]
   // 4 types × every country pair
-  const processingTimeRoutes = visaData
-    .flatMap((entry) => {
-      const dest = getSlug(entry,
-        "slug", "country", "name", "title", "destination"
-      );
-      const nat = getSlug(entry,
-        "slug", "country", "name", "title", "destination"
-      );
-      if (!dest || !nat) return [];
-      return visaTypes.map((type) => ({
-        url: `/travel-resources/visa-processing-time-tracker/${dest}-national-visa-processing-time-for-${nat}?type=${type}`,
-        priority: 0.7,
-        changeFreq: "weekly",
-      }));
-    });
+ const processingTimeRoutes = visaData.flatMap((entry) => {
+  const dest = getSlug(
+    entry,
+    "slug",
+    "country",
+    "name",
+    "title",
+    "destination"
+  );
 
+  if (!dest) return [];
+
+  return rawVisaData.flatMap((country) => {
+    const nat = createSlug(
+      country.name || country.country || country.title
+    );
+
+    if (!nat || nat === dest) return [];
+
+    return visaTypes.map((type) => ({
+      url: `/travel-resources/visa-processing-time-tracker/${dest}-national-visa-processing-time-for-${nat}?type=${type}`,
+      priority: 0.7,
+      changeFreq: "weekly",
+    }));
+  });
+});
   // ── Merge & return ────────────────────────────────────────────────────────
   const allRoutes = [
     ...staticRoutes,

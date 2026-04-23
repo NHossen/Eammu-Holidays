@@ -19,7 +19,7 @@ export const metadata = {
 
   title: {
     default:
-      "Leading Travel Agency in Bangladesh | Leading Education Consultancy in Bangladesh | Dhaka Travel Agency",
+      "Leading Travel Agency in Bangladesh | Education Consultancy in Bangladesh | Dhaka Travel Agency",
     template: "%s | Eammu Holidays",
   },
 
