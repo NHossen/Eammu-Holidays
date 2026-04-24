@@ -35,9 +35,28 @@ function toArray(json) {
 }
 
 // ─── Slug helper ──────────────────────────────────────────────────────────────
+// ─── Slug sanitizer (second defensive pass after createSlug) ─────────────────
+// createSlug() may leave edge-case characters: apostrophes from "d'Ivoire",
+// accents from "Sao Tome", ampersands from "Bosnia & Herzegovina", etc.
+// These are legal in some contexts but break XML <loc> elements entirely.
+// sanitizeSlug() guarantees only [a-z0-9-] survives into any URL.
+function sanitizeSlug(raw) {
+  return String(raw ?? "")
+    .normalize("NFD")                      // decompose accented chars
+    .replace(/[\u0300-\u036f]/g, "")     // strip combining diacritics
+    .toLowerCase()
+    .replace(/[&\'"`<>{}|\\^[\]~]/g, "-") // special chars -> hyphen
+    .replace(/[^a-z0-9-]/g, "-")          // anything else -> hyphen
+    .replace(/-{2,}/g, "-")               // collapse multiple hyphens
+    .replace(/^-+|-+$/g, "");             // trim leading/trailing hyphens
+}
+
 function getSlug(entry, ...keys) {
   for (const k of keys) {
-    if (entry[k] && typeof entry[k] === "string") return createSlug(entry[k]);
+    if (entry[k] && typeof entry[k] === "string") {
+      const raw = createSlug(entry[k]);   // your existing util
+      return sanitizeSlug(raw);           // defensive second pass
+    }
   }
   return null;
 }

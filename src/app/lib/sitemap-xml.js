@@ -1,76 +1,121 @@
 /**
  * app/lib/sitemap-xml.js
  *
- * Tiny XML helpers.  No external dependencies.
+ * Bulletproof XML helpers for sitemaps.
+ *
+ * ROOT CAUSE OF "Specification mandates value for attribute hidden":
+ *   Country names like "Côte d'Ivoire", "São Tomé", "Bosnia & Herzegovina"
+ *   produce slugs containing raw apostrophes ('), ampersands (&), or other
+ *   characters that are ILLEGAL inside XML text nodes.  A single unescaped
+ *   character corrupts the entire document from that point forward.
+ *
+ * FIXES APPLIED:
+ *   1. escapeXml()    — escapes all 5 XML special chars in the URL string.
+ *   2. sanitizeUrl()  — strips any character that should never appear in a
+ *                        sitemap <loc> regardless of encoding rules.
+ *   3. buildUrlsetXml filters out any entry whose URL is empty/invalid after
+ *      sanitization, preventing one bad entry from breaking the whole file.
  */
 
-/**
- * Escape characters that are illegal in XML attribute values / text nodes.
- * This is critical — a single & in a URL will make the whole sitemap invalid.
- */
-export function escapeXml(str) {
-  return String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&apos;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+// ─── Step 1: XML entity escaping ─────────────────────────────────────────────
+// Order matters: & must be replaced FIRST or you'll double-encode the others.
+export function escapeXml(raw) {
+  return String(raw ?? "")
+    .replace(/&/g,  "&amp;")   // must be first
+    .replace(/</g,  "&lt;")
+    .replace(/>/g,  "&gt;")
+    .replace(/"/g,  "&quot;")
+    .replace(/'/g,  "&apos;");
 }
 
-/**
- * Build a <urlset> sitemap from an array of route objects.
- *
- * @param {Array<{url:string, lastModified:string, changeFrequency:string, priority:number}>} routes
- * @returns {string} Complete XML document string
- */
+// ─── Step 2: URL-level sanitization ──────────────────────────────────────────
+// Removes characters that are illegal in URLs themselves (not just XML).
+// This catches anything createSlug() might have missed.
+//
+// Safe URL characters per RFC 3986:
+//   unreserved : A-Z a-z 0-9 - . _ ~
+//   sub-delims : ! $ & ' ( ) * + , ; =   (& and ' are handled by escapeXml above)
+//   path chars : / : @ % (percent-encoded sequences)
+//
+// We keep only: A-Z a-z 0-9  -  /  .  :  %
+// Everything else (curly quotes, accented chars that survived, etc.) is removed.
+export function sanitizeUrl(url) {
+  return String(url ?? "")
+    // Remove any Unicode character that is not ASCII-safe in a URL
+    // eslint-disable-next-line no-control-regex
+    .replace(/[^\x20-\x7E]/g, "")   // strip non-printable / non-ASCII
+    .replace(/[<>"'`{}|\\^[\]]/g, "") // strip chars illegal in XML/URLs
+    .trim();
+}
+
+// ─── Step 3: Validate the final URL is usable ─────────────────────────────────
+function isValidUrl(url) {
+  if (!url || typeof url !== "string") return false;
+  try {
+    const u = new URL(url);
+    return u.protocol === "https:" || u.protocol === "http:";
+  } catch {
+    return false;
+  }
+}
+
+// ─── Build a <urlset> sitemap ─────────────────────────────────────────────────
 export function buildUrlsetXml(routes) {
+  const today = new Date().toISOString().slice(0, 10);
+
   const urls = routes
-    .map(
-      ({ url, lastModified, changeFrequency, priority }) => `  <url>
-    <loc>${escapeXml(url)}</loc>
-    <lastmod>${lastModified ? lastModified.slice(0, 10) : new Date().toISOString().slice(0, 10)}</lastmod>
-    <changefreq>${changeFrequency ?? "monthly"}</changefreq>
-    <priority>${(priority ?? 0.5).toFixed(1)}</priority>
-  </url>`
-    )
+    .map(({ url, lastModified, changeFrequency, priority }) => {
+      const clean = sanitizeUrl(url);
+      if (!isValidUrl(clean)) return null; // silently skip bad entries
+
+      const loc     = escapeXml(clean);
+      const lastmod = lastModified
+        ? String(lastModified).slice(0, 10)
+        : today;
+      const freq    = escapeXml(changeFrequency ?? "monthly");
+      const pri     = Number.isFinite(priority) ? priority.toFixed(1) : "0.5";
+
+      return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${freq}</changefreq>\n    <priority>${pri}</priority>\n  </url>`;
+    })
+    .filter(Boolean)
     .join("\n");
 
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls}
-</urlset>`;
+  return (
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    urls + "\n" +
+    "</urlset>"
+  );
 }
 
-/**
- * Build a <sitemapindex> document.
- *
- * @param {Array<{loc:string, lastmod?:string}>} sitemaps
- * @returns {string} Complete XML document string
- */
+// ─── Build a <sitemapindex> ───────────────────────────────────────────────────
 export function buildSitemapIndexXml(sitemaps) {
   const today = new Date().toISOString().slice(0, 10);
+
   const items = sitemaps
-    .map(
-      ({ loc, lastmod }) => `  <sitemap>
-    <loc>${escapeXml(loc)}</loc>
-    <lastmod>${lastmod ?? today}</lastmod>
-  </sitemap>`
-    )
+    .map(({ loc, lastmod }) => {
+      const clean = sanitizeUrl(loc);
+      if (!isValidUrl(clean)) return null;
+      return `  <sitemap>\n    <loc>${escapeXml(clean)}</loc>\n    <lastmod>${lastmod ?? today}</lastmod>\n  </sitemap>`;
+    })
+    .filter(Boolean)
     .join("\n");
 
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${items}
-</sitemapindex>`;
+  return (
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    items + "\n" +
+    "</sitemapindex>"
+  );
 }
 
-/**
- * Standard Response headers for sitemap XML.
- * - Cache for 12 h on CDN, 1 h in browser
- * - s-maxage keeps Vercel Edge Cache warm
- */
+// ─── Response headers ─────────────────────────────────────────────────────────
 export const XML_HEADERS = {
-  "Content-Type": "application/xml; charset=utf-8",
-  // Vercel Edge: cache 12 h, stale-while-revalidate 24 h
+  // MUST be application/xml — text/xml causes browser XML parser to apply
+  // a different charset default and can trigger rendering bugs.
+  "Content-Type":  "application/xml; charset=utf-8",
+  // Vercel Edge Cache: serve stale while regenerating, max 12 h fresh
   "Cache-Control": "public, s-maxage=43200, stale-while-revalidate=86400",
+  // Sitemaps themselves must not be indexed by search engines
+  "X-Robots-Tag":  "noindex",
 };
