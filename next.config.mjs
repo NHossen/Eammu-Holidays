@@ -1,8 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source:      "/sitemap.xml",
+        destination: "/sitemap-index",
+      },
+      // Each shard: /sitemap/0.xml → /sitemaps/0
+      {
+        source:      "/sitemap/:id.xml",
+        destination: "/sitemaps/:id",
+      },
+    ];
+  },
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: "visadone.com", pathname: "/**" },
       { protocol: "https", hostname: "encrypted-tbn0.gstatic.com", pathname: "/**" },
       { protocol: "https", hostname: "www.babaaztravels.com", pathname: "/**" },
       { protocol: "https", hostname: "canadiangeographic.ca", pathname: "/**" },
@@ -15,37 +27,18 @@ const nextConfig = {
       { protocol: "https", hostname: "myqatarvisacheck.com", pathname: "/**" },
       { protocol: "https", hostname: "www.utilities-me.com", pathname: "/**" },
       { protocol: "https", hostname: "pelicanmigration.com", pathname: "/**" },
-      { protocol: "https", hostname: "www.holidaymonk.com", pathname: "/**" },
       { protocol: "https", hostname: "res.cloudinary.com", pathname: "/**" },
       { protocol: "https", hostname: "res.klook.com", pathname: "/**" },
-      { protocol: "https", hostname: "armenianweekly.com", pathname: "/**" },
-      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
-      { protocol: "https", hostname: "tripjive.com", pathname: "/**" },
-      { protocol: "https", hostname: "japandeluxetours.com", pathname: "/**" },
-      { protocol: "https", hostname: "afar.brightspotcdn.com", pathname: "/**" },
-      { protocol: "https", hostname: "globalgateways.co.in", pathname: "/**" },
-      { protocol: "https", hostname: "royalbengaltours.com", pathname: "/**" },
-      { protocol: "https", hostname: "toursntripsbd.com", pathname: "/**" },
-      { protocol: "https", hostname: "pmlholidays.com", pathname: "/**" },
-      { protocol: "https", hostname: "www.agoda.com", pathname: "/**" },
+      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },   
       { protocol: "https", hostname: "www.alliancealliance.com", pathname: "/**" },
       { protocol: "https", hostname: "d1.awsstatic.com", pathname: "/**" },
       { protocol: "https", hostname: "i.ibb.co", pathname: "/**" },
       { protocol: "https", hostname: "1000logos.net", pathname: "/**" },
       { protocol: "https", hostname: "www.logo.wine", pathname: "/**" },
       { protocol: "https", hostname: "miro.medium.com", pathname: "/**" },
-      { protocol: "https", hostname: "www.marenkoeppen.com", pathname: "/**" },
-      { protocol: "https", hostname: "onewayeventproductions.com", pathname: "/**" },
-      { protocol: "https", hostname: "i1.adis.ws", pathname: "/**" },
-      { protocol: "https", hostname: "img-cdn.krishijagran.com", pathname: "/**" },
-      { protocol: "https", hostname: "curiosityuntamed.com", pathname: "/**" },
-      { protocol: "https", hostname: "*.bp.blogspot.com", pathname: "/**" },
-      { protocol: "https", hostname: "blogger.googleusercontent.com", pathname: "/**" },
       { protocol: "https", hostname: "via.placeholder.com", pathname: "/**" },
       { protocol: "https", hostname: "eammu.com", pathname: "/**" },
       { protocol: 'https', hostname: 'utilities-me.com', pathname: "/**" },
-      
-      
     ],
   },
   turbopack: { root: 'C:\\Users\\HP\\Desktop\\Armenia Visa\\pass\\Eammu\\eammu-holidays', },
