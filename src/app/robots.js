@@ -23,6 +23,6 @@ export default function robots() {
       },
     ],
     // Point to the sitemapindex — Googlebot follows it to child sitemaps
-    sitemap: "https://eammu.com/sitemap-index.xml",
+    sitemap: "https://eammu.com/sitemap.xml",
   };
 }

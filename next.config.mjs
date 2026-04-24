@@ -1,31 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
- async redirects() {
-    return [
-      {
-        source:      "/sitemap.xml",
-        destination: "/sitemap-index.xml",
-        permanent:   false, // 307 — safe to change later without penalty
-      },
-    ];
-  },
- 
-  // ── 2. Response headers for all sitemap XML files ───────────────────────
-  // Belt-and-suspenders: the route handlers already set Content-Type,
-  // but headers() here ensures it's correct even if a CDN strips them.
-  async headers() {
-    return [
-      {
-        source:  "/:sitemap(sitemap.*\\.xml)",
-        headers: [
-          { key: "Content-Type",  value: "application/xml; charset=utf-8" },
-          { key: "Cache-Control", value: "public, s-maxage=43200, stale-while-revalidate=86400" },
-          { key: "X-Robots-Tag",  value: "noindex" }, // sitemaps themselves shouldn't be indexed
-        ],
-      },
-    ];
-  },
-  
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "encrypted-tbn0.gstatic.com", pathname: "/**" },
