@@ -1,14 +1,28 @@
-// app/robots.js
+/**
+ * app/robots.js
+ *
+ * Generates /robots.txt via Next.js App Router MetadataRoute.
+ * Points crawlers to the sitemap index.
+ *
+ * Replace (or merge with) your existing app/robots.js.
+ */
 
 export default function robots() {
   return {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: ["/signup", "/login"],
+        allow:     "/",
+        // Disallow resource-heavy pages that have no SEO value
+        disallow: [
+          "/api/",
+          "/log-in",
+          "/sign-up",
+          "/_next/",
+        ],
       },
     ],
-    sitemap: "https://eammu-holidays.vercel.app/sitemap.xml",
+    // Point to the sitemapindex — Googlebot follows it to child sitemaps
+    sitemap: "https://eammu.com/sitemap-index.xml",
   };
 }
