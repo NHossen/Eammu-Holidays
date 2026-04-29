@@ -12,6 +12,8 @@ import {
   TrendingUp, BookOpen, TriangleAlert
 } from "lucide-react";
 
+export const revalidate = 86400; // cache for 24 hours
+
 // ── SEO METADATA ─────────────────────────────────────────────────────────────
 export async function generateMetadata({ params }) {
   const { slug } = await params;

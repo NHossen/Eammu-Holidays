@@ -2,6 +2,8 @@ import visaData from '@/app/data/countries.json';
 import { createSlug } from '@/app/lib/utils';
 import Link from 'next/link';
 
+export const revalidate = 86400; // cache for 24 hours
+
 // ── SEO METADATA ──────────────────────────────────────────────────────────
 export async function generateMetadata({ params }) {
   const { slug } = await params;

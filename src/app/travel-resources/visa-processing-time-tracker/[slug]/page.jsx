@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import VisaProcessingSlugPage from '@/Components/Client/VisaProcessingSlugPage/VisaProcessingSlugPage'
 import COUNTRIES from "@/app/data/countries.json";
 
+export const revalidate = 86400; // cache for 24 hours
 // ── VISA RULES (same as client — used for metadata) ────────────────────────
 const VISA_RULES = {
   canada: {
