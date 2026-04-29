@@ -10,9 +10,12 @@
 //   https://eammu.com/sitemap/visa-guide/0.xml
 //   https://eammu.com/sitemap/visa-guide/1.xml
 //   ... auto-scales based on your data size
-
+export const dynamic = "force-dynamic";  // ← add this at the top
+export const revalidate = 3600;
 import rawVisaData from "@/app/data/countries.json";
 import { createSlug } from "@/app/lib/utils";
+
+
 
 const BASE_URL   = "https://eammu.com";
 const CHUNK_SIZE = 50_000;

@@ -2,7 +2,7 @@
 // Handles: GET /sitemap/0.xml  /sitemap/1.xml  etc
 // Each shard returns up to 45,000 URLs
 
-import { buildAllRoutes, buildUrlsetXML, URLS_PER_SHARD } from "@/app/lib/utils";
+import { buildAllRoutes, buildUrlsetXML, URLS_PER_SHARD } from "@/app/lib/sitemap-data";
 
 export const dynamic = "force-dynamic";
 
