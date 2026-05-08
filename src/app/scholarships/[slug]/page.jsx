@@ -1,6 +1,7 @@
-// app/scholarships/[slug]/page.jsx  ← SERVER COMPONENT
+import CountryScholarshipsClient from "@/Components/Client/CountryScholarshipsClient/CountryScholarshipsClient";
 
-import CountryScholarshipsClient from "@/components/Client/CountryScholarshipsClient/CountryScholarshipsClient";
+
+
 
 
 // ─── Data Fetching ────────────────────────────────────────────────────────────
@@ -277,7 +278,7 @@ export default async function CountryScholarshipsPage({ params }) {
         allCountries={allCountries}
         countryName={countryName}
       />
-     
+
     </>
   );
 }
