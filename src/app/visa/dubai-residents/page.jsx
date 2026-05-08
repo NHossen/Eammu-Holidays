@@ -572,10 +572,10 @@ export default function TouristVisaDubaiResidents() {
             <p className="text-xs text-black/25 font-bold uppercase tracking-widest mb-4">More Visa Guides</p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: "Tourist Visa",  href: "/visa/tourist-visa" },
-                { label: "Business Visa", href: "/visa/business-visa" },
-                { label: "Student Visa",  href: "/visa/student-visa" },
-                { label: "Medical Visa",  href: "/visa/medical-visa" },
+                { label: "Tourist Visa",  href: "/visa" },
+                { label: "Business Visa", href: "/visa" },
+                { label: "Student Visa",  href: "/visa/study-abroad" },
+                { label: "Medical Visa",  href: "/visa" },
                 { label: "Schengen Visa", href: "/visa/schengen-visa" },
                 { label: "E-Visa",        href: "/visa/e-visa" },
                 { label: "USA Visa",      href: "/visa/dubai-residents/united-states" },

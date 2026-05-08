@@ -572,9 +572,9 @@ export default function TouristVisaIndia() {
             <p className="text-xs text-black/25 font-bold uppercase tracking-widest mb-4">More Visa Guides</p>
             <div className="flex flex-wrap gap-3">
               {[
-                { label: "Tourist Visa",  href: "/visa/tourist-visa" },
-                { label: "Business Visa", href: "/visa/business-visa" },
-                { label: "Student Visa",  href: "/visa/student-visa" },
+                { label: "Tourist Visa",  href: "/visa/" },
+                { label: "Business Visa", href: "/visa/" },
+                { label: "Student Visa",  href: "/visa/study-abroad" },
                 { label: "Medical Visa",  href: "/visa" },
                 { label: "Schengen Visa", href: "/visa/schengen-visa" },
                 { label: "USA Visa",      href: "/visa/india/united-states" },
