@@ -173,7 +173,7 @@ export default function sitemap() {
     })
     .filter(Boolean);
 
-  // ── /visa/visa-guide/[slug] ok ───────────────────────────────────────────────
+  // ── /visa/visa-guide/[slug] ok updted───────────────────────────────────────────────
   // Pattern: [destination]-visa-for-[nationality]
   // Tries common field name pairs for destination and nationality/origin
   const visaGuideRoutes = visaData.flatMap((entry) => {
