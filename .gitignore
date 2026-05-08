@@ -40,3 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Sitemap verification files
+all_sitemaps.txt
+verify_sitemap.txt
+*.txt
