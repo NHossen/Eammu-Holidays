@@ -4,7 +4,7 @@ import Header from "@/Components/Client/Header/Header";
 import Footer from "@/Components/Server/Footer/Footer";
 import WhatsAppFloatingButton from "@/Components/Client/WhatsAppFloatingButton/WhatsAppFloatingButton";
 import Scroll from "@/Components/Client/Scroll/Scroll";
-import Script from "next/script";
+
 
 
 
@@ -112,11 +112,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
        <head>
-    <Script
+   <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3033816186833488"
-     crossorigin="anonymous"
-    />
+      crossOrigin="anonymous"
+    ></script>
   </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         
