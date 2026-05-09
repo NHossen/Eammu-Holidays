@@ -431,42 +431,53 @@ export default function EVISAMainPage() {
             ))}
           </div>
         ) : currentItems.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {currentItems.map((c, i) => {
-              // For destinations: link to a generic destination page
-              // For nationalities: link to nationality e-visa browse page
-              const href = viewMode === "destinations"
-                ? `/visa/e-visa/requirements-for-${createSlug(c.country)}`
-                : `/visa/e-visa/${createSlug(c.country)}`;
-              const titleText = viewMode === "destinations"
-                ? `e-Visa Requirements to Visit ${c.country} — 2026 Guide`
-                : `${c.country} Passport e-Visa Requirements — 2026 Guide`;
-              return (
-                <Link
-                  key={`${c.code}-${i}`}
-                  href={href}
-                  className="group rounded-2xl overflow-hidden border border-black/5 flex flex-col bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300"
-                  title={titleText}
-                >
-                  <div className="relative h-28 overflow-hidden bg-gray-200">
-                    <img
-                      src={c.flag}
-                      alt={`${c.country} e-Visa requirements 2026`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(0,0,0,0.25) 0%,transparent 60%)" }} />
-                  </div>
-                  <div className="p-3 flex flex-col flex-1 justify-between">
-                    <h3 className="text-sm font-black text-black/80 leading-tight group-hover:text-black transition-colors mb-2">{c.country}</h3>
-                    <div className="text-[10px] font-bold text-[#f5c800] bg-[#f5c800]/5 rounded-lg px-2 py-1 text-center group-hover:bg-[#f5c800] group-hover:text-black transition-all">
-                      {viewMode === "destinations" ? "e-Visa Guide →" : "Check e-Visa →"}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
+         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+  {currentItems.map((c, i) => {
+    // Determine the slugs for the buildEvisaSlug function
+    // Note: If you don't have a secondary country context yet, 
+    // you might need to pass a default or state-based slug.
+    const countrySlug = createSlug(c.country);
+    
+    // Using your new buildEvisaSlug logic
+    const href = viewMode === "destinations"
+      ? buildEvisaSlug("any", countrySlug) // Example: requirements for a specific destination
+      : buildEvisaSlug(countrySlug, "any"); // Example: requirements for a specific nationality
+
+    const titleText = viewMode === "destinations"
+      ? `e-Visa Requirements to Visit ${c.country} — 2026 Guide`
+      : `${c.country} Passport e-Visa Requirements — 2026 Guide`;
+
+    return (
+      <Link
+        key={`${c.code}-${i}`}
+        href={href}
+        className="group rounded-2xl overflow-hidden border border-black/5 flex flex-col bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300"
+        title={titleText}
+      >
+        <div className="relative h-28 overflow-hidden bg-gray-200">
+          <img
+            src={c.flag}
+            alt={`${c.country} e-Visa requirements 2026`}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            loading="lazy"
+          />
+          <div 
+            className="absolute inset-0" 
+            style={{ background: "linear-gradient(to top,rgba(0,0,0,0.25) 0%,transparent 60%)" }} 
+          />
+        </div>
+        <div className="p-3 flex flex-col flex-1 justify-between">
+          <h3 className="text-sm font-black text-black/80 leading-tight group-hover:text-black transition-colors mb-2">
+            {c.country}
+          </h3>
+          <div className="text-[10px] font-bold text-[#f5c800] bg-[#f5c800]/5 rounded-lg px-2 py-1 text-center group-hover:bg-[#f5c800] group-hover:text-black transition-all">
+            {viewMode === "destinations" ? "e-Visa Guide →" : "Check e-Visa →"}
           </div>
+        </div>
+      </Link>
+    );
+  })}
+</div>
         ) : (
           <div className="text-center py-24 rounded-3xl border border-black/5 bg-gray-50">
             <div className="text-6xl mb-4">🌍</div>
