@@ -9,6 +9,7 @@ import { getCountries }   from "@/app/lib/sitemap-data";
 export const URLS_PER_SHARD = 45_000;
 export const dynamic        = 'force-dynamic';
 export const runtime        = 'nodejs';
+export const revalidate     = 86400; // Vercel CDN cache: rebuild every 24h
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 const BASE_URL         = "https://eammu.com";
