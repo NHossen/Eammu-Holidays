@@ -1,23 +1,23 @@
 // app/sitemap/[id]/route.js  (eammu.com — merged JSON + MongoDB)
 
-import { NextResponse } from 'next/server';
-import rawVisaData    from "@/app/data/countries.json";
-import rawStudentData from "@/app/data/studentvisadata.json";
-import { createSlug } from "@/app/lib/utils";
-import { getCountries } from "@/app/lib/sitemap-data";
-// 1. ADD THIS CONSTANT
-export const URLS_PER_SHARD = 45000;
-export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs';
+import { NextResponse }   from 'next/server';
+import rawVisaData        from "@/app/data/countries.json";
+import rawStudentData     from "@/app/data/studentvisadata.json";
+import { createSlug }     from "@/app/lib/utils";
+import { getCountries }   from "@/app/lib/sitemap-data";
 
-// ── Constants ────────────────────────────────────────────────────────────────
+export const URLS_PER_SHARD = 45_000;
+export const dynamic        = 'force-dynamic';
+export const runtime        = 'nodejs';
+
+// ── Constants ─────────────────────────────────────────────────────────────────
 const BASE_URL         = "https://eammu.com";
 const PAGE_SIZE        = 45_000;
 const BUILD_TIME       = new Date().toISOString();
 const PROCESSING_TYPES = ["sticker", "e-visa", "transit", "sticker-extended"];
 const REJECTION_TYPES  = ["tourist", "student", "work", "transit", "business", "family"];
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
+// ── Helpers ───────────────────────────────────────────────────────────────────
 function toArray(json) {
   if (Array.isArray(json)) return json;
   if (json && typeof json === "object") {
@@ -45,6 +45,7 @@ function uniqueSlugs(entries, ...keys) {
   return result;
 }
 
+// FIX 1: Removed cleanPath / split('?') — query params now pass through correctly
 function fmt(path, priority, changeFreq) {
   return {
     url: `${BASE_URL}${path.startsWith("/") ? path : `/${path}`}`,
@@ -64,7 +65,7 @@ function buildXml(urls) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>`;
 }
 
-// ── Cache ─────────────────────────────────────────────────────────────────────
+// ── In-process cache ──────────────────────────────────────────────────────────
 let _cachedRoutes = null;
 let _cacheBuiltAt = null;
 const CACHE_TTL   = 60 * 60 * 1000; // 1 hour
@@ -83,9 +84,7 @@ async function getAllRoutes() {
 
   // ── MongoDB data ───────────────────────────────────────────────────────────
   const countries  = await getCountries();
-
-  // Deduplicated slug + name pairs from MongoDB
-  const mongoSlugs = countries.map(c => createSlug(c.country));
+  const mongoSlugs = countries.map(c => createSlug(c.country)).filter(Boolean);
 
   // ── Static routes ──────────────────────────────────────────────────────────
   const staticRoutes = [
@@ -143,29 +142,34 @@ async function getAllRoutes() {
     fmt("/our-services/visa/turkey-visa-application",                    0.8, "monthly"),
     fmt("/our-services/visa/uk-visa-application",                        0.8, "monthly"),
     fmt("/our-services/visa/usa-visa-application",                       0.8, "monthly"),
-    fmt("/study-abroad",                                                 0.95,"weekly"),
-    fmt("/study-abroad/student-visa",                                    0.9, "weekly"),
-    fmt("/visa",                                                         0.95,"daily"),
-    fmt("/visa/visa-guide",                                              0.9, "daily"),
-    fmt("/travel-resources",                                             0.8, "weekly"),
-    fmt("/travel-resources/travel-document-generator",                   0.7, "monthly"),
-    fmt("/travel-resources/visa-checklist-generator",                    0.7, "monthly"),
-    fmt("/travel-resources/visa-processing-time-tracker",                0.8, "weekly"),
-    fmt("/contact/travel-agency-armenia",                                0.7, "monthly"),
-    fmt("/contact/travel-agency-bangladesh",                             0.7, "monthly"),
-    fmt("/contact/travel-agency-dubai",                                  0.7, "monthly"),
-    fmt("/contact/travel-agency-georgia",                                0.7, "monthly"),
-    fmt("/online-travel-agency-bangladesh",                              0.8, "monthly"),
-    fmt("/eammu-dairy-poultry",                                          0.6, "monthly"),
-    fmt("/eammu-fashion",                                                0.6, "monthly"),
-    fmt("/eammu-fashion/eammu-store",                                    0.6, "monthly"),
-    fmt("/eammu-social-responsibility",                                  0.6, "monthly"),
-    fmt("/eammu-textile-bangladesh",                                     0.6, "monthly"),
-    fmt("/web-development-digital-marketing",                            0.7, "monthly"),
-    fmt("/flight-booking",                                               0.8, "monthly"),
-    fmt("/event-management",                                             0.7, "monthly"),
-    fmt("/target-ielts-immigration-center",                              0.8, "monthly"),
-    fmt("/target-usa-visa-interview-preparation",                        0.8, "monthly"),
+    fmt("/study-abroad",                                                 0.95, "weekly"),
+    fmt("/study-abroad/student-visa",                                    0.9,  "weekly"),
+    fmt("/visa",                                                         0.95, "daily"),
+    fmt("/visa/visa-guide",                                              0.9,  "daily"),
+    fmt("/travel-resources",                                             0.8,  "weekly"),
+    fmt("/travel-resources/travel-document-generator",                   0.7,  "monthly"),
+    fmt("/travel-resources/visa-checklist-generator",                    0.7,  "monthly"),
+    fmt("/travel-resources/visa-processing-time-tracker",                0.8,  "weekly"),
+    fmt("/contact/travel-agency-armenia",                                0.7,  "monthly"),
+    fmt("/contact/travel-agency-bangladesh",                             0.7,  "monthly"),
+    fmt("/contact/travel-agency-dubai",                                  0.7,  "monthly"),
+    fmt("/contact/travel-agency-georgia",                                0.7,  "monthly"),
+    fmt("/online-travel-agency-bangladesh",                              0.8,  "monthly"),
+    fmt("/eammu-dairy-poultry",                                          0.6,  "monthly"),
+    fmt("/eammu-fashion",                                                0.6,  "monthly"),
+    fmt("/eammu-fashion/eammu-store",                                    0.6,  "monthly"),
+    fmt("/eammu-social-responsibility",                                  0.6,  "monthly"),
+    fmt("/eammu-textile-bangladesh",                                     0.6,  "monthly"),
+    fmt("/web-development-digital-marketing",                            0.7,  "monthly"),
+    fmt("/flight-booking",                                               0.8,  "monthly"),
+    fmt("/event-management",                                             0.7,  "monthly"),
+    fmt("/target-ielts-immigration-center",                              0.8,  "monthly"),
+    fmt("/target-usa-visa-interview-preparation",                        0.8,  "monthly"),
+    fmt("/visa-rejection",                                               0.8,  "weekly"),
+    fmt("/visa/e-visa",                                                  0.8,  "weekly"),
+    fmt("/scholarships",                                                 0.8,  "weekly"),
+    fmt("/visa/dubai-residents",                                         0.8,  "weekly"),
+    fmt("/visa/india",                                                   0.8,  "weekly"),
   ];
 
   // ── JSON-based dynamic routes ──────────────────────────────────────────────
@@ -183,13 +187,16 @@ async function getAllRoutes() {
       .map(nat => fmt(`/visa/visa-guide/${dest}-visa-for-${nat}`, 0.8, "monthly"))
   );
 
+  // FIX 2: Added -national-visa- to match your actual page URL pattern:
+  // e.g. /albania-national-visa-processing-time-for-united-arab-emirates?type=sticker
+  // FIX 1 (fmt no longer strips ?): query param now correctly appears in sitemap
   const processingTimeRoutes = visaSlugs.flatMap(dest =>
     visaSlugs
       .filter(nat => nat !== dest)
       .flatMap(nat =>
         PROCESSING_TYPES.map(type =>
           fmt(
-            `/travel-resources/visa-processing-time-tracker/${dest}-processing-time-for-${nat}/?type=${type}`,
+            `/travel-resources/visa-processing-time-tracker/${dest}-national-visa-processing-time-for-${nat}?type=${type}`,
             0.7,
             "weekly"
           )
@@ -227,7 +234,8 @@ async function getAllRoutes() {
     fmt(`/visa/india/${slug}`, 0.8, "monthly")
   );
 
-  // /visa-rejection/[nat]-visa-rejection-rate-for-[dest]?type=[type]
+  // FIX 1 (fmt no longer strips ?): ?type= query param now correctly appears in sitemap
+  // Pattern: /visa-rejection/[nat]-visa-rejection-rate-for-[dest]?type=[type]
   const rejectionRoutes = mongoSlugs.flatMap(nat =>
     mongoSlugs
       .filter(dest => dest !== nat)
@@ -255,17 +263,17 @@ async function getAllRoutes() {
     rejectionRoutes.length;
 
   console.log(`[eammu-sitemap] Built:
-    static:         ${staticRoutes.length}
-    student:        ${studentVisaRoutes.length}
-    visaSlug:       ${visaSlugRoutes.length}
-    visaGuide:      ${visaGuideRoutes.length}
-    processing:     ${processingTimeRoutes.length}
-    e-visa:         ${eVisaRoutes.length}
-    scholarships:   ${scholarshipRoutes.length}
-    dubai-resident: ${dubaiResidentRoutes.length}
-    india-visa:     ${indiaVisaRoutes.length}
-    rejection:      ${rejectionRoutes.length}
-    TOTAL:          ${total}`);
+    static:          ${staticRoutes.length}
+    student:         ${studentVisaRoutes.length}
+    visaSlug:        ${visaSlugRoutes.length}
+    visaGuide:       ${visaGuideRoutes.length}
+    processing:      ${processingTimeRoutes.length}
+    e-visa:          ${eVisaRoutes.length}
+    scholarships:    ${scholarshipRoutes.length}
+    dubai-resident:  ${dubaiResidentRoutes.length}
+    india-visa:      ${indiaVisaRoutes.length}
+    rejection:       ${rejectionRoutes.length}
+    TOTAL:           ${total}`);
 
   _cachedRoutes = [
     ...staticRoutes,
@@ -273,11 +281,11 @@ async function getAllRoutes() {
     ...visaSlugRoutes,
     ...visaGuideRoutes,
     ...processingTimeRoutes,
-    ...eVisaRoutes,         // ✅ MongoDB
-    ...scholarshipRoutes,   // ✅ MongoDB
-    ...dubaiResidentRoutes, // ✅ MongoDB
-    ...indiaVisaRoutes,     // ✅ MongoDB
-    ...rejectionRoutes,     // ✅ MongoDB
+    ...eVisaRoutes,
+    ...scholarshipRoutes,
+    ...dubaiResidentRoutes,
+    ...indiaVisaRoutes,
+    ...rejectionRoutes,
   ];
   _cacheBuiltAt = Date.now();
 
@@ -312,7 +320,7 @@ export async function GET(request, { params }) {
     return new NextResponse(buildXml(chunk), {
       headers: {
         "Content-Type":  "application/xml; charset=utf-8",
-        "Cache-Control": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400",
+        "Cache-Control": "public, max-age=43200, s-maxage=43200, stale-while-revalidate=86400",
       },
     });
   } catch (err) {
