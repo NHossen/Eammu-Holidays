@@ -1,4 +1,6 @@
 import ScholarshipsMain from '@/Components/Client/ScholarshipsMain/ScholarshipsMain'
+import ScholarshipsPage from '@/Components/Server/Scholarshipspage/Scholarshipspage';
+
 import React from 'react'
 export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
@@ -96,7 +98,8 @@ export default function page() {
           }),
         }}
       />
-      <ScholarshipsMain />
+     
+      <ScholarshipsPage />
     </div>
   )
 }

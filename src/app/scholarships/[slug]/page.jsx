@@ -1,8 +1,5 @@
-import CountryScholarshipsClient from "@/Components/Client/CountryScholarshipsClient/CountryScholarshipsClient";
 
-
-
-
+import CountryScholarshipsServer from "@/Components/Server/Countryscholarshipsserver/Countryscholarshipsserver";
 
 // ─── Data Fetching ────────────────────────────────────────────────────────────
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://visaexpresshub.com";
@@ -271,13 +268,15 @@ export default async function CountryScholarshipsPage({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
 
-      <CountryScholarshipsClient
+      <CountryScholarshipsServer
         slug={slug}
         initialScholarships={scholarships}
         initialCountryInfo={countryInfo}
         allCountries={allCountries}
         countryName={countryName}
       />
+
+
 
     </>
   );

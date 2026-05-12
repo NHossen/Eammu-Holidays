@@ -1,9 +1,9 @@
 // /app/travel-resources/visa-processing-time-tracker/[slug]/page.jsx
 // ─── Dynamic SEO metadata changes with every country combination ──────────
 
-import { Metadata } from "next";
-import VisaProcessingSlugPage from '@/Components/Client/VisaProcessingSlugPage/VisaProcessingSlugPage'
+
 import COUNTRIES from "@/app/data/countries.json";
+import VisaProcessingSlugPage from "@/Components/Server/VisaProcessingTimeTracker/VisaProcessingTimeTracker";
 
 export const revalidate = 86400; // cache for 24 hours
 // ── VISA RULES (same as client — used for metadata) ────────────────────────
@@ -321,10 +321,11 @@ export default async function VisaProcessingSlugPageSeo({ params, searchParams }
         visaType={visaType}
       />
       {/* 3. Pass the resolved params to your client/child component */}
-      <VisaProcessingSlugPage 
+      <VisaProcessingSlugPage
         params={resolvedParams} 
         searchParams={resolvedSearchParams} 
       />
+  
     </>
   );
 }

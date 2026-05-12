@@ -10,12 +10,6 @@ import {
 } from "lucide-react";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// URL PATTERN: /visa/e-visa/[nationality]-e-visa-requirements-for-[destination]
-// Example:     /visa/e-visa/nigerian-e-visa-requirements-for-turkey
-// ─────────────────────────────────────────────────────────────────────────────
-
-// ─────────────────────────────────────────────────────────────────────────────
-// DATA FETCHERS
 // ─────────────────────────────────────────────────────────────────────────────
 async function getCountries() {
   const client = await clientPromise;

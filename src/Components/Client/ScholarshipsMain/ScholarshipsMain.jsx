@@ -3,14 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 
-// ─── SEO Metadata (App Router) ─────────────────────────────────────────────
-// export const metadata = {
-//   title: "Scholarships 2026 – Fully Funded Opportunities in 260+ Countries",
-//   description: "Browse 850+ verified scholarships for international students in 2026.",
-//   keywords: "scholarships 2026, fully funded scholarships, international scholarships, study abroad",
-//   openGraph: { title: "Scholarships 2026", url: "https://yoursite.com/scholarships", type: "website" },
-//   alternates: { canonical: "https://yoursite.com/scholarships" },
-// };
+
 
 const dynamicHeadlines = [
   { title: "Your Future", highlight: "Scholarship", subtitle: "Starts Here" },
