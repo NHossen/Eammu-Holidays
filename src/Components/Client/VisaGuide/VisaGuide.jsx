@@ -209,7 +209,7 @@ export default function VisaGuide() {
   const destData   = useMemo(() => visaData.find(c => c.country.toLowerCase() === destination), [destination]);
 
   return (
-    <div className="min-h-screen bg-[#fafbfc] font-sans antialiased text-slate-900 overflow-x-hidden">
+    <div className=" bg-[#fafbfc] font-sans antialiased text-slate-900 overflow-x-hidden py-22">
 
       {/* Background blobs */}
       <div className="fixed inset-0 pointer-events-none -z-10">
@@ -237,14 +237,14 @@ export default function VisaGuide() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black mb-5 tracking-tight text-slate-900 leading-[1.05]">
-            Visa requirements,<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">
+          <h1 className="text-3xl md:text-5xl font-black mb-5 tracking-tight text-slate-900 leading-[1.05]">
+            Visa requirements,
+             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">
               instantly verified.
             </span>
           </h1>
 
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed mb-3">
+          <p className="text-slate-500 text-lg max-w-6xl mx-auto leading-relaxed mb-3">
             Embassy-accurate visa requirements, document checklists, processing times, and fees — for every country, every nationality. Trusted by{' '}
             <strong className="text-slate-700">42,000+ Bangladeshi travelers</strong>.
           </p>
