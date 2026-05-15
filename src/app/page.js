@@ -15,94 +15,56 @@ import CountrySearchBar from "@/Components/Client/visaServices/Visa/StudentVisaB
 
 const BASE_URL = "https://www.eammu.com";
 
+// ── HOME PAGE SEO METADATA ────────────────────────────────────────────────────
+// These override the global defaults set in layout.jsx for this page only.
 export const metadata = {
-  metadataBase: new URL(BASE_URL),
-
-  title: {
-    default:
-      "Eammu Holidays | Best Travel Agency in Bangladesh & Dubai | Visa, Tours & Umrah Packages",
-    template: "%s | Eammu Holidays",
-  },
+  // Lead with what people search — brand is appended by layout template
+  title:
+    "Tourist Visa, Student Visa, Tour Packages & Flight Booking from Bangladesh",
 
   description:
-    "Eammu Holidays is Bangladesh's leading travel agency offering tourist visas, student visas, Umrah packages 2026, international flight booking, and luxury tour packages to Dubai, Europe, Georgia, Armenia & more. Offices in Dhaka, Dubai, Yerevan & Tbilisi.",
+    "Eammu Holidays — Bangladesh's #1 travel agency. Apply for tourist, student & work visas, book Umrah packages 2026, international flights, and holiday tours to Dubai, Georgia, Armenia & Europe. Visa processing, SOP guides & real-time tracking. Call: +880 1631 312524.",
 
   keywords: [
-    // Core brand
-    "Eammu Holidays",
-    "eammu travel agency",
-    // Bangladesh travel
+    // Homepage-specific high-volume terms
     "travel agency Bangladesh",
-    "best travel agency in Bangladesh",
-    "travel agency Dhaka",
-    "travel agency Cumilla",
-    "tour operator Bangladesh",
-    // Visa services
+    "best travel agency Bangladesh",
     "tourist visa Bangladesh",
-    "student visa Bangladesh",
-    "Dubai visa from Bangladesh",
-    "Europe visa from Bangladesh",
-    "Schengen visa Bangladesh",
-    "visa processing Bangladesh",
-    "visa consultancy Bangladesh",
-    // Umrah
     "Umrah package 2026 Bangladesh",
     "cheap Umrah package Bangladesh",
-    "Umrah visa Bangladesh",
-    // Tours
-    "Georgia tour package from Bangladesh",
-    "Armenia holiday package Bangladesh",
+    "visa processing time Bangladesh",
+    "Georgia tour package Bangladesh",
+    "Armenia tour package Bangladesh",
     "Dubai tour package Bangladesh",
+    "cheap flight booking Dhaka",
+    "international flight booking Bangladesh",
+    "student visa consultancy Bangladesh",
+    "Schengen visa Bangladesh",
+    "Europe visa from Bangladesh",
+    "Dubai visa from Bangladesh",
     "Cox's Bazar tour package",
-    "international holiday packages Bangladesh",
-    "luxury tour packages Bangladesh",
-    // Flights
-    "cheap flight booking Bangladesh",
-    "international flight ticket Bangladesh",
-    "online flight booking Dhaka",
-    // Dubai
-    "best travel agency Dubai",
-    "international travel agency UAE",
-    "Bangladesh travel agency Dubai",
-    // Education
-    "education consultancy Bangladesh",
-    "study abroad Bangladesh",
-    "foreign university admission Bangladesh",
+    "desert safari Dubai",
+    "Eammu Holidays",
+    "travel agency Cumilla",
+    "visa services Dubai",
+    "holiday packages Bangladesh",
+    "tour operator Bangladesh 2026",
+    "visa agent Bangladesh",
   ],
-
-  authors: [{ name: "Eammu Holidays", url: BASE_URL }],
-  creator: "Eammu Holidays",
-  publisher: "Eammu Holidays",
 
   alternates: {
     canonical: BASE_URL,
-    languages: {
-      "en-US": BASE_URL,
-      "bn-BD": `${BASE_URL}/bn`,
-    },
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
 
   openGraph: {
-    type: "website",
+    title:
+      "Eammu Holidays | Tourist Visa, Umrah 2026, Tours & Flight Booking from Bangladesh",
+    description:
+      "Apply for visas, book Umrah packages, holiday tours & international flights with Eammu Holidays. Offices in Bangladesh, Dubai, Armenia & Georgia. Trusted by 10,000+ travellers.",
     url: BASE_URL,
     siteName: "Eammu Holidays",
-    title:
-      "Eammu Holidays | Global Visa, Tours & Travel Experts from Bangladesh",
-    description:
-      "Apply for visas, book flights, and explore premium holiday packages with Eammu Holidays. Trusted travel partner with offices in Bangladesh, Dubai, Armenia & Georgia.",
+    locale: "en_US",
+    type: "website",
     images: [
       {
         url: `${BASE_URL}/preview-banner.webp`,
@@ -111,329 +73,265 @@ export const metadata = {
         alt: "Eammu Holidays – Best Travel Agency in Bangladesh and Dubai",
         type: "image/webp",
       },
-      {
-        url: `${BASE_URL}/eammu_banner_four.webp`,
-        width: 1200,
-        height: 630,
-        alt: "Luxury International Tour Packages by Eammu Holidays",
-        type: "image/webp",
-      },
     ],
-    locale: "en_US",
-    alternateLocale: ["bn_BD", "ar_AE"],
   },
 
   twitter: {
     card: "summary_large_image",
     site: "@eammuholidays",
     creator: "@eammuholidays",
-    title: "Eammu Holidays | Best Travel Agency – Visa, Tours & Umrah Packages",
+    title:
+      "Eammu Holidays | Tourist Visa, Umrah 2026 & Tours from Bangladesh",
     description:
-      "Book tourist visas, Umrah packages 2026, international flights & holiday tours with Eammu Holidays – your trusted global travel partner from Bangladesh.",
-    images: [`${BASE_URL}/preview-banner.webp`],
-  },
-
-  icons: {
-    icon: [
-      { url: "/emf.jpg", type: "image/jpeg" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-    ],
-    shortcut: "/emf.jpg",
-    apple: [{ url: "/emf.jpg", sizes: "180x180", type: "image/jpeg" }],
-  },
-
-  // ✅ Verification tokens – add your real values here
-  verification: {
-    google: "YOUR_GOOGLE_SEARCH_CONSOLE_TOKEN",
-    // bing: "YOUR_BING_WEBMASTER_TOKEN",
-    // yandex: "YOUR_YANDEX_TOKEN",
-  },
-
-  category: "travel",
-
-  other: {
-    // Geo targeting for local SEO
-    "geo.region": "BD",
-    "geo.placename": "Cumilla, Bangladesh",
-    "geo.position": "23.4607;91.1809",
-    ICBM: "23.4607, 91.1809",
-    // Theme
-    "theme-color": "#0f172a",
-    "color-scheme": "light dark",
-    // Rating
-    rating: "general",
-    revisitAfter: "7 days",
-    language: "English",
+      "Apply for visas, book Umrah packages & holiday tours with Bangladesh's trusted travel agency. Call: +880 1631 312524.",
+    images: [`${BASE_URL}/flight_eammu_offer.webp`],
   },
 };
 
-export default function Home() {
-  // ── Schema 1: TravelAgency (LocalBusiness) ──────────────────────────────────
-  const travelAgencySchema = {
-    "@context": "https://schema.org",
-    "@type": ["TravelAgency", "LocalBusiness"],
-    "@id": `${BASE_URL}/#organization`,
-    name: "Eammu Holidays",
-    url: BASE_URL,
-    logo: {
-      "@type": "ImageObject",
-      url: `${BASE_URL}/emf.jpg`,
-      width: 200,
-      height: 200,
-    },
-    image: `${BASE_URL}/eammu_banner_four.webp`,
-    description:
-      "Premium travel agency providing visa services, Umrah packages, tour packages, and flight bookings across Bangladesh, UAE, Armenia, and Georgia.",
-    telephone: "+8801631312524",
-    email: "info@eammu.com",
-    priceRange: "$$",
-    currenciesAccepted: "BDT, USD, AED",
-    paymentAccepted: "Cash, Credit Card, Bank Transfer",
-    areaServed: [
-      { "@type": "Country", name: "Bangladesh" },
-      { "@type": "Country", name: "United Arab Emirates" },
-      { "@type": "Country", name: "Armenia" },
-      { "@type": "Country", name: "Georgia" },
-    ],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Travel Services",
+// ── HOME PAGE STRUCTURED DATA ─────────────────────────────────────────────────
+// Complements the global schemas in layout.jsx.
+// layout.jsx  → WHO Eammu is (Organization, LocalBusiness, WebSite)
+// page.jsx    → WHAT the homepage offers (FAQs, ItemList, BreadcrumbList)
+
+const homepageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    // 1. BreadcrumbList — shows path in Google results
+    {
+      "@type": "BreadcrumbList",
       itemListElement: [
         {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Tourist Visa Processing",
-            description: "Tourist visa services for Europe, Dubai, USA, and more",
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: BASE_URL,
+        },
+      ],
+    },
+
+    // 2. WebPage — homepage entity with SpeakableSpecification for voice search
+    {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/#homepage`,
+      url: BASE_URL,
+      name: "Eammu Holidays – Tourist Visa, Umrah 2026, Tours & Flights from Bangladesh",
+      isPartOf: { "@id": `${BASE_URL}/#website` },
+      about: { "@id": `${BASE_URL}/about` },
+      description:
+        "Bangladesh's leading travel agency for visa services, Umrah packages, international tour packages, and flight booking.",
+      inLanguage: "en-US",
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ["h1", "h2", ".speakable"],
+      },
+      significantLink: [
+        `${BASE_URL}/visa`,
+        `${BASE_URL}/visa/e-visa`,
+        `${BASE_URL}/our-services/tour-packages`,
+        `${BASE_URL}/flight-booking`,
+        `${BASE_URL}/study-abroad/student-visa`
+      ],
+    },
+
+    // 3. ItemList — showcases homepage sections for Google Discover & rich results
+    {
+      "@type": "ItemList",
+      name: "Eammu Holidays – Travel Services & Tools",
+      url: BASE_URL,
+      numberOfItems: 6,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Tourist Visa Services",
+          description:
+            "Apply for tourist visas to Europe, Dubai, USA, UK, Canada and 100+ countries from Bangladesh.",
+          url: `${BASE_URL}/our-services/visa-services`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Visa Processing Time Tracker",
+          description:
+            "Real-time visa processing time tracker for all major embassies and destinations.",
+          url: `${BASE_URL}/travel-resources/visa-processing-time-tracker`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Umrah Packages 2026",
+          description:
+            "Affordable and premium Umrah packages 2026 from Bangladesh including flights, hotel and visa.",
+          url: `${BASE_URL}/offers`,
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: "International Tour Packages",
+          description:
+            "Holiday tour packages to Georgia, Armenia, Dubai, Europe, and Cox's Bazar.",
+          url: `${BASE_URL}/our-services/tour-packages`,
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
+          name: "Flight Booking",
+          description:
+            "Cheap international and domestic flight ticket booking from Bangladesh.",
+          url: `${BASE_URL}/flight-booking`,
+        },
+        {
+          "@type": "ListItem",
+          position: 6,
+          name: "Student Visa & Education Consultancy",
+          description:
+            "Student visa processing and overseas education consultancy for studying abroad.",
+          url: `${BASE_URL}/study-abroad/student-visa`,
+        },
+      ],
+    },
+
+    // 4. FAQPage — generates expandable rich snippets in Google results (big CTR boost)
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How do I apply for a tourist visa through Eammu Holidays?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Visit eammu.com, select your destination country, and submit your documents online or visit our Cumilla office. Our team handles the full application process including document checklist, SOP preparation, and embassy appointment.",
           },
         },
         {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Umrah Package 2026",
-            description: "Affordable Umrah packages from Bangladesh",
+          "@type": "Question",
+          name: "Does Eammu Holidays offer Umrah packages from Bangladesh in 2026?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. Eammu Holidays offers both affordable and premium Umrah packages 2026 from Bangladesh including return flights, hotel accommodation in Makkah and Madinah, Umrah visa processing, and ground transport. Call +880 1631 312524 for current pricing.",
           },
         },
         {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "International Tour Packages",
-            description:
-              "Holiday tour packages to Georgia, Armenia, Dubai, Europe and more",
+          "@type": "Question",
+          name: "Which countries does Eammu Holidays have offices in?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Eammu Holidays has offices in Cumilla (Bangladesh), Dubai (UAE), Yerevan (Armenia), and Tbilisi (Georgia), giving clients local support in multiple time zones.",
           },
         },
         {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Flight Booking",
-            description: "International and domestic flight ticket booking",
+          "@type": "Question",
+          name: "Can Eammu Holidays help with student visa processing?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. We provide complete student visa processing and education consultancy — including university selection, admission assistance, SOP writing, and visa application filing for countries including UK, Canada, Australia, and Europe.",
           },
         },
         {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Student Visa Consultancy",
-            description:
-              "Student visa processing and education consultancy for studying abroad",
+          "@type": "Question",
+          name: "What tour packages does Eammu Holidays offer from Bangladesh?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "We offer holiday tour packages to Georgia, Armenia, Dubai (including desert safari), Europe, Cox's Bazar, and other international destinations. Packages include flights, hotels, visa processing, and guided tours.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How long does visa processing take with Eammu Holidays?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Processing times depend on the destination. Schengen visas typically take 15 calendar days, Dubai visas 3–5 working days, and UK/Canada visas 4–8 weeks. Use our real-time Visa Processing Time Tracker on our website for updated timelines.",
           },
         },
       ],
     },
-    address: [
-      {
-        "@type": "PostalAddress",
-        streetAddress: "Office No-178, 1st Floor, Gomoti Tower, Cantonment",
-        addressLocality: "Cumilla",
-        addressRegion: "Chattogram Division",
-        postalCode: "3500",
-        addressCountry: "BD",
-      },
-      {
-        "@type": "PostalAddress",
-        streetAddress: "Business Bay",
-        addressLocality: "Dubai",
-        addressCountry: "AE",
-      },
-      {
-        "@type": "PostalAddress",
-        streetAddress: "Lambron 39",
-        addressLocality: "Yerevan",
-        addressCountry: "AM",
-      },
-      {
-        "@type": "PostalAddress",
-        streetAddress: "Levan Gotua Street #3",
-        addressLocality: "Tbilisi",
-        addressCountry: "GE",
-      },
-    ],
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        telephone: "+8801631312524",
-        contactType: "customer service",
-        areaServed: "BD",
-        availableLanguage: ["English", "Bengali"],
-        hoursAvailable: {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: [
-            "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",
-          ],
-          opens: "09:00",
-          closes: "21:00",
+
+    // 5. Event — for Umrah 2026 (seasonal rich result opportunity)
+    {
+      "@type": "Event",
+      name: "Umrah Package 2026 – Eammu Holidays Bangladesh",
+      description:
+        "Book your Umrah 2026 package with Eammu Holidays. Includes return flights, hotel, and visa from Bangladesh.",
+      startDate: "2026-01-01",
+      endDate: "2026-12-31",
+      eventStatus: "https://schema.org/EventScheduled",
+      eventAttendanceMode:
+        "https://schema.org/OfflineEventAttendanceMode",
+      location: {
+        "@type": "Place",
+        name: "Makkah al-Mukarramah",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Makkah",
+          addressCountry: "SA",
         },
       },
-      {
-        "@type": "ContactPoint",
-        telephone: "+971507078334",
-        contactType: "sales",
-        areaServed: "AE",
-        availableLanguage: ["English", "Arabic", "Hindi", "Bengali"],
+      organizer: { "@id": `${BASE_URL}/#organization` },
+      offers: {
+        "@type": "Offer",
+        url: `${BASE_URL}/umrah-packages`,
+        availability: "https://schema.org/InStock",
+        priceCurrency: "BDT",
+        validFrom: "2026-01-01",
       },
-    ],
-    sameAs: [
-      "https://www.facebook.com/eammuholidays",
-      "https://www.instagram.com/eammuholidays",
-      "https://www.youtube.com/@eammuholidays",
-      "https://www.linkedin.com/company/eammuholidays",
-    ],
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
-        opens: "09:00",
-        closes: "21:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Friday", "Saturday"],
-        opens: "10:00",
-        closes: "22:00",
-      },
-    ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "320",
-      bestRating: "5",
-      worstRating: "1",
     },
-  };
+  ],
+};
 
-  // ── Schema 2: WebSite with SearchAction (Google Sitelinks Searchbox) ─────────
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${BASE_URL}/#website`,
-    url: BASE_URL,
-    name: "Eammu Holidays",
-    description:
-      "Bangladesh's leading travel agency for visa services, tour packages, Umrah, and flight booking.",
-    publisher: { "@id": `${BASE_URL}/#organization` },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${BASE_URL}/search?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
-    inLanguage: ["en-US", "bn-BD"],
-  };
-
-  // ── Schema 3: BreadcrumbList ─────────────────────────────────────────────────
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: BASE_URL,
-      },
-    ],
-  };
-
-  // ── Schema 4: FAQPage (high CTR snippet) ────────────────────────────────────
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "How do I apply for a tourist visa through Eammu Holidays?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "You can apply for a tourist visa by visiting our website at eammu.com, selecting your destination country, and submitting your documents online. Our team will guide you through the entire process.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does Eammu Holidays offer Umrah packages from Bangladesh in 2026?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes, Eammu Holidays offers affordable and premium Umrah packages from Bangladesh for 2026. Packages include flights, hotel accommodation, and visa processing.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Which countries does Eammu Holidays have offices in?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Eammu Holidays has offices in Bangladesh (Cumilla), Dubai (UAE), Yerevan (Armenia), and Tbilisi (Georgia).",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can Eammu Holidays help with student visa processing?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes, we provide complete student visa processing and education consultancy services to help students get admitted to universities abroad.",
-        },
-      },
-    ],
-  };
-
+export default function Home() {
   return (
     <>
-      {/* ── Structured Data ───────────────────────────────────────────────── */}
+      {/* Page-level structured data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(travelAgencySchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }}
       />
 
       <main>
         <LandingModal />
+
+        {/* Section IDs referenced in ItemList schema above — enables deep links */}
         <HeroSection />
-        <CountrySearchBar />
+
+        <section id="student-visa" aria-label="Student Visa Country Search">
+          <CountrySearchBar />
+        </section>
+
         <SpecialDayBanner />
-        <VisaSearchBar />
-        <SpecialOffers />
-        <FlightOfferBanner />
-        <VisaServices />
-        <VisaSearch />
-        <PosterGallery />
-        <TourPackages />
+
+        <section id="visa-processing-time-Tracker" aria-label="Visa Processing Time Tracker">
+          <VisaSearchBar />
+        </section>
+
+        <section id="offers" aria-label="Special Offers and Umrah Packages">
+          <SpecialOffers />
+        </section>
+
+        <section id="flight-booking" aria-label="International Flight Offers">
+          <FlightOfferBanner />
+        </section>
+
+        <section id="visa-services" aria-label="Tourist Visa Services">
+          <VisaServices />
+        </section>
+
+        <section id="visa-search" aria-label="Tourist Visa Search">
+          <VisaSearch />
+        </section>
+
+        <section id="poster-gallery" aria-label="Tour Destination Gallery">
+          <PosterGallery />
+        </section>
+
+        <section id="tour-packages" aria-label="International Tour Packages">
+          <TourPackages />
+        </section>
+
         <Caresoul_BG_Mix />
-        <Our_Succsses_State />
+
+        <section id="our-success" aria-label="Our Success and Client Statistics">
+          <Our_Succsses_State />
+        </section>
       </main>
     </>
   );
