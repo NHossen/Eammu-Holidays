@@ -14,15 +14,6 @@ import {
 import TopStudyDestinations from "./TopStudyDestinations/TopStudyDestinations";
 import StudentVisa from "./StudentVisa/StudentVisa";
 
-// ─── INTERNAL LINKING DATA ────────────────────────────────────────────────────
-
-// Tier 1 & 2 upward links
-const BREADCRUMB = [
-  { label: "Home",         href: "/" },
-  { label: "Our services", href: "/our-services" },
-  { label: "Visa services",href: "/our-services/visa-services" },
-  { label: "Student visa from Bangladesh" },
-];
 
 // Country student visa pages — spoke links going DOWN
 const COUNTRY_STUDENT_VISAS = [
@@ -102,28 +93,6 @@ const RELATED_VISA_PAGES = [
   { label: "Study abroad guide",           href: "/study-abroad" },
 ];
 
-// ─── BREADCRUMB ───────────────────────────────────────────────────────────────
-
-function Breadcrumb() {
-  return (
-    <nav aria-label="breadcrumb" className="bg-white border-b border-gray-100 py-2.5 px-4">
-      <div className="container mx-auto flex flex-wrap gap-1.5 items-center text-xs text-gray-500">
-        {BREADCRUMB.map((item, i) => (
-          <span key={i} className="flex items-center gap-1.5">
-            {item.href ? (
-              <Link href={item.href} className="hover:text-[#005a31] transition">
-                {item.label}
-              </Link>
-            ) : (
-              <span className="text-gray-800 font-semibold">{item.label}</span>
-            )}
-            {i < BREADCRUMB.length - 1 && <span className="text-gray-300">/</span>}
-          </span>
-        ))}
-      </div>
-    </nav>
-  );
-}
 
 // ─── RESOURCE STRIP ──────────────────────────────────────────────────────────
 
@@ -252,7 +221,7 @@ const StudentVisaBangladesh = () => {
   };
 
   return (
-    <div className="bg-[#fcfcfc] min-h-screen font-sans overflow-x-hidden mt-20">
+    <div className="bg-[#fcfcfc] min-h-screen font-sans overflow-x-hidden ">
 
       {/* JSON-LD structured data */}
       <script
@@ -276,9 +245,7 @@ const StudentVisaBangladesh = () => {
         }}
       />
 
-      {/* ── BREADCRUMB ── */}
-      <Breadcrumb />
-
+  
       {/* ── HERO / STUDENT VISA COMPONENT ── */}
       <StudentVisa />
 

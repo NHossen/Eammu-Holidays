@@ -42,7 +42,7 @@ const OfferBackgroundSlider = () => {
     /* Change 1: Use 'w-full' instead of 'w-screen' to avoid disappearing act.
        Change 2: Ensure 'relative' and a high 'z-index' so it stays on top.
     */
-    <section className="relative w-full h-[60vh] md:h-[85vh] overflow-hidden bg-zinc-900 z-10">
+    <section className="relative w-full h-[60vh] md:h-[60vh] overflow-hidden bg-zinc-900 z-10">
      <AnimatePresence mode="wait">
         <motion.div
           key={index}
