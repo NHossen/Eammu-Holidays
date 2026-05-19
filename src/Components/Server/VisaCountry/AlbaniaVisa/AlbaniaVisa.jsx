@@ -47,21 +47,9 @@ const AlbaniaVisa = () => {
   return (
     <>
       <SchemaScript />
-      <main className="bg-white min-h-screen font-sans text-slate-900">
+      <main className="bg-white min-h-screen font-sans text-slate-900 py-6">
 
-        {/* ── BREADCRUMB (SEO) ── */}
-        <nav aria-label="Breadcrumb" className="bg-slate-50 border-b border-slate-100 px-6 py-22">
-          <ol className="max-w-7xl mx-auto flex items-center gap-2 text-xs text-slate-400 font-semibold flex-wrap">
-            <li><Link href="/" className="hover:text-[#005a31] transition-colors">Home</Link></li>
-            <li><ChevronRight size={12}/></li>
-            <li><Link href="/our-services" className="hover:text-[#005a31] transition-colors">Our Services</Link></li>
-            <li><ChevronRight size={12}/></li>
-            <li><Link href="/visa" className="hover:text-[#005a31] transition-colors">Visa Services</Link></li>
-            <li><ChevronRight size={12}/></li>
-            <li className="text-[#005a31]">Albania Visa Application</li>
-          </ol>
-        </nav>
-
+  
         {/* ── HERO ── */}
         <section className="relative pt-16 pb-20 px-6 lg:px-12 overflow-hidden">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-50 rounded-full blur-3xl -z-10 opacity-50" />
@@ -676,6 +664,18 @@ const AlbaniaVisa = () => {
             </div>
           </div>
         </section>
+      {/* ── BREADCRUMB (SEO) ── */}
+        <nav aria-label="Breadcrumb" className="bg-slate-50 border-b border-slate-100 px-6 py-22">
+          <ol className="max-w-7xl mx-auto flex items-center gap-2 text-xs text-slate-400 font-semibold flex-wrap">
+            <li><Link href="/" className="hover:text-[#005a31] transition-colors">Home</Link></li>
+            <li><ChevronRight size={12}/></li>
+            <li><Link href="/our-services" className="hover:text-[#005a31] transition-colors">Our Services</Link></li>
+            <li><ChevronRight size={12}/></li>
+            <li><Link href="/visa" className="hover:text-[#005a31] transition-colors">Visa Services</Link></li>
+            <li><ChevronRight size={12}/></li>
+            <li className="text-[#005a31]">Albania Visa Application</li>
+          </ol>
+        </nav>
 
       </main>
     </>

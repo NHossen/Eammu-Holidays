@@ -1,164 +1,333 @@
-"use client";
 
+import OurServices from "@/Components/Client/Ourservices/Ourservices";
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 
-import { motion } from "framer-motion";
-import { 
-  FaPlane, FaUniversity, 
-  FaTags, FaPassport, FaSuitcaseRolling, 
-  FaArrowRight, FaShieldAlt 
-} from "react-icons/fa";
+// ─── SEO Metadata ─────────────────────────────────────────────────────────────
+export const metadata = {
+  metadataBase: new URL("https://www.eammu.com"),
 
-const services = [
-  {
-    icon: <FaPassport />,
-    title: "Global Visa Processing",
-    description: "Comprehensive visa consultancy for F1, B1/B2, and work permits for USA, UK, Canada, and Schengen countries.",
-    link: "our-services/visa-services",
-    keywords: "Student Visa, Tourist Visa, Work Permit"
+  title: {
+    default:
+      "Visa Services, Tour Packages & Travel Agency Bangladesh | Eammu Holidays",
+    template: "%s | Eammu Holidays",
   },
-  {
-    icon: <FaPlane />,
-    title: "Air Ticketing",
-    description: "Global flight booking with exclusive deals on major airlines. 24/7 re-issuance and cancellation support.",
-    link: "/flight-booking",
-    keywords: "Cheap Flights, International Tickets"
+
+  description:
+    "Eammu Holidays is Bangladesh's #1 travel agency offering Canada, UK, USA, Dubai & Schengen visa processing, air ticket booking, Umrah packages, IELTS prep, study abroad consultancy, and USA interview coaching. 5,000+ happy clients. 98% visa success rate.",
+
+  keywords: [
+    // Brand
+    "Eammu Holidays",
+    "Eammu Holidays services",
+    "best travel agency Bangladesh",
+    "trusted travel agency Dhaka",
+    "online travel agency Bangladesh",
+    // Visa
+    "visa consultancy Bangladesh",
+    "Canada visa Bangladesh",
+    "UK visa Bangladesh",
+    "USA visa Bangladesh",
+    "Schengen visa Bangladesh",
+    "Dubai visa Bangladesh",
+    "India e-visa Bangladesh",
+    "Australia visa Bangladesh",
+    "visa processing Dhaka",
+    "tourist visa Bangladesh",
+    "work permit Bangladesh",
+    "student visa Bangladesh",
+    "e-visa services Bangladesh",
+    "visa rejection help Bangladesh",
+    // Study
+    "study abroad consultancy Bangladesh",
+    "student visa consultancy Dhaka",
+    "IELTS preparation Bangladesh",
+    "Canada immigration Bangladesh",
+    "scholarship consultancy Bangladesh",
+    // USA Prep
+    "USA visa interview preparation Bangladesh",
+    "B1 B2 visa coaching Bangladesh",
+    "Target USA program Dhaka",
+    // Tours
+    "tour packages Bangladesh",
+    "Umrah package Bangladesh",
+    "honeymoon package Bangladesh",
+    "group tour Bangladesh",
+    "Cox's Bazar tour package",
+    // Air
+    "cheap flights Bangladesh",
+    "air ticket booking Dhaka",
+    "international flight booking Bangladesh",
+    // Locations
+    "travel agency Dubai Bangladeshi",
+    "travel agency Armenia",
+    "travel agency Georgia",
+    "travel agency Dhaka Bangladesh",
+  ],
+
+  alternates: {
+    canonical: "https://www.eammu.com/our-services",
+    languages: {
+      "en-US": "https://www.eammu.com/our-services",
+    },
   },
-  {
-    icon: <FaSuitcaseRolling />,
-    title: "Holiday Packages",
-    description: "Customized holiday deals, Umrah packages, and luxury group tours tailored to your preferences.",
-    link: "/our-services/tour-packages",
-    keywords: "Honeymoon Packages, Group Tours"
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
-  {
-    icon: <FaTags />,
-    title: "Special Offers",
-    description: "Limited-time travel discounts and bundle deals on flights and hotels for seasonal travelers.",
-    link: "/offers",
-    keywords: "Travel Discounts, Cheap Hotel Deals"
+
+  openGraph: {
+    type: "website",
+    url: "https://www.eammu.com/our-services",
+    siteName: "Eammu Holidays",
+    locale: "en_US",
+    title: "Visa, Tours & Travel Services | Eammu Holidays Bangladesh",
+    description:
+      "Bangladesh's most trusted travel agency. Canada, UK, USA, Schengen visa processing, air tickets, Umrah, group tours, IELTS, study abroad & USA interview prep. 98% visa success rate.",
+    images: [
+      {
+        url: "/eammu_banner_four.webp",
+        width: 1200,
+        height: 630,
+        alt: "Eammu Holidays – Best Travel Agency and Visa Services in Bangladesh",
+        type: "image/webp",
+      },
+    ],
   },
-  {
-    icon: <FaShieldAlt />,
-    title: "USA Interview Preparation",
-    description: "Expert coaching to crack the USA Visa Interview. Specialized 'Target USA' program for success.",
-    link: "/target-usa-visa-interview-preparation",
-    keywords: "Visa Interview Coaching, USA Mock Interview"
+
+  twitter: {
+    card: "summary_large_image",
+    site: "@eammuholidays",
+    title: "Visa & Travel Services Bangladesh | Eammu Holidays",
+    description:
+      "Canada, UK, USA, Dubai visa processing, air tickets, tour packages, IELTS & study abroad — trusted by 5,000+ clients. 98% visa success rate.",
+    images: ["/eammu_banner_four.webp"],
   },
-  {
-    icon: <FaUniversity />,
-    title: "IELTS & Study Abroad academy",
-    description: "Official support for IELTS preparation and immigration consultancy for Canada and Australia.",
-    link: "/target-ielts-immigration-center",
-    keywords: "Study Abroad, Immigration Support"
+
+  icons: {
+    icon: "/emf.jpg",
+    shortcut: "/emf.jpg",
+    apple: "/emf.jpg",
   },
-];
 
-const OurServices = () => {
-  return (
-    <div className="min-h-screen bg-[#fcfcfc] pb-24 font-sans">
-      
-      {/* 🚀 Hero Section with Optimized Next.js Image */}
-      <section className="relative py-28 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-            alt="Best Education Consultancy and Visa Services in Bangladesh - Eammu Holidays" 
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-linear-to-r from-[#005a31]/85 to-[#005a31]/40 shadow-inner"></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-4xl font-black mb-6 tracking-tighter uppercase italic">
-              Eammu Holidays | 
-              <span className="text-orange-400"> Leading Travel Agency in Bangladesh</span>
-            </h1>
-            <p className="text-lg md:text-xl text-green-50/90 max-w-5xl mx-auto font-medium leading-relaxed">
-              Eammu Holidays is a Leading travel agency providing visa application services, air ticket booking, 
-              tour packages, and Education consultancy. We help travelers from Bangladesh, UAE, 
-              Armenia, and worldwide with tourist visas, work permits, and international travel solutions.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 🌐 Services Grid - SEO Optimized Layout */}
-      <div className="container mx-auto px-4 md:px-8 -mt-12 relative z-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.article
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-4xl p-8 shadow-xl shadow-slate-200/60 border border-slate-100 flex flex-col justify-between hover:shadow-2xl hover:border-green-200 transition-all group"
-            >
-              <div>
-                <header className="flex justify-between items-start mb-8">
-                  <div className="w-14 h-14 bg-green-50 text-[#005a31] rounded-2xl flex items-center justify-center text-3xl group-hover:bg-[#005a31] group-hover:text-white transition-all duration-500 shadow-sm">
-                    {service.icon}
-                  </div>
-                  <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest pt-2">
-                    Eammu Exclusive
-                  </span>
-                </header>
-                
-                <h2 className="text-2xl font-black text-gray-800 mb-4 group-hover:text-[#005a31] transition-colors">
-                  {service.title}
-                </h2>
-                
-                <p className="text-gray-600 leading-relaxed mb-6 text-sm">
-                  {service.description}
-                </p>
-
-                <p className="hidden">{service.keywords}</p>
-              </div>
-
-              <Link
-                href={service.link}
-                className="inline-flex items-center gap-2 text-[#005a31] font-extrabold text-sm uppercase tracking-tighter group-hover:gap-4 transition-all"
-              >
-                Learn More <FaArrowRight className="text-orange-500" />
-              </Link>
-            </motion.article>
-          ))}
-        </div>
-
-
-
-        {/* 🛡️ Professional Trust Footer */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="mt-20 flex flex-col md:flex-row items-center justify-between bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-lg"
-        >
-          <div className="mb-8 md:mb-0 text-center md:text-left">
-            <h3 className="text-2xl font-black text-[#005a31] mb-2">Ready to plan your next journey?</h3>
-            <p className="text-gray-500 font-medium">Get a free initial consultation from our certified advisors.</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a href={`https://wa.me/8801631312524?text=Hello%2C%20I%20would%20like%20to%20book%20a%20%20Services`} className="bg-[#005a31] text-white px-8 py-4 rounded-xl font-bold hover:bg-orange-500 transition-all shadow-md text-center">
-              Talk to Expert
-            </a>
-            <Link href="/contact" className="bg-slate-50 text-slate-600 px-8 py-4 rounded-xl font-bold hover:bg-slate-100 transition-all border border-slate-200 text-center">
-              Support Center
-            </Link>
-          </div>
-        </motion.div>
-      </div>
-    </div>
-  );
+  category: "travel",
 };
 
-export default OurServices;
+// ─── Structured Data ───────────────────────────────────────────────────────────
+
+const travelAgencySchema = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  name: "Eammu Holidays",
+  url: "https://www.eammu.com",
+  logo: "https://www.eammu.com/emf.jpg",
+  image: "https://www.eammu.com/eammu_banner_four.webp",
+  description:
+    "Eammu Holidays is Bangladesh's leading travel agency offering visa processing, air tickets, tour packages, Umrah, IELTS, study abroad, and USA interview preparation with a 98% visa success rate.",
+  telephone: "+880-1631312524",
+  email: "info@eammu.com",
+  foundingDate: "2015",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "BD",
+    addressLocality: "Dhaka",
+    addressRegion: "Dhaka Division",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Eammu Holidays Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Global Visa Processing", url: "https://www.eammu.com/visa" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Air Ticket Booking", url: "https://www.eammu.com/flight-booking" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Holiday & Tour Packages", url: "https://www.eammu.com/our-services/tour-packages" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "USA Visa Interview Preparation", url: "https://www.eammu.com/target-usa-visa-interview-preparation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "IELTS & Study Abroad", url: "https://www.eammu.com/target-ielts-immigration-center" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Umrah Packages", url: "https://www.eammu.com/our-services/tour-packages" } },
+    ],
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    bestRating: "5",
+    worstRating: "1",
+    ratingCount: "320",
+    reviewCount: "280",
+  },
+  sameAs: [
+    "https://www.facebook.com/eammuholidays",
+    "https://www.instagram.com/eammuholidays",
+  ],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Our Services", item: "https://www.eammu.com/our-services" },
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What visa services does Eammu Holidays provide from Bangladesh?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Eammu Holidays provides visa processing for Canada, UK, USA (B1/B2, F1, J1), Dubai/UAE, Schengen (26 countries), Australia, India e-visa, and work permits for clients from Bangladesh. They also help with visa rejections and appeals.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does Eammu Holidays help with USA visa interview preparation?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Eammu Holidays runs the 'Target USA' program — Bangladesh's #1 USA visa interview coaching service featuring mock interviews, DS-160 review, document preparation, and expert trainers with a 98% success rate.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can Eammu Holidays help me study abroad and apply for a student visa?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Eammu Holidays is an official IELTS preparation centre and study abroad consultancy. They help students from Bangladesh with university admissions, scholarships, and student visa applications for Canada, UK, Australia, and Europe.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What tour packages does Eammu Holidays offer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Eammu Holidays offers customized holiday packages including Umrah packages, honeymoon packages, group tours, Cox's Bazar tours, and international tours to Thailand, Malaysia, Dubai, Europe, and more from Bangladesh.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Where are Eammu Holidays offices located?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Eammu Holidays has offices in Dhaka (Bangladesh), Dubai (UAE), Yerevan (Armenia), and Tbilisi (Georgia), serving clients across South Asia, the Middle East, and Eastern Europe.",
+      },
+    },
+  ],
+};
+
+const serviceListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Eammu Holidays Services",
+  url: "https://www.eammu.com/our-services",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Global Visa Processing", url: "https://www.eammu.com/visa" },
+    { "@type": "ListItem", position: 2, name: "Air Ticket Booking", url: "https://www.eammu.com/flight-booking" },
+    { "@type": "ListItem", position: 3, name: "Holiday & Tour Packages", url: "https://www.eammu.com/our-services/tour-packages" },
+    { "@type": "ListItem", position: 4, name: "Special Travel Offers", url: "https://www.eammu.com/offers" },
+    { "@type": "ListItem", position: 5, name: "USA Visa Interview Prep", url: "https://www.eammu.com/target-usa-visa-interview-preparation" },
+    { "@type": "ListItem", position: 6, name: "IELTS & Study Abroad", url: "https://www.eammu.com/target-ielts-immigration-center" },
+  ],
+};
+
+// ─── Page Component ────────────────────────────────────────────────────────────
+export default function OurServicesPage() {
+  return (
+    <>
+      {/* JSON-LD: TravelAgency with OfferCatalog + AggregateRating */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(travelAgencySchema) }}
+      />
+      {/* JSON-LD: Breadcrumb */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {/* JSON-LD: FAQPage — triggers FAQ rich snippets in Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      {/* JSON-LD: ItemList of Services */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceListSchema) }}
+      />
+
+      {/* Hidden semantic block for crawlers (not visible to users) */}
+      <div className="sr-only" aria-hidden="true">
+        <h1>
+          Eammu Holidays – Best Travel Agency in Bangladesh for Visa Processing, Tours & Study Abroad
+        </h1>
+        <p>
+          Eammu Holidays offers Canada, UK, USA, Dubai, Schengen, Australia, and India visa
+          processing from Bangladesh. Services include air ticket booking, Umrah packages, group
+          tours, honeymoon packages, IELTS preparation, study abroad consultancy, USA visa
+          interview coaching, and scholarship guidance. Offices in Dhaka, Dubai, Armenia, and
+          Georgia. 4.9/5 rating from 320+ verified clients. 98% visa success rate.
+        </p>
+        <nav aria-label="Breadcrumb">
+          <ol>
+            <li><a href="https://www.eammu.com">Home</a></li>
+            <li><a href="https://www.eammu.com/our-services">Our Services</a></li>
+          </ol>
+        </nav>
+      </div>
+
+      {/* Client Component */}
+     <OurServices />
+
+      {/* Visible FAQ Section – crawlable HTML matches FAQPage schema */}
+      <section
+        className="max-w-3xl mx-auto px-4 py-16"
+        aria-label="Frequently asked questions about Eammu Holidays services"
+      >
+        <h2 className="text-2xl font-black text-[#005a31] mb-8 text-center">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          {[
+            {
+              q: "What visa services does Eammu Holidays provide from Bangladesh?",
+              a: "Eammu Holidays provides visa processing for Canada, UK, USA (B1/B2, F1, J1), Dubai/UAE, Schengen (26 countries), Australia, India e-visa, and work permits. They also help with visa rejections and appeals.",
+            },
+            {
+              q: "Does Eammu Holidays help with USA visa interview preparation?",
+              a: "Yes. Eammu Holidays runs the 'Target USA' program — Bangladesh's #1 USA visa interview coaching service with mock interviews, DS-160 review, document prep, and expert trainers with a 98% success rate.",
+            },
+            {
+              q: "Can Eammu Holidays help me study abroad and apply for a student visa?",
+              a: "Yes. Eammu Holidays is an official IELTS preparation centre and study abroad consultancy helping students with university admissions, scholarships, and student visa applications for Canada, UK, Australia, and Europe.",
+            },
+            {
+              q: "What tour packages does Eammu Holidays offer?",
+              a: "Eammu Holidays offers Umrah packages, honeymoon packages, group tours, Cox's Bazar tours, and international tours to Thailand, Malaysia, Dubai, Europe, and more from Bangladesh.",
+            },
+            {
+              q: "Where are Eammu Holidays offices located?",
+              a: "Eammu Holidays has offices in Dhaka (Bangladesh), Dubai (UAE), Yerevan (Armenia), and Tbilisi (Georgia).",
+            },
+          ].map(({ q, a }) => (
+            <details key={q} className="border border-gray-200 rounded-xl p-5 group">
+              <summary className="font-bold text-[#005a31] cursor-pointer list-none flex justify-between items-center gap-4">
+                <span>{q}</span>
+                <span className="text-orange-500 text-xl flex-shrink-0 group-open:rotate-45 transition-transform">
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 text-gray-600 text-sm leading-relaxed">{a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
