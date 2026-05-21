@@ -1020,11 +1020,11 @@ function getCountryData(destSlug) {
     ],
     faq: [],
     relatedPages: [
-      { label: "Canada Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-canada?type=sticker" },
-      { label: "UK Visitor Visa Guide", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-united-kingdom?type=sticker" },
-      { label: "Schengen Visa from Bangladesh", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-schengen?type=sticker" },
-      { label: "Australia Visitor Visa", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-australia?type=sticker" },
-      { label: "UAE Tourist e-Visa", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-united-arab-emirates?type=e-visa" },
+      { label: "Canada Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-canada-sticker" },
+      { label: "UK Visitor Visa Guide", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-united-kingdom-sticker" },
+      { label: "Schengen Visa from Bangladesh", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-schengen-sticker" },
+      { label: "Australia Visitor Visa", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-australia-sticker" },
+      { label: "UAE Tourist e-Visa", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-united-arab-emirates-e-visa" },
     ],
   };
 }
@@ -1522,7 +1522,7 @@ export default async function VisaProcessingSlugPage({ params, searchParams }) {
                   {RELATED.map(([k, v]) => (
                     <Link
                       key={k}
-                      href={`/travel-resources/visa-processing-time-tracker/${slug}?type=${k}`}
+                      href={`/travel-resources/visa-processing-time-tracker/${slug}-${k}`}
                       className="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-[#005a31]/8 border border-transparent hover:border-[#005a31]/20 transition-all"
                     >
                       <div>

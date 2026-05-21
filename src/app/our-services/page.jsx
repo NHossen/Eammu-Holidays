@@ -1,5 +1,6 @@
 
 import OurServices from "@/Components/Client/Ourservices/Ourservices";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 import React from "react";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
@@ -328,6 +329,7 @@ export default function OurServicesPage() {
           ))}
         </div>
       </section>
+      <HomeSeoLinks />
     </>
   );
 }

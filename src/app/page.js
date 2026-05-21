@@ -12,6 +12,7 @@ import LandingModal from "@/Components/Client/LandingModal/LandingModal";
 import VisaSearch from "@/Components/Client/visaServices/Visa/TouristVisaBangladesh/TouristVisa/VisaSearch/VisaSearch";
 import VisaSearchBar from "@/Components/Client/VisaProcessingTimeTracker/VisaSearchBar/VisaSearchBar";
 import CountrySearchBar from "@/Components/Client/visaServices/Visa/StudentVisaBangladesh/StudentVisa/Countrysearchbar/Countrysearchbar";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 const BASE_URL = "https://www.eammu.com";
 
@@ -331,6 +332,13 @@ export default function Home() {
 
         <section id="our-success" aria-label="Our Success and Client Statistics">
           <Our_Succsses_State />
+        </section>
+        
+        {/* ── SEO INTERNAL LINK MESH ────────────────────────────────────── */}
+        {/* Keeps homepage visually clean. Gives Google a dense, crawlable   */}
+        {/* link cluster — same pattern used by Booking.com and Skyscanner.  */}
+        <section id="seo-links" aria-label="Visa and Travel Resources">
+          <HomeSeoLinks />
         </section>
       </main>
     </>

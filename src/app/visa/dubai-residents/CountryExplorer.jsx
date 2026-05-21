@@ -13,11 +13,24 @@ import { createSlug } from "@/app/lib/utils";
 // ─────────────────────────────────────────────────────────────────────────────
 
 const alphabet = ["All", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
+
 const TRUST_BADGES = [
   "✅ 98% Approval Rate",
   "📋 Embassy-Verified Docs",
   "⚡ 24hr Document Review",
   "🔒 100% Confidential",
+  "🏙️ Dubai Office Available",
+];
+
+const QUICK_LINKS = [
+  { label: "Schengen visa 2026",        href: "/schengen-visa",                          icon: "🇪🇺" },
+  { label: "USA visa Dubai residents",  href: "/visa/dubai-residents/united-states",     icon: "🇺🇸" },
+  { label: "UK visa from Dubai",        href: "/visa/dubai-residents/united-kingdom",    icon: "🇬🇧" },
+  { label: "Canada TRV Dubai",          href: "/visa/dubai-residents/canada",            icon: "🇨🇦" },
+  { label: "Visa checklist",            href: "/travel-resources/visa-checklist-generator", icon: "✓" },
+  { label: "VFS processing times",      href: "/travel-resources/visa-processing-time-tracker", icon: "⏱" },
+  { label: "E-visa destinations",       href: "/visa/e-visa",                            icon: "⚡" },
+  { label: "Visa rejection rates",      href: "/visa-rejection",                         icon: "📊" },
 ];
 
 export default function CountryExplorer({ countries, slides, popular }) {
@@ -27,7 +40,7 @@ export default function CountryExplorer({ countries, slides, popular }) {
   const [selectedLetter,  setSelectedLetter]  = useState("All");
   const [currentPage,     setCurrentPage]     = useState(1);
   const [currentSlide,    setCurrentSlide]    = useState(0);
-  const searchRef  = useRef(null);
+  const searchRef    = useRef(null);
   const itemsPerPage = 12;
 
   // Auto-rotate slides
@@ -62,7 +75,7 @@ export default function CountryExplorer({ countries, slides, popular }) {
 
   const filteredCountries = countries.filter(c => {
     const matchLetter = selectedLetter === "All" || c.country?.[0]?.toUpperCase() === selectedLetter;
-    const matchSearch  = c.country?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchSearch = c.country?.toLowerCase().includes(searchTerm.toLowerCase());
     return matchLetter && matchSearch;
   });
 
@@ -87,10 +100,11 @@ export default function CountryExplorer({ countries, slides, popular }) {
 
   return (
     <>
-      {/* ── HERO ──────────────────────────────────────────────────────────── */}
+      {/* ── HERO ── */}
       <section
         className="relative w-full flex items-center justify-center overflow-hidden"
-        style={{ minHeight: "560px" }}
+        style={{ minHeight: "580px" }}
+        aria-labelledby="hero-heading"
       >
         {/* Slide backgrounds */}
         {slides.map((slide, i) => (
@@ -98,8 +112,13 @@ export default function CountryExplorer({ countries, slides, popular }) {
             key={i}
             className={`absolute inset-0 ${i === currentSlide ? "opacity-100" : "opacity-0"}`}
             style={{ transition: "opacity 1.5s ease" }}
+            aria-hidden={i !== currentSlide}
           >
-            <img src={slide.img} alt={slide.title} className="w-full h-full object-cover" />
+            <img
+              src={slide.img}
+              alt={slide.title}
+              className="w-full h-full object-cover"
+            />
             <div
               className="absolute inset-0"
               style={{
@@ -113,6 +132,7 @@ export default function CountryExplorer({ countries, slides, popular }) {
         {/* Grid overlay */}
         <div
           className="absolute inset-0 opacity-[0.04]"
+          aria-hidden="true"
           style={{
             backgroundImage:
               "linear-gradient(rgba(0,0,0,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.15) 1px,transparent 1px)",
@@ -121,10 +141,16 @@ export default function CountryExplorer({ countries, slides, popular }) {
         />
 
         {/* Slide dots */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+        <div
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20"
+          role="tablist"
+          aria-label="Slideshow navigation"
+        >
           {slides.map((_, i) => (
             <button
               key={i}
+              role="tab"
+              aria-selected={i === currentSlide}
               onClick={() => setCurrentSlide(i)}
               aria-label={`Slide ${i + 1}`}
               className={`rounded-full transition-all duration-500 ${
@@ -139,29 +165,37 @@ export default function CountryExplorer({ countries, slides, popular }) {
         <div className="relative z-10 w-full max-w-6xl mx-auto px-5 text-center pt-10 pb-20">
           {/* Live badge */}
           <div className="inline-flex items-center gap-2.5 px-5 py-2.5 mb-7 rounded-full bg-white border border-black/10 shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[#f5c800] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#f5c800] animate-pulse" aria-hidden="true" />
             <span className="text-xs font-bold text-black/80 tracking-widest uppercase">
-              200+ Countries · Expert Visa Consultancy · Dubai &amp; UAE
+              200+ Countries · Expert Visa Consultancy · Dubai &amp; UAE 2026
             </span>
           </div>
 
           {/* H1 */}
-          <h1 className="text-3xl md:text-5xl lg:text-[52px] font-black leading-[0.95] tracking-tight mb-5 text-black">
-            Tourist Visa for <span className="text-[#f5c800]">Dubai Residents</span> —<br />
+          <h1
+            id="hero-heading"
+            className="text-3xl md:text-5xl lg:text-[52px] font-black leading-[0.95] tracking-tight mb-5 text-black"
+          >
+            Tourist Visa for{" "}
+            <span className="text-[#f5c800]">Dubai Residents</span> —<br />
             <span className="text-black/30">Done Right, First Time.</span>
           </h1>
 
-          <p className="text-black/60 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-black/60 text-base md:text-lg max-w-2xl mx-auto mb-3 leading-relaxed">
             Embassy-accurate documentation for{" "}
             <strong className="text-black">USA B1/B2</strong>,{" "}
             <strong className="text-black">UK Standard Visitor</strong>,{" "}
             <strong className="text-black">Canada TRV</strong>, and the{" "}
             <strong className="text-black">29-country Schengen Area</strong> — handled by expert visa
-            consultants for Dubai and UAE residents.
+            consultants for Dubai and UAE residents. Over 1,00,000 visas processed. 98% approval rate.
           </p>
 
-          {/* ── SEARCH CARD ──────────────────────────────────────────────── */}
-          <div className="bg-white rounded-3xl p-6 md:p-8 max-w-3xl mx-auto border border-black/5 shadow-2xl mb-4">
+          {/* ── SEARCH CARD ── */}
+          <div className="bg-white rounded-3xl p-6 md:p-8 max-w-3xl mx-auto border border-black/5 shadow-2xl mb-4 mt-8">
+            <p className="text-xs font-black text-black/30 uppercase tracking-widest mb-4 text-left">
+              Search tourist visa destination for Dubai &amp; UAE residents
+            </p>
+
             {/* Search with autocomplete */}
             <div ref={searchRef} className="relative mb-5">
               <svg
@@ -169,6 +203,7 @@ export default function CountryExplorer({ countries, slides, popular }) {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -179,7 +214,7 @@ export default function CountryExplorer({ countries, slides, popular }) {
               </svg>
               <input
                 type="search"
-                placeholder="Search destination country… (e.g. Japan, Canada, Germany)"
+                placeholder="Search destination… (e.g. Japan, Canada, Germany, USA)"
                 className="w-full pl-14 pr-12 py-5 rounded-2xl text-base font-semibold outline-none transition-all shadow-inner"
                 style={{ background: "#f8f8f8", border: "1.5px solid rgba(0,0,0,0.05)", color: "black" }}
                 value={searchTerm}
@@ -195,7 +230,7 @@ export default function CountryExplorer({ countries, slides, popular }) {
                     handleSuggestionClick(suggestions[0]);
                 }}
                 autoComplete="off"
-                aria-label="Search destination country for visa from Dubai"
+                aria-label="Search tourist visa destination for Dubai and UAE residents"
               />
               {searchTerm && (
                 <button
@@ -212,12 +247,12 @@ export default function CountryExplorer({ countries, slides, popular }) {
                 </button>
               )}
 
-              {/* Suggestions Dropdown */}
+              {/* Autocomplete Dropdown */}
               {showSuggestions && (
                 <div className="absolute top-full left-0 right-0 mt-2 rounded-2xl overflow-hidden z-50 shadow-2xl bg-white border border-[#f5c800]/30">
                   <div className="p-2">
                     <p className="text-[10px] font-black uppercase tracking-widest text-black/30 px-3 py-2">
-                      🔍 {suggestions.length} countries found
+                      🔍 {suggestions.length} countries found for Dubai residents
                     </p>
                     {suggestions.map((c, i) => (
                       <Link
@@ -237,7 +272,7 @@ export default function CountryExplorer({ countries, slides, popular }) {
                         <div className="text-left flex-1">
                           <p className="font-bold text-black text-sm">{c.country}</p>
                           <p className="text-[11px] text-black/40">
-                            Tourist Visa Guide for Dubai Residents → Apply Now
+                            Tourist visa guide for Dubai &amp; UAE residents — 2026
                           </p>
                         </div>
                         <span className="text-[#f5c800] text-xs font-black">View →</span>
@@ -254,52 +289,71 @@ export default function CountryExplorer({ countries, slides, popular }) {
             </div>
 
             {/* A-Z Filter */}
-            <div className="flex flex-wrap justify-center gap-1.5 mb-5">
-              {alphabet.map(l => (
-                <button
-                  key={l}
-                  onClick={() => {
-                    setSelectedLetter(l);
-                    setCurrentPage(1);
-                    setShowSuggestions(false);
-                  }}
-                  aria-label={`Filter by ${l}`}
-                  className={`w-8 h-8 md:w-9 md:h-9 rounded-xl text-xs font-black transition-all ${
-                    selectedLetter === l
-                      ? "bg-[#f5c800] text-black shadow-md scale-110"
-                      : "text-black/40 hover:text-black bg-gray-100 hover:bg-gray-200"
-                  }`}
-                >
-                  {l}
-                </button>
-              ))}
-            </div>
+            <nav aria-label="Filter countries by first letter">
+              <div className="flex flex-wrap justify-center gap-1.5 mb-5">
+                {alphabet.map(l => (
+                  <button
+                    key={l}
+                    onClick={() => {
+                      setSelectedLetter(l);
+                      setCurrentPage(1);
+                      setShowSuggestions(false);
+                    }}
+                    aria-pressed={selectedLetter === l}
+                    aria-label={l === "All" ? "Show all countries" : `Countries starting with ${l}`}
+                    className={`w-8 h-8 md:w-9 md:h-9 rounded-xl text-xs font-black transition-all ${
+                      selectedLetter === l
+                        ? "bg-[#f5c800] text-black shadow-md scale-110"
+                        : "text-black/40 hover:text-black bg-gray-100 hover:bg-gray-200"
+                    }`}
+                  >
+                    {l}
+                  </button>
+                ))}
+              </div>
+            </nav>
 
-            {/* Counter */}
+            {/* Counter + reset */}
             <div className="flex items-center justify-between text-xs text-black/40 font-bold px-1">
               <span>{filteredCountries.length} destinations available for Dubai &amp; UAE residents</span>
-              <span>2026 Embassy-Verified</span>
+              <span className="hidden md:block">2026 Embassy-Verified ✓</span>
             </div>
           </div>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap justify-center gap-3 text-xs font-bold text-black/50">
+          <div className="flex flex-wrap justify-center gap-2 text-xs font-bold text-black/50 mb-5">
             {TRUST_BADGES.map(b => (
               <span key={b} className="bg-white/80 border border-black/5 px-3 py-1.5 rounded-full">
                 {b}
               </span>
             ))}
           </div>
+
+          {/* Quick links */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {QUICK_LINKS.map(ql => (
+              <Link
+                key={ql.href}
+                href={ql.href}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/80 border border-black/10 rounded-full text-xs font-semibold text-black/60 hover:text-black hover:border-[#f5c800]/50 transition"
+              >
+                <span aria-hidden="true">{ql.icon}</span> {ql.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── POPULAR COUNTRIES ─────────────────────────────────────────────── */}
+      {/* ── POPULAR COUNTRIES ── */}
       <section
-        className="max-w-6xl mx-auto px-5 pb-6"
-        aria-label="Popular visa destinations for Dubai residents"
+        className="max-w-6xl mx-auto px-5 py-6"
+        aria-labelledby="popular-heading"
       >
         <div className="flex items-center gap-3 flex-wrap">
-          <span className="text-xs font-black uppercase tracking-widest text-black/30">
+          <span
+            id="popular-heading"
+            className="text-xs font-black uppercase tracking-widest text-black/30"
+          >
             🔥 Most Popular for Dubai Residents:
           </span>
           {popular.map(({ name, emoji }) => {
@@ -309,16 +363,17 @@ export default function CountryExplorer({ countries, slides, popular }) {
                 key={name}
                 href={`/visa/dubai-residents/${createSlug(name)}`}
                 className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-black/60 hover:text-black border border-black/5 hover:border-[#f5c800]/40 transition-all bg-gray-50 hover:bg-white shadow-sm"
+                aria-label={`${name} tourist visa guide for Dubai residents`}
               >
                 {c?.flag ? (
                   <img
                     src={c.flag}
                     className="w-5 object-cover rounded-sm"
                     style={{ height: "14px" }}
-                    alt=""
+                    alt={`${name} flag`}
                   />
                 ) : (
-                  <span>{emoji}</span>
+                  <span aria-hidden="true">{emoji}</span>
                 )}
                 {name}
               </Link>
@@ -327,9 +382,9 @@ export default function CountryExplorer({ countries, slides, popular }) {
         </div>
       </section>
 
-      {/* ── COUNTRIES GRID ────────────────────────────────────────────────── */}
+      {/* ── COUNTRIES GRID ── */}
       <main
-        className="max-w-6xl mx-auto px-5 pb-20"
+        className="max-w-6xl mx-auto px-5 pb-12"
         id="all-countries"
         aria-labelledby="grid-heading"
       >
@@ -337,20 +392,20 @@ export default function CountryExplorer({ countries, slides, popular }) {
           <div>
             <h2 id="grid-heading" className="text-2xl md:text-3xl font-black text-black">
               {selectedLetter === "All" && !searchTerm
-                ? "All Visa Destinations — Dubai Residents 2026"
+                ? "All Visa Destinations for Dubai Residents — 2026"
                 : searchTerm
                 ? `Results for "${searchTerm}"`
-                : `Countries Starting with "${selectedLetter}"`}
+                : `Countries starting with "${selectedLetter}"`}
             </h2>
             <p className="text-black/30 text-sm mt-1">
-              {filteredCountries.length} countries · Click any to view full visa requirements for Dubai
-              &amp; UAE residents
+              {filteredCountries.length} countries · Click any destination to view full{" "}
+              2026 tourist visa requirements for Dubai &amp; UAE residents
             </p>
           </div>
           {(selectedLetter !== "All" || searchTerm) && (
             <button
               onClick={resetFilters}
-              className="text-xs font-bold text-[#f5c800] border border-[#f5c800]/30 px-4 py-2 rounded-xl hover:bg-[#f5c800]/5 transition"
+              className="text-xs font-bold text-[#d4a800] border border-[#f5c800]/30 px-4 py-2 rounded-xl hover:bg-[#f5c800]/5 transition"
             >
               Show All
             </button>
@@ -359,49 +414,54 @@ export default function CountryExplorer({ countries, slides, popular }) {
 
         {/* Grid */}
         {currentItems.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <ul
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+            role="list"
+          >
             {currentItems.map((c, i) => (
-              <Link
-                key={`${c.code}-${i}`}
-                href={`/visa/dubai-residents/${createSlug(c.country)}`}
-                className="group rounded-2xl overflow-hidden border border-black/5 flex flex-col bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300"
-                title={`${c.country} Tourist Visa — Dubai Resident Guide 2026`}
-              >
-                <div className="relative h-28 overflow-hidden bg-gray-200">
-                  <img
-                    src={c.flag}
-                    alt={`${c.country} tourist visa guide for Dubai residents 2026`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: "linear-gradient(to top,rgba(0,0,0,0.2) 0%,transparent 60%)",
-                    }}
-                  />
-                </div>
-                <div className="p-3 flex flex-col flex-1 justify-between">
-                  <h3 className="text-sm font-black text-black/80 leading-tight group-hover:text-black transition-colors mb-2">
-                    {c.country}
-                  </h3>
-                  <div className="text-[10px] font-bold text-[#f5c800] bg-[#f5c800]/5 rounded-lg px-2 py-1 text-center group-hover:bg-[#f5c800] group-hover:text-black transition-all">
-                    View Guide →
+              <li key={`${c.code}-${i}`}>
+                <Link
+                  href={`/visa/dubai-residents/${createSlug(c.country)}`}
+                  className="group rounded-2xl overflow-hidden border border-black/5 flex flex-col bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300"
+                  aria-label={`${c.country} tourist visa guide for Dubai & UAE residents 2026`}
+                  title={`${c.country} Tourist Visa — Dubai Resident Guide 2026`}
+                >
+                  <div className="relative h-28 overflow-hidden bg-gray-200">
+                    <img
+                      src={c.flag}
+                      alt={`${c.country} flag — tourist visa for Dubai residents`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: "linear-gradient(to top,rgba(0,0,0,0.2) 0%,transparent 60%)",
+                      }}
+                    />
                   </div>
-                </div>
-              </Link>
+                  <div className="p-3 flex flex-col flex-1 justify-between">
+                    <h3 className="text-sm font-black text-black/80 leading-tight group-hover:text-black transition-colors mb-2">
+                      {c.country} visa
+                    </h3>
+                    <div className="text-[10px] font-bold text-[#d4a800] bg-[#f5c800]/5 rounded-lg px-2 py-1 text-center group-hover:bg-[#f5c800] group-hover:text-black transition-all">
+                      View 2026 guide →
+                    </div>
+                  </div>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         ) : (
           <div className="text-center py-24 rounded-3xl border border-black/5 bg-gray-50">
-            <div className="text-6xl mb-4">🌍</div>
+            <div className="text-6xl mb-4" aria-hidden="true">🌍</div>
             <h3 className="text-xl font-black text-black">No destinations found</h3>
             <p className="text-black/40 mt-2 text-sm">
               Try a different search term or browse by letter above.
             </p>
             <button
               onClick={resetFilters}
-              className="mt-5 px-6 py-3 bg-[#f5c800] rounded-xl font-black text-sm"
+              className="mt-5 px-6 py-3 bg-[#f5c800] rounded-xl font-black text-sm hover:bg-[#d4a800] transition"
             >
               Show All Countries
             </button>
@@ -412,11 +472,12 @@ export default function CountryExplorer({ countries, slides, popular }) {
         {totalPages > 1 && (
           <nav
             className="mt-12 flex justify-center items-center gap-3"
-            aria-label="Country pagination"
+            aria-label="Country list pagination"
           >
             <button
               disabled={currentPage === 1}
               onClick={() => setCurrentPage(p => p - 1)}
+              aria-label="Previous page"
               className="px-6 py-3 rounded-xl font-bold text-black/60 disabled:opacity-30 disabled:pointer-events-none hover:text-black transition border border-black/10 hover:border-[#f5c800]/40"
             >
               ← Prev
@@ -444,6 +505,7 @@ export default function CountryExplorer({ countries, slides, popular }) {
             <button
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage(p => p + 1)}
+              aria-label="Next page"
               className="px-6 py-3 rounded-xl font-bold text-black/60 disabled:opacity-30 disabled:pointer-events-none hover:text-black transition border border-black/10 hover:border-[#f5c800]/40"
             >
               Next →

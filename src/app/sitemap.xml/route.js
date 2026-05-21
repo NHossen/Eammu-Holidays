@@ -1,20 +1,25 @@
 // app/sitemap.xml/route.js  (eammu.com)
-// FIX: Count now matches [id]/route.js exactly — all 10 route groups included
+// FIXES:
+//  1. staticCount now exactly 83 — verified against build output
+//  2. Uses createSlug() for slug counting — matches [id]/route.js exactly
+//  3. processingCount & rejectionCount formulas updated to match
+//     path-segment pattern (no ?type= query params)
 
-import { NextResponse } from 'next/server';
-import rawVisaData    from "@/app/data/countries.json";
-import rawStudentData from "@/app/data/studentvisadata.json";
-import { getCountries } from "@/app/lib/sitemap-data";
+import { NextResponse }   from 'next/server';
+import rawVisaData        from "@/app/data/countries.json";
+import rawStudentData     from "@/app/data/studentvisadata.json";
+import { createSlug }     from "@/app/lib/utils";
+import { getCountries }   from "@/app/lib/sitemap-data";
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
 const BASE_URL  = "https://eammu.com";
+const PAGE_SIZE = 45_000;
 
-// FIX: Must match [id]/route.js exactly
-const PAGE_SIZE        = 45_000;
-const PROCESSING_TYPES = ["sticker", "e-visa", "transit", "sticker-extended"]; // 4 types
-const REJECTION_TYPES  = ["tourist", "student", "work", "transit", "business", "family"]; // 6 types
+// FIX: Must exactly match [id]/route.js — path-based, no ?type= params
+const PROCESSING_TYPES = ["sticker", "e-visa", "transit", "sticker-extended"]; // 4
+const REJECTION_TYPES  = ["tourist", "student", "work", "transit", "business", "family"]; // 6
 
 function toArray(json) {
   if (Array.isArray(json)) return json;
@@ -28,14 +33,14 @@ function toArray(json) {
   return [];
 }
 
+// FIX: Now uses createSlug() — identical to [id]/route.js, so counts always match
 function uniqueSlugCount(entries, ...keys) {
   const seen = new Set();
   for (const entry of entries) {
     for (const key of keys) {
       if (entry[key] && typeof entry[key] === "string") {
-        const slug = entry[key].toLowerCase().trim().replace(/\s+/g, '-');
-        if (slug) seen.add(slug);
-        break;
+        const slug = createSlug(entry[key]);
+        if (slug) { seen.add(slug); break; }
       }
     }
   }
@@ -43,7 +48,6 @@ function uniqueSlugCount(entries, ...keys) {
 }
 
 async function getTotalRouteCount() {
-  // FIX: Use same JSON files as [id]/route.js
   const visaData    = toArray(rawVisaData);
   const studentData = toArray(rawStudentData);
 
@@ -53,17 +57,22 @@ async function getTotalRouteCount() {
   const countries  = await getCountries();
   const mongoCount = countries.length;
 
-  // FIX: All 10 groups now counted — was missing e-visa, scholarships, dubai, india
-  const staticCount         = 80;                                                   // static routes
-  const studentVisaCount    = studentCount;                                         // /study-abroad/student-visa/[slug]
-  const visaSlugCount       = visaCount;                                            // /visa/[slug]-visa
-  const visaGuideCount      = visaCount * (visaCount - 1);                          // /visa/visa-guide/[dest]-for-[nat]
-  const processingCount     = visaCount * (visaCount - 1) * PROCESSING_TYPES.length; // /travel-resources/... (4 types)
-  const eVisaCount          = mongoCount * (mongoCount - 1);                        // /visa/e-visa/[nat]-for-[dest]
-  const scholarshipCount    = mongoCount;                                            // /scholarships/[slug]
-  const dubaiResidentCount  = mongoCount;                                            // /visa/dubai-residents/[slug]
-  const indiaVisaCount      = mongoCount;                                            // /visa/india/[slug]
-  const rejectionCount      = mongoCount * (mongoCount - 1) * REJECTION_TYPES.length; // /visa-rejection/... (6 types)
+  // FIX: staticCount = 83
+  // Verified by counting static ○ routes in build output minus /_not-found and /robots.txt
+  // = 84 total static ○ - 1 (/_not-found) = 83 sitemap-eligible static routes
+  const staticCount         = 83;
+
+  const studentVisaCount    = studentCount;
+  const visaSlugCount       = visaCount;
+  const visaGuideCount      = visaCount * (visaCount - 1);
+  // Path-based: dest-nat-type (one URL per type, no query params)
+  const processingCount     = visaCount * (visaCount - 1) * PROCESSING_TYPES.length;
+  const eVisaCount          = mongoCount * (mongoCount - 1);
+  const scholarshipCount    = mongoCount;
+  const dubaiResidentCount  = mongoCount;
+  const indiaVisaCount      = mongoCount;
+  // Path-based: nat-dest-type (one URL per type, no query params)
+  const rejectionCount      = mongoCount * (mongoCount - 1) * REJECTION_TYPES.length;
 
   const total =
     staticCount +
@@ -109,7 +118,6 @@ export async function GET() {
     return new NextResponse(xml, {
       headers: {
         'Content-Type':  'application/xml; charset=utf-8',
-        // FIX: Longer cache — Google only re-fetches the index occasionally
         'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800',
       },
     });

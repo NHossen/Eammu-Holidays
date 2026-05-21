@@ -22,7 +22,7 @@ export default function SearchCard() {
     setError("");
     const slug = makeSlug(nationality, destination);
     router.push(
-      `/travel-resources/visa-processing-time-tracker/${slug}?type=${visaType}`
+      `/travel-resources/visa-processing-time-tracker/${slug}-${visaType}`
     );
   };
 

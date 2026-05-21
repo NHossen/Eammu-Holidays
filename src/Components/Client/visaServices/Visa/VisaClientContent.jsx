@@ -283,8 +283,7 @@ export default function VisaClientContent() {
       {/* ── HERO ── */}
       <header className="relative pt-14 w-full min-h-[500px] md:min-h-[650px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-           {/* ── BREADCRUMB (SEO + navigation) ── */}
-           <Breadcrumb />
+       
           <AnimatePresence mode="wait">
             <motion.div
               key={currentHero}
@@ -696,6 +695,8 @@ const VisaCardItem = ({ country }) => (
       >
         View visa details
       </Link>
+          {/* ── BREADCRUMB (SEO + navigation) ── */}
+           <Breadcrumb />
     </div>
   </article>
 );

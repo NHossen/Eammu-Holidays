@@ -522,10 +522,10 @@ const ContactWithUs = () => {
       <section aria-label="Quick contact details" className="bg-[#005a31] py-5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-white text-xs md:text-sm">
-            <a href="tel:+8801701699743" className="flex items-center gap-2 hover:text-[#ffcc00] transition font-semibold">
-              📞 +8801701699743
+            <a href="tel:+8801631312524" className="flex items-center gap-2 hover:text-[#ffcc00] transition font-semibold">
+              📞 +8801631312524
             </a>
-            <a href="https://wa.me/8801701699743" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc00] transition font-semibold">
+            <a href="https://wa.me/8801631312524" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc00] transition font-semibold">
               💬 WhatsApp (24/7)
             </a>
             <a href="mailto:info@eammu.com" className="flex items-center gap-2 hover:text-[#ffcc00] transition font-semibold">

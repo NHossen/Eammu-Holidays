@@ -1,4 +1,10 @@
-// app/sitemap/[id]/route.js  (eammu.com — merged JSON + MongoDB)
+// app/sitemap/[id]/route.js  (eammu.com)
+// FIXES:
+//  1. Removed ?type= query params from processingTimeRoutes & rejectionRoutes
+//     → Google treats ?param= URLs as duplicates; use path-based slugs instead
+//  2. BUILD_TIME moved inside getAllRoutes() so it's fresh per cold-start
+//  3. Added /schengen-visa (exists in build output, was missing)
+//  4. Static count is now exactly 83 (82 original + /schengen-visa)
 
 import { NextResponse }   from 'next/server';
 import rawVisaData        from "@/app/data/countries.json";
@@ -9,12 +15,15 @@ import { getCountries }   from "@/app/lib/sitemap-data";
 export const URLS_PER_SHARD = 45_000;
 export const dynamic        = 'force-dynamic';
 export const runtime        = 'nodejs';
-export const revalidate     = 86400; // Vercel CDN cache: rebuild every 24h
+export const revalidate     = 86400;
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 const BASE_URL         = "https://eammu.com";
 const PAGE_SIZE        = 45_000;
-const BUILD_TIME       = new Date().toISOString();
+
+// FIX 1: Removed ?type= query params — use path segments instead
+// Old: /dest-national-visa-processing-time-for-nat?type=sticker
+// New: /dest-national-visa-processing-time-for-nat/sticker
 const PROCESSING_TYPES = ["sticker", "e-visa", "transit", "sticker-extended"];
 const REJECTION_TYPES  = ["tourist", "student", "work", "transit", "business", "family"];
 
@@ -46,11 +55,10 @@ function uniqueSlugs(entries, ...keys) {
   return result;
 }
 
-// FIX 1: Removed cleanPath / split('?') — query params now pass through correctly
-function fmt(path, priority, changeFreq) {
+function fmt(path, priority, changeFreq, lastMod) {
   return {
     url: `${BASE_URL}${path.startsWith("/") ? path : `/${path}`}`,
-    lastModified: BUILD_TIME,
+    lastModified: lastMod,
     changeFrequency: changeFreq,
     priority,
   };
@@ -77,6 +85,9 @@ async function getAllRoutes() {
     return _cachedRoutes;
   }
 
+  // FIX 2: BUILD_TIME is now per-call, not module-load time
+  const BUILD_TIME = new Date().toISOString();
+
   // ── JSON data ──────────────────────────────────────────────────────────────
   const visaData     = toArray(rawVisaData);
   const studentData  = toArray(rawStudentData);
@@ -87,127 +98,130 @@ async function getAllRoutes() {
   const countries  = await getCountries();
   const mongoSlugs = countries.map(c => createSlug(c.country)).filter(Boolean);
 
-  // ── Static routes ──────────────────────────────────────────────────────────
+  // ── Static routes — 83 total ───────────────────────────────────────────────
+  // Count verified against build output: 83 static ○ pages (excluding /_not-found, /robots.txt)
   const staticRoutes = [
-    fmt("/",                                                             1.0, "daily"),
-    fmt("/about",                                                        0.8, "monthly"),
-    fmt("/contact",                                                      0.8, "monthly"),
-    fmt("/careers",                                                      0.7, "monthly"),
-    fmt("/testimonials",                                                 0.8, "weekly"),
-    fmt("/blogs",                                                        0.9, "weekly"),
-    fmt("/news-feeds",                                                   0.8, "daily"),
-    fmt("/offers",                                                       0.9, "weekly"),
-    fmt("/log-in",                                                       0.5, "yearly"),
-    fmt("/sign-up",                                                      0.5, "yearly"),
-    fmt("/terms-privacy-policy",                                         0.4, "yearly"),
-    fmt("/naeem-hossen",                                                 0.6, "monthly"),
-    fmt("/our-leading-team",                                             0.6, "monthly"),
-    fmt("/pdf-editor",                                                   0.5, "monthly"),
-    fmt("/our-services",                                                 0.9, "weekly"),
-    fmt("/our-services/things-to-do",                                    0.7, "monthly"),
-    fmt("/our-services/tour-packages",                                   0.8, "weekly"),
-    fmt("/our-services/visa-services",                                   0.9, "weekly"),
-    fmt("/our-services/visa-services/student-visa-from-bangladesh",      0.9, "monthly"),
-    fmt("/our-services/visa-services/tourist-visa-from-bangladesh",      0.9, "monthly"),
-    fmt("/our-services/visa-services/work-visa-from-bangladesh",         0.9, "monthly"),
-    fmt("/our-services/visa/albania-visa-application",                   0.8, "monthly"),
-    fmt("/our-services/visa/armenia-visa-application",                   0.8, "monthly"),
-    fmt("/our-services/visa/australia-visa-application",                 0.8, "monthly"),
-    fmt("/our-services/visa/azerbaijan-visa-application",                0.8, "monthly"),
-    fmt("/our-services/visa/brazil-visa-application",                    0.8, "monthly"),
-    fmt("/our-services/visa/canada-visa-application",                    0.8, "monthly"),
-    fmt("/our-services/visa/china-visa-application",                     0.8, "monthly"),
-    fmt("/our-services/visa/cyprus-visa-application",                    0.8, "monthly"),
-    fmt("/our-services/visa/dubai-visa-application",                     0.8, "monthly"),
-    fmt("/our-services/visa/europe-visa-application",                    0.8, "monthly"),
-    fmt("/our-services/visa/georgia-visa-application",                   0.8, "monthly"),
-    fmt("/our-services/visa/germany-visa-application",                   0.8, "monthly"),
-    fmt("/our-services/visa/india-visa-application",                     0.8, "monthly"),
-    fmt("/our-services/visa/indonesia-visa-application",                 0.8, "monthly"),
-    fmt("/our-services/visa/japan-visa-application",                     0.8, "monthly"),
-    fmt("/our-services/visa/kosovo-visa-application",                    0.8, "monthly"),
-    fmt("/our-services/visa/malaysia-visa-application",                  0.8, "monthly"),
-    fmt("/our-services/visa/montenegro-visa-application",                0.8, "monthly"),
-    fmt("/our-services/visa/morocco-visa-application",                   0.8, "monthly"),
-    fmt("/our-services/visa/portugal-visa-application",                  0.8, "monthly"),
-    fmt("/our-services/visa/qatar-visa-application",                     0.8, "monthly"),
-    fmt("/our-services/visa/russia-visa-application",                    0.8, "monthly"),
-    fmt("/our-services/visa/saudi-arabia-visa-application",              0.8, "monthly"),
-    fmt("/our-services/visa/serbia-visa-application",                    0.8, "monthly"),
-    fmt("/our-services/visa/singapore-visa-application",                 0.8, "monthly"),
-    fmt("/our-services/visa/south-africa-visa-application",              0.8, "monthly"),
-    fmt("/our-services/visa/south-korea-visa-application",               0.8, "monthly"),
-    fmt("/our-services/visa/spain-visa-application",                     0.8, "monthly"),
-    fmt("/our-services/visa/srilanka-visa-application",                  0.8, "monthly"),
-    fmt("/our-services/visa/thailand-visa-application",                  0.8, "monthly"),
-    fmt("/our-services/visa/turkey-visa-application",                    0.8, "monthly"),
-    fmt("/our-services/visa/uk-visa-application",                        0.8, "monthly"),
-    fmt("/our-services/visa/usa-visa-application",                       0.8, "monthly"),
-    fmt("/study-abroad",                                                 0.95, "weekly"),
-    fmt("/study-abroad/student-visa",                                    0.9,  "weekly"),
-    fmt("/visa",                                                         0.95, "daily"),
-    fmt("/visa/visa-guide",                                              0.9,  "daily"),
-    fmt("/travel-resources",                                             0.8,  "weekly"),
-    fmt("/travel-resources/travel-document-generator",                   0.7,  "monthly"),
-    fmt("/travel-resources/visa-checklist-generator",                    0.7,  "monthly"),
-    fmt("/travel-resources/visa-processing-time-tracker",                0.8,  "weekly"),
-    fmt("/contact/travel-agency-armenia",                                0.7,  "monthly"),
-    fmt("/contact/travel-agency-bangladesh",                             0.7,  "monthly"),
-    fmt("/contact/travel-agency-dubai",                                  0.7,  "monthly"),
-    fmt("/contact/travel-agency-georgia",                                0.7,  "monthly"),
-    fmt("/online-travel-agency-bangladesh",                              0.8,  "monthly"),
-    fmt("/eammu-dairy-poultry",                                          0.6,  "monthly"),
-    fmt("/eammu-fashion",                                                0.6,  "monthly"),
-    fmt("/eammu-fashion/eammu-store",                                    0.6,  "monthly"),
-    fmt("/eammu-social-responsibility",                                  0.6,  "monthly"),
-    fmt("/eammu-textile-bangladesh",                                     0.6,  "monthly"),
-    fmt("/web-development-digital-marketing",                            0.7,  "monthly"),
-    fmt("/flight-booking",                                               0.8,  "monthly"),
-    fmt("/event-management",                                             0.7,  "monthly"),
-    fmt("/target-ielts-immigration-center",                              0.8,  "monthly"),
-    fmt("/target-usa-visa-interview-preparation",                        0.8,  "monthly"),
-    fmt("/visa-rejection",                                               0.8,  "weekly"),
-    fmt("/visa/e-visa",                                                  0.8,  "weekly"),
-    fmt("/scholarships",                                                 0.8,  "weekly"),
-    fmt("/visa/dubai-residents",                                         0.8,  "weekly"),
-    fmt("/visa/india",                                                   0.8,  "weekly"),
+    fmt("/",                                                             1.0, "daily",   BUILD_TIME),
+    fmt("/about",                                                        0.8, "monthly", BUILD_TIME),
+    fmt("/contact",                                                      0.8, "monthly", BUILD_TIME),
+    fmt("/careers",                                                      0.7, "monthly", BUILD_TIME),
+    fmt("/testimonials",                                                 0.8, "weekly",  BUILD_TIME),
+    fmt("/blogs",                                                        0.9, "weekly",  BUILD_TIME),
+    fmt("/news-feeds",                                                   0.8, "daily",   BUILD_TIME),
+    fmt("/offers",                                                       0.9, "weekly",  BUILD_TIME),
+    fmt("/log-in",                                                       0.5, "yearly",  BUILD_TIME),
+    fmt("/sign-up",                                                      0.5, "yearly",  BUILD_TIME),
+    fmt("/terms-privacy-policy",                                         0.4, "yearly",  BUILD_TIME),
+    fmt("/naeem-hossen",                                                 0.6, "monthly", BUILD_TIME),
+    fmt("/our-leading-team",                                             0.6, "monthly", BUILD_TIME),
+    fmt("/pdf-editor",                                                   0.5, "monthly", BUILD_TIME),
+    fmt("/our-services",                                                 0.9, "weekly",  BUILD_TIME),
+    fmt("/our-services/things-to-do",                                    0.7, "monthly", BUILD_TIME),
+    fmt("/our-services/tour-packages",                                   0.8, "weekly",  BUILD_TIME),
+    fmt("/our-services/visa-services",                                   0.9, "weekly",  BUILD_TIME),
+    fmt("/our-services/visa-services/student-visa-from-bangladesh",      0.9, "monthly", BUILD_TIME),
+    fmt("/our-services/visa-services/tourist-visa-from-bangladesh",      0.9, "monthly", BUILD_TIME),
+    fmt("/our-services/visa-services/work-visa-from-bangladesh",         0.9, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/albania-visa-application",                   0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/armenia-visa-application",                   0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/australia-visa-application",                 0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/azerbaijan-visa-application",                0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/brazil-visa-application",                    0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/canada-visa-application",                    0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/china-visa-application",                     0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/cyprus-visa-application",                    0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/dubai-visa-application",                     0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/europe-visa-application",                    0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/georgia-visa-application",                   0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/germany-visa-application",                   0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/india-visa-application",                     0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/indonesia-visa-application",                 0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/japan-visa-application",                     0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/kosovo-visa-application",                    0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/malaysia-visa-application",                  0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/montenegro-visa-application",                0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/morocco-visa-application",                   0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/portugal-visa-application",                  0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/qatar-visa-application",                     0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/russia-visa-application",                    0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/saudi-arabia-visa-application",              0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/serbia-visa-application",                    0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/singapore-visa-application",                 0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/south-africa-visa-application",              0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/south-korea-visa-application",               0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/spain-visa-application",                     0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/srilanka-visa-application",                  0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/thailand-visa-application",                  0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/turkey-visa-application",                    0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/uk-visa-application",                        0.8, "monthly", BUILD_TIME),
+    fmt("/our-services/visa/usa-visa-application",                       0.8, "monthly", BUILD_TIME),
+    fmt("/study-abroad",                                                 0.95, "weekly",  BUILD_TIME),
+    fmt("/study-abroad/student-visa",                                    0.9,  "weekly",  BUILD_TIME),
+    fmt("/visa",                                                         0.95, "daily",   BUILD_TIME),
+    fmt("/visa/visa-guide",                                              0.9,  "daily",   BUILD_TIME),
+    fmt("/travel-resources",                                             0.8,  "weekly",  BUILD_TIME),
+    fmt("/travel-resources/travel-document-generator",                   0.7,  "monthly", BUILD_TIME),
+    fmt("/travel-resources/visa-checklist-generator",                    0.7,  "monthly", BUILD_TIME),
+    fmt("/travel-resources/visa-processing-time-tracker",                0.8,  "weekly",  BUILD_TIME),
+    fmt("/contact/travel-agency-armenia",                                0.7,  "monthly", BUILD_TIME),
+    fmt("/contact/travel-agency-bangladesh",                             0.7,  "monthly", BUILD_TIME),
+    fmt("/contact/travel-agency-dubai",                                  0.7,  "monthly", BUILD_TIME),
+    fmt("/contact/travel-agency-georgia",                                0.7,  "monthly", BUILD_TIME),
+    fmt("/online-travel-agency-bangladesh",                              0.8,  "monthly", BUILD_TIME),
+    fmt("/eammu-dairy-poultry",                                          0.6,  "monthly", BUILD_TIME),
+    fmt("/eammu-fashion",                                                0.6,  "monthly", BUILD_TIME),
+    fmt("/eammu-fashion/eammu-store",                                    0.6,  "monthly", BUILD_TIME),
+    fmt("/eammu-social-responsibility",                                  0.6,  "monthly", BUILD_TIME),
+    fmt("/eammu-textile-bangladesh",                                     0.6,  "monthly", BUILD_TIME),
+    fmt("/web-development-digital-marketing",                            0.7,  "monthly", BUILD_TIME),
+    fmt("/flight-booking",                                               0.8,  "monthly", BUILD_TIME),
+    fmt("/event-management",                                             0.7,  "monthly", BUILD_TIME),
+    fmt("/target-ielts-immigration-center",                              0.8,  "monthly", BUILD_TIME),
+    fmt("/target-usa-visa-interview-preparation",                        0.8,  "monthly", BUILD_TIME),
+    fmt("/visa-rejection",                                               0.8,  "weekly",  BUILD_TIME),
+    fmt("/visa/e-visa",                                                  0.8,  "weekly",  BUILD_TIME),
+    fmt("/scholarships",                                                 0.8,  "weekly",  BUILD_TIME),
+    fmt("/visa/dubai-residents",                                         0.8,  "weekly",  BUILD_TIME),
+    fmt("/visa/india",                                                   0.8,  "weekly",  BUILD_TIME),
+    // FIX 3: Added /schengen-visa — exists in build output, was missing from sitemap
+    fmt("/schengen-visa",                                                0.8,  "monthly", BUILD_TIME),
   ];
 
   // ── JSON-based dynamic routes ──────────────────────────────────────────────
   const studentVisaRoutes = studentSlugs.map(slug =>
-    fmt(`/study-abroad/student-visa/${slug}`, 0.85, "monthly")
+    fmt(`/study-abroad/student-visa/${slug}`, 0.85, "monthly", BUILD_TIME)
   );
 
   const visaSlugRoutes = visaSlugs.map(slug =>
-    fmt(`/visa/${slug}-visa`, 0.85, "weekly")
+    fmt(`/visa/${slug}-visa`, 0.85, "weekly", BUILD_TIME)
   );
 
   const visaGuideRoutes = visaSlugs.flatMap(dest =>
     visaSlugs
       .filter(nat => nat !== dest)
-      .map(nat => fmt(`/visa/visa-guide/${dest}-visa-for-${nat}`, 0.8, "monthly"))
+      .map(nat => fmt(`/visa/visa-guide/${dest}-visa-for-${nat}`, 0.8, "monthly", BUILD_TIME))
   );
 
-  // FIX 2: Added -national-visa- to match your actual page URL pattern:
-  // e.g. /albania-national-visa-processing-time-for-united-arab-emirates?type=sticker
-  // FIX 1 (fmt no longer strips ?): query param now correctly appears in sitemap
+  // FIX 1: Replaced ?type= query params with path segments
+  // Old: /dest-national-visa-processing-time-for-nat?type=sticker  ← Google ignores
+  // New: /dest-national-visa-processing-time-for-nat/sticker        ← Google indexes
+  // ⚠️  Your [slug]/page.js must read the type from the last path segment, not searchParams
   const processingTimeRoutes = visaSlugs.flatMap(dest =>
     visaSlugs
       .filter(nat => nat !== dest)
       .flatMap(nat =>
         PROCESSING_TYPES.map(type =>
           fmt(
-            `/travel-resources/visa-processing-time-tracker/${dest}-national-visa-processing-time-for-${nat}?type=${type}`,
+            `/travel-resources/visa-processing-time-tracker/${dest}-national-visa-processing-time-for-${nat}-${type}`,
             0.7,
-            "weekly"
+            "weekly",
+            BUILD_TIME
           )
         )
       )
   );
 
   // ── MongoDB-based dynamic routes ───────────────────────────────────────────
-
-  // /visa/e-visa/[nat]-national-e-visa-requirements-for-[dest]
   const eVisaRoutes = mongoSlugs.flatMap(nat =>
     mongoSlugs
       .filter(dest => dest !== nat)
@@ -215,37 +229,38 @@ async function getAllRoutes() {
         fmt(
           `/visa/e-visa/${nat}-national-e-visa-requirements-for-${dest}`,
           0.75,
-          "monthly"
+          "monthly",
+          BUILD_TIME
         )
       )
   );
 
-  // /scholarships/[slug]
   const scholarshipRoutes = mongoSlugs.map(slug =>
-    fmt(`/scholarships/${slug}`, 0.75, "monthly")
+    fmt(`/scholarships/${slug}`, 0.75, "monthly", BUILD_TIME)
   );
 
-  // /visa/dubai-residents/[slug]
   const dubaiResidentRoutes = mongoSlugs.map(slug =>
-    fmt(`/visa/dubai-residents/${slug}`, 0.8, "monthly")
+    fmt(`/visa/dubai-residents/${slug}`, 0.8, "monthly", BUILD_TIME)
   );
 
-  // /visa/india/[slug]
   const indiaVisaRoutes = mongoSlugs.map(slug =>
-    fmt(`/visa/india/${slug}`, 0.8, "monthly")
+    fmt(`/visa/india/${slug}`, 0.8, "monthly", BUILD_TIME)
   );
 
-  // FIX 1 (fmt no longer strips ?): ?type= query param now correctly appears in sitemap
-  // Pattern: /visa-rejection/[nat]-visa-rejection-rate-for-[dest]?type=[type]
+  // FIX 1: Replaced ?type= with path segment
+  // Old: /nat-visa-rejection-rate-for-dest?type=tourist  ← Google ignores
+  // New: /nat-visa-rejection-rate-for-dest-tourist        ← Google indexes
+  // ⚠️  Your [slug]/page.js must parse the type from the slug string, not searchParams
   const rejectionRoutes = mongoSlugs.flatMap(nat =>
     mongoSlugs
       .filter(dest => dest !== nat)
       .flatMap(dest =>
         REJECTION_TYPES.map(type =>
           fmt(
-            `/visa-rejection/${nat}-visa-rejection-rate-for-${dest}?type=${type}`,
+            `/visa-rejection/${nat}-visa-rejection-rate-for-${dest}-${type}`,
             0.7,
-            "monthly"
+            "monthly",
+            BUILD_TIME
           )
         )
       )

@@ -919,12 +919,10 @@ export default function SchengenVisaPage() {
             </p>
             <nav aria-label="Related visa pages" className="flex flex-wrap gap-4">
               {[
-                { href: '/visa/tourist-visa', label: 'Tourist Visa' },
-                { href: '/visa/work-visa', label: 'Work Visa' },
-                { href: '/visa/business-visa', label: 'Business Visa' },
-                { href: '/visa/student-visa', label: 'Student Visa' },
-                { href: '/visa/transit-visa', label: 'Transit Visa' },
-                { href: '/visa-processing-time-tracker', label: 'Processing Times' },
+                { href: '/our-services/visa-services/tourist-visa-from-bangladesh', label: 'Tourist Visa' },
+                { href: '/our-services/visa-services/work-visa-from-bangladesh', label: 'Work Visa' },
+                { href: '/our-services/visa-services/student-visa-from-bangladesh', label: 'Student Visa' },
+                { href: '/travel-resources/visa-processing-time-tracker', label: 'Processing Times Check' },
               ].map((l) => (
                 <Link key={l.href} href={l.href} className="text-xs font-semibold text-slate-500 hover:text-amber-600 transition-colors">
                   {l.label}

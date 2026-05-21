@@ -774,13 +774,13 @@ export default function VisaRejectionSlugClient({
             <Link href="/visa-rejection" className="text-xs font-black text-red-500 hover:text-red-700 flex items-center gap-1">
               <ChevronRight size={12} /> Check another country
             </Link>
-            <Link href="/visa-rejection/bangladesh-visa-rejection-rate-for-united-states?type=tourist" className="text-xs font-black text-slate-500 hover:text-red-500 flex items-center gap-1">
+            <Link href="/visa-rejection/bangladesh-visa-rejection-rate-for-united-states-tourist" className="text-xs font-black text-slate-500 hover:text-red-500 flex items-center gap-1">
               <ChevronRight size={12} /> Bangladesh → USA refusal data
             </Link>
-            <Link href="/visa-rejection/bangladesh-visa-rejection-rate-for-canada?type=tourist" className="text-xs font-black text-slate-500 hover:text-red-500 flex items-center gap-1">
+            <Link href="/visa-rejection/bangladesh-visa-rejection-rate-for-canada-tourist" className="text-xs font-black text-slate-500 hover:text-red-500 flex items-center gap-1">
               <ChevronRight size={12} /> Bangladesh → Canada refusal data
             </Link>
-            <Link href="/visa-rejection/bangladesh-visa-rejection-rate-for-united-kingdom?type=tourist" className="text-xs font-black text-slate-500 hover:text-red-500 flex items-center gap-1">
+            <Link href="/visa-rejection/bangladesh-visa-rejection-rate-for-united-kingdom-tourist" className="text-xs font-black text-slate-500 hover:text-red-500 flex items-center gap-1">
               <ChevronRight size={12} /> Bangladesh → UK refusal data
             </Link>
           </div>
