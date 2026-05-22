@@ -580,7 +580,11 @@ const localBusinessSchema = {
 // ─────────────────────────────────────────────────────────────────────────────
 async function getCountries() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000";
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL 
+      ?? process.env.VERCEL_URL 
+        ? `https://${process.env.VERCEL_URL}` 
+        : "http://localhost:3000";
+
     const res = await fetch(`${baseUrl}/api/countries`, { next: { revalidate: 3600 } });
     if (!res.ok) return [];
     return res.json();

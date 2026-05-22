@@ -7,9 +7,11 @@ import { createSlug } from "@/app/lib/utils";
 // ─────────────────────────────────────────────────────────────────────────────
 // COUNTRY EXPLORER — Client Component
 //
-// Receives `countries` pre-fetched by the Server Component (page.jsx).
-// All interactivity lives here: hero slides, search autocomplete, A-Z filter,
-// country grid, and pagination.
+// FIX SUMMARY (production bugs):
+// 1. All props default to [] so undefined never reaches .filter()/.map()
+// 2. Every array access is guarded with optional chaining (?.)
+// 3. slides.length guard prevents division-by-zero in setInterval
+// 4. Added console.warn so you can see in Vercel logs if props arrive empty
 // ─────────────────────────────────────────────────────────────────────────────
 
 const alphabet = ["All", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
@@ -23,17 +25,30 @@ const TRUST_BADGES = [
 ];
 
 const QUICK_LINKS = [
-  { label: "Schengen visa 2026",        href: "/schengen-visa",                          icon: "🇪🇺" },
-  { label: "USA visa Dubai residents",  href: "/visa/dubai-residents/united-states",     icon: "🇺🇸" },
-  { label: "UK visa from Dubai",        href: "/visa/dubai-residents/united-kingdom",    icon: "🇬🇧" },
-  { label: "Canada TRV Dubai",          href: "/visa/dubai-residents/canada",            icon: "🇨🇦" },
-  { label: "Visa checklist",            href: "/travel-resources/visa-checklist-generator", icon: "✓" },
+  { label: "Schengen visa 2026",        href: "/schengen-visa",                              icon: "🇪🇺" },
+  { label: "USA visa Dubai residents",  href: "/visa/dubai-residents/united-states",         icon: "🇺🇸" },
+  { label: "UK visa from Dubai",        href: "/visa/dubai-residents/united-kingdom",        icon: "🇬🇧" },
+  { label: "Canada TRV Dubai",          href: "/visa/dubai-residents/canada",                icon: "🇨🇦" },
+  { label: "Visa checklist",            href: "/travel-resources/visa-checklist-generator",  icon: "✓"   },
   { label: "VFS processing times",      href: "/travel-resources/visa-processing-time-tracker", icon: "⏱" },
-  { label: "E-visa destinations",       href: "/visa/e-visa",                            icon: "⚡" },
-  { label: "Visa rejection rates",      href: "/visa-rejection",                         icon: "📊" },
+  { label: "E-visa destinations",       href: "/visa/e-visa",                                icon: "⚡"  },
+  { label: "Visa rejection rates",      href: "/visa-rejection",                             icon: "📊"  },
 ];
 
-export default function CountryExplorer({ countries, slides, popular }) {
+// ─── FIX 1: Default all props to [] so the component never crashes on undefined
+export default function CountryExplorer({
+  countries = [],
+  slides    = [],
+  popular   = [],
+}) {
+  // ─── FIX 2: Warn in logs if props arrive empty (check Vercel Function logs)
+  useEffect(() => {
+    if (countries.length === 0)
+      console.warn("[CountryExplorer] ⚠️  `countries` prop is empty — check your Server Component data fetch.");
+    if (slides.length === 0)
+      console.warn("[CountryExplorer] ⚠️  `slides` prop is empty.");
+  }, [countries.length, slides.length]);
+
   const [searchTerm,      setSearchTerm]      = useState("");
   const [suggestions,     setSuggestions]     = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -43,9 +58,13 @@ export default function CountryExplorer({ countries, slides, popular }) {
   const searchRef    = useRef(null);
   const itemsPerPage = 12;
 
-  // Auto-rotate slides
+  // ─── FIX 3: Guard slides.length so setInterval doesn't fire on empty array
   useEffect(() => {
-    const t = setInterval(() => setCurrentSlide(p => (p + 1) % slides.length), 5500);
+    if (slides.length === 0) return;
+    const t = setInterval(
+      () => setCurrentSlide(p => (p + 1) % slides.length),
+      5500
+    );
     return () => clearInterval(t);
   }, [slides.length]);
 
@@ -53,7 +72,8 @@ export default function CountryExplorer({ countries, slides, popular }) {
   useEffect(() => {
     if (searchTerm.length >= 1) {
       const filtered = countries
-        .filter(c => c.country?.toLowerCase().startsWith(searchTerm.toLowerCase()))
+        // ─── FIX 4: optional chaining on c.country so null entries don't throw
+        .filter(c => c?.country?.toLowerCase().startsWith(searchTerm.toLowerCase()))
         .slice(0, 8);
       setSuggestions(filtered);
       setShowSuggestions(filtered.length > 0);
@@ -73,9 +93,14 @@ export default function CountryExplorer({ countries, slides, popular }) {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  // ─── FIX 5: optional chaining everywhere in filter predicates
   const filteredCountries = countries.filter(c => {
-    const matchLetter = selectedLetter === "All" || c.country?.[0]?.toUpperCase() === selectedLetter;
-    const matchSearch = c.country?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchLetter =
+      selectedLetter === "All" ||
+      c?.country?.[0]?.toUpperCase() === selectedLetter;
+    const matchSearch = c?.country
+      ?.toLowerCase()
+      .includes(searchTerm.toLowerCase());
     return matchLetter && matchSearch;
   });
 
@@ -140,27 +165,29 @@ export default function CountryExplorer({ countries, slides, popular }) {
           }}
         />
 
-        {/* Slide dots */}
-        <div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20"
-          role="tablist"
-          aria-label="Slideshow navigation"
-        >
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              role="tab"
-              aria-selected={i === currentSlide}
-              onClick={() => setCurrentSlide(i)}
-              aria-label={`Slide ${i + 1}`}
-              className={`rounded-full transition-all duration-500 ${
-                i === currentSlide
-                  ? "w-8 h-2.5 bg-[#f5c800]"
-                  : "w-2.5 h-2.5 bg-black/20 hover:bg-black/40"
-              }`}
-            />
-          ))}
-        </div>
+        {/* Slide dots — only render if there are slides */}
+        {slides.length > 1 && (
+          <div
+            className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20"
+            role="tablist"
+            aria-label="Slideshow navigation"
+          >
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                role="tab"
+                aria-selected={i === currentSlide}
+                onClick={() => setCurrentSlide(i)}
+                aria-label={`Slide ${i + 1}`}
+                className={`rounded-full transition-all duration-500 ${
+                  i === currentSlide
+                    ? "w-8 h-2.5 bg-[#f5c800]"
+                    : "w-2.5 h-2.5 bg-black/20 hover:bg-black/40"
+                }`}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="relative z-10 w-full max-w-6xl mx-auto px-5 text-center pt-10 pb-20">
           {/* Live badge */}
@@ -357,7 +384,7 @@ export default function CountryExplorer({ countries, slides, popular }) {
             🔥 Most Popular for Dubai Residents:
           </span>
           {popular.map(({ name, emoji }) => {
-            const c = countries.find(x => x.country === name);
+            const c = countries.find(x => x?.country === name);
             return (
               <Link
                 key={name}
@@ -419,7 +446,7 @@ export default function CountryExplorer({ countries, slides, popular }) {
             role="list"
           >
             {currentItems.map((c, i) => (
-              <li key={`${c.code}-${i}`}>
+              <li key={`${c?.code ?? i}-${i}`}>
                 <Link
                   href={`/visa/dubai-residents/${createSlug(c.country)}`}
                   className="group rounded-2xl overflow-hidden border border-black/5 flex flex-col bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300"

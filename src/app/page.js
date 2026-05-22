@@ -13,6 +13,8 @@ import VisaSearch from "@/Components/Client/visaServices/Visa/TouristVisaBanglad
 import VisaSearchBar from "@/Components/Client/VisaProcessingTimeTracker/VisaSearchBar/VisaSearchBar";
 import CountrySearchBar from "@/Components/Client/visaServices/Visa/StudentVisaBangladesh/StudentVisa/Countrysearchbar/Countrysearchbar";
 import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
+import ScholarshipSearch from "@/Components/Client/ScholarshipSearch/ScholarshipSearch";
+import VisaRejectionSearchMenu from "@/Components/Client/VisaRejectionSearchMenu/VisaRejectionSearchMenu";
 
 const BASE_URL = "https://www.eammu.com";
 
@@ -307,6 +309,8 @@ export default function Home() {
         <section id="offers" aria-label="Special Offers and Umrah Packages">
           <SpecialOffers />
         </section>
+
+        <ScholarshipSearch />
 
         <section id="flight-booking" aria-label="International Flight Offers">
           <FlightOfferBanner />
