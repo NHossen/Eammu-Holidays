@@ -1,6 +1,3 @@
-// TourPackages.jsx
-// IMPORTANT: No 'use client' here. This is a Server Component for maximum SEO Indexing.
-
 import Image from 'next/image';
 
 export default function TourPackages() {
@@ -45,43 +42,38 @@ export default function TourPackages() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-8 font-sans">
-         {/* Header Section */}
-        <div className="mb-16 text-left border-l-[10px] border-[#005a31] pl-8">
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter leading-none">
-            Exclusive Holiday Packages
-          </h2>
-         <p className="text-slate-500 font-medium mt-4 max-w-7xl leading-relaxed">
-  Eammu Holidays offers fast and guaranteed <strong>Schengen visa appointments</strong> within weeks, making your Europe travel plans easier and stress-free. 
-  Book your dream <strong>2026 Europe tour packages</strong> with flights, hotels, and visa support from the 
-  <strong className="text-[#005a31]"> best online travel agency in Bangladesh and UAE</strong>. 
-  Explore top destinations like Paris, Switzerland, Italy, Spain, and more with trusted travel experts.
-</p>
-        </div>
+      <div className="mb-16 text-left border-l-[10px] border-[#005a31] pl-8">
+        <h2 className="text-4xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter leading-none">
+          Exclusive Holiday Packages
+        </h2>
+        <p className="text-slate-500 font-medium mt-4 max-w-7xl leading-relaxed">
+          Eammu Holidays offers fast and guaranteed <strong>Schengen visa appointments</strong> within weeks, making your Europe travel plans easier and stress-free. 
+          Book your dream <strong>2026 Europe tour packages</strong> with flights, hotels, and visa support from the 
+          <strong className="text-[#005a31]"> best online travel agency in Bangladesh and UAE</strong>.
+        </p>
+      </div>
 
-
-      {/* PACKAGE GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-        {packages.map((pkg) => (
+        {packages.map((pkg, index) => (
           <article key={pkg.id} className="relative bg-[#005a31] rounded-lg overflow-hidden flex flex-col shadow-2xl">
-            
-            {/* TOP BADGE (Breakfast/Bus) */}
             <div className={`absolute top-0 left-0 ${pkg.badgeColor} text-white text-[10px] font-bold px-3 py-1 rounded-br-lg z-20 flex items-center gap-1`}>
               <span>{pkg.badge.includes('Breakfast') ? '🍴' : '🚌'}</span>
               {pkg.badge}
             </div>
 
-            {/* IMAGE AREA */}
-            <div className="relative h-64 overflow-hidden">
+            {/* Performance Fix: Replaced fixed height with aspect-ratio to prevent Layout Shift (CLS) */}
+            <div className="relative w-full aspect-[4/3] overflow-hidden">
               <Image 
                 src={pkg.image} 
                 alt={`${pkg.title} - ${pkg.subtitle} Tour Package 2026`}
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                // Performance Fix: Priority loading for the first item to boost LCP
+                priority={index === 0} 
               />
               
-              {/* SCHENGEN GUARANTEE STICKER */}
-              <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full px-4 text-center">
+              <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full px-4 text-center z-10">
                 <div className="inline-block bg-gradient-to-r from-pink-600 to-orange-500 text-white rounded-full py-2 px-6 shadow-lg transform -rotate-2 border-2 border-white/20">
                   <p className="text-[10px] font-bold uppercase tracking-tighter leading-none">Guaranteed Schengen Appointment</p>
                   <p className="text-xs font-black italic">Within {pkg.appointment}</p>
@@ -89,23 +81,19 @@ export default function TourPackages() {
               </div>
             </div>
 
-            {/* CONTENT AREA */}
             <div className="p-6 flex-grow flex flex-col">
               <h3 className="text-[#facc15] text-xl font-black mb-1 tracking-wide">{pkg.title}</h3>
               <h4 className="text-white text-xs font-bold mb-4 tracking-widest opacity-90 uppercase italic">{pkg.subtitle}</h4>
               
-              {/* VALIDITY BADGE */}
               <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded px-2 py-1 mb-4 self-start">
-                <span className="text-cyan-400 text-xs">🛡️</span>
+                <span className="text-cyan-400 text-xs" aria-hidden="true">🛡️</span>
                 <p className="text-white text-[10px] font-bold uppercase">Travel Validity: {pkg.validity}</p>
               </div>
 
-              {/* DESCRIPTION - SEO P TAG */}
               <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
                 {pkg.description}
               </p>
 
-              {/* PRICE AND CTA */}
               <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
                 <div>
                   <span className="text-white text-[10px] font-bold uppercase block opacity-70">Starting From</span>
@@ -115,7 +103,10 @@ export default function TourPackages() {
                   </div>
                 </div>
                 
-                <button className="bg-[#facc15] hover:bg-yellow-500 text-gray-900 font-black px-6 py-3 rounded transition-colors uppercase text-sm shadow-lg">
+                <button 
+                  className="bg-[#facc15] hover:bg-yellow-500 text-gray-900 font-black px-6 py-3 rounded transition-colors uppercase text-sm shadow-lg"
+                  aria-label={`Get deal for ${pkg.title}`}
+                >
                   Get Deal
                 </button>
               </div>
@@ -124,17 +115,16 @@ export default function TourPackages() {
         ))}
       </div>
 
-      {/* VIEW ALL DEALS CTA */}
       <div className="flex flex-col items-center justify-center gap-4 mb-4">
         <a 
           href="/our-services/tour-packages" 
-          className="inline-flex items-center justify-center px-10 border-2 border-[#005a31] text-[#005a31] font-black rounded-full hover:bg-[#005a31] hover:text-white transition-all duration-300 uppercase tracking-widest text-sm shadow-sm"
+          className="inline-flex items-center justify-center px-10 border-2 border-[#005a31] text-[#005a31] font-black rounded-full hover:bg-[#005a31] hover:text-white transition-all duration-300 uppercase tracking-widest text-sm shadow-sm py-3"
         >
           View All Tour Deals
         </a>
-        <p className="text-sm text-gray-500 font-medium italic leading-relaxed">
-  Explore 50+ exclusive travel destinations across Europe, Asia, and Africa with Eammu Holidays. Discover affordable holiday packages, luxury vacations, family tours, honeymoon trips, cultural experiences, and adventure travel deals. Book international flights, hotels, visa assistance, and customized tour packages to top destinations with one of the leading online travel agencies in Bangladesh.
-</p>
+        <p className="text-sm text-gray-500 font-medium italic leading-relaxed text-center">
+          Explore 50+ exclusive travel destinations across Europe, Asia, and Africa with Eammu Holidays. Discover affordable holiday packages, luxury vacations, family tours, honeymoon trips, cultural experiences, and adventure travel deals. Book international flights, hotels, visa assistance, and customized tour packages to top destinations with one of the leading online travel agencies in Bangladesh.
+        </p>
       </div>
     </section>
   );

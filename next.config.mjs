@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    qualities: [75, 80],  // ✅ add this
     remotePatterns: [
       { protocol: "https", hostname: "encrypted-tbn0.gstatic.com", pathname: "/**" },
       { protocol: "https", hostname: "www.babaaztravels.com", pathname: "/**" },

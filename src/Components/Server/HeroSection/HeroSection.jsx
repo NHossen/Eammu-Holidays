@@ -1,60 +1,60 @@
-
+import dynamic from "next/dynamic";
 import BackgroundSlider from '@/Components/Client/HeroHome/BackgroundSlider/BackgroundSlider';
-import BottomCarousel from '@/Components/Client/HeroHome/BottomCarousel/BottomCarousel';
-import HeroButtons from '@/Components/Client/HeroHome/HeroButtons/HeroButtons';
-import TravelMenu from '@/Components/Client/HeroHome/PremiumNavBar/TravelMenu/TravelMenu';
-import PromoCard from '@/Components/Client/HeroHome/PromoCard/PromoCard';
+import HeroButtons    from '@/Components/Client/HeroHome/HeroButtons/HeroButtons';
+import TravelMenu     from '@/Components/Client/HeroHome/PremiumNavBar/TravelMenu/TravelMenu';
 
+// PromoCard — visible above fold but non-critical for LCP
+const PromoCard = dynamic(
+  () => import('@/Components/Client/HeroHome/PromoCard/PromoCard'),
+  { loading: () => <div className="w-full min-h-[200px] sm:min-h-[256px] animate-pulse bg-white/10 rounded-2xl" /> }
+);
 
+// BottomCarousel — below the hero, definitely lazy
+const BottomCarousel = dynamic(
+  () => import('@/Components/Client/HeroHome/BottomCarousel/BottomCarousel'),
+  { loading: () => <div className="h-20 animate-pulse bg-gray-100 rounded-xl mx-4" /> }
+);
 
 const HeroSection = () => {
   return (
     <div className="relative w-full overflow-hidden font-sans">
-      <div className="relative w-full bg-linear-to-br from-[#72deff] via-[#d8ffd4] to-[#f5ff9e] overflow-hidden">
-        
+      <div className="relative w-full min-h-[500px] sm:min-h-[600px] lg:min-h-[50vh]
+                      bg-gradient-to-br from-[#72deff] via-[#d8ffd4] to-[#f5ff9e] overflow-hidden">
+
         <BackgroundSlider />
 
-        <div className="relative z-10 min-h-130 sm:min-h-150 lg:min-h-[50vh] flex flex-col">
-          
-<TravelMenu />
+        <div className="relative z-10 h-full flex flex-col">
+          <TravelMenu />
 
           <div className="flex-1 flex items-center py-4">
-  {/* 1. On mobile: We use "flex flex-col-reverse" to put the Card on top and Text on bottom.
-      2. On desktop (lg): We switch to "grid grid-cols-2" for side-by-side layout.
-  */}
-  <div className="max-w-5xl mx-auto px-4 w-full flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 items-center">
+            <div className="max-w-5xl mx-auto px-4 w-full flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 items-center">
 
-    {/* LEFT SIDE: Text & Buttons */}
-    <div className="text-white text-center lg:text-left">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-        Your Trusted Travel Partner <br />
-        to the World <span className="text-[#ffcc00]">Since 2012</span>
-      </h1>
+              <div className="text-white text-center lg:text-left">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+                  Your Trusted Travel Partner <br />
+                  to the World <span className="text-[#ffcc00]">Since 2012</span>
+                </h1>
+                <p className="text-sm md:text-base leading-relaxed mb-5 opacity-90">
+                  Eammu Holidays is a leading{' '}
+                  <a href="/online-travel-agency-bangladesh">online travel agency in Bangladesh</a>{' '}
+                  — offering flight bookings, worldwide visa assistance, Holiday Tour Packages,
+                  and exciting desert safari tours. With expert guidance, we make international
+                  travel simple, affordable, and hassle-free.
+                </p>
+                <HeroButtons />
+                <div className="flex flex-wrap justify-center lg:justify-start gap-3 text-xs">
+                  <span><span aria-hidden="true">🏆</span> IATA Accredited</span>
+                  <span><span aria-hidden="true">📅</span> 14+ Years Experience</span>
+                  <span><span aria-hidden="true">⭐</span> Google Rating 4.9/5</span>
+                </div>
+              </div>
 
-      <p className="text-sm md:text-base leading-relaxed mb-5 opacity-90">
-        Eammu Holidays is a leading <a href="/online-travel-agency-bangladesh">online travel agency in Bangladesh</a> - offering flight bookings, worldwide visa assistance, Holiday Tour Packages, and exciting desert safari tours. With expert guidance, we make international travel simple, affordable, and hassle-free
-      </p>
+              <div className="w-full flex justify-center lg:justify-end min-h-[200px] sm:min-h-[256px]">
+                <PromoCard />
+              </div>
 
-      {/* Animated Buttons (Client Part) */}
-      <HeroButtons />
-
-      <div className="flex flex-wrap justify-center lg:justify-start gap-3 text-xs">
-        <span>🏆 IATA Accredited</span>
-        <span>📅 14+ Years Experience</span>
-        <span>⭐ Google Rating 4.9/5</span>
-      </div>
-    </div>
-
-    {/* RIGHT SIDE: Promo Card */}
-    <div className="w-full flex justify-center lg:justify-end">
-      <PromoCard />
-    </div>
-
-    
-
-  </div>
-</div>
-
+            </div>
+          </div>
         </div>
       </div>
 
@@ -63,5 +63,4 @@ const HeroSection = () => {
   );
 };
 
-// এই লাইনটি নিশ্চিত করুন:
 export default HeroSection;

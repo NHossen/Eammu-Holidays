@@ -4,7 +4,7 @@ import Header from "@/Components/Client/Header/Header";
 import Footer from "@/Components/Server/Footer/Footer";
 import WhatsAppFloatingButton from "@/Components/Client/WhatsAppFloatingButton/WhatsAppFloatingButton";
 import Scroll from "@/Components/Client/Scroll/Scroll";
-
+import Script from "next/script";
 const BASE_URL = "https://www.eammu.com";
 
 // ── Font setup ────────────────────────────────────────────────────────────────
@@ -123,13 +123,6 @@ export const metadata = {
         alt: "Eammu Holidays – Best Travel Agency in Bangladesh and Dubai",
         type: "image/webp",
       },
-      {
-        url: `${BASE_URL}/flight_eammu_offer.webp`,
-        width: 1200,
-        height: 630,
-        alt: "Luxury International Tour Packages by Eammu Holidays",
-        type: "image/webp",
-      },
     ],
     locale: "en_US",
     alternateLocale: ["bn_BD", "ar_AE"],
@@ -149,8 +142,8 @@ export const metadata = {
   icons: {
     icon: [
       { url: "/emf.jpg", type: "image/jpeg" },
-      { url: "/flight_eammu_offer.webp", sizes: "32x32", type: "image/png" },
-      { url: "/flight_eammu_offer.webp", sizes: "16x16", type: "image/png" },
+      { url: "/flight_eammu_offer.webp", sizes: "32x32" },
+
     ],
     shortcut: "/emf.jpg",
     apple: [{ url: "/emf.jpg", sizes: "180x180", type: "image/jpeg" }],
@@ -464,27 +457,9 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className="antialiased"
     >
       <head>
-        {/* ── Performance: preconnect reduces DNS/TLS latency (Core Web Vitals) ── */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
-          href="https://pagead2.googlesyndication.com"
-        />
-
-        {/* ── Google AdSense ── */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3033816186833488"
-          crossOrigin="anonymous"
-        />
 
         {/* ── Global Structured Data ── */}
         <script
@@ -493,13 +468,23 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify(globalSchema),
           }}
         />
+                    {/* ── Google AdSense ── */}
+<Script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3033816186833488"
+    crossOrigin="anonymous"
+    strategy="afterInteractive" 
+  />
       </head>
-      <body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
         {/* role="main" + id help screen readers & search crawlers */}
         <main id="main-content" role="main">
           {children}
         </main>
+
+
+
         <WhatsAppFloatingButton />
         <Scroll />
         <Footer />
