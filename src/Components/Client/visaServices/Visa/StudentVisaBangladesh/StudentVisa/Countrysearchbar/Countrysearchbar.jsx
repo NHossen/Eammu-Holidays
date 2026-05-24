@@ -150,7 +150,7 @@ export default function CountrySearchBar({ mode = "student", className = "" }) {
               type="button"
               onMouseDown={(e) => { e.preventDefault(); setActiveMode(key); setOpen(true); inputRef.current?.focus(); }}
               className={`
-                flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-black whitespace-nowrap transition-all duration-200
+                flex cursor-pointer items-center gap-1.5 px-3 py-2.5 rounded-xl text-xs font-black whitespace-nowrap transition-all duration-200
                 ${activeMode === key
                   ? key === "student"
                     ? "bg-green-600 text-white shadow-md shadow-green-200/70"
@@ -209,7 +209,7 @@ export default function CountrySearchBar({ mode = "student", className = "" }) {
               else setOpen(true);
             }}
             className={`
-              flex items-center gap-2 px-5 md:px-7 py-3.5 rounded-xl font-black text-sm text-white
+              flex items-center cursor-pointer gap-2 px-5 md:px-7 py-3.5 rounded-xl font-black text-sm text-white
               transition-all duration-200 active:scale-[0.97] shadow-lg
               ${isStudent
                 ? "bg-green-600 hover:bg-green-700 shadow-green-200"

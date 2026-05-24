@@ -46,7 +46,7 @@ function CountryPicker({ label, value, onChange, placeholder }) {
           : <Globe size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-10" />
         }
         <input
-          className="w-full pl-9 pr-4 py-3 bg-white border-2 border-gray-100 hover:border-green-300 focus:border-green-600 rounded-xl text-sm font-semibold text-gray-800 placeholder:text-gray-300 outline-none transition-all"
+          className="w-full cursor-pointer pl-9 pr-4 py-3 bg-white border-2 border-gray-100 hover:border-green-300 focus:border-green-600 rounded-xl text-sm font-semibold text-gray-800 placeholder:text-gray-300 outline-none transition-all"
           placeholder={placeholder}
           value={query}
           onChange={e => { setQuery(e.target.value); onChange(null); setOpen(true); }}
@@ -61,7 +61,7 @@ function CountryPicker({ label, value, onChange, placeholder }) {
               <button
                 key={c.code}
                 onMouseDown={() => select(c)}
-                className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-green-50 text-left transition-colors"
+                className="w-full cursor-pointer flex items-center gap-3 px-4 py-2.5 hover:bg-green-50 text-left transition-colors"
               >
                 <img src={c.flag} width={20} height={14} className="object-contain rounded-sm flex-shrink-0" alt="" />
                 <span className="text-sm font-semibold text-gray-800">{c.country}</span>
@@ -93,7 +93,7 @@ function VisaTypePicker({ value, onChange }) {
       <button
         type="button"
         onClick={() => setOpen(o => !o)}
-        className="w-full flex items-center gap-2 px-3.5 py-3 bg-white border-2 border-gray-100 hover:border-green-300 rounded-xl text-sm font-semibold text-left transition-all outline-none"
+        className="w-full cursor-pointer flex items-center gap-2 px-3.5 py-3 bg-white border-2 border-gray-100 hover:border-green-300 rounded-xl text-sm font-semibold text-left transition-all outline-none"
       >
         {selected
           ? <><span>{selected.icon}</span><span className="text-gray-800 flex-1 truncate">{selected.label}</span></>
@@ -107,7 +107,7 @@ function VisaTypePicker({ value, onChange }) {
             <button
               key={v.value}
               onMouseDown={() => { onChange(v.value); setOpen(false); }}
-              className={`w-full flex items-center gap-3 px-4 py-2.5 text-left text-sm font-semibold hover:bg-green-50 transition-colors
+              className={`w-full cursor-pointer flex items-center gap-3 px-4 py-2.5 text-left text-sm font-semibold hover:bg-green-50 transition-colors
                 ${value === v.value ? "bg-green-50 text-green-800" : "text-gray-700"}`}
             >
               <span className="text-base">{v.icon}</span>
@@ -185,7 +185,7 @@ export default function VisaSearchBar() {
             <div className="hidden sm:block text-[10px] font-black uppercase tracking-widest text-transparent mb-1.5 select-none">.</div>
             <button
               onClick={handleSearch}
-              className="w-full sm:w-auto px-6 py-3 bg-green-700 hover:bg-green-800 active:scale-[0.98] text-white font-black text-sm rounded-xl transition-all flex items-center justify-center gap-2 whitespace-nowrap shadow-md shadow-green-200"
+              className="w-full sm:w-auto cursor-pointer px-6 py-3 bg-green-700 hover:bg-green-800 active:scale-[0.98] text-white font-black text-sm rounded-xl transition-all flex items-center justify-center gap-2 whitespace-nowrap shadow-md shadow-green-200"
             >
               <Timer size={15} />
               Check Now

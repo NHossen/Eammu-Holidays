@@ -120,14 +120,14 @@ export default function VisaSearch({
             onKeyDown={handleKeyDown}
             placeholder={placeholder}
             autoComplete="off"
-            className="flex-1 py-5 px-3 text-lg font-semibold text-gray-800 placeholder:text-gray-300 bg-transparent outline-none min-w-0"
+            className="flex-1 cursor-pointer py-5 px-3 text-lg font-semibold text-gray-800 placeholder:text-gray-300 bg-transparent outline-none min-w-0"
           />
 
           {/* Clear button */}
           {query && (
             <button
               onClick={() => { setQuery(""); setSuggestions([]); setIsOpen(false); inputRef.current?.focus(); }}
-              className="flex items-center justify-center px-3 text-gray-300 hover:text-gray-500 transition-colors shrink-0"
+              className="flex cursor-pointer items-center justify-center px-3 text-gray-300 hover:text-gray-500 transition-colors shrink-0"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
@@ -157,7 +157,7 @@ export default function VisaSearch({
           {/* Search button */}
           <button
             onClick={handleSubmit}
-            className="flex items-center gap-2 px-6 md:px-8 bg-green-600 hover:bg-green-700 text-white font-black transition-all duration-200 rounded-r-[calc(1.8rem-2px)] active:scale-[0.98] shrink-0 group"
+            className="flex cursor-pointer items-center gap-2 px-6 md:px-8 bg-green-600 hover:bg-green-700 text-white font-black transition-all duration-200 rounded-r-[calc(1.8rem-2px)] active:scale-[0.98] shrink-0 group"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -177,7 +177,7 @@ export default function VisaSearch({
                   key={c.code}
                   onMouseDown={() => handleSelect(c.country)}
                   onMouseEnter={() => setActiveIndex(i)}
-                  className={`w-full flex items-center justify-between px-4 py-3.5 rounded-[1rem] transition-all duration-150 group text-left ${
+                  className={`w-full cursor-pointer flex items-center justify-between px-4 py-3.5 rounded-[1rem] transition-all duration-150 group text-left ${
                     activeIndex === i ? "bg-green-50 border border-green-100" : "hover:bg-gray-50"
                   }`}
                 >
@@ -237,7 +237,7 @@ export default function VisaSearch({
             const c = countries.find(x => x.country === name);
             return (
               <button key={name} onClick={() => handleSelect(name)}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-200 rounded-full text-xs font-bold text-gray-600 hover:border-green-400 hover:text-green-700 hover:shadow-sm transition-all">
+                className="flex cursor-pointer items-center gap-1.5 px-3 py-1.5 bg-white border border-gray-200 rounded-full text-xs font-bold text-gray-600 hover:border-green-400 hover:text-green-700 hover:shadow-sm transition-all">
                 {c?.flag && <img src={c.flag} className="w-4 h-3 object-cover rounded-sm" alt="" />}
                 {name}
               </button>

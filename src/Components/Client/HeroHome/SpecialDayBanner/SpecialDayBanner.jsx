@@ -46,7 +46,7 @@ const SpecialDayBanner = () => {
   };
 
   return (
-    <section className="w-full py-2 sm:py-6 bg-white">
+    <section className="w-full my-6 md:my-16 bg-white">
       <div className="max-w-7xl mx-auto px-2 sm:px-4">
 
         {/*

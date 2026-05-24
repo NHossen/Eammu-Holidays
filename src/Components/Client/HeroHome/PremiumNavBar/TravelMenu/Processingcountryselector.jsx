@@ -1,4 +1,4 @@
-// components/CountrySelector.jsx
+// components/ProcessingCountrySelector.jsx
 "use client";
 import { useState, useRef, useEffect, useMemo } from "react";
 import { Search, Check, Clock, ChevronDown } from "lucide-react";
@@ -6,12 +6,12 @@ import countries from "@/app/data/countries.json";
 
 const RECENT_MAX = 4;
 
-export default function CountrySelector({ label, value, onChange, exclude, recentKey }) {
+export default function ProcessingCountrySelector({ label, value, onChange, exclude, recentKey }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [recents, setRecents] = useState(() => {
     try {
-      return JSON.parse(localStorage.getItem(recentKey) || "[]");
+      return JSON.parse(localStorage.getItem(recentKey || "__proc_recent__") || "[]");
     } catch { return []; }
   });
   const ref = useRef(null);
@@ -36,7 +36,9 @@ export default function CountrySelector({ label, value, onChange, exclude, recen
   );
 
   useEffect(() => {
-    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, []);
@@ -51,7 +53,9 @@ export default function CountrySelector({ label, value, onChange, exclude, recen
     onChange(country.country.toLowerCase());
     const updated = [country.country, ...recents.filter(n => n !== country.country)].slice(0, RECENT_MAX);
     setRecents(updated);
-    try { localStorage.setItem(recentKey, JSON.stringify(updated)); } catch {}
+    try {
+      localStorage.setItem(recentKey || "__proc_recent__", JSON.stringify(updated));
+    } catch {}
     setOpen(false);
   };
 
@@ -70,11 +74,12 @@ export default function CountrySelector({ label, value, onChange, exclude, recen
 
   return (
     <div ref={ref} className="flex-1 min-w-0 relative">
-      {/* Trigger */}
+
+      {/* ── Trigger ── */}
       <button
         onClick={() => open ? setOpen(false) : handleOpen()}
         className={`w-full cursor-pointer bg-slate-50/70 px-3 py-2 rounded-xl border text-left flex items-center gap-3 transition-colors
-          ${open ? "border-purple-400 ring-1 ring-purple-200" : "border-slate-100 hover:border-slate-300"}`}
+          ${open ? "border-yellow-400 ring-1 ring-yellow-200" : "border-slate-100 hover:border-slate-300"}`}
       >
         {selected?.flag
           ? <img src={selected.flag} className="w-7 h-[18px] object-cover rounded-sm border border-slate-200 shrink-0" alt="" />
@@ -87,9 +92,10 @@ export default function CountrySelector({ label, value, onChange, exclude, recen
         <ChevronDown size={13} className={`text-slate-400 transition-transform shrink-0 ${open ? "rotate-180" : ""}`} />
       </button>
 
-      {/* Dropdown */}
+      {/* ── Dropdown ── */}
       {open && (
         <div className="absolute z-50 top-full left-0 right-0 mt-1.5 bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden">
+
           {/* Search input */}
           <div className="flex items-center gap-2 px-3 py-2.5 border-b border-gray-50">
             <Search size={13} className="text-gray-400 shrink-0" />
@@ -106,6 +112,7 @@ export default function CountrySelector({ label, value, onChange, exclude, recen
           </div>
 
           <div className="max-h-60 overflow-y-auto">
+
             {/* Recent searches — shown only when no query */}
             {!query && recentCountries.length > 0 && (
               <>
@@ -114,12 +121,12 @@ export default function CountrySelector({ label, value, onChange, exclude, recen
                   <button
                     key={c.code + "-recent"}
                     onClick={() => handleSelect(c)}
-                    className="w-full cursor-pointer flex items-center gap-3 px-3 py-2 hover:bg-purple-50 transition-colors text-left"
+                    className="w-full cursor-pointer flex items-center gap-3 px-3 py-2 hover:bg-yellow-50 transition-colors text-left"
                   >
                     <Clock size={12} className="text-gray-300 shrink-0" />
                     <img src={c.flag} className="w-5 h-[13px] object-cover rounded-sm border border-slate-100 shrink-0" alt="" />
                     <span className="text-[13px] font-bold text-gray-700 flex-1">{c.country}</span>
-                    {c.country.toLowerCase() === value && <Check size={12} className="text-purple-500" />}
+                    {c.country.toLowerCase() === value && <Check size={12} className="text-yellow-500" />}
                   </button>
                 ))}
                 <div className="mx-3 my-1 border-t border-gray-50" />
@@ -134,15 +141,16 @@ export default function CountrySelector({ label, value, onChange, exclude, recen
                 <button
                   key={c.code}
                   onClick={() => handleSelect(c)}
-                  className={`w-full cursor-pointer flex items-center gap-3 px-3 py-2 hover:bg-purple-50 transition-colors text-left
-                    ${c.country.toLowerCase() === value ? "bg-purple-50/60" : ""}`}
+                  className={`w-full cursor-pointer flex items-center gap-3 px-3 py-2 hover:bg-yellow-50 transition-colors text-left
+                    ${c.country.toLowerCase() === value ? "bg-yellow-50/60" : ""}`}
                 >
                   <img src={c.flag} className="w-5 h-[13px] object-cover rounded-sm border border-slate-100 shrink-0" alt="" />
                   <span className="text-[13px] font-bold text-gray-700 flex-1">{highlight(c.country, query)}</span>
-                  {c.country.toLowerCase() === value && <Check size={12} className="text-purple-500" />}
+                  {c.country.toLowerCase() === value && <Check size={12} className="text-yellow-500" />}
                 </button>
               ))
             }
+
           </div>
         </div>
       )}

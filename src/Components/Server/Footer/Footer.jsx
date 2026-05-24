@@ -155,15 +155,11 @@ const Footer = () => {
                         <div className="flex flex-col gap-4">
                             <div className="join w-full border border-gray-200 rounded-lg overflow-hidden">
                                 <input 
-                                    type="text" 
+                                    type="email" 
                                     placeholder="info@eammu.com" 
                                     className="input bg-transparent border-none join-item w-full focus:outline-none px-3 h-12" 
                                 />
                                 <button className="btn bg-[#005a31] text-white border-none join-item px-4 h-12">Go</button>
-                            </div>
-                            <div className="flex gap-2">
-                                <Link href='/log-in' className="flex-1 text-center py-2 text-sm border border-[#005a31] text-[#005a31] rounded-md hover:bg-[#005a31] hover:text-white transition-all">Log in</Link>
-                                <Link href='/sign-up' className="flex-1 text-center py-2 text-sm bg-[#005a31] text-white rounded-md hover:bg-black transition-all">Sign Up</Link>
                             </div>
                         </div>
                     </div>

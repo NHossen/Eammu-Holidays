@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -39,22 +39,22 @@ function formatPrice(category, price) {
 
 export default function PromoCard() {
   const [promoIndex, setPromoIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
+  // ✅ FIX 1: ref দিয়ে index track — closure সমস্যা নেই
+  const promoIndexRef = useRef(0);
 
   const goTo = useCallback((nextIndex) => {
-    setVisible(false);
-    setTimeout(() => {
-      setPromoIndex(nextIndex);
-      setVisible(true);
-    }, 300);
+    const next = (nextIndex + promoSlides.length) % promoSlides.length;
+    promoIndexRef.current = next;
+    setPromoIndex(next);
   }, []);
 
+  // ✅ FIX 2: dependency শুধু [goTo] — একবারই interval তৈরি হয়
   useEffect(() => {
     const timer = setInterval(() => {
-      goTo((promoIndex + 1) % promoSlides.length);
+      goTo(promoIndexRef.current + 1);
     }, 4000);
     return () => clearInterval(timer);
-  }, [promoIndex, goTo]);
+  }, [goTo]);
 
   const slide = promoSlides[promoIndex];
   const dotGroupStart = Math.floor(promoIndex / VISIBLE_DOTS) * VISIBLE_DOTS;
@@ -62,18 +62,17 @@ export default function PromoCard() {
 
   return (
     <div className="flex justify-center lg:justify-end w-full px-2">
-      <div
-        className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-2xl glass-liquid-water border border-white/20"
-        style={{ minHeight: '160px' }}
-      >
-        <div
-          className="flex flex-col sm:flex-row w-full sm:h-64"
-          style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.3s ease' }}
-        >
-          <div
-            className="relative w-full sm:w-1/2 overflow-hidden"
-            style={{ aspectRatio: '3/1.5', minHeight: '120px' }}
-          >
+      <div className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-2xl glass-liquid-water border border-white/20">
+
+        {/*
+          ✅ FIX 3: flex-row সবসময় — mobile তেও পাশাপাশি
+          h-[180px] mobile, h-64 desktop — CLS হবে না
+          setTimeout + visible state সরানো — CSS transition দিয়ে fade
+        */}
+        <div className="flex flex-row w-full h-[200px] sm:h-64">
+
+          {/* Image — flex-shrink-0 দিয়ে collapse হবে না */}
+          <div className="relative w-1/2 h-full overflow-hidden flex-shrink-0">
             <Image
               key={slide.img}
               src={slide.img}
@@ -81,8 +80,9 @@ export default function PromoCard() {
               fill
               priority={promoIndex === 0}
               loading={promoIndex === 0 ? 'eager' : 'lazy'}
-              className="object-cover"
-              sizes="(max-width: 640px) 100vw, 50vw"
+              // ✅ CSS opacity transition — setTimeout এর দরকার নেই
+              className="object-cover transition-opacity duration-300"
+              sizes="(max-width: 640px) 50vw, 25vw"
               quality={75}
             />
             <div className="absolute top-2 left-2 bg-yellow-400 text-black text-[9px] font-black px-2 py-0.5 rounded-sm uppercase z-20 shadow-sm">
@@ -90,38 +90,36 @@ export default function PromoCard() {
             </div>
           </div>
 
-          <div className="w-full sm:w-1/2 p-4 flex flex-col justify-between bg-black/5">
-            <div className="space-y-2">
-              <h2
-                className="text-sm sm:text-base font-black uppercase leading-tight text-white drop-shadow-md"
-                style={{ minHeight: '2.5rem' }}
-              >
+          {/* Text */}
+          <div className="w-1/2 h-full p-3 flex flex-col justify-between bg-black/5 overflow-hidden">
+            <div className="space-y-1.5">
+              {/* ✅ FIX 4: min-h দিয়ে title height stable — CLS নেই */}
+              <h2 className="text-xs sm:text-sm font-black uppercase leading-tight text-white drop-shadow-md line-clamp-2 min-h-[2rem]">
                 {slide.title}
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-1 gap-2">
-                <div className="p-2 rounded-lg bg-white/40 border border-white/30 text-center sm:text-left">
-                  <span className="block text-[9px] font-bold text-gray-900 uppercase">{slide.label1}</span>
-                  <b className="text-[#005a31] text-[12px] font-black">{formatPrice(slide.category, slide.price1)}</b>
+              <div className="grid grid-cols-1 gap-1.5">
+                <div className="p-1.5 rounded-lg bg-white/40 border border-white/30">
+                  <span className="block text-[8px] font-bold text-gray-900 uppercase leading-none mb-0.5">{slide.label1}</span>
+                  <b className="text-[#005a31] text-[11px] font-black leading-none">{formatPrice(slide.category, slide.price1)}</b>
                 </div>
-                <div className="p-2 rounded-lg bg-white/40 border border-white/30 text-center sm:text-left">
-                  <span className="block text-[9px] font-bold text-gray-900 uppercase">{slide.label2}</span>
-                  <b className="text-[#005a31] text-[12px] font-black">{formatPrice(slide.category, slide.price2)}</b>
+                <div className="p-1.5 rounded-lg bg-white/40 border border-white/30">
+                  <span className="block text-[8px] font-bold text-gray-900 uppercase leading-none mb-0.5">{slide.label2}</span>
+                  <b className="text-[#005a31] text-[11px] font-black leading-none">{formatPrice(slide.category, slide.price2)}</b>
                 </div>
               </div>
             </div>
 
-            <div className="mt-3">
-              <Link
-                href={slide.link}
-                className="relative flex items-center justify-center px-6 py-2 rounded-[10px] font-bold text-xs text-white overflow-hidden cursor-pointer bg-gradient-to-r from-[#005a31] via-[#00a45a] to-[#005a31] bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-[0_10px_20px_-10px_rgba(0,90,49,0.6)] promo-card-shimmer"
-              >
-                <span className="relative z-10">BOOK NOW</span>
-              </Link>
-            </div>
+            <Link
+              href={slide.link}
+              className="relative flex items-center justify-center px-3 py-1.5 rounded-[8px] font-bold text-[10px] text-white overflow-hidden cursor-pointer bg-gradient-to-r from-[#005a31] via-[#00a45a] to-[#005a31] bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-[0_4px_12px_-4px_rgba(0,90,49,0.6)] promo-card-shimmer"
+            >
+              <span className="relative z-10 uppercase tracking-wider">BOOK NOW</span>
+            </Link>
           </div>
         </div>
 
-        <div className="absolute bottom-2 right-4 flex gap-1 z-30">
+        {/* Dots */}
+        <div className="absolute bottom-2 right-3 flex gap-1 z-30">
           {Array.from({ length: VISIBLE_DOTS }).map((_, i) => {
             const slideIndex = dotGroupStart + i;
             if (slideIndex >= promoSlides.length) return null;

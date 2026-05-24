@@ -4,7 +4,6 @@ import Header from "@/Components/Client/Header/Header";
 import Footer from "@/Components/Server/Footer/Footer";
 import WhatsAppFloatingButton from "@/Components/Client/WhatsAppFloatingButton/WhatsAppFloatingButton";
 import Scroll from "@/Components/Client/Scroll/Scroll";
-import Script from "next/script";
 const BASE_URL = "https://www.eammu.com";
 
 // ── Font setup ────────────────────────────────────────────────────────────────
@@ -455,39 +454,32 @@ const globalSchema = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className="antialiased"
-    >
+    <html lang="en" className="antialiased">
       <head>
-
-        {/* ── Global Structured Data ── */}
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(globalSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(globalSchema) }}
         />
-                    {/* ── Google AdSense ── */}
-<Script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3033816186833488"
-    crossOrigin="anonymous"
-    strategy="afterInteractive" 
-  />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
-        {/* role="main" + id help screen readers & search crawlers */}
         <main id="main-content" role="main">
           {children}
         </main>
-
-
-
         <WhatsAppFloatingButton />
         <Scroll />
         <Footer />
+
+        {/* ✅ Plain <script> — no data-nscript, no warning, async so non-blocking */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3033816186833488"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
