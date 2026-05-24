@@ -3,6 +3,7 @@
 
 import VisaProcessingTimeTracker from "@/Components/Client/VisaProcessingTimeTracker/VisaProcessingTimeTracker";
 
+export const revalidate    = 86400;  // cache each page 24h
 // ─────────────────────────────────────────────────────────────────────────────
 // METADATA
 // ─────────────────────────────────────────────────────────────────────────────
