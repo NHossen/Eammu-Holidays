@@ -480,7 +480,7 @@ export async function generateMetadata({ params }) {
   const natAdj      = natInfo?.adj || slugToName(nationalitySlug);
   const currentYear = new Date().getFullYear();
 
-  const title = `${natAdj} e-Visa Requirements for ${destName} ${currentYear} — Apply Online | Visa Expert Hub`;
+  const title = `${natAdj} e-Visa Requirements for ${destName} ${currentYear} — Apply Online | Eammu Holidays`;
   const description = `Complete ${currentYear} guide: ${natAdj} passport holders applying for ${destName} e-Visa. Documents required, fees, processing time, photo specs & expert tips. Apply online — no embassy visit needed.`;
 
   return {
@@ -488,7 +488,7 @@ export async function generateMetadata({ params }) {
     description,
     keywords: `${natAdj} e-visa ${destName} ${currentYear}, ${natAdj} passport ${destName} online visa, ${destName} e-visa for ${natAdj} nationals, how to apply ${destName} e-visa from ${natInfo?.country || natAdj}, ${destName} e-visa requirements ${natAdj}, ${destName} evisa ${natAdj} passport, ${natAdj} ${destName} visa online application`,
     alternates: {
-      canonical: `https://visaexpresshub.com/visa/e-visa/${slug}`,
+      canonical: `https://eammu.com/visa/e-visa/${slug}`,
     },
     openGraph: {
       title: `${natAdj} e-Visa Requirements for ${destName} — ${currentYear} Complete Guide`,
@@ -702,8 +702,8 @@ export default async function EVisaSlugPage({ params }) {
     "headline": `${natAdj} e-Visa Requirements for ${destName} ${currentYear} — Online Application Guide`,
     "description": `Complete ${destName} e-Visa guide for ${natAdj} passport holders — documents, fees, processing time & expert tips. Apply online, no embassy visit needed.`,
     "image": destFlag || "",
-    "author": { "@type": "Organization", "name": "Visa Expert Hub" },
-    "publisher": { "@type": "Organization", "name": "Visa Expert Hub", "logo": { "@type": "ImageObject", "url": "/logo.png" } },
+    "author": { "@type": "Organization", "name": "Eammu Holidays" },
+    "publisher": { "@type": "Organization", "name": "Eammu Holidays", "logo": { "@type": "ImageObject", "url": "/logo.png" } },
     "dateModified": new Date().toISOString(),
     "mainEntity": {
       "@type": "FAQPage",
@@ -728,9 +728,9 @@ export default async function EVisaSlugPage({ params }) {
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",                "item": "https://visaexpresshub.com/" },
-        { "@type": "ListItem", "position": 2, "name": "e-Visa Requirements", "item": "https://visaexpresshub.com/visa/e-visa" },
-        { "@type": "ListItem", "position": 3, "name": `${natAdj} e-Visa for ${destName}`, "item": `https://visaexpresshub.com/visa/e-visa/${slug}` },
+        { "@type": "ListItem", "position": 1, "name": "Home",                "item": "https://eammu.com/" },
+        { "@type": "ListItem", "position": 2, "name": "e-Visa Requirements", "item": "https://eammu.com/visa/e-visa" },
+        { "@type": "ListItem", "position": 3, "name": `${natAdj} e-Visa for ${destName}`, "item": `https://eammu.com/visa/e-visa/${slug}` },
       ],
     },
   };

@@ -2,7 +2,7 @@
 import CountryScholarshipsServer from "@/Components/Server/Countryscholarshipsserver/Countryscholarshipsserver";
 
 // ─── Data Fetching ────────────────────────────────────────────────────────────
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://visaexpresshub.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://eammu.com";
 const API_BASE = process.env.INTERNAL_API_URL || BASE_URL;
 
 async function getScholarships(slug) {
@@ -81,13 +81,13 @@ export async function generateMetadata({ params }) {
       url: canonicalUrl,
       title,
       description,
-      siteName: "VisaExpressHub",
+      siteName: "Eammu Holidays",
       images: [
         {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${countryName} Scholarships 2026 — VisaExpressHub`,
+          alt: `${countryName} Scholarships 2026 — Eammu Holidays`,
         },
       ],
     },
@@ -96,7 +96,7 @@ export async function generateMetadata({ params }) {
       title,
       description,
       images: [ogImage],
-      site: "@visaexpresshub",
+      site: "@eammu",
     },
     robots: {
       index: true,
