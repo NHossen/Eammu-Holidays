@@ -91,15 +91,16 @@ export default function Header() {
             >
               <Menu size={28} />
             </button>
-            <Link href="/" className="relative h-[40px] w-[120px] sm:h-[50px] sm:w-[150px]">
-              <Image
-                src="/eammu_logo.webp"
-                alt="Eammu Holidays Logo"
-                fill
-                priority
-                className="object-contain object-left" 
-              />
-            </Link>
+           <Link href="/" className="relative h-[40px] w-[120px] sm:h-[50px] sm:w-[150px]">
+  <Image
+    src="/eammu_logo.webp"
+    alt="Eammu Holidays Logo"
+    fill
+    priority
+    sizes="(max-width: 640px) 120px, 150px"
+    className="object-contain object-left"
+  />
+</Link>
           </div>
 
           {/* Premium Desktop Menu */}

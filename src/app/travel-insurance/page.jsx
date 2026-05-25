@@ -22,6 +22,7 @@ import {
   Umbrella,
 } from "lucide-react";
 
+
 // ─────────────────────────────────────────────────────────────────────────────
 // METADATA
 // ─────────────────────────────────────────────────────────────────────────────
@@ -656,32 +657,7 @@ export default function TravelInsurancePage() {
 
       <main className="min-h-screen bg-white font-sans">
 
-        {/* ── BREADCRUMB ── */}
-        <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-100">
-          <ol
-            className="max-w-7xl mx-auto px-6 py-2.5 flex items-center gap-2 text-xs text-gray-400"
-            itemScope itemType="https://schema.org/BreadcrumbList"
-          >
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link href="/" className="hover:text-[#005a31] font-medium transition" itemProp="item">
-                <span itemProp="name">Home</span>
-              </Link>
-              <meta itemProp="position" content="1" />
-            </li>
-            <li className="text-gray-200">›</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link href="/our-services" className="hover:text-[#005a31] font-medium transition" itemProp="item">
-                <span itemProp="name">Our Services</span>
-              </Link>
-              <meta itemProp="position" content="2" />
-            </li>
-            <li className="text-gray-200">›</li>
-            <li className="font-semibold text-gray-600" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <span itemProp="name">Travel Insurance Bangladesh 2026</span>
-              <meta itemProp="position" content="3" />
-            </li>
-          </ol>
-        </nav>
+    
 
         {/* ── HERO ── */}
         <section
@@ -727,7 +703,7 @@ export default function TravelInsurancePage() {
               {/* Quick action buttons */}
               <div className="flex flex-wrap justify-center gap-3 mb-10">
                 <Link
-                  href="/contact/travel-agency-bangladesh"
+                  href="/travel-insurance/insurance-calculator"
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-amber-400 text-black font-black rounded-full hover:bg-amber-300 transition text-sm shadow-lg"
                 >
                   <Shield size={16} /> Get Insurance Quote
@@ -772,6 +748,8 @@ export default function TravelInsurancePage() {
             </dl>
           </div>
         </section>
+
+  
 
         {/* ── INSURANCE PLANS ── */}
         <section aria-labelledby="plans-heading" className="py-20 px-6 bg-gray-50 border-t border-gray-100">
@@ -1168,6 +1146,32 @@ export default function TravelInsurancePage() {
             </div>
           </div>
         </section>
+    {/* ── BREADCRUMB ── */}
+        <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-100">
+          <ol
+            className="max-w-7xl mx-auto px-6 py-2.5 flex items-center gap-2 text-xs text-gray-400"
+            itemScope itemType="https://schema.org/BreadcrumbList"
+          >
+            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <Link href="/" className="hover:text-[#005a31] font-medium transition" itemProp="item">
+                <span itemProp="name">Home</span>
+              </Link>
+              <meta itemProp="position" content="1" />
+            </li>
+            <li className="text-gray-200">›</li>
+            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <Link href="/our-services" className="hover:text-[#005a31] font-medium transition" itemProp="item">
+                <span itemProp="name">Our Services</span>
+              </Link>
+              <meta itemProp="position" content="2" />
+            </li>
+            <li className="text-gray-200">›</li>
+            <li className="font-semibold text-gray-600" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <span itemProp="name">Travel Insurance Bangladesh 2026</span>
+              <meta itemProp="position" content="3" />
+            </li>
+          </ol>
+        </nav>
 
       </main>
     </>
