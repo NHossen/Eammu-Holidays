@@ -12,12 +12,6 @@ import COUNTRIES from "@/app/data/countries.json";
 import { VisaTypeSwitcher } from "@/Components/Client/VisaProcessingSlugPage/VisaTypeSwitcher/VisaTypeSwitcher";
 import { ReverseCalculator } from "@/Components/Client/VisaProcessingSlugPage/ReverseCalculator/ReverseCalculator";
 
-
-// ── FULL VISA RULES (including Transit) ───────────────────────────────────
-// ── FULL VISA RULES (including Transit) ───────────────────────────────────
-// faq items use arrow functions: q: (nat) => `...${nat}...`
-// Render with: typeof item.q === "function" ? item.q(nationalityName) : item.q
-
 const VISA_RULES = {
   canada: {
     name: "Canada", flag: "🇨🇦",
@@ -283,7 +277,7 @@ const VISA_RULES = {
     ],
   },
 
-  schengen: {
+  portugal: {
     name: "Schengen Area", flag: "🇪🇺",
     types: {
       "e-visa":           { min:5,  max:10, label:"ETIAS (From 2025)" },
@@ -965,8 +959,464 @@ const VISA_RULES = {
       { label: "Japan Long-Stay / Work Visa", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-japan?type=sticker-extended" },
     ],
   },
+  malaysia: {
+    name: "Malaysia", flag: "🇲🇾",
+    types: {
+      "e-visa":           { min:1,  max:3,   label:"Malaysia eVisa (eNTRI/evisa)" },
+      "sticker":          { min:7,  max:14,  label:"Malaysia Sticker Visa" },
+      "sticker-extended": { min:21, max:45,  label:"Employment Pass / Long-Stay" },
+      "transit":          { min:6,  max:24,  unit:"hours", label:"Transit Without Visa / TVP" },
+    },
+    embassyUrl: "https://www.imi.gov.my/",
+    embassyPhone: "+603-8000-8000",
+    embassyAddress: "High Commission of Malaysia, Road 7, House 7, Baridhara, Dhaka 1212",
+    vfsUrl: "https://www.vfsglobal.com/malaysia/bangladesh/",
+    approvalRate: "84%",
+    avgWaitWeeks: "1–3 weeks",
+    peakMonths: "June – August, December (school holidays)",
+    requiredDocuments: [
+      "Valid passport (6 months validity beyond return date)",
+      "Completed Malaysia visa application (eVisa portal or embassy form)",
+      "Recent passport-size photograph (35mm × 45mm, white background)",
+      "Confirmed return flight ticket",
+      "Hotel/accommodation booking for full stay",
+      "Bank statements for last 3 months (showing min MYR 3,000 equivalent)",
+      "Employment letter with salary, designation, and approved leave",
+      "Income tax returns (last 2 years)",
+      "Travel insurance (recommended)",
+      "Invitation letter from Malaysian host (for social/business visit)",
+      "Business registration or license (for business visa)",
+      "Yellow fever vaccination certificate (if arriving from endemic country)",
+    ],
+    successStats: {
+      avgProcessingDays: 7,
+      approvalRate: "84%",
+      refusalRate: "16%",
+      peakDelay: "+3–5 business days June–August",
+      fastestEver: "24 hours (eNTRI)",
+    },
+    notes: [
+      "eNTRI available for Bangladeshi nationals — single entry, 15 days, BDT ~2,700",
+      "Malaysia evisa (multi-entry) available for 3 or 6 months, processed 1–3 days",
+      "Malaysia is Muslim-majority — halal food widely available, Friday prayer observed",
+      "Transit Without Visa (TWOV) available for many nationalities at KLIA for 24 hours",
+    ],
+    delayReasons: [
+      "Photo not meeting specification (common cause of e-visa rejection)",
+      "Inconsistent passport details and travel document",
+      "Overstay history in Malaysia or ASEAN countries",
+      "Employment visa: salary not meeting minimum for pass category",
+    ],
+    tips: [
+      "Apply eNTRI for short trips — fastest and cheapest option for Bangladeshis",
+      "For longer stays use the Malaysia evisa portal directly at malaysiavisa.imi.gov.my",
+      "Strong bank statement showing consistent balance is key for longer visa approvals",
+      "TWOV: must have onward confirmed flight and valid visa for destination country",
+    ],
+    faq: [
+      {
+        q: (nat) => `Can ${nat} nationals get a Malaysia eNTRI visa?`,
+        a: (nat) => `Yes, ${nat} nationals can apply for the Malaysia eNTRI (Electronic Travel Registration & Information) visa online. It allows a single entry for up to 15 days and is typically processed within 24 hours. It is the fastest and most affordable Malaysia visa option for ${nat} applicants.`,
+      },
+      {
+        q: (nat) => `What is the Malaysia visa processing time for ${nat} nationals?`,
+        a: (nat) => `Malaysia eNTRI processing takes 1–3 business days. Standard Malaysia eVisa (multi-entry 3–6 months) takes 3–7 business days. Embassy sticker visas take 7–14 business days. ${nat} nationals are recommended to apply at least 2 weeks before travel.`,
+      },
+      {
+        q: () => `Is Malaysia halal-friendly for Bangladeshi tourists?`,
+        a: () => `Yes. Malaysia is one of the most Muslim-friendly travel destinations globally. Over 60% of the population is Muslim, halal food is available everywhere, mosques are in every city, and prayer facilities are provided in all major shopping malls and transport hubs. Kuala Lumpur, Penang, and Langkawi all have significant Muslim-friendly infrastructure.`,
+      },
+      {
+        q: (nat) => `Can ${nat} nationals transit Malaysia without a visa?`,
+        a: () => `Holders of valid US, UK, Australian, Canadian, or Schengen visas may qualify for Transit Without Visa (TWOV) at Kuala Lumpur International Airport (KLIA) for up to 120 hours. Others may need a Transit Visa. Always verify with Malaysian Immigration before booking connecting flights through KLIA.`,
+      },
+    ],
+    relatedPages: [
+      { label: "Singapore Visa from Bangladesh", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-singapore?type=sticker" },
+      { label: "Thailand Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-thailand?type=sticker" },
+      { label: "Indonesia Visa Timeline", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-indonesia?type=e-visa" },
+      { label: "UAE e-Visa from Bangladesh", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-united-arab-emirates?type=e-visa" },
+    ],
+  },
+ 
+  thailand: {
+    name: "Thailand", flag: "🇹🇭",
+    types: {
+      "e-visa":           { min:1,  max:3,  label:"Thailand e-Visa / eVOA" },
+      "sticker":          { min:7,  max:14, label:"Thailand Tourist Visa (TR)" },
+      "sticker-extended": { min:21, max:45, label:"Non-Immigrant Visa / Long-Stay" },
+      "transit":          { min:6,  max:24, unit:"hours", label:"Transit Visa (TS)" },
+    },
+    embassyUrl: "https://www.thaievisa.go.th/",
+    embassyPhone: "+880-2-5566-2300",
+    embassyAddress: "Royal Thai Embassy, 18 Madani Avenue, Baridhara, Dhaka 1212",
+    vfsUrl: "https://www.thaievisa.go.th/",
+    approvalRate: "87%",
+    avgWaitWeeks: "1–2 weeks",
+    peakMonths: "November – February (high season), April (Songkran)",
+    requiredDocuments: [
+      "Valid passport (6 months validity beyond departure from Thailand)",
+      "Completed Thai visa application form or Thailand eVisa online form",
+      "Recent passport-size photograph (3.5cm × 4.5cm, white background)",
+      "Confirmed return flight ticket",
+      "Hotel/accommodation bookings for full stay",
+      "Bank statements for last 3–6 months (showing min THB 20,000 equivalent per applicant)",
+      "Employment letter with leave approval (for employee applicants)",
+      "Business registration (for self-employed applicants)",
+      "Travel insurance covering Thailand (recommended)",
+      "Proof of sufficient funds for stay (THB 10,000/person or THB 20,000/family)",
+    ],
+    successStats: {
+      avgProcessingDays: 5,
+      approvalRate: "87%",
+      refusalRate: "13%",
+      peakDelay: "+3 business days Nov–Feb",
+      fastestEver: "2 business days",
+    },
+    notes: [
+      "Thailand launched eVisa system — apply online at thaievisa.go.th",
+      "Visa-on-arrival available for Bangladeshi nationals at BKK Suvarnabhumi airport (~$35)",
+      "Visa Exemption does not apply to Bangladeshi nationals — visa required",
+      "Transit Visa (TS) required for Bangladeshi nationals connecting through Thai airports",
+    ],
+    delayReasons: [
+      "Insufficient proof of funds (most common for VOA rejections at the airport)",
+      "No confirmed return flight or hotel booking",
+      "Previous overstay in Thailand — automatic flag in TM system",
+      "Inconsistent travel history or purpose declared",
+    ],
+    tips: [
+      "Apply Thailand eVisa online instead of arriving for VOA — faster and more reliable",
+      "Always carry THB 10,000+ cash per person for VOA immigration inspection",
+      "Book refundable hotel and flexible flights for visa application, confirm after approval",
+      "For Bangkok + Pattaya trip: 14 days visa is usually sufficient and easiest to get",
+    ],
+    faq: [
+      {
+        q: (nat) => `Can ${nat} nationals get a Thailand visa on arrival?`,
+        a: (nat) => `Yes, ${nat} nationals can obtain a Thailand Visa on Arrival (VOA) at Suvarnabhumi (BKK) and Phuket airports for stays up to 30 days. The fee is approximately THB 2,000 (~$55 USD). However, applying for the Thailand eVisa online before travel is safer and faster, avoiding airport queues.`,
+      },
+      {
+        q: (nat) => `What is the Thailand eVisa processing time for ${nat} nationals?`,
+        a: (nat) => `Thailand eVisa applications for ${nat} nationals are typically processed within 1–3 business days through thaievisa.go.th. Standard Tourist Visa (TR) applications at the Thai Embassy in Dhaka take 7–14 business days. We recommend applying at least 2 weeks before travel.`,
+      },
+      {
+        q: () => `How much cash must I carry for Thailand visa on arrival?`,
+        a: () => `Thai immigration requires proof of sufficient funds: THB 10,000 per person or THB 20,000 per family. This can be cash or a bank card. Immigration officers at major airports do check this requirement, and entry can be denied if you cannot demonstrate sufficient funds.`,
+      },
+      {
+        q: (nat) => `Does Thailand have halal food for ${nat} Muslim tourists?`,
+        a: () => `Yes. Bangkok, Phuket, and Pattaya all have extensive halal food options, especially in areas popular with South Asian tourists. Central Bangkok's Pratunam area, Soi Arab in Nana, and Phuket's Patong Beach area all have halal restaurants widely available.`,
+      },
+    ],
+    relatedPages: [
+      { label: "Malaysia e-Visa from Bangladesh", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-malaysia?type=e-visa" },
+      { label: "Singapore Visa Processing", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-singapore?type=sticker" },
+      { label: "Indonesia Visa on Arrival Guide", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-indonesia?type=e-visa" },
+      { label: "Japan Tourist Visa", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-japan?type=sticker" },
+    ],
+  },
+ 
+  "south-korea": {
+    name: "South Korea", flag: "🇰🇷",
+    types: {
+      "e-visa":          { min:3,  max:5,  label:"Korea Electronic Visa (K-ETA)" },
+      "sticker":         { min:5,  max:10, label:"Korea Tourist Visa (C-3)" },
+      "sticker-extended":{ min:30, max:60, label:"Korea D-2/D-10 Student or Long-Stay" },
+      "transit":         { min:6,  max:24, unit:"hours", label:"Korea Transit Visa (TWOV)" },
+    },
+    embassyUrl: "https://overseas.mofa.go.kr/bd-en/",
+    embassyPhone: "+880-2-5566-2200",
+    embassyAddress: "Embassy of the Republic of Korea, 4 Madani Avenue, Baridhara, Dhaka 1212",
+    vfsUrl: "https://overseas.mofa.go.kr/bd-en/",
+    approvalRate: "78%",
+    avgWaitWeeks: "1–2 weeks",
+    peakMonths: "March – May (cherry blossom), September – November (autumn foliage)",
+    requiredDocuments: [
+      "Valid passport (6 months validity)",
+      "Completed Korea visa application form (available online or at embassy)",
+      "Recent passport-size photograph (35mm × 45mm, white/light background)",
+      "Bank statements for last 3–6 months",
+      "Employment letter with salary, leave approval, and company stamp",
+      "Income tax returns (last 2 years)",
+      "Confirmed return flight ticket and accommodation",
+      "Travel itinerary (day-by-day)",
+      "Invitation letter from Korean host (if applicable)",
+      "Tourism purpose: proof of tourist intent (hotel bookings, tourist attraction plans)",
+      "For KGSP scholarship applicants: complete academic documents in addition",
+    ],
+    successStats: {
+      avgProcessingDays: 7,
+      approvalRate: "78%",
+      refusalRate: "22%",
+      peakDelay: "+4–5 business days Mar–May, Sep–Oct",
+      fastestEver: "3 business days",
+    },
+    notes: [
+      "K-ETA launched for 112 nationalities — Bangladeshis are not currently eligible for K-ETA",
+      "Korean Tourist Visa (C-3) allows stays up to 90 days single/double entry",
+      "Korea is also a popular destination for KGSP (government scholarship) applicants",
+      "Strong travel history to USA, UK, Japan, Schengen significantly boosts approval",
+    ],
+    delayReasons: [
+      "Weak financial documentation or sudden deposit before application",
+      "No previous international travel history — makes risk profile higher",
+      "Incomplete or vague travel itinerary",
+      "Previous visa refusals in other countries not declared",
+    ],
+    tips: [
+      "Apply 3–4 weeks ahead — peak autumn/spring seasons add processing time",
+      "Include strong employment letter and 6 months consistent bank balance",
+      "Detail-rich itinerary covering K-pop sites, temples, and palaces improves approval narrative",
+      "Previous Japan or Schengen visa holders have significantly higher Korea visa approval rates",
+    ],
+    faq: [
+      {
+        q: (nat) => `What is the South Korea visa processing time for ${nat} nationals?`,
+        a: (nat) => `South Korea Tourist Visa (C-3) for ${nat} applicants takes 5–10 business days under normal conditions. During peak travel seasons (cherry blossom: March–May; autumn: September–November), processing can extend to 14–21 business days. Apply at least 3–4 weeks before your intended travel date.`,
+      },
+      {
+        q: (nat) => `Is K-ETA available for ${nat} nationals?`,
+        a: (nat) => `As of 2025, ${nat} passport holders are not eligible for K-ETA (Korea Electronic Travel Authorization). ${nat} nationals must apply for a full C-3 Tourist Visa at the Korean Embassy in Dhaka. K-ETA is currently available for nationals of 112 countries — mainly developed nations without a visa requirement for Korea.`,
+      },
+      {
+        q: () => `What is the KGSP Korea scholarship and how does it help visa applicants?`,
+        a: () => `The Korean Government Scholarship Program (KGSP) offers fully funded undergraduate and postgraduate scholarships in South Korea covering full tuition, monthly stipend (KRW 900,000), Korean language training, and return airfare. KGSP recipients receive a D-2 student visa which is processed through the embassy after receiving an offer letter.`,
+      },
+      {
+        q: (nat) => `How can ${nat} applicants improve their South Korea visa approval rate?`,
+        a: () => `Key factors: (1) Strong 6-month bank balance showing consistent deposits. (2) Solid employment letter with clear leave approval dates. (3) Prior international travel history — especially Japan, Schengen, or USA visas. (4) Detailed day-by-day itinerary with Korean tourist sites. (5) Travel insurance certificate.`,
+      },
+    ],
+    relatedPages: [
+      { label: "Japan Tourist Visa Processing", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-japan?type=sticker" },
+      { label: "Singapore Visa from Bangladesh", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-singapore?type=sticker" },
+      { label: "Korea KGSP Scholarship Guide", href: "/scholarships/south-korea" },
+      { label: "Schengen Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-schengen?type=sticker" },
+    ],
+  },
+ 
+  georgia: {
+    name: "Georgia", flag: "🇬🇪",
+    types: {
+      "e-visa":           { min:1,  max:5,  label:"Georgia e-Visa" },
+      "sticker":          { min:1,  max:1,  label:"Georgia Visa-Free Entry (365 days)" },
+      "sticker-extended": { min:30, max:60, label:"Georgia TRC (Temporary Residence)" },
+      "transit":          { min:1,  max:3,  unit:"hours", label:"Georgia Transit (Visa-Free)" },
+    },
+    embassyUrl: "https://evisa.gov.ge/",
+    embassyPhone: "+995-32-298-5959",
+    embassyAddress: "Ministry of Foreign Affairs of Georgia, 4 Chitadze Street, Tbilisi",
+    vfsUrl: "https://evisa.gov.ge/",
+    approvalRate: "98%",
+    avgWaitWeeks: "Immediate (visa-free) / 1–5 days (e-visa)",
+    peakMonths: "June – September (summer tourism peak)",
+    requiredDocuments: [
+      "Valid passport only (for visa-free Bangladeshi nationals)",
+      "For e-visa: online application at evisa.gov.ge + passport scan + photo",
+      "For TRC: business registration, employment contract, or investment proof",
+      "Sufficient funds proof (for TRC): bank statements showing financial sustainability",
+      "Medical insurance (for TRC applications)",
+      "Accommodation proof (for TRC or long-stay applications)",
+    ],
+    successStats: {
+      avgProcessingDays: 1,
+      approvalRate: "98%",
+      refusalRate: "2%",
+      peakDelay: "Virtually none — visa-free entry",
+      fastestEver: "Immediate (at port of entry)",
+    },
+    notes: [
+      "Bangladeshi passport holders can enter Georgia VISA-FREE for 365 days",
+      "No visa application needed — simply arrive at Tbilisi airport",
+      "Georgia TRC (Temporary Residence Card) available for investors, students, and employees",
+      "Eammu Holidays has a full office in Tbilisi at Floor 5, Levan Gotua St #3",
+      "Most affordable Caucasus destination — BDT 2,500–5,000/day total living cost",
+    ],
+    delayReasons: [
+      "TRC application delays: business registration pending",
+      "Investment visa: minimum USD 100,000 threshold documentation",
+      "e-Visa (for other nationalities): incomplete scanned documents",
+      "Transit: virtually no delays — instant on arrival",
+    ],
+    tips: [
+      "No visa needed — just arrive with your valid Bangladeshi passport",
+      "For TRC: start business registration process at least 4 weeks before applying",
+      "Eammu Holidays Georgia office provides full TRC support in Tbilisi",
+      "Tbilisi→Kazbegi→Batumi is the classic budget Caucasus route — 7–10 days",
+    ],
+    faq: [
+      {
+        q: (nat) => `Do ${nat} nationals need a visa to enter Georgia?`,
+        a: (nat) => `No. ${nat} passport holders can enter Georgia completely visa-free for up to 365 days. Simply arrive at Tbilisi International Airport (TBS) or any Georgian border crossing with a valid passport. No prior visa application, no fees, no appointment needed.`,
+      },
+      {
+        q: () => `What is the Georgia TRC and how do I apply?`,
+        a: () => `The Georgia Temporary Residence Card (TRC) allows foreigners to legally reside in Georgia for 1–6 years with renewal options. It can be obtained through company registration, employment, investment (USD 100,000+), or family reunion. Processing at the Public Service Hall takes 10–30 working days. Eammu Holidays' Tbilisi office provides full TRC support.`,
+      },
+      {
+        q: (nat) => `How much does a trip to Georgia cost for ${nat} travelers?`,
+        a: () => `Georgia is one of the most affordable destinations for Bangladeshi travelers — estimated BDT 2,500–5,000/day all-inclusive. Return flights from Dhaka cost BDT 30,000–55,000. Hotel costs BDT 1,200–4,000/night. Combined with 365-day visa-free entry, Georgia offers the best value for money for long-stay travelers.`,
+      },
+      {
+        q: () => `Where is Eammu Holidays' Georgia office?`,
+        a: () => `Eammu Holidays has a full branch office in Tbilisi, Georgia at Floor 5, Levan Gotua Street #3. We offer Georgia TRC processing, guided tours to Kazbegi, Batumi, Mtskheta and Kakheti, accommodation support, university admissions, and Schengen/UK visa processing for Georgia-based clients. Contact: +995 574 446 218.`,
+      },
+    ],
+    relatedPages: [
+      { label: "Armenia Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-armenia?type=e-visa" },
+      { label: "Turkey e-Visa from Bangladesh", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-turkey?type=e-visa" },
+      { label: "Schengen Visa from Tbilisi", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-schengen?type=sticker" },
+      { label: "Georgia TRC & Business Setup", href: "/contact/travel-agency-georgia" },
+      { label: "Travel Budget: Georgia", href: "/travel-budget-planner" },
+    ],
+  },
+ 
+  armenia: {
+    name: "Armenia", flag: "🇦🇲",
+    types: {
+      "e-visa":           { min:1,  max:3,  label:"Armenia e-Visa (evisa.am)" },
+      "sticker":          { min:3,  max:5,  label:"Armenia Visa on Arrival" },
+      "sticker-extended": { min:30, max:60, label:"Armenia Residence Permit" },
+      "transit":          { min:1,  max:3,  unit:"hours", label:"Armenia Transit Visa" },
+    },
+    embassyUrl: "https://evisa.mfa.am/",
+    embassyPhone: "+374-10-544-041",
+    embassyAddress: "Ministry of Foreign Affairs of Armenia, Government House 2, Republic Square, Yerevan 0010",
+    vfsUrl: "https://evisa.mfa.am/",
+    approvalRate: "95%",
+    avgWaitWeeks: "1–3 business days (e-visa)",
+    peakMonths: "June – September (summer), April (Easter/Vardavar)",
+    requiredDocuments: [
+      "Valid passport (6 months validity from date of travel)",
+      "Online e-Visa application at evisa.mfa.am",
+      "Passport-size photograph (for visa on arrival)",
+      "Return flight confirmation",
+      "Hotel/accommodation booking",
+      "Proof of sufficient funds (USD 50/day minimum recommended)",
+    ],
+    successStats: {
+      avgProcessingDays: 2,
+      approvalRate: "95%",
+      refusalRate: "5%",
+      peakDelay: "+1–2 days in summer",
+      fastestEver: "Same day (urgent e-visa)",
+    },
+    notes: [
+      "Armenia e-Visa available for most nationalities including Bangladeshis",
+      "Visa on Arrival also available at Zvartnots International Airport, Yerevan",
+      "Eammu Holidays has a full office in Yerevan at Lambron 39",
+      "Armenia + Georgia Caucasus combo trip is highly popular for Bangladeshi travelers",
+      "Geghard Monastery and Garni Temple are UNESCO-listed — 1 day trip from Yerevan",
+    ],
+    delayReasons: [
+      "e-Visa: photo not meeting specification",
+      "Residency permit: business documentation incomplete",
+      "Peak season: +1–2 days for standard e-visa",
+    ],
+    tips: [
+      "Apply Armenia e-visa at evisa.mfa.am — simple 5-minute process",
+      "Urgent e-visa processing available for same-day approval at higher fee",
+      "Combine with Georgia: Yerevan + Tbilisi 7-day Caucasus tour is excellent value",
+      "Eammu Holidays Yerevan office at Lambron 39 provides full travel support",
+    ],
+    faq: [
+      {
+        q: (nat) => `How do ${nat} nationals apply for an Armenia e-visa?`,
+        a: (nat) => `${nat} nationals can apply for an Armenia e-visa at evisa.mfa.am. The process takes 5–10 minutes: fill in your passport details, upload a photo, pay the fee online, and receive the e-visa by email within 1–3 business days. An urgent option provides same-day processing at a higher fee.`,
+      },
+      {
+        q: (nat) => `Can ${nat} nationals get an Armenia visa on arrival?`,
+        a: (nat) => `Yes. ${nat} passport holders can obtain an Armenia visa on arrival at Zvartnots International Airport (EVN) in Yerevan. The VOA allows stays up to 120 days. However, applying for an e-visa online before travel is recommended to avoid airport queues.`,
+      },
+      {
+        q: () => `Where is the Eammu Holidays Armenia office?`,
+        a: () => `Eammu Holidays Armenia branch is located at Lambron 39, Yerevan, Republic of Armenia. We offer visa processing, guided tours to Garni, Geghard, Lake Sevan, and Khor Virap, airport transfers, hotel bookings, and full travel support. Contact: +374 94 810585.`,
+      },
+      {
+        q: (nat) => `How much does an Armenia trip cost for ${nat} travelers?`,
+        a: () => `Armenia is one of the most affordable Caucasus destinations — estimated BDT 2,500–5,500/day all-inclusive. Return flights from Dhaka cost BDT 32,000–58,000. Combined with easy e-visa processing (~1–3 days), Armenia is an excellent hidden gem for Bangladeshi travelers looking for history, nature, and budget travel.`,
+      },
+    ],
+    relatedPages: [
+      { label: "Georgia Visa-Free Entry Guide", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-georgia?type=sticker" },
+      { label: "Turkey e-Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-turkey?type=e-visa" },
+      { label: "Armenia Tours & Office", href: "/contact/travel-agency-armenia" },
+      { label: "Dubai Visa from Bangladesh", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-united-arab-emirates?type=e-visa" },
+    ],
+  },
+ 
+  turkey: {
+    name: "Turkey", flag: "🇹🇷",
+    types: {
+      "e-visa":           { min:1,  max:2,  label:"Turkey e-Visa (evisa.gov.tr)" },
+      "sticker":          { min:10, max:21, label:"Turkey Sticker Visa" },
+      "sticker-extended": { min:30, max:60, label:"Turkey Residence / Long-Stay" },
+      "transit":          { min:6,  max:24, unit:"hours", label:"Turkey Airport Transit Visa" },
+    },
+    embassyUrl: "https://www.evisa.gov.tr/",
+    embassyPhone: "+880-2-5566-5600",
+    embassyAddress: "Embassy of the Republic of Turkey, 7A Aziz Mohammed Road, Baridhara, Dhaka 1212",
+    vfsUrl: "https://visa.vfsglobal.com/bgd/en/tur/",
+    approvalRate: "81%",
+    avgWaitWeeks: "1–3 days (e-visa) / 2–3 weeks (sticker)",
+    peakMonths: "June – August, Ramadan, December",
+    requiredDocuments: [
+      "Valid passport (6 months validity)",
+      "Turkey e-Visa online application at evisa.gov.tr (credit/debit card payment)",
+      "Confirmed return flight ticket",
+      "Hotel/accommodation booking",
+      "Bank statements (last 3 months) — USD 50/day minimum",
+      "Employment letter (for sticker visa)",
+      "Travel insurance (recommended)",
+      "For sticker visa: all above + income tax, detailed itinerary",
+    ],
+    successStats: {
+      avgProcessingDays: 2,
+      approvalRate: "81%",
+      refusalRate: "19%",
+      peakDelay: "+1–2 days Ramadan/summer",
+      fastestEver: "Same day (e-visa)",
+    },
+    notes: [
+      "Turkey e-Visa available for Bangladeshi nationals — apply at evisa.gov.tr",
+      "Single-entry e-visa allows up to 30 days stay in Turkey",
+      "Istanbul is a popular transit and tourism hub — connects Asia, Europe, and Africa",
+      "Istanbul Airport (IST) is one of the world's busiest — direct flights from Dhaka",
+    ],
+    delayReasons: [
+      "e-Visa: payment issue (use international Visa/Mastercard)",
+      "Sticker visa: insufficient financial proof",
+      "History of overstay in Turkey or MENA region",
+    ],
+    tips: [
+      "Apply Turkey e-visa at evisa.gov.tr — takes 2 minutes, approved same day",
+      "Use an international Visa or Mastercard for payment — local cards often fail",
+      "For sticker visa: apply at least 3 weeks before travel to allow buffer time",
+      "Istanbul 5-day + Cappadocia 3-day is the most popular Bangladeshi Turkey itinerary",
+    ],
+    faq: [
+      {
+        q: (nat) => `Can ${nat} nationals apply for a Turkey e-visa online?`,
+        a: (nat) => `Yes. ${nat} nationals can apply for a Turkey e-visa in minutes at evisa.gov.tr. The e-visa is approved same-day to within 24 hours, allows a single entry, and permits stays up to 30 days. Payment is by international credit/debit card.`,
+      },
+      {
+        q: (nat) => `What is the Turkey visa processing time for ${nat} nationals in 2025?`,
+        a: (nat) => `Turkey e-visa for ${nat} applicants is processed within 1–2 business days (same-day in most cases). Turkey embassy sticker visas take 10–21 business days and are required for stays over 30 days or for work/study purposes.`,
+      },
+      {
+        q: () => `Is Istanbul good for Bangladeshi Muslim tourists?`,
+        a: () => `Yes. Istanbul is considered one of the most Muslim-friendly cities in Europe. The city has 3,000+ mosques, halal food everywhere, and is deeply Islamic in culture and heritage. Hagia Sophia (converted back to a mosque in 2020), Sultanahmet Mosque, and Topkapi Palace are top attractions. Ramadan in Istanbul is a unique cultural experience.`,
+      },
+    ],
+    relatedPages: [
+      { label: "Georgia Visa-Free Bangladesh", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-georgia?type=sticker" },
+      { label: "Schengen Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-schengen?type=sticker" },
+      { label: "UAE e-Visa from Bangladesh", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-united-arab-emirates?type=e-visa" },
+      { label: "Travel Budget: Turkey", href: "/travel-budget-planner" },
+    ],
+  },
 };
-
 // ── GENERIC FALLBACK ───────────────────────────────────────────────────────
 function getCountryData(destSlug) {
   const key = Object.keys(VISA_RULES).find(k => destSlug.includes(k));
@@ -1028,7 +1478,6 @@ function getCountryData(destSlug) {
     ],
   };
 }
-
 // ── VISA TYPE CONFIG ────────────────────────────────────────────────────────
 const VISA_TYPE_LABELS = {
   "e-visa":           { label:"E-Visa",      color:"bg-emerald-100 text-emerald-800 border-emerald-200" },
@@ -1036,7 +1485,74 @@ const VISA_TYPE_LABELS = {
   "sticker-extended": { label:"Complex Case", color:"bg-amber-100 text-amber-800 border-amber-200"      },
   "transit":          { label:"Transit Visa", color:"bg-purple-100 text-purple-800 border-purple-200"   },
 };
+// ── GLOBAL INTERNAL LINKS — to be rendered on EVERY slug page ────────────────
+export const GLOBAL_INTERNAL_LINKS = [
+  { label: "All Visa Services",                href: "/visa" },
+  { label: "E-Visa Destinations",              href: "/visa/e-visa" },
+  { label: "Visa Guides A–Z",                  href: "/visa/visa-guide" },
+  { label: "Visa Checklist Generator",         href: "/travel-resources/visa-checklist-generator" },
+  { label: "Visa Processing Time Tracker",     href: "/travel-resources/visa-processing-time-tracker" },
+  { label: "Travel Cost Calculator",           href: "/travel-cost-calculator" },
+  { label: "Travel Budget Planner",            href: "/travel-budget-planner" },
+  { label: "Study Abroad Hub",                 href: "/study-abroad" },
+  { label: "Student Visa Processing",          href: "/study-abroad/student-visa" },
+  { label: "Scholarships 2026",                href: "/scholarships" },
+  { label: "Visa Rejection Help",              href: "/visa-rejection" },
+  { label: "IELTS Center — Cumilla",           href: "/target-ielts-immigration-center" },
+  { label: "USA Visa Interview Prep",          href: "/target-usa-visa-interview-preparation" },
+  { label: "Dubai Resident Visas",             href: "/visa/dubai-residents" },
+  { label: "India Visa from Bangladesh",       href: "/visa/india" },
+  { label: "Latest Tour Offers",               href: "/offers" },
+  { label: "Bangladesh Offices",               href: "/contact/travel-agency-bangladesh" },
+  { label: "Dubai Office",                     href: "/contact/travel-agency-dubai" },
+  { label: "Georgia Office — Tbilisi",         href: "/contact/travel-agency-georgia" },
+  { label: "Armenia Office — Yerevan",         href: "/contact/travel-agency-armenia" },
+  { label: "Online Travel Agency Bangladesh",  href: "/online-travel-agency-bangladesh" },
+  { label: "Travel Blog",                      href: "/blogs" },
+  { label: "Testimonials",                     href: "/testimonials" },
+  { label: "News & Visa Updates",              href: "/news-feeds" },
+];
+// ── TOP VISA PROCESSING TIMES — for homepage/tracker hub SEO ────────────────
+export const TOP_PROCESSING_TIMES_2025 = [
+  { dest: "Canada",               nat: "Bangladeshi", type: "sticker",           days: "15–21 business days", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-canada?type=sticker" },
+  { dest: "United States",        nat: "Bangladeshi", type: "sticker",           days: "21–60 business days", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-united-states?type=sticker" },
+  { dest: "United Kingdom",       nat: "Bangladeshi", type: "sticker",           days: "15–21 business days", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-united-kingdom?type=sticker" },
+  { dest: "Schengen Area",        nat: "Bangladeshi", type: "sticker",           days: "15–30 business days", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-schengen?type=sticker" },
+  { dest: "Australia",            nat: "Bangladeshi", type: "sticker",           days: "20–35 business days", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-australia?type=sticker" },
+  { dest: "Germany",              nat: "Bangladeshi", type: "sticker",           days: "15–21 business days", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-germany?type=sticker" },
+  { dest: "Japan",                nat: "Bangladeshi", type: "sticker",           days: "5–7 business days",   href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-japan?type=sticker" },
+  { dest: "Singapore",            nat: "Bangladeshi", type: "sticker",           days: "7–14 business days",  href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-singapore?type=sticker" },
+  { dest: "South Korea",          nat: "Bangladeshi", type: "sticker",           days: "5–10 business days",  href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-south-korea?type=sticker" },
+  { dest: "Malaysia",             nat: "Bangladeshi", type: "e-visa",            days: "1–3 business days",   href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-malaysia?type=e-visa" },
+  { dest: "Thailand",             nat: "Bangladeshi", type: "sticker",           days: "7–14 business days",  href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-thailand?type=sticker" },
+  { dest: "UAE (Dubai)",          nat: "Bangladeshi", type: "e-visa",            days: "2–4 business days",   href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-united-arab-emirates?type=e-visa" },
+  { dest: "Saudi Arabia",         nat: "Bangladeshi", type: "e-visa",            days: "2–4 business days",   href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-saudi-arabia?type=e-visa" },
+  { dest: "Turkey",               nat: "Bangladeshi", type: "e-visa",            days: "1–2 business days",   href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-turkey?type=e-visa" },
+  { dest: "Georgia",              nat: "Bangladeshi", type: "sticker",           days: "Visa-free 365 days",  href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-georgia?type=sticker" },
+  { dest: "Armenia",              nat: "Bangladeshi", type: "e-visa",            days: "1–3 business days",   href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-armenia?type=e-visa" },
+  { dest: "France",               nat: "Bangladeshi", type: "sticker",           days: "15–30 business days", href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-france?type=sticker" },
+  { dest: "Canada (Transit)",     nat: "Bangladeshi", type: "transit",           days: "6–24 hours",          href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-canada?type=transit" },
+  { dest: "UK (DATV Transit)",    nat: "Bangladeshi", type: "transit",           days: "6–24 hours",          href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-united-kingdom?type=transit" },
+  { dest: "Schengen Transit ATV", nat: "Bangladeshi", type: "transit",           days: "6–24 hours",          href: "/travel-resources/visa-processing-time-tracker/bangladeshi-national-visa-processing-time-for-schengen?type=transit" },
+];
 
+// Add this helper component inside your file, above your main component
+const GlobalLinksNav = () => (
+  <nav className="p-6 bg-gray-50 rounded-lg">
+    <h3 className="font-bold mb-4">Quick Links</h3>
+    <div className="grid grid-cols-2 gap-4">
+      {GLOBAL_INTERNAL_LINKS.map((link) => (
+        <Link 
+          key={link.href} 
+          href={link.href}
+          className="text-blue-600 hover:underline text-sm"
+        >
+          {link.label}
+        </Link>
+      ))}
+    </div>
+  </nav>
+);
 // ── MAIN SERVER COMPONENT ──────────────────────────────────────────────────
 export default async function VisaProcessingSlugPage({ params, searchParams }) {
   const slug          = params?.slug || "";
@@ -1414,27 +1930,30 @@ export default async function VisaProcessingSlugPage({ params, searchParams }) {
               </div>
             </div>
 
-            {/* Internal linking — related visa pages */}
-            {countryData.relatedPages && countryData.relatedPages.length > 0 && (
-              <div className="border-t border-slate-100 pt-10">
-                <h2 className="text-xl font-black text-[#004d2c] mb-5 flex items-center gap-3">
-                  <Globe size={20} className="text-[#005a31]" />
-                  Related Visa Processing Times You May Need
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {countryData.relatedPages.map((page, i) => (
-                    <Link
-                      key={i}
-                      href={page.href}
-                      className="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-2xl hover:bg-[#004d2c] hover:border-[#004d2c] hover:text-white transition-all group"
-                    >
-                      <span className="text-sm font-bold text-slate-700 group-hover:text-white leading-snug">{page.label}</span>
-                      <ChevronRight size={16} className="text-slate-400 group-hover:text-amber-400 shrink-0 ml-2" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
+           {/* Global Internal Links — Site-wide Navigation */}
+<div className="border-t border-slate-100 pt-10 mt-10">
+  <h2 className="text-xl font-black text-[#004d2c] mb-5 flex items-center gap-3">
+    <Globe size={20} className="text-[#005a31]" />
+    Explore More Visa & Travel Services
+  </h2>
+  <div className="grid sm:grid-cols-3 gap-3">
+    {GLOBAL_INTERNAL_LINKS.map((link) => (
+      <Link
+        key={link.href}
+        href={link.href}
+        className="flex items-center justify-between p-4 bg-slate-50 border border-slate-100 rounded-2xl hover:bg-[#004d2c] hover:border-[#004d2c] hover:text-white transition-all group"
+      >
+        <span className="text-sm font-bold text-slate-700 group-hover:text-white leading-snug">
+          {link.label}
+        </span>
+        <ChevronRight 
+          size={16} 
+          className="text-slate-400 group-hover:text-amber-400 shrink-0 ml-2" 
+        />
+      </Link>
+    ))}
+  </div>
+</div>
 
           </div>
 
@@ -1564,19 +2083,23 @@ export default async function VisaProcessingSlugPage({ params, searchParams }) {
         </div>
       </div>
 
-      {/* ── BACK CTA ────────────────────────────────────────────────────── */}
-      <section className="bg-[#005a31] py-16 px-6 text-center">
+          {/* ── BACK CTA ── */}
+      <section className="bg-[#005a31] py-14 px-6 text-center" aria-label="Search more visa processing times">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-3xl font-black text-white mb-4">Check Another Country</h2>
-          <p className="text-green-200/70 font-medium mb-8">
-            Search 195+ countries — E-Visa, Sticker, Transit &amp; complex cases
+          <h2 className="text-3xl font-black text-white mb-3">Check Another Country's Processing Time</h2>
+          <p className="text-green-200/70 font-medium mb-8 text-sm">
+            195+ countries covered — E-Visa, Sticker, Transit, and long-stay visas
           </p>
-          <Link
-            href="/travel-resources/visa-processing-time-tracker"
-            className="inline-flex items-center gap-3 bg-amber-400 text-[#004d2c] px-10 py-5 rounded-2xl font-black hover:bg-white transition-all shadow-xl"
-          >
-            <Timer size={20} /> Back to Visa Tracker
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/travel-resources/visa-processing-time-tracker"
+              className="inline-flex items-center gap-3 bg-[#ffcc00] text-[#004d2c] px-10 py-5 rounded-2xl font-black hover:bg-white transition-all shadow-xl">
+              <Timer size={19} aria-hidden="true" /> Back to Visa Tracker
+            </Link>
+            <Link href="/visa/visa-guide"
+              className="inline-flex items-center gap-3 bg-white/10 text-white border border-white/20 px-8 py-5 rounded-2xl font-bold hover:bg-white/20 transition text-sm">
+              Full Visa Guide →
+            </Link>
+          </div>
         </div>
       </section>
 

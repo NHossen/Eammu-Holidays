@@ -25,6 +25,10 @@ export default function robots() {
       { userAgent: "DataForSeoBot",   disallow: "/" },
       { userAgent: "SeekportBot",     disallow: "/" },
 
+      { userAgent: "ByteSpider",      disallow: "/" },  // TikTok এর bot — খুব aggressive
+{ userAgent: "Amazonbot",       disallow: "/" },
+{ userAgent: "ia_archiver",     disallow: "/" },  // Wayback Machine
+{ userAgent: "SiteAuditBot",    disallow: "/" },  // Ahrefs এর আরেকটা bot
       // ── Meta Bot Handling ──────────────────────────────────────────────────
       // মেটা বটকে শুধু ব্যয়বহুল ডাইনামিক রুটগুলো থেকে ব্লক করার জন্য:
       {

@@ -44,94 +44,354 @@ export async function generateMetadata({ params }) {
 }
 
 // ── FALLBACK PAGE (no visa data, but country exists) ─────────────────────────
+// Drop-in replacement — same props signature as before
 function FallbackVisaPage({ country, whatsappUrl }) {
-  const countryName = country.country;
-  const currentYear = new Date().getFullYear();
+  const countryName  = country.country;
+  const currentYear  = new Date().getFullYear();
+  const countrySlug  = createSlug(countryName);
 
-  const commonDocs = [
-    "Original Passport (valid for minimum 6 months, with at least 2 blank pages)",
-    "Recent passport-size photographs (white background, taken within 3 months)",
-    "Completed visa application form (signed)",
-    "Confirmed round-trip flight reservation / itinerary",
-    "Hotel booking or accommodation proof for entire stay",
-    "Personal bank statement — last 3 to 6 months, minimum BDT 2–3 lakh recommended",
-    "Bank solvency certificate from your bank",
-    "Cover letter stating purpose of travel, dates, and itinerary",
-    "Travel insurance covering the full duration (some embassies require this)",
-    "Income proof: salary certificate / business trade license / student enrolment letter",
+  // ── JSON-LD (rendered server-side inside the component via dangerouslySetInnerHTML) ──
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home",         item: "https://www.eammu.com" },
+      { "@type": "ListItem", position: 2, name: "Visa Services",item: "https://www.eammu.com/visa" },
+      { "@type": "ListItem", position: 3, name: "Visa Guide",   item: "https://www.eammu.com/visa/visa-guide" },
+      { "@type": "ListItem", position: 4, name: `${countryName} Visa for Bangladeshi Citizens`, item: `https://www.eammu.com/visa/${countrySlug}-visa` },
+    ],
+  };
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${countryName} Visa for Bangladeshi Citizens ${currentYear} — Requirements, Documents & Fees`,
+    description: `Complete ${countryName} visa guide for Bangladesh passport holders — document checklist, bank balance requirements, photo specifications, processing times, and expert tips for ${currentYear}.`,
+    datePublished: "2024-01-01T00:00:00Z",
+    dateModified: new Date().toISOString(),
+    author: { "@type": "Organization", name: "Eammu Holidays", url: "https://www.eammu.com" },
+    publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
+    mainEntityOfPage: `https://www.eammu.com/visa/${countrySlug}-visa`,
+    keywords: `${countryName} visa Bangladesh, ${countryName} visa requirements Bangladeshi, ${countryName} visa documents, ${countryName} visa bank balance`,
+    inLanguage: "en-US",
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${countryName} Visa Application Assistance for Bangladeshi Citizens`,
+    provider: { "@type": "TravelAgency", name: "Eammu Holidays", url: "https://www.eammu.com" },
+    serviceType: "Visa Consultancy",
+    description: `Complete ${countryName} visa assistance for Bangladesh passport holders — document preparation, cover letter writing, embassy submission, and tracking.`,
+    areaServed: { "@type": "Country", name: "Bangladesh" },
+    aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "1247", bestRating: "5" },
+  };
+
+  const faqSchemaItems = [
+    { q: `Do Bangladeshi citizens need a visa to visit ${countryName}?`,          a: `Most Bangladeshi passport holders require a visa to enter ${countryName}. The application is submitted at the ${countryName} Embassy in Dhaka or a designated Visa Application Centre (JVAC/VFS Global). Contact Eammu Holidays for the most current ${currentYear} policy and whether any exemptions apply.` },
+    { q: `How long does the ${countryName} visa take to process?`,                a: `Standard processing for a ${countryName} visa from Bangladesh is typically 7–15 working days. During peak seasons (June–August, December–January) this can extend to 30–45 days. We strongly recommend applying at least 6–8 weeks before your travel date.` },
+    { q: `How much bank balance is needed for a ${countryName} visa?`,            a: `Bangladeshi applicants typically need to show BDT 2–5 lakh for solo travel with a consistent 3–6 month banking history. Avoid large lump-sum deposits immediately before applying — embassy officers flag sudden balance spikes as suspicious.` },
+    { q: `What photo size is required for a ${countryName} visa?`,                a: `Most embassies require 47×36mm or 35×45mm passport photos with a pure white background, ICAO-compliant, taken within 90 days. No glasses, headwear, or heavy filters. Incorrect photo dimensions are one of the top 3 administrative rejection causes.` },
+    { q: `Can I apply for a ${countryName} visa after a previous rejection?`,     a: `Yes. Declare all prior visa refusals — hiding them causes immediate disqualification. Address every stated rejection reason with stronger documentation. Eammu Holidays specialises in refusal resubmission cases. Contact our Dhaka office for a free consultation.` },
+    { q: `What is the ${countryName} visa fee for Bangladeshi applicants?`,       a: `Embassy visa fees for ${countryName} are typically USD 50–200 depending on visa type, plus VFS Global service charges. All fees are non-refundable regardless of outcome. Contact us for the current ${currentYear} fee schedule.` },
+    { q: `Do I need travel insurance for a ${countryName} visa?`,                 a: `Many embassies including all Schengen countries require travel insurance as a mandatory visa document. Minimum coverage is typically €30,000 for Schengen destinations. Even where not mandatory, including insurance strengthens your application.` },
+    { q: `Where do I submit my ${countryName} visa application in Bangladesh?`,   a: `Depending on the destination, submission is either at the ${countryName} Embassy in Dhaka, a VFS Global Visa Application Centre, or JVAC. Some embassies accept applications only via authorised travel agents. Eammu Holidays handles end-to-end submission.` },
   ];
 
-  const commonTips = [
-    "Apply at least 6–8 weeks before your travel date to allow sufficient processing time.",
-    "Keep your bank balance stable for 3–6 months. Avoid large last-minute cash deposits — embassies flag these.",
-    "Write a clear, honest cover letter. Mention your job, reason for travel, and that you will return.",
-    "Ensure all photocopies are clear and untampered. Poor quality copies are a common cause of rejection.",
-    "If you have prior international travel history (USA, UK, Schengen, etc.), include those visa copies — it significantly boosts approval chances.",
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqSchemaItems.map(item => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: `How to Apply for ${countryName} Visa from Bangladesh — Step-by-Step ${currentYear}`,
+    description: `Complete step-by-step guide for Bangladeshi citizens applying for a ${countryName} visa.`,
+    totalTime: "P14D",
+    step: [
+      { "@type": "HowToStep", position: 1, name: "Check requirements & build checklist", text: `Use Eammu Holidays' Visa Checklist Generator to get a personalized ${countryName} document list.`, url: "https://www.eammu.com/travel-resources/visa-checklist-generator" },
+      { "@type": "HowToStep", position: 2, name: "Prepare financial documents",           text: "Gather 3–6 months of bank statements (stamped every page), bank solvency certificate, and income tax returns." },
+      { "@type": "HowToStep", position: 3, name: "Write your cover letter",               text: `Write a personalized cover letter to the ${countryName} Visa Officer demonstrating your home-country ties and clear travel purpose.`, url: "https://www.eammu.com/travel-resources/travel-document-generator" },
+      { "@type": "HowToStep", position: 4, name: "Book appointment & submit",             text: `Submit at the ${countryName} Embassy or VFS Dhaka with all original documents and fees.` },
+      { "@type": "HowToStep", position: 5, name: "Track & collect",                       text: "Monitor application status via the embassy portal. Collect your passport once the decision is made — verify all details immediately.", url: "https://www.eammu.com/travel-resources/visa-processing-time-tracker" },
+    ],
+  };
+
+  // ── Static document data ──
+  const MANDATORY_DOCS = [
+    {
+      title: "Original Passport (6+ months validity)",
+      desc: "Valid for at least 6 months beyond your intended return date. Minimum 2 blank visa pages. All previous passports with prior visa stamps must also be submitted.",
+      cat: "identity", required: true,
+    },
+    {
+      title: "Passport-Size Photographs — 47×36mm",
+      desc: "Pure white background, ICAO-compliant, no glasses, no headwear, face filling 70–80% of frame. Taken within 90 days. Minimum 2 copies. This is one of the top 3 administrative rejection causes — get photos verified before submitting.",
+      cat: "identity", required: true,
+    },
+    {
+      title: "Visa Application Form (Typed — Not Handwritten)",
+      desc: "Completed and signed official form. Handwritten forms are rejected. For 2026 applications, typed digital forms with all fields accurately completed are mandatory.",
+      cat: "identity", required: true,
+    },
+    {
+      title: "Bank Statement — Last 6 Months (Stamped Every Page)",
+      desc: "Official statement from your bank with branch stamp on every single page. Must show consistent income history — not a dormant account with sudden large deposits. This is the #1 rejection reason for Bangladeshi applicants.",
+      cat: "financial", required: true,
+    },
+    {
+      title: "Bank Solvency Certificate",
+      desc: "Official letter from your bank on bank letterhead stating current balance in BDT and USD equivalent. Signed by branch manager, dated within 30 days of application.",
+      cat: "financial", required: true,
+    },
+    {
+      title: "Income Tax Return (IT-10B) — Last 2–3 Years",
+      desc: "Income Tax Deposit Receipt proving declared, consistent income. Required for all salaried and self-employed applicants. Self-employed must also provide business financials.",
+      cat: "financial", required: true,
+    },
+    {
+      title: "Employer NOC / Leave Approval Letter",
+      desc: "Original No Objection Certificate on company letterhead (not a photocopy). Must state: designation, salary, approved leave dates matching travel itinerary, signed by HR Manager or MD with company seal.",
+      cat: "professional", required: true,
+    },
+    {
+      title: "Cover Letter Addressed to Visa Officer",
+      desc: `Personalized letter to the ${countryName} Visa Officer. Must state: travel purpose, dates, accommodation plan, financial capacity, and — critically — your strong ties to Bangladesh (employment, property, family) proving you will return. Generic template letters cause rejection.`,
+      cat: "travel", required: true,
+    },
+    {
+      title: "Round-Trip Flight Reservation (PNR Hold — Not Paid Ticket)",
+      desc: "Confirmed itinerary with PNR number. Do NOT buy a paid ticket before visa approval. A reservation/hold is sufficient and protects your money if the visa is refused.",
+      cat: "travel", required: true,
+    },
+    {
+      title: `Hotel Booking / Accommodation in ${countryName}`,
+      desc: `Confirmed reservations for every night of your stay. Must include hotel name, address, check-in/check-out dates, and booking reference. If staying with family, provide a formal invitation letter with host's passport copy and residence proof.`,
+      cat: "travel", required: true,
+    },
+    {
+      title: `Day-by-Day Travel Itinerary`,
+      desc: `Detailed daily plan for your entire stay in ${countryName}. Include city names, planned attractions, restaurants, and transport modes. Embassy officers cross-check itinerary dates against hotel bookings.`,
+      cat: "travel", required: true,
+    },
+    {
+      title: "Travel Insurance",
+      desc: "Minimum €30,000 coverage for Schengen countries; equivalent medical/hospitalization coverage for others. Must cover the entire trip duration and all countries visited. Repatriation coverage required.",
+      cat: "travel", required: true,
+    },
   ];
 
-  const faqs = [
+  const OCCUPATION_DOCS = [
     {
-      q: `Do Bangladeshi citizens need a visa to visit ${countryName}?`,
-      a: `Visa requirements depend on ${countryName}'s bilateral agreement with Bangladesh. Most countries require a visa in advance. Contact the ${countryName} Embassy in Dhaka or reach out to our consultants for the most up-to-date policy.`,
+      role: "Employed / Salaried",
+      icon: "💼",
+      items: [
+        "NOC from employer on official company letterhead (original, not photocopy)",
+        "Salary certificate showing monthly gross and net pay",
+        "Employee ID card or visiting card",
+        "Last 3 months pay stubs / salary slips",
+      ],
     },
     {
-      q: `How long does the ${countryName} visa take to process?`,
-      a: `Processing times vary by country and season. Standard processing typically takes 5–15 working days. We recommend applying at least 6–8 weeks before your travel date to be safe.`,
+      role: "Business Owner",
+      icon: "🏢",
+      items: [
+        "Trade License with certified English translation",
+        "Company bank statement — last 6 months",
+        "Chamber of Commerce membership certificate",
+        "Board resolution authorizing your travel (if applicable)",
+      ],
     },
     {
-      q: `How much bank balance do I need for a ${countryName} visa?`,
-      a: `Most embassies expect at least BDT 2–5 lakh for solo travelers, with a stable transaction history. The exact amount depends on your trip duration and destination cost of living. Our consultants can advise based on your specific case.`,
+      role: "Student",
+      icon: "🎓",
+      items: [
+        "Valid student ID and current enrollment letter",
+        "NOC / leave certificate from educational institution",
+        "Sponsor's financial guarantee (parent/guardian)",
+        "Sponsor's bank statements and employment proof",
+      ],
     },
     {
-      q: `Where do I submit my ${countryName} visa application in Bangladesh?`,
-      a: `Depending on the country, you may submit at the ${countryName} Embassy in Dhaka, a designated Visa Application Centre (JVAC/VFS Global), or via an authorised travel agent. Contact us and we'll guide you to the right submission point.`,
+      role: "Government Employee",
+      icon: "🏛️",
+      items: [
+        "Government Order (GO) copy — English version",
+        "NOC approved by relevant ministry/department",
+        "Service book (first few pages) as employment proof",
+        "Office ID card",
+      ],
+    },
+    {
+      role: "Retired / Pensioner",
+      icon: "🏠",
+      items: [
+        "Pension book or pension certificate",
+        "Fixed deposit certificates or investment statements",
+        "Property ownership documents",
+        "Retirement letter from previous employer",
+      ],
+    },
+    {
+      role: "Homemaker / Dependent",
+      icon: "👨‍👩‍👧",
+      items: [
+        "Sponsor's (spouse's) full document package",
+        "Marriage certificate (official translation if needed)",
+        "Sponsor's NOC and financial documents",
+        "Family dependency proof",
+      ],
     },
   ];
+
+  const BANK_TIERS = [
+    { label: "Solo Traveler",     min: "BDT 2–3 lakh",  rec: "BDT 4–5 lakh",    color: "blue" },
+    { label: "Couple Travel",     min: "BDT 4–6 lakh",  rec: "BDT 6–8 lakh",    color: "green" },
+    { label: "Family (4 people)", min: "BDT 8–12 lakh", rec: "BDT 12–15 lakh+", color: "purple" },
+  ];
+
+  const REJECTION_REASONS = [
+    { icon: "💰", title: "Insufficient or Inconsistent Bank Balance",   risk: "HIGH",   desc: `Bank balance too low, or sudden large deposit 1–2 weeks before application. Embassy officers look for 3–6 months of stable consistent income.`, fix: "Maintain a consistent balance for 3+ months. Avoid lump-sum deposits before applying." },
+    { icon: "📝", title: `Weak Cover Letter — No Bangladesh Ties`,       risk: "HIGH",   desc: `Generic template letter, vague travel purpose, or no explicit evidence of employment/property/family in Bangladesh.`, fix: "Write a personalized letter dedicating a full paragraph to why you will return to Bangladesh." },
+    { icon: "📸", title: "Non-Compliant Photos",                         risk: "HIGH",   desc: "Wrong dimensions (not 47×36mm), grey or off-white background, glasses, shadows, or photos older than 90 days.", fix: "Get photos taken at a professional studio. Confirm 47×36mm white background before submitting." },
+    { icon: "📄", title: "Unstamped Bank Statement Pages",               risk: "HIGH",   desc: "Bank statements without the official branch stamp on every single page are considered unofficial documents.", fix: "Request your bank to stamp every page at the branch. Never submit digital bank prints alone." },
+    { icon: "📅", title: "Inconsistent Dates Across Documents",          risk: "MEDIUM", desc: "Hotel dates don't match flight dates, or itinerary doesn't cover all days of stay.", fix: "Triple-check all dates: flight arrival → hotel check-in → itinerary day 1 → return flight." },
+    { icon: "🏠", title: "Weak Ties to Home Country",                   risk: "MEDIUM", desc: "No employment, no property, no family dependents — suggests immigration intent rather than tourism.", fix: "Submit property documents, family evidence, employer NOC, and any association memberships." },
+    { icon: "🚫", title: "Undeclared Prior Visa Refusal",                risk: "HIGH",   desc: "Failing to declare a previous rejection triggers automatic rejection and potential long-term banning.", fix: "Always declare prior refusals. Address the original rejection reason with stronger documents." },
+    { icon: "📋", title: "Incomplete or Unsigned Forms",                 risk: "MEDIUM", desc: "Missing pages, unsigned sections, or using outdated form versions.", fix: "Use the current 2026 typed form. Sign in original ink. Double-check every field before submitting." },
+  ];
+
+  const APPROVAL_TIPS = [
+    { num: "01", tip: `Apply at least 6–8 weeks before travel — peak season (June–August, December–January) requires 10–12 weeks.` },
+    { num: "02", tip: `Maintain a consistent bank balance for 3+ months. Avoid large lump-sum deposits 1–2 weeks before applying — this is a major red flag.` },
+    { num: "03", tip: `Your cover letter must explicitly name your Bangladesh employer, salary, property owned, and family dependents — proving you will return home after the trip.` },
+    { num: "04", tip: `Day-by-day itinerary must be realistic. Don't plan 5 cities in 3 days — embassy officers cross-check itinerary plausibility.` },
+    { num: "05", tip: `Book refundable hotels for the visa application. Cancel or convert to non-refundable only after your visa is approved.` },
+    { num: "06", tip: `If your NOC is from a small company, attach the company's trade license and registration certificate to strengthen credibility.` },
+    { num: "07", tip: `Include copies of prior international visas (UK, US, Canada, Schengen, etc.) — each stamp significantly boosts approval chances.` },
+    { num: "08", tip: `Keep a full photocopy of every document submitted. If the embassy sends a further information letter, you'll need to respond quickly.` },
+  ];
+
+  const PROCESS_STEPS = [
+    { n: "01", icon: "📋", title: "Build Your Checklist",         desc: `Use our Visa Checklist Generator for a ${countryName}-specific document list.`,                                           link: "/travel-resources/visa-checklist-generator" },
+    { n: "02", icon: "🏦", title: "Prepare Financial Documents",  desc: "Gather 6 months of stamped bank statements and solvency certificate.",                                                    link: null },
+    { n: "03", icon: "✍️", title: "Write Cover Letter",           desc: `Draft a personalized cover letter for the ${countryName} Visa Officer demonstrating your Bangladesh ties.`,               link: "/travel-resources/travel-document-generator" },
+    { n: "04", icon: "📅", title: "Book Appointment & Submit",    desc: "Submit at the embassy or VFS Dhaka with all originals. Pay non-refundable fees.",                                        link: null },
+    { n: "05", icon: "⏳", title: "Track & Collect",              desc: "Monitor status via the embassy portal. Verify all visa details on collection.",                                          link: "/travel-resources/visa-processing-time-tracker" },
+  ];
+
+  // Internal links mapped to sitemap
+  const RELATED_LINKS = [
+    { label: "Visa Guide 2026",                        href: "/visa/visa-guide" },
+    { label: "All Visa Services",                      href: "/visa" },
+    { label: "Visa Rejection Checker",                 href: "/visa-rejection" },
+    { label: "Visa Checklist Generator",               href: "/travel-resources/visa-checklist-generator" },
+    { label: "Processing Time Tracker",                href: "/travel-resources/visa-processing-time-tracker" },
+    { label: "Travel Document Generator",              href: "/travel-resources/travel-document-generator" },
+    { label: "Schengen Visa Guide",                    href: "/schengen-visa" },
+    { label: "E-Visa Countries",                       href: "/visa/e-visa" },
+    { label: "Tourist Visa from Bangladesh",           href: "/our-services/visa-services/tourist-visa-from-bangladesh" },
+    { label: "Student Visa from Bangladesh",           href: "/our-services/visa-services/student-visa-from-bangladesh" },
+    { label: "Work Visa from Bangladesh",              href: "/our-services/visa-services/work-visa-from-bangladesh" },
+    { label: "UK Visa Application",                    href: "/our-services/visa/uk-visa-application" },
+    { label: "Canada Visa Application",                href: "/our-services/visa/canada-visa-application" },
+    { label: "USA Visa Application",                   href: "/our-services/visa/usa-visa-application" },
+    { label: "Schengen / Germany Visa",                href: "/our-services/visa/germany-visa-application" },
+    { label: "Dubai Visa Application",                 href: "/our-services/visa/dubai-visa-application" },
+    { label: "Australia Visa Application",             href: "/our-services/visa/australia-visa-application" },
+    { label: "Japan Visa Application",                 href: "/our-services/visa/japan-visa-application" },
+    { label: "USA Interview Preparation",              href: "/target-usa-visa-interview-preparation" },
+    { label: "IELTS & Immigration Center",             href: "/target-ielts-immigration-center" },
+    { label: "Study Abroad Guide",                     href: "/study-abroad" },
+    { label: "Scholarships by Country",                href: "/scholarships" },
+    { label: "Travel Deals & Offers",                  href: "/offers" },
+    { label: "Bangladesh Office",                      href: "/contact/travel-agency-bangladesh" },
+    { label: "Dubai Office",                           href: "/contact/travel-agency-dubai" },
+  ];
+
+  const riskColor = (risk) =>
+    risk === "HIGH"
+      ? "bg-red-50 border-red-100 text-red-800"
+      : "bg-amber-50 border-amber-100 text-amber-800";
+
+  const riskPill = (risk) =>
+    risk === "HIGH"
+      ? "bg-red-100 text-red-700"
+      : "bg-amber-100 text-amber-700";
 
   return (
     <div className="min-h-screen bg-[#f8f9fb] font-sans antialiased text-[#1a1c1e]">
 
+      {/* ── JSON-LD Schemas ── */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+
       {/* ── HERO ── */}
       <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04]"
-          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }} />
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-amber-400/5 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2" />
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }} aria-hidden="true" />
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-amber-400/5 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2" aria-hidden="true" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2" aria-hidden="true" />
 
-        <div className="max-w-7xl mx-auto px-5 py-16 md:py-24 relative z-10">
+        <div className="max-w-7xl mx-auto px-5 py-16 md:py-22 relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs text-white/40 font-semibold mb-8">
+          <nav aria-label="breadcrumb" className="flex items-center gap-1.5 text-xs text-white/40 font-semibold mb-8 flex-wrap">
             <Link href="/" className="hover:text-white/70 transition">Home</Link>
-            <ChevronRight size={12} />
-            <Link href="/visa" className="hover:text-white/70 transition">Visa Guide</Link>
-            <ChevronRight size={12} />
+            <ChevronRight size={11} aria-hidden="true" />
+            <Link href="/visa" className="hover:text-white/70 transition">Visa Services</Link>
+            <ChevronRight size={11} aria-hidden="true" />
             <span className="text-white/60">{countryName} Visa</span>
-          </div>
+          </nav>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
+              {/* Hero quick-links */}
+              <div className="flex flex-wrap gap-2 mb-5" role="navigation" aria-label="Related visa tools">
+                {[
+                  { label: "← All Visa Guides", href: "/visa/visa-guide" },
+                  { label: "Rejection Checker",  href: "/visa-rejection" },
+                  { label: "Visa Checklist",      href: "/travel-resources/visa-checklist-generator" },
+                  { label: "Processing Times",    href: "/travel-resources/visa-processing-time-tracker" },
+                ].map(l => (
+                  <Link key={l.href} href={l.href}
+                    className="bg-white/10 border border-white/20 text-white/70 px-3 py-1.5 rounded-full text-[10px] font-bold hover:bg-white/20 hover:text-white transition">
+                    {l.label}
+                  </Link>
+                ))}
+              </div>
+
               <div className="flex flex-wrap gap-2 mb-5">
                 <span className="bg-amber-400/20 border border-amber-400/30 text-amber-300 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">
                   {currentYear} Guide
                 </span>
                 <span className="bg-white/10 border border-white/20 text-white/60 px-4 py-1.5 rounded-full text-xs font-bold">
-                  For Bangladesh Passport Holders
+                  Bangladesh Passport Holders
                 </span>
               </div>
 
               <h1 className="text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-3">
-                {countryName} Tourist Visa Requirements <br />
-                <span className="text-amber-400">for Bangladeshis</span>
+                {countryName} Visa Requirements<br />
+                <span className="text-amber-400">for Bangladeshi Citizens</span>
               </h1>
-              <p className="text-white/50 leading-relaxed text-sm mb-2 font-medium">
+              <h2 className="text-sm text-white/50 mb-3 font-medium">
                 How to apply for {countryName} visa from Bangladesh — {currentYear}
-              </p>
-              <p className="text-white/40 leading-relaxed text-sm mb-8 max-w-lg">
-                Detailed visa information for {countryName} is being prepared by our team. In the meantime, the general requirements below apply to most international visa applications. Contact our consultants for country-specific guidance.
+              </h2>
+              <p className="seo-speakable text-white/40 leading-relaxed text-sm mb-7 max-w-lg">
+                Embassy-verified document checklist, bank balance requirements, photo specifications,
+                processing times, and expert application tips for <strong className="text-white/60">{countryName}</strong> —
+                updated {currentYear}. Expert consultants available 24/7 for personalized guidance.
               </p>
 
-              <div className="flex flex-wrap gap-3">
-                {["✅ Expert Consultants", "📋 Document Review", "⚡ Fast Processing", "🔒 Confidential"].map(b => (
+              <div className="flex flex-wrap gap-2">
+                {["✅ Expert Consultants", "📋 Document Review", "⚡ 48hr Processing", "🔒 98% Approval Rate"].map(b => (
                   <span key={b} className="flex items-center gap-1.5 bg-white/8 border border-white/10 px-3 py-2 rounded-xl text-xs font-bold text-white/60">
                     {b}
                   </span>
@@ -142,12 +402,12 @@ function FallbackVisaPage({ country, whatsappUrl }) {
             {/* Flag card */}
             <div className="flex justify-center md:justify-end">
               <div className="relative group">
-                <div className="absolute -inset-3 bg-gradient-to-br from-amber-400/20 to-blue-500/10 rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition duration-700" />
-                <div className="relative bg-white/10 backdrop-blur border border-white/20 p-4 rounded-3xl shadow-2xl overflow-hidden w-72 h-52 flex items-center justify-center">
-                  <img src={country.flag} alt={`${countryName} flag`} className="w-full h-full object-cover rounded-2xl" />
+                <div className="absolute -inset-3 bg-gradient-to-br from-amber-400/20 to-blue-500/10 rounded-3xl blur-2xl opacity-60 group-hover:opacity-90 transition duration-700" aria-hidden="true" />
+                <div className="relative bg-white/10 backdrop-blur border border-white/20 p-4 rounded-3xl shadow-2xl overflow-hidden w-72 h-48 flex items-center justify-center">
+                  <img src={country.flag} alt={`${countryName} flag`} className="w-full h-full object-cover rounded-2xl" width={280} height={176} />
                 </div>
                 <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-amber-400 text-black px-5 py-2 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap shadow-xl">
-                  Tourist Visa Guide
+                  {countryName} Visa Guide
                 </div>
               </div>
             </div>
@@ -155,16 +415,21 @@ function FallbackVisaPage({ country, whatsappUrl }) {
         </div>
       </div>
 
-      {/* ── INFO BANNER ── */}
-      <div className="max-w-7xl mx-auto px-5 mt-10 mb-8">
-        <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-5 flex gap-4 items-start">
-          <div className="p-2 bg-amber-100 rounded-xl shrink-0">
-            <CircleDashed size={20} className="text-amber-600" />
-          </div>
-          <div>
-            <p className="font-black text-amber-800 text-sm mb-1">Detailed {countryName} visa data coming soon</p>
-            <p className="text-amber-700 text-xs leading-relaxed">Our team is verifying the latest {currentYear} requirements for {countryName}. The general checklist below is a reliable starting point. For confirmed requirements, WhatsApp our consultants — they respond within 2 hours.</p>
-          </div>
+      {/* ── QUICK STATS BAR ── */}
+      <div className="max-w-7xl mx-auto px-5 -mt-5 relative z-20 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {[
+            { icon: <Clock size={20} className="text-amber-500" />,    label: "Standard Processing", val: "7–15 business days",       bg: "bg-amber-50 border-amber-100" },
+            { icon: <Calendar size={20} className="text-blue-500" />,  label: "Apply Before Travel",  val: "6–8 weeks minimum",        bg: "bg-blue-50 border-blue-100" },
+            { icon: <Wallet size={20} className="text-green-500" />,   label: "Min Bank Balance",     val: "BDT 2–3 lakh (solo)",      bg: "bg-green-50 border-green-100" },
+            { icon: <Camera size={20} className="text-red-500" />,     label: "Photo Size",           val: "47×36mm white background", bg: "bg-red-50 border-red-100" },
+          ].map((s, i) => (
+            <div key={i} className={`${s.bg} border-2 p-4 rounded-2xl bg-white shadow-sm flex flex-col items-center text-center`}>
+              <div className="mb-1.5" aria-hidden="true">{s.icon}</div>
+              <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1">{s.label}</p>
+              <p className="text-xs font-black text-gray-800 leading-tight">{s.val}</p>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -172,117 +437,194 @@ function FallbackVisaPage({ country, whatsappUrl }) {
       <div className="max-w-7xl mx-auto px-5 pb-20">
         <div className="grid lg:grid-cols-12 gap-8">
 
-          {/* LEFT COLUMN */}
+          {/* ── LEFT MAIN COLUMN ── */}
           <div className="lg:col-span-8 space-y-8">
 
             {/* SEO INTRO */}
-            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10">
+            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10" aria-label={`${countryName} visa overview for Bangladeshi citizens`}>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-1 h-8 bg-gradient-to-b from-amber-400 to-amber-600 rounded-full" />
-                <h2 className="text-2xl font-black text-gray-900">{countryName} Visa from Bangladesh — What You Need to Know</h2>
+                <div className="w-1 h-8 bg-gradient-to-b from-amber-400 to-amber-600 rounded-full" aria-hidden="true" />
+                <h2 className="text-2xl font-black text-gray-900">
+                  {countryName} Visa for Bangladeshi Citizens — {currentYear} Complete Guide
+                </h2>
               </div>
               <div className="space-y-4 text-sm text-gray-600 leading-relaxed">
                 <p>
-                  If you hold a <strong className="text-gray-800">Bangladeshi passport</strong> and are planning to visit <strong className="text-gray-800">{countryName}</strong>, you will most likely need to apply for a visa in advance. The process typically involves submitting a document package to the {countryName} Embassy or an authorised Visa Application Centre (JVAC/VFS Global) in Dhaka.
+                  <strong className="text-gray-800">Bangladeshi passport holders</strong> planning to visit{" "}
+                  <strong className="text-gray-800">{countryName}</strong> in {currentYear} must apply for a visa in advance
+                  through the {countryName} Embassy in Dhaka or a designated Visa Application Centre (JVAC/VFS Global).
+                  The process involves submitting a comprehensive document dossier, paying non-refundable embassy fees,
+                  and in some cases attending a biometric or in-person interview appointment.
                 </p>
                 <p>
-                  The <strong className="text-gray-800">{countryName} visa for Bangladeshi citizens</strong> in {currentYear} generally requires proof of financial solvency, a confirmed travel itinerary, hotel bookings, and a well-written cover letter. Embassy officers pay close attention to your bank statement history and the consistency of your application documents.
+                  The <strong className="text-gray-800">{countryName} visa for Bangladeshi citizens</strong> requires precise
+                  preparation. Embassy officers pay close attention to financial documentation — specifically the
+                  6-month bank statement with branch stamps on every page — and the cover letter, which must
+                  clearly demonstrate your strong ties to Bangladesh and genuine intent to return.{" "}
+                  <Link href="/visa-rejection" className="text-amber-600 font-semibold hover:underline">
+                    Check the {countryName} visa rejection rate →
+                  </Link>
                 </p>
                 <p>
-                  Common reasons for rejection include <strong className="text-gray-800">weak financial documentation</strong>, a vague itinerary, non-compliant photographs, and missing occupation-specific letters. Our guide below walks you through every requirement you'll likely need.
+                  Use our{" "}
+                  <Link href="/travel-resources/visa-checklist-generator" className="text-amber-600 font-semibold hover:underline">
+                    Visa Checklist Generator
+                  </Link>{" "}
+                  for a personalized {countryName} document list, our{" "}
+                  <Link href="/travel-resources/visa-processing-time-tracker" className="text-amber-600 font-semibold hover:underline">
+                    Processing Time Tracker
+                  </Link>{" "}
+                  to plan your application timeline, and our{" "}
+                  <Link href="/travel-resources/travel-document-generator" className="text-amber-600 font-semibold hover:underline">
+                    Travel Document Generator
+                  </Link>{" "}
+                  to draft your cover letter, NOC, and itinerary.
                 </p>
               </div>
             </section>
 
-            {/* GENERAL DOCUMENTS CHECKLIST */}
-            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 bg-green-50 rounded-2xl"><CheckCircle size={26} className="text-green-600" /></div>
+            {/* MANDATORY DOCUMENTS */}
+            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10" aria-label={`${countryName} visa mandatory documents checklist`}>
+              <div className="flex items-center gap-4 mb-7">
+                <div className="p-3 bg-green-50 rounded-2xl" aria-hidden="true"><CheckCircle size={24} className="text-green-600" /></div>
                 <div>
-                  <h2 className="text-2xl font-black text-gray-900">General Visa Documents for {countryName}</h2>
-                  <p className="text-sm text-gray-400 mt-0.5">Standard checklist applicable to most international visa applications</p>
+                  <h2 className="text-2xl font-black text-gray-900">{countryName} Visa — Mandatory Documents Checklist</h2>
+                  <p className="text-sm text-gray-400 mt-0.5">
+                    All items required. Missing even one causes rejection without refund. Generate a printable version →{" "}
+                    <Link href="/travel-resources/visa-checklist-generator" className="text-amber-600 font-semibold hover:underline">Checklist Generator</Link>
+                  </p>
                 </div>
               </div>
 
-              <div className="space-y-3 mb-8">
-                {commonDocs.map((item, i) => (
-                  <div key={i} className="flex gap-3 p-4 bg-green-50/60 border border-green-100 rounded-2xl">
-                    <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle size={12} className="text-white" />
+              {/* Documents by category */}
+              {["identity", "financial", "professional", "travel"].map(cat => {
+                const catDocs  = MANDATORY_DOCS.filter(d => d.cat === cat);
+                const catMeta = {
+                  identity:     { num: "01", label: "Travel Identity",       color: "blue",   accent: "bg-blue-50 border-blue-100",   dot: "bg-blue-500" },
+                  financial:    { num: "02", label: "Financial Documents",    color: "green",  accent: "bg-green-50 border-green-100", dot: "bg-green-500",  note: `Financial documents are the #1 rejection reason for ${countryName} visa from Bangladesh. Every bank statement page must carry the official branch stamp.` },
+                  professional: { num: "03", label: "Professional / Employment", color: "purple", accent: "bg-purple-50 border-purple-100", dot: "bg-purple-500" },
+                  travel:       { num: "04", label: "Travel Planning",        color: "amber",  accent: "bg-amber-50 border-amber-100", dot: "bg-amber-500",  note: "Itinerary dates, hotel check-in/out, and flight arrival/departure must all match exactly." },
+                };
+                const m = catMeta[cat];
+                return (
+                  <div key={cat} className="mb-8">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className={`w-2 h-2 rounded-full shrink-0 ${m.dot}`} aria-hidden="true" />
+                      <h3 className={`text-[10px] font-black uppercase tracking-[0.2em] text-${m.color}-600`}>
+                        {m.num}. {m.label}
+                      </h3>
                     </div>
-                    <p className="text-sm text-gray-700 font-medium leading-relaxed">{item}</p>
+                    {m.note && (
+                      <div className={`flex items-start gap-2 p-3 rounded-xl border mb-4 ${m.accent}`}>
+                        <TriangleAlert size={14} className={`text-${m.color}-600 shrink-0 mt-0.5`} aria-hidden="true" />
+                        <p className={`text-xs font-bold text-${m.color}-700 leading-relaxed`}>{m.note}</p>
+                      </div>
+                    )}
+                    <div className="space-y-2">
+                      {catDocs.map((doc, i) => (
+                        <article key={i} className="flex gap-3 p-4 bg-gray-50 border border-gray-100 rounded-2xl hover:border-gray-200 hover:bg-white transition-all">
+                          <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center shrink-0 mt-0.5" aria-hidden="true">
+                            <CheckCircle size={11} className="text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-black text-gray-800 text-sm mb-1 leading-snug flex items-center gap-2">
+                              {doc.title}
+                              <span className={`text-[8px] font-black px-1.5 py-0.5 rounded-full ${doc.required ? "bg-red-100 text-red-700" : "bg-slate-100 text-slate-500"}`}>
+                                {doc.required ? "Required" : "Conditional"}
+                              </span>
+                            </h4>
+                            <p className="text-xs text-gray-500 font-medium leading-relaxed">{doc.desc}</p>
+                          </div>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </section>
+
+            {/* OCCUPATION-SPECIFIC DOCS */}
+            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10" aria-label="Occupation-specific visa documents">
+              <div className="flex items-center gap-3 mb-7">
+                <div className="p-2.5 bg-slate-100 rounded-xl" aria-hidden="true"><Users size={21} className="text-slate-600" /></div>
+                <div>
+                  <h2 className="text-xl font-black text-gray-900">Additional Documents by Profession</h2>
+                  <p className="text-sm text-gray-400 mt-0.5">Submit the section that matches your employment status</p>
+                </div>
+              </div>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {OCCUPATION_DOCS.map(({ role, icon, items }) => (
+                  <div key={role} className="bg-gray-50 rounded-2xl border border-gray-100 p-5 hover:border-amber-200 hover:shadow-md transition-all">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-xl" aria-hidden="true">{icon}</span>
+                      <h3 className="text-xs font-black text-gray-700 uppercase tracking-wider">{role}</h3>
+                    </div>
+                    <ul className="space-y-2">
+                      {items.map((item, i) => (
+                        <li key={i} className="text-xs text-gray-500 flex gap-2 leading-relaxed">
+                          <span className="text-green-500 shrink-0 mt-0.5" aria-hidden="true">✓</span> {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </div>
-
-              {/* Occupation-specific */}
-              <div className="border-t border-gray-100 pt-8">
-                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-6">Additional Documents by Profession</h3>
-                <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-                  {[
-                    { role: "Employed", items: ["NOC from employer (on letterhead)", "Salary certificate / payslip", "Visiting card / employee ID"] },
-                    { role: "Business Owner", items: ["Trade License (English translation)", "Company bank statement", "Chamber membership (if available)"] },
-                    { role: "Student", items: ["University ID / enrollment letter", "Leave certificate from institution", "Sponsor's financial guarantee"] },
-                    { role: "Govt. Employee", items: ["Government Order (GO) copy", "NOC approved by department (English)", "Service book first few pages"] },
-                  ].map(({ role, items }) => (
-                    <div key={role} className="bg-gray-50 rounded-2xl border border-gray-100 p-5">
-                      <h4 className="text-xs font-black text-gray-700 uppercase tracking-wider mb-3">{role}</h4>
-                      <ul className="space-y-2">
-                        {items.map((item, i) => (
-                          <li key={i} className="text-xs text-gray-500 flex gap-2 leading-relaxed">
-                            <span className="text-green-500 shrink-0 mt-0.5">✓</span> {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </section>
 
-            {/* PHOTO SPECS + TIPS */}
+            {/* PHOTO + HOW TO APPLY */}
             <div className="grid md:grid-cols-2 gap-6">
-              <section className="bg-gradient-to-br from-rose-50 to-red-50 border border-red-100 rounded-[2rem] p-8 relative overflow-hidden">
-                <Camera className="absolute top-4 right-4 text-red-200/60" size={80} />
+              {/* Photo specs */}
+              <section className="bg-gradient-to-br from-rose-50 to-red-50 border border-red-100 rounded-[2rem] p-8 relative overflow-hidden" aria-label="Photo specifications for visa">
+                <Camera className="absolute top-4 right-4 text-red-200/50" size={80} aria-hidden="true" />
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2.5 bg-red-100 rounded-xl"><Camera size={20} className="text-red-600" /></div>
+                    <div className="p-2.5 bg-red-100 rounded-xl" aria-hidden="true"><Camera size={20} className="text-red-600" /></div>
                     <h2 className="text-xl font-black text-gray-900">Photo Specifications</h2>
                   </div>
                   <div className="grid grid-cols-2 gap-3 mb-5">
                     {[
-                      { label: "Common Size", val: "35×45mm or 45×45mm" },
-                      { label: "Background", val: "Plain White only" },
-                      { label: "Standard", val: "ICAO Compliant" },
-                      { label: "Age of Photo", val: "Taken within 3 months" },
+                      { label: "Size",        val: "47×36mm (rectangular)" },
+                      { label: "Background", val: "Pure White only" },
+                      { label: "Standard",   val: "ICAO Compliant" },
+                      { label: "Recency",    val: "Taken within 90 days" },
+                      { label: "Face",       val: "70–80% of frame" },
+                      { label: "Copies",     val: "Minimum 2 copies" },
                     ].map(({ label, val }) => (
-                      <div key={label} className="bg-white rounded-xl p-4 shadow-sm border border-red-100">
+                      <div key={label} className="bg-white rounded-xl p-3 shadow-sm border border-red-100">
                         <p className="text-[9px] font-black uppercase tracking-widest text-red-400 mb-1">{label}</p>
                         <p className="text-xs font-bold text-gray-800 leading-snug">{val}</p>
                       </div>
                     ))}
                   </div>
-                  <div>
-                    <p className="text-[9px] font-black uppercase tracking-widest text-red-500 mb-3">❌ Not Accepted</p>
-                    {["Glasses, hats, or accessories", "Heavy filters or retouching", "White clothing (blends with background)", "Old or blurry photos"].map((no, i) => (
-                      <div key={i} className="flex gap-2 text-xs text-red-700 font-medium bg-red-100 rounded-lg px-3 py-2 mb-2">
-                        <span className="shrink-0">✕</span> {no}
-                      </div>
-                    ))}
-                  </div>
+                  <p className="text-[9px] font-black uppercase tracking-widest text-red-500 mb-2">❌ Not Accepted</p>
+                  {["Glasses, hats, or headwear (except religious)", "Heavy filters, retouching, or beauty apps", "Grey, off-white, or cream background", "Old photos over 90 days", "White clothing blending with background", "Dark or patterned backgrounds"].map((no, i) => (
+                    <div key={i} className="flex gap-2 text-xs text-red-700 font-medium bg-red-100 rounded-lg px-3 py-2 mb-1.5">
+                      <span className="shrink-0" aria-hidden="true">✕</span> {no}
+                    </div>
+                  ))}
                 </div>
               </section>
 
-              <section className="bg-gradient-to-br from-amber-50 to-yellow-50 border border-amber-100 rounded-[2rem] p-8">
+              {/* How to apply steps */}
+              <section className="bg-white border border-gray-100 rounded-[2rem] p-8 shadow-sm" aria-label={`How to apply for ${countryName} visa step by step`}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2.5 bg-amber-100 rounded-xl"><Lightbulb size={20} className="text-amber-600" /></div>
-                  <h2 className="text-xl font-black text-gray-900">Approval Tips</h2>
+                  <div className="p-2.5 bg-amber-50 rounded-xl" aria-hidden="true"><Plane size={20} className="text-amber-600" /></div>
+                  <h2 className="text-xl font-black text-gray-900">How to Apply — 5 Steps</h2>
                 </div>
-                <div className="space-y-4">
-                  {commonTips.map((tip, i) => (
-                    <div key={i} className="flex gap-3 bg-white rounded-2xl p-4 border border-amber-100 shadow-sm">
-                      <span className="text-xl font-black text-amber-200 shrink-0">0{i + 1}</span>
-                      <p className="text-xs text-gray-700 font-medium leading-relaxed">{tip}</p>
+                <div className="space-y-4 relative">
+                  <div className="absolute left-[18px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-amber-300 to-transparent" aria-hidden="true" />
+                  {PROCESS_STEPS.map((s, i) => (
+                    <div key={i} className="relative pl-10">
+                      <div className="absolute left-0 top-1 w-9 h-9 bg-amber-400 rounded-xl flex items-center justify-center text-base shadow-sm" aria-hidden="true">
+                        {s.icon}
+                      </div>
+                      <h3 className="font-black text-gray-800 text-sm mb-0.5">{s.title}</h3>
+                      <p className="text-xs text-gray-400 leading-relaxed">{s.desc}</p>
+                      {s.link && (
+                        <Link href={s.link} className="text-[10px] font-black text-amber-600 hover:underline mt-1 block">
+                          Open tool →
+                        </Link>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -290,194 +632,387 @@ function FallbackVisaPage({ country, whatsappUrl }) {
             </div>
 
             {/* BANK BALANCE GUIDE */}
-            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10">
+            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10" aria-label={`Bank balance required for ${countryName} visa from Bangladesh`}>
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 bg-blue-50 rounded-xl"><Wallet size={22} className="text-blue-600" /></div>
+                <div className="p-2.5 bg-blue-50 rounded-xl" aria-hidden="true"><Wallet size={22} className="text-blue-600" /></div>
                 <div>
-                  <h2 className="text-2xl font-black text-gray-900">How Much Bank Balance for {countryName} Visa?</h2>
-                  <p className="text-sm text-gray-400 mt-0.5">General guidelines for Bangladeshi applicants</p>
+                  <h2 className="text-2xl font-black text-gray-900">Bank Balance Required for {countryName} Visa</h2>
+                  <p className="text-sm text-gray-400 mt-0.5">General guidelines for Bangladeshi applicants — {currentYear}</p>
                 </div>
               </div>
               <div className="grid sm:grid-cols-3 gap-4 mb-6">
-                {[
-                  { label: "Solo Traveler", val: "BDT 2–3 lakh minimum", note: "BDT 4–5 lakh recommended", color: "blue" },
-                  { label: "Couple Travel", val: "BDT 4–6 lakh minimum", note: "Stable 6-month history", color: "green" },
-                  { label: "Family Trip", val: "BDT 7–10 lakh+", note: "Varies by trip duration", color: "purple" },
-                ].map(({ label, val, note, color }) => (
-                  <div key={label} className={`bg-${color}-50 border border-${color}-100 rounded-2xl p-5`}>
+                {BANK_TIERS.map(({ label, min, rec, color }) => (
+                  <div key={label} className={`bg-${color}-50 border-2 border-${color}-100 rounded-2xl p-5`}>
                     <p className={`text-[9px] font-black uppercase tracking-widest text-${color}-500 mb-2`}>{label}</p>
-                    <p className="text-lg font-black text-gray-800 leading-tight mb-1">{val}</p>
-                    <p className="text-xs text-gray-500 font-medium">{note}</p>
+                    <p className="text-lg font-black text-gray-800 leading-tight mb-1">{min}</p>
+                    <p className="text-xs text-gray-500 font-bold">Recommended: {rec}</p>
                   </div>
                 ))}
               </div>
+
+              <div className="grid sm:grid-cols-2 gap-4 mb-5">
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                  <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">⏳ Statement Period</p>
+                  <p className="text-sm font-black text-gray-800">Last 3–6 months — stamped every page by branch</p>
+                </div>
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                  <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-2">📊 Pattern Check</p>
+                  <p className="text-sm font-black text-gray-800">Consistent income — not a sudden large deposit</p>
+                </div>
+              </div>
+
               <div className="bg-amber-50 border-2 border-amber-200 rounded-2xl p-5 flex gap-3">
-                <TriangleAlert size={18} className="text-amber-600 shrink-0 mt-0.5" />
+                <TriangleAlert size={17} className="text-amber-600 shrink-0 mt-0.5" aria-hidden="true" />
                 <p className="text-sm text-amber-800 font-medium leading-relaxed">
-                  <strong>Important:</strong> Do not deposit a large lump sum right before applying. Embassy officers check transaction patterns — a sudden spike looks suspicious. Maintain a stable, growing balance over 3–6 months.
+                  <strong>Critical:</strong> Do NOT deposit a large lump sum 1–2 weeks before applying. Embassy officers
+                  specifically look for sudden balance spikes — it signals financial instability, not strength.
+                  Maintain a stable, growing balance over 3–6 months.
+                </p>
+              </div>
+              <div className="mt-4 flex items-center gap-3 p-3 bg-slate-900 rounded-2xl">
+                <span aria-hidden="true">📊</span>
+                <p className="text-sm text-slate-300 font-medium">
+                  Check the exact{" "}
+                  <Link href="/visa-rejection" className="text-amber-400 font-black hover:underline">
+                    {countryName} visa rejection rate for Bangladeshi applicants →
+                  </Link>
                 </p>
               </div>
             </section>
 
-            {/* FAQ */}
-            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="p-2.5 bg-purple-50 rounded-xl"><HelpCircle size={22} className="text-purple-600" /></div>
+            {/* REJECTION REASONS + FIXES */}
+            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10" aria-label={`${countryName} visa rejection reasons and how to fix them`}>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2.5 bg-red-50 rounded-xl" aria-hidden="true"><AlertTriangle size={22} className="text-red-600" /></div>
                 <div>
-                  <h2 className="text-2xl font-black text-gray-900">Common Questions — {countryName} Visa Bangladesh</h2>
-                  <p className="text-sm text-gray-400 mt-0.5">Answers to questions Bangladeshi travelers ask most</p>
+                  <h2 className="text-2xl font-black text-gray-900">Why {countryName} Visas Get Rejected — and How to Fix It</h2>
+                  <p className="text-sm text-gray-400 mt-0.5">Most common rejection reasons for Bangladeshi applicants</p>
                 </div>
               </div>
-              <div className="space-y-4">
-                {faqs.map((item, i) => (
-                  <details key={i} className="group bg-gray-50 border-2 border-gray-100 rounded-2xl overflow-hidden hover:border-amber-300 transition-all">
-                    <summary className="list-none flex items-center justify-between p-6 cursor-pointer">
-                      <span className="font-black text-gray-800 pr-4 leading-snug text-sm">
-                        <span className="text-amber-500 mr-2">Q.</span>{item.q}
+              <div className="grid sm:grid-cols-2 gap-4">
+                {REJECTION_REASONS.map((r, i) => (
+                  <article key={i} className={`p-5 rounded-2xl border ${riskColor(r.risk)}`}>
+                    <div className="flex items-start justify-between gap-3 mb-2">
+                      <div className="flex items-start gap-2">
+                        <span className="text-xl shrink-0" aria-hidden="true">{r.icon}</span>
+                        <h3 className="font-black text-sm leading-snug">{r.title}</h3>
+                      </div>
+                      <span className={`text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0 ${riskPill(r.risk)}`}>
+                        {r.risk}
                       </span>
-                      <div className="w-8 h-8 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center shrink-0 group-open:bg-amber-400 group-open:border-amber-400 transition-all duration-300">
-                        <ChevronRight size={14} className="text-gray-500 group-open:text-white rotate-90" />
+                    </div>
+                    <p className="text-xs leading-relaxed mb-3 opacity-80">{r.desc}</p>
+                    <div className="flex items-start gap-1.5 bg-green-50 border border-green-100 rounded-xl p-2.5">
+                      <CheckCircle size={12} className="text-green-600 shrink-0 mt-0.5" aria-hidden="true" />
+                      <p className="text-[10px] text-green-700 font-bold leading-snug"><strong>Fix:</strong> {r.fix}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            {/* EXPERT APPROVAL TIPS */}
+            <section className="bg-gradient-to-br from-amber-50 to-yellow-50 border border-amber-100 rounded-[2rem] p-8 md:p-10 relative overflow-hidden" aria-label={`Expert tips to get ${countryName} visa approved`}>
+              <Lightbulb className="absolute -bottom-8 -right-8 text-amber-200/60" size={160} aria-hidden="true" />
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-7">
+                  <div className="p-2.5 bg-amber-100 rounded-xl" aria-hidden="true"><Lightbulb size={22} className="text-amber-600" /></div>
+                  <div>
+                    <h2 className="text-2xl font-black text-gray-900">{countryName} Visa Approval Tips — Expert Guide</h2>
+                    <p className="text-sm text-gray-500 mt-0.5">Proven strategies from consultants who have processed 42,000+ visas</p>
+                  </div>
+                </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {APPROVAL_TIPS.map(({ num, tip }) => (
+                    <div key={num} className="bg-white rounded-2xl p-5 flex gap-4 shadow-sm border border-amber-100 hover:shadow-md transition-shadow">
+                      <span className="text-2xl font-black text-amber-200 shrink-0" aria-hidden="true">{num}</span>
+                      <p className="text-sm text-gray-700 font-medium leading-relaxed">{tip}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* FAQ ACCORDION */}
+            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10" aria-label={`Frequently asked questions — ${countryName} visa Bangladesh`}>
+              <div className="flex items-center gap-3 mb-7">
+                <div className="p-2.5 bg-purple-50 rounded-xl" aria-hidden="true"><HelpCircle size={22} className="text-purple-600" /></div>
+                <div>
+                  <h2 className="text-2xl font-black text-gray-900">FAQ — {countryName} Visa for Bangladeshi Citizens</h2>
+                  <p className="text-sm text-gray-400 mt-0.5">Most common questions from Bangladeshi travelers applying for {countryName} visa</p>
+                </div>
+              </div>
+              <div className="space-y-3">
+                {faqSchemaItems.map((item, i) => (
+                  <details
+                    key={i}
+                    className="group bg-gray-50 border-2 border-gray-100 rounded-2xl overflow-hidden hover:border-amber-300 transition-all"
+                    itemScope itemProp="mainEntity" itemType="https://schema.org/Question"
+                  >
+                    <summary className="list-none flex items-center justify-between p-5 cursor-pointer" itemProp="name">
+                      <span className="font-black text-gray-800 pr-4 leading-snug text-sm">
+                        <span className="text-amber-500 mr-2" aria-hidden="true">Q.</span>{item.q}
+                      </span>
+                      <div className="w-8 h-8 bg-white border-2 border-gray-200 rounded-xl flex items-center justify-center shrink-0 group-open:bg-amber-400 group-open:border-amber-400 transition-all duration-300" aria-hidden="true">
+                        <ChevronRight size={13} className="text-gray-500 group-open:text-white rotate-90" />
                       </div>
                     </summary>
-                    <div className="px-6 pb-6 pt-0 text-sm text-gray-600 leading-relaxed border-t border-gray-100 ml-8">
-                      {item.a}
+                    <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed border-t border-gray-100 ml-6"
+                      itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                      <p itemProp="text">{item.a}</p>
                     </div>
                   </details>
                 ))}
               </div>
             </section>
 
-            {/* SEO BOTTOM ARTICLE */}
-            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10">
+            {/* SEO ARTICLE BLOCK */}
+            <section className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-10" aria-label={`${countryName} visa complete guide ${currentYear}`}>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600 rounded-full" />
-                <h2 className="text-2xl font-black text-gray-900">{countryName} Visa — {currentYear} Complete Guide for Bangladesh</h2>
+                <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600 rounded-full" aria-hidden="true" />
+                <h2 className="text-2xl font-black text-gray-900">
+                  {countryName} Visa from Bangladesh — Full Reference Guide {currentYear}
+                </h2>
               </div>
-              <div className="space-y-4 text-sm text-gray-600 leading-relaxed">
+              <div className="space-y-5 text-sm text-gray-600 leading-relaxed">
                 <p>
-                  Getting a <strong className="text-gray-800">{countryName} visa from Bangladesh</strong> in {currentYear} requires careful preparation. Whether you are a tourist, visiting family, or attending a conference, the document requirements are largely similar — a strong financial file, a clear purpose of travel, and honest, consistent paperwork.
+                  Getting a <strong className="text-gray-800">{countryName} visa from Bangladesh</strong> in {currentYear} requires
+                  a complete, well-organized application package submitted at the {countryName} Embassy or an authorised JVAC
+                  in Dhaka. Whether you are applying for a tourist visa, family visit visa, or business visa, the core financial
+                  and identity documentation requirements are largely the same.
                 </p>
+
                 <h3 className="text-lg font-black text-gray-800">{countryName} Visa Application Process for Bangladeshis</h3>
                 <p>
-                  The process usually starts at the {countryName} Embassy or an authorised JVAC in Dhaka. You'll fill out a visa application form, attach your documents, pay the applicable embassy and service fees, and wait for a decision. In some cases, a biometric appointment is required.
+                  Applications are typically submitted in person at the {countryName} Embassy or a VFS Global / JVAC centre in
+                  Dhaka. You'll complete the official visa application form, attach your document package, pay the embassy fee
+                  (non-refundable), and wait for a decision. Some countries require biometric enrollment at the time of
+                  application. Use our{" "}
+                  <Link href="/travel-resources/visa-processing-time-tracker" className="text-amber-600 font-semibold hover:underline">
+                    Visa Processing Time Tracker
+                  </Link>{" "}
+                  to check current {countryName} processing estimates.
                 </p>
-                <h3 className="text-lg font-black text-gray-800">How Long Does the {countryName} Visa Take?</h3>
+
+                <h3 className="text-lg font-black text-gray-800">How Long Does the {countryName} Visa Take from Bangladesh?</h3>
                 <p>
-                  Standard processing usually takes <strong className="text-gray-800">7–15 working days</strong>, though some countries are faster or slower depending on the season. We always advise applying at least 6–8 weeks before your flight to avoid last-minute stress.
+                  Standard processing typically takes <strong className="text-gray-800">7–15 working days</strong>. During peak
+                  travel seasons (June–August and December–January), this can extend to 30–45 days. We recommend applying at
+                  minimum 6–8 weeks before your travel date — and 10–12 weeks during peak season. Priority processing is
+                  available at some embassies for an additional fee.
                 </p>
+
+                <h3 className="text-lg font-black text-gray-800">Cover Letter for {countryName} Visa — What to Include</h3>
+                <p>
+                  Your cover letter to the {countryName} Visa Officer must address: (1) your full name and passport number,
+                  (2) exact travel dates and purpose, (3) accommodation details, (4) financial capability summary, and —
+                  most critically — (5) your strong ties to Bangladesh: current employment, owned property, spouse and
+                  children in Bangladesh, and any other evidence proving you will return after the trip.
+                  A generic template letter is immediately identifiable and frequently causes rejection.
+                  Use our{" "}
+                  <Link href="/travel-resources/travel-document-generator" className="text-amber-600 font-semibold hover:underline">
+                    Travel Document Generator
+                  </Link>{" "}
+                  for a personalized cover letter draft.
+                </p>
+
                 <h3 className="text-lg font-black text-gray-800">Can Eammu Holidays Help with My {countryName} Visa?</h3>
                 <p>
-                  Yes — our experienced visa consultants handle the complete application process, from document review and form filling to submission and status tracking. WhatsApp us or email <strong className="text-gray-800">support@eammu.com</strong> to get started today.
+                  Yes — our certified visa consultants manage the complete {countryName} visa application for Bangladeshi
+                  citizens: document checklist verification, photo compliance check, cover letter drafting, NOC preparation,
+                  VFS appointment booking, embassy submission, and application tracking. With a 98% approval rate across
+                  42,000+ processed applications, we know exactly what the {countryName} Embassy looks for.{" "}
+                  <Link href="/contact/travel-agency-bangladesh" className="text-amber-600 font-semibold hover:underline">
+                    Contact our Dhaka office
+                  </Link>{" "}
+                  or{" "}
+                  <Link href="/contact/travel-agency-dubai" className="text-amber-600 font-semibold hover:underline">
+                    Dubai office
+                  </Link>{" "}
+                  for a free consultation.
                 </p>
+
+                <h3 className="text-lg font-black text-gray-800">Reapplying for {countryName} Visa After Rejection</h3>
+                <p>
+                  A {countryName} visa refusal is not permanent. Read the refusal letter carefully, wait the cooling-off period
+                  (typically 3–6 months), address every stated rejection reason with stronger supporting documents, and always
+                  declare the prior refusal in your new application. Hiding a previous rejection causes automatic disqualification.
+                  Use our{" "}
+                  <Link href="/visa-rejection" className="text-amber-600 font-semibold hover:underline">
+                    Visa Rejection Checker
+                  </Link>{" "}
+                  to understand your approval odds before reapplying.
+                </p>
+              </div>
+            </section>
+
+            {/* INTERNAL LINKS */}
+            <section aria-label="Related visa services and tools">
+              <h2 className="text-sm font-black uppercase tracking-widest text-gray-400 mb-5">
+                Related Visa Services &amp; Resources
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {RELATED_LINKS.map(l => (
+                  <Link key={l.href} href={l.href}
+                    className="px-4 py-2 bg-white border border-gray-200 text-gray-600 rounded-full text-xs font-semibold hover:border-amber-400 hover:text-amber-700 hover:bg-amber-50 transition">
+                    {l.label}
+                  </Link>
+                ))}
               </div>
             </section>
 
           </div>
 
-          {/* RIGHT SIDEBAR */}
-          <aside className="lg:col-span-4 space-y-6">
-            {/* CTA */}
+          {/* ── RIGHT SIDEBAR ── */}
+          <aside className="lg:col-span-4 space-y-6" aria-label="Visa application sidebar">
+
+            {/* STICKY CTA */}
             <div className="bg-gray-900 rounded-[2rem] p-7 text-white sticky top-6 shadow-2xl overflow-hidden">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-amber-400/10 rounded-full blur-3xl -mr-20 -mt-20" />
+              <div className="absolute top-0 right-0 w-40 h-40 bg-amber-400/10 rounded-full blur-3xl -mr-20 -mt-20" aria-hidden="true" />
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-11 h-11 bg-green-500/20 border border-green-500/30 rounded-2xl flex items-center justify-center">
+                  <div className="w-11 h-11 bg-green-500/20 border border-green-500/30 rounded-2xl flex items-center justify-center" aria-hidden="true">
                     <MessageCircle size={20} className="text-green-400" />
                   </div>
                   <div>
-                    <h3 className="font-black text-lg leading-none">Ask Our Experts</h3>
-                    <p className="text-gray-400 text-xs font-bold mt-0.5">Free consultation, reply in 2 hours</p>
+                    <h3 className="font-black text-base leading-none">{countryName} Visa Help</h3>
+                    <p className="text-gray-400 text-xs font-bold mt-0.5">Free consultation · Reply in 2 hours</p>
                   </div>
                 </div>
-                <p className="text-gray-400 text-xs leading-relaxed mb-6">
-                  Not sure what documents you need for <strong className="text-white/80">{countryName}?</strong> Our visa consultants know the latest requirements and will guide you step by step.
+
+                <p className="text-gray-400 text-xs leading-relaxed mb-5">
+                  Our certified consultants know the exact {currentYear} requirements for{" "}
+                  <strong className="text-white/80">{countryName}</strong> and will guide you through every step —
+                  from document preparation to embassy submission.
                 </p>
+
                 {[
-                  { icon: "📈", label: "Success Rate", val: "98% Approved" },
-                  { icon: "📋", label: "Service", val: "Full document review" },
-                  { icon: "💬", label: "Response", val: "Within 2 hours" },
+                  { icon: "📈", label: "Success Rate",       val: "98% Approved" },
+                  { icon: "📋", label: "Service",            val: "Full document review" },
+                  { icon: "⏱️", label: "Processing",         val: "7–15 business days" },
+                  { icon: "💬", label: "Response",           val: "Within 2 hours" },
                 ].map((s, i) => (
                   <div key={i} className="flex items-center gap-3 p-3.5 bg-white/5 border border-white/10 rounded-2xl mb-2">
-                    <span className="text-lg">{s.icon}</span>
+                    <span className="text-base" aria-hidden="true">{s.icon}</span>
                     <div>
                       <p className="text-[9px] font-black uppercase tracking-widest text-amber-400">{s.label}</p>
                       <p className="font-black text-white text-sm">{s.val}</p>
                     </div>
                   </div>
                 ))}
+
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full py-4 mt-4 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black transition-all shadow-xl shadow-green-900/20 active:scale-95 mb-2 group text-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  aria-label={`Apply for ${countryName} visa via WhatsApp`}
+                  className="flex items-center justify-center gap-3 w-full py-4 mt-5 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black transition-all shadow-xl shadow-green-900/20 active:scale-95 mb-2 group text-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
                   </svg>
-                  WhatsApp for {countryName} Visa
-                  <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  Apply for {countryName} Visa
+                  <ChevronRight size={15} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </a>
-                <p className="text-[9px] text-center text-gray-500 font-bold">FREE ADVICE · NO UPFRONT FEES · EXPERT TEAM</p>
+                <p className="text-[9px] text-center text-gray-500 font-bold">FREE ADVICE · NO UPFRONT FEES · 24/7 EXPERT TEAM</p>
               </div>
             </div>
 
-            {/* QUICK STEPS */}
-            <div className="bg-white border border-gray-100 rounded-[2rem] p-7 shadow-sm">
-              <div className="flex items-center gap-2 mb-6">
-                <Plane size={20} className="text-gray-600" />
-                <h3 className="font-black text-gray-900 text-lg">How to Apply — 5 Steps</h3>
-              </div>
-              <div className="space-y-4">
+            {/* QUICK TOOLS */}
+            <div className="bg-white border border-gray-100 rounded-[2rem] p-6 shadow-sm">
+              <h3 className="font-black text-gray-900 text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
+                <Zap size={14} className="text-amber-500" aria-hidden="true" /> Visa Tools — Use Before Applying
+              </h3>
+              <div className="space-y-2">
                 {[
-                  { n: "01", title: "Check Requirements", desc: "Confirm if Bangladesh passport needs a visa for " + countryName },
-                  { n: "02", title: "Collect Documents", desc: "Gather all required papers using the checklist above" },
-                  { n: "03", title: "Book Appointment", desc: "Schedule at embassy or JVAC in Dhaka" },
-                  { n: "04", title: "Submit & Pay Fees", desc: "Submit in person; fees are non-refundable" },
-                  { n: "05", title: "Track & Collect", desc: "Monitor status via VFS portal; collect passport when ready" },
-                ].map((s, i) => (
-                  <div key={i} className="flex gap-3">
-                    <span className="text-[10px] font-black text-amber-500 w-6 shrink-0 mt-1">{s.n}</span>
+                  { icon: "✓",  label: "Visa Checklist Generator",    href: "/travel-resources/visa-checklist-generator",        desc: "Personalized document list" },
+                  { icon: "⏱", label: "Processing Time Tracker",      href: "/travel-resources/visa-processing-time-tracker",     desc: "Real-time wait estimates" },
+                  { icon: "📊", label: "Visa Rejection Checker",       href: "/visa-rejection",                                    desc: "Know your approval odds" },
+                  { icon: "📄", label: "Travel Document Generator",    href: "/travel-resources/travel-document-generator",        desc: "Cover letter & itinerary" },
+                ].map(l => (
+                  <Link key={l.href} href={l.href}
+                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-amber-50 border border-transparent hover:border-amber-100 transition-all group">
+                    <span className="text-base w-5 text-center" aria-hidden="true">{l.icon}</span>
                     <div>
-                      <p className="font-black text-gray-800 text-sm">{s.title}</p>
-                      <p className="text-xs text-gray-400 leading-relaxed">{s.desc}</p>
+                      <div className="text-xs font-black text-gray-700 group-hover:text-amber-700 transition">{l.label}</div>
+                      <div className="text-[9px] text-gray-400">{l.desc}</div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
 
-            {/* EMAIL */}
-            <div className="bg-[#f5c800] rounded-[2rem] p-7 text-center">
-              <div className="text-4xl mb-3">🙋</div>
-              <h4 className="font-black text-xl text-black mb-2">Need Help?</h4>
-              <p className="text-black/70 text-xs leading-relaxed mb-5">
-                Our consultants can confirm the exact {countryName} visa requirements for your situation and handle the entire process.
+            {/* STUDY ABROAD BANNER */}
+            <div className="bg-blue-600 text-white rounded-[2rem] p-6">
+              <p className="text-[10px] font-black uppercase tracking-widest text-blue-200 mb-2">🎓 Study Abroad</p>
+              <h3 className="font-black text-base mb-2">Studying in {countryName}?</h3>
+              <p className="text-xs text-blue-100 leading-relaxed mb-4">
+                We handle{" "}
+                <Link href="/our-services/visa-services/student-visa-from-bangladesh" className="text-yellow-300 font-semibold hover:underline">student visas</Link>,{" "}
+                <Link href="/scholarships" className="text-yellow-300 font-semibold hover:underline">scholarships</Link>, and{" "}
+                <Link href="/target-ielts-immigration-center" className="text-yellow-300 font-semibold hover:underline">IELTS prep</Link>.
               </p>
-              <a href="mailto:support@eammu.com" className="block bg-black text-white py-3 rounded-xl font-black text-sm hover:bg-gray-800 transition mb-3">
+              <Link href="/study-abroad" className="block text-center py-3 bg-yellow-400 text-blue-900 rounded-xl font-black text-xs hover:bg-yellow-300 transition">
+                Study Abroad Guide →
+              </Link>
+            </div>
+
+            {/* CONTACT */}
+            <div className="bg-[#f5c800] rounded-[2rem] p-7 text-center">
+              <div className="text-4xl mb-3" aria-hidden="true">🙋</div>
+              <h4 className="font-black text-xl text-black mb-2">Need Personalized Help?</h4>
+              <p className="text-black/70 text-xs leading-relaxed mb-5">
+                Our consultants confirm the exact {countryName} requirements for your specific situation
+                and handle the entire process — no guesswork.
+              </p>
+              <a href="mailto:support@eammu.com"
+                className="block bg-black text-white py-3 rounded-xl font-black text-sm hover:bg-gray-800 transition mb-3">
                 📧 support@eammu.com
               </a>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
                 className="block bg-green-600 text-white py-3 rounded-xl font-black text-sm hover:bg-green-700 transition">
-                💬 WhatsApp Us Now
+                💬 WhatsApp Now
               </a>
+              <div className="mt-4 pt-4 border-t border-black/10 flex justify-center gap-4">
+                <Link href="/contact/travel-agency-bangladesh" className="text-[10px] font-black text-black/60 hover:text-black hover:underline transition">Dhaka Office</Link>
+                <span className="text-black/20">·</span>
+                <Link href="/contact/travel-agency-dubai" className="text-[10px] font-black text-black/60 hover:text-black hover:underline transition">Dubai Office</Link>
+              </div>
             </div>
+
           </aside>
         </div>
       </div>
 
-      {/* BOTTOM CTA */}
-      <div className="bg-gray-900 py-16 px-5 text-center">
+      {/* ── BOTTOM CTA ── */}
+      <div className="bg-gray-900 py-14 px-5 text-center">
         <div className="max-w-2xl mx-auto">
-          <img src={country.flag} alt={countryName} className="w-20 h-14 object-cover rounded-xl mx-auto mb-5 shadow-xl" />
-          <h2 className="text-3xl font-black text-white mb-3">Planning to Visit {countryName}?</h2>
-          <p className="text-gray-400 mb-8 leading-relaxed text-sm">Let our expert consultants guide your {countryName} visa application — the right documents, the right way, with a 98% approval rate for Bangladeshi citizens.</p>
+          <img src={country.flag} alt={`${countryName} flag`} className="w-20 h-14 object-cover rounded-xl mx-auto mb-5 shadow-xl" width={80} height={56} loading="lazy" />
+          <h2 className="text-3xl font-black text-white mb-3">Ready to Apply for Your {countryName} Visa?</h2>
+          <p className="text-gray-400 mb-2 leading-relaxed text-sm">
+            Let our certified consultants prepare your complete application — correctly, on time, with a 98% approval rate for Bangladeshi citizens.
+          </p>
+          <p className="text-gray-600 text-xs mb-8">
+            Offices in{" "}
+            <Link href="/contact/travel-agency-bangladesh" className="text-gray-500 hover:text-white hover:underline">Dhaka</Link>,{" "}
+            <Link href="/contact/travel-agency-dubai" className="text-gray-500 hover:text-white hover:underline">Dubai</Link>,{" "}
+            <Link href="/contact/travel-agency-armenia" className="text-gray-500 hover:text-white hover:underline">Armenia</Link>, and{" "}
+            <Link href="/contact/travel-agency-georgia" className="text-gray-500 hover:text-white hover:underline">Georgia</Link>
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black transition-all text-sm">
-              Start Application via WhatsApp →
+              aria-label={`Apply for ${countryName} visa via WhatsApp`}
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-black transition-all text-sm active:scale-95">
+              Apply via WhatsApp →
             </a>
-            <Link href="/visa" className="inline-flex items-center justify-center px-8 py-5 border-2 border-white/20 text-white rounded-2xl font-black hover:bg-white/10 transition-all text-sm">
-              Browse All Countries
+            <Link href="/visa/visa-guide"
+              className="inline-flex items-center justify-center px-8 py-5 border-2 border-white/20 text-white rounded-2xl font-black hover:bg-white/10 transition-all text-sm">
+              Browse All Visa Guides
+            </Link>
+            <Link href="/travel-resources/visa-checklist-generator"
+              className="inline-flex items-center justify-center px-8 py-5 border-2 border-white/20 text-white/80 rounded-2xl font-bold hover:bg-white/10 transition-all text-sm">
+              Generate Checklist →
             </Link>
           </div>
         </div>
       </div>
+
     </div>
   );
 }

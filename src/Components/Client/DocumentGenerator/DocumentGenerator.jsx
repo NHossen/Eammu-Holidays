@@ -4,6 +4,7 @@ import { useState } from "react";
 // ─── Country data (inline subset for portability) ───────────────────────────
 // Replace with your real `countries` import in production
 import countries from "@/app/data/countries";
+import DocumentGeneratorServer from "@/Components/Server/DocumentGeneratorServer/DocumentGeneratorServer";
 
 // ─── Visa Types ──────────────────────────────────────────────────────────────
 const VISA_TYPES = {
@@ -869,7 +870,7 @@ export default function DocumentGenerator() {
             </div>
           </div>
         )}
-
+<DocumentGeneratorServer />
       </div>
     </div>
   );

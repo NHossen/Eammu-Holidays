@@ -2,12 +2,6 @@
  * ✅ FIXED [slug]/page.jsx
  * File: app/visa-rejection/[slug]/page.jsx
  *
- * FIXES APPLIED:
- * ─ Removed generateStaticParams() → was generating 407k paths → stack overflow
- * ─ Uses ISR (revalidate + dynamicParams) → pages built on-demand, cached 24h
- * ─ Next.js 15: params & searchParams are Promises → must be awaited
- * ─ Server Component handles metadata + JSON-LD
- * ─ Client Component handles interactive UI
  */
 
 import { getRejectionData } from "@/app/lib/rejectionData";
