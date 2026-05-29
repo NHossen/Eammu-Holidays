@@ -10,7 +10,7 @@ export const metadata = {
 
   title: {
     default:
-      "Tourist Visa for Dubai Residents 2026 — 200+ Countries | Eammu Holidays",
+      "Visa for Dubai Residents 2026 — United Arab Emirates | Dubai Visa Consultancy - Eammu Holidays",
     template: "%s | Eammu Holidays Dubai Visa Consultancy",
   },
 
@@ -81,7 +81,7 @@ export const metadata = {
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
-      "Tourist Visa for Dubai Residents 2026 — 98% Approval Rate | Eammu Holidays",
+      "Visa for Dubai Residents 2026 — United Arab Emirates | Dubai Visa Consultancy - Eammu Holidays",
     description:
       "Dubai's trusted visa consultancy for UAE residents. Expert help for USA, UK, Schengen, Canada, Japan & 200+ countries. Embassy-accurate documents. 24-hr review. 1,00,000+ visas processed.",
     images: [
@@ -563,7 +563,7 @@ const howToSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.eammu.com/contact/travel-agency-dubai/#localbusiness",
+  "@id": "https://www.eammu.com/contact/travel-agency-dubai/",
   name: "Eammu Holidays — Dubai Branch",
   description: "Dubai's leading tourist visa consultancy for UAE residents and expats. Expert help for USA, UK, Schengen, Canada & 200+ countries.",
   url: "https://www.eammu.com/contact/travel-agency-dubai",
@@ -577,18 +577,27 @@ const localBusinessSchema = {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SERVER-SIDE DATA FETCH
+// SERVER-SIDE DATA FETCH
 // ─────────────────────────────────────────────────────────────────────────────
 async function getCountries() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL 
-      ?? process.env.VERCEL_URL 
-        ? `https://${process.env.VERCEL_URL}` 
-        : "http://localhost:3000";
+    const host =
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000'
+        : 'https://eammu.com';
 
-    const res = await fetch(`${baseUrl}/api/countries`, { next: { revalidate: 3600 } });
-    if (!res.ok) return [];
-    return res.json();
-  } catch {
+    const res = await fetch(`${host}/api/countries`, {
+      next: { revalidate: 3600 },
+    });
+
+    if (!res.ok) {
+      console.error('API Error:', res.status);
+      return [];
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error('Fetch Error:', error);
     return [];
   }
 }
@@ -620,33 +629,7 @@ export default async function TouristVisaDubaiResidents() {
         className="min-h-[60vh] bg-white text-black font-sans"
         style={{ fontFamily: "'Plus Jakarta Sans','DM Sans',system-ui,sans-serif" }}
       >
-        {/* ── BREADCRUMB ── */}
-        <nav aria-label="Breadcrumb" className="bg-white border-b border-black/5">
-          <ol
-            className="max-w-6xl mx-auto px-5 py-2.5 flex items-center gap-2 text-xs text-black/40"
-            itemScope
-            itemType="https://schema.org/BreadcrumbList"
-          >
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link href="/" className="hover:text-[#d4a800] font-medium transition" itemProp="item">
-                <span itemProp="name">Home</span>
-              </Link>
-              <meta itemProp="position" content="1" />
-            </li>
-            <li className="text-black/20">›</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-              <Link href="/visa" className="hover:text-[#d4a800] font-medium transition" itemProp="item">
-                <span itemProp="name">Visa Services</span>
-              </Link>
-              <meta itemProp="position" content="2" />
-            </li>
-            <li className="text-black/20">›</li>
-            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="font-semibold text-black/60">
-              <span itemProp="name">Dubai Residents Visa Guide 2026</span>
-              <meta itemProp="position" content="3" />
-            </li>
-          </ol>
-        </nav>
+      
 
         {/* ── HERO — Client Component ── */}
         <CountryExplorer countries={countries} slides={SLIDES} popular={POPULAR} />
@@ -1122,6 +1105,33 @@ export default async function TouristVisaDubaiResidents() {
             </div>
           </div>
         </section>
+          {/* ── BREADCRUMB ── */}
+        <nav aria-label="Breadcrumb" className="bg-white border-b border-black/5">
+          <ol
+            className="max-w-6xl mx-auto px-5 py-2.5 flex items-center gap-2 text-xs text-black/40"
+            itemScope
+            itemType="https://schema.org/BreadcrumbList"
+          >
+            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <Link href="/" className="hover:text-[#d4a800] font-medium transition" itemProp="item">
+                <span itemProp="name">Home</span>
+              </Link>
+              <meta itemProp="position" content="1" />
+            </li>
+            <li className="text-black/20">›</li>
+            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <Link href="/visa" className="hover:text-[#d4a800] font-medium transition" itemProp="item">
+                <span itemProp="name">Visa Services</span>
+              </Link>
+              <meta itemProp="position" content="2" />
+            </li>
+            <li className="text-black/20">›</li>
+            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="font-semibold text-black/60">
+              <span itemProp="name">Dubai Residents Visa Guide 2026</span>
+              <meta itemProp="position" content="3" />
+            </li>
+          </ol>
+        </nav>
       </div>
     </>
   );

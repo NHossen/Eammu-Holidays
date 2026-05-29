@@ -4,16 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { createSlug } from "@/app/lib/utils";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// COUNTRY EXPLORER — Client Component
-//
-// FIX SUMMARY (production bugs):
-// 1. All props default to [] so undefined never reaches .filter()/.map()
-// 2. Every array access is guarded with optional chaining (?.)
-// 3. slides.length guard prevents division-by-zero in setInterval
-// 4. Added console.warn so you can see in Vercel logs if props arrive empty
-// ─────────────────────────────────────────────────────────────────────────────
-
 const alphabet = ["All", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
 
 const TRUST_BADGES = [
@@ -25,23 +15,21 @@ const TRUST_BADGES = [
 ];
 
 const QUICK_LINKS = [
-  { label: "Schengen visa 2026",        href: "/schengen-visa",                              icon: "🇪🇺" },
-  { label: "USA visa Dubai residents",  href: "/visa/dubai-residents/united-states",         icon: "🇺🇸" },
-  { label: "UK visa from Dubai",        href: "/visa/dubai-residents/united-kingdom",        icon: "🇬🇧" },
-  { label: "Canada TRV Dubai",          href: "/visa/dubai-residents/canada",                icon: "🇨🇦" },
-  { label: "Visa checklist",            href: "/travel-resources/visa-checklist-generator",  icon: "✓"   },
-  { label: "VFS processing times",      href: "/travel-resources/visa-processing-time-tracker", icon: "⏱" },
-  { label: "E-visa destinations",       href: "/visa/e-visa",                                icon: "⚡"  },
-  { label: "Visa rejection rates",      href: "/visa-rejection",                             icon: "📊"  },
+  { label: "Schengen visa 2026",        href: "/schengen-visa",                                  icon: "🇪🇺" },
+  { label: "USA visa Dubai residents",  href: "/visa/dubai-residents/united-states",             icon: "🇺🇸" },
+  { label: "UK visa from Dubai",        href: "/visa/dubai-residents/united-kingdom",            icon: "🇬🇧" },
+  { label: "Canada TRV Dubai",          href: "/visa/dubai-residents/canada",                    icon: "🇨🇦" },
+  { label: "Visa checklist",            href: "/travel-resources/visa-checklist-generator",      icon: "✓"   },
+  { label: "VFS processing times",      href: "/travel-resources/visa-processing-time-tracker",  icon: "⏱"  },
+  { label: "E-visa destinations",       href: "/visa/e-visa",                                    icon: "⚡"  },
+  { label: "Visa rejection rates",      href: "/visa-rejection",                                 icon: "📊"  },
 ];
 
-// ─── FIX 1: Default all props to [] so the component never crashes on undefined
 export default function CountryExplorer({
   countries = [],
   slides    = [],
   popular   = [],
 }) {
-  // ─── FIX 2: Warn in logs if props arrive empty (check Vercel Function logs)
   useEffect(() => {
     if (countries.length === 0)
       console.warn("[CountryExplorer] ⚠️  `countries` prop is empty — check your Server Component data fetch.");
@@ -58,7 +46,6 @@ export default function CountryExplorer({
   const searchRef    = useRef(null);
   const itemsPerPage = 12;
 
-  // ─── FIX 3: Guard slides.length so setInterval doesn't fire on empty array
   useEffect(() => {
     if (slides.length === 0) return;
     const t = setInterval(
@@ -68,11 +55,9 @@ export default function CountryExplorer({
     return () => clearInterval(t);
   }, [slides.length]);
 
-  // Auto-suggestions
   useEffect(() => {
     if (searchTerm.length >= 1) {
       const filtered = countries
-        // ─── FIX 4: optional chaining on c.country so null entries don't throw
         .filter(c => c?.country?.toLowerCase().startsWith(searchTerm.toLowerCase()))
         .slice(0, 8);
       setSuggestions(filtered);
@@ -83,7 +68,6 @@ export default function CountryExplorer({
     }
   }, [searchTerm, countries]);
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handler = e => {
       if (searchRef.current && !searchRef.current.contains(e.target))
@@ -93,7 +77,6 @@ export default function CountryExplorer({
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // ─── FIX 5: optional chaining everywhere in filter predicates
   const filteredCountries = countries.filter(c => {
     const matchLetter =
       selectedLetter === "All" ||
@@ -124,10 +107,13 @@ export default function CountryExplorer({
   };
 
   return (
-    <>
+    // ✅ FIX: wrap everything in a div with overflow-x-hidden to prevent any
+    //         child element from causing horizontal scroll/padding on mobile
+    <div className="w-full overflow-x-hidden">
+
       {/* ── HERO ── */}
       <section
-        className="relative w-full flex items-center justify-center overflow-hidden"
+        className="relative w-full flex items-center justify-center overflow-hidden py-16"
         style={{ minHeight: "580px" }}
         aria-labelledby="hero-heading"
       >
@@ -165,7 +151,7 @@ export default function CountryExplorer({
           }}
         />
 
-        {/* Slide dots — only render if there are slides */}
+        {/* Slide dots */}
         {slides.length > 1 && (
           <div
             className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20"
@@ -189,7 +175,11 @@ export default function CountryExplorer({
           </div>
         )}
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-5 text-center pt-10 pb-20">
+        {/* ✅ FIX: removed px-5 from here and use box-sizing naturally;
+                   max-w-6xl + mx-auto already constrains width correctly.
+                   Added px-4 (slightly tighter on mobile) via responsive padding. */}
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-5 text-center pt-10 pb-20">
+
           {/* Live badge */}
           <div className="inline-flex items-center gap-2.5 px-5 py-2.5 mb-7 rounded-full bg-white border border-black/10 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#f5c800] animate-pulse" aria-hidden="true" />
@@ -218,7 +208,8 @@ export default function CountryExplorer({
           </p>
 
           {/* ── SEARCH CARD ── */}
-          <div className="bg-white rounded-3xl p-6 md:p-8 max-w-3xl mx-auto border border-black/5 shadow-2xl mb-4 mt-8">
+          {/* ✅ FIX: added w-full so the card never exceeds its container on mobile */}
+          <div className="bg-white rounded-3xl p-4 sm:p-6 md:p-8 w-full max-w-3xl mx-auto border border-black/5 shadow-2xl mb-4 mt-8">
             <p className="text-xs font-black text-black/30 uppercase tracking-widest mb-4 text-left">
               Search tourist visa destination for Dubai &amp; UAE residents
             </p>
@@ -241,8 +232,9 @@ export default function CountryExplorer({
               </svg>
               <input
                 type="search"
-                placeholder="Search destination… (e.g. Japan, Canada, Germany, USA)"
-                className="w-full pl-14 pr-12 py-5 rounded-2xl text-base font-semibold outline-none transition-all shadow-inner"
+                // ✅ FIX: smaller placeholder text on mobile to avoid overflow
+                placeholder="Search country… (e.g. Japan, USA)"
+                className="w-full pl-14 pr-12 py-4 sm:py-5 rounded-2xl text-sm sm:text-base font-semibold outline-none transition-all shadow-inner"
                 style={{ background: "#f8f8f8", border: "1.5px solid rgba(0,0,0,0.05)", color: "black" }}
                 value={searchTerm}
                 onChange={e => {
@@ -315,9 +307,12 @@ export default function CountryExplorer({
               )}
             </div>
 
-            {/* A-Z Filter */}
+            {/* ✅ FIX: A-Z Filter — key fix here.
+                   On mobile the 27 buttons overflowed. Now using smaller buttons
+                   (w-7 h-7) on mobile and a tighter gap so they wrap cleanly
+                   within the card without pushing outside. */}
             <nav aria-label="Filter countries by first letter">
-              <div className="flex flex-wrap justify-center gap-1.5 mb-5">
+              <div className="flex flex-wrap justify-center gap-1 sm:gap-1.5 mb-5">
                 {alphabet.map(l => (
                   <button
                     key={l}
@@ -328,7 +323,7 @@ export default function CountryExplorer({
                     }}
                     aria-pressed={selectedLetter === l}
                     aria-label={l === "All" ? "Show all countries" : `Countries starting with ${l}`}
-                    className={`w-8 h-8 md:w-9 md:h-9 rounded-xl text-xs font-black transition-all ${
+                    className={`w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-black transition-all ${
                       selectedLetter === l
                         ? "bg-[#f5c800] text-black shadow-md scale-110"
                         : "text-black/40 hover:text-black bg-gray-100 hover:bg-gray-200"
@@ -340,7 +335,7 @@ export default function CountryExplorer({
               </div>
             </nav>
 
-            {/* Counter + reset */}
+            {/* Counter */}
             <div className="flex items-center justify-between text-xs text-black/40 font-bold px-1">
               <span>{filteredCountries.length} destinations available for Dubai &amp; UAE residents</span>
               <span className="hidden md:block">2026 Embassy-Verified ✓</span>
@@ -373,7 +368,7 @@ export default function CountryExplorer({
 
       {/* ── POPULAR COUNTRIES ── */}
       <section
-        className="max-w-6xl mx-auto px-5 py-6"
+        className="max-w-6xl mx-auto px-4 sm:px-5 py-6"
         aria-labelledby="popular-heading"
       >
         <div className="flex items-center gap-3 flex-wrap">
@@ -411,7 +406,7 @@ export default function CountryExplorer({
 
       {/* ── COUNTRIES GRID ── */}
       <main
-        className="max-w-6xl mx-auto px-5 pb-12"
+        className="max-w-6xl mx-auto px-4 sm:px-5 pb-12"
         id="all-countries"
         aria-labelledby="grid-heading"
       >
@@ -540,6 +535,6 @@ export default function CountryExplorer({
           </nav>
         )}
       </main>
-    </>
+    </div>
   );
 }

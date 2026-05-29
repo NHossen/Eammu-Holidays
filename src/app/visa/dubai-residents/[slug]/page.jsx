@@ -59,7 +59,7 @@ export async function generateMetadata({ params }) {
     keywords:    d?.seo_and_metadata?.keywords?.join(", ") ||
       `${countryName} visa from Dubai ${currentYear}, ${countryName} tourist visa UAE residents, ${countryName} visa requirements Dubai, ${countryName} visa fee UAE, ${countryName} visa processing time Dubai, ${countryName} visa documents Dubai residents, how to apply ${countryName} visa from Dubai, ${countryName} visa bank balance UAE, ${countryName} visa photo size UAE, ${countryName} embassy Dubai`,
     alternates: {
-      canonical: d?.seo_and_metadata?.canonical_url || `https://visaexpresshub.com/visa/dubai-residents/${cleanSlug}`,
+      canonical: d?.seo_and_metadata?.canonical_url || `https://eammu.com/visa/dubai-residents/${cleanSlug}`,
     },
     openGraph: {
       title:       `${countryName} Tourist Visa for Dubai Residents — ${currentYear} Complete Guide`,
@@ -317,9 +317,9 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",                       "item": "https://visaexpresshub.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Visa Guide — Dubai Residents","item": "https://visaexpresshub.com/visa/dubai-residents" },
-        { "@type": "ListItem", "position": 3, "name": `${countryName} Visa`,         "item": `https://visaexpresshub.com/visa/dubai-residents/${cleanSlug}` },
+        { "@type": "ListItem", "position": 1, "name": "Home",                       "item": "https://eammu.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Visa Guide — Dubai Residents","item": "https://eammu.com/visa/dubai-residents" },
+        { "@type": "ListItem", "position": 3, "name": `${countryName} Visa`,         "item": `https://eammu.com/visa/dubai-residents/${cleanSlug}` },
       ],
     },
   };
@@ -649,8 +649,8 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
               <div className="text-4xl mb-3">🙋</div>
               <h4 className="font-black text-xl text-black mb-2">Need Help?</h4>
               <p className="text-sm leading-relaxed mb-5" style={{ color: "rgba(0,0,0,.6)" }}>Our Dubai-based consultants confirm exact {countryName} visa requirements and handle your entire application from the UAE.</p>
-              <a href="mailto:info@visaexperthub.com" className="block bg-black text-white py-3 rounded-xl font-black text-sm hover:bg-gray-900 transition mb-3">
-                📧 info@visaexperthub.com
+              <a href="mailto:info@eammu.com" className="block bg-black text-white py-3 rounded-xl font-black text-sm hover:bg-gray-900 transition mb-3">
+                📧 info@eammu.com
               </a>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
                 className="block py-3 rounded-xl font-black text-sm text-white transition" style={{ background: "#128C7E" }}>
@@ -742,9 +742,9 @@ export default async function CountryVisaPage({ params }) {
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",                        "item": "https://visaexpresshub.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Visa Guide — Dubai Residents", "item": "https://visaexpresshub.com/visa/dubai-residents" },
-        { "@type": "ListItem", "position": 3, "name": `${countryName} Visa`,          "item": `https://visaexpresshub.com/visa/dubai-residents/${cleanSlug}` },
+        { "@type": "ListItem", "position": 1, "name": "Home",                        "item": "https://eammu.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Visa Guide — Dubai Residents", "item": "https://eammu.com/visa/dubai-residents" },
+        { "@type": "ListItem", "position": 3, "name": `${countryName} Visa`,          "item": `https://eammu.com/visa/dubai-residents/${cleanSlug}` },
       ],
     },
   };
@@ -1258,8 +1258,8 @@ export default async function CountryVisaPage({ params }) {
               <p className="text-sm leading-relaxed mb-5" style={{ color: "rgba(0,0,0,.6)" }}>
                 Our Dubai-based experts handle form-filling, photo verification &amp; document review for {countryName} visa from the UAE.
               </p>
-              <a href="mailto:info@visaexperthub.com" className="block bg-black text-white py-3 rounded-xl font-black text-sm mb-3">
-                📧 info@visaexperthub.com
+              <a href="mailto:info@eammu.com" className="block bg-black text-white py-3 rounded-xl font-black text-sm mb-3">
+                📧 info@eammu.com
               </a>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
                 className="block py-3 rounded-xl font-black text-sm text-white transition" style={{ background: "#128C7E" }}>

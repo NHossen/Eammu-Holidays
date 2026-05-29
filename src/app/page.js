@@ -10,6 +10,7 @@ import LandingModal from "@/Components/Client/LandingModal/LandingModal";
 import CountrySearchBar from "@/Components/Client/visaServices/Visa/StudentVisaBangladesh/StudentVisa/Countrysearchbar/Countrysearchbar";
 import SpecialDayBanner from "@/Components/Client/HeroHome/SpecialDayBanner/SpecialDayBanner";
 
+
 // ── BELOW THE FOLD — lazy load (first load bundle ছোট রাখে) ─────────────────
 const VisaSearchBar = dynamic(
   () => import("@/Components/Client/VisaProcessingTimeTracker/VisaSearchBar/VisaSearchBar"),

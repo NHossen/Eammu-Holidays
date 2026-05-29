@@ -67,7 +67,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/travel-budget-planner",
+    canonical: "https://www.eammu.com/travel-cost-calculator",
   },
 
   robots: {
@@ -84,25 +84,25 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/travel-budget-planner",
+    url: "https://www.eammu.com/travel-cost-calculator",
     siteName: "Eammu Holidays",
     locale: "en_US",
-    title: "Travel Budget Planner 2025 — Calculate Your Trip Cost from Bangladesh | Eammu Holidays",
+    title: "Travel Cost Calculator 2025 — Plan Your Trip Cost from Bangladesh | Eammu Holidays",
     description:
-      "Plan your next international trip with our free travel budget planner. Flight costs, hotel prices, visa fees, daily expenses, and best budget destinations for Bangladeshi travelers — all in one place.",
+      "Plan your next international trip with our free travel cost calculator. Flight costs, hotel prices, visa fees, daily expenses, and best budget destinations for Bangladeshi travelers — all in one place.",
     images: [
       {
         url: "/preview-banner.webp",
         width: 1200,
         height: 630,
-        alt: "Travel budget planner for Bangladesh travelers — trip cost calculator 2025",
+        alt: "Travel cost calculator for Bangladesh travelers — trip cost calculator 2025",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Travel Budget Planner 2025 | Eammu Holidays Bangladesh",
+    title: "Travel Cost Calculator 2025 | Eammu Holidays Bangladesh",
     description:
       "Free trip cost calculator, cheapest destinations, flight prices, and travel planning guide for Bangladeshi travelers.",
     images: ["/preview-banner.webp"],
@@ -119,13 +119,13 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.eammu.com/travel-budget-planner#webpage",
-      "url": "https://www.eammu.com/travel-budget-planner",
-      "name": "Travel Budget Planner 2025 — Plan Your Trip Cost from Bangladesh",
+      "@id": "https://www.eammu.com/travel-cost-calculator#webpage",
+      "url": "https://www.eammu.com/travel-cost-calculator",
+      "name": "Travel Cost Calculator 2025 — Plan Your Trip Cost from Bangladesh",
       "description":
-        "Free travel budget planner for Bangladeshi travelers. Calculate trip costs, find cheapest countries, get flight and hotel estimates for 100+ destinations.",
+        "Free travel cost calculator for Bangladeshi travelers. Calculate trip costs, find cheapest countries, get flight and hotel estimates for 100+ destinations.",
       "isPartOf": { "@type": "WebSite", "url": "https://www.eammu.com" },
-      "breadcrumb": { "@id": "https://www.eammu.com/travel-budget-planner#breadcrumb" },
+      "breadcrumb": { "@id": "https://www.eammu.com/travel-cost-calculator#breadcrumb" },
       "publisher": {
         "@type": "Organization",
         "name": "Eammu Holidays",
@@ -222,7 +222,7 @@ const jsonLd = {
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home",                 "item": "https://www.eammu.com" },
         { "@type": "ListItem", "position": 2, "name": "Travel Resources",     "item": "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", "position": 3, "name": "Travel Budget Planner","item": "https://www.eammu.com/travel-budget-planner" },
+        { "@type": "ListItem", "position": 3, "name": "Travel Cost Calculator","item": "https://www.eammu.com/travel-cost-calculator" },
       ],
     },
   ],

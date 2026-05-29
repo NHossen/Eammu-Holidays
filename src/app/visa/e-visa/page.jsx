@@ -1,15 +1,5 @@
 // /app/visa/e-visa/page.jsx  — SERVER COMPONENT (no "use client")
 // ─────────────────────────────────────────────────────────────────────────────
-// SEO Strategy:
-//  • All static content renders as real HTML — Google crawls every link on page 1.
-//  • Interactive checker (autocomplete dropdowns) is a tiny client island.
-//  • A-Z filter & pagination use URL search params (?letter=A&page=2) —
-//    every filtered view has a stable, crawlable URL.
-//  • Countries grid populated from JSON at build/request time — no client fetch.
-//  • Rich content: e-Visa types, nationality-specific tables, document checklist,
-//    processing times, fee comparison, rejection tips, scholarship cross-links.
-//  • Mobile overflow fix: overflow-x-hidden on root + hero section.
-// ─────────────────────────────────────────────────────────────────────────────
 
 import Link from "next/link";
 import COUNTRIES from "@/app/data/countries.json";
@@ -19,19 +9,19 @@ import { AZFilter }       from "./_az-filter";
 import { ViewModeToggle } from "./_view-mode-toggle";
 
 // ── METADATA ──────────────────────────────────────────────────────────────────
-// export const metadata = {
-//   title: "e-Visa Requirements by Nationality & Destination 2026 | eammu.com",
-//   description: "Check e-Visa eligibility, documents, fees & processing time for any nationality + destination. Nigerian, Ghanaian, Indian passport e-Visa guides updated for 2026.",
-//   keywords: "e-visa requirements 2026, e-visa Indian passport, Nigerian passport e-visa, Ghanaian passport e-visa, Turkey e-visa, UAE e-visa, Kenya ETA, Sri Lanka ETA, e-visa online apply",
-//   alternates: { canonical: "https://eammu.com/visa/e-visa" },
-//   openGraph: {
-//     title: "e-Visa Requirements by Nationality & Destination 2026",
-//     description: "100% online. No embassy visit. Check exact e-Visa requirements for 200+ destinations.",
-//     url: "https://eammu.com/visa/e-visa",
-//     siteName: "eammu.com",
-//     type: "website",
-//   },
-// };
+export const metadata = {
+title: "e-Visa Requirements by Nationality & Destination 2026 | eammu.com",
+description: "Check e-Visa eligibility, documents, fees & processing time for any nationality + destination. Nigerian, Ghanaian, Indian passport e-Visa guides updated for 2026.",
+keywords: "e-visa requirements 2026, e-visa Indian passport, Nigerian passport e-visa, Ghanaian passport e-visa, Turkey e-visa, UAE e-visa, Kenya ETA, Sri Lanka ETA, e-visa online apply",
+alternates: { canonical: "https://eammu.com/visa/e-visa" },
+openGraph: {
+title: "e-Visa Requirements by Nationality & Destination 2026",
+description: "100% online. No embassy visit. Check exact e-Visa requirements for 200+ destinations.",
+url: "https://eammu.com/visa/e-visa",
+siteName: "eammu.com",
+type: "website",
+  },
+};
 
 // ── STATIC DATA ───────────────────────────────────────────────────────────────
 

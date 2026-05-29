@@ -1,11 +1,5 @@
 "use client";
-// components/TravelInsurance/InsuranceCalculator.jsx
-// ─────────────────────────────────────────────────────────────────────────────
-// INTERACTIVE TRAVEL INSURANCE COST CALCULATOR
-// Drop this inside your /travel-insurance page:
-//   import InsuranceCalculator from "@/components/TravelInsurance/InsuranceCalculator";
-//   <InsuranceCalculator />
-// ─────────────────────────────────────────────────────────────────────────────
+
 
 import { useState, useCallback } from "react";
 import Link from "next/link";

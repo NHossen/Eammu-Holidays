@@ -661,7 +661,7 @@ export default function TravelInsurancePage() {
 
         {/* ── HERO ── */}
         <section
-          className="relative bg-gradient-to-br from-[#003d22] via-[#005a31] to-[#007a42] pt-20 pb-24 px-6 overflow-hidden"
+          className="relative bg-gradient-to-br from-[#003d22] via-[#005a31] to-[#007a42] pt-24 pb-24 px-6 overflow-hidden"
           aria-labelledby="insurance-heading"
         >
           <div className="absolute inset-0 pointer-events-none opacity-10"

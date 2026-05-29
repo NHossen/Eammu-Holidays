@@ -59,7 +59,7 @@ export async function generateMetadata({ params }) {
     keywords:    d?.seo_and_metadata?.keywords?.join(", ") ||
       `${countryName} visa from India ${currentYear}, ${countryName} tourist visa Indian passport, ${countryName} visa requirements India, ${countryName} visa fee India, ${countryName} visa processing time India, ${countryName} visa documents India, how to apply ${countryName} visa from India, ${countryName} visa bank balance India, ${countryName} visa photo size, ${countryName} embassy India`,
     alternates: {
-      canonical: d?.seo_and_metadata?.canonical_url || `https://visaexpresshub.com/visa/india/${cleanSlug}`,
+      canonical: d?.seo_and_metadata?.canonical_url || `https://eammu.com/visa/india/${cleanSlug}`,
     },
     openGraph: {
       title:       `${countryName} Tourist Visa for Indians — ${currentYear} Complete Guide`,
@@ -316,9 +316,9 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",         "item": "https://visaexpresshub.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Tourist Visa", "item": "https://visaexpresshub.com/visa/india" },
-        { "@type": "ListItem", "position": 3, "name": `${countryName} Visa`, "item": `https://visaexpresshub.com/visa/india/${cleanSlug}` },
+        { "@type": "ListItem", "position": 1, "name": "Home",         "item": "https://eammu.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tourist Visa", "item": "https://eammu.com/visa/india" },
+        { "@type": "ListItem", "position": 3, "name": `${countryName} Visa`, "item": `https://eammu.com/visa/india/${cleanSlug}` },
       ],
     },
   };
@@ -648,8 +648,8 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
               <div className="text-4xl mb-3">🙋</div>
               <h4 className="font-black text-xl text-black mb-2">Need Help?</h4>
               <p className="text-sm leading-relaxed mb-5" style={{ color: "rgba(0,0,0,.6)" }}>Our consultants confirm exact {countryName} visa requirements and handle your entire application from India.</p>
-              <a href="mailto:info@visaexperthub.com" className="block bg-black text-white py-3 rounded-xl font-black text-sm hover:bg-gray-900 transition mb-3">
-                📧 info@visaexperthub.com
+              <a href="mailto:info@eammu.com" className="block bg-black text-white py-3 rounded-xl font-black text-sm hover:bg-gray-900 transition mb-3">
+                📧 info@eammu.com
               </a>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
                 className="block py-3 rounded-xl font-black text-sm text-white transition" style={{ background: "#128C7E" }}>
@@ -741,9 +741,9 @@ export default async function CountryVisaPage({ params }) {
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",         "item": "https://visaexpresshub.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Visa Guide",   "item": "https://visaexpresshub.com/visa/india" },
-        { "@type": "ListItem", "position": 4, "name": `${countryName} Visa`, "item": `https://visaexpresshub.com/visa/india/${cleanSlug}` },
+        { "@type": "ListItem", "position": 1, "name": "Home",         "item": "https://eammu.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Visa Guide",   "item": "https://eammu.com/visa/india" },
+        { "@type": "ListItem", "position": 4, "name": `${countryName} Visa`, "item": `https://eammu.com/visa/india/${cleanSlug}` },
       ],
     },
   };
@@ -1257,8 +1257,8 @@ export default async function CountryVisaPage({ params }) {
               <p className="text-sm leading-relaxed mb-5" style={{ color: "rgba(0,0,0,.6)" }}>
                 Our experts handle form-filling, photo verification & document review for {countryName} visa from India.
               </p>
-              <a href="mailto:info@visaexperthub.com" className=" bg-black text-white py-3 rounded-xl font-black text-sm mb-3">
-                📧 info@visaexperthub.com
+              <a href="mailto:info@eammu.com" className=" bg-black text-white py-3 rounded-xl font-black text-sm mb-3">
+                📧 info@eammu.com
               </a>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
                 className="block py-3 rounded-xl font-black text-sm text-white transition" style={{ background: "#128C7E" }}>
