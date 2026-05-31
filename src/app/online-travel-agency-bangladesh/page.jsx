@@ -10,8 +10,8 @@ export const metadata = {
 
   title: {
     default:
-      "Best Online Travel & Visa Agency in Bangladesh 2026 | Eammu Holidays Cumilla & Dhaka",
-    template: "%s | Eammu Holidays Bangladesh",
+      "Eammu: Travel Agency in Bangladesh 2026",
+    template: "%s | Eammu Holidays: Travel Agency Bangladesh",
   },
 
   description:

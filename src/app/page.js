@@ -73,7 +73,7 @@ const BASE_URL = "https://www.eammu.com";
 // ── HOME PAGE SEO METADATA ────────────────────────────────────────────────────
 export const metadata = {
   title:
-    "Tourist Visa, Student Visa, Tour Packages & Flight Booking from Bangladesh",
+    "Eammu Holidays: Leading Travel Agency Bangladesh",
 
   description:
     "Eammu Holidays — Bangladesh's #1 travel agency. Apply for tourist, student & work visas, book Umrah packages 2026, international flights, and holiday tours to Dubai, Georgia, Armenia & Europe. Visa processing, SOP guides & real-time tracking. Call: +880 1631 312524.",
@@ -110,7 +110,7 @@ export const metadata = {
 
   openGraph: {
     title:
-      "Eammu Holidays | Tourist Visa, Umrah 2026, Tours & Flight Booking from Bangladesh",
+      "Eammu Holidays: Flight Booking from Bangladesh",
     description:
       "Apply for visas, book Umrah packages, holiday tours & international flights with Eammu Holidays. Offices in Bangladesh, Dubai, Armenia & Georgia. Trusted by 10,000+ travellers.",
     url: BASE_URL,

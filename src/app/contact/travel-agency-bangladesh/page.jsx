@@ -11,7 +11,7 @@ export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
 
   title:
-    "Travel Agency in Cumilla & Dhaka, Bangladesh | Eammu Holidays — Visa, Tours & Umrah",
+    "Eammu : Travel Agency in Bangladesh",
 
   description:
     "Eammu Holidays is Bangladesh's trusted travel agency with offices in Cumilla Cantonment (Gomoti Tower) and Mirpur 12, Dhaka. Expert visa processing for UK, USA, Canada, Dubai & Schengen, Umrah packages, student visa support, domestic & international tour packages. Call +880 1701-699743.",

@@ -2,7 +2,7 @@ import AboutServer from '@/Components/Server/AboutServer/AboutServer';
 import React from 'react';
 
 export const metadata = {
-  title: "About Eammu Holidays | Trusted Travel & Visa Agency in Bangladesh, Dubai & UAE",
+  title: "Travel Agency Bangladesh:Eammu Holidays",
 
   description:
     "Eammu Holidays is a leading international travel and visa consultancy founded in 2022, serving clients from Bangladesh, Dubai, UAE, Armenia & Georgia. We offer student visa processing, Umrah packages, holiday tours, and immigration consulting with a 95% visa success rate.",

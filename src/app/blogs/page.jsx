@@ -6,7 +6,7 @@ export const metadata = {
 
   title: {
     default:
-      "Travel Blog & Visa Guide 2025 | Student Visa, Umrah, Holiday Tips | Eammu Holidays",
+      "Travel Blogs & Visa Guides 2026 : Eammu Holidays",
     template: "%s | Eammu Holidays Blog",
   },
 

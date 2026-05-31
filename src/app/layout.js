@@ -26,8 +26,7 @@ export const metadata = {
 
   title: {
     default:
-      "Eammu Holidays | Best Travel Agency in Bangladesh & Dubai | Visa, Tours & Umrah Packages",
-    template: "%s | Eammu Holidays",
+      "Eammu Holidays: Best Online Travel Agency Bangladesh",
   },
 
   description:
@@ -148,11 +147,6 @@ export const metadata = {
     apple: [{ url: "/emf.jpg", sizes: "180x180", type: "image/jpeg" }],
   },
 
-  verification: {
-    // ✅ Paste your real token from Google Search Console here:
-    // google: "YOUR_GOOGLE_SEARCH_CONSOLE_TOKEN",
-    // bing: "YOUR_BING_WEBMASTER_TOKEN",
-  },
 
   other: {
     // Geo meta — associates the site with Bangladesh & Dubai for local SEO
