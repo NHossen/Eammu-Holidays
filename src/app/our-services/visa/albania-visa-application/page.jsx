@@ -4,7 +4,7 @@ import React from 'react'
 export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
 
-  title: "Albania Visa Requirements , fees , and Application | Tourist & Student Visa Support",
+  title: "Albania Visa Requirements , fees , and Application: Dubai Residents",
 
   description:
     "Apply for Albania visa from Bangladesh with Eammu Holidays. Get expert support for tourist visa application, required documents, processing guidance, travel consultation, and appointment assistance.",

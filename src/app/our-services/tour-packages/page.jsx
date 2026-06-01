@@ -6,7 +6,6 @@ export const metadata = {
   title: {
     default:
       "Best Tour Packages 2026 | Dubai, Thailand, Europe & More",
-    template: "%s | Eammu Holidays Tours",
   },
 
   description:

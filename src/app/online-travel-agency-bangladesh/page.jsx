@@ -10,8 +10,8 @@ export const metadata = {
 
   title: {
     default:
-      "Eammu: Travel Agency in Bangladesh 2026",
-    template: "%s | Eammu Holidays: Travel Agency Bangladesh",
+      "Eammu: Travel Agency Bangladesh",
+
   },
 
   description:

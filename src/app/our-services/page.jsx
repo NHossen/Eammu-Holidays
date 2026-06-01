@@ -9,8 +9,7 @@ export const metadata = {
 
   title: {
     default:
-      "Visa Services, Tour Packages & Travel Agency Bangladesh | Eammu Holidays",
-    template: "%s | Eammu Holidays",
+      "Eammu: Visa Services, Tour Packages & Travel Agency Bangladesh",
   },
 
   description:

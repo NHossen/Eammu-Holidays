@@ -8,8 +8,7 @@ export const metadata = {
 
   title: {
     default:
-      "Visa Services & Processing | Tourist, Work & Student Visa Assistance",
-    template: "%s | Eammu Holidays Visa Services",
+      "Work Visa Application From Bangladesh: Eammu",
   },
 
   description:

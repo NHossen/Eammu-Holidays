@@ -5,10 +5,10 @@ export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
 
   title:
-    "Eammu :Travel Agency in Bangladesh and Dubai",
+    "Eammu: Best Travel Agency in Bangladesh",
 
   description:
-    "Contact Eammu Holidays — a globally trusted travel and visa consultancy. Reach our offices in Cumilla (Bangladesh), Business Bay (Dubai), Yerevan (Armenia), and Tbilisi (Georgia). WhatsApp, call, or email for student visa, Umrah, holiday tours & immigration help.",
+    "Eammu Holidays — a globally trusted travel and visa consultancy. Reach our offices in Cumilla (Bangladesh), Business Bay (Dubai), Yerevan (Armenia), and Tbilisi (Georgia). WhatsApp, call, or email for student visa, Umrah, holiday tours & immigration help.",
 
   keywords: [
     "contact Eammu Holidays",

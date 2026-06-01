@@ -10,7 +10,7 @@ export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
 
   title:
-    "Travel Agency in Tbilisi, Georgia | Visa, TRC, Student Consultancy & Tours — Eammu Holidays",
+    "Eammu: Travel Agency in Bangladesh and georgia",
 
   description:
     "Eammu Holidays is a trusted travel agency in Tbilisi, Georgia (Floor 5, Levan Gotua St #3). Expert Georgia TRC (Temporary Residence Permit), business visa, student university admissions, Kazbegi & Batumi tours, and 24/7 WhatsApp support. Call +995 574 446 218.",

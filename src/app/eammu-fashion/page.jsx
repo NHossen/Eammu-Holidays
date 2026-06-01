@@ -4,7 +4,7 @@ export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
 
   title:
-    "Eammu Fashion | Modern Clothing, Lifestyle & Premium Fashion Collection",
+    "Eammu: Premium Fashion Brand in Bangladesh",
 
   description:
     "Discover Eammu Fashion – modern clothing, stylish outfits, and premium lifestyle wear. Explore trendy fashion collections for men and women with quality fabrics, affordable pricing, and unique designs in Bangladesh.",

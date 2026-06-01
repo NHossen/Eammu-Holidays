@@ -6,8 +6,7 @@ export const metadata = {
 
   title: {
     default:
-      "Things to Do & Top Activities | Tours, Experiences & Attractions",
-    template: "%s | Eammu Holidays Experiences",
+      "Things to Do & Top Activities Bangladesh and Dubai",
   },
 
   description:

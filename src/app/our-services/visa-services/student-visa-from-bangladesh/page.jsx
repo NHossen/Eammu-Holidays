@@ -5,8 +5,7 @@ export const metadata = {
 
   title: {
     default:
-      "Student Visa from Bangladesh | Study Abroad Visa Assistance 2026",
-    template: "%s | Eammu Holidays Education Visa",
+      "Eammu: Best Education Consultancy Bangladesh",
   },
 
   description:

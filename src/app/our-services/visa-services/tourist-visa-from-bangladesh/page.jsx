@@ -6,8 +6,7 @@ export const metadata = {
 
   title: {
     default:
-      "Tourist Visa from Bangladesh 2026 | USA, UK, Canada, Schengen & Dubai Visit Visa",
-    template: "%s | Eammu Holidays",
+      "Eammu: Tourist Visa from Dubai and Bangladesh ",
   },
 
   description:

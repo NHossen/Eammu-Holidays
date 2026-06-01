@@ -6,8 +6,8 @@ export const metadata = {
 
   title: {
     default:
-      "Best Travel Deals & Offers 2025 | Visa, Umrah, Holiday Packages Bangladesh | Eammu Holidays",
-    template: "%s | Eammu Holidays Offers",
+      "Best Travel Deals & Offers 2026",
+ 
   },
 
   description:

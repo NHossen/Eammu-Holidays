@@ -10,7 +10,7 @@ export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
 
   title:
-    "Eammu Holidays : Travel Agency in Yerevan, Armenia",
+    "Eammu Holidays: Travel Agency in Yerevan, Armenia",
 
   description:
     "Eammu Holidays is a certified travel agency in Yerevan, Armenia, located at Lambron 39. We offer Armenia e-visa processing, guided tours to Garni, Geghard & Lake Sevan, airport transfers, hotel bookings, and 24/7 WhatsApp support for Bangladeshi and international travelers.",

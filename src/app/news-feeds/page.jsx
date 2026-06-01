@@ -16,8 +16,7 @@ export const metadata = {
 
   title: {
     default:
-      "Latest Travel News, Visa Updates & Immigration Alerts 2026 | Eammu Holidays Bangladesh",
-    template: "%s | Eammu Holidays News",
+      "Latest Travel News and Visa Updates in 2026",
   },
 
   description:
