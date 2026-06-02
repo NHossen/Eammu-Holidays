@@ -1,8 +1,10 @@
+// app/scholarships/[slug]/page.jsx  ← SERVER COMPONENT
 
-import CountryScholarshipsServer from "@/Components/Server/Countryscholarshipsserver/Countryscholarshipsserver";
+import CountryScholarshipsClient from "@/components/Client/CountryScholarshipsClient/CountryScholarshipsClient";
+
 
 // ─── Data Fetching ────────────────────────────────────────────────────────────
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://eammu.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://visaexpresshub.com";
 const API_BASE = process.env.INTERNAL_API_URL || BASE_URL;
 
 async function getScholarships(slug) {
@@ -81,13 +83,13 @@ export async function generateMetadata({ params }) {
       url: canonicalUrl,
       title,
       description,
-      siteName: "Eammu Holidays",
+      siteName: "VisaExpressHub",
       images: [
         {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${countryName} Scholarships 2026 — Eammu Holidays`,
+          alt: `${countryName} Scholarships 2026 — VisaExpressHub`,
         },
       ],
     },
@@ -96,7 +98,7 @@ export async function generateMetadata({ params }) {
       title,
       description,
       images: [ogImage],
-      site: "@eammu",
+      site: "@visaexpresshub",
     },
     robots: {
       index: true,
@@ -268,16 +270,15 @@ export default async function CountryScholarshipsPage({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
 
-      <CountryScholarshipsServer
+      <CountryScholarshipsClient
         slug={slug}
         initialScholarships={scholarships}
         initialCountryInfo={countryInfo}
         allCountries={allCountries}
         countryName={countryName}
+   
       />
-
-
-
+     
     </>
   );
 }

@@ -209,7 +209,7 @@ export default function ScholarshipsClient({
   ];
 
   return (
-    <div className="min-h-screen bg-[#FBFDFF] pb-20">
+    <div className="min-h-screen bg-[#FBFDFF] py-16">
 
       {/* ══════════════════════════════════════════
           HERO

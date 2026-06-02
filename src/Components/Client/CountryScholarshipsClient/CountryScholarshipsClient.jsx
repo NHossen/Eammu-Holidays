@@ -1,7 +1,5 @@
-"use client";
-// app/scholarships/[slug]/CountryScholarshipsClient.jsx  ← CLIENT COMPONENT
-// All data comes as props from the server page — zero client-side fetching.
 
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -32,6 +30,52 @@ const relatedLinks = [
   { label: "October Deadline Scholarships", href: "/scholarships" },
 ];
 
+// ─── SEO: Application Timeline data ─────────────────────────────────────────
+const applicationTimeline = [
+  {
+    month: "Jul – Sep",
+    icon: "📋",
+    title: "Research Phase",
+    desc: "Shortlist scholarships, check eligibility, gather documents",
+  },
+  {
+    month: "Oct – Nov",
+    icon: "📝",
+    title: "Application Prep",
+    desc: "Write SOP, request reference letters, get transcripts attested",
+  },
+  {
+    month: "Dec – Jan",
+    icon: "📤",
+    title: "Submit Applications",
+    desc: "Most scholarship deadlines fall in this window for 2026 intake",
+  },
+  {
+    month: "Feb – Apr",
+    icon: "⏳",
+    title: "Selection Process",
+    desc: "Shortlisting, interviews, and final award announcements",
+  },
+  {
+    month: "May – Aug",
+    icon: "✈️",
+    title: "Visa & Departure",
+    desc: "Visa application, pre-departure orientation, travel arrangements",
+  },
+];
+
+// ─── SEO: Required documents ─────────────────────────────────────────────────
+const requiredDocuments = [
+  { icon: "🎓", label: "Academic Transcripts", note: "Attested copies, all years" },
+  { icon: "🌐", label: "Language Proficiency", note: "IELTS / TOEFL / Duolingo" },
+  { icon: "📄", label: "Statement of Purpose", note: "500–1000 words typically" },
+  { icon: "✉️", label: "Reference Letters", note: "2–3 letters from professors" },
+  { icon: "🪪", label: "Valid Passport", note: "6+ months validity required" },
+  { icon: "💼", label: "CV / Resume", note: "Academic & work experience" },
+  { icon: "🏦", label: "Financial Statement", note: "Bank statement (some programs)" },
+  { icon: "🏅", label: "Awards & Certificates", note: "Co-curricular achievements" },
+];
+
 // ─── Main Client Component ────────────────────────────────────────────────────
 export default function CountryScholarshipsClient({
   slug,
@@ -53,11 +97,14 @@ export default function CountryScholarshipsClient({
     const fallbackCountries = allCountries.slice(0, 6);
 
     return (
-      <div className="min-h-screen bg-[#F0F4FF] pb-20">
+      <div className="min-h-screen bg-[#F0F4FF]">
         {/* Header */}
-        <div className="bg-white border-b border-gray-100 mb-10 shadow-sm">
+        <div className="bg-white border-b border-gray-100 mb-10 shadow-sm py-24">
           <div className="max-w-7xl mx-auto px-6 py-10">
-            <nav aria-label="Breadcrumb" className="flex gap-2 text-[10px] text-gray-400 mb-6 uppercase tracking-widest font-bold">
+            <nav
+              aria-label="Breadcrumb"
+              className="flex gap-2 text-[10px] text-gray-400 mb-6 uppercase tracking-widest font-bold"
+            >
               <Link href="/" className="hover:text-blue-600 transition">Home</Link>
               <span>/</span>
               <Link href="/scholarships" className="hover:text-blue-600 transition">Scholarships</Link>
@@ -91,22 +138,17 @@ export default function CountryScholarshipsClient({
         </div>
 
         <div className="max-w-5xl mx-auto px-6">
-          {/* Main fallback card */}
           <div className="bg-white rounded-[2.5rem] p-16 text-center border border-gray-200 shadow-xl shadow-gray-100 mb-16">
             <div className="text-6xl mb-6">🔍</div>
-            <h2 className="text-3xl font-black text-gray-800 mb-3">
-              Scholarships Being Verified
-            </h2>
+            <h2 className="text-3xl font-black text-gray-800 mb-3">Scholarships Being Verified</h2>
             <p className="text-gray-500 max-w-lg mx-auto mb-2 leading-relaxed">
-              We are currently collecting and verifying the official 2026 application
-              links, deadlines, and funding details for{" "}
-              <strong>{countryName}</strong> scholarship programs.
+              We are currently collecting and verifying the official 2026 application links, deadlines,
+              and funding details for <strong>{countryName}</strong> scholarship programs.
             </p>
             <p className="text-gray-400 max-w-md mx-auto mb-8 text-sm leading-relaxed">
-              International students interested in studying in {countryName} can
-              typically find opportunities through government-sponsored programs,
-              university direct awards, and bilateral agreements. Check back soon — we
-              update listings weekly.
+              International students interested in studying in {countryName} can typically find
+              opportunities through government-sponsored programs, university direct awards, and
+              bilateral agreements. Check back soon — we update listings weekly.
             </p>
             <div className="flex flex-wrap gap-3 justify-center">
               <Link
@@ -126,30 +168,24 @@ export default function CountryScholarshipsClient({
 
           {/* SEO text */}
           <div className="bg-blue-50 border border-blue-100 rounded-[2rem] p-10 mb-16">
-            <h2 className="text-2xl font-black text-gray-900 mb-4">
-              About Studying in {countryName}
-            </h2>
+            <h2 className="text-2xl font-black text-gray-900 mb-4">About Studying in {countryName}</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              {countryName} is a recognized destination for international students
-              seeking high-quality education with globally respected degrees.
-              Scholarships in this region typically cover programs at the
-              Bachelor&apos;s, Master&apos;s, and doctoral level, often including
+              {countryName} is a recognized destination for international students seeking high-quality
+              education with globally respected degrees. Scholarships in this region typically cover
+              programs at the Bachelor&apos;s, Master&apos;s, and doctoral level, often including
               language learning support for non-native speakers.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              Government-funded scholarships, university merit awards, and bilateral
-              agreements are the three main funding categories available to students.
-              Eligibility requirements generally include a minimum GPA of 3.0 or
-              above, proof of language proficiency, and a completed undergraduate
-              degree for graduate-level programs.
+              Government-funded scholarships, university merit awards, and bilateral agreements are
+              the three main funding categories available to students. Eligibility requirements
+              generally include a minimum GPA of 3.0 or above, proof of language proficiency, and a
+              completed undergraduate degree for graduate-level programs.
             </p>
           </div>
 
           {/* FAQ */}
           <div className="bg-white border border-gray-100 rounded-[2rem] p-10 mb-16">
-            <h2 className="text-2xl font-black text-gray-900 mb-6">
-              Frequently Asked Questions
-            </h2>
+            <h2 className="text-2xl font-black text-gray-900 mb-6">Frequently Asked Questions</h2>
             <div className="space-y-5">
               <FaqItem
                 q={`Are there scholarships to study in ${countryName} for 2026?`}
@@ -167,9 +203,7 @@ export default function CountryScholarshipsClient({
           </div>
 
           {/* Nearby countries */}
-          <h3 className="text-2xl font-black text-gray-900 mb-6">
-            Explore Verified Scholarships Nearby
-          </h3>
+          <h3 className="text-2xl font-black text-gray-900 mb-6">Explore Verified Scholarships Nearby</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {fallbackCountries.map((c) => (
               <Link
@@ -203,17 +237,26 @@ export default function CountryScholarshipsClient({
 
   // ── Main Listing Page ─────────────────────────────────────────────────────
   return (
-    <div className="min-h-screen bg-[#F0F4FF] pb-20">
+    <div className="min-h-screen bg-[#F0F4FF]">
 
       {/* ── Hero Header ── */}
-      <div className="relative bg-gradient-to-br from-[#0f172a] via-[#1e3a5f] to-[#0f172a] overflow-hidden">
-        {/* Decorative blobs */}
+      {/*
+        FIX: Removed conflicting `pt-8 pb-12 py-24` — was all three at once.
+        Tailwind generates both pt-8/pb-12 AND py-24 in CSS; since py-24
+        comes later in the stylesheet it overrides pt-8/pb-12.
+        Solution: use a single padding shorthand OR explicit top/bottom only.
+      */}
+      <div className="relative bg-gradient-to-br from-[#0f172a] via-[#1e3a5f] to-[#0f172a] overflow-hidden py-24">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-[140px] opacity-10 pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-400 rounded-full blur-[120px] opacity-10 pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-6 pt-8 pb-12">
+        {/* ✅ FIXED: was `pt-8 pb-12 py-24` — now just `pt-8 pb-14` */}
+        <div className="max-w-7xl mx-auto px-6 pt-8 pb-14">
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="flex gap-2 text-[10px] text-blue-300/60 mb-8 uppercase tracking-widest font-bold">
+          <nav
+            aria-label="Breadcrumb"
+            className="flex gap-2 text-[10px] text-blue-300/60 mb-8 uppercase tracking-widest font-bold"
+          >
             <Link href="/" className="hover:text-blue-300 transition">Home</Link>
             <span>/</span>
             <Link href="/scholarships" className="hover:text-blue-300 transition">Scholarships</Link>
@@ -286,6 +329,40 @@ export default function CountryScholarshipsClient({
 
         {/* ── Main Content ── */}
         <main className="flex-1 space-y-8" aria-label="Scholarship listings">
+
+          {/* ── SEO BLOCK 1: Application Timeline ─────────────────────────── */}
+          <section className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+            <h2 className="text-xl font-black text-gray-900 mb-1">
+              {countryName} Scholarship Application Timeline 2026
+            </h2>
+            <p className="text-sm text-gray-400 mb-6">
+              Step-by-step roadmap from research to departure for {countryName} scholarship applicants.
+            </p>
+            <div className="relative">
+              {/* Vertical connector line */}
+              <div className="absolute left-[19px] top-5 bottom-5 w-[2px] bg-gradient-to-b from-blue-200 via-indigo-200 to-gray-100 rounded-full hidden md:block" />
+              <div className="space-y-4">
+                {applicationTimeline.map((step, i) => (
+                  <div key={i} className="flex gap-5 items-start">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 border-2 border-blue-100 flex items-center justify-center text-lg z-10">
+                      {step.icon}
+                    </div>
+                    <div className="flex-1 bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 hover:border-blue-100 transition">
+                      <div className="flex items-center gap-3 mb-1">
+                        <span className="text-[10px] font-black text-blue-600 uppercase tracking-widest bg-blue-50 border border-blue-100 px-2.5 py-0.5 rounded-full">
+                          {step.month}
+                        </span>
+                        <span className="font-black text-gray-800 text-sm">{step.title}</span>
+                      </div>
+                      <p className="text-xs text-gray-500">{step.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ── Scholarship Cards ─────────────────────────────────────────── */}
           {scholarships.map((s, idx) => (
             <article
               key={s.slug}
@@ -330,7 +407,6 @@ export default function CountryScholarshipsClient({
                       {d}
                     </span>
                   ))}
-                  {/* Deadline urgency badge */}
                   {s.deadline && (
                     <span className="px-3 py-1 bg-red-50 text-red-500 rounded-full text-[10px] font-black uppercase tracking-wider border border-red-100">
                       ⏰ {s.deadline}
@@ -343,12 +419,10 @@ export default function CountryScholarshipsClient({
               </div>
 
               <div className="p-8 md:p-10">
-                {/* Title */}
                 <h2 className="text-2xl md:text-3xl font-black text-gray-900 leading-tight mb-3 group-hover:text-blue-600 transition-colors">
                   {s.scholarship_name}
                 </h2>
 
-                {/* Funding description pill */}
                 {fundingTypeDescriptions[s.funding_type] && (
                   <div className="flex gap-3 items-start text-sm text-gray-600 mb-8 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 px-5 py-3 rounded-2xl leading-relaxed">
                     <span className="text-blue-500 flex-shrink-0 mt-0.5">ℹ️</span>
@@ -356,7 +430,6 @@ export default function CountryScholarshipsClient({
                   </div>
                 )}
 
-                {/* Stats Grid */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
                   <StatCard icon="🎓" label="Degree Level" value={s.degree_level?.join(" & ") || "Multiple"} />
                   <StatCard icon="💰" label="Award Value" value={s.details?.award_value || "Full Coverage"} />
@@ -364,7 +437,6 @@ export default function CountryScholarshipsClient({
                   <StatCard icon="🌍" label="IELTS/TOEFL" value={s.details?.ielts || "Required"} />
                 </div>
 
-                {/* Extra tags row */}
                 {(s.duration || s.language || s.details?.work_experience || s.details?.open_to) && (
                   <div className="flex flex-wrap gap-2 mb-8">
                     {s.duration && (
@@ -392,18 +464,14 @@ export default function CountryScholarshipsClient({
 
                 <div className="grid md:grid-cols-3 gap-8">
                   <div className="md:col-span-2 space-y-6">
-                    {/* Eligibility */}
                     <div>
                       <h3 className="text-xs font-black text-blue-600 uppercase tracking-[0.2em] mb-3 flex items-center gap-3">
                         <span className="w-6 h-[2px] bg-blue-600 rounded-full"></span>
                         Eligibility Requirements
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {s.details?.eligibility}
-                      </p>
+                      <p className="text-gray-600 text-sm leading-relaxed">{s.details?.eligibility}</p>
                     </div>
 
-                    {/* Location */}
                     <div className="bg-gradient-to-r from-gray-50 to-blue-50/50 rounded-2xl p-4 border border-gray-100">
                       <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">
                         📍 Program Location
@@ -415,13 +483,12 @@ export default function CountryScholarshipsClient({
                       </div>
                     </div>
 
-                    {/* Tags */}
                     {s.tags && s.tags.length > 0 && (
                       <div className="flex flex-wrap gap-2">
                         {s.tags.map((t) => (
                           <Link
                             key={t}
-                            href={`/scholarships`}
+                            href="/scholarships"
                             className="text-[10px] bg-white border border-gray-200 px-3 py-1.5 rounded-xl text-gray-500 font-black uppercase tracking-wider hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition"
                           >
                             #{t}
@@ -454,9 +521,7 @@ export default function CountryScholarshipsClient({
                       </p>
                       <p className="text-xl font-black text-red-400 mb-1">{s.deadline}</p>
                       {s.duration && (
-                        <p className="text-xs text-gray-500 mb-5">
-                          Duration: {s.duration}
-                        </p>
+                        <p className="text-xs text-gray-500 mb-5">Duration: {s.duration}</p>
                       )}
                       <a
                         href={s.official_link || "#"}
@@ -477,39 +542,136 @@ export default function CountryScholarshipsClient({
             </article>
           ))}
 
-          {/* ── SEO + FAQ Block ── */}
+          {/* ── SEO BLOCK 2: Required Documents ──────────────────────────── */}
+          <section className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+            <h2 className="text-xl font-black text-gray-900 mb-1">
+              Documents Required for {countryName} Scholarship Applications
+            </h2>
+            <p className="text-sm text-gray-400 mb-6">
+              Prepare these documents in advance to avoid last-minute delays when applying for
+              {" "}{countryName} scholarships in 2026.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {requiredDocuments.map((doc, i) => (
+                <div
+                  key={i}
+                  className="bg-gray-50 border border-gray-100 rounded-2xl p-4 hover:border-blue-100 hover:bg-blue-50/30 transition"
+                >
+                  <div className="text-2xl mb-2">{doc.icon}</div>
+                  <p className="text-sm font-black text-gray-800 mb-0.5">{doc.label}</p>
+                  <p className="text-[11px] text-gray-400">{doc.note}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ── SEO BLOCK 3: Funding Types Explained ─────────────────────── */}
+          <section className="bg-gradient-to-br from-[#0f172a] to-[#1e3a5f] rounded-3xl p-8 text-white">
+            <h2 className="text-xl font-black text-white mb-1">
+              Types of {countryName} Scholarships for International Students
+            </h2>
+            <p className="text-sm text-blue-300/60 mb-8">
+              Understanding the difference helps you target the right programs and set realistic
+              expectations.
+            </p>
+            <div className="grid md:grid-cols-3 gap-5">
+              {[
+                {
+                  type: "Fully Funded",
+                  color: "border-blue-500/40 bg-blue-500/10",
+                  badge: "bg-blue-600",
+                  icon: "🏆",
+                  desc: `The most competitive category. Covers 100% of your tuition, monthly stipend, return airfare, and health insurance. ${scholarships.filter((s) => s.funding_type === "Fully Funded").length} programs available in ${countryName}.`,
+                  tip: "Requires strong academic record + research proposal",
+                },
+                {
+                  type: "Partial Funding",
+                  color: "border-amber-500/40 bg-amber-500/10",
+                  badge: "bg-amber-500",
+                  icon: "📘",
+                  desc: `Covers tuition fees only. Students must fund living expenses separately. ${scholarships.filter((s) => s.funding_type === "Partial").length} partial programs listed for ${countryName}.`,
+                  tip: "Combine with student loan or part-time work",
+                },
+                {
+                  type: "Tuition Waiver",
+                  color: "border-gray-500/40 bg-gray-500/10",
+                  badge: "bg-gray-600",
+                  icon: "📋",
+                  desc: `Waives academic fees. No living allowance included. ${scholarships.filter((s) => s.funding_type === "Tuition Waiver").length} tuition waiver programs in ${countryName}.`,
+                  tip: "Best suited for students with existing savings",
+                },
+              ].map((item) => (
+                <div
+                  key={item.type}
+                  className={`border rounded-2xl p-5 ${item.color}`}
+                >
+                  <div className="text-2xl mb-3">{item.icon}</div>
+                  <span className={`text-[10px] font-black uppercase tracking-widest text-white px-2.5 py-1 rounded-full ${item.badge}`}>
+                    {item.type}
+                  </span>
+                  <p className="text-sm text-gray-300 mt-3 mb-3 leading-relaxed">{item.desc}</p>
+                  <p className="text-[11px] text-gray-500 border-t border-white/10 pt-3">
+                    💡 {item.tip}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* ── SEO + FAQ Block ─────────────────────────────────────────────── */}
           <div className="bg-white border border-gray-100 rounded-3xl p-10 shadow-sm">
             <h2 className="text-2xl font-black text-gray-900 mb-5">
               About Scholarships in {countryName}
             </h2>
             <div className="text-gray-500 leading-relaxed text-sm space-y-4">
               <p>
-                {countryName} offers a wide range of scholarship opportunities for
-                international students across all degree levels. Programs range from
-                fully funded government awards — which cover tuition, living expenses,
-                and travel — to university merit scholarships that offset academic costs
-                for high-achieving applicants.
+                {countryName} offers a wide range of scholarship opportunities for international
+                students across all degree levels. Programs range from fully funded government awards
+                — which cover tuition, living expenses, and travel — to university merit scholarships
+                that offset academic costs for high-achieving applicants.
               </p>
               <p>
-                Most scholarships in {countryName} for 2026 require applicants to hold
-                a minimum GPA between 3.0 and 3.5, along with proof of English language
-                proficiency (IELTS or TOEFL). Some programs additionally require letters
-                of recommendation, a statement of purpose, and in certain fields, prior
-                work or research experience.
+                Most scholarships in {countryName} for 2026 require applicants to hold a minimum GPA
+                between 3.0 and 3.5, along with proof of English language proficiency (IELTS or
+                TOEFL). Some programs additionally require letters of recommendation, a statement of
+                purpose, and in certain fields, prior work or research experience.
               </p>
               <p>
-                Application windows for {countryName} scholarships typically open
-                between July and December for the following academic year. We recommend
-                beginning your application 3–6 months before the posted deadline to
-                allow time for document collection, translations, and institution-specific
-                requirements.
+                Application windows for {countryName} scholarships typically open between July and
+                December for the following academic year. We recommend beginning your application 3–6
+                months before the posted deadline to allow time for document collection, translations,
+                and institution-specific requirements.
               </p>
+            </div>
+
+            {/* ── SEO BLOCK 4: Eligibility Checklist ────────────────────── */}
+            <div className="mt-8 pt-8 border-t border-gray-100">
+              <h2 className="text-xl font-black text-gray-900 mb-4">
+                General Eligibility Criteria for {countryName} Scholarships
+              </h2>
+              <div className="grid md:grid-cols-2 gap-3">
+                {[
+                  "Completed undergraduate degree (for postgraduate programs)",
+                  "Minimum GPA of 3.0 / 60% or equivalent",
+                  "IELTS 6.0+ or TOEFL 80+ (varies by program)",
+                  "Valid passport with 12+ months validity",
+                  "Two or more academic/professional reference letters",
+                  "Statement of purpose or personal essay",
+                  "Age limit: typically 18–35 years (varies by program)",
+                  "No prior degree from the destination country (some programs)",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 bg-gray-50 border border-gray-100 rounded-xl px-4 py-3">
+                    <span className="text-green-500 font-black mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-sm text-gray-600">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* FAQ accordion */}
             <div className="mt-10 pt-10 border-t border-gray-100">
               <h2 className="text-xl font-black text-gray-900 mb-6">
-                Frequently Asked Questions
+                Frequently Asked Questions — {countryName} Scholarships 2026
               </h2>
               <div className="space-y-4">
                 <FaqItem
@@ -527,6 +689,14 @@ export default function CountryScholarshipsClient({
                 <FaqItem
                   q={`When do ${countryName} scholarship applications open?`}
                   a={`Application windows typically open between July and December for the following academic year. Apply 3–6 months before posted deadlines for the best chance of success.`}
+                />
+                <FaqItem
+                  q={`Do I need IELTS for ${countryName} scholarships?`}
+                  a={`Most scholarships in ${countryName} require proof of English proficiency such as IELTS (6.0–7.0 band) or TOEFL (80–100 score). Some government scholarships offer language training as part of the program and may waive this requirement.`}
+                />
+                <FaqItem
+                  q={`Can I apply for multiple scholarships in ${countryName}?`}
+                  a={`Yes, you can apply to multiple ${countryName} scholarship programs simultaneously unless a specific program states otherwise. We recommend applying to at least 3–5 programs to improve your chances.`}
                 />
               </div>
             </div>
@@ -650,14 +820,34 @@ export default function CountryScholarshipsClient({
             </div>
           </div>
 
+          {/* ── SEO BLOCK 5: Application Tips Sidebar Card ─────────────── */}
+          <div className="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm">
+            <h3 className="text-sm font-black text-gray-900 mb-4">
+              💡 Tips to Win a {countryName} Scholarship
+            </h3>
+            <div className="space-y-3">
+              {[
+                "Apply to 5+ programs to improve your odds",
+                "Start your SOP at least 6 weeks before deadline",
+                "Get transcripts attested early — it takes 2–4 weeks",
+                "Choose referees who know your academic work well",
+                "Tailor each SOP to the specific scholarship values",
+              ].map((tip, i) => (
+                <div key={i} className="flex gap-2 items-start">
+                  <span className="text-blue-500 font-black text-xs mt-0.5 flex-shrink-0">{i + 1}.</span>
+                  <p className="text-xs text-gray-500 leading-relaxed">{tip}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Deadline Alert */}
           <div className="bg-gradient-to-br from-red-50 to-orange-50 border border-red-100 p-6 rounded-3xl">
             <p className="text-xs font-black text-red-500 uppercase tracking-widest mb-2">
               ⚠️ Deadline Alert
             </p>
             <p className="text-sm font-bold text-gray-700 mb-3 leading-snug">
-              Many {countryName} scholarships close between October–December 2025 for
-              2026 intake.
+              Many {countryName} scholarships close between October–December 2025 for 2026 intake.
             </p>
             <Link
               href="/scholarships"
@@ -688,7 +878,11 @@ function StatCard({ icon, label, value }) {
 function FaqItem({ q, a }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className={`border rounded-2xl overflow-hidden transition-all ${open ? "border-blue-200 shadow-sm shadow-blue-50" : "border-gray-100"}`}>
+    <div
+      className={`border rounded-2xl overflow-hidden transition-all ${
+        open ? "border-blue-200 shadow-sm shadow-blue-50" : "border-gray-100"
+      }`}
+    >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition"
