@@ -1,4 +1,3 @@
-
 "use client";
 import { useState } from "react";
 import Link from "next/link";
@@ -24,13 +23,12 @@ const fundingTypeDescriptions = {
 
 const relatedLinks = [
   { label: "All Fully Funded Scholarships", href: "/scholarships" },
-  { label: "PhD Scholarships 2026", href: "/scholarships/degree" },
+  { label: "PhD Scholarships 2026", href: "/scholarships" },
   { label: "Master's Scholarships 2026", href: "/scholarships" },
   { label: "No IELTS Scholarships", href: "/scholarships" },
   { label: "October Deadline Scholarships", href: "/scholarships" },
 ];
 
-// ─── SEO: Application Timeline data ─────────────────────────────────────────
 const applicationTimeline = [
   {
     month: "Jul – Sep",
@@ -64,7 +62,6 @@ const applicationTimeline = [
   },
 ];
 
-// ─── SEO: Required documents ─────────────────────────────────────────────────
 const requiredDocuments = [
   { icon: "🎓", label: "Academic Transcripts", note: "Attested copies, all years" },
   { icon: "🌐", label: "Language Proficiency", note: "IELTS / TOEFL / Duolingo" },
@@ -76,25 +73,39 @@ const requiredDocuments = [
   { icon: "🏅", label: "Awards & Certificates", note: "Co-curricular achievements" },
 ];
 
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+function getRefId(s) {
+  if (!s) return "N/A";
+  // MongoDB _id can come as string (after JSON.parse(JSON.stringify())) or object
+  const id = s._id;
+  if (!id) return s.slug?.slice(-6).toUpperCase() || "N/A";
+  if (typeof id === "string") return id.slice(-6).toUpperCase();
+  if (typeof id === "object" && id.$oid) return id.$oid.slice(-6).toUpperCase();
+  return s.slug?.slice(-6).toUpperCase() || "N/A";
+}
+
 // ─── Main Client Component ────────────────────────────────────────────────────
-export default function CountryScholarshipsClient({
+export default function ScholarshipsClient({
   slug,
   initialScholarships,
   initialCountryInfo,
   allCountries,
   countryName,
 }) {
-  const scholarships = initialScholarships;
-  const countryInfo = initialCountryInfo;
+  // Safely default all props
+  const scholarships = Array.isArray(initialScholarships) ? initialScholarships : [];
+  const countryInfo = initialCountryInfo || null;
+  const countries = Array.isArray(allCountries) ? allCountries : [];
+
   const [introIdx] = useState(() => Math.floor(Math.random() * dynamicIntros.length));
 
-  const neighborCountries = allCountries
+  const neighborCountries = countries
     .filter((c) => c.country.toLowerCase().replace(/ /g, "-") !== slug)
     .slice(0, 10);
 
-  // ── Fallback: no scholarships yet ────────────────────────────────────────
+  // ── Fallback: no scholarships ─────────────────────────────────────────────
   if (scholarships.length === 0) {
-    const fallbackCountries = allCountries.slice(0, 6);
+    const fallbackCountries = countries.slice(0, 6);
 
     return (
       <div className="min-h-screen bg-[#F0F4FF]">
@@ -166,7 +177,6 @@ export default function CountryScholarshipsClient({
             </div>
           </div>
 
-          {/* SEO text */}
           <div className="bg-blue-50 border border-blue-100 rounded-[2rem] p-10 mb-16">
             <h2 className="text-2xl font-black text-gray-900 mb-4">About Studying in {countryName}</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
@@ -183,7 +193,6 @@ export default function CountryScholarshipsClient({
             </p>
           </div>
 
-          {/* FAQ */}
           <div className="bg-white border border-gray-100 rounded-[2rem] p-10 mb-16">
             <h2 className="text-2xl font-black text-gray-900 mb-6">Frequently Asked Questions</h2>
             <div className="space-y-5">
@@ -202,34 +211,39 @@ export default function CountryScholarshipsClient({
             </div>
           </div>
 
-          {/* Nearby countries */}
-          <h3 className="text-2xl font-black text-gray-900 mb-6">Explore Verified Scholarships Nearby</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {fallbackCountries.map((c) => (
-              <Link
-                key={c.code}
-                href={`/scholarships/${c.country.toLowerCase().replace(/ /g, "-")}`}
-                className="group flex items-center gap-4 bg-white border border-gray-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-xl transition-all"
-              >
-                <img
-                  src={c.flag}
-                  className="w-10 h-7 object-cover rounded shadow-sm"
-                  alt={`${c.country} flag`}
-                  loading="lazy"
-                  width={40}
-                  height={28}
-                />
-                <div>
-                  <p className="font-black text-gray-800 text-sm group-hover:text-blue-600 transition">
-                    {c.country}
-                  </p>
-                  <p className="text-[10px] text-gray-400 uppercase font-bold mt-0.5">
-                    View Scholarships →
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
+          {fallbackCountries.length > 0 && (
+            <>
+              <h3 className="text-2xl font-black text-gray-900 mb-6">Explore Verified Scholarships Nearby</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+                {fallbackCountries.map((c) => (
+                  <Link
+                    key={c._id || c.code || c.country}
+                    href={`/scholarships/${c.country.toLowerCase().replace(/ /g, "-")}`}
+                    className="group flex items-center gap-4 bg-white border border-gray-100 p-5 rounded-2xl hover:border-blue-200 hover:shadow-xl transition-all"
+                  >
+                    {c.flag && (
+                      <img
+                        src={c.flag}
+                        className="w-10 h-7 object-cover rounded shadow-sm"
+                        alt={`${c.country} flag`}
+                        loading="lazy"
+                        width={40}
+                        height={28}
+                      />
+                    )}
+                    <div>
+                      <p className="font-black text-gray-800 text-sm group-hover:text-blue-600 transition">
+                        {c.country}
+                      </p>
+                      <p className="text-[10px] text-gray-400 uppercase font-bold mt-0.5">
+                        View Scholarships →
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
     );
@@ -240,17 +254,10 @@ export default function CountryScholarshipsClient({
     <div className="min-h-screen bg-[#F0F4FF]">
 
       {/* ── Hero Header ── */}
-      {/*
-        FIX: Removed conflicting `pt-8 pb-12 py-24` — was all three at once.
-        Tailwind generates both pt-8/pb-12 AND py-24 in CSS; since py-24
-        comes later in the stylesheet it overrides pt-8/pb-12.
-        Solution: use a single padding shorthand OR explicit top/bottom only.
-      */}
       <div className="relative bg-gradient-to-br from-[#0f172a] via-[#1e3a5f] to-[#0f172a] overflow-hidden py-24">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-[140px] opacity-10 pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-400 rounded-full blur-[120px] opacity-10 pointer-events-none" />
 
-        {/* ✅ FIXED: was `pt-8 pb-12 py-24` — now just `pt-8 pb-14` */}
         <div className="max-w-7xl mx-auto px-6 pt-8 pb-14">
           {/* Breadcrumb */}
           <nav
@@ -313,7 +320,7 @@ export default function CountryScholarshipsClient({
           <div className="flex flex-wrap gap-2 mt-8">
             {relatedLinks.map((l) => (
               <Link
-                key={l.href}
+                key={l.label}
                 href={l.href}
                 className="text-[10px] font-black uppercase tracking-wider px-4 py-2 rounded-full border border-white/10 text-white/50 bg-white/5 hover:bg-blue-500 hover:text-white hover:border-blue-400 transition-all"
               >
@@ -330,7 +337,7 @@ export default function CountryScholarshipsClient({
         {/* ── Main Content ── */}
         <main className="flex-1 space-y-8" aria-label="Scholarship listings">
 
-          {/* ── SEO BLOCK 1: Application Timeline ─────────────────────────── */}
+          {/* ── SEO BLOCK 1: Application Timeline ── */}
           <section className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
             <h2 className="text-xl font-black text-gray-900 mb-1">
               {countryName} Scholarship Application Timeline 2026
@@ -339,7 +346,6 @@ export default function CountryScholarshipsClient({
               Step-by-step roadmap from research to departure for {countryName} scholarship applicants.
             </p>
             <div className="relative">
-              {/* Vertical connector line */}
               <div className="absolute left-[19px] top-5 bottom-5 w-[2px] bg-gradient-to-b from-blue-200 via-indigo-200 to-gray-100 rounded-full hidden md:block" />
               <div className="space-y-4">
                 {applicationTimeline.map((step, i) => (
@@ -362,14 +368,14 @@ export default function CountryScholarshipsClient({
             </div>
           </section>
 
-          {/* ── Scholarship Cards ─────────────────────────────────────────── */}
-          {scholarships.map((s, idx) => (
+          {/* ── Scholarship Cards ── */}
+          {scholarships.map((s) => (
             <article
-              key={s.slug}
+              key={s._id?.toString() || s.slug || s.scholarship_name}
               className="group bg-white rounded-3xl overflow-hidden shadow-lg shadow-blue-100/40 border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/60 transition-all duration-300"
               aria-label={s.scholarship_name}
             >
-              {/* Coloured top accent bar */}
+              {/* Accent bar */}
               <div
                 className={`h-1 w-full ${
                   s.funding_type === "Fully Funded"
@@ -399,7 +405,7 @@ export default function CountryScholarshipsClient({
                       🔥 Featured
                     </span>
                   )}
-                  {s.degree_level?.map((d) => (
+                  {Array.isArray(s.degree_level) && s.degree_level.map((d) => (
                     <span
                       key={d}
                       className="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-[10px] font-black uppercase tracking-wider border border-indigo-100"
@@ -414,7 +420,7 @@ export default function CountryScholarshipsClient({
                   )}
                 </div>
                 <div className="text-[10px] font-black text-gray-300 uppercase tracking-widest">
-                  REF: {s?._id?.$oid?.slice(-6).toUpperCase() || s.slug?.slice(-6).toUpperCase() || "N/A"}
+                  REF: {getRefId(s)}
                 </div>
               </div>
 
@@ -431,7 +437,7 @@ export default function CountryScholarshipsClient({
                 )}
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
-                  <StatCard icon="🎓" label="Degree Level" value={s.degree_level?.join(" & ") || "Multiple"} />
+                  <StatCard icon="🎓" label="Degree Level" value={Array.isArray(s.degree_level) ? s.degree_level.join(" & ") : "Multiple"} />
                   <StatCard icon="💰" label="Award Value" value={s.details?.award_value || "Full Coverage"} />
                   <StatCard icon="📈" label="Min GPA" value={s.details?.min_gpa || "Varies"} />
                   <StatCard icon="🌍" label="IELTS/TOEFL" value={s.details?.ielts || "Required"} />
@@ -464,13 +470,15 @@ export default function CountryScholarshipsClient({
 
                 <div className="grid md:grid-cols-3 gap-8">
                   <div className="md:col-span-2 space-y-6">
-                    <div>
-                      <h3 className="text-xs font-black text-blue-600 uppercase tracking-[0.2em] mb-3 flex items-center gap-3">
-                        <span className="w-6 h-[2px] bg-blue-600 rounded-full"></span>
-                        Eligibility Requirements
-                      </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{s.details?.eligibility}</p>
-                    </div>
+                    {s.details?.eligibility && (
+                      <div>
+                        <h3 className="text-xs font-black text-blue-600 uppercase tracking-[0.2em] mb-3 flex items-center gap-3">
+                          <span className="w-6 h-[2px] bg-blue-600 rounded-full"></span>
+                          Eligibility Requirements
+                        </h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{s.details.eligibility}</p>
+                      </div>
+                    )}
 
                     <div className="bg-gradient-to-r from-gray-50 to-blue-50/50 rounded-2xl p-4 border border-gray-100">
                       <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">
@@ -483,7 +491,7 @@ export default function CountryScholarshipsClient({
                       </div>
                     </div>
 
-                    {s.tags && s.tags.length > 0 && (
+                    {Array.isArray(s.tags) && s.tags.length > 0 && (
                       <div className="flex flex-wrap gap-2">
                         {s.tags.map((t) => (
                           <Link
@@ -506,20 +514,26 @@ export default function CountryScholarshipsClient({
                     <h3 className="text-sm font-black mb-5 text-blue-300 uppercase tracking-widest">
                       What&apos;s Covered
                     </h3>
-                    <ul className="space-y-3 mb-8" aria-label="Scholarship coverage">
-                      {s.details?.coverage?.map((c, i) => (
-                        <li key={i} className="flex gap-3 text-sm text-gray-300">
-                          <span className="text-cyan-400 font-black flex-shrink-0 mt-0.5">✓</span>
-                          {c}
-                        </li>
-                      ))}
-                    </ul>
+                    {Array.isArray(s.details?.coverage) && s.details.coverage.length > 0 ? (
+                      <ul className="space-y-3 mb-8" aria-label="Scholarship coverage">
+                        {s.details.coverage.map((c, i) => (
+                          <li key={i} className="flex gap-3 text-sm text-gray-300">
+                            <span className="text-cyan-400 font-black flex-shrink-0 mt-0.5">✓</span>
+                            {c}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-sm text-gray-500 mb-8">See official website for details.</p>
+                    )}
 
                     <div className="pt-5 border-t border-white/10">
                       <p className="text-[9px] uppercase font-black text-gray-500 mb-1 tracking-widest">
                         Application Deadline
                       </p>
-                      <p className="text-xl font-black text-red-400 mb-1">{s.deadline}</p>
+                      <p className="text-xl font-black text-red-400 mb-1">
+                        {s.deadline || "See website"}
+                      </p>
                       {s.duration && (
                         <p className="text-xs text-gray-500 mb-5">Duration: {s.duration}</p>
                       )}
@@ -542,14 +556,14 @@ export default function CountryScholarshipsClient({
             </article>
           ))}
 
-          {/* ── SEO BLOCK 2: Required Documents ──────────────────────────── */}
+          {/* ── SEO BLOCK 2: Required Documents ── */}
           <section className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
             <h2 className="text-xl font-black text-gray-900 mb-1">
               Documents Required for {countryName} Scholarship Applications
             </h2>
             <p className="text-sm text-gray-400 mb-6">
-              Prepare these documents in advance to avoid last-minute delays when applying for
-              {" "}{countryName} scholarships in 2026.
+              Prepare these documents in advance to avoid last-minute delays when applying for{" "}
+              {countryName} scholarships in 2026.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {requiredDocuments.map((doc, i) => (
@@ -565,14 +579,13 @@ export default function CountryScholarshipsClient({
             </div>
           </section>
 
-          {/* ── SEO BLOCK 3: Funding Types Explained ─────────────────────── */}
+          {/* ── SEO BLOCK 3: Funding Types Explained ── */}
           <section className="bg-gradient-to-br from-[#0f172a] to-[#1e3a5f] rounded-3xl p-8 text-white">
             <h2 className="text-xl font-black text-white mb-1">
               Types of {countryName} Scholarships for International Students
             </h2>
             <p className="text-sm text-blue-300/60 mb-8">
-              Understanding the difference helps you target the right programs and set realistic
-              expectations.
+              Understanding the difference helps you target the right programs and set realistic expectations.
             </p>
             <div className="grid md:grid-cols-3 gap-5">
               {[
@@ -601,10 +614,7 @@ export default function CountryScholarshipsClient({
                   tip: "Best suited for students with existing savings",
                 },
               ].map((item) => (
-                <div
-                  key={item.type}
-                  className={`border rounded-2xl p-5 ${item.color}`}
-                >
+                <div key={item.type} className={`border rounded-2xl p-5 ${item.color}`}>
                   <div className="text-2xl mb-3">{item.icon}</div>
                   <span className={`text-[10px] font-black uppercase tracking-widest text-white px-2.5 py-1 rounded-full ${item.badge}`}>
                     {item.type}
@@ -618,7 +628,7 @@ export default function CountryScholarshipsClient({
             </div>
           </section>
 
-          {/* ── SEO + FAQ Block ─────────────────────────────────────────────── */}
+          {/* ── SEO + FAQ Block ── */}
           <div className="bg-white border border-gray-100 rounded-3xl p-10 shadow-sm">
             <h2 className="text-2xl font-black text-gray-900 mb-5">
               About Scholarships in {countryName}
@@ -644,7 +654,7 @@ export default function CountryScholarshipsClient({
               </p>
             </div>
 
-            {/* ── SEO BLOCK 4: Eligibility Checklist ────────────────────── */}
+            {/* ── SEO BLOCK 4: Eligibility Checklist ── */}
             <div className="mt-8 pt-8 border-t border-gray-100">
               <h2 className="text-xl font-black text-gray-900 mb-4">
                 General Eligibility Criteria for {countryName} Scholarships
@@ -709,7 +719,7 @@ export default function CountryScholarshipsClient({
               <div className="flex flex-wrap gap-3">
                 {relatedLinks.map((l) => (
                   <Link
-                    key={l.href}
+                    key={l.label}
                     href={l.href}
                     className="text-sm font-bold text-blue-600 hover:underline"
                   >
@@ -736,19 +746,21 @@ export default function CountryScholarshipsClient({
               <div className="space-y-1">
                 {neighborCountries.map((rc) => (
                   <Link
-                    key={rc.code}
+                    key={rc._id?.toString() || rc.code || rc.country}
                     href={`/scholarships/${rc.country.toLowerCase().replace(/ /g, "-")}`}
                     title={`${rc.country} Scholarships 2026`}
                     className="flex items-center gap-3 group p-2.5 hover:bg-blue-50 rounded-xl transition"
                   >
-                    <img
-                      src={rc.flag}
-                      className="w-8 h-5 object-cover rounded-md shadow-sm flex-shrink-0"
-                      alt={`${rc.country} flag`}
-                      loading="lazy"
-                      width={32}
-                      height={20}
-                    />
+                    {rc.flag && (
+                      <img
+                        src={rc.flag}
+                        className="w-8 h-5 object-cover rounded-md shadow-sm flex-shrink-0"
+                        alt={`${rc.country} flag`}
+                        loading="lazy"
+                        width={32}
+                        height={20}
+                      />
+                    )}
                     <span className="text-sm font-bold text-gray-600 group-hover:text-blue-600 transition leading-tight">
                       {rc.country}
                     </span>
@@ -776,7 +788,7 @@ export default function CountryScholarshipsClient({
                 { label: "Short Courses", href: "/scholarships", icon: "📋" },
               ].map((d) => (
                 <Link
-                  key={d.href}
+                  key={d.label}
                   href={d.href}
                   className="flex items-center gap-3 group p-2.5 hover:bg-indigo-50 rounded-xl transition"
                 >
@@ -789,7 +801,7 @@ export default function CountryScholarshipsClient({
             </div>
           </div>
 
-          {/* Quick stats card */}
+          {/* Quick stats */}
           <div className="bg-gradient-to-br from-[#0f172a] to-[#1e3a5f] p-7 rounded-3xl text-white">
             <h3 className="text-sm font-black text-blue-300 uppercase tracking-widest mb-5">
               📊 At a Glance
@@ -820,7 +832,7 @@ export default function CountryScholarshipsClient({
             </div>
           </div>
 
-          {/* ── SEO BLOCK 5: Application Tips Sidebar Card ─────────────── */}
+          {/* Application Tips */}
           <div className="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm">
             <h3 className="text-sm font-black text-gray-900 mb-4">
               💡 Tips to Win a {countryName} Scholarship
