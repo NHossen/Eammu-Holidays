@@ -1,6 +1,7 @@
 // app/online-travel-agency-bangladesh/page.jsx
 // Server Component — no 'use client' — maximum SEO indexing
 
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 import Link from "next/link";
 import React from "react";
 
@@ -10,7 +11,7 @@ export const metadata = {
 
   title: {
     default:
-      "Eammu: Travel Agency Bangladesh",
+      "Eammu: Travel Agency Bangladesh and Dubai",
 
   },
 
@@ -781,7 +782,9 @@ export default function OnlineTravelAgencyBangladeshPage() {
           </section>
 
         </div>
+      
       </main>
+        <HomeSeoLinks />  
     </>
   );
 }

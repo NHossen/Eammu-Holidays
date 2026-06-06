@@ -1,4 +1,5 @@
 import ContactWithUs from '@/Components/Client/ContactWithUs/ContactWithUs';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react';
 
 export const metadata = {
@@ -341,6 +342,7 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
       <ContactWithUs />
+      <HomeSeoLinks />
     </>
   );
 }

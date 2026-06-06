@@ -80,66 +80,7 @@ function CountryInput({ label, value, onChange }) {
   );
 }
 
-// ── Status config ─────────────────────────────────────────────────────────────
-const STATUS_CFG = {
-  "visa required": {
-    icon: "🔴", label: "Visa Required",
-    badge: "bg-red-100 text-red-700 border-red-200",
-    card:  "bg-red-50 border-red-200",
-    title: "text-red-700",
-    btn:   "bg-red-50 border-red-300 text-red-700 hover:bg-red-100",
-    slug:  "visa-required",
-    desc:  "You must apply for a visa before traveling. Visit the embassy or consulate of your destination.",
-    cta:   "📋 Full Visa Application Guide",
-  },
-  "e-visa": {
-    icon: "💻", label: "E-Visa Available",
-    badge: "bg-blue-100 text-blue-700 border-blue-200",
-    card:  "bg-blue-50 border-blue-200",
-    title: "text-blue-700",
-    btn:   "bg-blue-50 border-blue-300 text-blue-700 hover:bg-blue-100",
-    slug:  "e-visa",
-    desc:  "Apply online before travel. No embassy visit required. Receive approval via email.",
-    cta:   "🌐 E-Visa Application Steps",
-  },
-  "visa on arrival": {
-    icon: "✅", label: "Visa on Arrival",
-    badge: "bg-green-100 text-green-700 border-green-200",
-    card:  "bg-green-50 border-green-200",
-    title: "text-green-700",
-    btn:   "bg-green-50 border-green-300 text-green-700 hover:bg-green-100",
-    slug:  "visa-on-arrival",
-    desc:  "Get your visa at the port of entry. Bring required documents and cash.",
-    cta:   "🛂 Visa on Arrival Instructions",
-  },
-  "eta": {
-    icon: "📋", label: "ETA Required",
-    badge: "bg-purple-100 text-purple-700 border-purple-200",
-    card:  "bg-purple-50 border-purple-200",
-    title: "text-purple-700",
-    btn:   "bg-purple-50 border-purple-300 text-purple-700 hover:bg-purple-100",
-    slug:  "eta",
-    desc:  "Electronic Travel Authorization needed before boarding your flight.",
-    cta:   "📱 ETA Application Guide",
-  },
-  "no admission": {
-    icon: "🚫", label: "No Admission",
-    badge: "bg-rose-100 text-rose-800 border-rose-200",
-    card:  "bg-rose-50 border-rose-200",
-    title: "text-rose-800",
-    btn:   "bg-rose-50 border-rose-300 text-rose-800 hover:bg-rose-100",
-    slug:  "no-admission",
-    desc:  "Entry is currently not permitted for your passport.",
-    cta:   "ℹ️ Learn About This Restriction",
-  },
-  "not_applicable": {
-    icon: "➖", label: "Not Applicable",
-    badge: "bg-gray-100 text-gray-600 border-gray-200",
-    card:  "bg-gray-50 border-gray-200",
-    title: "text-gray-600",
-    btn:   null, slug: null, desc: "Not applicable for the selected route.", cta: null,
-  },
-};
+
 
 // ── Main Component ────────────────────────────────────────────────────────────
 export default function VisaChecker() {

@@ -21,6 +21,7 @@ import {
   CircleDollarSign,
   Umbrella,
 } from "lucide-react";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1172,7 +1173,7 @@ export default function TravelInsurancePage() {
             </li>
           </ol>
         </nav>
-
+     <HomeSeoLinks />
       </main>
     </>
   );

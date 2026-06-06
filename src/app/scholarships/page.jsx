@@ -2,6 +2,7 @@
 // Full SEO: 7 JSON-LD schemas, 30+ keywords, rich metadata
 
 import ScholarshipsClient from "@/Components/Client/ScholarshipsMain/ScholarshipsClient";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 import clientPromise from "@/app/lib/mongodb";
 
 export const revalidate = 86400;
@@ -429,6 +430,8 @@ export default async function ScholarshipsPage() {
         featuredCodes={featuredCodes}
         internalLinks={internalLinks}
       />
+
+      <HomeSeoLinks />
     </>
   );
 }

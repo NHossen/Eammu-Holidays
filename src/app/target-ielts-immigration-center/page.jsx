@@ -1,4 +1,5 @@
 import TIICPage from '@/Components/Client/eammuGroupClient/TIICPage/TIICPage';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import Link from 'next/link';
 import React from 'react';
 
@@ -274,6 +275,7 @@ export default function TIICPageRoute() {
           <li className="text-[#005a31] font-bold">Target IELTS & Immigration Center</li>
         </ol>
       </nav>
+      <HomeSeoLinks />
     </>
   );
 }

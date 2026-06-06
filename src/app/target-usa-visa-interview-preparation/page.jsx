@@ -1,4 +1,5 @@
 import TargetUsaInterview from '@/Components/Client/eammuGroupClient/TargetUsaInterview/TargetUsaInterview'
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -146,6 +147,7 @@ export default function TargetUsaInterviewPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <TargetUsaInterview />
+      <HomeSeoLinks />
     </>
   )
 }

@@ -1,6 +1,7 @@
 
 import Link from 'next/link';
 import TravelBudgetPlanner from './Travelbudgetplanner';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 
 /* ─────────────────────────────────────────────────────────────────────────────
    SERVER COMPONENT — /travel-budget-planner
@@ -252,6 +253,7 @@ export default function TravelBudgetPlannerPage() {
           <li className="text-[#005a31] font-bold">Travel Budget Planner</li>
         </ol>
       </nav>
+      <HomeSeoLinks />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import AboutServer from '@/Components/Server/AboutServer/AboutServer';
 import React from 'react';
 
@@ -230,6 +231,7 @@ export default function AboutPage() {
       />
 
       <AboutServer />
+      <HomeSeoLinks />
     </>
   );
 }

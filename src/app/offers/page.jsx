@@ -1,4 +1,5 @@
 import Offers from '@/Components/Client/Offers/Offers';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react';
 
 export const metadata = {
@@ -251,6 +252,7 @@ export default function OffersPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Offers />
+      <HomeSeoLinks />
     </>
   );
 }

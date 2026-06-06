@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { createSlug } from "@/app/lib/utils";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SEO METADATA — export from app/visa/india/metadata.js (App Router)
@@ -1043,7 +1044,7 @@ export default function TouristVisaIndia() {
           </div>
         </div>
       </section>
-
+<HomeSeoLinks />
     </div>
   );
 }

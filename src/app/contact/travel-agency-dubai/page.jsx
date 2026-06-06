@@ -1,4 +1,5 @@
 import TravelAgencyDubai from '@/Components/Client/TravelAgency/TravelAgencyDubai/TravelAgencyDubai';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import Link from 'next/link';
 import React from 'react';
 
@@ -266,6 +267,8 @@ export default function TravelAgencyDubaiPage() {
           <li className="text-[#004d2c] font-bold">Travel Agency Dubai</li>
         </ol>
       </nav>
+
+      <HomeSeoLinks />
     </>
   );
 }
