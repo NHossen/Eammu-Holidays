@@ -450,6 +450,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="antialiased">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-3033816186833488"></meta>
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
@@ -472,7 +473,6 @@ export default function RootLayout({ children }) {
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3033816186833488"
           crossOrigin="anonymous"
-          strategy="lazyOnload"
         />
       </body>
     </html>

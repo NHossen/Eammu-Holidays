@@ -10,6 +10,7 @@
 
 import { Suspense } from "react";
 import VisaGuideClient from "./Visaguideclient";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 
 const BASE = "https://api.eammu.com/api/v1";
@@ -361,6 +362,7 @@ export default async function VisaGuidePage({ params }) {
           countrySlug={countrySlug}
           visaGuideSlug={visaGuideSlug}
         />
+        <HomeSeoLinks />
       </Suspense>
 
     </>

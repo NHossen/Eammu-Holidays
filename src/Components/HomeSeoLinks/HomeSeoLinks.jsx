@@ -1,7 +1,3 @@
-// Links.jsx — Eammu.com SEO Internal Linking Server Component (Next.js)
-// Pure server component — zero client JS
-// Import on: Homepage, /visa, /our-services, /our-services/visa-services, 404 page
-
 import Link from "next/link";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -27,6 +23,7 @@ const VISA_GUIDES = [
       { label: "Albania Visa Application", href: "/our-services/visa/albania-visa-application" },
       { label: "Indonesia Visa Application", href: "/our-services/visa/indonesia-visa-application" },
       { label: "Sri Lanka Visa Application", href: "/our-services/visa/srilanka-visa-application" },
+      { label: "All Visa Services", href: "/our-services/visa-services" },
     ],
   },
   {
@@ -38,35 +35,36 @@ const VISA_GUIDES = [
     href: "/our-services/visa-services/student-visa-from-bangladesh",
     links: [
       { label: "USA Student Visa", href: "/study-abroad/student-visa/united-states" },
-      { label: "UK Student Visa", href: "/our-services/visa/uk-visa-application" },
-      { label: "Canada Student Visa", href: "/our-services/visa/canada-visa-application" },
-      { label: "Australia Student Visa", href: "/our-services/visa/australia-visa-application" },
-      { label: "Germany Student Visa", href: "/our-services/visa/germany-visa-application" },
-      { label: "Japan Student Visa", href: "/our-services/visa/japan-visa-application" },
-      { label: "South Korea Student Visa", href: "/our-services/visa/south-korea-visa-application" },
-      { label: "Malaysia Student Visa", href: "/our-services/visa/malaysia-visa-application" },
-      { label: "Russia Student Visa", href: "/our-services/visa/russia-visa-application" },
-      { label: "China Student Visa", href: "/our-services/visa/china-visa-application" },
+      { label: "UK Student Visa", href: "/study-abroad/student-visa/united-kingdom" },
+      { label: "Canada Student Visa", href: "/study-abroad/student-visa/canada" },
+      { label: "Australia Student Visa", href: "/study-abroad/student-visa/australia" },
+      { label: "Germany Student Visa", href: "/study-abroad/student-visa/germany" },
+      { label: "Japan Student Visa", href: "/study-abroad/student-visa/japan" },
+      { label: "South Korea Student Visa", href: "/study-abroad/student-visa/south-korea" },
+      { label: "Malaysia Student Visa", href: "/study-abroad/student-visa/malaysia" },
+      { label: "Russia Student Visa", href: "/study-abroad/student-visa/russia" },
+      { label: "China Student Visa", href: "/study-abroad/student-visa/china" },
+      { label: "All Student Visas", href: "/study-abroad/student-visa" },
     ],
   },
   {
-    label: "Work Visa",
-    slug: "work-visa",
-    icon: "💼",
-    color: "#059669",
-    description: "Legal work authorization abroad from Bangladesh",
-    href: "/our-services/visa-services/work-visa-from-bangladesh",
+    label: "E-Visa",
+    slug: "e-visa",
+    icon: "🌐",
+    color: "#2563eb",
+    description: "Electronic visa processing and requirements for international travel",
+    href: "/visa/e-visa",
     links: [
-      { label: "Dubai Work Visa", href: "/our-services/visa/dubai-visa-application" },
-      { label: "Canada Work Visa", href: "/our-services/visa/canada-visa-application" },
-      { label: "UK Work Visa", href: "/our-services/visa/uk-visa-application" },
-      { label: "Qatar Work Visa", href: "/our-services/visa/qatar-visa-application" },
-      { label: "Saudi Arabia Work Visa", href: "/our-services/visa/saudi-arabia-visa-application" },
-      { label: "Portugal Work Visa", href: "/our-services/visa/portugal-visa-application" },
-      { label: "Germany Work Visa", href: "/our-services/visa/germany-visa-application" },
-      { label: "Australia Work Visa", href: "/our-services/visa/australia-visa-application" },
-      { label: "Japan Work Visa", href: "/our-services/visa/japan-visa-application" },
-      { label: "South Korea Work Visa", href: "/our-services/visa/south-korea-visa-application" },
+      { label: "Bangladesh to Albania E-Visa", href: "/visa-checker/bangladesh-visa-for-albania/e-visa" },
+      { label: "India to Albania E-Visa", href: "/visa-checker/india-visa-for-albania/e-visa" },
+      { label: "Bangladesh to Malaysia E-Visa", href: "/visa-checker/bangladesh-visa-for-malaysia/e-visa" },
+      { label: "India to Malaysia E-Visa", href: "/visa-checker/india-visa-for-malaysia/e-visa" },
+      { label: "Bangladesh to Singapore E-Visa", href: "/visa-checker/bangladesh-visa-for-singapore/e-visa" },
+      { label: "India to Singapore E-Visa", href: "/visa-checker/india-visa-for-singapore/e-visa" },
+      { label: "Egypt to Armenia E-Visa", href: "/visa-checker/egypt-visa-for-armenia/e-visa" },
+      { label: "India to Armenia E-Visa", href: "/visa-checker/india-visa-for-armenia/e-visa" },
+      { label: "Bangladesh to Nigeria E-Visa", href: "/visa-checker/bangladesh-visa-for-nigeria/e-visa" },
+      { label: "All E-Visa Guides", href: "/visa/e-visa" },
     ],
   },
   {
@@ -75,18 +73,18 @@ const VISA_GUIDES = [
     icon: "🇪🇺",
     color: "#DC2626",
     description: "Schengen & European country visas",
-    href: "/our-services/visa/europe-visa-application",
+    href: "/visa-checker",
     links: [
-      { label: "Germany Visa", href: "/our-services/visa/germany-visa-application" },
-      { label: "Spain Visa", href: "/our-services/visa/spain-visa-application" },
-      { label: "Portugal Visa", href: "/our-services/visa/portugal-visa-application" },
-      { label: "Albania Visa", href: "/our-services/visa/albania-visa-application" },
-      { label: "Serbia Visa", href: "/our-services/visa/serbia-visa-application" },
-      { label: "Montenegro Visa", href: "/our-services/visa/montenegro-visa-application" },
-      { label: "Kosovo Visa", href: "/our-services/visa/kosovo-visa-application" },
-      { label: "Cyprus Visa", href: "/our-services/visa/cyprus-visa-application" },
+      { label: "Germany Visa", href: "/visa-checker/india-visa-for-germany/visa-required" },
+      { label: "Spain Visa", href: "/visa-checker/india-visa-for-spain/visa-required" },
+      { label: "Portugal Visa", href: "/visa-checker/india-visa-for-portugal/visa-required" },
+      { label: "Albania Visa", href: "/visa-checker/india-visa-for-albania/e-visa" },
+      { label: "Serbia Visa", href: "/visa-checker/india-visa-for-serbia/visa-required" },
+      { label: "Montenegro Visa For Bangladeshi", href: "/visa-checker/bangladesh-visa-for-montenegro/visa-required" },
+      { label: "Kosovo Visa For Indian Nationals", href: "/visa-checker/india-visa-for-kosovo/visa-required" },
+      { label: "Cyprus Visa For Indian", href: "/visa-checker/india-visa-for-cyprus/visa-required" },
       { label: "Schengen Visa Guide", href: "/schengen-visa" },
-      { label: "Europe Visa Overview", href: "/our-services/visa/europe-visa-application" },
+      { label: "Europe Visa Overview", href: "/visa-checker/india-visa-for-italy/visa-required" },
     ],
   },
 ];
@@ -94,16 +92,16 @@ const VISA_GUIDES = [
 // Tourist Visa Bangladesh Nationals — /visa/[country]-visa
 const BANGLADESH_TOURIST_VISAS = [
   { label: "Japan Visa", href: "/visa/japan-visa", flag: "🇯🇵" },
-  { label: "Albania Visa", href: "/visa/albania-visa", flag: "🇦🇱" },
+  { label: "Albania Visa", href: "/visa-checker/bangladesh-visa-for-albania/e-visa", flag: "🇦🇱" },
   { label: "Georgia Visa", href: "/visa/georgia-visa", flag: "🇬🇪" },
   { label: "Armenia Visa", href: "/visa/armenia-visa", flag: "🇦🇲" },
   { label: "Turkey Visa", href: "/visa/turkey-visa", flag: "🇹🇷" },
   { label: "Dubai Visa", href: "/visa/united-arab-emirates-visa", flag: "🇦🇪" },
-  { label: "Malaysia Visa", href: "/visa/malaysia-visa", flag: "🇲🇾" },
-  { label: "Thailand Visa", href: "/visa/thailand-visa", flag: "🇹🇭" },
-  { label: "Singapore Visa", href: "/visa/singapore-visa", flag: "🇸🇬" },
+  { label: "Malaysia Visa", href: "/visa-checker/bangladesh-visa-for-malaysia/e-visa", flag: "🇲🇾" },
+  { label: "Thailand Visa", href: "/visa-checker/bangladesh-visa-for-thailand/e-visa", flag: "🇹🇭" },
+  { label: "Singapore Visa", href: "/visa-checker/bangladesh-visa-for-singapore/e-visa", flag: "🇸🇬" },
   { label: "Indonesia Visa", href: "/visa/indonesia-visa", flag: "🇮🇩" },
-  { label: "Sri Lanka Visa", href: "/visa/srilanka-visa", flag: "🇱🇰" },
+  { label: "Sri Lanka Visa", href: "/visa-checker/bangladesh-visa-for-srilanka/eta", flag: "🇱🇰" },
   { label: "Canada Visa", href: "/visa/canada-visa", flag: "🇨🇦" },
   { label: "UK Visa", href: "/visa/united-kingdom-visa", flag: "🇬🇧" },
   { label: "USA Visa", href: "/visa/united-states-visa", flag: "🇺🇸" },
@@ -121,24 +119,25 @@ const BANGLADESH_TOURIST_VISAS = [
 
 // Visa Guide slug pages: /visa/visa-guide/[country]-visa-for-[nationality]
 const VISA_GUIDE_SLUGS = [
-  { label: "Armenia Visa for India", href: "/visa/visa-guide/armenia-visa-for-india" },
-  { label: "Albania Visa for Bangladesh", href: "/visa/visa-guide/albania-visa-for-bangladesh" },
-  { label: "Georgia Visa for Bangladesh", href: "/visa/visa-guide/georgia-visa-for-bangladesh" },
+  { label: "Armenia Visa for India", href: "/visa-checker/india-visa-for-armenia/e-visa" },
+  { label: "Albania Visa for Bangladesh", href: "/visa-checker/bangladesh-visa-for-albania/e-visa" },
+  { label: "Georgia Visa for Bangladesh", href: "/visa-checker/bangladesh-visa-for-georgia/visa-required" },
   { label: "Dubai Visa for India", href: "/visa/visa-guide/united-arab-emirates-visa-for-india" },
   { label: "Turkey Visa for Bangladesh", href: "/visa/visa-guide/turkey-visa-for-bangladesh" },
-  { label: "Malaysia Visa for Bangladesh", href: "/visa/visa-guide/malaysia-visa-for-bangladesh" },
-  { label: "Singapore Visa for Bangladesh", href: "/visa/visa-guide/singapore-visa-for-bangladesh" },
+  { label: "Malaysia Visa for Bangladesh", href: "/visa-checker/bangladesh-visa-for-malaysia/e-visa" },
+  { label: "Singapore Visa for Bangladesh", href: "/visa-checker/bangladesh-visa-for-singapore/e-visa" },
   { label: "Canada Visa for Bangladesh", href: "/visa/visa-guide/canada-visa-for-bangladesh" },
-  { label: "UK Visa for Bangladesh", href: "/visa/visa-guide/uk-visa-for-bangladesh" },
+  { label: "UK Visa for Bangladesh", href: "/visa/visa-guide/united-kingdom-visa-for-bangladesh" },
   { label: "Japan Visa for Bangladesh", href: "/visa/visa-guide/japan-visa-for-bangladesh" },
   { label: "South Korea Visa for Bangladesh", href: "/visa/visa-guide/south-korea-visa-for-bangladesh" },
   { label: "Australia Visa for Bangladesh", href: "/visa/visa-guide/australia-visa-for-bangladesh" },
-  { label: "USA Visa for Bangladesh", href: "/visa/visa-guide/usa-visa-for-bangladesh" },
+  { label: "USA Visa for Bangladesh", href: "/visa/visa-guide/united-states-visa-for-bangladesh" },
   { label: "Germany Visa for Bangladesh", href: "/visa/visa-guide/germany-visa-for-bangladesh" },
-  { label: "Thailand Visa for Bangladesh", href: "/visa/visa-guide/thailand-visa-for-bangladesh" },
+  { label: "Thailand Visa for Bangladesh", href: "/visa-checker/bangladesh-visa-for-thailand/e-visa" },
   { label: "Serbia Visa for Bangladesh", href: "/visa/visa-guide/serbia-visa-for-bangladesh" },
   { label: "Armenia Visa for Bangladesh", href: "/visa/visa-guide/armenia-visa-for-bangladesh" },
-  { label: "Portugal Visa for Bangladesh", href: "/visa/visa-guide/portugal-visa-for-bangladesh" },
+  { label: "Portugal Visa for Bangladesh", href: "/visa-checker/portugal-visa-for-bangladesh/visa-required" },
+  { label: "Check All Visa Requirements", href: "/visa-checker" },
 ];
 
 // Dubai Residents hub: /visa/dubai-residents/[country]
@@ -170,39 +169,39 @@ const INDIA_HUB = {
   icon: "🇮🇳",
   tagline: "Visas for Indian passport holders",
   links: [
-    { label: "Albania Visa for India", href: "/visa/india/albania" },
+    { label: "Albania Visa for India", href: "/visa-checker/india-visa-for-albania/e-visa" },
     { label: "Serbia Visa for India", href: "/visa/india/serbia" },
-    { label: "Armenia Visa for India", href: "/visa/india/armenia" },
-    { label: "Georgia Visa for India", href: "/visa/india/georgia" },
+    { label: "Armenia Visa for India", href: "/visa-checker/india-visa-for-armenia/e-visa" },
+    { label: "Georgia Visa for India", href: "/visa-checker/india-visa-for-georgia/e-visa" },
     { label: "Canada Visa for India", href: "/visa/india/canada" },
     { label: "UK Visa for India", href: "/visa/india/united-kingdom" },
     { label: "USA Visa for India", href: "/visa/india/united-states" },
-    { label: "Australia Visa for India", href: "/visa/india/australia" },
+    { label: "Australia Visa for India", href: "/visa-checker/india-visa-for-australia/e-visa" },
     { label: "Germany Visa for India", href: "/visa/india/germany" },
     { label: "Japan Visa for India", href: "/visa/india/japan" },
     { label: "Turkey Visa for India", href: "/visa/india/turkey" },
-    { label: "Malaysia Visa for India", href: "/visa/india/malaysia" },
+    { label: "Malaysia Visa for India", href: "/visa-checker/india-visa-for-malaysia/e-visa" },
   ],
 };
 
 // Popular visa destinations
 const POPULAR_DESTINATIONS = [
-  { label: "Dubai", href: "/our-services/visa/dubai-visa-application", flag: "🇦🇪" },
-  { label: "Canada", href: "/our-services/visa/canada-visa-application", flag: "🇨🇦" },
-  { label: "USA", href: "/our-services/visa/usa-visa-application", flag: "🇺🇸" },
-  { label: "UK", href: "/our-services/visa/uk-visa-application", flag: "🇬🇧" },
-  { label: "Germany", href: "/our-services/visa/germany-visa-application", flag: "🇩🇪" },
-  { label: "Australia", href: "/our-services/visa/australia-visa-application", flag: "🇦🇺" },
-  { label: "Japan", href: "/our-services/visa/japan-visa-application", flag: "🇯🇵" },
-  { label: "Singapore", href: "/our-services/visa/singapore-visa-application", flag: "🇸🇬" },
-  { label: "Malaysia", href: "/our-services/visa/malaysia-visa-application", flag: "🇲🇾" },
-  { label: "Turkey", href: "/our-services/visa/turkey-visa-application", flag: "🇹🇷" },
-  { label: "Georgia", href: "/our-services/visa/georgia-visa-application", flag: "🇬🇪" },
-  { label: "Armenia", href: "/our-services/visa/armenia-visa-application", flag: "🇦🇲" },
-  { label: "Thailand", href: "/our-services/visa/thailand-visa-application", flag: "🇹🇭" },
-  { label: "South Korea", href: "/our-services/visa/south-korea-visa-application", flag: "🇰🇷" },
-  { label: "Portugal", href: "/our-services/visa/portugal-visa-application", flag: "🇵🇹" },
-  { label: "Qatar", href: "/our-services/visa/qatar-visa-application", flag: "🇶🇦" },
+  { label: "Dubai", href: "/visa/india/united-arab-emirates", flag: "🇦🇪" },
+  { label: "Canada", href: "/visa/dubai-residents/canada", flag: "🇨🇦" },
+  { label: "USA", href: "/visa/dubai-residents/united-states", flag: "🇺🇸" },
+  { label: "UK", href: "/visa/dubai-residents/united-kingdom", flag: "🇬🇧" },
+  { label: "Germany", href: "/visa/dubai-residents/germany", flag: "🇩🇪" },
+  { label: "Australia", href: "/visa/dubai-residents/australia", flag: "🇦🇺" },
+  { label: "Japan", href: "/visa/dubai-residents/japan", flag: "🇯🇵" },
+  { label: "Singapore", href: "/visa-checker/india-visa-for-singapore/e-visa", flag: "🇸🇬" },
+  { label: "Malaysia", href: "/visa-checker/india-visa-for-malaysia/e-visa", flag: "🇲🇾" },
+  { label: "Turkey", href: "/visa/dubai-residents/turkey", flag: "🇹🇷" },
+  { label: "Georgia", href: "/visa-checker/india-visa-for-georgia/e-visa", flag: "🇬🇪" },
+  { label: "Armenia", href: "/visa-checker/india-visa-for-armenia/e-visa", flag: "🇦🇲" },
+  { label: "Thailand", href: "/visa-checker/india-visa-for-thailand/e-visa", flag: "🇹🇭" },
+  { label: "South Korea", href: "/visa/dubai-residents/south-korea", flag: "🇰🇷" },
+  { label: "Portugal", href: "/visa/dubai-residents/portugal", flag: "🇵🇹" },
+  { label: "Qatar", href: "/visa-checker/india-visa-for-qatar/e-visa", flag: "🇶🇦" },
 ];
 
 // Study abroad
@@ -217,6 +216,7 @@ const STUDY_ABROAD = [
   { label: "Study in Malaysia", href: "/study-abroad/student-visa/malaysia", flag: "🇲🇾" },
   { label: "Study in Russia", href: "/study-abroad/student-visa/russia", flag: "🇷🇺" },
   { label: "Study in China", href: "/study-abroad/student-visa/china", flag: "🇨🇳" },
+  { label: "All Student Visas", href: "/study-abroad/student-visa", flag: "🌐" },
 ];
 
 // Scholarships
@@ -250,12 +250,12 @@ const PROCESSING_TIMES = [
 const REJECTION_RATES = [
   { label: "Bangladesh Student Visa Rejection — Albania", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-albania-student" },
   { label: "India Tourist Visa Rejection — Canada", href: "/visa-rejection/india-visa-rejection-rate-for-canada-tourist" },
-  { label: "India Work Visa Rejection — Canada", href: "/visa-rejection/india-visa-rejection-rate-for-canada-work" },
+  { label: "India Tourist Visa Rejection — Canada", href: "/visa-rejection/india-visa-rejection-rate-for-canada-tourist" },
   { label: "Bangladesh Student Visa Rejection — Germany", href: "/visa-rejection/iran-visa-rejection-rate-for-germany-student" },
   { label: "Bangladesh Tourist Visa Rejection — UK", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-united-kingdom-tourist" },
   { label: "Bangladesh Student Visa Rejection — USA", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-united-states-student" },
   { label: "Bangladesh Tourist Visa Rejection — Australia", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-australia-tourist" },
-  { label: "Bangladesh Work Visa Rejection — UAE", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-united-arab-emirates-work" },
+  { label: "Bangladesh Tourist Visa Rejection — UAE", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-united-arab-emirates-tourist" },
 ];
 
 // Tools
@@ -271,17 +271,45 @@ const TOOLS = [
   { label: "Flight Booking", href: "/flight-booking", icon: "✈️", desc: "Book flights to any destination worldwide" },
 ];
 
+// Visa Checker — extended country pairs
+const VISA_CHECKER_PAIRS = [
+  { label: "Bangladesh Visa for Albania", href: "/visa-checker/bangladesh-visa-for-albania/e-visa" },
+  { label: "Bangladesh Visa for Malaysia", href: "/visa-checker/bangladesh-visa-for-malaysia/e-visa" },
+  { label: "Bangladesh Visa for Thailand", href: "/visa-checker/bangladesh-visa-for-thailand/e-visa" },
+  { label: "Bangladesh Visa for Singapore", href: "/visa-checker/bangladesh-visa-for-singapore/e-visa" },
+  { label: "Bangladesh Visa for Sri Lanka", href: "/visa-checker/bangladesh-visa-for-srilanka/eta" },
+  { label: "Bangladesh Visa for Montenegro", href: "/visa-checker/bangladesh-visa-for-montenegro/visa-required" },
+  { label: "Bangladesh Visa for Portugal", href: "/visa-checker/portugal-visa-for-bangladesh/visa-required" },
+  { label: "India Visa for Albania", href: "/visa-checker/india-visa-for-albania/e-visa" },
+  { label: "India Visa for Armenia", href: "/visa-checker/india-visa-for-armenia/e-visa" },
+  { label: "India Visa for Georgia", href: "/visa-checker/india-visa-for-georgia/e-visa" },
+  { label: "India Visa for Malaysia", href: "/visa-checker/india-visa-for-malaysia/e-visa" },
+  { label: "India Visa for Singapore", href: "/visa-checker/india-visa-for-singapore/e-visa" },
+  { label: "India Visa for Australia", href: "/visa-checker/india-visa-for-australia/e-visa" },
+  { label: "India Visa for Thailand", href: "/visa-checker/india-visa-for-thailand/e-visa" },
+  { label: "India Visa for Qatar", href: "/visa-checker/india-visa-for-qatar/e-visa" },
+  { label: "India Visa for Germany", href: "/visa-checker/india-visa-for-germany/visa-required" },
+  { label: "India Visa for Spain", href: "/visa-checker/india-visa-for-spain/visa-required" },
+  { label: "India Visa for Portugal", href: "/visa-checker/india-visa-for-portugal/visa-required" },
+  { label: "India Visa for Serbia", href: "/visa-checker/india-visa-for-serbia/visa-required" },
+  { label: "India Visa for Kosovo", href: "/visa-checker/india-visa-for-kosovo/visa-required" },
+  { label: "India Visa for Cyprus", href: "/visa-checker/india-visa-for-cyprus/visa-required" },
+  { label: "India Visa for Italy", href: "/visa-checker/india-visa-for-italy/visa-required" },
+  { label: "Check All Visa Requirements", href: "/visa-checker" },
+];
+
 // Footer quick links
 const FOOTER_LINKS = [
   { label: "All Visa Services", href: "/our-services/visa-services" },
   { label: "Tourist Visa from Bangladesh", href: "/our-services/visa-services/tourist-visa-from-bangladesh" },
   { label: "Student Visa from Bangladesh", href: "/our-services/visa-services/student-visa-from-bangladesh" },
-  { label: "Work Visa from Bangladesh", href: "/our-services/visa-services/work-visa-from-bangladesh" },
   { label: "Bangladesh Tourist Visa", href: "/visa" },
   { label: "Dubai Residents Visa", href: "/visa/dubai-residents" },
   { label: "India Passport Visas", href: "/visa/india" },
   { label: "Visa Guide", href: "/visa/visa-guide" },
+  { label: "E-Visa Guide", href: "/visa/e-visa" },
   { label: "Schengen Visa", href: "/schengen-visa" },
+  { label: "Visa Checker", href: "/visa-checker" },
   { label: "Study Abroad", href: "/study-abroad" },
   { label: "Scholarships", href: "/scholarships" },
   { label: "Processing Times", href: "/travel-resources/visa-processing-time-tracker" },
@@ -313,9 +341,18 @@ function buildStructuredData() {
         "@type": "TravelAgency",
         name: "Eammu Holidays",
         url: SITE_URL,
-        description: "IATA-accredited travel agency in Bangladesh offering visa services, tour packages, flight booking, and study abroad guidance.",
+        description:
+          "IATA-accredited travel agency in Bangladesh offering visa services, tour packages, flight booking, and study abroad guidance.",
         areaServed: ["Bangladesh", "United Arab Emirates", "India"],
-        serviceType: ["Tourist Visa Services", "Student Visa Services", "Work Visa Services", "Tour Packages", "Flight Booking", "Travel Insurance"],
+        serviceType: [
+          "Tourist Visa Services",
+          "Student Visa Services",
+          "E-Visa Services",
+          "Europe Visa Services",
+          "Tour Packages",
+          "Flight Booking",
+          "Travel Insurance",
+        ],
       },
       {
         "@type": "ItemList",
@@ -341,6 +378,36 @@ function buildStructuredData() {
         "@type": "ItemList",
         name: "Country Visa Guides — Eammu Holidays",
         itemListElement: VISA_GUIDE_SLUGS.map((v, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: v.label,
+          url: `${SITE_URL}${v.href}`,
+        })),
+      },
+      {
+        "@type": "ItemList",
+        name: "Visa Checker Country Pairs — Eammu Holidays",
+        itemListElement: VISA_CHECKER_PAIRS.map((v, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: v.label,
+          url: `${SITE_URL}${v.href}`,
+        })),
+      },
+      {
+        "@type": "ItemList",
+        name: "Dubai Residents Visa Guides — Eammu Holidays",
+        itemListElement: DUBAI_RESIDENTS.links.map((v, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: v.label,
+          url: `${SITE_URL}${v.href}`,
+        })),
+      },
+      {
+        "@type": "ItemList",
+        name: "India Passport Visa Guides — Eammu Holidays",
+        itemListElement: INDIA_HUB.links.map((v, i) => ({
           "@type": "ListItem",
           position: i + 1,
           name: v.label,
@@ -581,7 +648,7 @@ export default function HomeSeoLinks() {
             Complete Visa &amp; Travel Resource Hub
           </h2>
           <p className="text-[0.85rem] text-[#6B7280] mt-2 max-w-2xl leading-relaxed">
-            IATA-accredited visa assistance from Bangladesh · Tourist, student &amp; work visas · Study abroad · Travel tools &amp; resources
+            IATA-accredited visa assistance from Bangladesh · Tourist, student &amp; e-visas · Europe &amp; Schengen · Study abroad · Travel tools &amp; resources
           </p>
         </div>
 
@@ -590,7 +657,7 @@ export default function HomeSeoLinks() {
           <SectionHeading
             label="Visa Services"
             title="Visa Services from Bangladesh"
-            subtitle="Tourist, student, work, and European visa assistance — expert guidance for every journey"
+            subtitle="Tourist, student, e-visa, and European visa assistance — expert guidance for every journey"
             href="/our-services/visa-services"
             linkLabel="All visa services"
           />
@@ -659,7 +726,27 @@ export default function HomeSeoLinks() {
 
         <Divider />
 
-        {/* ── 5. COUNTRY HUBS ───────────────────────────────────────────── */}
+        {/* ── 5. VISA CHECKER PAIRS ─────────────────────────────────────── */}
+        <div id="visa-checker">
+          <SectionHeading
+            label="Visa Checker"
+            title="Check Visa Requirements by Nationality"
+            subtitle="Instant visa requirement lookup for Bangladesh, India & other nationalities — visa-on-arrival, e-visa, or embassy required"
+            href="/visa-checker"
+            linkLabel="Open visa checker"
+          />
+          <div className="flex flex-wrap gap-2">
+            {VISA_CHECKER_PAIRS.map((v) => (
+              <PillLink key={v.href} href={v.href}>
+                {v.label}
+              </PillLink>
+            ))}
+          </div>
+        </div>
+
+        <Divider />
+
+        {/* ── 6. COUNTRY HUBS ───────────────────────────────────────────── */}
         <div id="country-hubs">
           <SectionHeading
             label="Passport Hubs"
@@ -676,7 +763,7 @@ export default function HomeSeoLinks() {
 
         <Divider />
 
-        {/* ── 6. STUDY ABROAD + SCHOLARSHIPS ───────────────────────────── */}
+        {/* ── 7. STUDY ABROAD + SCHOLARSHIPS ───────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10" id="study-scholarships">
 
           <div id="study-abroad">
@@ -723,7 +810,9 @@ export default function HomeSeoLinks() {
                   <li key={s.href}>
                     <Link
                       href={s.href}
-                      className={`flex items-center gap-2 text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors py-2 ${i < SCHOLARSHIPS.length - 1 ? "border-b border-[#F3F4F6]" : ""}`}
+                      className={`flex items-center gap-2 text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors py-2 ${
+                        i < SCHOLARSHIPS.length - 1 ? "border-b border-[#F3F4F6]" : ""
+                      }`}
                     >
                       <span className="w-1 h-1 rounded-full bg-[#D1D5DB] shrink-0" aria-hidden="true" />
                       {s.label}
@@ -737,7 +826,7 @@ export default function HomeSeoLinks() {
 
         <Divider />
 
-        {/* ── 7. TOOLS & RESOURCES ─────────────────────────────────────── */}
+        {/* ── 8. TOOLS & RESOURCES ─────────────────────────────────────── */}
         <div id="visa-tools">
           <SectionHeading
             label="Free Tools"
@@ -755,7 +844,7 @@ export default function HomeSeoLinks() {
 
         <Divider />
 
-        {/* ── 8. PROCESSING TIMES + REJECTION RATES ────────────────────── */}
+        {/* ── 9. PROCESSING TIMES + REJECTION RATES ────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
           <div id="processing-times">
@@ -795,7 +884,7 @@ export default function HomeSeoLinks() {
 
         <Divider />
 
-        {/* ── 9. SEO FOOTER NAV ─────────────────────────────────────────── */}
+        {/* ── 10. SEO FOOTER NAV ────────────────────────────────────────── */}
         <nav
           aria-label="Eammu Holidays — site-wide quick navigation"
           className="pt-2"

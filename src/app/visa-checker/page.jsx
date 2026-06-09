@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 const API_KEY = process.env.NEXT_PUBLIC_EAMMU_API_KEY;
 const BASE    = "https://api.eammu.com/api/v1";
@@ -885,6 +886,7 @@ export default function VisaCheckerPage() {
 
         </div>
       </div>
+      <HomeSeoLinks />
     </>
   );
 }

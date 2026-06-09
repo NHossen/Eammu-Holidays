@@ -3,6 +3,7 @@
 
 import { Suspense } from "react";
 import CountryVisaClient from "./Countryvisaclient";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 
 // ── helpers (server-safe, no hooks) ──────────────────────────────────────────
@@ -93,6 +94,7 @@ export default async function CountryVisaPage({ params }) {
         passportName={passport}
         destinationName={destination}
       />
+      <HomeSeoLinks/>
     </Suspense>
 
 
