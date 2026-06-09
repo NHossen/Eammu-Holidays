@@ -25,6 +25,134 @@ import CountrySelector from './CountrySelector';
 import StudySearch from './StudySearch';
 import ProcessingCountrySelector from './Processingcountryselector';
 
+// ─── eammu API ────────────────────────────────────────────────────────────────
+const EAMMU_KEY  = process.env.NEXT_PUBLIC_EAMMU_API_KEY;
+const EAMMU_BASE = "https://api.eammu.com/api/v1";
+
+const VISA_STATUS_META = {
+  "visa required":   { color: "#DC2626", light: "#FFF5F5", label: "Visa Required"  },
+  "e-visa":          { color: "#2563EB", light: "#EFF6FF", label: "E-Visa"          },
+  "visa on arrival": { color: "#059669", light: "#ECFDF5", label: "Visa on Arrival" },
+  "eta":             { color: "#7C3AED", light: "#F5F3FF", label: "ETA"             },
+  "no admission":    { color: "#B45309", light: "#FFFBEB", label: "No Admission"    },
+};
+
+function extractGuideSlug(url) {
+  if (!url) return null;
+  const part = url.split("/visa-guides/")[1];
+  if (!part) return null;
+  return part.split("?")[0].split("#")[0].trim() || null;
+}
+
+// Live-search input powered by eammu /suggest
+function VisaCountryInput({ label, placeholder, value, onChange, excludeCode }) {
+  const [query,       setQuery]       = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [open,        setOpen]        = useState(false);
+  const [focused,     setFocused]     = useState(false);
+  const [busy,        setBusy]        = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const close = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false); setFocused(false);
+      }
+    };
+    document.addEventListener("mousedown", close);
+    return () => document.removeEventListener("mousedown", close);
+  }, []);
+
+  useEffect(() => {
+    if (query.length < 1) { setSuggestions([]); setOpen(false); return; }
+    const t = setTimeout(async () => {
+      setBusy(true);
+      try {
+        const r = await fetch(`${EAMMU_BASE}/suggest?q=${encodeURIComponent(query)}&api_key=${EAMMU_KEY}`);
+        const d = await r.json();
+        const list = (d.suggestions || []).filter(s => s.code !== excludeCode);
+        setSuggestions(list); setOpen(list.length > 0);
+      } catch { setSuggestions([]); }
+      finally { setBusy(false); }
+    }, 220);
+    return () => clearTimeout(t);
+  }, [query, excludeCode]);
+
+  const handleFocus = async () => {
+    setFocused(true);
+    if (value || query.length > 0) return;
+    setBusy(true);
+    try {
+      const r = await fetch(`${EAMMU_BASE}/suggest?q=a&api_key=${EAMMU_KEY}`);
+      const d = await r.json();
+      const list = (d.suggestions || []).filter(s => s.code !== excludeCode);
+      if (list.length > 0) { setSuggestions(list); setOpen(true); }
+    } catch {}
+    finally { setBusy(false); }
+  };
+
+  const pick  = (s) => { onChange(s); setQuery(""); setSuggestions([]); setOpen(false); setFocused(false); };
+  const clear = ()  => { onChange(null); setQuery(""); setSuggestions([]); };
+
+  return (
+    <div ref={ref} className="relative flex-1 min-w-0">
+      <div className={`flex items-center gap-2 px-3 py-2 rounded-xl border transition-all
+        ${focused
+          ? "border-yellow-400 bg-white shadow-sm"
+          : value ? "border-slate-200 bg-slate-50/70" : "border-slate-100 bg-slate-50/70"
+        }`}
+      >
+        {value?.flag
+          ? <img src={value.flag} alt="" className="w-5 h-3.5 object-cover rounded-sm shrink-0" />
+          : <span className="text-slate-300 text-sm shrink-0">🌍</span>
+        }
+        <div className="flex flex-col min-w-0 flex-1">
+          <span className="text-[8px] font-black uppercase text-yellow-600 leading-none mb-0.5">{label}</span>
+          <input
+            type="text"
+            className="bg-transparent text-[13px] font-bold outline-none w-full text-slate-700 placeholder:text-slate-300"
+            placeholder={placeholder}
+            value={value ? value.name : query}
+            onChange={(e) => {
+              if (value) clear();
+              setQuery(e.target.value);
+              if (e.target.value.length === 0) setOpen(false);
+            }}
+            onFocus={handleFocus}
+            autoComplete="off"
+            spellCheck={false}
+          />
+        </div>
+        {busy && (
+          <span className="w-3 h-3 border border-slate-200 border-t-yellow-500 rounded-full animate-spin shrink-0" />
+        )}
+        {value && (
+          <button
+            onClick={clear}
+            className="text-slate-300 hover:text-slate-500 text-lg leading-none shrink-0"
+          >×</button>
+        )}
+      </div>
+
+      {open && suggestions.length > 0 && (
+        <ul className="absolute top-full mt-1 left-0 right-0 bg-white border border-slate-200 rounded-xl shadow-lg z-50 max-h-48 overflow-y-auto py-1">
+          {suggestions.map(s => (
+            <li
+              key={s.code}
+              onMouseDown={(e) => { e.preventDefault(); pick(s); }}
+              className="flex items-center gap-2 px-3 py-2 cursor-pointer text-xs text-slate-600 hover:bg-yellow-50 font-medium"
+            >
+              {s.flag && <img src={s.flag} alt="" className="w-4 h-3 object-cover rounded-sm shrink-0" />}
+              <span>{s.name}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+// ─── end eammu helpers ────────────────────────────────────────────────────────
+
 const TABS = [
   { id: 'visa',         label: 'Visa',              icon: Globe,         activeColor: 'text-green-700',  underline: 'bg-green-500'  },
   { id: 'flight',       label: 'Flight',            icon: Plane,         activeColor: 'text-blue-700',   underline: 'bg-blue-500'   },
@@ -86,12 +214,19 @@ export default function TravelMenu() {
   const [procOrigin, setProcOrigin]           = useState('bangladesh');
   const [procDestination, setProcDestination] = useState('canada');
 
+  // ── Visa tab — eammu state ─────────────────────────────────────────────────
+  const [visaPassport,    setVisaPassport]    = useState(null);
+  const [visaDestination, setVisaDestination] = useState(null);
+  const [visaResult,      setVisaResult]      = useState(null);
+  const [visaLoading,     setVisaLoading]     = useState(false);
+  const [visaError,       setVisaError]       = useState("");
+  // ──────────────────────────────────────────────────────────────────────────
+
   // Scholarship search
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = useRef(null);
 
   // Countries list (loaded via API or imported)
-  // Using the imported countries.json; if you prefer the API, replace accordingly
   const countriesList = countries; // alias for clarity
 
   const scrollRef = useRef(null);
@@ -101,6 +236,54 @@ export default function TravelMenu() {
       c.country.toLowerCase().includes(searchTerm.toLowerCase())
     ).slice(0, 4);
   }, [searchTerm, countriesList]);
+
+  // Pre-fill eammu visa selectors with Bangladesh → Canada
+  useEffect(() => {
+    const fetchDefault = async (name) => {
+      try {
+        const r = await fetch(`${EAMMU_BASE}/suggest?q=${encodeURIComponent(name)}&api_key=${EAMMU_KEY}`);
+        const d = await r.json();
+        return (d.suggestions || []).find(s => s.name.toLowerCase() === name.toLowerCase())
+          || (d.suggestions || [])[0]
+          || null;
+      } catch { return null; }
+    };
+    Promise.all([fetchDefault("Bangladesh"), fetchDefault("Canada")]).then(([pp, dd]) => {
+      if (pp) setVisaPassport(pp);
+      if (dd) setVisaDestination(dd);
+    });
+  }, []);
+
+  // ── eammu check ───────────────────────────────────────────────────────────
+  const checkVisa = async () => {
+    if (!visaPassport || !visaDestination) return;
+    setVisaLoading(true); setVisaError(""); setVisaResult(null);
+    try {
+      const r = await fetch(
+        `${EAMMU_BASE}/passport?from=${encodeURIComponent(visaPassport.name)}&to=${encodeURIComponent(visaDestination.name)}&api_key=${EAMMU_KEY}`
+      );
+      if (!r.ok) throw new Error();
+      const data = await r.json();
+      setVisaResult(data);
+    } catch {
+      setVisaError("Visa Details Not Available. Please Contact - info@eammu.com");
+    } finally {
+      setVisaLoading(false);
+    }
+  };
+  // ──────────────────────────────────────────────────────────────────────────
+
+  // ── Derived visa-guide slug & href ────────────────────────────────────────
+  const visaGuideSlug = visaResult
+    ? extractGuideSlug(visaResult.visa_guide_url)
+      || VISA_STATUS_META[visaResult.visa_status]?.slug
+      || "visa-required"
+    : null;
+
+  const visaRouteSlug = visaResult
+    ? `${createSlug(visaPassport?.name || "")}-visa-for-${createSlug(visaDestination?.name || "")}`
+    : null;
+  // ──────────────────────────────────────────────────────────────────────────
 
   // Close scholarship dropdown on outside click
   useEffect(() => {
@@ -201,32 +384,105 @@ export default function TravelMenu() {
             {/* ════════════════ VISA TAB ════════════════ */}
             {activeTab === 'visa' && (
               <div className="space-y-3 w-full">
-                <h2 className="text-sm sm:text-lg font-black text-gray-800 text-center tracking-tight leading-none">
-                  Check Your Visa Requirements
+                <h2 className="text-xs sm:text-lg font-black text-gray-800 text-center tracking-tight leading-none">
+                  Check Your Visa Requirements Before You Fly
                 </h2>
-                <div className="flex flex-col md:flex-row items-stretch md:items-center gap-2 max-w-4xl mx-auto w-full">
-                  <CountrySelector
-                    label="Citizenship"
-                    value={origin}
-                    onChange={setOrigin}
-                    exclude={destination}
-                    recentKey="recent_origin"
+
+                {/* ── Country selectors row ── */}
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-end gap-2 max-w-4xl mx-auto w-full">
+                  <VisaCountryInput
+                    label="Your Passport"
+                    placeholder="Select nationality…"
+                    value={visaPassport}
+                    onChange={(c) => { setVisaPassport(c); setVisaResult(null); }}
+                    excludeCode={visaDestination?.code}
                   />
-                  <div className="hidden md:flex shrink-0 px-1">
-                    <ChevronRightIcon size={14} className="text-slate-300" />
-                  </div>
-                  <CountrySelector
+
+                  {/* Swap button */}
+                  <button
+                    onClick={() => {
+                      setVisaPassport(visaDestination);
+                      setVisaDestination(visaPassport);
+                      setVisaResult(null);
+                    }}
+                    title="Swap"
+                    className="hidden cursor-pointer sm:flex w-8 h-8 self-end mb-1 shrink-0 rounded-full border border-slate-200 bg-slate-50 items-center justify-center text-slate-400 hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-all text-sm"
+                  >⇄</button>
+
+                  <VisaCountryInput
                     label="Destination"
-                    value={destination}
-                    onChange={setDestination}
-                    exclude={origin}
-                    recentKey="recent_dest"
+                    placeholder="Where are you going?"
+                    value={visaDestination}
+                    onChange={(c) => { setVisaDestination(c); setVisaResult(null); }}
+                    excludeCode={visaPassport?.code}
                   />
-                  <div className="md:w-32 bg-slate-50/70 px-3 py-2.5 rounded-xl border border-slate-100 text-left">
-                    <p className="text-[8px] font-black uppercase text-blue-900 leading-none mb-1">Visa Type</p>
-                    <p className="font-bold text-blue-900 text-[13px]">Tourist</p>
-                  </div>
                 </div>
+
+                {/* ── Error ── */}
+                {visaError && (
+                  <p className="text-center text-xs text-red-500 font-medium">{visaError}</p>
+                )}
+
+                {/* ── Result card ── */}
+                {visaResult && (() => {
+                  const meta       = VISA_STATUS_META[visaResult.visa_status];
+                  const isNumFree  = !meta && visaResult.visa_status && /^\d+$/.test(String(visaResult.visa_status));
+                  const color      = meta?.color || "#10b981";
+                  const light      = meta?.light || "#ecfdf5";
+                  const statusLabel = meta?.label || (isNumFree ? `Visa-Free · ${visaResult.visa_status} days` : visaResult.visa_status);
+
+                  return (
+                    <div
+                      className="rounded-2xl border-2 p-3 flex items-center gap-3 max-w-4xl mx-auto w-full"
+                      style={{ borderColor: color, background: light }}
+                    >
+                      {/* From */}
+                      <div className="flex flex-col items-center gap-1 shrink-0">
+                        {visaResult.from?.passport_cover
+                          ? <img src={visaResult.from.passport_cover} alt="" className="w-9 h-12 object-cover rounded-lg shadow" />
+                          : visaResult.from?.flag
+                            ? <img src={visaResult.from.flag} alt="" className="w-9 h-6 object-cover rounded shadow" />
+                            : null
+                        }
+                        {visaResult.from?.flag && visaResult.from?.passport_cover && (
+                          <img src={visaResult.from.flag} alt="" className="w-6 h-4 object-cover rounded-sm" />
+                        )}
+                        <span className="text-[9px] font-bold text-slate-500 text-center leading-tight max-w-[60px] truncate">
+                          {visaResult.from?.name}
+                        </span>
+                      </div>
+
+                      {/* Centre — status pill + arrow */}
+                      <div className="flex-1 flex flex-col items-center gap-1.5 min-w-0">
+                        <span
+                          className="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full text-white whitespace-nowrap"
+                          style={{ background: color }}
+                        >{statusLabel}</span>
+                        <div className="flex items-center gap-1.5 w-full">
+                          <div className="flex-1 h-px opacity-25" style={{ background: color }} />
+                          <span className="text-base" style={{ color }}>✈</span>
+                          <div className="flex-1 h-px opacity-25" style={{ background: color }} />
+                        </div>
+                      </div>
+
+                      {/* To */}
+                      <div className="flex flex-col items-center gap-1 shrink-0">
+                        {visaResult.to?.passport_cover
+                          ? <img src={visaResult.to.passport_cover} alt="" className="w-9 h-12 object-cover rounded-lg shadow" />
+                          : visaResult.to?.flag
+                            ? <img src={visaResult.to.flag} alt="" className="w-9 h-6 object-cover rounded shadow" />
+                            : null
+                        }
+                        {visaResult.to?.flag && visaResult.to?.passport_cover && (
+                          <img src={visaResult.to.flag} alt="" className="w-6 h-4 object-cover rounded-sm" />
+                        )}
+                        <span className="text-[9px] font-bold text-slate-500 text-center leading-tight max-w-[60px] truncate">
+                          {visaResult.to?.name}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             )}
 
@@ -554,23 +810,37 @@ export default function TravelMenu() {
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex justify-center w-full px-8">
             <Link 
               href={
-                activeTab === 'visa'         ? `/visa/visa-guide/${createSlug(destination)}-visa-for-${createSlug(origin)}` :
-                activeTab === 'study'        ? '/study-abroad/student-visa' :
-                activeTab === 'scholarships' ? '/scholarships' :
-                activeTab === 'templates'    ? '/travel-resources' :
-                activeTab === 'processing'   ? `/travel-resources/visa-processing-time-tracker/${procOrigin.replace(/\s+/g, "-")}-national-visa-processing-time-for-${procDestination.replace(/\s+/g, "-")}-${visaType}` :
-                activeTab === 'tour'         ? '/our-services/tour-packages' :
-                                               '/our-services/things-to-do'
+                activeTab === 'visa'
+                  ? (visaResult && visaGuideSlug
+                      ? `/visa-checker/${visaRouteSlug}/${visaGuideSlug}`
+                      : `/visa/visa-guide/${createSlug(visaDestination?.name || 'canada')}-visa-for-${createSlug(visaPassport?.name || 'bangladesh')}`)
+                  : activeTab === 'study'        ? '/study-abroad/student-visa'
+                  : activeTab === 'scholarships' ? '/scholarships'
+                  : activeTab === 'templates'    ? '/travel-resources'
+                  : activeTab === 'processing'   ? `/travel-resources/visa-processing-time-tracker/${procOrigin.replace(/\s+/g, "-")}-national-visa-processing-time-for-${procDestination.replace(/\s+/g, "-")}-${visaType}`
+                  : activeTab === 'tour'         ? '/our-services/tour-packages'
+                  :                               '/our-services/things-to-do'
               }
-              className="w-full sm:w-64 bg-[#FFC107] hover:bg-yellow-500 text-blue-950 py-3.5 rounded-xl font-black text-sm uppercase shadow-xl text-center active:scale-95 transition-all"
+              onClick={(e) => {
+                // On visa tab: first click fires the API check; second click navigates
+                if (activeTab === 'visa' && !visaResult && !visaLoading) {
+                  e.preventDefault();
+                  checkVisa();
+                }
+              }}
+              className="w-full sm:w-64 bg-[#FFC107] hover:bg-yellow-500 text-blue-950 py-3.5 rounded-xl font-black text-sm uppercase shadow-xl text-center active:scale-95 transition-all flex items-center justify-center gap-2"
             >
-              {activeTab === 'visa'         ? 'Search Visa' :
-               activeTab === 'study'        ? 'Search Study' :
-               activeTab === 'scholarships' ? 'Find Scholarships' :
-               activeTab === 'templates'    ? 'Download Templates' :
-               activeTab === 'processing'   ? 'Track Processing' :
-               activeTab === 'tour'         ? 'Search Tour' :
-                                              'Search Activities'}
+              {visaLoading && activeTab === 'visa' && (
+                <span className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+              )}
+              {activeTab === 'visa'
+                ? (visaLoading ? 'Checking…' : visaResult ? 'View Full Visa Guide →' : 'Check Visa Now')
+                : activeTab === 'study'        ? 'Search Study'
+                : activeTab === 'scholarships' ? 'Find Scholarships'
+                : activeTab === 'templates'    ? 'Download Templates'
+                : activeTab === 'processing'   ? 'Track Processing'
+                : activeTab === 'tour'         ? 'Search Tour'
+                :                               'Search Activities'}
             </Link>
           </div>
         )}

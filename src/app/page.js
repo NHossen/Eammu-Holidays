@@ -9,6 +9,7 @@ import HeroSection from "@/Components/Server/HeroSection/HeroSection";
 import LandingModal from "@/Components/Client/LandingModal/LandingModal";
 import CountrySearchBar from "@/Components/Client/visaServices/Visa/StudentVisaBangladesh/StudentVisa/Countrysearchbar/Countrysearchbar";
 import SpecialDayBanner from "@/Components/Client/HeroHome/SpecialDayBanner/SpecialDayBanner";
+import VisaCheckerHome from "@/Components/Visacheckerhome/Visacheckerhome";
 
 
 // ── BELOW THE FOLD — lazy load (first load bundle ছোট রাখে) ─────────────────
@@ -318,11 +319,12 @@ export default function Home() {
 
       {/* ✅ ABOVE THE FOLD — eager load */}
       <HeroSection />
-
+      
+      
       <section id="student-visa" aria-label="Student Visa Country Search">
         <CountrySearchBar />
       </section>
-
+        <VisaCheckerHome />
       <SpecialDayBanner />
 
       {/* ✅ BELOW THE FOLD — lazy load, skeleton দেখায় */}
