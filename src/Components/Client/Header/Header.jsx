@@ -169,90 +169,198 @@ export default function Header() {
       </nav>
 
       {/* ================= FULL SCREEN MOBILE MENU (UPDATED) ================= */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[100] bg-white flex flex-col overflow-y-auto"
-          >
-            {/* Header & Close Button */}
-            <div className="p-6 flex justify-between items-center border-b border-gray-50">
-              <div className="relative h-10 w-32">
-                <Image 
-                  src="/eammu_holidays_Travel_agency.webp" 
-                  alt="Logo" 
-                  fill 
-                  className="object-contain object-left" 
-                />
-              </div>
-              <button onClick={() => setMobileMenuOpen(false)} className="p-2 text-gray-500">
-                <X size={32} />
-              </button>
-            </div>
+      {/* ================= FULL SCREEN MOBILE MENU ================= */}
+<AnimatePresence>
+  {mobileMenuOpen && (
+    <motion.div
+      initial={{ x: "-100%" }}
+      animate={{ x: 0 }}
+      exit={{ x: "-100%" }}
+      transition={{ type: "spring", damping: 28, stiffness: 220 }}
+      className="fixed inset-0 z-[100] bg-white flex flex-col overflow-hidden"
+    >
+      {/* ── Top bar ── */}
+      <div className="flex-shrink-0 flex items-center justify-between px-5 py-4 border-b border-gray-100">
+        <div className="relative h-9 w-28">
+          <Image
+            src="/eammu_holidays_Travel_agency.webp"
+            alt="Eammu Holidays"
+            fill
+            className="object-contain object-left"
+          />
+        </div>
+        <button
+          onClick={() => setMobileMenuOpen(false)}
+          className="p-2 rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 transition-colors"
+          aria-label="Close menu"
+        >
+          <X size={22} />
+        </button>
+      </div>
 
-            <div className="px-6 pb-10 flex-1">
-              {/* Blue "Hello Traveler" Banner */}
-              <div className="mt-6 bg-[#FFCC00] rounded-2xl p-6 mb-8 text-white shadow-lg">
-                <h2 className="text-2xl font-bold mb-1">Hello, Traveler</h2>
-                <p className="text-sm opacity-90 mb-5">Get exclusive deals & plan your trips!</p>
-                <button className="bg-[#ffffff] text-[#005a1b] font-bold py-2.5 px-8 rounded-lg hover:bg-[#e6b800] transition-colors">
-                  Sign In
-                </button>
-              </div>
+      {/* ── Scrollable body ── */}
+      <div className="flex-1 overflow-y-auto overscroll-contain">
 
-              {/* Menu Sections (Travel, Extras, Rewards) */}
-              <div className="flex flex-col gap-10">
-                {menuGroups.map((group) => (
-                  <div key={group.title} className="border-b border-gray-50 pb-6 last:border-none">
-                    <h3 className="text-gray-900 font-bold text-lg mb-6">{group.title}</h3>
-                    <div className="flex flex-col gap-6">
-                      {group.items.map((item) => (
-                        <Link 
-                          key={item.label} 
-                          href={item.path}
-                          className="flex items-center gap-4 text-gray-600 hover:text-[#005a31] transition-colors"
-                        >
-                          <item.icon size={26} className="text-[#005a31]" />
-                          <span className="text-lg font-medium">{item.label}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-                
-                {/* Original Nav Items (Home, About, etc.) for Mobile */}
-                <div className="border-t border-gray-50 pt-6">
-                  <h3 className="text-gray-900 font-bold text-lg mb-6">Explore</h3>
-                  <div className="flex flex-col gap-6">
-                    {navItems.map((item) => (
-                      <Link 
-                        key={item.path} 
-                        href={item.path} 
-                        className={`text-lg font-medium ${pathname === item.path ? "text-[#005a31]" : "text-gray-600"}`}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
+        {/* ── Quick Actions Grid ── */}
+        <div className="px-5 pt-6 pb-2">
+          <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-gray-400 mb-4">
+            Quick Actions
+          </p>
+          <div className="grid grid-cols-4 gap-3">
+            {[
+              { label: "Visa",    icon: FileText,  path: "/visa-checker",  bg: "bg-green-50",  iconColor: "text-[#005a31]" },
+              { label: "Flight",  icon: Plane,     path: "/flight-booking",               bg: "bg-sky-50",    iconColor: "text-sky-600"   },
+              { label: "Tour",    icon: Palmtree,  path: "/our-services/tour-packages",   bg: "bg-orange-50", iconColor: "text-orange-500"},
+              { label: "Umrah",   icon: ShieldCheck, path: "/our-services/umrah-packages",bg: "bg-amber-50",  iconColor: "text-amber-600" },
+            ].map((tile) => (
+              <Link
+                key={tile.label}
+                href={tile.path}
+                className="flex flex-col items-center gap-2 py-4 rounded-2xl border border-gray-100 bg-white shadow-sm active:scale-95 transition-transform"
+              >
+                <div className={`w-11 h-11 rounded-xl ${tile.bg} flex items-center justify-center`}>
+                  <tile.icon size={22} className={tile.iconColor} />
                 </div>
-              </div>
-            </div>
+                <span className="text-[11px] font-bold text-gray-700">{tile.label}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
 
-            {/* Social Connection Footer */}
-            <div className="p-8 border-t border-gray-100 bg-gray-50">
-              <p className="text-gray-400 text-[10px] uppercase font-bold tracking-widest mb-4">Connect with us</p>
-              <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#005a31] shadow-sm border border-gray-100"><Facebook size={20} /></div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#005a31] shadow-sm border border-gray-100"><Instagram size={20} /></div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#005a31] shadow-sm border border-gray-100"><MessageCircle size={20} /></div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* ── Visa Destinations strip ── */}
+        <div className="px-5 pt-6 pb-2">
+          <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-gray-400 mb-3">
+            Popular Visa Destinations
+          </p>
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+            {[
+              { flag: "🇦🇪", label: "Dubai",     path: "/visa/united-arab-emirates-visa"  },
+              { flag: "🇲🇾", label: "Malaysia",  path: "/visa-checker"       },
+              { flag: "🇹🇭", label: "Thailand",  path: "/visa-checker"       },
+              { flag: "🇬🇧", label: "UK",        path: "/visa-checker"       },
+              { flag: "🇩🇪", label: "Schengen",  path: "/schengen-visa"                    },
+              { flag: "🇨🇦", label: "Canada",    path: "/visa-checker"       },
+              { flag: "🇦🇺", label: "Australia", path: "/visa-checker"       },
+              { flag: "🇯🇵", label: "Japan",     path: "/visa-checker"       },
+            ].map((dest) => (
+              <Link
+                key={dest.label}
+                href={dest.path}
+                className="flex-shrink-0 flex flex-col items-center gap-1.5 px-3 py-2.5 rounded-xl bg-gray-50 border border-gray-100 active:bg-green-50 transition-colors"
+              >
+                <span className="text-2xl leading-none">{dest.flag}</span>
+                <span className="text-[10px] font-semibold text-gray-600 whitespace-nowrap">{dest.label}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Main nav links ── */}
+        <div className="px-5 pt-6">
+          <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-gray-400 mb-3">
+            Services
+          </p>
+          <div className="rounded-2xl border border-gray-100 overflow-hidden divide-y divide-gray-100">
+            {[
+              { label: "Visa Services",         sub: "Tourist, student, business",    icon: FileText,   path: "/our-services/visa-services"       },
+              { label: "Flight Booking",         sub: "International & domestic",      icon: Plane,      path: "/flight-booking"                   },
+              { label: "Tour Packages",          sub: "Family, group, honeymoon",      icon: Palmtree,   path: "/our-services/tour-packages"       },
+              { label: "Umrah Packages",         sub: "Makkah & Madinah travel",       icon: ShieldCheck,path: "/our-services"      },
+              { label: "Visa Checker",           sub: "Check 195 countries",           icon: Globe,      path: "/visa-checker"                     },
+              { label: "Schengen Visa Guide",    sub: "Europe travel from Bangladesh", icon: FileText,   path: "/schengen-visa"                    },
+              { label: "Study Abroad",           sub: "Student visa consultancy",      icon: Gift,       path: "/study-abroad/student-visa"        },
+            ].map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                className="flex items-center gap-4 px-4 py-3.5 bg-white hover:bg-green-50 active:bg-green-100 transition-colors"
+              >
+                <div className="w-9 h-9 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
+                  <item.icon size={18} className="text-[#005a31]" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-sm font-bold text-gray-900 leading-tight">{item.label}</p>
+                  <p className="text-[11px] text-gray-400 leading-tight mt-0.5">{item.sub}</p>
+                </div>
+                <ChevronDown size={16} className="text-gray-300 ml-auto flex-shrink-0 -rotate-90" />
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Tools & Resources ── */}
+        <div className="px-5 pt-5">
+          <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-gray-400 mb-3">
+            Free Tools
+          </p>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { label: "Visa Checker",           path: "/visa-checker"                                },
+              { label: "Processing Time",         path: "/travel-resources/visa-processing-time-tracker" },
+              { label: "Cost Calculator",         path: "/travel-cost-calculator"                     },
+              { label: "Travel Resources",        path: "/travel-resources"                           },
+            ].map((tool) => (
+              <Link
+                key={tool.path}
+                href={tool.path}
+                className="px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 text-sm font-semibold text-gray-700 hover:bg-green-50 hover:text-[#005a31] hover:border-green-200 transition-colors"
+              >
+                {tool.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Explore (pages) ── */}
+        <div className="px-5 pt-5">
+          <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-gray-400 mb-3">
+            Explore
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors ${
+                  pathname === item.path
+                    ? "bg-[#005a31] text-white border-[#005a31]"
+                    : "bg-white text-gray-600 border-gray-200 hover:border-[#005a31] hover:text-[#005a31]"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* ── CTA ── */}
+        <div className="px-5 pt-5">
+          <Link
+            href="/contact"
+            className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-[#005a31] text-white text-sm font-extrabold tracking-wide shadow-md active:scale-[0.98] transition-transform"
+          >
+            Get Free Travel Consultation
+          </Link>
+        </div>
+
+        {/* bottom breathing room */}
+        <div className="h-8" />
+      </div>
+
+      {/* ── Sticky footer ── */}
+      <div className="flex-shrink-0 px-5 py-4 border-t border-gray-100 bg-white flex items-center justify-between">
+        <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
+          Follow us
+        </p>
+        <div className="flex gap-3">
+          <a href="#" aria-label="Facebook"  className="w-9 h-9 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-[#005a31] hover:bg-green-50 transition-colors"><Facebook  size={17} /></a>
+          <a href="#" aria-label="Instagram" className="w-9 h-9 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-[#005a31] hover:bg-green-50 transition-colors"><Instagram size={17} /></a>
+          <a href="#" aria-label="WhatsApp"  className="w-9 h-9 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-[#005a31] hover:bg-green-50 transition-colors"><MessageCircle size={17} /></a>
+        </div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
       {/* ================= SPACING ================= */}
       <div className="sm:-mt-4" />

@@ -185,9 +185,18 @@ async function getAllRoutes() {
     fmt("/visa/india",                                                   0.8,  "weekly",  BUILD_TIME),
     // FIX 3: Added /schengen-visa — exists in build output, was missing from sitemap
     fmt("/schengen-visa",                                                0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-agency-bangladesh",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/visa-checker",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-insurance",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-cost-calculator",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-agency-delhi",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-agency-dhaka",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-agency-sharjah",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-agency-abu-dhabi",                                     0.8,  "monthly", BUILD_TIME),
+
   ];
 
-  // ── JSON-based dynamic routes ──────────────────────────────────────────────
+  // ── JSON-based dynamic routes  ──────────────────────────────────────────────
   const studentVisaRoutes = studentSlugs.map(slug =>
     fmt(`/study-abroad/student-visa/${slug}`, 0.85, "monthly", BUILD_TIME)
   );

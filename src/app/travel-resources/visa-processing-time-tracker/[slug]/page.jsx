@@ -182,22 +182,22 @@ export async function generateMetadata({ params, searchParams }) {
   };
   const visaLabel = VISA_TYPE_LABELS[visaType] || "Visa";
 
-  const title       = `${natName} Visa Processing Time for ${destName} (${visaLabel}) 2025 | Eammu`;
+  const title       = `${natName} Visa Processing Time for ${destName} (${visaLabel}) 2026`;
   const description = `${natName} passport holders: ${destName} ${visaLabel} (${typeLabel}) processing takes ${timeStr}. Learn what causes delays, pro tips to speed up your visa, and when to apply. Free tracker by Eammu.`;
 
   const keywords = [
     `${natName} visa processing time ${destName}`,
     `${natName} ${destName} ${visaLabel.toLowerCase()} processing time`,
     `how long ${destName} visa takes ${natName}`,
-    `${destName} ${visaLabel.toLowerCase()} ${natName} 2025`,
+    `${destName} ${visaLabel.toLowerCase()} ${natName} 2026`,
     `${natName} passport ${destName} visa duration`,
-    `${destName} visa processing time 2025`,
+    `${destName} visa processing time 2026`,
     `${visaLabel.toLowerCase()} processing time`,
     "visa processing time tracker",
     "eammu visa tracker",
   ];
 
-  const canonical = `https://eammu.com/travel-resources/visa-processing-time-tracker/${slug}?type=${visaType}`;
+  const canonical = `https://eammu.com/travel-resources/visa-processing-time-tracker/${slug}-${visaType}`;
 
   return {
     title,
