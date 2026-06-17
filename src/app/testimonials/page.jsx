@@ -1,5 +1,6 @@
 
 import CustomerTestimonialSection from "@/Components/Client/Testimonials/CustomerTestimonialSection";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 import React from "react";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
@@ -470,6 +471,7 @@ export default function TestimonialsPage() {
           ))}
         </ul>
       </nav>
+      <HomeSeoLinks />
     </>
   );
 }

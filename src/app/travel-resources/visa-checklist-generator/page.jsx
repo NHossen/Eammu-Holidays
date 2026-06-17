@@ -1,4 +1,5 @@
 import VisaChecklistGenerator from '@/Components/Client/VisaChecklistGenerator/VisaChecklistGenerator'
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react'
 export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
@@ -87,6 +88,7 @@ export default function page() {
   return (
     <div>
       <VisaChecklistGenerator />
+      <HomeSeoLinks />
     </div>
   )
 }

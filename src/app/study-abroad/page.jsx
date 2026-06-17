@@ -1,4 +1,5 @@
 import StudentVisaBangladesh from '@/Components/Client/visaServices/Visa/StudentVisaBangladesh/StudentVisaBangladesh'
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react'
 
 // ─── PAGE METADATA ────────────────────────────────────────────────────────────
@@ -263,6 +264,8 @@ export default function StudentVisaFromBangladeshPage() {
       />
 
       <StudentVisaBangladesh />
+
+      <HomeSeoLinks />
     </>
   );
 }

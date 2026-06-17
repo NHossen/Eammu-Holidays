@@ -2,6 +2,7 @@
 // SERVER COMPONENT — metadata + structured data live here
 
 import VisaProcessingTimeTracker from "@/Components/Client/VisaProcessingTimeTracker/VisaProcessingTimeTracker";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 export const revalidate    = 86400;  // cache each page 24h
 // ─────────────────────────────────────────────────────────────────────────────
@@ -324,6 +325,7 @@ export default function VisaProcessingTimeTrackerPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
 
       <VisaProcessingTimeTracker />
+      <HomeSeoLinks />
     </>
   );
 }

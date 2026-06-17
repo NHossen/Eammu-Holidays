@@ -17,6 +17,7 @@ import {
   Phone,
   ChevronRight,
 } from "lucide-react";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // METADATA
@@ -908,6 +909,7 @@ export default function FlightBookingPage() {
           </ol>
         </nav>
       </main>
+      <HomeSeoLinks />
     </>
   );
 }

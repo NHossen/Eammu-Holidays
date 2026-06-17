@@ -27,9 +27,10 @@ const STATUS_META = {
   "visa on arrival": { color: "#059669", light: "#ECFDF5", label: "Visa on Arrival",   slug: "visa-on-arrival" },
   "eta":             { color: "#7C3AED", light: "#F5F3FF", label: "ETA",               slug: "eta"             },
   "no admission":    { color: "#B45309", light: "#FFFBEB", label: "No Admission",      slug: "no-admission"    },
+  "visa-free":       { color: "#0891B2", light: "#ECFEFF", label: "Visa Free",         slug: "visa-free"       },
 };
 
-const PRIORITY = ["e-visa", "visa on arrival", "eta", "visa required", "no admission"];
+const PRIORITY = ["e-visa", "visa on arrival", "eta", "visa required", "no admission","visa-free"];
 
 // ── SEO Content Block ─────────────────────────────────────────────────────────
 

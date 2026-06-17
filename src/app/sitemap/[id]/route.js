@@ -183,7 +183,7 @@ async function getAllRoutes() {
     fmt("/scholarships",                                                 0.8,  "weekly",  BUILD_TIME),
     fmt("/visa/dubai-residents",                                         0.8,  "weekly",  BUILD_TIME),
     fmt("/visa/india",                                                   0.8,  "weekly",  BUILD_TIME),
-    // FIX 3: Added /schengen-visa — exists in build output, was missing from sitemap
+    // FIX 3: Added /schengen-visa — exists in build output, was missing from sitemap 
     fmt("/schengen-visa",                                                0.8,  "monthly", BUILD_TIME),
     fmt("/travel-agency-bangladesh",                                     0.8,  "monthly", BUILD_TIME),
     fmt("/visa-checker",                                     0.8,  "monthly", BUILD_TIME),
@@ -193,6 +193,30 @@ async function getAllRoutes() {
     fmt("/travel-agency-dhaka",                                     0.8,  "monthly", BUILD_TIME),
     fmt("/travel-agency-sharjah",                                     0.8,  "monthly", BUILD_TIME),
     fmt("/travel-agency-abu-dhabi",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/appeal-process-for-visa",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/bank-solvency-certificate-for-visa",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/bank-statement-for-visa",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/bank-statement-for-visa-how-to-prepare",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/best-time-to-apply-schengen-visa",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/can-i-reapply-after-visa-rejection",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/common-reasons",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/ds-160-form-guide",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/embassy-appointment-tips",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/how-many-times-can-i-apply-for-visa",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/how-much-bank-balance-needed-for-visa",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/how-to-track-visa-application",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/marriage-certificate-for-visa",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/police-clearance-certificate",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/sop-sample-for-student-visa",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/sponsor-financial-documents-for-visa",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/sponsor-letter-sample-for-visa",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/spouse-visa-documents",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-itinerary-for-visa-how-to-make",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/vfs-global-appointment-guide",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/visa-appointment-booking-guide",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/visa-interview-tips",                                     0.8,  "monthly", BUILD_TIME),
+  
+    
 
   ];
 

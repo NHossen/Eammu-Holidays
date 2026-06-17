@@ -1,4 +1,5 @@
 import VisaClientContent from '@/Components/Client/visaServices/Visa/VisaClientContent';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import { countries } from '@/data/visaData/visaData';
 
 import Link from 'next/link';
@@ -126,6 +127,7 @@ export default function VisaServicesPage() {
           </div>
         </div>
       </section>
+      <HomeSeoLinks />
     </div>
   );
 }

@@ -19,7 +19,29 @@ const STATUS_META = {
   "visa on arrival": { fallbackColor: "#059669", fallbackLight: "#ECFDF5", label: "Visa on Arrival", slug: "visa-on-arrival" },
   "eta":             { fallbackColor: "#7C3AED", fallbackLight: "#F5F3FF", label: "ETA",             slug: "eta"             },
   "no admission":    { fallbackColor: "#B45309", fallbackLight: "#FFFBEB", label: "No Admission",    slug: "no-admission"    },
+  "visa free":       { fallbackColor: "#0891B2", fallbackLight: "#ECFEFF", label: "Visa Free",       slug: "visa-free"       },
 };
+
+// Single source of truth for status lookup: case-insensitive, tolerant of
+// hyphen/space variants, and handles numeric day-counts (30, 90, etc.)
+function resolveStatusMeta(rawStatus) {
+  if (rawStatus == null || rawStatus === "") return null;
+  const key = String(rawStatus).trim().toLowerCase();
+
+  if (/^\d+$/.test(key)) {
+    return {
+      ...STATUS_META["visa free"],
+      label: `Visa-Free · ${key} day${key === "1" ? "" : "s"}`,
+    };
+  }
+
+  return (
+    STATUS_META[key] ||
+    STATUS_META[key.replace(/-/g, " ")] ||
+    STATUS_META[key.replace(/\s+/g, "-")] ||
+    null
+  );
+}
 
 function hexToLight(hex) {
   if (!hex) return null;
@@ -267,7 +289,7 @@ function RecentSearches({ onPick }) {
       <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 10px" }}>Recent Searches</p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
         {items.map((r, i) => {
-          const meta = STATUS_META[r.status];
+          const meta = resolveStatusMeta(r.status);
           return (
             <div key={i} style={{ display: "inline-flex", alignItems: "center", borderRadius: 999, border: `1.5px solid ${meta?.fallbackColor || "#e2e8f0"}`, background: "#fff", overflow: "hidden" }}>
               <button onClick={() => onPick(r.passport, r.destination)} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 10px 6px 12px", background: "none", border: "none", fontSize: 12, fontWeight: 500, color: "#334155", cursor: "pointer" }}>
@@ -336,7 +358,7 @@ export default function VisaCheckerHome() {
       const r = await fetch(`${BASE}/passport?from=${encodeURIComponent(pp.name)}&to=${encodeURIComponent(dd.name)}&api_key=${API_KEY}`);
       if (!r.ok) throw new Error(`API ${r.status}`);
       const data = await r.json();
-      const guideSlug = extractGuideSlug(data.visa_guide_url) || STATUS_META[data.visa_status]?.slug || null;
+      const guideSlug = extractGuideSlug(data.visa_guide_url) || resolveStatusMeta(data.visa_status)?.slug || null;
       if (guideSlug) {
         fetch(`/api/visa-guide/${guideSlug}`).then((gr) => gr.ok ? gr.json() : null).then((gd) => {
           if (!gd) return;
@@ -355,18 +377,17 @@ export default function VisaCheckerHome() {
 
   const handleRecentPick = (pp, dd) => { setPassport(pp); setDestination(dd); check(pp, dd); };
 
-  const goToGuide = () => {
+const goToGuide = () => {
     if (!result) return;
     const cs = `${slugify(passport.name)}-visa-for-${slugify(destination.name)}`;
-    const gs = extractGuideSlug(result.visa_guide_url) || STATUS_META[result.visa_status]?.slug || "visa-required";
+    const gs = extractGuideSlug(result.visa_guide_url) || resolveStatusMeta(result.visa_status)?.slug || "visa-required";
     router.push(`/visa-checker/${cs}/${gs}`);
   };
 
-  const baseMeta = result ? STATUS_META[result.visa_status] : null;
+  const baseMeta = result ? resolveStatusMeta(result.visa_status) : null;
   const resolvedColor = guideColor || baseMeta?.fallbackColor || null;
   const resolvedLight = guideColor ? (hexToLight(guideColor) || baseMeta?.fallbackLight) : baseMeta?.fallbackLight || null;
   const meta = baseMeta ? { ...baseMeta, color: resolvedColor, light: resolvedLight } : null;
-  const isNumericFree = result && !meta && result.visa_status && /^\d+$/.test(String(result.visa_status));
 
   const fromCover = result?.from?.passport_cover || null;
   const fromFlag  = result?.from?.flag  || passport?.flag  || null;
@@ -467,48 +488,43 @@ export default function VisaCheckerHome() {
 
         {error && <div style={{ marginTop: 14, padding: "12px 16px", background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 12, color: "#dc2626", fontSize: 13 }}>{error}</div>}
 
-        {/* Result: known status */}
-        {result && meta && (
-          <div style={{ marginTop: 20, borderRadius: 18, border: `2px solid ${meta.color}`, background: meta.light, overflow: "visible", animation: "fadeUp 0.3s ease" }}>
-            <div className="visa-checker-result-inner">
-              <PassportCover src={fromCover} alt={fromName} flag={fromFlag} name={fromName} size={68} />
-              <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-                <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", padding: "5px 16px", borderRadius: 999, background: meta.color, color: "#fff", whiteSpace: "nowrap" }}>{meta.label}</span>
-                <div style={{ display: "flex", alignItems: "center", gap: 6, width: "100%" }}>
-                  <div style={{ flex: 1, height: 1, background: meta.color, opacity: 0.25 }} />
-                  <span style={{ fontSize: 22, color: meta.color }}>✈</span>
-                  <div style={{ flex: 1, height: 1, background: meta.color, opacity: 0.25 }} />
-                </div>
-              </div>
-              <PassportCover src={toCover} alt={toName} flag={toFlag} name={toName} size={68} />
-            </div>
-            {result.visa_guide_url && (
-              <div style={{ padding: "4px 24px 22px" }}>
-                <button onClick={goToGuide} style={{ width: "100%", padding: "11px 0", borderRadius: 12, border: `2px solid ${meta.color}`, background: "transparent", color: meta.color, fontSize: 13, fontWeight: 700, cursor: "pointer", transition: "all 0.15s" }} onMouseEnter={(e) => { e.currentTarget.style.background = meta.color; e.currentTarget.style.color = "#fff"; }} onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = meta.color; }}>
-                  View Step-by-Step Guide →
-                </button>
-              </div>
-            )}
-          </div>
-        )}
+        {/* Result */}
+{result && meta && (
+  <div style={{ marginTop: 20, borderRadius: 18, border: `2px solid ${meta.color}`, background: meta.light, overflow: "visible", animation: "fadeUp 0.3s ease" }}>
+    
+    {/* Fixed container alignment here */}
+    <div 
+      className={`visa-result-route${meta.slug === "visa-free" ? " visa-free" : ""}`}
+      style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "24px 24px 16px", gap: 16 }}
+    >
+      {/* Left Passport */}
+      <PassportCover src={fromCover} alt={fromName} flag={fromFlag} name={fromName} size={68} />
+      
+      {/* Center Airplane Icon and Label */}
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
+        <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", padding: "5px 16px", borderRadius: 999, background: meta.color, color: "#fff", whiteSpace: "nowrap" }}>
+          {meta.label}
+        </span>
+        <div style={{ display: "flex", alignItems: "center", gap: 6, width: "100%" }}>
+          <div style={{ flex: 1, height: 1, background: meta.color, opacity: 0.25 }} />
+          <span style={{ fontSize: 22, color: meta.color }}>✈</span>
+          <div style={{ flex: 1, height: 1, background: meta.color, opacity: 0.25 }} />
+        </div>
+      </div>
+      
+      {/* Right Passport */}
+      <PassportCover src={toCover} alt={toName} flag={toFlag} name={toName} size={68} />
+    </div>
 
-        {/* Result: visa-free numeric days */}
-        {result && isNumericFree && (
-          <div style={{ marginTop: 20, borderRadius: 18, border: "2px solid #10b981", background: "#ecfdf5", overflow: "visible", animation: "fadeUp 0.3s ease" }}>
-            <div className="visa-checker-result-inner" style={{ paddingBottom: 24 }}>
-              <PassportCover src={fromCover} alt={fromName} flag={fromFlag} name={fromName} size={68} />
-              <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-                <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", padding: "5px 16px", borderRadius: 999, background: "#10b981", color: "#fff", whiteSpace: "nowrap" }}>Visa-Free · {result.visa_status} days</span>
-                <div style={{ display: "flex", alignItems: "center", gap: 6, width: "100%" }}>
-                  <div style={{ flex: 1, height: 1, background: "#10b981", opacity: 0.25 }} />
-                  <span style={{ fontSize: 22, color: "#10b981" }}>✈</span>
-                  <div style={{ flex: 1, height: 1, background: "#10b981", opacity: 0.25 }} />
-                </div>
-              </div>
-              <PassportCover src={toCover} alt={toName} flag={toFlag} name={toName} size={68} />
-            </div>
-          </div>
-        )}
+    {(result.visa_guide_url || meta.slug === "visa-free") && (
+      <div style={{ padding: "4px 24px 22px" }}>
+        <button onClick={goToGuide} style={{ width: "100%", padding: "11px 0", borderRadius: 12, border: `2px solid ${meta.color}`, background: "transparent", color: meta.color, fontSize: 13, fontWeight: 700, cursor: "pointer", transition: "all 0.15s" }} onMouseEnter={(e) => { e.currentTarget.style.background = meta.color; e.currentTarget.style.color = "#fff"; }} onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = meta.color; }}>
+          {meta.slug === "visa-free" ? "View Full Visa Guide →" : "View Step-by-Step Visa Guide →"}
+        </button>
+      </div>
+    )}
+  </div>
+)}
    {/* Top destinations */}
         <TopDestinations onSelectPassport={(c) => setPassport(c)} onSelectDestination={(c) => setDestination(c)} />
       </div>

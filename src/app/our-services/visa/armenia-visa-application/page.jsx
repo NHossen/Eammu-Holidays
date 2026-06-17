@@ -1,3 +1,4 @@
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import ArmeniaVisa from '@/Components/Server/VisaCountry/ArmeniaVisa/ArmeniaVisa'
 import React from 'react'
 
@@ -325,6 +326,7 @@ export default function page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ArmeniaVisa />
+      <HomeSeoLinks />
     </>
   )
 }

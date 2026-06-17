@@ -30,12 +30,31 @@ const EAMMU_KEY  = process.env.NEXT_PUBLIC_EAMMU_API_KEY;
 const EAMMU_BASE = "https://api.eammu.com/api/v1";
 
 const VISA_STATUS_META = {
-  "visa required":   { color: "#DC2626", light: "#FFF5F5", label: "Visa Required"  },
-  "e-visa":          { color: "#2563EB", light: "#EFF6FF", label: "E-Visa"          },
-  "visa on arrival": { color: "#059669", light: "#ECFDF5", label: "Visa on Arrival" },
-  "eta":             { color: "#7C3AED", light: "#F5F3FF", label: "ETA"             },
-  "no admission":    { color: "#B45309", light: "#FFFBEB", label: "No Admission"    },
+  "visa required":   { color: "#DC2626", light: "#FFF5F5", label: "Visa Required",   slug: "visa-required"   },
+  "e-visa":          { color: "#2563EB", light: "#EFF6FF", label: "E-Visa",          slug: "e-visa"          },
+  "visa on arrival": { color: "#059669", light: "#ECFDF5", label: "Visa on Arrival", slug: "visa-on-arrival" },
+  "eta":             { color: "#7C3AED", light: "#F5F3FF", label: "ETA",             slug: "eta"             },
+  "no admission":    { color: "#B45309", light: "#FFFBEB", label: "No Admission",    slug: "no-admission"    },
+  "visa free":       { color: "#16A34A", light: "#F0FDF4", label: "Visa Free",       slug: "visa-free"       },
 };
+
+// Single source of truth for status → meta/slug, handles numeric day-counts too
+function resolveVisaStatus(rawStatus) {
+  if (rawStatus == null || rawStatus === "") return null;
+  const key = String(rawStatus).trim().toLowerCase();
+
+  if (/^\d+$/.test(key)) {
+    return {
+      ...VISA_STATUS_META["visa free"],
+      label: `Visa-Free · ${key} day${key === "1" ? "" : "s"}`,
+    };
+  }
+
+  return (
+    VISA_STATUS_META[key] ||
+    { color: "#10b981", light: "#ecfdf5", label: rawStatus, slug: "visa-required" }
+  );
+}
 
 function extractGuideSlug(url) {
   if (!url) return null;
@@ -273,11 +292,11 @@ export default function TravelMenu() {
   };
   // ──────────────────────────────────────────────────────────────────────────
 
-  // ── Derived visa-guide slug & href ────────────────────────────────────────
+// ── Derived visa-guide slug & href ────────────────────────────────────────
+  const visaStatusMeta = resolveVisaStatus(visaResult?.visa_status);
+
   const visaGuideSlug = visaResult
-    ? extractGuideSlug(visaResult.visa_guide_url)
-      || VISA_STATUS_META[visaResult.visa_status]?.slug
-      || "visa-required"
+    ? extractGuideSlug(visaResult.visa_guide_url) || visaStatusMeta?.slug || "visa-required"
     : null;
 
   const visaRouteSlug = visaResult
@@ -424,12 +443,11 @@ export default function TravelMenu() {
                 )}
 
                 {/* ── Result card ── */}
-                {visaResult && (() => {
-                  const meta       = VISA_STATUS_META[visaResult.visa_status];
-                  const isNumFree  = !meta && visaResult.visa_status && /^\d+$/.test(String(visaResult.visa_status));
-                  const color      = meta?.color || "#10b981";
-                  const light      = meta?.light || "#ecfdf5";
-                  const statusLabel = meta?.label || (isNumFree ? `Visa-Free · ${visaResult.visa_status} days` : visaResult.visa_status);
+              {visaResult && (() => {
+                  const meta = visaStatusMeta;
+                  const color = meta?.color || "#10b981";
+                  const light = meta?.light || "#ecfdf5";
+                  const statusLabel = meta?.label || visaResult.visa_status;
 
                   return (
                     <div

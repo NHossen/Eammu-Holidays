@@ -1,4 +1,5 @@
 import SchengenVisaPage from "@/Components/Client/SchengenVisa/SchengenVisa";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 // ─── Page URL constant ────────────────────────────────────────────────────────
 const PAGE_URL =
@@ -262,6 +263,7 @@ export default function SchengenVisaRoute() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
       />
       <SchengenVisaPage />
+      <HomeSeoLinks />
     </>
   );
 }

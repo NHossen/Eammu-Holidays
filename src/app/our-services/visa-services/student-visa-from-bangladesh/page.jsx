@@ -1,4 +1,6 @@
+
 import StudentVisaBangladesh from "@/Components/Client/visaServices/Visa/StudentVisaBangladesh/StudentVisaBangladesh";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
@@ -104,8 +106,9 @@ export default function Page() {
 />
       
       {/* The Actual Visual Content */}
-      <StudentVisaBangladesh />
-      
+    <StudentVisaBangladesh />
+
+       <HomeSeoLinks />
     </>
   );
 }

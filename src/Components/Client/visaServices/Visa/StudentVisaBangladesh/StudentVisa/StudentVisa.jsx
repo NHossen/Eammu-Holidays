@@ -284,8 +284,7 @@ export default function StudentVisa() {
   return (
     <>
    <div className="mt-20">
-      {/* ── BREADCRUMB ── */}
-      <Breadcrumb />
+ 
 
       {/* ── HERO WITH SLIDES ── */}
       <header className="relative w-full min-h-[680px] flex items-center justify-center overflow-hidden">
@@ -735,7 +734,8 @@ export default function StudentVisa() {
         </div>
       </div>
    </div>
-    
+         {/* ── BREADCRUMB ── */}
+      <Breadcrumb />
     </>
   );
 }

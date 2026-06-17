@@ -1,4 +1,5 @@
 import DocumentGenerator from '@/Components/Client/DocumentGenerator/DocumentGenerator'
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks'
 import React from 'react'
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -443,6 +444,7 @@ export default function DocumentGeneratorPage() {
       </h1>
 
       <DocumentGenerator />
+      <HomeSeoLinks />
     </>
   )
 }

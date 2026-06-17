@@ -9,6 +9,7 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata = {
@@ -507,6 +508,7 @@ const EammuNewsfeeds = () => {
           </section>
         </div>
       </main>
+      <HomeSeoLinks />
     </>
   );
 };

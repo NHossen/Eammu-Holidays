@@ -1,4 +1,5 @@
 import TouristVisaBangladesh from "@/Components/Client/visaServices/Visa/TouristVisaBangladesh/TouristVisaBangladesh";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 // ─── PAGE METADATA ────────────────────────────────────────────────────────────
 export const metadata = {
@@ -265,6 +266,7 @@ export default function TouristVisaFromBangladeshPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       <TouristVisaBangladesh />
+      <HomeSeoLinks />
     </>
   );
 }

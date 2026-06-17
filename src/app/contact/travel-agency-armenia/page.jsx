@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import TravelAgencyArmenia from '@/Components/Client/TravelAgency/TravelAgencyArmenia/TravelAgencyArmenia';
 import React from 'react';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 
 /* ─────────────────────────────────────────────────────────────────────────────
    SERVER COMPONENT — All SEO metadata lives here, zero client JS cost
@@ -235,6 +236,7 @@ export default function TravelAgencyArmeniaPage() {
           <li className="text-[#005a31] font-bold">Travel Agency Armenia</li>
         </ol>
       </nav>
+      <HomeSeoLinks />
     </>
   );
 }

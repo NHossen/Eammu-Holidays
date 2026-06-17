@@ -1,4 +1,5 @@
 import ActivitiesPage from '@/Components/Client/ActivitiesPage/ActivitiesPage'
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react'
 
 export const metadata = {
@@ -79,6 +80,7 @@ export default function page() {
   return (
     <div>
       <ActivitiesPage />
+      <HomeSeoLinks />
     </div>
   )
 }

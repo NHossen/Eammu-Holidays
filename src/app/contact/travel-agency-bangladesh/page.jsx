@@ -1,4 +1,5 @@
 import TravelAgencyBangladesh from '@/Components/Client/TravelAgency/TravelAgencyBangladesh/TravelAgencyBangladesh';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import Link from 'next/link';
 import React from 'react';
 
@@ -295,6 +296,7 @@ export default function TravelAgencyBangladeshPage() {
           <li className="text-[#005a31] font-bold">Travel Agency Bangladesh</li>
         </ol>
       </nav>
+      <HomeSeoLinks />
     </>
   );
 }

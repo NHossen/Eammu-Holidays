@@ -6,7 +6,7 @@ export async function GET(request, context) {
   const params = await context.params;
   const slug = params?.slug;
 
-  const ALLOWED = ["e-visa", "visa-required", "visa-on-arrival", "eta", "no-admission"];
+  const ALLOWED = ["e-visa", "visa-required", "visa-on-arrival", "eta", "no-admission","visa-free"];
 
   if (!slug || !ALLOWED.includes(slug)) {
     return Response.json({ error: `Unknown slug: "${slug}"` }, { status: 404 });

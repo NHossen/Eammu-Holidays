@@ -1,4 +1,5 @@
 import TravelAgencyGeorgia from '@/Components/Client/TravelAgency/TravelAgencyGeorgia/TravelAgencyGeorgia';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import Link from 'next/link';
 import React from 'react';
 
@@ -260,7 +261,7 @@ export default function TravelAgencyGeorgiaPage() {
           <li className="text-[#005a31] font-bold">Travel Agency Georgia</li>
         </ol>
       </nav>
-      
+      <HomeSeoLinks />
     </>
   );
 }

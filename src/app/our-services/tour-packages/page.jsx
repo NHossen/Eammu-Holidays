@@ -1,4 +1,5 @@
 import TourPackages from '@/Components/Client/tour-packages/tour-packages'
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react'
 export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
@@ -104,6 +105,7 @@ export default function page() {
 />
         
         <TourPackages />
+        <HomeSeoLinks/>
     </div>
   )
 }

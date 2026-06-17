@@ -1,6 +1,7 @@
 // app/visa/dubai-residents/page.jsx  ← Server Component (no "use client")
 import Link from "next/link";
 import CountryExplorer from "./CountryExplorer";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SEO METADATA
@@ -1133,6 +1134,7 @@ export default async function TouristVisaDubaiResidents() {
           </ol>
         </nav>
       </div>
+      <HomeSeoLinks />
     </>
   );
 }

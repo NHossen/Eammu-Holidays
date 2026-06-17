@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head'; // Remove if using standard React
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 
 const NaeemHossen = () => {
   return (
@@ -130,7 +131,7 @@ const NaeemHossen = () => {
             </a>
           </div>
         </section>
-
+     <HomeSeoLinks />
       </main>
     </>
   );

@@ -10,6 +10,7 @@
  */
 
 import VisaRejectionMain from '@/Components/Client/VisaRejectionMain/VisaRejectionMain';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import { MongoClient } from 'mongodb';
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -452,6 +453,7 @@ export default async function VisaRejectionCheckerPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
 
       <VisaRejectionMain countries={countries} />
+      <HomeSeoLinks />
     </>
   );
 }
