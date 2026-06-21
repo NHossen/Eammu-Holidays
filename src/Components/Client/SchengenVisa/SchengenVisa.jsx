@@ -1,14 +1,15 @@
-// app/schengen-visa/page.jsx
+// Components/Client/SchengenVisa/SchengenVisa.jsx
 'use client';
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 /* ─── SEO METADATA ─────────────────────────────────────────────── */
-// NOTE: Move this to a separate metadata.js file since this is a Client Component
-// export const metadata = { ... }
+// NOTE: Metadata lives in app/schengen-visa/page.jsx since this is a Client Component
 
 /* ─── JSON-LD ───────────────────────────────────────────────────── */
+// NOTE: FAQPage schema removed — Google no longer reliably surfaces FAQ rich
+// results for most sites, so we keep structured data focused on Service + Breadcrumb.
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -26,14 +27,6 @@ const jsonLd = {
       areaServed: 'AE',
       serviceType: 'Visa Consulting',
       offers: { '@type': 'Offer', price: '90', priceCurrency: 'EUR', description: 'Schengen visa government fee — adults' },
-    },
-    {
-      '@type': 'FAQPage',
-      mainEntity: [
-        { '@type': 'Question', name: 'How much does a Schengen visa cost from UAE in 2026?', acceptedAnswer: { '@type': 'Answer', text: 'The official Schengen visa fee is €90 for adults and €45 for children aged 6–12. Children under 6 are exempt.' } },
-        { '@type': 'Question', name: 'How long does Schengen visa processing take from UAE?', acceptedAnswer: { '@type': 'Answer', text: 'Standard processing is 15 calendar days. It can extend to 45 days in complex cases.' } },
-        { '@type': 'Question', name: 'How many countries does a Schengen visa cover?', acceptedAnswer: { '@type': 'Answer', text: 'A Schengen visa covers 29 countries — all EU Schengen states plus Norway, Iceland, Liechtenstein, and Switzerland.' } },
-      ],
     },
     {
       '@type': 'BreadcrumbList',
@@ -146,15 +139,6 @@ const FEE_TABLE = [
   { category: 'VFS service centre fee', fee: 'Varies', note: 'Added where applicable' },
 ];
 
-const FAQS = [
-  { q: 'How many days can I stay in Europe on a Schengen visa?', a: 'A Schengen visa allows stays of up to 90 days in any 180-day rolling period across all Schengen countries combined. Days are counted across the entire area — not per country. Use the official EU short-stay calculator to track your remaining permitted days before each trip.' },
-  { q: 'Can I extend my Schengen visa while inside Europe?', a: 'Extensions are only granted in exceptional, documented circumstances — such as force majeure or serious humanitarian reasons. You cannot extend simply because you want to stay longer. Plan your trip strictly within the 90-day limit to avoid overstay penalties, which can include a ban from the Schengen Area.' },
-  { q: 'Which consulate should I apply to if I visit multiple Schengen countries?', a: 'Apply at the consulate of the country where you will spend the most nights. If your stay is equally divided between two or more countries, apply at the consulate of the first country you will enter. Our team will advise you on the correct consulate based on your specific itinerary.' },
-  { q: 'How far in advance should I apply for a Schengen visa from UAE?', a: 'You can apply between 6 months and 15 days before your intended travel date. We strongly recommend applying 4–6 weeks in advance. During peak summer and Christmas periods, consulate appointment slots fill up weeks ahead — apply early.' },
-  { q: 'What if my Schengen visa application is refused?', a: 'You will receive a written refusal letter stating the reason. You have the legal right to appeal — and our team can help you prepare a strong appeal or reapplication with stronger supporting evidence. Common reasons for refusal include insufficient funds, weak travel history, or incomplete documentation.' },
-  { q: 'Do UAE residents who are not UAE nationals need a Schengen visa?', a: 'It depends on your passport nationality. UAE passport holders can visit most Schengen countries visa-free for up to 90 days. Residents of the UAE holding other passports typically need a Schengen visa. Contact us with your passport nationality for specific guidance.' },
-];
-
 const TOP_ROUTES = [
   { name: 'France', slug: 'france', consulate: 'French Embassy Dubai', time: '10–15 days' },
   { name: 'Germany', slug: 'germany', consulate: 'German Consulate Dubai', time: '10–15 days' },
@@ -162,6 +146,26 @@ const TOP_ROUTES = [
   { name: 'Spain', slug: 'spain', consulate: 'Spanish Consulate Dubai', time: '10–15 days' },
   { name: 'Greece', slug: 'greece', consulate: 'Greek Consulate Dubai', time: '10–15 days' },
   { name: 'Netherlands', slug: 'netherlands', consulate: 'Dutch Embassy Abu Dhabi', time: '10–15 days' },
+];
+
+// Recent Schengen Area & EU border-policy updates relevant to UAE applicants in 2026
+const RECENT_UPDATES = [
+  {
+    heading: 'Entry/Exit System (EES) Is Now Live',
+    body: "The EU's biometric Entry/Exit System became fully operational across Schengen external borders on 10 April 2026. It replaces manual passport stamping with fingerprint and facial-image capture at your first point of entry. This applies to every non-EU traveller — including UAE residents holding an approved Schengen visa — so expect a short biometric check at border control, even though no extra paperwork is required on your part.",
+  },
+  {
+    heading: 'ETIAS Launches Late 2026 — Does It Affect You?',
+    body: 'ETIAS (European Travel Information and Authorisation System) is scheduled to launch in the final quarter of 2026. It only applies to travellers from visa-exempt nationalities who currently enter Europe without a visa. If your passport requires a Schengen visa today, ETIAS does not replace or change that requirement — you will continue to apply for a full Schengen visa exactly as outlined on this page.',
+  },
+  {
+    heading: 'Visa Fee Holding Steady at €90',
+    body: 'The standard adult Schengen visa fee has remained at €90 since it was last revised in June 2024 (up from €80). No further increase has been confirmed for 2026 — the European Commission reviews fees roughly every three years, with the next review expected around 2027.',
+  },
+  {
+    heading: 'Airport Transit Visa (ATV) Rules Easing',
+    body: 'France lifted its Airport Transit Visa requirement for several previously affected nationalities from 10 April 2026, and Germany has announced a similar removal that is pending formal rollout. If you are connecting through a Schengen airport, always confirm the current ATV rule for your specific nationality and transit country before booking.',
+  },
 ];
 
 const INTERNAL_LINKS = [
@@ -306,12 +310,12 @@ export default function SchengenVisaPage() {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-widest text-amber-500 mb-2">Visa Express Hub — Updated May 2026</p>
+                <p className="text-[11px] font-bold uppercase tracking-widest text-amber-500 mb-2">Visa Express Hub — Updated June 2026</p>
                 <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3 leading-tight">
-                  Schengen Visa from UAE <span className="text-amber-500">2026</span>
+                  Schengen Visa from UAE <span className="text-amber-500">2026</span> — Complete Guide, Fees & Requirements
                 </h1>
                 <p className="text-sm text-slate-500 max-w-2xl leading-relaxed">
-                  One visa. 29 European countries. Complete Schengen visa guide for UAE residents — covering official requirements, the €90 fee structure, 15-day processing, document checklist, and step-by-step application support from Dubai.
+                  One visa. 29 European countries. The complete, regularly updated Schengen visa guide for UAE residents — covering official 2026 requirements, the €90 fee structure, 15-day standard processing, the full Type C document checklist, the new EES border system, the upcoming ETIAS rollout, and step-by-step Schengen visa application support from Dubai and Abu Dhabi.
                 </p>
               </div>
               <div className="flex flex-col items-end gap-2 shrink-0">
@@ -335,11 +339,11 @@ export default function SchengenVisaPage() {
               <section className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
                 <h2 className="text-xl font-bold mb-4">What is a Schengen Visa?</h2>
                 <p className="text-slate-600 leading-relaxed text-sm mb-4">
-                  A <strong>Schengen visa</strong> is a short-stay entry permit that allows non-EU nationals to travel freely across all{' '}
-                  <strong>29 Schengen member countries</strong> for up to <strong>90 days in any 180-day rolling period</strong> — on a single visa. For UAE residents, it is the primary route to visiting Europe for tourism, business, family visits, or short-term conferences.
+                  A <strong>Schengen visa</strong> — officially known as a <strong>Type C uniform visa</strong> — is a short-stay entry permit that allows non-EU nationals to travel freely across all{' '}
+                  <strong>29 Schengen member countries</strong> for up to <strong>90 days in any 180-day rolling period</strong>, using just one application and one visa sticker. For UAE residents, it remains the primary route to visiting Europe for tourism, business meetings, family visits, weddings, short-term conferences, or transit, and demand from Dubai and Abu Dhabi continues to grow every year as more direct flight routes connect the UAE to European cities.
                 </p>
                 <p className="text-slate-600 leading-relaxed text-sm mb-5">
-                  With a single visa obtained through a consulate in Dubai or Abu Dhabi, you can travel freely between France, Germany, Italy, Spain, Greece, and 24 other countries without stopping at internal borders.
+                  With a single visa obtained through a consulate in Dubai or Abu Dhabi, you can travel freely between France, Germany, Italy, Spain, Greece, and 24 other countries without stopping at internal borders. A Schengen visa is different from a national visa — it does not let you work or study long-term in Europe, but it is by far the most common visa type requested by UAE residents planning a holiday, a business trip, or a family visit to the continent.
                 </p>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
@@ -366,6 +370,21 @@ export default function SchengenVisaPage() {
                     to track your permitted days before each trip.
                   </p>
                 </div>
+              </section>
+
+              {/* WHO ACTUALLY NEEDS ONE */}
+              <section className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                <h2 className="text-xl font-bold mb-4">Who Actually Needs a Schengen Visa From the UAE?</h2>
+                <p className="text-slate-600 leading-relaxed text-sm mb-4">
+                  Whether you need a Schengen visa depends on your <strong>passport nationality</strong>, not your country of residence. <strong>UAE passport holders</strong> can travel to most Schengen countries visa-free for stays of up to 90 days in any 180-day period. However, the UAE is home to millions of expatriate residents, and if you hold a passport from a country that is not on the EU's visa-exempt list, you will need to apply for a Schengen visa from Dubai or Abu Dhabi before travelling — regardless of how long you have lived or worked in the UAE.
+                </p>
+                <p className="text-slate-600 leading-relaxed text-sm">
+                  This is one of the most common points of confusion among UAE residents. A long-term UAE residence visa, an Emirates ID, or years of employment in the UAE does not exempt you from needing a Schengen visa — only your passport nationality determines that. If you are unsure whether your specific passport requires a visa, our team can confirm this for you in minutes and outline the exact document checklist for your nationality. You can also{' '}
+                  <a href="https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa/visa-policy/visa-lists_en" target="_blank" rel="noopener noreferrer" className="text-amber-600 font-bold hover:underline">
+                    check the official EU visa-exemption list
+                  </a>{' '}
+                  for your nationality at any time.
+                </p>
               </section>
 
               {/* ── 29 SCHENGEN COUNTRIES — DYNAMIC FROM MONGODB ── */}
@@ -403,12 +422,41 @@ export default function SchengenVisaPage() {
 
                 <div className="mt-5 flex flex-wrap gap-2 items-center">
                   <span className="text-[11px] text-slate-400">
-                    * Bulgaria and Romania joined the Schengen Area in 2024. Source:{' '}
+                    * Bulgaria and Romania joined the Schengen Area in 2024–2025 (air/sea borders from 31 March 2024, land borders from 1 January 2025). Source:{' '}
                     <a href="https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa/schengen-area_en" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:underline font-semibold">
                       European Commission
                     </a>
                     .
                   </span>
+                </div>
+              </section>
+
+              {/* RECENT SCHENGEN UPDATES — EES / ETIAS / FEES / ATV */}
+              <section className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                <h2 className="text-xl font-bold mb-2">Schengen Visa News & Border Changes — 2026 Update</h2>
+                <p className="text-sm text-slate-500 mb-6">
+                  The Schengen Area introduced several border and travel-authorisation changes in 2026. Here is what UAE-based applicants need to know before booking a trip to Europe.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {RECENT_UPDATES.map((item) => (
+                    <div key={item.heading} className="border-l-4 border-amber-300 pl-5">
+                      <h3 className="font-bold text-sm text-slate-900 mb-1">{item.heading}</h3>
+                      <p className="text-xs text-slate-500 leading-relaxed">{item.body}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-5 bg-slate-50 border border-slate-100 rounded-xl p-4">
+                  <p className="text-xs text-slate-500">
+                    Sources:{' '}
+                    <a href="https://travel-europe.europa.eu/en/etias" target="_blank" rel="noopener noreferrer" className="text-amber-600 font-semibold hover:underline">
+                      European Commission — Travel to Europe
+                    </a>{' '}
+                    and{' '}
+                    <a href="https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa/visa-policy_en" target="_blank" rel="noopener noreferrer" className="text-amber-600 font-semibold hover:underline">
+                      EU Visa Policy
+                    </a>
+                    . Always confirm the latest rule for your nationality with your consulate or VFS Global before travelling.
+                  </p>
                 </div>
               </section>
 
@@ -428,7 +476,7 @@ export default function SchengenVisaPage() {
                     : countries.map((c) => (
                         <Link
                           key={c.name}
-                          href={`/visa/tourist-visa/${c.slug}`}
+                          href={`/visa/${c.slug}-visa`}
                           className="group flex items-center gap-2.5 px-3 py-2.5 bg-slate-800 hover:bg-amber-400 border border-slate-700 hover:border-amber-400 rounded-xl transition-all duration-150"
                         >
                           <div className="w-6 h-4 rounded overflow-hidden shrink-0 bg-slate-600">
@@ -453,6 +501,17 @@ export default function SchengenVisaPage() {
                     <Link href="/contact" className="text-amber-400 font-bold hover:underline">Ask our visa experts →</Link>
                   </p>
                 </div>
+              </section>
+
+              {/* HISTORY OF THE SCHENGEN AGREEMENT */}
+              <section className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                <h2 className="text-xl font-bold mb-4">A Short History of the Schengen Agreement</h2>
+                <p className="text-slate-600 leading-relaxed text-sm mb-4">
+                  The Schengen Agreement was first signed in 1985 by five European countries — Belgium, France, Germany, Luxembourg, and the Netherlands — with the goal of abolishing internal border checks and allowing free movement between member states. Over the following decades, membership expanded steadily as more European nations adopted the agreement's open-border principles.
+                </p>
+                <p className="text-slate-600 leading-relaxed text-sm">
+                  Today, the Schengen Area spans <strong>29 countries</strong> and over 400 million residents, making it the largest visa-free travel zone in the world. Bulgaria and Romania are the newest full members, joining at air and sea borders on 31 March 2024 and at land borders on 1 January 2025. For UAE residents, this means one Schengen visa now unlocks an even larger stretch of Europe — from the Atlantic coast of Portugal to the Black Sea coast of Bulgaria — without a single additional border check along the way.
+                </p>
               </section>
 
               {/* VISA TYPES */}
@@ -520,7 +579,7 @@ export default function SchengenVisaPage() {
               <section className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
                 <h2 className="text-xl font-bold mb-2">Schengen Visa Fee Structure 2026</h2>
                 <p className="text-sm text-slate-500 mb-6">
-                  Fees were updated in June 2024.{' '}
+                  Fees were last revised in June 2024 and have remained unchanged through 2026 — the next EU-wide review is expected around 2027.{' '}
                   <a href="https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa/visa-policy_en" target="_blank" rel="noopener noreferrer" className="text-amber-600 font-semibold hover:underline">
                     Official EU visa policy ↗
                   </a>
@@ -601,7 +660,7 @@ export default function SchengenVisaPage() {
                       return (
                         <Link
                           key={r.name}
-                          href={`/visa/tourist-visa/${r.slug}`}
+                          href={`/visa/${r.slug}`}
                           className="group flex items-center gap-3 p-3 bg-slate-50 border border-slate-100 rounded-xl hover:border-amber-300 hover:bg-amber-50 transition-all"
                         >
                           <div className="w-10 h-7 rounded overflow-hidden shrink-0 shadow-sm border border-slate-100 bg-slate-100">
@@ -661,25 +720,6 @@ export default function SchengenVisaPage() {
                 </div>
               </section>
 
-              {/* FAQ */}
-              <section className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-                <h2 className="text-xl font-bold mb-6">Schengen Visa — Frequently Asked Questions</h2>
-                <div className="space-y-5">
-                  {FAQS.map((faq, i) => (
-                    <div key={i} className="border-b border-slate-100 last:border-0 pb-5 last:pb-0">
-                      <h4 className="font-bold text-sm text-slate-900 mb-2">Q: {faq.q}</h4>
-                      <p className="text-xs text-slate-500 leading-relaxed">{faq.a}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 bg-slate-50 border border-slate-100 rounded-xl p-4">
-                  <p className="text-xs text-slate-500">
-                    Have a specific question?{' '}
-                    <Link href="/contact" className="text-amber-600 font-bold hover:underline">Ask our visa team directly →</Link>
-                  </p>
-                </div>
-              </section>
-
               {/* OFFICIAL RESOURCES */}
               <section className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
                 <h2 className="text-xl font-bold mb-2">Official EU Resources</h2>
@@ -690,6 +730,7 @@ export default function SchengenVisaPage() {
                     { name: 'EU Short-Stay Calculator', url: 'https://ec.europa.eu/assets/home/visa-calculator/calculator.htm', desc: 'Calculate your remaining 90/180-day permitted days' },
                     { name: 'Schengen Visa Lists', url: 'https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa/visa-policy/visa-lists_en', desc: 'Check whether your nationality requires a visa' },
                     { name: 'VFS Global UAE', url: 'https://www.vfsglobal.com/en/individuals/index.html', desc: 'Book your Schengen visa appointment at a UAE VFS centre' },
+                    { name: 'ETIAS — Travel to Europe', url: 'https://travel-europe.europa.eu/en/etias', desc: 'Official information on ETIAS for visa-exempt travellers (launching Q4 2026)' },
                   ].map((r) => (
                     <a
                       key={r.name}
@@ -912,7 +953,7 @@ export default function SchengenVisaPage() {
           <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4">
             <p className="text-xs text-slate-400">
               Page last updated:{' '}
-              <time dateTime="2026-05-01" className="font-semibold text-slate-600">May 2026</time> · Source:{' '}
+              <time dateTime="2026-06-21" className="font-semibold text-slate-600">June 2026</time> · Source:{' '}
               <a href="https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa/visa-policy_en" target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:underline font-semibold">
                 European Commission
               </a>

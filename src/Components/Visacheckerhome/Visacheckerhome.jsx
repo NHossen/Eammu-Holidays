@@ -105,8 +105,8 @@ function PassportCover({ src, alt, flag, name, size = 64 }) {
           </div>
         )}
         {hovered && src && (
-          <div style={{ position: "absolute", bottom: "calc(100% + 14px)", left: "50%", transform: "translateX(-50%)", zIndex: 9999, pointerEvents: "none" }}>
-            <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 10, width: 190, boxShadow: "0 12px 40px rgba(0,0,0,0.18)" }}>
+          <div style={{ position: "absolute", bottom: "calc(100% + 14px)", left: "50%", transform: "translateX(-50%)", zIndex: 9999, pointerEvents: "none", width: 190, maxWidth: "calc(100vw - 32px)" }}>
+            <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 10, width: "100%", boxShadow: "0 12px 40px rgba(0,0,0,0.18)" }}>
               <img src={src} alt={alt} style={{ width: "100%", height: 250, objectFit: "cover", borderRadius: 10, display: "block" }} />
               <p style={{ fontSize: 11, color: "#64748b", fontWeight: 700, textAlign: "center", marginTop: 8, marginBottom: 0 }}>{name}</p>
             </div>
@@ -418,6 +418,20 @@ const goToGuide = () => {
         @media (min-width: 1024px) {
           .visa-checker-wrap { padding-left: 2rem; padding-right: 2rem; }
         }
+        @media (max-width: 480px) {
+          .visa-checker-wrap { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        }
+        .visa-checker-card {
+          background: #fff;
+          border-radius: 24px;
+          border: 1px solid #e2e8f0;
+          box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+          padding: 28px 28px 24px;
+          box-sizing: border-box;
+        }
+        @media (max-width: 480px) {
+          .visa-checker-card { padding: 20px 16px 18px; border-radius: 18px; }
+        }
         .visa-checker-selectors {
           display: grid;
           grid-template-columns: 1fr auto 1fr;
@@ -430,34 +444,40 @@ const goToGuide = () => {
             grid-template-columns: 1fr;
           }
           .visa-checker-swap {
-            display: none !important;
+            justify-self: center;
+            margin-top: 2px;
+            transform: rotate(90deg);
           }
         }
         .visa-checker-result-inner {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 12px;
+          gap: 16px;
           padding: 28px 32px 16px;
           overflow: visible;
         }
         @media (max-width: 480px) {
           .visa-checker-result-inner {
             flex-direction: column;
-            padding: 20px 16px 12px;
-            gap: 8px;
+            padding: 22px 16px 14px;
+            gap: 16px;
+          }
+        }
+        .visa-status-badge {
+          white-space: nowrap;
+        }
+        @media (max-width: 480px) {
+          .visa-status-badge {
+            white-space: normal;
+            text-align: center;
+            max-width: 100%;
           }
         }
       `}</style>
 
       <div className="visa-checker-wrap">
-      <div style={{
-        background: "#fff",
-        borderRadius: 24,
-        border: "1px solid #e2e8f0",
-        boxShadow: "0 2px 24px rgba(0,0,0,0.06)",
-        padding: "28px 28px 24px",
-      }}>
+      <div className="visa-checker-card">
 
         {/* ── Short header ── */}
         <div style={{ marginBottom: 24 }}>
@@ -491,18 +511,16 @@ const goToGuide = () => {
         {/* Result */}
 {result && meta && (
   <div style={{ marginTop: 20, borderRadius: 18, border: `2px solid ${meta.color}`, background: meta.light, overflow: "visible", animation: "fadeUp 0.3s ease" }}>
-    
-    {/* Fixed container alignment here */}
-    <div 
-      className={`visa-result-route${meta.slug === "visa-free" ? " visa-free" : ""}`}
-      style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "24px 24px 16px", gap: 16 }}
+
+    <div
+      className={`visa-checker-result-inner${meta.slug === "visa-free" ? " visa-free" : ""}`}
     >
       {/* Left Passport */}
       <PassportCover src={fromCover} alt={fromName} flag={fromFlag} name={fromName} size={68} />
-      
+
       {/* Center Airplane Icon and Label */}
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-        <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", padding: "5px 16px", borderRadius: 999, background: meta.color, color: "#fff", whiteSpace: "nowrap" }}>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 10, minWidth: 0, maxWidth: "100%" }}>
+        <span className="visa-status-badge" style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", padding: "5px 16px", borderRadius: 999, background: meta.color, color: "#fff" }}>
           {meta.label}
         </span>
         <div style={{ display: "flex", alignItems: "center", gap: 6, width: "100%" }}>
@@ -511,7 +529,7 @@ const goToGuide = () => {
           <div style={{ flex: 1, height: 1, background: meta.color, opacity: 0.25 }} />
         </div>
       </div>
-      
+
       {/* Right Passport */}
       <PassportCover src={toCover} alt={toName} flag={toFlag} name={toName} size={68} />
     </div>
