@@ -6,6 +6,7 @@
 
 import { getRejectionData } from "@/app/lib/rejectionData";
 import VisaRejectionSlugClient from "@/Components/Client/VisaRejectionSlugClient/VisaRejectionSlugClient";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 // ─────────────────────────────────────────────
 // ISR CONFIG
@@ -163,6 +164,7 @@ export default async function VisaRejectionSlugPage({ params, searchParams }) {
         rejData={rejData}
         rule={rule}
       />
+      <HomeSeoLinks />
     </>
   );
 }

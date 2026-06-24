@@ -8,7 +8,7 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 // ─── METADATA ────────────────────────────────────────────────────────────────
 export const metadata = {
   title:
-    "Best Travel Agency in Delhi for Bangladeshi Travelers | Visa & Air Tickets — Eammu Holidays",
+    "Best Travel Agency in Delhi for Bangladeshi Travelers | Eammu Holidays",
   description:
     "Eammu Holidays serves Bangladeshi nationals and Indian travelers in Delhi with visa processing, international air tickets, tour packages, Umrah packages, Bangladesh visa, and study abroad consultancy. Expert guidance for Delhi-based Bangladeshi visitors and residents.",
   keywords: [

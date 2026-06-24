@@ -22,11 +22,11 @@ export const metadata = {
     "sop for schengen student visa",
     "sop writing tips student visa",
   ],
-  alternates: { canonical: "https://www.eammu.com/travel-resources/sop-sample-for-student-visa" },
+  alternates: { canonical: "https://www.eammu.com/sop-sample-for-student-visa" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/sop-sample-for-student-visa",
+    url: "https://www.eammu.com/sop-sample-for-student-visa",
     siteName: "Eammu Holidays",
     title: "SOP Sample for Student Visa 2026 | Statement of Purpose Guide | Eammu Holidays",
     description: "Complete guide to writing an SOP (Statement of Purpose) for a student visa from Bangladesh — with structure, sample, and tips for Canada, UK, Australia, and USA.",
@@ -42,7 +42,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/sop-sample-for-student-visa#article",
+      "@id": "https://www.eammu.com/sop-sample-for-student-visa#article",
       headline: "SOP (Statement of Purpose) for Student Visa — 2026 Guide and Sample for Bangladesh Applicants",
       description: "How to write an SOP for a student visa from Bangladesh, with structure guide, sample paragraphs, and tips for Canada, UK, USA, Australia, and Schengen applications.",
       image: "https://www.eammu.com/preview-banner.webp",
@@ -50,14 +50,14 @@ const structuredData = {
       publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/sop-sample-for-student-visa",
+      mainEntityOfPage: "https://www.eammu.com/sop-sample-for-student-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "SOP Sample for Student Visa", item: "https://www.eammu.com/travel-resources/sop-sample-for-student-visa" },
+        { "@type": "ListItem", position: 3, name: "SOP Sample for Student Visa", item: "https://www.eammu.com/sop-sample-for-student-visa" },
       ],
     },
   ],
@@ -87,7 +87,7 @@ export default function SOPSampleStudentVisaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div className="sr-only" aria-hidden="true">
         <h1>SOP Sample for Student Visa 2026 — Statement of Purpose Guide Bangladesh | Eammu Holidays</h1>
-        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/travel-resources/sop-sample-for-student-visa">SOP for Student Visa</a></li></ol></nav>
+        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/sop-sample-for-student-visa">SOP for Student Visa</a></li></ol></nav>
       </div>
 
       <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">
@@ -157,8 +157,8 @@ export default function SOPSampleStudentVisaPage() {
               {[
                 { label: "Student Visa Overview", href: "/student-visa" },
                 { label: "Scholarship Guide 2026", href: "/scholarships" },
-                { label: "Bank Statement for Visa", href: "/travel-resources/bank-statement-for-visa" },
-                { label: "Sponsor Financial Documents", href: "/travel-resources/sponsor-financial-documents-for-visa" },
+                { label: "Bank Statement for Visa", href: "/bank-statement-for-visa" },
+                { label: "Sponsor Financial Documents", href: "/sponsor-financial-documents-for-visa" },
                 { label: "Visa Interview Tips", href: "/travel-resources/visa-interview-tips" },
                 { label: "All Visa Services", href: "/visa" },
               ].map((lnk) => (

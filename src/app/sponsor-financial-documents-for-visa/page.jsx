@@ -24,11 +24,11 @@ export const metadata = {
     "proof of relationship sponsor visa",
     "sponsor visa documents 2026",
   ],
-  alternates: { canonical: "https://www.eammu.com/travel-resources/sponsor-financial-documents-for-visa" },
+  alternates: { canonical: "https://www.eammu.com/sponsor-financial-documents-for-visa" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/sponsor-financial-documents-for-visa",
+    url: "https://www.eammu.com/sponsor-financial-documents-for-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Sponsor Financial Documents for Visa 2026 — Full Checklist | Eammu Holidays",
@@ -45,7 +45,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/sponsor-financial-documents-for-visa#article",
+      "@id": "https://www.eammu.com/sponsor-financial-documents-for-visa#article",
       headline: "Sponsor Financial Documents for Visa 2026 — Complete Checklist for Bangladesh Applicants",
       description: "Full guide to documents required when a sponsor is funding your visa: bank statements, solvency certificate, affidavit of support, sponsor letter, and proof of relationship.",
       image: "https://www.eammu.com/preview-banner.webp",

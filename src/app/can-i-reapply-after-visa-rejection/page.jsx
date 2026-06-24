@@ -21,11 +21,11 @@ export const metadata = {
     "improve visa application after rejection",
     "reapply visa strategy 2026",
   ],
-  alternates: { canonical: "https://www.eammu.com/travel-resources/can-i-reapply-after-visa-rejection" },
+  alternates: { canonical: "https://www.eammu.com/can-i-reapply-after-visa-rejection" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/can-i-reapply-after-visa-rejection",
+    url: "https://www.eammu.com/can-i-reapply-after-visa-rejection",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Can I Reapply After Visa Rejection? 2026 | Eammu Holidays",
@@ -42,7 +42,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/can-i-reapply-after-visa-rejection#article",
+      "@id": "https://www.eammu.com/can-i-reapply-after-visa-rejection#article",
       headline: "Can I Reapply After a Visa Rejection? — 2026 Step-by-Step Guide for Bangladesh",
       description: "When and how to reapply for a visa after rejection — timing considerations, document improvements, and country-specific guidance for Bangladeshi applicants.",
       image: "https://www.eammu.com/preview-banner.webp",
@@ -50,14 +50,14 @@ const structuredData = {
       publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/can-i-reapply-after-visa-rejection",
+      mainEntityOfPage: "https://www.eammu.com/can-i-reapply-after-visa-rejection",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "Can I Reapply After Visa Rejection", item: "https://www.eammu.com/travel-resources/can-i-reapply-after-visa-rejection" },
+        { "@type": "ListItem", position: 3, name: "Can I Reapply After Visa Rejection", item: "https://www.eammu.com/can-i-reapply-after-visa-rejection" },
       ],
     },
   ],
@@ -85,7 +85,7 @@ export default function CanIReapplyPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div className="sr-only" aria-hidden="true">
         <h1>Can I Reapply After Visa Rejection 2026 — Step-by-Step Guide Bangladesh | Eammu Holidays</h1>
-        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/travel-resources/can-i-reapply-after-visa-rejection">Can I Reapply After Rejection</a></li></ol></nav>
+        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/can-i-reapply-after-visa-rejection">Can I Reapply After Rejection</a></li></ol></nav>
       </div>
 
       <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">
@@ -157,10 +157,10 @@ export default function CanIReapplyPage() {
             <h2 className="text-xl font-black text-[#005a31] mb-6 text-center">Related <span className="text-orange-500">Rejection Guides</span></h2>
             <nav className="flex flex-wrap justify-center gap-2.5" aria-label="Related guides">
               {[
-                { label: "Visa Rejected — What to Do", href: "/travel-resources/visa-cancelled-what-to-do" },
-                { label: "How Many Times Can I Apply", href: "/travel-resources/how-many-times-can-i-apply-for-visa" },
-                { label: "Rejection Effects on Future Applications", href: "/travel-resources/visa-rejection-effects-on-future-applications" },
-                { label: "Common Rejection Reasons", href: "/visa-rejection/common-reasons" },
+                { label: "Visa Rejected — What to Do", href: "/visa-cancelled-what-to-do" },
+                { label: "How Many Times Can I Apply", href: "/how-many-times-can-i-apply-for-visa" },
+                { label: "Rejection Effects on Future Applications", href: "/visa-rejection-effects-on-future-applications" },
+                { label: "Common Rejection Reasons", href: "/common-reasons" },
                 { label: "All Visa Services", href: "/visa" },
               ].map((lnk) => (
                 <Link key={lnk.href} href={lnk.href} className="bg-white border border-gray-200 hover:border-[#005a31] hover:text-[#005a31] text-gray-600 rounded-full px-4 py-2 text-xs font-semibold transition-all shadow-sm hover:shadow">{lnk.label}</Link>

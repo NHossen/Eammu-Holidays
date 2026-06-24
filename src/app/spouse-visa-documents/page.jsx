@@ -35,7 +35,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/visa/spouse-visa-documents",
+    canonical: "https://www.eammu.com/spouse-visa-documents",
   },
 
   robots: {
@@ -52,7 +52,7 @@ export const metadata = {
 
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/visa/spouse-visa-documents",
+    url: "https://www.eammu.com/spouse-visa-documents",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Spouse Visa Documents Checklist 2026 | Eammu Holidays",
@@ -92,7 +92,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/visa/spouse-visa-documents#article",
+      "@id": "https://www.eammu.com/spouse-visa-documents#article",
       headline: "Spouse Visa Documents Checklist 2026 — Bangladesh to UK, Canada, USA & Dubai",
       description:
         "A complete documents checklist for Bangladeshi applicants applying for a spouse or dependent visa to the UK, Canada, USA, Schengen countries, or Dubai/UAE.",
@@ -105,14 +105,14 @@ const structuredData = {
       },
       datePublished: "2026-01-22",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/visa/spouse-visa-documents",
+      mainEntityOfPage: "https://www.eammu.com/spouse-visa-documents",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://www.eammu.com/visa" },
-        { "@type": "ListItem", position: 3, name: "Spouse Visa Documents", item: "https://www.eammu.com/visa/spouse-visa-documents" },
+        { "@type": "ListItem", position: 3, name: "Spouse Visa Documents", item: "https://www.eammu.com/spouse-visa-documents" },
       ],
     },
     {
@@ -387,9 +387,9 @@ export default function SpouseVisaDocumentsPage() {
             </h2>
             <nav className="flex flex-wrap justify-center gap-2.5" aria-label="Related visa resources">
               {[
-                { label: "Bank Statement for Visa", href: "/travel-resources/bank-statement-for-visa" },
-                { label: "Police Clearance Certificate", href: "/travel-resources/police-clearance-certificate" },
-                { label: "Visa Checklist Generator", href: "/travel-resources/visa-checklist-generator" },
+                { label: "Bank Statement for Visa", href: "/bank-statement-for-visa" },
+                { label: "Police Clearance Certificate", href: "/police-clearance-certificate" },
+                { label: "Visa Checklist Generator", href: "/visa-checklist-generator" },
                 { label: "Common Visa Rejection Reasons", href: "/visa-rejection/common-reasons" },
                 { label: "Visa Appeal Process", href: "/visa-rejection/appeal-process-for-visa" },
                 { label: "Dubai Residents Visa", href: "/visa/dubai-residents" },

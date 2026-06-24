@@ -21,11 +21,11 @@ export const metadata = {
     "how to reschedule visa appointment",
     "embassy appointment checklist bangladesh",
   ],
-  alternates: { canonical: "https://www.eammu.com/travel-resources/embassy-appointment-tips" },
+  alternates: { canonical: "https://www.eammu.com/embassy-appointment-tips" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/embassy-appointment-tips",
+    url: "https://www.eammu.com/embassy-appointment-tips",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Embassy Appointment Tips 2026 | Eammu Holidays",
@@ -42,7 +42,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/embassy-appointment-tips#article",
+      "@id": "https://www.eammu.com/embassy-appointment-tips#article",
       headline: "Embassy Visa Appointment Tips 2026 — How to Get Slots Fast from Bangladesh",
       description: "Expert tips for securing embassy and VFS Global visa appointment slots from Bangladesh, with preparation checklist and day-of guidance.",
       image: "https://www.eammu.com/preview-banner.webp",
@@ -50,14 +50,14 @@ const structuredData = {
       publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/embassy-appointment-tips",
+      mainEntityOfPage: "https://www.eammu.com/embassy-appointment-tips",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "Embassy Appointment Tips", item: "https://www.eammu.com/travel-resources/embassy-appointment-tips" },
+        { "@type": "ListItem", position: 3, name: "Embassy Appointment Tips", item: "https://www.eammu.com/embassy-appointment-tips" },
       ],
     },
   ],

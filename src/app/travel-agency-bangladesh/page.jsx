@@ -8,7 +8,7 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 // ─── METADATA ────────────────────────────────────────────────────────────────
 export const metadata = {
   title:
-    "Best Travel Agency in Bangladesh | Visa, Air Ticket & Tour Packages — Eammu Holidays",
+    "Travel Agency in Bangladesh | Visa, Air Ticket & Tour Packages — Eammu Holidays",
   description:
     "Eammu Holidays is an IATA-accredited travel agency in Bangladesh offering visa processing, international air tickets, tour packages, Umrah, study abroad consultancy, and travel insurance from Dhaka, Cumilla, and Chittagong.",
   keywords: [

@@ -7,7 +7,7 @@ export const metadata = {
 
   title: {
     default:
-      "Eammu: Tourist Visa from Dubai and Bangladesh ",
+      "Apply for Tourist Visa from Bangladesh | Eammu Holidays",
   },
 
   description:

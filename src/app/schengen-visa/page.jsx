@@ -12,7 +12,7 @@ export const metadata = {
   metadataBase: new URL(BASE_URL),
 
   // ✅ Page-level title = plain string (template from layout.jsx auto-appends "| Eammu Holidays")
-  title: "Eammu: Schengen Visa Assistance | Europe Visa Processing",
+  title: "Apply For Schengen Visa from Dubai | Eammu Holidays",
 
   description:
     "Apply for a Schengen Visa from Bangladesh with Eammu Holidays. Expert file preparation, VFS Global appointment support, travel insurance, and hotel/flight reservations for all 29 Schengen countries — France, Italy, Germany, Spain & more.",

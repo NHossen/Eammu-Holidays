@@ -37,7 +37,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/travel-resources/bank-statement-for-visa",
+    canonical: "https://www.eammu.com/bank-statement-for-visa",
   },
 
   robots: {
@@ -54,7 +54,7 @@ export const metadata = {
 
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/bank-statement-for-visa",
+    url: "https://www.eammu.com/bank-statement-for-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Bank Statement Requirement for Visa 2026 — Complete Guide | Eammu Holidays",
@@ -95,7 +95,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/bank-statement-for-visa#article",
+      "@id": "https://www.eammu.com/bank-statement-for-visa#article",
       headline: "Bank Statement Requirement for Visa 2026 — How Much Balance Do You Need?",
       description:
         "Complete 2026 guide to bank statement and minimum balance requirements for Canada, UK, USA, Schengen, Dubai, and Australia visa applications from Bangladesh.",
@@ -108,14 +108,14 @@ const structuredData = {
       },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/bank-statement-for-visa",
+      mainEntityOfPage: "https://www.eammu.com/bank-statement-for-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "Bank Statement for Visa", item: "https://www.eammu.com/travel-resources/bank-statement-for-visa" },
+        { "@type": "ListItem", position: 3, name: "Bank Statement for Visa", item: "https://www.eammu.com/bank-statement-for-visa" },
       ],
     },
     {
@@ -427,8 +427,8 @@ export default function BankStatementForVisaPage() {
               {[
                 { label: "Visa Checklist Generator", href: "/travel-resources/visa-checklist-generator" },
                 { label: "Visa Processing Time Tracker", href: "/travel-resources/visa-processing-time-tracker" },
-                { label: "Police Clearance Certificate Guide", href: "/travel-resources/police-clearance-certificate" },
-                { label: "Spouse Visa Documents", href: "/visa/spouse-visa-documents" },
+                { label: "Police Clearance Certificate Guide", href: "/travel-resources" },
+                { label: "Spouse Visa Documents", href: "/spouse-visa-documents" },
                 { label: "Visa Rejection Help", href: "/visa-rejection" },
                 { label: "Common Visa Rejection Reasons", href: "/visa-rejection/common-reasons" },
                 { label: "All Visa Services", href: "/visa" },

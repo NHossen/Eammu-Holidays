@@ -1,4 +1,5 @@
 import VisaGuide from '@/Components/Client/VisaGuide/VisaGuide';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react';
 
 // ─── METADATA ────────────────────────────────────────────────────────────────
@@ -471,6 +472,7 @@ export default function VisaGuidePage() {
       />
 
       <VisaGuide />
+      <HomeSeoLinks />
     </>
   );
 }

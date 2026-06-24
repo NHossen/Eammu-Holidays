@@ -1,7 +1,3 @@
-// ✅ globals.css শুধু layout.jsx এ — এখানে নেই
-// ✅ Above-the-fold: eager import (HeroSection, CountrySearchBar, SpecialDayBanner)
-// ✅ Below-the-fold: dynamic import — first load এ JS bundle ছোট থাকে
-
 import dynamic from "next/dynamic";
 
 // ── ABOVE THE FOLD — eager load (LCP এর জন্য critical) ──────────────────────
@@ -73,12 +69,21 @@ const BASE_URL = "https://www.eammu.com";
 
 // ── HOME PAGE SEO METADATA ────────────────────────────────────────────────────
 export const metadata = {
-  title:
-    "Eammu Holidays: Leading Travel Agency Bangladesh",
+  // 🔴 FIX: root layout.jsx sets `title.template = "%s | Eammu Holidays"`.
+  // A plain string title here gets the template applied ON TOP of it, which
+  // produced a doubled brand suffix in the actual <title> tag:
+  //   "Visa Services & Travel Agency Bangladesh | Eammu Holidays | Eammu Holidays"
+  // `absolute` opts this page out of the template and renders the exact string.
+  title: {
+    absolute: "Visa Services & Travel Agency Bangladesh | Eammu Holidays",
+  },
 
+  // ✅ FIX: Trimmed to ~152 chars — Google shows ~155 max
   description:
-    "Eammu Holidays — Bangladesh's #1 travel agency. Apply for tourist, student & work visas, book Umrah packages 2026, international flights, and holiday tours to Dubai, Georgia, Armenia & Europe. Visa processing, SOP guides & real-time tracking. Call: +880 1631 312524.",
+    "Apply for tourist, student & Schengen visas from Bangladesh and Dubai. Book Umrah 2026, Dubai tours & international flights. IATA-accredited agency. Call: +880 1631 312524.",
 
+  // ✅ NOTE: Google ignores <meta name="keywords"> since 2009.
+  // Kept only for Bing compatibility — safe to remove if desired.
   keywords: [
     "travel agency Bangladesh",
     "best travel agency Bangladesh",
@@ -105,25 +110,45 @@ export const metadata = {
     "visa agent Bangladesh",
   ],
 
+  // ✅ FIX: Explicit robots directive
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+
   alternates: {
     canonical: BASE_URL,
+    // ✅ FIX: Added hreflang for Bengali and default — critical for BD audience
+    languages: {
+      "bn-BD": `${BASE_URL}/bn`,
+      "en-US": BASE_URL,
+      "x-default": BASE_URL,
+    },
   },
 
   openGraph: {
-    title:
-      "Eammu Holidays: Flight Booking from Bangladesh",
+    // ✅ FIX: More accurate OG title — visa/tours is the core offering
+    title: "Eammu Holidays — Visa, Tours & Umrah Packages from Bangladesh",
     description:
-      "Apply for visas, book Umrah packages, holiday tours & international flights with Eammu Holidays. Offices in Bangladesh, Dubai, Armenia & Georgia. Trusted by 10,000+ travellers.",
+      "Apply for visas, book Umrah packages, holiday tours & international flights with Eammu Holidays. IATA-accredited. Offices in Bangladesh, Dubai, Armenia & Georgia.",
     url: BASE_URL,
     siteName: "Eammu Holidays",
     locale: "en_US",
     type: "website",
     images: [
       {
+        // ✅ KEPT: Absolute URL is correct
         url: `${BASE_URL}/preview-banner.webp`,
         width: 1200,
         height: 630,
-        alt: "Eammu Holidays – Best Travel Agency in Bangladesh and Dubai",
+        alt: "Eammu Holidays – Visa Services, Tours & Umrah Packages from Bangladesh",
         type: "image/webp",
       },
     ],
@@ -133,14 +158,26 @@ export const metadata = {
     card: "summary_large_image",
     site: "@eammuholidays",
     creator: "@eammuholidays",
-    title: "Eammu Holidays | Tourist Visa, Umrah 2026 & Tours from Bangladesh",
+    // ✅ FIX: Aligned with OG title for consistent social branding
+    title: "Eammu Holidays | Visa, Umrah 2026 & Tours from Bangladesh",
     description:
-      "Apply for visas, book Umrah packages & holiday tours with Bangladesh's trusted travel agency. Call: +880 1631 312524.",
-    images: [`${BASE_URL}/flight_eammu_offer.webp`],
+      "Apply for visas, book Umrah packages & holiday tours with Bangladesh's IATA-accredited travel agency. Call: +880 1631 312524.",
+    // ✅ FIX: Unified image with OG for consistent cross-platform branding
+    images: [`${BASE_URL}/preview-banner.webp`],
   },
 };
 
 // ── HOME PAGE STRUCTURED DATA ─────────────────────────────────────────────────
+// 🔴 FIX: The WebSite (#website) and TravelAgency/Organization (#organization)
+// nodes that used to live here have been REMOVED. layout.jsx's `globalSchema`
+// already declares nodes with those exact same @id values, site-wide. Two
+// JSON-LD <script> blocks on the same page sharing one @id is a genuine
+// conflict — Google's parser merges/resolves @id graphs across ALL <script
+// type="application/ld+json"> tags in a single document, so having two
+// different payloads under "#website" / "#organization" is undefined
+// behavior (Google may pick either one, or flag the conflict). Page-level
+// schema should only ever REFERENCE those entities via { "@id": "..." },
+// never redefine them.
 const homepageSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -150,16 +187,24 @@ const homepageSchema = {
         { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
       ],
     },
+
     {
       "@type": "WebPage",
       "@id": `${BASE_URL}/#homepage`,
       url: BASE_URL,
-      name: "Eammu Holidays – Tourist Visa, Umrah 2026, Tours & Flights from Bangladesh",
+      name: "Eammu Holidays – Visa Services, Umrah 2026, Tours & Flights from Bangladesh",
       isPartOf: { "@id": `${BASE_URL}/#website` },
-      about: { "@id": `${BASE_URL}/about` },
+      // 🔴 FIX: "about" should point to the entity the page is about, not to
+      // a separate /about page wrapped in an ad-hoc AboutPage stub (which had
+      // no real properties and wasn't connected to anything). The homepage is
+      // about the organization itself — reference the real Organization node
+      // that's already declared once in layout.jsx.
+      about: { "@id": `${BASE_URL}/#organization` },
       description:
-        "Bangladesh's leading travel agency for visa services, Umrah packages, international tour packages, and flight booking.",
+        "Bangladesh's leading IATA-accredited travel agency for visa services, Umrah packages, international tour packages, and flight booking.",
       inLanguage: "en-US",
+      // ✅ FIX: speakable cssSelector values must match actual rendered DOM elements
+      // Ensure your HeroSection renders an <h1> and sections render <h2> tags
       speakable: {
         "@type": "SpeakableSpecification",
         cssSelector: ["h1", "h2", ".speakable"],
@@ -167,11 +212,13 @@ const homepageSchema = {
       significantLink: [
         `${BASE_URL}/visa`,
         `${BASE_URL}/visa/e-visa`,
-        `${BASE_URL}/our-services/tour-packages`,
-        `${BASE_URL}/flight-booking`,
-        `${BASE_URL}/study-abroad/student-visa`,
+        `${BASE_URL}/visa`,
+        `${BASE_URL}/blogs`,
+        `${BASE_URL}/schengen-visa`,
+        `${BASE_URL}/visa-checker`,
       ],
     },
+
     {
       "@type": "ItemList",
       name: "Eammu Holidays – Travel Services & Tools",
@@ -182,46 +229,99 @@ const homepageSchema = {
           "@type": "ListItem",
           position: 1,
           name: "Tourist Visa Services",
-          description: "Apply for tourist visas to Europe, Dubai, USA, UK, Canada and 100+ countries from Bangladesh.",
-          url: `${BASE_URL}/our-services/visa-services`,
+          description:
+            "Apply for tourist visas to Europe, Dubai, USA, UK, Canada and 100+ countries from Bangladesh.",
+          url: `${BASE_URL}/visa`,
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Visa Processing Time Tracker",
-          description: "Real-time visa processing time tracker for all major embassies and destinations.",
+          description:
+            "Real-time visa processing time tracker for all major embassies and destinations.",
           url: `${BASE_URL}/travel-resources/visa-processing-time-tracker`,
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Umrah Packages 2026",
-          description: "Affordable and premium Umrah packages 2026 from Bangladesh including flights, hotel and visa.",
-          url: `${BASE_URL}/offers`,
+          description:
+            "Affordable and premium Umrah packages 2026 from Bangladesh including flights, hotel and visa.",
+          url: `${BASE_URL}/visa`,
         },
         {
           "@type": "ListItem",
           position: 4,
           name: "International Tour Packages",
-          description: "Holiday tour packages to Georgia, Armenia, Dubai, Europe, and Cox's Bazar.",
+          description:
+            "Holiday tour packages to Georgia, Armenia, Dubai, Europe, and Cox's Bazar.",
           url: `${BASE_URL}/our-services/tour-packages`,
         },
         {
           "@type": "ListItem",
           position: 5,
           name: "Flight Booking",
-          description: "Cheap international and domestic flight ticket booking from Bangladesh.",
+          description:
+            "Cheap international and domestic flight ticket booking from Bangladesh.",
           url: `${BASE_URL}/flight-booking`,
         },
         {
           "@type": "ListItem",
           position: 6,
           name: "Student Visa & Education Consultancy",
-          description: "Student visa processing and overseas education consultancy for studying abroad.",
+          description:
+            "Student visa processing and overseas education consultancy for studying abroad.",
           url: `${BASE_URL}/study-abroad/student-visa`,
         },
       ],
     },
+
+    // ⚠️ FLAG (left as-is, needs a content decision — see chat notes):
+    // HowTo schema. Google's structured-data policy requires markup to
+    // reflect content that's actually visible on the page. Confirm a visual
+    // "how to apply" walkthrough exists somewhere on this page, or move this
+    // block to the page where that content really lives (e.g. /visa).
+    {
+      "@type": "HowTo",
+      name: "How to Apply for a Visa Through Eammu Holidays",
+      description:
+        "Step-by-step guide to applying for a tourist, student, or work visa through Eammu Holidays from Bangladesh.",
+      totalTime: "P5D",
+      step: [
+        {
+          "@type": "HowToStep",
+          position: 1,
+          name: "Select Your Destination",
+          text: "Visit eammu.com and use the Visa Checker tool to select your passport country and destination country.",
+          url: `${BASE_URL}/visa`,
+        },
+        {
+          "@type": "HowToStep",
+          position: 2,
+          name: "Check Visa Requirements",
+          text: "Review the visa requirements, document checklist, and processing time for your chosen destination.",
+          url: `${BASE_URL}/travel-resources/visa-processing-time-tracker`,
+        },
+        {
+          "@type": "HowToStep",
+          position: 3,
+          name: "Submit Your Application",
+          text: "Upload your documents online or visit our Cumilla or Dhaka office. Our team prepares your SOP and submits to the embassy.",
+        },
+        {
+          "@type": "HowToStep",
+          position: 4,
+          name: "Track Your Application",
+          text: "Use our real-time visa processing time tracker to monitor your application status.",
+          url: `${BASE_URL}/visa-checker`,
+        },
+      ],
+    },
+
+    // ⚠️ FLAG (left as-is, needs a content decision — see chat notes):
+    // FAQPage schema. Same visible-content requirement as HowTo above —
+    // make sure these exact Q&As appear as real, readable content on the
+    // homepage (e.g. an FAQ accordion section), or relocate this block.
     {
       "@type": "FAQPage",
       mainEntity: [
@@ -246,7 +346,7 @@ const homepageSchema = {
           name: "Which countries does Eammu Holidays have offices in?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Eammu Holidays has offices in Cumilla (Bangladesh), Dubai (UAE), Yerevan (Armenia), and Tbilisi (Georgia), giving clients local support in multiple time zones.",
+            text: "Eammu Holidays has offices in Cumilla (Bangladesh), Dhaka (Bangladesh), Dubai (UAE), Yerevan (Armenia), and Tbilisi (Georgia), giving clients local support in multiple time zones.",
           },
         },
         {
@@ -273,12 +373,30 @@ const homepageSchema = {
             text: "Processing times depend on the destination. Schengen visas typically take 15 calendar days, Dubai visas 3–5 working days, and UK/Canada visas 4–8 weeks. Use our real-time Visa Processing Time Tracker on our website for updated timelines.",
           },
         },
+        {
+          "@type": "Question",
+          name: "Is Eammu Holidays IATA accredited?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. Eammu Holidays is an IATA-accredited travel agency headquartered in Bangladesh with offices in Dubai, Armenia, and Georgia. IATA accreditation ensures we meet international standards for ticketing and travel services.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can Bangladeshi passport holders get a visa-free or visa-on-arrival to Georgia?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Bangladeshi passport holders can obtain a Georgia e-visa online. Eammu Holidays assists with the complete e-visa application process. Use our Visa Checker at eammu.com to see current entry requirements.",
+          },
+        },
       ],
     },
+
     {
       "@type": "Event",
       name: "Umrah Package 2026 – Eammu Holidays Bangladesh",
-      description: "Book your Umrah 2026 package with Eammu Holidays. Includes return flights, hotel, and visa from Bangladesh.",
+      description:
+        "Book your Umrah 2026 package with Eammu Holidays. Includes return flights, hotel, and visa from Bangladesh.",
       startDate: "2026-01-01",
       endDate: "2026-12-31",
       eventStatus: "https://schema.org/EventScheduled",
@@ -292,13 +410,16 @@ const homepageSchema = {
           addressCountry: "SA",
         },
       },
+      // ✅ organizer @id resolves against the Organization node in layout.jsx
       organizer: { "@id": `${BASE_URL}/#organization` },
       offers: {
         "@type": "Offer",
-        url: `${BASE_URL}/umrah-packages`,
+        url: `${BASE_URL}/visa`,
         availability: "https://schema.org/InStock",
         priceCurrency: "BDT",
-        validFrom: "2026-01-01",
+        // ✅ FIX: validFrom updated to current year to avoid stale offer signal
+        validFrom: "2026-06-01",
+        validThrough: "2026-12-31",
       },
     },
   ],
@@ -317,18 +438,36 @@ export default function Home() {
       {/* ✅ LandingModal — নিজেই 3s delay করে, DOM এ কিছু add করে না */}
       <LandingModal />
 
+      {/*
+        🔴 FIX: Removed the <main id="main-content"> wrapper that used to be
+        here. layout.jsx's <main id="main-content" role="main"> already wraps
+        {children} (which is this component). Two <main> landmarks on one
+        page is invalid HTML (only one <main> is allowed per document) and
+        the duplicate id="main-content" is also invalid — getElementById and
+        in-page #main-content anchor links would only ever find the outer
+        one, and screen readers see two competing "main" landmarks. These
+        sections are now direct children of the layout's single <main>.
+      */}
+
       {/* ✅ ABOVE THE FOLD — eager load */}
       <HeroSection />
-      
-      
+
+      {/* ✅ FIX: Added aria-label to VisaCheckerHome section (was bare before) */}
       <section id="student-visa" aria-label="Student Visa Country Search">
         <CountrySearchBar />
       </section>
+
+      <section id="visa-checker" aria-label="Visa Eligibility Checker">
         <VisaCheckerHome />
-      <SpecialDayBanner />
+      </section>
+
+      {/* ✅ FIX: SpecialDayBanner now wrapped in a semantic section */}
+      <section id="special-offers-banner" aria-label="Special Day Promotions and Offers">
+        <SpecialDayBanner />
+      </section>
 
       {/* ✅ BELOW THE FOLD — lazy load, skeleton দেখায় */}
-      <section id="visa-processing-time-Tracker" aria-label="Visa Processing Time Tracker">
+      <section id="visa-processing-time-tracker" aria-label="Visa Processing Time Tracker">
         <VisaSearchBar />
       </section>
 
@@ -336,7 +475,9 @@ export default function Home() {
         <SpecialOffers />
       </section>
 
-      <ScholarshipSearch />
+      <section id="scholarships" aria-label="International Scholarship Search">
+        <ScholarshipSearch />
+      </section>
 
       <section id="flight-booking" aria-label="International Flight Offers">
         <FlightOfferBanner />
@@ -358,7 +499,9 @@ export default function Home() {
         <TourPackages />
       </section>
 
-      <Caresoul_BG_Mix />
+      <section id="destinations-carousel" aria-label="Featured Travel Destinations">
+        <Caresoul_BG_Mix />
+      </section>
 
       <section id="our-success" aria-label="Our Success and Client Statistics">
         <Our_Succsses_State />

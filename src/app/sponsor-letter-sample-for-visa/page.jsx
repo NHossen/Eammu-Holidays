@@ -22,11 +22,11 @@ export const metadata = {
     "sponsor letter template 2026",
     "financial undertaking letter visa",
   ],
-  alternates: { canonical: "https://www.eammu.com/travel-resources/sponsor-letter-sample-for-visa" },
+  alternates: { canonical: "https://www.eammu.com/sponsor-letter-sample-for-visa" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/sponsor-letter-sample-for-visa",
+    url: "https://www.eammu.com/sponsor-letter-sample-for-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Sponsor Letter Sample for Visa 2026 | Eammu Holidays",
@@ -43,7 +43,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/sponsor-letter-sample-for-visa#article",
+      "@id": "https://www.eammu.com/sponsor-letter-sample-for-visa#article",
       headline: "Sponsor Letter Sample for Visa 2026 — Format & Template for Bangladesh Applicants",
       description: "How to write a sponsor letter or affidavit of support for a visa application from Bangladesh — required elements, sample template, and country-specific guidance.",
       image: "https://www.eammu.com/preview-banner.webp",
@@ -51,14 +51,14 @@ const structuredData = {
       publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/sponsor-letter-sample-for-visa",
+      mainEntityOfPage: "https://www.eammu.com/sponsor-letter-sample-for-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "Sponsor Letter Sample for Visa", item: "https://www.eammu.com/travel-resources/sponsor-letter-sample-for-visa" },
+        { "@type": "ListItem", position: 3, name: "Sponsor Letter Sample for Visa", item: "https://www.eammu.com/sponsor-letter-sample-for-visa" },
       ],
     },
   ],

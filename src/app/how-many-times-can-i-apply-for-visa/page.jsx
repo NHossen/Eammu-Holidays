@@ -22,11 +22,11 @@ export const metadata = {
     "visa reapplication rules 2026",
     "is there a visa blacklist",
   ],
-  alternates: { canonical: "https://www.eammu.com/travel-resources/how-many-times-can-i-apply-for-visa" },
+  alternates: { canonical: "https://www.eammu.com/how-many-times-can-i-apply-for-visa" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/how-many-times-can-i-apply-for-visa",
+    url: "https://www.eammu.com/how-many-times-can-i-apply-for-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "How Many Times Can I Apply for Visa After Rejection? 2026 | Eammu Holidays",
@@ -43,7 +43,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/how-many-times-can-i-apply-for-visa#article",
+      "@id": "https://www.eammu.com/how-many-times-can-i-apply-for-visa#article",
       headline: "How Many Times Can I Apply for a Visa After Rejection? — 2026 Bangladesh Guide",
       description: "Rules on how many times you can reapply for a visa after rejection — waiting periods, what must change between applications, and country-specific guidance.",
       image: "https://www.eammu.com/preview-banner.webp",
@@ -51,14 +51,14 @@ const structuredData = {
       publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/how-many-times-can-i-apply-for-visa",
+      mainEntityOfPage: "https://www.eammu.com/how-many-times-can-i-apply-for-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "How Many Times Can I Apply for Visa", item: "https://www.eammu.com/travel-resources/how-many-times-can-i-apply-for-visa" },
+        { "@type": "ListItem", position: 3, name: "How Many Times Can I Apply for Visa", item: "https://www.eammu.com/how-many-times-can-i-apply-for-visa" },
       ],
     },
   ],
@@ -78,7 +78,7 @@ export default function HowManyTimesApplyVisaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div className="sr-only" aria-hidden="true">
         <h1>How Many Times Can I Apply for Visa After Rejection 2026 — Bangladesh Guide | Eammu Holidays</h1>
-        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/travel-resources/how-many-times-can-i-apply-for-visa">How Many Times Can I Apply</a></li></ol></nav>
+        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/how-many-times-can-i-apply-for-visa">How Many Times Can I Apply</a></li></ol></nav>
       </div>
 
       <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">

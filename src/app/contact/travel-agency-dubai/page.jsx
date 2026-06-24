@@ -12,10 +12,10 @@ export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
 
   title:
-    "Eammu Holidays: Travel Agency in Dubai",
+    "Travel Agency in Dubai,United Arab Emirates | Eammu Holidays",
 
   description:
-    "Eammu Holidays is a trusted travel agency in Business Bay, Dubai (Office 12B, Executive Tower). Expert UAE Golden Visa, Dubai resident visas for Albania, Andorra, Armenia, Serbia & Kosovo, Schengen, UK, USA & Canada visas, desert tours, and 24/7 VIP support. Call +971 50 707 8334.",
+    "Eammu Holidays is a trusted travel agency Dubai (Office 12B, Executive Tower). Expert UAE Golden Visa, Dubai resident visas for Albania, Andorra, Armenia, Serbia & Kosovo, Schengen, UK, USA & Canada visas, desert tours, and 24/7 VIP support. Call +971 50 707 8334.",
 
   keywords: [
     // Core geo + brand

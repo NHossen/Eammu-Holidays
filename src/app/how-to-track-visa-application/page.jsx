@@ -24,11 +24,11 @@ export const metadata = {
     "visa status pending what to do",
     "visa application tracker bangladesh",
   ],
-  alternates: { canonical: "https://www.eammu.com/travel-resources/how-to-track-visa-application" },
+  alternates: { canonical: "https://www.eammu.com/how-to-track-visa-application" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/how-to-track-visa-application",
+    url: "https://www.eammu.com/how-to-track-visa-application",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "How to Track Visa Application 2026 | Check Status Online | Eammu Holidays",
@@ -45,7 +45,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/how-to-track-visa-application#article",
+      "@id": "https://www.eammu.com/how-to-track-visa-application#article",
       headline: "How to Track Your Visa Application Status Online — 2026 Guide for Bangladesh",
       description: "Complete guide to tracking visa application status for Schengen, UK, USA, Canada, and UAE visa applications from Bangladesh — portals, reference numbers, processing timelines, and what status messages mean.",
       image: "https://www.eammu.com/preview-banner.webp",
@@ -53,14 +53,14 @@ const structuredData = {
       publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/how-to-track-visa-application",
+      mainEntityOfPage: "https://www.eammu.com/how-to-track-visa-application",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "How to Track Visa Application", item: "https://www.eammu.com/travel-resources/how-to-track-visa-application" },
+        { "@type": "ListItem", position: 3, name: "How to Track Visa Application", item: "https://www.eammu.com/how-to-track-visa-application" },
       ],
     },
   ],
@@ -90,7 +90,7 @@ export default function TrackVisaApplicationPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div className="sr-only" aria-hidden="true">
         <h1>How to Track Visa Application 2026 — Check Status Online Bangladesh | Eammu Holidays</h1>
-        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/travel-resources/how-to-track-visa-application">How to Track Visa Application</a></li></ol></nav>
+        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/how-to-track-visa-application">How to Track Visa Application</a></li></ol></nav>
       </div>
 
       <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">

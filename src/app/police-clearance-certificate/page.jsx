@@ -36,7 +36,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/travel-resources/police-clearance-certificate",
+    canonical: "https://www.eammu.com/police-clearance-certificate",
   },
 
   robots: {
@@ -53,7 +53,7 @@ export const metadata = {
 
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/police-clearance-certificate",
+    url: "https://www.eammu.com/police-clearance-certificate",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Police Clearance Certificate (PCC) Bangladesh 2026 — Full Guide | Eammu Holidays",
@@ -94,7 +94,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/police-clearance-certificate#article",
+      "@id": "https://www.eammu.com/police-clearance-certificate#article",
       headline: "Police Clearance Certificate (PCC) Bangladesh 2026 — Complete Guide",
       description:
         "Step-by-step guide to applying for a Police Clearance Certificate in Bangladesh, including required documents, fees, processing time, and visa use cases.",
@@ -107,14 +107,14 @@ const structuredData = {
       },
       datePublished: "2026-01-12",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/police-clearance-certificate",
+      mainEntityOfPage: "https://www.eammu.com/police-clearance-certificate",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "Police Clearance Certificate", item: "https://www.eammu.com/travel-resources/police-clearance-certificate" },
+        { "@type": "ListItem", position: 3, name: "Police Clearance Certificate", item: "https://www.eammu.com/police-clearance-certificate" },
       ],
     },
     {
@@ -240,7 +240,7 @@ export default function PoliceClearanceCertificatePage() {
           <ol>
             <li><a href="https://www.eammu.com">Home</a></li>
             <li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li>
-            <li><a href="https://www.eammu.com/travel-resources/police-clearance-certificate">Police Clearance Certificate</a></li>
+            <li><a href="https://www.eammu.com/police-clearance-certificate">Police Clearance Certificate</a></li>
           </ol>
         </nav>
       </div>

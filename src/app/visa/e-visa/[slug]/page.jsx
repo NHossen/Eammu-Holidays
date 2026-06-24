@@ -8,6 +8,7 @@ import {
   MessageCircle, Plane, Wifi, Smartphone,
   CircleCheck, TriangleAlert, Info, Zap
 } from "lucide-react";
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1295,6 +1296,7 @@ export default async function EVisaSlugPage({ params }) {
           </div>
         </div>
       </div>
+      <HomeSeoLinks />
     </div>
   );
 }

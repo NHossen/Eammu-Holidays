@@ -35,7 +35,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/target-usa-visa-interview-preparation/ds-160-form-guide",
+    canonical: "https://www.eammu.com/ds-160-form-guide",
   },
 
   robots: {
@@ -52,7 +52,7 @@ export const metadata = {
 
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/target-usa-visa-interview-preparation/ds-160-form-guide",
+    url: "https://www.eammu.com/ds-160-form-guide",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "DS-160 Form Guide 2026 — Step-by-Step | Eammu Holidays Target USA",
@@ -93,7 +93,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/target-usa-visa-interview-preparation/ds-160-form-guide#article",
+      "@id": "https://www.eammu.com/ds-160-form-guide#article",
       headline: "DS-160 Form Guide 2026 — Step-by-Step Instructions for USA Visa Applicants",
       description:
         "Step-by-step DS-160 guide for Bangladeshi USA visa applicants, covering the online form, photo requirements, common mistakes, and the confirmation page.",
@@ -106,14 +106,14 @@ const structuredData = {
       },
       datePublished: "2026-01-15",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/target-usa-visa-interview-preparation/ds-160-form-guide",
+      mainEntityOfPage: "https://www.eammu.com/ds-160-form-guide",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Target USA Visa Interview Preparation", item: "https://www.eammu.com/target-usa-visa-interview-preparation" },
-        { "@type": "ListItem", position: 3, name: "DS-160 Form Guide", item: "https://www.eammu.com/target-usa-visa-interview-preparation/ds-160-form-guide" },
+        { "@type": "ListItem", position: 3, name: "DS-160 Form Guide", item: "https://www.eammu.com/ds-160-form-guide" },
       ],
     },
     {
@@ -243,7 +243,7 @@ export default function DS160FormGuidePage() {
           <ol>
             <li><a href="https://www.eammu.com">Home</a></li>
             <li><a href="https://www.eammu.com/target-usa-visa-interview-preparation">Target USA Visa Interview Preparation</a></li>
-            <li><a href="https://www.eammu.com/target-usa-visa-interview-preparation/ds-160-form-guide">DS-160 Form Guide</a></li>
+            <li><a href="https://www.eammu.com/ds-160-form-guide">DS-160 Form Guide</a></li>
           </ol>
         </nav>
       </div>
@@ -325,7 +325,7 @@ export default function DS160FormGuidePage() {
                   Target USA visa interview preparation program
                 </Link>
                 , Eammu Holidays reviews your DS-160 alongside your{" "}
-                <Link href="/travel-resources/bank-statement-for-visa" className="text-[#0d3a66] font-semibold hover:text-orange-500">
+                <Link href="/bank-statement-for-visa" className="text-[#0d3a66] font-semibold hover:text-orange-500">
                   financial documents
                 </Link>{" "}
                 and conducts mock interviews to ensure everything is consistent.
@@ -426,7 +426,7 @@ export default function DS160FormGuidePage() {
                 { label: "Bank Statement for Visa", href: "/travel-resources/bank-statement-for-visa" },
                 { label: "Visa Checklist Generator", href: "/travel-resources/visa-checklist-generator" },
                 { label: "Visa Rejection Help", href: "/visa-rejection" },
-                { label: "Common Visa Rejection Reasons", href: "/visa-rejection/common-reasons" },
+                { label: "Common Visa Rejection Reasons", href: "/common-reasons" },
                 { label: "All Visa Services", href: "/visa" },
                 { label: "Study Abroad", href: "/study-abroad" },
               ].map((lnk) => (

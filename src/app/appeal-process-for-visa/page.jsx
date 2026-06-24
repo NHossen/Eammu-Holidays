@@ -33,7 +33,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/visa-rejection/appeal-process-for-visa",
+    canonical: "https://www.eammu.com/appeal-process-for-visa",
   },
 
   robots: {
@@ -50,7 +50,7 @@ export const metadata = {
 
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/visa-rejection/appeal-process-for-visa",
+    url: "https://www.eammu.com/appeal-process-for-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Visa Rejection Appeal Process 2026 | Eammu Holidays",
@@ -90,7 +90,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/visa-rejection/appeal-process-for-visa#article",
+      "@id": "https://www.eammu.com/appeal-process-for-visa#article",
       headline: "Visa Rejection Appeal Process 2026 — How to Reapply After Refusal",
       description:
         "A guide for Bangladeshi applicants on the visa appeal and reapplication process after a refusal for Canada, UK, USA, Schengen, or Dubai visas.",
@@ -103,7 +103,7 @@ const structuredData = {
       },
       datePublished: "2026-01-25",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/visa-rejection/appeal-process-for-visa",
+      mainEntityOfPage: "https://www.eammu.com/appeal-process-for-visa",
     },
     {
       "@type": "BreadcrumbList",

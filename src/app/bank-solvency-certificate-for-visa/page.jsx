@@ -5,7 +5,7 @@ import React from "react";
 
 export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
-  title: { default: "Bank Solvency Certificate for Visa 2026 | How to Get It from Bangladeshi Banks | Eammu Holidays" },
+  title: { default: "Bank Solvency Certificate for Visa 2026 | Eammu Holidays" },
   description:
     "What is a bank solvency certificate and how to get one for visa applications from Bangladesh? Complete 2026 guide covering format, sample, which banks issue it, and how embassies use it — by Eammu Holidays.",
   keywords: [
@@ -23,11 +23,11 @@ export const metadata = {
     "bank solvency certificate 2026",
     "difference between bank statement and solvency certificate",
   ],
-  alternates: { canonical: "https://www.eammu.com/travel-resources/bank-solvency-certificate-for-visa" },
+  alternates: { canonical: "https://www.eammu.com/bank-solvency-certificate-for-visa" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/bank-solvency-certificate-for-visa",
+    url: "https://www.eammu.com/bank-solvency-certificate-for-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Bank Solvency Certificate for Visa 2026 | Eammu Holidays",
@@ -44,7 +44,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/bank-solvency-certificate-for-visa#article",
+      "@id": "https://www.eammu.com/bank-solvency-certificate-for-visa#article",
       headline: "Bank Solvency Certificate for Visa 2026 — Complete Guide for Bangladesh",
       description: "How to get a bank solvency certificate for a visa application from Bangladesh — format, required information, banks that issue it, and embassy requirements.",
       image: "https://www.eammu.com/preview-banner.webp",
@@ -52,14 +52,14 @@ const structuredData = {
       publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/bank-solvency-certificate-for-visa",
+      mainEntityOfPage: "https://www.eammu.com/bank-solvency-certificate-for-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "Bank Solvency Certificate for Visa", item: "https://www.eammu.com/travel-resources/bank-solvency-certificate-for-visa" },
+        { "@type": "ListItem", position: 3, name: "Bank Solvency Certificate for Visa", item: "https://www.eammu.com/bank-solvency-certificate-for-visa" },
       ],
     },
   ],
@@ -90,7 +90,7 @@ export default function BankSolvencyCertificatePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div className="sr-only" aria-hidden="true">
         <h1>Bank Solvency Certificate for Visa 2026 — Complete Guide for Bangladesh | Eammu Holidays</h1>
-        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/travel-resources/bank-solvency-certificate-for-visa">Bank Solvency Certificate</a></li></ol></nav>
+        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/bank-solvency-certificate-for-visa">Bank Solvency Certificate</a></li></ol></nav>
       </div>
 
       <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">

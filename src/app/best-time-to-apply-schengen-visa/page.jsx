@@ -33,7 +33,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/visa/best-time-to-apply-schengen-visa",
+    canonical: "https://www.eammu.com/best-time-to-apply-schengen-visa",
   },
 
   robots: {
@@ -50,7 +50,7 @@ export const metadata = {
 
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/visa/best-time-to-apply-schengen-visa",
+    url: "https://www.eammu.com/best-time-to-apply-schengen-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Best Time to Apply for Schengen Visa 2026 | Eammu Holidays",
@@ -90,7 +90,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/visa/best-time-to-apply-schengen-visa#article",
+      "@id": "https://www.eammu.com/best-time-to-apply-schengen-visa#article",
       headline: "Best Time to Apply for Schengen Visa 2026 — Avoid Peak Season Delays",
       description:
         "A timing guide for Bangladeshi applicants on when to apply for a Schengen visa to avoid appointment delays during peak travel seasons.",
@@ -103,14 +103,14 @@ const structuredData = {
       },
       datePublished: "2026-01-20",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/visa/best-time-to-apply-schengen-visa",
+      mainEntityOfPage: "https://www.eammu.com/best-time-to-apply-schengen-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://www.eammu.com/visa" },
-        { "@type": "ListItem", position: 3, name: "Best Time to Apply for Schengen Visa", item: "https://www.eammu.com/visa/best-time-to-apply-schengen-visa" },
+        { "@type": "ListItem", position: 3, name: "Best Time to Apply for Schengen Visa", item: "https://www.eammu.com/best-time-to-apply-schengen-visa" },
       ],
     },
     {
@@ -195,7 +195,7 @@ export default function BestTimeSchengenVisaPage() {
           <ol>
             <li><a href="https://www.eammu.com">Home</a></li>
             <li><a href="https://www.eammu.com/visa">Visa Services</a></li>
-            <li><a href="https://www.eammu.com/visa/best-time-to-apply-schengen-visa">Best Time to Apply for Schengen Visa</a></li>
+            <li><a href="https://www.eammu.com/best-time-to-apply-schengen-visa">Best Time to Apply for Schengen Visa</a></li>
           </ol>
         </nav>
       </div>
@@ -359,11 +359,11 @@ export default function BestTimeSchengenVisaPage() {
             <nav className="flex flex-wrap justify-center gap-2.5" aria-label="Related visa resources">
               {[
                 { label: "Schengen Visa Services", href: "/visa" },
-                { label: "Visa Checklist Generator", href: "/travel-resources/visa-checklist-generator" },
-                { label: "Visa Processing Time Tracker", href: "/travel-resources/visa-processing-time-tracker" },
-                { label: "Bank Statement for Visa", href: "/travel-resources/bank-statement-for-visa" },
-                { label: "Common Visa Rejection Reasons", href: "/visa-rejection/common-reasons" },
-                { label: "Visa Appeal Process", href: "/visa-rejection/appeal-process-for-visa" },
+                { label: "Visa Checklist Generator", href: "/visa-checklist-generator" },
+                { label: "Visa Processing Time Tracker", href: "/visa-processing-time-tracker" },
+                { label: "Bank Statement for Visa", href: "/bank-statement-for-visa" },
+                { label: "Common Visa Rejection Reasons", href: "/common-reasons" },
+                { label: "Visa Appeal Process", href: "/appeal-process-for-visa" },
                 { label: "Visa Guide 2026", href: "/visa/visa-guide" },
               ].map((lnk) => (
                 <Link

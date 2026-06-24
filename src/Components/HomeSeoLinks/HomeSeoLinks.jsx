@@ -42,9 +42,24 @@ const VISA_GUIDES = [
       { label: "Japan Student Visa", href: "/study-abroad/student-visa/japan" },
       { label: "South Korea Student Visa", href: "/study-abroad/student-visa/south-korea" },
       { label: "Malaysia Student Visa", href: "/study-abroad/student-visa/malaysia" },
-      { label: "Russia Student Visa", href: "/study-abroad/student-visa/russia" },
-      { label: "China Student Visa", href: "/study-abroad/student-visa/china" },
+      { label: "Albania Student Visa", href: "/study-abroad/student-visa/albania" },
+      { label: "Andorra Student Visa", href: "/study-abroad/student-visa/andorra" },
       { label: "All Student Visas", href: "/study-abroad/student-visa" },
+    ],
+  },
+  {
+    label: "Work Visa",
+    slug: "work-visa",
+    icon: "💼",
+    color: "#059669",
+    description: "Employment visa guidance for Bangladeshi professionals abroad",
+    href: "/our-services/visa-services/work-visa-from-bangladesh",
+    links: [
+      { label: "Saudi Arabia Work Visa", href: "/our-services/visa/saudi-arabia-visa-application" },
+      { label: "Qatar Work Visa", href: "/our-services/visa/qatar-visa-application" },
+      { label: "Dubai / UAE Work Visa", href: "/our-services/visa/dubai-visa-application" },
+      { label: "Malaysia Work Visa", href: "/our-services/visa/malaysia-visa-application" },
+      { label: "All Work Visa Services", href: "/our-services/visa-services/work-visa-from-bangladesh" },
     ],
   },
   {
@@ -64,6 +79,7 @@ const VISA_GUIDES = [
       { label: "Egypt to Armenia E-Visa", href: "/visa-checker/egypt-visa-for-armenia/e-visa" },
       { label: "India to Armenia E-Visa", href: "/visa-checker/india-visa-for-armenia/e-visa" },
       { label: "Bangladesh to Nigeria E-Visa", href: "/visa-checker/bangladesh-visa-for-nigeria/e-visa" },
+      { label: "Sri Lanka to Albania E-Visa", href: "/visa-checker/sri-lanka-visa-for-albania/e-visa" },
       { label: "All E-Visa Guides", href: "/visa/e-visa" },
     ],
   },
@@ -89,6 +105,43 @@ const VISA_GUIDES = [
   },
 ];
 
+// Cornerstone service pages: /our-services/visa/[country]-visa-application
+const VISA_APPLICATION_COUNTRIES = [
+  { label: "Albania Visa", href: "/our-services/visa/albania-visa-application", flag: "🇦🇱" },
+  { label: "Armenia Visa", href: "/our-services/visa/armenia-visa-application", flag: "🇦🇲" },
+  { label: "Australia Visa", href: "/our-services/visa/australia-visa-application", flag: "🇦🇺" },
+  { label: "Azerbaijan Visa", href: "/our-services/visa/azerbaijan-visa-application", flag: "🇦🇿" },
+  { label: "Brazil Visa", href: "/our-services/visa/brazil-visa-application", flag: "🇧🇷" },
+  { label: "Canada Visa", href: "/our-services/visa/canada-visa-application", flag: "🇨🇦" },
+  { label: "China Visa", href: "/our-services/visa/china-visa-application", flag: "🇨🇳" },
+  { label: "Cyprus Visa", href: "/our-services/visa/cyprus-visa-application", flag: "🇨🇾" },
+  { label: "Dubai / UAE Visa", href: "/our-services/visa/dubai-visa-application", flag: "🇦🇪" },
+  { label: "Europe (Schengen) Visa", href: "/our-services/visa/europe-visa-application", flag: "🇪🇺" },
+  { label: "Georgia Visa", href: "/our-services/visa/georgia-visa-application", flag: "🇬🇪" },
+  { label: "Germany Visa", href: "/our-services/visa/germany-visa-application", flag: "🇩🇪" },
+  { label: "India Visa", href: "/our-services/visa/india-visa-application", flag: "🇮🇳" },
+  { label: "Indonesia Visa", href: "/our-services/visa/indonesia-visa-application", flag: "🇮🇩" },
+  { label: "Japan Visa", href: "/our-services/visa/japan-visa-application", flag: "🇯🇵" },
+  { label: "Kosovo Visa", href: "/our-services/visa/kosovo-visa-application", flag: "🇽🇰" },
+  { label: "Malaysia Visa", href: "/our-services/visa/malaysia-visa-application", flag: "🇲🇾" },
+  { label: "Montenegro Visa", href: "/our-services/visa/montenegro-visa-application", flag: "🇲🇪" },
+  { label: "Morocco Visa", href: "/our-services/visa/morocco-visa-application", flag: "🇲🇦" },
+  { label: "Portugal Visa", href: "/our-services/visa/portugal-visa-application", flag: "🇵🇹" },
+  { label: "Qatar Visa", href: "/our-services/visa/qatar-visa-application", flag: "🇶🇦" },
+  { label: "Russia Visa", href: "/our-services/visa/russia-visa-application", flag: "🇷🇺" },
+  { label: "Saudi Arabia Visa", href: "/our-services/visa/saudi-arabia-visa-application", flag: "🇸🇦" },
+  { label: "Serbia Visa", href: "/our-services/visa/serbia-visa-application", flag: "🇷🇸" },
+  { label: "Singapore Visa", href: "/our-services/visa/singapore-visa-application", flag: "🇸🇬" },
+  { label: "South Africa Visa", href: "/our-services/visa/south-africa-visa-application", flag: "🇿🇦" },
+  { label: "South Korea Visa", href: "/our-services/visa/south-korea-visa-application", flag: "🇰🇷" },
+  { label: "Spain Visa", href: "/our-services/visa/spain-visa-application", flag: "🇪🇸" },
+  { label: "Sri Lanka Visa", href: "/our-services/visa/srilanka-visa-application", flag: "🇱🇰" },
+  { label: "Thailand Visa", href: "/our-services/visa/thailand-visa-application", flag: "🇹🇭" },
+  { label: "Turkey Visa", href: "/our-services/visa/turkey-visa-application", flag: "🇹🇷" },
+  { label: "UK Visa", href: "/our-services/visa/uk-visa-application", flag: "🇬🇧" },
+  { label: "USA Visa", href: "/our-services/visa/usa-visa-application", flag: "🇺🇸" },
+];
+
 // Tourist Visa Bangladesh Nationals — /visa/[country]-visa
 const BANGLADESH_TOURIST_VISAS = [
   { label: "Japan Visa", href: "/visa/japan-visa", flag: "🇯🇵" },
@@ -102,6 +155,7 @@ const BANGLADESH_TOURIST_VISAS = [
   { label: "Singapore Visa", href: "/visa-checker/bangladesh-visa-for-singapore/e-visa", flag: "🇸🇬" },
   { label: "Indonesia Visa", href: "/visa/indonesia-visa", flag: "🇮🇩" },
   { label: "Sri Lanka Visa", href: "/visa-checker/bangladesh-visa-for-srilanka/eta", flag: "🇱🇰" },
+  { label: "Bhutan Visa", href: "/visa-checker/bangladesh-visa-for-bhutan/visa-free", flag: "🇧🇹" },
   { label: "Canada Visa", href: "/visa/canada-visa", flag: "🇨🇦" },
   { label: "UK Visa", href: "/visa/united-kingdom-visa", flag: "🇬🇧" },
   { label: "USA Visa", href: "/visa/united-states-visa", flag: "🇺🇸" },
@@ -117,7 +171,7 @@ const BANGLADESH_TOURIST_VISAS = [
   { label: "Qatar Visa", href: "/visa/qatar-visa", flag: "🇶🇦" },
 ];
 
-// Visa Guide slug pages: /visa/visa-guide/[country]-visa-for-[nationality]
+// Visa Guide slug pages: /visa/visa-guide/[destination]-visa-for-[nationality]
 const VISA_GUIDE_SLUGS = [
   { label: "Armenia Visa for India", href: "/visa-checker/india-visa-for-armenia/e-visa" },
   { label: "Albania Visa for Bangladesh", href: "/visa-checker/bangladesh-visa-for-albania/e-visa" },
@@ -127,6 +181,7 @@ const VISA_GUIDE_SLUGS = [
   { label: "Malaysia Visa for Bangladesh", href: "/visa-checker/bangladesh-visa-for-malaysia/e-visa" },
   { label: "Singapore Visa for Bangladesh", href: "/visa-checker/bangladesh-visa-for-singapore/e-visa" },
   { label: "Canada Visa for Bangladesh", href: "/visa/visa-guide/canada-visa-for-bangladesh" },
+  { label: "Canada Visa for Philippines", href: "/visa/visa-guide/canada-visa-for-philippines" },
   { label: "UK Visa for Bangladesh", href: "/visa/visa-guide/united-kingdom-visa-for-bangladesh" },
   { label: "Japan Visa for Bangladesh", href: "/visa/visa-guide/japan-visa-for-bangladesh" },
   { label: "South Korea Visa for Bangladesh", href: "/visa/visa-guide/south-korea-visa-for-bangladesh" },
@@ -137,6 +192,7 @@ const VISA_GUIDE_SLUGS = [
   { label: "Serbia Visa for Bangladesh", href: "/visa/visa-guide/serbia-visa-for-bangladesh" },
   { label: "Armenia Visa for Bangladesh", href: "/visa/visa-guide/armenia-visa-for-bangladesh" },
   { label: "Portugal Visa for Bangladesh", href: "/visa-checker/portugal-visa-for-bangladesh/visa-required" },
+  { label: "Bangladesh Visa for Morocco", href: "/visa/visa-guide/bangladesh-visa-for-morocco" },
   { label: "Check All Visa Requirements", href: "/visa-checker" },
 ];
 
@@ -149,6 +205,7 @@ const DUBAI_RESIDENTS = {
   links: [
     { label: "Canada Visa for Dubai Residents", href: "/visa/dubai-residents/canada" },
     { label: "Albania Visa for Dubai Residents", href: "/visa/dubai-residents/albania" },
+    { label: "Montenegro Visa for Dubai Residents", href: "/visa/dubai-residents/montenegro" },
     { label: "Serbia Visa for Dubai Residents", href: "/visa/dubai-residents/serbia" },
     { label: "Armenia Visa for Dubai Residents", href: "/visa/dubai-residents/armenia" },
     { label: "Georgia Visa for Dubai Residents", href: "/visa/dubai-residents/georgia" },
@@ -173,6 +230,7 @@ const INDIA_HUB = {
     { label: "Serbia Visa for India", href: "/visa/india/serbia" },
     { label: "Armenia Visa for India", href: "/visa-checker/india-visa-for-armenia/e-visa" },
     { label: "Georgia Visa for India", href: "/visa-checker/india-visa-for-georgia/e-visa" },
+    { label: "Nigeria Visa for India", href: "/visa/india/nigeria" },
     { label: "Canada Visa for India", href: "/visa/india/canada" },
     { label: "UK Visa for India", href: "/visa/india/united-kingdom" },
     { label: "USA Visa for India", href: "/visa/india/united-states" },
@@ -183,6 +241,17 @@ const INDIA_HUB = {
     { label: "Malaysia Visa for India", href: "/visa-checker/india-visa-for-malaysia/e-visa" },
   ],
 };
+
+// E-Visa requirement guides: /visa/e-visa/[nationality]-national-e-visa-requirements-for-[destination]
+const E_VISA_GUIDES = [
+  { label: "Bangladesh E-Visa Requirements for Albania", href: "/visa/e-visa/bangladesh-national-e-visa-requirements-for-albania" },
+  { label: "India E-Visa Requirements for Armenia", href: "/visa/e-visa/india-national-e-visa-requirements-for-armenia" },
+  { label: "Bangladesh E-Visa Requirements for Sri Lanka", href: "/visa/e-visa/bangladesh-national-e-visa-requirements-for-sri-lanka" },
+  { label: "Bangladesh E-Visa Requirements for Malaysia", href: "/visa/e-visa/bangladesh-national-e-visa-requirements-for-malaysia" },
+  { label: "India E-Visa Requirements for Singapore", href: "/visa/e-visa/india-national-e-visa-requirements-for-singapore" },
+  { label: "Australia E-Visa Requirements for USA", href: "/visa/e-visa/australia-national-e-visa-requirements-for-united-states" },
+  { label: "All E-Visa Requirement Guides", href: "/visa/e-visa" },
+];
 
 // Popular visa destinations
 const POPULAR_DESTINATIONS = [
@@ -216,6 +285,8 @@ const STUDY_ABROAD = [
   { label: "Study in Malaysia", href: "/study-abroad/student-visa/malaysia", flag: "🇲🇾" },
   { label: "Study in Russia", href: "/study-abroad/student-visa/russia", flag: "🇷🇺" },
   { label: "Study in China", href: "/study-abroad/student-visa/china", flag: "🇨🇳" },
+  { label: "Study in Albania", href: "/study-abroad/student-visa/albania", flag: "🇦🇱" },
+  { label: "Study in Andorra", href: "/study-abroad/student-visa/andorra", flag: "🇦🇩" },
   { label: "All Student Visas", href: "/study-abroad/student-visa", flag: "🌐" },
 ];
 
@@ -229,33 +300,44 @@ const SCHOLARSHIPS = [
   { label: "Japan Scholarships", href: "/scholarships/japan" },
   { label: "South Korea Scholarships", href: "/scholarships/south-korea" },
   { label: "Malaysia Scholarships", href: "/scholarships/malaysia" },
+  { label: "Albania Scholarships", href: "/scholarships/albania" },
+  { label: "Armenia Scholarships", href: "/scholarships/armenia" },
+  { label: "Georgia Scholarships", href: "/scholarships/georgia" },
   { label: "All Scholarships", href: "/scholarships" },
 ];
 
-// Processing times
+// Processing times: /travel-resources/visa-processing-time-tracker/[nationality]-national-visa-processing-time-for-[country]-[type]
 const PROCESSING_TIMES = [
-  { label: "India Visa Processing — Armenia (E-Visa)", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-armenia-e-visa" },
-  { label: "Bangladesh Visa Processing — Andorra (Sticker)", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-andorra-sticker" },
-  { label: "Bangladesh Visa Processing — Albania (Transit)", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-albania-transit" },
-  { label: "Bangladesh Visa Processing — Canada", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-canada" },
-  { label: "Bangladesh Visa Processing — UK", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-united-kingdom" },
-  { label: "Bangladesh Visa Processing — USA", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-usa" },
-  { label: "Bangladesh Visa Processing — Germany", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-germany" },
-  { label: "India Visa Processing — Canada", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-canada" },
-  { label: "Bangladesh Visa Processing — Australia", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-australia" },
-  { label: "Bangladesh Visa Processing — Japan", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-japan" },
+  { label: "Bangladesh → Andorra Visa Processing Time (Sticker)", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-andorra-sticker" },
+  { label: "Bangladesh → Albania Visa Processing Time (Transit)", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-albania-transit" },
+  { label: "Bangladesh → Armenia Visa Processing Time (E-Visa)", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-armenia-e-visa" },
+  { label: "Bangladesh → UK Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-united-kingdom" },
+  { label: "Bangladesh → USA Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-usa" },
+  { label: "Bangladesh → Germany Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-germany" },
+  { label: "Bangladesh → Australia Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-australia" },
+  { label: "Bangladesh → Japan Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-japan" },
+  { label: "India → Canada Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-canada" },
+  { label: "India → Armenia Visa Processing Time (E-Visa)", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-armenia-e-visa" },
+  { label: "India → Montenegro Visa Processing Time (Sticker)", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-montenegro-sticker" },
+  { label: "Sri Lanka → Albania Visa Processing Time (E-Visa)", href: "/travel-resources/visa-processing-time-tracker/sri-lanka-national-visa-processing-time-for-albania-e-visa" },
+  { label: "Pakistan → Canada Visa Processing Time (Extended Sticker)", href: "/travel-resources/visa-processing-time-tracker/pakistan-national-visa-processing-time-for-canada-sticker-extended" },
+  { label: "UAE → Germany Visa Processing Time (Transit)", href: "/travel-resources/visa-processing-time-tracker/united-arab-emirates-national-visa-processing-time-for-germany-transit" },
 ];
 
-// Rejection rates
+// Rejection rates: /visa-rejection/[nationality]-visa-rejection-rate-for-[country]-[visaType]
 const REJECTION_RATES = [
   { label: "Bangladesh Student Visa Rejection — Albania", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-albania-student" },
-  { label: "India Tourist Visa Rejection — Canada", href: "/visa-rejection/india-visa-rejection-rate-for-canada-tourist" },
-  { label: "India Tourist Visa Rejection — Canada", href: "/visa-rejection/india-visa-rejection-rate-for-canada-tourist" },
-  { label: "Bangladesh Student Visa Rejection — Germany", href: "/visa-rejection/iran-visa-rejection-rate-for-germany-student" },
+  { label: "Bangladesh Work Visa Rejection — Armenia", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-armenia-work" },
+  { label: "Bangladesh Business Visa Rejection — Armenia", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-armenia-business" },
   { label: "Bangladesh Tourist Visa Rejection — UK", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-united-kingdom-tourist" },
   { label: "Bangladesh Student Visa Rejection — USA", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-united-states-student" },
   { label: "Bangladesh Tourist Visa Rejection — Australia", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-australia-tourist" },
   { label: "Bangladesh Tourist Visa Rejection — UAE", href: "/visa-rejection/bangladesh-visa-rejection-rate-for-united-arab-emirates-tourist" },
+  { label: "India Tourist Visa Rejection — Canada", href: "/visa-rejection/india-visa-rejection-rate-for-canada-tourist" },
+  { label: "India Tourist Visa Rejection — UK", href: "/visa-rejection/india-visa-rejection-rate-for-united-kingdom-tourist" },
+  { label: "Sri Lanka Student Visa Rejection — Germany", href: "/visa-rejection/sri-lanka-visa-rejection-rate-for-germany-student" },
+  { label: "Iran Student Visa Rejection — Germany", href: "/visa-rejection/iran-visa-rejection-rate-for-germany-student" },
+  { label: "Nigeria Tourist Visa Rejection — Albania", href: "/visa-rejection/nigeria-visa-rejection-rate-for-albania-tourist" },
 ];
 
 // Tools
@@ -264,22 +346,27 @@ const TOOLS = [
   { label: "Visa Rejection Rate Stats", href: "/visa-rejection", icon: "📊", desc: "Historical rejection data to plan smarter applications" },
   { label: "Visa Checklist Generator", href: "/travel-resources/visa-checklist-generator", icon: "✅", desc: "Auto-generate a personalized document checklist" },
   { label: "Travel Document Generator", href: "/travel-resources/travel-document-generator", icon: "📄", desc: "Generate required travel documents for any visa" },
+  { label: "PDF Editor for Visa Forms", href: "/pdf-editor", icon: "📝", desc: "Edit, fill, and sign visa application PDFs online" },
   { label: "Travel Cost Calculator", href: "/travel-cost-calculator", icon: "🧮", desc: "Estimate total travel & visa costs in advance" },
   { label: "Travel Insurance", href: "/travel-insurance", icon: "🛡️", desc: "Compare and buy travel insurance for your trip" },
+  { label: "Travel Insurance Calculator", href: "/travel-insurance/insurance-calculator", icon: "🧾", desc: "Estimate premiums and coverage for your trip" },
   { label: "Study Abroad Guide", href: "/study-abroad", icon: "🎓", desc: "Complete guide to studying outside Bangladesh" },
   { label: "Schengen Visa Guide", href: "/schengen-visa", icon: "🇪🇺", desc: "Requirements & tips for all Schengen countries" },
   { label: "Flight Booking", href: "/flight-booking", icon: "✈️", desc: "Book flights to any destination worldwide" },
 ];
 
-// Visa Checker — extended country pairs
+// Visa Checker — extended country pairs: /visa-checker/[nationality]-visa-for-[country]/[visaType]
 const VISA_CHECKER_PAIRS = [
   { label: "Bangladesh Visa for Albania", href: "/visa-checker/bangladesh-visa-for-albania/e-visa" },
+  { label: "Bangladesh Visa for Canada", href: "/visa-checker/bangladesh-visa-for-canada/visa-required" },
   { label: "Bangladesh Visa for Malaysia", href: "/visa-checker/bangladesh-visa-for-malaysia/e-visa" },
   { label: "Bangladesh Visa for Thailand", href: "/visa-checker/bangladesh-visa-for-thailand/e-visa" },
   { label: "Bangladesh Visa for Singapore", href: "/visa-checker/bangladesh-visa-for-singapore/e-visa" },
   { label: "Bangladesh Visa for Sri Lanka", href: "/visa-checker/bangladesh-visa-for-srilanka/eta" },
+  { label: "Bangladesh Visa for Bhutan", href: "/visa-checker/bangladesh-visa-for-bhutan/visa-free" },
   { label: "Bangladesh Visa for Montenegro", href: "/visa-checker/bangladesh-visa-for-montenegro/visa-required" },
   { label: "Bangladesh Visa for Portugal", href: "/visa-checker/portugal-visa-for-bangladesh/visa-required" },
+  { label: "Israel Visa for Bangladesh", href: "/visa-checker/israel-visa-for-bangladesh/no-admission" },
   { label: "India Visa for Albania", href: "/visa-checker/india-visa-for-albania/e-visa" },
   { label: "India Visa for Armenia", href: "/visa-checker/india-visa-for-armenia/e-visa" },
   { label: "India Visa for Georgia", href: "/visa-checker/india-visa-for-georgia/e-visa" },
@@ -295,36 +382,131 @@ const VISA_CHECKER_PAIRS = [
   { label: "India Visa for Kosovo", href: "/visa-checker/india-visa-for-kosovo/visa-required" },
   { label: "India Visa for Cyprus", href: "/visa-checker/india-visa-for-cyprus/visa-required" },
   { label: "India Visa for Italy", href: "/visa-checker/india-visa-for-italy/visa-required" },
+  { label: "Sri Lanka Visa for Albania", href: "/visa-checker/sri-lanka-visa-for-albania/e-visa" },
   { label: "Check All Visa Requirements", href: "/visa-checker" },
 ];
 
-// Footer quick links
-const FOOTER_LINKS = [
-  { label: "All Visa Services", href: "/our-services/visa-services" },
-  { label: "Tourist Visa from Bangladesh", href: "/our-services/visa-services/tourist-visa-from-bangladesh" },
-  { label: "Student Visa from Bangladesh", href: "/our-services/visa-services/student-visa-from-bangladesh" },
-  { label: "Bangladesh Tourist Visa", href: "/visa" },
-  { label: "Dubai Residents Visa", href: "/visa/dubai-residents" },
-  { label: "India Passport Visas", href: "/visa/india" },
-  { label: "Visa Guide", href: "/visa/visa-guide" },
-  { label: "E-Visa Guide", href: "/visa/e-visa" },
-  { label: "Schengen Visa", href: "/schengen-visa" },
-  { label: "Visa Checker", href: "/visa-checker" },
-  { label: "Study Abroad", href: "/study-abroad" },
-  { label: "Scholarships", href: "/scholarships" },
-  { label: "Processing Times", href: "/travel-resources/visa-processing-time-tracker" },
-  { label: "Rejection Rates", href: "/visa-rejection" },
-  { label: "Travel Resources", href: "/travel-resources" },
-  { label: "Travel Insurance", href: "/travel-insurance" },
-  { label: "Flight Booking", href: "/flight-booking" },
-  { label: "Tour Packages", href: "/our-services/tour-packages" },
-  { label: "News & Updates", href: "/news-feeds" },
-  { label: "Blogs", href: "/blogs" },
-  { label: "About Us", href: "/online-travel-agency-bangladesh" },
-  { label: "Our Team", href: "/our-leading-team" },
-  { label: "Offers", href: "/offers" },
-  { label: "Contact", href: "/contact" },
-  { label: "Privacy Policy", href: "/terms-privacy-policy" },
+// Document & application guides, grouped — all real top-level content pages
+const DOCUMENT_GUIDES = [
+  {
+    heading: "Document Preparation",
+    icon: "📋",
+    links: [
+      { label: "Bank Statement for Visa", href: "/bank-statement-for-visa" },
+      { label: "How to Prepare a Bank Statement", href: "/bank-statement-for-visa-how-to-prepare" },
+      { label: "Bank Solvency Certificate for Visa", href: "/bank-solvency-certificate-for-visa" },
+      { label: "Sponsor Letter Sample for Visa", href: "/sponsor-letter-sample-for-visa" },
+      { label: "Sponsor Financial Documents for Visa", href: "/sponsor-financial-documents-for-visa" },
+      { label: "Marriage Certificate for Visa", href: "/marriage-certificate-for-visa" },
+      { label: "Spouse Visa Documents", href: "/spouse-visa-documents" },
+      { label: "SOP Sample for Student Visa", href: "/sop-sample-for-student-visa" },
+    ],
+  },
+  {
+    heading: "Application & Interview Prep",
+    icon: "🗂️",
+    links: [
+      { label: "DS-160 Form Guide", href: "/ds-160-form-guide" },
+      { label: "Embassy Appointment Tips", href: "/embassy-appointment-tips" },
+      { label: "VFS Global Appointment Guide", href: "/vfs-global-appointment-guide" },
+      { label: "Visa Appointment Booking Guide", href: "/visa-appointment-booking-guide" },
+      { label: "Visa Interview Tips", href: "/visa-interview-tips" },
+      { label: "USA Visa Interview Preparation", href: "/target-usa-visa-interview-preparation" },
+      { label: "How to Track Your Visa Application", href: "/how-to-track-visa-application" },
+      { label: "How to Make a Travel Itinerary for Visa", href: "/travel-itinerary-for-visa-how-to-make" },
+    ],
+  },
+  {
+    heading: "Rejection, Appeals & Timing",
+    icon: "⚖️",
+    links: [
+      { label: "Common Reasons for Visa Rejection", href: "/common-reasons" },
+      { label: "Appeal Process for Visa Rejection", href: "/appeal-process-for-visa" },
+      { label: "Can I Reapply After Visa Rejection?", href: "/can-i-reapply-after-visa-rejection" },
+      { label: "How Many Times Can I Apply for a Visa?", href: "/how-many-times-can-i-apply-for-visa" },
+      { label: "How Much Bank Balance Is Needed for a Visa?", href: "/how-much-bank-balance-needed-for-visa" },
+      { label: "Best Time to Apply for a Schengen Visa", href: "/best-time-to-apply-schengen-visa" },
+    ],
+  },
+];
+
+// Office & local landing pages — good for local SEO / NAP consistency
+const OFFICE_CONTACTS = [
+  { label: "Contact — Armenia Office", href: "/contact/travel-agency-armenia", flag: "🇦🇲" },
+  { label: "Contact — Bangladesh Office", href: "/contact/travel-agency-bangladesh", flag: "🇧🇩" },
+  { label: "Contact — Dubai Office", href: "/contact/travel-agency-dubai", flag: "🇦🇪" },
+  { label: "Contact — Georgia Office", href: "/contact/travel-agency-georgia", flag: "🇬🇪" },
+];
+
+const OFFICE_LOCATIONS = [
+  { label: "Travel Agency in Abu Dhabi", href: "/travel-agency-abu-dhabi", flag: "🇦🇪" },
+  { label: "Travel Agency in Bangladesh", href: "/travel-agency-bangladesh", flag: "🇧🇩" },
+  { label: "Travel Agency in Delhi", href: "/travel-agency-delhi", flag: "🇮🇳" },
+  { label: "Travel Agency in Dhaka", href: "/travel-agency-dhaka", flag: "🇧🇩" },
+  { label: "Travel Agency in Sharjah", href: "/travel-agency-sharjah", flag: "🇦🇪" },
+];
+
+// Footer quick links — grouped by category
+const FOOTER_GROUPS = [
+  {
+    heading: "Visa Services",
+    links: [
+      { label: "All Visa Services", href: "/our-services/visa-services" },
+      { label: "Our Services", href: "/our-services" },
+      { label: "Tourist Visa from Bangladesh", href: "/our-services/visa-services/tourist-visa-from-bangladesh" },
+      { label: "Student Visa from Bangladesh", href: "/our-services/visa-services/student-visa-from-bangladesh" },
+      { label: "Work Visa from Bangladesh", href: "/our-services/visa-services/work-visa-from-bangladesh" },
+      { label: "Bangladesh Tourist Visa", href: "/visa" },
+      { label: "Dubai Residents Visa", href: "/visa/dubai-residents" },
+      { label: "India Passport Visas", href: "/visa/india" },
+      { label: "Visa Guide", href: "/visa/visa-guide" },
+      { label: "E-Visa Guide", href: "/visa/e-visa" },
+      { label: "Schengen Visa", href: "/schengen-visa" },
+      { label: "Visa Checker", href: "/visa-checker" },
+    ],
+  },
+  {
+    heading: "Resources & Tools",
+    links: [
+      { label: "Study Abroad", href: "/study-abroad" },
+      { label: "Scholarships", href: "/scholarships" },
+      { label: "Processing Times", href: "/travel-resources/visa-processing-time-tracker" },
+      { label: "Rejection Rates", href: "/visa-rejection" },
+      { label: "Travel Resources", href: "/travel-resources" },
+      { label: "Travel Insurance", href: "/travel-insurance" },
+      { label: "Flight Booking", href: "/flight-booking" },
+      { label: "Things to Do", href: "/our-services/things-to-do" },
+      { label: "Tour Packages", href: "/our-services/tour-packages" },
+      { label: "Target IELTS Immigration Center", href: "/target-ielts-immigration-center" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { label: "About Us", href: "/online-travel-agency-bangladesh" },
+      { label: "Our Team", href: "/our-leading-team" },
+      { label: "Naeem Hossen — Founder", href: "/naeem-hossen" },
+      { label: "Testimonials", href: "/testimonials" },
+      { label: "Careers", href: "/careers" },
+      { label: "Offers", href: "/offers" },
+      { label: "News & Updates", href: "/news-feeds" },
+      { label: "Blogs", href: "/blogs" },
+      { label: "Contact", href: "/contact" },
+      { label: "Privacy Policy", href: "/terms-privacy-policy" },
+    ],
+  },
+  {
+    heading: "Eammu Group Ventures",
+    links: [
+      { label: "Eammu Fashion", href: "/eammu-fashion" },
+      { label: "Eammu Fashion Store", href: "/eammu-fashion/eammu-store" },
+      { label: "Eammu Dairy & Poultry", href: "/eammu-dairy-poultry" },
+      { label: "Eammu Textile Bangladesh", href: "/eammu-textile-bangladesh" },
+      { label: "Eammu Social Responsibility (CSR)", href: "/eammu-social-responsibility" },
+      { label: "Web Development & Digital Marketing", href: "/web-development-digital-marketing" },
+      { label: "Event Management", href: "/event-management" },
+    ],
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -333,7 +515,23 @@ const FOOTER_LINKS = [
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://eammu.com";
 
+function toItemList(name, items) {
+  return {
+    "@type": "ItemList",
+    name,
+    itemListElement: items.map((v, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: v.label,
+      url: `${SITE_URL}${v.href}`,
+    })),
+  };
+}
+
 function buildStructuredData() {
+  const allDocGuideLinks = DOCUMENT_GUIDES.flatMap((g) => g.links);
+  const allOfficeLinks = [...OFFICE_CONTACTS, ...OFFICE_LOCATIONS];
+
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -347,6 +545,7 @@ function buildStructuredData() {
         serviceType: [
           "Tourist Visa Services",
           "Student Visa Services",
+          "Work Visa Services",
           "E-Visa Services",
           "Europe Visa Services",
           "Tour Packages",
@@ -354,96 +553,21 @@ function buildStructuredData() {
           "Travel Insurance",
         ],
       },
-      {
-        "@type": "ItemList",
-        name: "Tourist Visa Pages for Bangladesh Nationals — Eammu Holidays",
-        itemListElement: BANGLADESH_TOURIST_VISAS.map((v, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: v.label,
-          url: `${SITE_URL}${v.href}`,
-        })),
-      },
-      {
-        "@type": "ItemList",
-        name: "Visa Services by Type — Eammu Holidays",
-        itemListElement: VISA_GUIDES.map((v, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: v.label,
-          url: `${SITE_URL}${v.href}`,
-        })),
-      },
-      {
-        "@type": "ItemList",
-        name: "Country Visa Guides — Eammu Holidays",
-        itemListElement: VISA_GUIDE_SLUGS.map((v, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: v.label,
-          url: `${SITE_URL}${v.href}`,
-        })),
-      },
-      {
-        "@type": "ItemList",
-        name: "Visa Checker Country Pairs — Eammu Holidays",
-        itemListElement: VISA_CHECKER_PAIRS.map((v, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: v.label,
-          url: `${SITE_URL}${v.href}`,
-        })),
-      },
-      {
-        "@type": "ItemList",
-        name: "Dubai Residents Visa Guides — Eammu Holidays",
-        itemListElement: DUBAI_RESIDENTS.links.map((v, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: v.label,
-          url: `${SITE_URL}${v.href}`,
-        })),
-      },
-      {
-        "@type": "ItemList",
-        name: "India Passport Visa Guides — Eammu Holidays",
-        itemListElement: INDIA_HUB.links.map((v, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: v.label,
-          url: `${SITE_URL}${v.href}`,
-        })),
-      },
-      {
-        "@type": "ItemList",
-        name: "Travel Tools & Resources — Eammu Holidays",
-        itemListElement: TOOLS.map((t, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: t.label,
-          url: `${SITE_URL}${t.href}`,
-        })),
-      },
-      {
-        "@type": "ItemList",
-        name: "Study Abroad Guides — Eammu Holidays",
-        itemListElement: STUDY_ABROAD.map((s, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: s.label,
-          url: `${SITE_URL}${s.href}`,
-        })),
-      },
-      {
-        "@type": "ItemList",
-        name: "Scholarships by Country — Eammu Holidays",
-        itemListElement: SCHOLARSHIPS.map((s, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: s.label,
-          url: `${SITE_URL}${s.href}`,
-        })),
-      },
+      toItemList("Visa Application Pages by Country — Eammu Holidays", VISA_APPLICATION_COUNTRIES),
+      toItemList("Tourist Visa Pages for Bangladesh Nationals — Eammu Holidays", BANGLADESH_TOURIST_VISAS),
+      toItemList("Visa Services by Type — Eammu Holidays", VISA_GUIDES),
+      toItemList("Country Visa Guides — Eammu Holidays", VISA_GUIDE_SLUGS),
+      toItemList("Visa Checker Country Pairs — Eammu Holidays", VISA_CHECKER_PAIRS),
+      toItemList("Dubai Residents Visa Guides — Eammu Holidays", DUBAI_RESIDENTS.links),
+      toItemList("India Passport Visa Guides — Eammu Holidays", INDIA_HUB.links),
+      toItemList("E-Visa Requirement Guides — Eammu Holidays", E_VISA_GUIDES),
+      toItemList("Travel Tools & Resources — Eammu Holidays", TOOLS),
+      toItemList("Study Abroad Guides — Eammu Holidays", STUDY_ABROAD),
+      toItemList("Scholarships by Country — Eammu Holidays", SCHOLARSHIPS),
+      toItemList("Visa Processing Time Data — Eammu Holidays", PROCESSING_TIMES),
+      toItemList("Visa Rejection Rate Data — Eammu Holidays", REJECTION_RATES),
+      toItemList("Visa Document & Application Guides — Eammu Holidays", allDocGuideLinks),
+      toItemList("Office & Local Agency Pages — Eammu Holidays", allOfficeLinks),
     ],
   };
 }
@@ -454,20 +578,22 @@ function buildStructuredData() {
 
 function SectionLabel({ children }) {
   return (
-    <span className="inline-block text-[10px] font-bold tracking-[0.15em] uppercase text-[#0057FF] mb-3 letter-spacing-widest">
+    <span className="inline-block text-[10px] font-bold tracking-[0.15em] uppercase text-[#0057FF] mb-3">
       {children}
     </span>
   );
 }
 
+// Subsection heading. Renders as <h3> so the outline nests correctly under
+// the single <h2> that introduces this whole block (see component root).
 function SectionHeading({ label, title, subtitle, href, linkLabel }) {
   return (
-    <div className="flex items-start justify-between gap-6 mb-6">
+    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-6 mb-6">
       <div>
         {label && <SectionLabel>{label}</SectionLabel>}
-        <h2 className="text-[1.15rem] font-bold text-[#0D0D0D] leading-tight tracking-tight">
+        <h3 className="text-[1.05rem] sm:text-[1.15rem] font-bold text-[#0D0D0D] leading-tight tracking-tight">
           {title}
-        </h2>
+        </h3>
         {subtitle && (
           <p className="text-[0.8rem] text-[#6B7280] mt-1 leading-relaxed max-w-xl">{subtitle}</p>
         )}
@@ -475,7 +601,7 @@ function SectionHeading({ label, title, subtitle, href, linkLabel }) {
       {href && (
         <Link
           href={href}
-          className="shrink-0 mt-1 text-[11px] font-semibold text-[#0057FF] hover:text-[#003FBF] flex items-center gap-1 transition-colors whitespace-nowrap"
+          className="shrink-0 mt-1 text-[11px] font-semibold text-[#0057FF] hover:text-[#003FBF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF] rounded flex items-center gap-1 transition-colors whitespace-nowrap"
         >
           {linkLabel || "View all"} <span aria-hidden="true">→</span>
         </Link>
@@ -485,7 +611,7 @@ function SectionHeading({ label, title, subtitle, href, linkLabel }) {
 }
 
 function Divider() {
-  return <hr className="border-[#F0F0F0] my-12" />;
+  return <hr className="border-[#F0F0F0] my-10 sm:my-12" />;
 }
 
 function VisaTypeCard({ type }) {
@@ -495,7 +621,10 @@ function VisaTypeCard({ type }) {
       className="bg-white border border-[#EBEBEB] rounded-xl p-5 flex flex-col hover:border-[#C8C8C8] hover:shadow-md transition-all duration-200 group border-t-2"
       style={accentStyle}
     >
-      <Link href={type.href} className="flex items-center gap-2.5 mb-1.5">
+      <Link
+        href={type.href}
+        className="flex items-center gap-2.5 mb-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF] rounded"
+      >
         <span className="text-xl" aria-hidden="true">{type.icon}</span>
         <span className="text-[0.9rem] font-bold text-[#0D0D0D] group-hover:text-[#0057FF] transition-colors leading-tight">
           {type.label}
@@ -529,7 +658,7 @@ function ToolCard({ tool }) {
   return (
     <Link
       href={tool.href}
-      className="group flex items-start gap-4 bg-white border border-[#EBEBEB] rounded-xl p-4 hover:border-[#0057FF] hover:shadow-sm transition-all duration-200"
+      className="group flex items-start gap-4 bg-white border border-[#EBEBEB] rounded-xl p-4 hover:border-[#0057FF] hover:shadow-sm transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
     >
       <span
         className="text-[1.4rem] shrink-0 w-10 h-10 flex items-center justify-center bg-[#F5F8FF] rounded-lg group-hover:bg-[#EBF0FF] transition-colors"
@@ -562,7 +691,7 @@ function HubCard({ hub }) {
         </Link>
         <Link
           href={hub.href}
-          className="text-[11px] font-semibold text-[#0057FF] hover:text-[#003FBF] transition-colors"
+          className="text-[11px] font-semibold text-[#0057FF] hover:text-[#003FBF] transition-colors whitespace-nowrap"
         >
           View all →
         </Link>
@@ -588,7 +717,7 @@ function CountryChip({ href, flag, label }) {
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-1.5 bg-white border border-[#E5E7EB] hover:border-[#0057FF] hover:bg-[#F5F8FF] rounded-lg px-3 py-2 text-[12px] font-medium text-[#374151] hover:text-[#0057FF] transition-all duration-150"
+      className="inline-flex items-center gap-1.5 bg-white border border-[#E5E7EB] hover:border-[#0057FF] hover:bg-[#F5F8FF] rounded-lg px-3 py-2 text-[12px] font-medium text-[#374151] hover:text-[#0057FF] transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
     >
       <span aria-hidden="true">{flag}</span>
       {label}
@@ -600,7 +729,7 @@ function PillLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="inline-flex text-[12px] text-[#4B5563] hover:text-[#0057FF] bg-[#F9FAFB] hover:bg-[#EBF0FF] border border-[#E5E7EB] hover:border-[#0057FF] rounded-full px-3.5 py-1.5 transition-all duration-150 leading-none"
+      className="inline-flex text-[12px] text-[#4B5563] hover:text-[#0057FF] bg-[#F9FAFB] hover:bg-[#EBF0FF] border border-[#E5E7EB] hover:border-[#0057FF] rounded-full px-3.5 py-1.5 transition-all duration-150 leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
     >
       {children}
     </Link>
@@ -620,15 +749,131 @@ function StatRow({ icon, label, href }) {
   );
 }
 
+// Shows the first `initialCount` pill links, tucking the rest behind a native
+// <details> disclosure. No JS required, fully crawlable/indexable, and keeps
+// the visible page from looking like an auto-generated link dump.
+function ExpandablePills({ items, initialCount = 10 }) {
+  const visible = items.slice(0, initialCount);
+  const rest = items.slice(initialCount);
+  return (
+    <div className="flex flex-wrap gap-2 items-start">
+      {visible.map((v) => (
+        <PillLink key={v.href} href={v.href}>
+          {v.label}
+        </PillLink>
+      ))}
+      {rest.length > 0 && (
+        <details className="group [&_summary::-webkit-details-marker]:hidden">
+          <summary className="list-none cursor-pointer inline-flex text-[12px] font-semibold text-[#0057FF] bg-white hover:bg-[#F5F8FF] border border-[#0057FF] rounded-full px-3.5 py-1.5 transition-all duration-150">
+            <span className="group-open:hidden">Show {rest.length} more</span>
+            <span className="hidden group-open:inline">Show fewer</span>
+          </summary>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {rest.map((v) => (
+              <PillLink key={v.href} href={v.href}>
+                {v.label}
+              </PillLink>
+            ))}
+          </div>
+        </details>
+      )}
+    </div>
+  );
+}
+
+// Same disclosure pattern, but for flag-chip grids (country lists).
+function ExpandableChips({ items, initialCount = 16, gridClass }) {
+  const visible = items.slice(0, initialCount);
+  const rest = items.slice(initialCount);
+  return (
+    <div>
+      <div className={gridClass}>
+        {visible.map((v) => (
+          <CountryChip key={v.href} href={v.href} flag={v.flag} label={v.label} />
+        ))}
+      </div>
+      {rest.length > 0 && (
+        <details className="group mt-3 [&_summary::-webkit-details-marker]:hidden">
+          <summary className="list-none cursor-pointer inline-flex text-[12px] font-semibold text-[#0057FF] bg-white hover:bg-[#F5F8FF] border border-[#0057FF] rounded-lg px-3.5 py-1.5 transition-all duration-150">
+            <span className="group-open:hidden">Show {rest.length} more countries</span>
+            <span className="hidden group-open:inline">Show fewer</span>
+          </summary>
+          <div className={`${gridClass} mt-2`}>
+            {rest.map((v) => (
+              <CountryChip key={v.href} href={v.href} flag={v.flag} label={v.label} />
+            ))}
+          </div>
+        </details>
+      )}
+    </div>
+  );
+}
+
+// Same disclosure pattern for the stat-row style lists (processing times, rejections).
+function ExpandableStatRows({ items, icon, initialCount = 6 }) {
+  const visible = items.slice(0, initialCount);
+  const rest = items.slice(initialCount);
+  return (
+    <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
+      <ul className="divide-y divide-[#F3F4F6]">
+        {visible.map((item) => (
+          <StatRow key={item.href} icon={icon} label={item.label} href={item.href} />
+        ))}
+      </ul>
+      {rest.length > 0 && (
+        <details className="group mt-1 [&_summary::-webkit-details-marker]:hidden">
+          <summary className="list-none cursor-pointer text-[11px] font-semibold text-[#0057FF] py-2">
+            <span className="group-open:hidden">Show {rest.length} more →</span>
+            <span className="hidden group-open:inline">Show fewer ←</span>
+          </summary>
+          <ul className="divide-y divide-[#F3F4F6] border-t border-[#F3F4F6]">
+            {rest.map((item) => (
+              <StatRow key={item.href} icon={icon} label={item.label} href={item.href} />
+            ))}
+          </ul>
+        </details>
+      )}
+    </div>
+  );
+}
+
+// Compact bordered list used for the document-guide categories.
+function GuideGroupCard({ group }) {
+  return (
+    <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-base" aria-hidden="true">{group.icon}</span>
+        <span className="text-[12.5px] font-bold text-[#0D0D0D]">{group.heading}</span>
+      </div>
+      <ul className="space-y-2">
+        {group.links.map((l) => (
+          <li key={l.href}>
+            <Link
+              href={l.href}
+              className="text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors flex items-start gap-1.5 leading-snug"
+            >
+              <span className="w-1 h-1 rounded-full bg-[#D1D5DB] shrink-0 mt-1.5" aria-hidden="true" />
+              {l.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // MAIN EXPORT
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function HomeSeoLinks() {
+  const lastUpdated = new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  const chipGrid = "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2";
+
   return (
     <section
       aria-label="Explore Visa Services, Study Abroad, Tools and Resources — Eammu Holidays"
-      className="py-16 px-4"
+      className="py-12 sm:py-16 px-4"
       style={{ fontFamily: "'DM Sans', 'Inter', sans-serif" }}
     >
       {/* Structured Data */}
@@ -640,15 +885,21 @@ export default function HomeSeoLinks() {
       <div className="max-w-7xl mx-auto">
 
         {/* ── SECTION INTRO ─────────────────────────────────────────────── */}
+        {/* This is the only heading in the block — kept at h2 so it nests under
+            the page's existing h1 instead of competing with it. Every
+            sub-section below uses h3, so the outline reads h1 → h2 → h3. */}
         <div className="mb-12 pb-8 border-b border-[#EBEBEB]">
           <span className="inline-block text-[10px] font-bold tracking-[0.15em] uppercase text-[#0057FF] mb-2">
             Eammu Holidays — Visa &amp; Travel Services
           </span>
-          <h2 className="text-2xl font-bold text-[#0D0D0D] tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#0D0D0D] tracking-tight">
             Complete Visa &amp; Travel Resource Hub
           </h2>
           <p className="text-[0.85rem] text-[#6B7280] mt-2 max-w-2xl leading-relaxed">
-            IATA-accredited visa assistance from Bangladesh · Tourist, student &amp; e-visas · Europe &amp; Schengen · Study abroad · Travel tools &amp; resources
+            IATA-accredited visa assistance from Bangladesh — tourist, student, work &amp; e-visas, Europe &amp; Schengen guidance, document preparation guides, study abroad support, local offices, and free travel planning tools.
+          </p>
+          <p className="text-[11px] text-[#9CA3AF] mt-3">
+            Visa rules change often — this hub is reviewed and refreshed monthly. Last reviewed: {lastUpdated}.
           </p>
         </div>
 
@@ -657,11 +908,11 @@ export default function HomeSeoLinks() {
           <SectionHeading
             label="Visa Services"
             title="Visa Services from Bangladesh"
-            subtitle="Tourist, student, e-visa, and European visa assistance — expert guidance for every journey"
+            subtitle="Tourist, student, work, e-visa, and European visa assistance — expert guidance for every journey"
             href="/our-services/visa-services"
             linkLabel="All visa services"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {VISA_GUIDES.map((type) => (
               <VisaTypeCard key={type.slug} type={type} />
             ))}
@@ -670,25 +921,35 @@ export default function HomeSeoLinks() {
 
         <Divider />
 
-        {/* ── 2. BANGLADESH TOURIST VISAS (/visa/[country]-visa) ────────── */}
-        <div id="bangladesh-tourist-visas">
+        {/* ── 2. VISA APPLICATION BY COUNTRY (cornerstone pages) ─────────── */}
+        <div id="visa-application">
           <SectionHeading
-            label="Bangladesh Nationals"
-            title="Tourist Visa for Bangladesh Nationals"
-            subtitle="Direct tourist visa pages — requirements, fees & application process for Bangladeshi passport holders"
-            href="/visa"
-            linkLabel="All tourist visas"
+            label="Cornerstone Guides"
+            title="Visa Application Pages by Country"
+            subtitle="In-depth requirements, fees, and step-by-step application help for each destination"
+            href="/our-services/visa-services"
+            linkLabel="All countries"
           />
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-            {BANGLADESH_TOURIST_VISAS.map((v) => (
-              <CountryChip key={v.href} href={v.href} flag={v.flag} label={v.label} />
-            ))}
-          </div>
+          <ExpandableChips items={VISA_APPLICATION_COUNTRIES} initialCount={16} gridClass={chipGrid} />
         </div>
 
         <Divider />
 
-        {/* ── 3. POPULAR DESTINATIONS ──────────────────────────────────── */}
+        {/* ── 3. BANGLADESH TOURIST VISAS (/visa/[country]-visa) ────────── */}
+        <div id="bangladesh-tourist-visas">
+          <SectionHeading
+            label="Bangladesh Nationals"
+            title="Tourist Visa for Bangladesh Nationals"
+            subtitle="Quick-reference tourist visa pages — fees & on-arrival vs. e-visa vs. embassy requirements"
+            href="/visa"
+            linkLabel="All tourist visas"
+          />
+          <ExpandableChips items={BANGLADESH_TOURIST_VISAS} initialCount={16} gridClass={chipGrid} />
+        </div>
+
+        <Divider />
+
+        {/* ── 4. POPULAR DESTINATIONS ──────────────────────────────────── */}
         <div id="popular-destinations">
           <SectionHeading
             label="Most Popular"
@@ -706,7 +967,7 @@ export default function HomeSeoLinks() {
 
         <Divider />
 
-        {/* ── 4. COUNTRY VISA GUIDES (slug pages) ──────────────────────── */}
+        {/* ── 5. COUNTRY VISA GUIDES (slug pages) ──────────────────────── */}
         <div id="visa-guides">
           <SectionHeading
             label="In-Depth Guides"
@@ -715,18 +976,12 @@ export default function HomeSeoLinks() {
             href="/visa/visa-guide"
             linkLabel="All guides"
           />
-          <div className="flex flex-wrap gap-2">
-            {VISA_GUIDE_SLUGS.map((v) => (
-              <PillLink key={v.href} href={v.href}>
-                {v.label}
-              </PillLink>
-            ))}
-          </div>
+          <ExpandablePills items={VISA_GUIDE_SLUGS} initialCount={10} />
         </div>
 
         <Divider />
 
-        {/* ── 5. VISA CHECKER PAIRS ─────────────────────────────────────── */}
+        {/* ── 6. VISA CHECKER PAIRS ─────────────────────────────────────── */}
         <div id="visa-checker">
           <SectionHeading
             label="Visa Checker"
@@ -735,18 +990,26 @@ export default function HomeSeoLinks() {
             href="/visa-checker"
             linkLabel="Open visa checker"
           />
-          <div className="flex flex-wrap gap-2">
-            {VISA_CHECKER_PAIRS.map((v) => (
-              <PillLink key={v.href} href={v.href}>
-                {v.label}
-              </PillLink>
-            ))}
-          </div>
+          <ExpandablePills items={VISA_CHECKER_PAIRS} initialCount={10} />
         </div>
 
         <Divider />
 
-        {/* ── 6. COUNTRY HUBS ───────────────────────────────────────────── */}
+        {/* ── 7. E-VISA REQUIREMENT GUIDES ─────────────────────────────── */}
+        <div id="e-visa-guides">
+          <SectionHeading
+            label="E-Visa"
+            title="E-Visa Requirements by Nationality"
+            subtitle="Eligibility, documents, and turnaround times for electronic visas, by passport and destination"
+            href="/visa/e-visa"
+            linkLabel="All e-visa guides"
+          />
+          <ExpandablePills items={E_VISA_GUIDES} initialCount={10} />
+        </div>
+
+        <Divider />
+
+        {/* ── 8. COUNTRY HUBS ───────────────────────────────────────────── */}
         <div id="country-hubs">
           <SectionHeading
             label="Passport Hubs"
@@ -763,7 +1026,7 @@ export default function HomeSeoLinks() {
 
         <Divider />
 
-        {/* ── 7. STUDY ABROAD + SCHOLARSHIPS ───────────────────────────── */}
+        {/* ── 9. STUDY ABROAD + SCHOLARSHIPS ───────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10" id="study-scholarships">
 
           <div id="study-abroad">
@@ -826,7 +1089,23 @@ export default function HomeSeoLinks() {
 
         <Divider />
 
-        {/* ── 8. TOOLS & RESOURCES ─────────────────────────────────────── */}
+        {/* ── 10. DOCUMENT & APPLICATION GUIDES ─────────────────────────── */}
+        <div id="document-guides">
+          <SectionHeading
+            label="Step-by-Step Help"
+            title="Visa Document & Application Guides"
+            subtitle="Everything needed to prepare a complete, embassy-ready visa application"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {DOCUMENT_GUIDES.map((group) => (
+              <GuideGroupCard key={group.heading} group={group} />
+            ))}
+          </div>
+        </div>
+
+        <Divider />
+
+        {/* ── 11. TOOLS & RESOURCES ─────────────────────────────────────── */}
         <div id="visa-tools">
           <SectionHeading
             label="Free Tools"
@@ -844,7 +1123,7 @@ export default function HomeSeoLinks() {
 
         <Divider />
 
-        {/* ── 9. PROCESSING TIMES + REJECTION RATES ────────────────────── */}
+        {/* ── 12. PROCESSING TIMES + REJECTION RATES ────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
           <div id="processing-times">
@@ -855,13 +1134,7 @@ export default function HomeSeoLinks() {
               href="/travel-resources/visa-processing-time-tracker"
               linkLabel="Track all times"
             />
-            <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
-              <ul className="divide-y divide-[#F3F4F6]">
-                {PROCESSING_TIMES.map((item) => (
-                  <StatRow key={item.href} icon="⏱" label={item.label} href={item.href} />
-                ))}
-              </ul>
-            </div>
+            <ExpandableStatRows items={PROCESSING_TIMES} icon="⏱" initialCount={6} />
           </div>
 
           <div id="rejection-rates">
@@ -872,39 +1145,68 @@ export default function HomeSeoLinks() {
               href="/visa-rejection"
               linkLabel="See all stats"
             />
+            <ExpandableStatRows items={REJECTION_RATES} icon="📊" initialCount={6} />
+          </div>
+        </div>
+
+        <Divider />
+
+        {/* ── 13. OFFICES & LOCAL LANDING PAGES ─────────────────────────── */}
+        <div id="our-offices">
+          <SectionHeading
+            label="Where We Are"
+            title="Our Offices & Local Travel Agency Pages"
+            subtitle="Reach a local Eammu Holidays team, or find the page for your city"
+            href="/contact"
+            linkLabel="Contact head office"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
-              <ul className="divide-y divide-[#F3F4F6]">
-                {REJECTION_RATES.map((item) => (
-                  <StatRow key={item.href} icon="📊" label={item.label} href={item.href} />
+              <p className="text-[11px] font-bold text-[#6B7280] mb-3">Contact a Regional Office</p>
+              <div className="flex flex-wrap gap-2">
+                {OFFICE_CONTACTS.map((o) => (
+                  <CountryChip key={o.href} href={o.href} flag={o.flag} label={o.label} />
                 ))}
-              </ul>
+              </div>
+            </div>
+            <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
+              <p className="text-[11px] font-bold text-[#6B7280] mb-3">Travel Agency Near You</p>
+              <div className="flex flex-wrap gap-2">
+                {OFFICE_LOCATIONS.map((o) => (
+                  <CountryChip key={o.href} href={o.href} flag={o.flag} label={o.label} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
         <Divider />
 
-        {/* ── 10. SEO FOOTER NAV ────────────────────────────────────────── */}
-        <nav
-          aria-label="Eammu Holidays — site-wide quick navigation"
-          className="pt-2"
-        >
+        {/* ── 14. SEO FOOTER NAV ────────────────────────────────────────── */}
+        <nav aria-label="Eammu Holidays — site-wide quick navigation" className="pt-2">
           <p className="text-[10px] font-bold text-[#C5C7CB] uppercase tracking-[0.15em] mb-5">
             Quick Navigation
           </p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2.5">
-            {FOOTER_LINKS.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="text-[11.5px] text-[#9CA3AF] hover:text-[#0057FF] hover:underline underline-offset-2 transition-colors"
-                >
-                  {l.label}
-                </Link>
-              </li>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {FOOTER_GROUPS.map((group) => (
+              <div key={group.heading}>
+                <p className="text-[11px] font-bold text-[#6B7280] mb-3">{group.heading}</p>
+                <ul className="space-y-2">
+                  {group.links.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        className="text-[11.5px] text-[#9CA3AF] hover:text-[#0057FF] hover:underline underline-offset-2 transition-colors"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
-          <p className="mt-8 text-[11px] text-[#C5C7CB]">
+          </div>
+          <p className="mt-10 text-[11px] text-[#C5C7CB]">
             © {new Date().getFullYear()} Eammu Holidays · IATA Accredited Travel Agency · Bangladesh
           </p>
         </nav>

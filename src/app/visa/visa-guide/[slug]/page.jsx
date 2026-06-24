@@ -1,5 +1,6 @@
 import visaData from '@/app/data/countries.json';
 import { createSlug } from '@/app/lib/utils';
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import Link from 'next/link';
 
 export const revalidate = 86400;
@@ -1226,6 +1227,7 @@ export default async function VisaDetails({ params }) {
           </div>
         </div>
       </div>
+      <HomeSeoLinks />
 
     </div>
   );

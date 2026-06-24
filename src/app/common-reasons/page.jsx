@@ -35,7 +35,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/visa-rejection/common-reasons",
+    canonical: "https://www.eammu.com/common-reasons",
   },
 
   robots: {
@@ -52,7 +52,7 @@ export const metadata = {
 
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/visa-rejection/common-reasons",
+    url: "https://www.eammu.com/common-reasons",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Common Visa Rejection Reasons 2026 | Eammu Holidays",
@@ -93,7 +93,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/visa-rejection/common-reasons#article",
+      "@id": "https://www.eammu.com/common-reasons#article",
       headline: "Common Visa Rejection Reasons 2026 — Canada, UK, Schengen, USA & Dubai",
       description:
         "A breakdown of the most common visa rejection reasons for Bangladeshi applicants applying for Canada, UK, USA, Schengen, and Dubai visas, with practical fixes.",
@@ -106,14 +106,14 @@ const structuredData = {
       },
       datePublished: "2026-01-18",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/visa-rejection/common-reasons",
+      mainEntityOfPage: "https://www.eammu.com/common-reasons",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Visa Rejection Help", item: "https://www.eammu.com/visa-rejection" },
-        { "@type": "ListItem", position: 3, name: "Common Visa Rejection Reasons", item: "https://www.eammu.com/visa-rejection/common-reasons" },
+        { "@type": "ListItem", position: 3, name: "Common Visa Rejection Reasons", item: "https://www.eammu.com/common-reasons" },
       ],
     },
     {
@@ -251,7 +251,7 @@ export default function CommonVisaRejectionReasonsPage() {
           <ol>
             <li><a href="https://www.eammu.com">Home</a></li>
             <li><a href="https://www.eammu.com/visa-rejection">Visa Rejection Help</a></li>
-            <li><a href="https://www.eammu.com/visa-rejection/common-reasons">Common Visa Rejection Reasons</a></li>
+            <li><a href="https://www.eammu.com/common-reasons">Common Visa Rejection Reasons</a></li>
           </ol>
         </nav>
       </div>
@@ -295,7 +295,7 @@ export default function CommonVisaRejectionReasonsPage() {
                 💬 Free Pre-Application Review
               </a>
               <Link
-                href="/visa-rejection/appeal-process-for-visa"
+                href="/appeal-process-for-visa"
                 className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base"
               >
                 Already Rejected? Appeal Process →
@@ -416,13 +416,13 @@ export default function CommonVisaRejectionReasonsPage() {
             </h2>
             <nav className="flex flex-wrap justify-center gap-2.5" aria-label="Related visa resources">
               {[
-                { label: "Visa Appeal Process", href: "/visa-rejection/appeal-process-for-visa" },
-                { label: "Bank Statement for Visa", href: "/travel-resources/bank-statement-for-visa" },
+                { label: "Visa Appeal Process", href: "/appeal-process-for-visa" },
+                { label: "Bank Statement for Visa", href: "/bank-statement-for-visa" },
                 { label: "Visa Checklist Generator", href: "/travel-resources/visa-checklist-generator" },
-                { label: "Police Clearance Certificate", href: "/travel-resources/police-clearance-certificate" },
-                { label: "DS-160 Form Guide", href: "/target-usa-visa-interview-preparation/ds-160-form-guide" },
-                { label: "Spouse Visa Documents", href: "/visa/spouse-visa-documents" },
-                { label: "Best Time for Schengen Visa", href: "/visa/best-time-to-apply-schengen-visa" },
+                { label: "Police Clearance Certificate", href: "/police-clearance-certificate" },
+                { label: "DS-160 Form Guide", href: "/ds-160-form-guide" },
+                { label: "Spouse Visa Documents", href: "/visa" },
+                { label: "Best Time for Schengen Visa", href: "/best-time-to-apply-schengen-visa" },
                 { label: "All Visa Services", href: "/visa" },
               ].map((lnk) => (
                 <Link

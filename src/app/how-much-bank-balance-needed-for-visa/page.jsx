@@ -24,11 +24,11 @@ export const metadata = {
     "bank balance requirement for tourist visa",
     "financial requirement for visa 2026",
   ],
-  alternates: { canonical: "https://www.eammu.com/travel-resources/how-much-bank-balance-needed-for-visa" },
+  alternates: { canonical: "https://www.eammu.com/how-much-bank-balance-needed-for-visa" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/how-much-bank-balance-needed-for-visa",
+    url: "https://www.eammu.com/how-much-bank-balance-needed-for-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "How Much Bank Balance Is Needed for Visa 2026? | Eammu Holidays",
@@ -45,7 +45,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/how-much-bank-balance-needed-for-visa#article",
+      "@id": "https://www.eammu.com/how-much-bank-balance-needed-for-visa#article",
       headline: "How Much Bank Balance Is Needed for a Visa in 2026? Country-Wise Guide for Bangladeshi Applicants",
       description: "Exact and estimated minimum bank balance requirements for Schengen, UK, USA, Canada, Dubai, Australia, Malaysia, and Thailand visa applications from Bangladesh in 2026.",
       image: "https://www.eammu.com/preview-banner.webp",
@@ -53,14 +53,14 @@ const structuredData = {
       publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/how-much-bank-balance-needed-for-visa",
+      mainEntityOfPage: "https://www.eammu.com/how-much-bank-balance-needed-for-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
         { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "How Much Bank Balance for Visa", item: "https://www.eammu.com/travel-resources/how-much-bank-balance-needed-for-visa" },
+        { "@type": "ListItem", position: 3, name: "How Much Bank Balance for Visa", item: "https://www.eammu.com/how-much-bank-balance-needed-for-visa" },
       ],
     },
   ],
@@ -84,7 +84,7 @@ export default function HowMuchBankBalancePage() {
       <div className="sr-only" aria-hidden="true">
         <h1>How Much Bank Balance Is Needed for a Visa in 2026? Country-Wise Guide for Bangladesh | Eammu Holidays</h1>
         <p>Exact minimum bank balance requirements for Schengen, UK, USA, Canada, Dubai, Australia, Malaysia, and Thailand visa from Bangladesh in 2026, with BDT estimates and statement duration tips.</p>
-        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/travel-resources/how-much-bank-balance-needed-for-visa">How Much Bank Balance for Visa</a></li></ol></nav>
+        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/how-much-bank-balance-needed-for-visa">How Much Bank Balance for Visa</a></li></ol></nav>
       </div>
 
       <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">

@@ -8,9 +8,9 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 // ─── METADATA ────────────────────────────────────────────────────────────────
 export const metadata = {
   title:
-    "Best Travel Agency in Abu Dhabi | Visa, Air Ticket & Tour Packages — Eammu Holidays",
+    "Travel Agency in Abu Dhabi , United Arab Emirates | Eammu Holidays",
   description:
-    "Eammu Holidays is a trusted travel agency in Abu Dhabi, UAE offering visa processing, international air tickets, tour packages, Umrah, Bangladesh visa, and travel insurance. Serving Bangladeshi expats and all nationalities across Abu Dhabi and Al Ain.",
+    "Trusted travel agency in Abu Dhabi, UAE offering visa processing, international air tickets, tour packages, Umrah, Bangladesh visa, and travel insurance. Serving Bangladeshi expats and all nationalities across Abu Dhabi and Al Ain.",
   keywords: [
     "travel agency Abu Dhabi",
     "best travel agency in Abu Dhabi",

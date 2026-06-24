@@ -9,7 +9,7 @@ export const metadata = {
 
   title: {
     default:
-      "Work Visa Application From Bangladesh: Eammu",
+      "Apply for Tourist, Work & Student Visas | Eammu Holidays",
   },
 
   description:
@@ -30,7 +30,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa-services",
+      "https://www.eammu.com/our-services/visa-services/work-visa-from-bangladesh",
   },
 
   robots: {

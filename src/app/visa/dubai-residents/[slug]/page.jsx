@@ -10,6 +10,7 @@ import {
   Plane, Wallet, BadgeCheck, CircleDashed,
   TrendingUp, BookOpen, TriangleAlert
 } from "lucide-react";
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // DATA FETCHERS
@@ -38,8 +39,10 @@ const RELATED_VISA_LINKS = {
   americas: ["United States", "Canada", "Brazil", "Mexico", "Argentina"],
 };
 
+const BASE_URL = "https://www.eammu.com";
+
 // ─────────────────────────────────────────────────────────────────────────────
-// SEO METADATA — dynamic per country, optimised for Dubai residents
+// SEO METADATA
 // ─────────────────────────────────────────────────────────────────────────────
 export async function generateMetadata({ params }) {
   const { slug }     = await params;
@@ -50,8 +53,8 @@ export async function generateMetadata({ params }) {
   const countryName  = country?.country || "Destination";
   const currentYear  = new Date().getFullYear();
 
-  const defaultTitle = `${countryName} Tourist Visa for Dubai Residents ${currentYear} — Requirements, Fees & How to Apply`;
-  const defaultDesc  = `Complete ${currentYear} ${countryName} visa guide for Dubai & UAE residents. Documents required, embassy fees in UAE, bank balance, photo size, processing time & expert application tips. Apply from Dubai.`;
+  const defaultTitle = `${countryName} Tourist Visa for Dubai Residents ${currentYear}`;
+  const defaultDesc  = `Apply for a ${countryName} tourist visa from Dubai. ${currentYear} document checklist, embassy fees, bank balance & processing time for UAE residents. Apply today.`;
 
   return {
     title:       d?.seo_and_metadata?.meta_title || defaultTitle,
@@ -59,12 +62,12 @@ export async function generateMetadata({ params }) {
     keywords:    d?.seo_and_metadata?.keywords?.join(", ") ||
       `${countryName} visa from Dubai ${currentYear}, ${countryName} tourist visa UAE residents, ${countryName} visa requirements Dubai, ${countryName} visa fee UAE, ${countryName} visa processing time Dubai, ${countryName} visa documents Dubai residents, how to apply ${countryName} visa from Dubai, ${countryName} visa bank balance UAE, ${countryName} visa photo size UAE, ${countryName} embassy Dubai`,
     alternates: {
-      canonical: d?.seo_and_metadata?.canonical_url || `https://eammu.com/visa/dubai-residents/${cleanSlug}`,
+      canonical: d?.seo_and_metadata?.canonical_url || `${BASE_URL}/visa/dubai-residents/${cleanSlug}`,
     },
     openGraph: {
       title:       `${countryName} Tourist Visa for Dubai Residents — ${currentYear} Complete Guide`,
       description: `Embassy-verified ${countryName} visa checklist, processing time, fees & expert tips for Dubai & UAE residents. Updated ${currentYear}.`,
-      images:      [country?.flag || ""],
+      images:      country?.flag ? [country.flag] : undefined,
       type:        "article",
     },
     twitter: {
@@ -74,68 +77,6 @@ export async function generateMetadata({ params }) {
     },
     robots: { index: true, follow: true, "max-image-preview": "large" },
   };
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// SHARED STYLES
-// ─────────────────────────────────────────────────────────────────────────────
-function PageStyles() {
-  return (
-    <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap');
-      *, *::before, *::after { box-sizing: border-box; }
-      body { font-family: 'DM Sans', sans-serif; background: #ffffff; color: #111111; }
-      .font-display { font-family: 'DM Serif Display', serif; }
-
-      :root {
-        --yellow: #f5c800; --yellow-dark: #d4a800; --yellow-light: #fff8d6;
-        --yellow-mid: #fef3aa; --black: #111111; --gray-900: #1a1a1a;
-        --gray-700: #444444; --gray-500: #777777; --gray-300: #cccccc;
-        --gray-100: #f5f5f5; --gray-50: #fafafa; --white: #ffffff;
-        --border: #e8e8e8;
-      }
-
-      .btn-yellow { background:var(--yellow); color:var(--black); font-weight:800; border:2px solid var(--yellow); transition:all .2s ease; }
-      .btn-yellow:hover { background:var(--yellow-dark); border-color:var(--yellow-dark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(245,200,0,.35); }
-      .btn-outline { background:transparent; color:var(--black); font-weight:800; border:2px solid var(--black); transition:all .2s ease; }
-      .btn-outline:hover { background:var(--yellow); border-color:var(--yellow); transform:translateY(-2px); }
-      .whatsapp-btn { background:#25D366; color:white; font-weight:800; transition:all .2s ease; box-shadow:0 4px 16px rgba(37,211,102,.25); }
-      .whatsapp-btn:hover { background:#128C7E; transform:translateY(-2px); box-shadow:0 8px 28px rgba(37,211,102,.35); }
-
-      .card { background:var(--white); border:1.5px solid var(--border); border-radius:16px; }
-      .card-yellow { background:var(--yellow-light); border:1.5px solid rgba(245,200,0,.3); border-radius:16px; }
-      .card-dark { background:var(--black); border-radius:16px; color:white; }
-
-      .tag { display:inline-flex; align-items:center; padding:4px 12px; border-radius:100px; font-size:11px; font-weight:700; letter-spacing:.03em; }
-      .tag-yellow { background:var(--yellow); color:var(--black); }
-      .tag-outline { background:transparent; color:var(--gray-700); border:1.5px solid var(--border); }
-      .tag-dark { background:var(--black); color:white; }
-
-      .section-line { width:4px; height:32px; background:linear-gradient(to bottom,var(--yellow),var(--yellow-dark)); border-radius:4px; display:inline-block; flex-shrink:0; }
-
-      .check-box { width:20px; height:20px; background:#16a34a; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-
-      .faq-item { border:1.5px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:8px; }
-      .faq-item summary { padding:16px 20px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; font-weight:700; color:var(--black); }
-      .faq-item summary:hover { background:var(--gray-50); }
-      .faq-item[open] summary { background:var(--yellow-light); border-bottom:1.5px solid rgba(245,200,0,.3); }
-      .faq-item summary::-webkit-details-marker { display:none; }
-      .faq-item .chevron { transition:transform .25s; flex-shrink:0; }
-      .faq-item[open] .chevron { transform:rotate(90deg); }
-
-      .step-line { position:absolute; left:13px; top:8px; bottom:0; width:2px; background:linear-gradient(to bottom,var(--yellow),rgba(245,200,0,.1)); }
-
-      .hover-yellow:hover { background:var(--yellow-light) !important; border-color:rgba(245,200,0,.4) !important; }
-
-      a { color:inherit; }
-      ::-webkit-scrollbar { width:5px; }
-      ::-webkit-scrollbar-thumb { background:var(--yellow); border-radius:3px; }
-      .risk-high { background:#fef2f2; border:1.5px solid #fecaca; border-radius:10px; }
-      .risk-med  { background:var(--yellow-light); border:1.5px solid rgba(245,200,0,.3); border-radius:10px; }
-      .sidebar-sticky { position:sticky; top:24px; }
-      @media (max-width:768px) { .sidebar-sticky { position:static; } }
-    `}</style>
-  );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -252,7 +193,7 @@ function Breadcrumb({ countryName, dark = false }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// FALLBACK PAGE (country in DB but no detailed visa data yet)
+// FALLBACK PAGE
 // ─────────────────────────────────────────────────────────────────────────────
 function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
   const countryName  = country.country;
@@ -303,9 +244,8 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
     "headline": `${countryName} Tourist Visa for Dubai Residents ${currentYear} — Requirements & Documents`,
     "description": `Complete ${countryName} tourist visa guide for Dubai & UAE residents — documents, bank balance, photo specs, processing time & expert tips.`,
     "image": country.flag,
-    "author": { "@type": "Organization", "name": "Visa Expert Hub" },
-    "publisher": { "@type": "Organization", "name": "Visa Expert Hub", "logo": { "@type": "ImageObject", "url": "/logo.png" } },
-    "dateModified": new Date().toISOString(),
+    "author": { "@id": `${BASE_URL}/#organization` },
+    "publisher": { "@id": `${BASE_URL}/#organization` },
     "mainEntity": {
       "@type": "FAQPage",
       "mainEntity": faqs.map(f => ({
@@ -317,23 +257,21 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",                       "item": "https://eammu.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Visa Guide — Dubai Residents","item": "https://eammu.com/visa/dubai-residents" },
-        { "@type": "ListItem", "position": 3, "name": `${countryName} Visa`,         "item": `https://eammu.com/visa/dubai-residents/${cleanSlug}` },
+        { "@type": "ListItem", "position": 1, "name": "Home",                       "item": `${BASE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Visa Guide — Dubai Residents","item": `${BASE_URL}/visa/dubai-residents` },
+        { "@type": "ListItem", "position": 3, "name": `${countryName} Visa`,         "item": `${BASE_URL}/visa/dubai-residents/${cleanSlug}` },
       ],
     },
   };
 
   return (
     <div className="min-h-screen" style={{ background: "#fff", fontFamily: "'DM Sans',system-ui,sans-serif", color: "#111" }}>
-      <PageStyles />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       {/* ── HERO ── */}
       <div style={{ background: "#111111", color: "white" }}>
         <div className="max-w-7xl mx-auto px-5 py-14 md:py-20">
           <Breadcrumb countryName={countryName} dark />
-
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex flex-wrap gap-2 mb-6">
@@ -570,7 +508,7 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
                 <h3 className="text-lg font-black text-black">How Long Does {countryName} Visa Processing Take from Dubai?</h3>
                 <p>Standard processing typically takes <strong className="text-black">7–15 working days</strong> from the UAE. We strongly advise applying at least 6–8 weeks before your flight to account for peak-season delays and embassy holidays in the UAE.</p>
                 <h3 className="text-lg font-black text-black">Can You Help with My {countryName} Visa Application from Dubai?</h3>
-                <p>Yes — our experienced Dubai-based visa consultants handle the complete process for UAE resident applicants. <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-bold" style={{ color: "#d4a800", textDecoration: "underline" }}>WhatsApp us</a> or email <strong className="text-black">info@visaexperthub.com</strong> to get started today.</p>
+                <p>Yes — our experienced Dubai-based visa consultants handle the complete process for UAE resident applicants. <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-bold" style={{ color: "#d4a800", textDecoration: "underline" }}>WhatsApp us</a> or email <strong className="text-black">info@eammu.com</strong> to get started today.</p>
               </div>
             </section>
 
@@ -679,12 +617,13 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
           </div>
         </div>
       </div>
+      <HomeSeoLinks />
     </div>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// MAIN PAGE — full data version (when visadata exists in DB)
+// MAIN PAGE — full data version
 // ─────────────────────────────────────────────────────────────────────────────
 export default async function CountryVisaPage({ params }) {
   const { slug }    = await params;
@@ -697,7 +636,6 @@ export default async function CountryVisaPage({ params }) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-center p-10"
         style={{ background: "#fff", fontFamily: "'DM Sans',sans-serif" }}>
-        <PageStyles />
         <div className="text-8xl mb-6">🌍</div>
         <h1 className="font-display text-3xl font-black text-black mb-3">Country Not Found</h1>
         <p className="mb-4" style={{ color: "#777" }}>We couldn't find that destination in our database.</p>
@@ -712,25 +650,27 @@ export default async function CountryVisaPage({ params }) {
   const countryName  = country.country;
   const currentYear  = new Date().getFullYear();
 
-  // WhatsApp message pre-filled for Dubai residents
   const whatsappMsg  = encodeURIComponent(`Hi, I'm a Dubai resident and want to apply for a ${countryName} Tourist Visa. I found the guide on your website.`);
   const whatsappUrl  = `https://wa.me/971507078334?text=${whatsappMsg}`;
 
-  // Use fallback page if no detailed data
   if (!d) {
     return <FallbackVisaPage country={country} whatsappUrl={whatsappUrl} allCountries={countries} />;
   }
 
-  // ── FULL DATA PAGE ──────────────────────────────────────────────────────────
+  const parsedUpdate = d?.last_updated ? new Date(d.last_updated) : null;
+  const dateModifiedIso = parsedUpdate && !isNaN(parsedUpdate.getTime())
+    ? parsedUpdate.toISOString()
+    : undefined;
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": `${countryName} Tourist Visa for Dubai Residents ${currentYear} — Requirements, Fees & Documents`,
     "description": d.description || `Complete ${countryName} visa guide for Dubai & UAE residents — updated ${currentYear}.`,
     "image": country.flag,
-    "author": { "@type": "Organization", "name": "Visa Expert Hub" },
-    "publisher": { "@type": "Organization", "name": "Visa Expert Hub", "logo": { "@type": "ImageObject", "url": "/logo.png" } },
-    "dateModified": new Date().toISOString(),
+    "author": { "@id": `${BASE_URL}/#organization` },
+    "publisher": { "@id": `${BASE_URL}/#organization` },
+    ...(dateModifiedIso ? { "dateModified": dateModifiedIso } : {}),
     "mainEntity": {
       "@type": "FAQPage",
       "mainEntity": d.faq_extended?.map(f => ({
@@ -742,23 +682,21 @@ export default async function CountryVisaPage({ params }) {
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",                        "item": "https://eammu.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Visa Guide — Dubai Residents", "item": "https://eammu.com/visa/dubai-residents" },
-        { "@type": "ListItem", "position": 3, "name": `${countryName} Visa`,          "item": `https://eammu.com/visa/dubai-residents/${cleanSlug}` },
+        { "@type": "ListItem", "position": 1, "name": "Home",                        "item": `${BASE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Visa Guide — Dubai Residents", "item": `${BASE_URL}/visa/dubai-residents` },
+        { "@type": "ListItem", "position": 3, "name": `${countryName} Visa`,          "item": `${BASE_URL}/visa/dubai-residents/${cleanSlug}` },
       ],
     },
   };
 
   return (
     <div className="min-h-screen" style={{ background: "#ffffff", fontFamily: "'DM Sans',system-ui,sans-serif", color: "#111" }}>
-      <PageStyles />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       {/* ── HERO ── */}
       <div style={{ background: "#111111", color: "white" }}>
         <div className="max-w-7xl mx-auto px-5 py-14 md:py-20">
           <Breadcrumb countryName={countryName} dark />
-
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
               <div className="flex flex-wrap gap-2 mb-5">
@@ -1290,6 +1228,8 @@ export default async function CountryVisaPage({ params }) {
           </div>
         </div>
       </div>
+  
     </div>
+
   );
 }

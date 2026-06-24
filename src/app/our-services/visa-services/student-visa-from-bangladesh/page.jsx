@@ -7,7 +7,7 @@ export const metadata = {
 
   title: {
     default:
-      "Eammu: Best Education Consultancy Bangladesh",
+      "Apply For Student Visa from Bangladesh | Eammu Holidays",
   },
 
   description:

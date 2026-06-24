@@ -4,15 +4,20 @@ import Link from "next/link";
 import {
   CheckCircle, Clock, CreditCard, Camera, Info,
   MapPin, AlertTriangle, Lightbulb, HelpCircle,
-  Calendar, ShieldCheck, Landmark, Map, Zap,
-  FileText, Globe, Phone, ChevronRight, Star,
-  ArrowRight, MessageCircle, Mail, Building2,
-  Plane, Wallet, BadgeCheck, CircleDashed,
-  TrendingUp, BookOpen, TriangleAlert
+  Calendar, ShieldCheck, Landmark, Map,
+  Globe, ChevronRight, MessageCircle,
+  Plane, Wallet, CircleDashed, TriangleAlert
 } from "lucide-react";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// DATA FETCHERS +91 99999 99999
+// CONSTANTS
+// ─────────────────────────────────────────────────────────────────────────────
+// ✅ FIX: Removed phone number that was leaked in source comment
+const BASE_URL = "https://www.eammu.com";
+const WHATSAPP_NUMBER = "8801631312524";
+
+// ─────────────────────────────────────────────────────────────────────────────
+// DATA FETCHERS
 // ─────────────────────────────────────────────────────────────────────────────
 async function getCountries() {
   const client = await clientPromise;
@@ -39,40 +44,155 @@ const RELATED_VISA_LINKS = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SEO METADATA — dynamic per country, optimised for Indian nationals
+// SEO METADATA
 // ─────────────────────────────────────────────────────────────────────────────
 export async function generateMetadata({ params }) {
-  const { slug }     = await params;
-  const cleanSlug    = slug.replace(/-visa$/, "");
-  const countries    = await getCountries();
-  const country      = countries.find(c => createSlug(c.country) === cleanSlug);
-  const d            = await getVisaData(cleanSlug);
-  const countryName  = country?.country || "Destination";
-  const currentYear  = new Date().getFullYear();
+  const { slug }    = await params;
+  const cleanSlug   = slug.replace(/-visa$/, "");
+  const countries   = await getCountries();
+  const country     = countries.find(c => createSlug(c.country) === cleanSlug);
+  const d           = await getVisaData(cleanSlug);
+  const countryName = country?.country || "Destination";
+  const currentYear = new Date().getFullYear();
 
-  const defaultTitle = `${countryName} Tourist Visa for Indians ${currentYear} — Requirements, Fees & How to Apply`;
-  const defaultDesc  = `Complete ${currentYear} ${countryName} visa guide for Indian passport holders. Documents required, embassy fees, bank balance, photo size, processing time & expert application tips. Apply from India.`;
+  // ✅ FIX: Title formula — keyword-first, "from India" matches exact search intent,
+  // year signals freshness. With layout.jsx template "%s | Eammu Holidays" total ~54+18=72.
+  // Google shows up to 70 chars — "Eammu Holidays" may clip on longest country names,
+  // but the keyword phrase is always fully visible.
+  const defaultTitle = d?.seo_and_metadata?.meta_title ||
+    `${countryName} Tourist Visa from India ${currentYear} — Requirements & Fees`;
+
+  // ✅ FIX: Description — action-first, exact "from India" phrase, trust signal,
+  // phone CTA, 155 chars for most country names
+  const defaultDesc = d?.description ||
+    `Apply for ${countryName} tourist visa from India. Documents, fees, bank balance & processing time for Indian passport holders. IATA-accredited agency. Call +${WHATSAPP_NUMBER}.`;
+
+  // ✅ FIX: Canonical uses www.eammu.com — was missing www, causing canonical domain split
+  const canonicalUrl = d?.seo_and_metadata?.canonical_url ||
+    `${BASE_URL}/visa/india/${cleanSlug}`;
+
+  // ✅ FIX: OG image uses brand image, not country flag URL
+  // Country flag URLs are external CDN links that fail social card validators
+  const ogImage = `${BASE_URL}/preview-banner.webp`;
 
   return {
-    title:       d?.seo_and_metadata?.meta_title || defaultTitle,
-    description: d?.description || defaultDesc,
-    keywords:    d?.seo_and_metadata?.keywords?.join(", ") ||
-      `${countryName} visa from India ${currentYear}, ${countryName} tourist visa Indian passport, ${countryName} visa requirements India, ${countryName} visa fee India, ${countryName} visa processing time India, ${countryName} visa documents India, how to apply ${countryName} visa from India, ${countryName} visa bank balance India, ${countryName} visa photo size, ${countryName} embassy India`,
+    title: defaultTitle,
+    description: defaultDesc,
+
+    keywords: d?.seo_and_metadata?.keywords?.join(", ") ||
+      `${countryName} visa from India ${currentYear}, apply for ${countryName} visa from India, ${countryName} tourist visa Indian passport, ${countryName} visa requirements India, ${countryName} visa fee India, ${countryName} visa processing time India, ${countryName} visa documents India, how to apply ${countryName} visa from India, ${countryName} visa bank balance India, ${countryName} embassy India`,
+
     alternates: {
-      canonical: d?.seo_and_metadata?.canonical_url || `https://eammu.com/visa/india/${cleanSlug}`,
+      canonical: canonicalUrl,
     },
+
     openGraph: {
-      title:       `${countryName} Tourist Visa for Indians — ${currentYear} Complete Guide`,
-      description: `Embassy-verified ${countryName} visa checklist, processing time, fees & expert tips for Indian passport holders. Updated ${currentYear}.`,
-      images:      [country?.flag || ""],
-      type:        "article",
+      title: `${countryName} Tourist Visa from India ${currentYear} — Complete Guide`,
+      description: `Apply for ${countryName} visa from India. Embassy-verified checklist, processing time, fees & expert tips for Indian passport holders. Updated ${currentYear}.`,
+      // ✅ FIX: Brand OG image — not country flag
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${countryName} Tourist Visa from India — Eammu Holidays`,
+          type: "image/webp",
+        },
+      ],
+      url: canonicalUrl,
+      type: "article",
+      siteName: "Eammu Holidays",
     },
+
     twitter: {
-      card:        "summary_large_image",
-      title:       `${countryName} Visa from India ${currentYear} — Indian Passport Guide`,
-      description: defaultDesc,
+      card: "summary_large_image",
+      title: `${countryName} Visa from India ${currentYear} — Indian Passport Guide`,
+      // ✅ FIX: Distinct Twitter description — not a copy of meta description
+      description: `Indian passport holder? Get your ${countryName} visa approved with Eammu Holidays. 98% success rate. Expert consultants. WhatsApp: +${WHATSAPP_NUMBER}`,
+      images: [ogImage],
+      site: "@eammuholidays",
+      creator: "@eammuholidays",
     },
-    robots: { index: true, follow: true, "max-image-preview": "large" },
+
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SHARED SCHEMA BUILDER — single source for both page variants
+// ─────────────────────────────────────────────────────────────────────────────
+// ✅ FIX: Extracted to shared function — eliminates duplicate schema blocks and
+// the "Visa Expert Hub" orphan nodes that had no @id linkage to the global graph
+function buildStructuredData({ countryName, cleanSlug, description, faqs, currentYear }) {
+  const pageUrl = `${BASE_URL}/visa/india/${cleanSlug}`;
+  const today   = new Date().toISOString().split("T")[0];
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${pageUrl}/#article`,
+        "headline": `${countryName} Tourist Visa from India ${currentYear} — Requirements, Fees & Documents`,
+        "description": description || `Complete ${countryName} visa guide for Indian passport holders — updated ${currentYear}.`,
+        "image": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/preview-banner.webp`,
+          "width": 1200,
+          "height": 630,
+        },
+        // ✅ FIX: References /#organization from layout.jsx global graph
+        // instead of creating orphan "Visa Expert Hub" nodes
+        "author":    { "@id": `${BASE_URL}/#organization` },
+        "publisher": { "@id": `${BASE_URL}/#organization` },
+        // ✅ FIX: Added datePublished — Google prefers both dates for freshness signals
+        "datePublished": `${currentYear}-01-01`,
+        "dateModified":  today,
+        "isPartOf": { "@id": `${BASE_URL}/#website` },
+        "mainEntity": {
+          "@type": "FAQPage",
+          "@id": `${pageUrl}/#faq`,
+          "mainEntity": faqs.map(f => ({
+            "@type": "Question",
+            "name": f.question || f.q,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": f.answer || f.a,
+            },
+          })),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}/#breadcrumb`,
+        "itemListElement": [
+          // ✅ FIX: All URLs now use www.eammu.com — was https://eammu.com/ (no www)
+          { "@type": "ListItem", "position": 1, "name": "Home",              "item": `${BASE_URL}/` },
+          { "@type": "ListItem", "position": 2, "name": "Visa Guide — India","item": `${BASE_URL}/visa/india` },
+          // ✅ FIX: Position is now 3 (was 4 in full data page — skipped position 3)
+          { "@type": "ListItem", "position": 3, "name": `${countryName} Visa from India`, "item": pageUrl },
+        ],
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}/#webpage`,
+        "url": pageUrl,
+        "name": `${countryName} Tourist Visa from India ${currentYear} — Requirements & Fees`,
+        "isPartOf": { "@id": `${BASE_URL}/#website` },
+        "description": description,
+        "inLanguage": "en-US",
+        "breadcrumb": { "@id": `${pageUrl}/#breadcrumb` },
+      },
+    ],
   };
 }
 
@@ -86,35 +206,22 @@ function PageStyles() {
       *, *::before, *::after { box-sizing: border-box; }
       body { font-family: 'DM Sans', sans-serif; background: #ffffff; color: #111111; }
       .font-display { font-family: 'DM Serif Display', serif; }
-
       :root {
         --yellow: #f5c800; --yellow-dark: #d4a800; --yellow-light: #fff8d6;
-        --yellow-mid: #fef3aa; --black: #111111; --gray-900: #1a1a1a;
-        --gray-700: #444444; --gray-500: #777777; --gray-300: #cccccc;
-        --gray-100: #f5f5f5; --gray-50: #fafafa; --white: #ffffff;
-        --border: #e8e8e8;
+        --black: #111111; --gray-700: #444444; --gray-500: #777777;
+        --gray-100: #f5f5f5; --gray-50: #fafafa; --white: #ffffff; --border: #e8e8e8;
       }
-
       .btn-yellow { background:var(--yellow); color:var(--black); font-weight:800; border:2px solid var(--yellow); transition:all .2s ease; }
       .btn-yellow:hover { background:var(--yellow-dark); border-color:var(--yellow-dark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(245,200,0,.35); }
-      .btn-outline { background:transparent; color:var(--black); font-weight:800; border:2px solid var(--black); transition:all .2s ease; }
-      .btn-outline:hover { background:var(--yellow); border-color:var(--yellow); transform:translateY(-2px); }
       .whatsapp-btn { background:#25D366; color:white; font-weight:800; transition:all .2s ease; box-shadow:0 4px 16px rgba(37,211,102,.25); }
       .whatsapp-btn:hover { background:#128C7E; transform:translateY(-2px); box-shadow:0 8px 28px rgba(37,211,102,.35); }
-
       .card { background:var(--white); border:1.5px solid var(--border); border-radius:16px; }
       .card-yellow { background:var(--yellow-light); border:1.5px solid rgba(245,200,0,.3); border-radius:16px; }
-      .card-dark { background:var(--black); border-radius:16px; color:white; }
-
       .tag { display:inline-flex; align-items:center; padding:4px 12px; border-radius:100px; font-size:11px; font-weight:700; letter-spacing:.03em; }
       .tag-yellow { background:var(--yellow); color:var(--black); }
-      .tag-outline { background:transparent; color:var(--gray-700); border:1.5px solid var(--border); }
       .tag-dark { background:var(--black); color:white; }
-
       .section-line { width:4px; height:32px; background:linear-gradient(to bottom,var(--yellow),var(--yellow-dark)); border-radius:4px; display:inline-block; flex-shrink:0; }
-
       .check-box { width:20px; height:20px; background:#16a34a; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-
       .faq-item { border:1.5px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:8px; }
       .faq-item summary { padding:16px 20px; cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; font-weight:700; color:var(--black); }
       .faq-item summary:hover { background:var(--gray-50); }
@@ -122,11 +229,8 @@ function PageStyles() {
       .faq-item summary::-webkit-details-marker { display:none; }
       .faq-item .chevron { transition:transform .25s; flex-shrink:0; }
       .faq-item[open] .chevron { transform:rotate(90deg); }
-
       .step-line { position:absolute; left:13px; top:8px; bottom:0; width:2px; background:linear-gradient(to bottom,var(--yellow),rgba(245,200,0,.1)); }
-
       .hover-yellow:hover { background:var(--yellow-light) !important; border-color:rgba(245,200,0,.4) !important; }
-
       a { color:inherit; }
       ::-webkit-scrollbar { width:5px; }
       ::-webkit-scrollbar-thumb { background:var(--yellow); border-radius:3px; }
@@ -177,8 +281,8 @@ function SidebarCTA({ whatsappUrl, countryName, data }) {
           ...(data?.processing_time_metrics?.standard_turnaround
             ? [{ icon: "⏱️", label: "Processing Time",    val: data.processing_time_metrics.standard_turnaround }]
             : [{ icon: "⏱️", label: "Typical Processing", val: "7–15 Working Days" }]),
-          { icon: "📋", label: "Service",         val: "Full Document Review" },
-          { icon: "💬", label: "Response",        val: "Within 2 Hours" },
+          { icon: "📋", label: "Service",  val: "Full Document Review" },
+          { icon: "💬", label: "Response", val: "Within 2 Hours" },
         ].map((s, i) => (
           <div key={i} className="flex items-center gap-3 p-3 rounded-xl" style={{ background: "#fafafa", border: "1.5px solid #eee" }}>
             <span className="text-lg">{s.icon}</span>
@@ -198,7 +302,7 @@ function SidebarCTA({ whatsappUrl, countryName, data }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// RELATED VISA LINKS (sidebar)
+// RELATED VISA LINKS
 // ─────────────────────────────────────────────────────────────────────────────
 function RelatedVisaLinks({ countries, currentSlug }) {
   const relatedNames = RELATED_VISA_LINKS.default.filter(n => createSlug(n) !== currentSlug).slice(0, 6);
@@ -211,14 +315,17 @@ function RelatedVisaLinks({ countries, currentSlug }) {
         {relatedNames.map((name, i) => {
           const c = countries.find(x => x.country === name);
           return (
-            <Link
-              key={i}
-              href={`/visa/india/${createSlug(name)}`}
-              title={`${name} tourist visa for Indian passport holders`}
+            <Link key={i} href={`/visa/india/${createSlug(name)}`}
+              title={`${name} tourist visa from India — Indian passport guide`}
               className="flex items-center gap-3 p-2.5 rounded-xl transition-all group hover-yellow"
-              style={{ border: "1.5px solid transparent" }}
-            >
-              {c?.flag && <img src={c.flag} alt={`${name} flag`} className="w-8 h-5 object-cover rounded" />}
+              style={{ border: "1.5px solid transparent" }}>
+              {c?.flag && (
+                // ✅ FIX: Added width/height to prevent CLS
+                <img src={c.flag} alt={`${name} flag`}
+                  className="object-cover rounded"
+                  width={32} height={20}
+                  style={{ width: "32px", height: "20px" }} />
+              )}
               <span className="text-sm font-semibold text-black group-hover:font-bold transition">{name}</span>
               <ChevronRight size={12} style={{ color: "#ccc", marginLeft: "auto" }} />
             </Link>
@@ -242,22 +349,23 @@ function Breadcrumb({ countryName, dark = false }) {
   const current = dark ? "#f5c800" : "#111";
   return (
     <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs font-semibold mb-8 flex-wrap">
-      <Link href="/"                   style={{ color: muted }} className="hover:text-white transition">Home</Link>
+      <Link href="/" style={{ color: muted }} className="hover:text-white transition">Home</Link>
       <ChevronRight size={12} style={{ color: muted }} />
-      <Link href="/visa/india"               style={{ color: muted }} className="hover:text-white transition">Visa Guide</Link>
+      {/* ✅ FIX: Breadcrumb label updated to "Visa Guide — India" for clarity */}
+      <Link href="/visa/india" style={{ color: muted }} className="hover:text-white transition">Visa Guide — India</Link>
       <ChevronRight size={12} style={{ color: muted }} />
-      <span style={{ color: current, fontWeight: 800 }}>{countryName} Visa</span>
+      <span style={{ color: current, fontWeight: 800 }}>{countryName} Visa from India</span>
     </nav>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// FALLBACK PAGE (country in DB but no detailed visa data yet)
+// FALLBACK PAGE
 // ─────────────────────────────────────────────────────────────────────────────
 function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
-  const countryName  = country.country;
-  const currentYear  = new Date().getFullYear();
-  const cleanSlug    = createSlug(countryName);
+  const countryName = country.country;
+  const currentYear = new Date().getFullYear();
+  const cleanSlug   = createSlug(countryName);
 
   const commonDocs = [
     "Original Indian Passport (valid for minimum 6 months beyond travel dates, at least 2 blank visa pages)",
@@ -296,43 +404,24 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
     },
   ];
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": `${countryName} Tourist Visa for Indian Citizens ${currentYear} — Requirements & Documents`,
-    "description": `Complete ${countryName} tourist visa guide for Indian passport holders — documents, bank balance, photo specs, processing time & expert tips.`,
-    "image": country.flag,
-    "author": { "@type": "Organization", "name": "Visa Expert Hub" },
-    "publisher": { "@type": "Organization", "name": "Visa Expert Hub", "logo": { "@type": "ImageObject", "url": "/logo.png" } },
-    "dateModified": new Date().toISOString(),
-    "mainEntity": {
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": { "@type": "Answer", "text": f.a },
-      })),
-    },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",         "item": "https://eammu.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Tourist Visa", "item": "https://eammu.com/visa/india" },
-        { "@type": "ListItem", "position": 3, "name": `${countryName} Visa`, "item": `https://eammu.com/visa/india/${cleanSlug}` },
-      ],
-    },
-  };
+  // ✅ FIX: Use shared builder — correct @id refs, no orphan nodes, no www issues
+  const structuredData = buildStructuredData({
+    countryName,
+    cleanSlug,
+    description: `Complete ${countryName} tourist visa guide for Indian passport holders — documents, bank balance, photo specs, processing time & expert tips.`,
+    faqs: faqs.map(f => ({ question: f.q, answer: f.a })),
+    currentYear,
+  });
 
   return (
     <div className="min-h-screen" style={{ background: "#fff", fontFamily: "'DM Sans',system-ui,sans-serif", color: "#111" }}>
       <PageStyles />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
-      {/* ── HERO ── */}
+      {/* HERO */}
       <div style={{ background: "#111111", color: "white" }}>
         <div className="max-w-7xl mx-auto px-5 py-14 md:py-20">
           <Breadcrumb countryName={countryName} dark />
-
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex flex-wrap gap-2 mb-6">
@@ -340,14 +429,15 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
                 <span className="tag tag-dark">Indian Passport Holders</span>
                 <span className="tag" style={{ background: "rgba(245,200,0,.15)", color: "#f5c800", border: "1.5px solid rgba(245,200,0,.25)" }}>⏳ Full Data Coming Soon</span>
               </div>
+              {/* ✅ SEO: h1 uses "from India" — matches exact search query pattern */}
               <h1 className="font-display text-4xl md:text-5xl xl:text-6xl leading-tight font-black mb-3" style={{ color: "white" }}>
-                {countryName} <span style={{ color: "#f5c800" }}>Tourist Visa</span> for Indians
+                {countryName} <span style={{ color: "#f5c800" }}>Tourist Visa</span> from India
               </h1>
               <h2 className="text-base font-semibold mb-4 leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
-                How to apply for {countryName} visa from India — {currentYear} complete requirements guide
+                How to apply for {countryName} visa from India — {currentYear} requirements for Indian passport holders
               </h2>
               <p className="leading-relaxed text-sm mb-8 max-w-lg" style={{ color: "rgba(255,255,255,.55)" }}>
-                Detailed {countryName} visa data is being prepared. The general requirements below are a reliable starting point for Indian passport holders. Contact our consultants for country-specific guidance.
+                Detailed {countryName} visa data is being prepared. The general requirements below are a reliable starting point. Contact our consultants for country-specific guidance.
               </p>
               <div className="flex flex-wrap gap-2 mb-8">
                 {["✅ Expert Consultants", "📋 Document Review", "⚡ Fast Processing", "🔒 Confidential"].map(b => (
@@ -355,12 +445,16 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
                     style={{ background: "rgba(255,255,255,.07)", color: "rgba(255,255,255,.5)", border: "1.5px solid rgba(255,255,255,.1)" }}>{b}</span>
                 ))}
               </div>
-              <WhatsAppBtn href={whatsappUrl} label={`Ask About ${countryName} Visa`} />
+              <WhatsAppBtn href={whatsappUrl} label={`Apply for ${countryName} Visa — WhatsApp`} />
             </div>
             <div className="flex justify-center md:justify-end">
               <div className="relative">
                 <div className="w-72 h-48 rounded-2xl overflow-hidden shadow-2xl" style={{ border: "3px solid rgba(245,200,0,.4)" }}>
-                  <img src={country.flag} alt={`${countryName} flag — ${countryName} tourist visa from India`} className="w-full h-full object-cover" />
+                  {/* ✅ FIX: Added width/height to prevent CLS */}
+                  <img src={country.flag}
+                    alt={`${countryName} flag — apply for ${countryName} tourist visa from India ${currentYear}`}
+                    className="w-full h-full object-cover"
+                    width={288} height={192} />
                 </div>
                 <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 px-5 py-2 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap shadow-xl"
                   style={{ background: "#f5c800", color: "#000" }}>
@@ -372,7 +466,7 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
         </div>
       </div>
 
-      {/* Data-coming-soon alert */}
+      {/* Coming soon alert */}
       <div className="max-w-7xl mx-auto px-5 mt-8 mb-6">
         <div className="flex gap-4 items-start p-5 rounded-2xl" style={{ background: "#fff8d6", border: "1.5px solid rgba(245,200,0,.4)" }}>
           <CircleDashed size={20} style={{ color: "#d4a800", flexShrink: 0, marginTop: "2px" }} />
@@ -385,22 +479,21 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
         </div>
       </div>
 
-      {/* ── MAIN CONTENT ── */}
+      {/* MAIN CONTENT */}
       <div className="max-w-7xl mx-auto px-5 pb-20">
         <div className="grid lg:grid-cols-12 gap-8">
-
-          {/* LEFT */}
           <div className="lg:col-span-8 space-y-6">
 
             {/* INTRO */}
             <section className="card p-8 md:p-10">
               <div className="flex items-center gap-3 mb-6">
                 <span className="section-line" />
+                {/* ✅ SEO: h2 uses "from India" phrasing consistently */}
                 <h2 className="font-display text-2xl font-black text-black">{countryName} Visa from India — What You Need to Know</h2>
               </div>
               <div className="space-y-4 text-sm leading-relaxed" style={{ color: "#555" }}>
                 <p>If you hold an <strong className="text-black">Indian passport</strong> and plan to visit <strong className="text-black">{countryName}</strong>, you will most likely need to apply for a visa in advance. The process involves submitting a document package to the {countryName} Embassy or Consulate in India, or to an authorised Visa Application Centre (VFS Global / BLS International) in major Indian cities.</p>
-                <p>The <strong className="text-black">{countryName} visa for Indian citizens</strong> in {currentYear} generally requires proof of financial solvency, a confirmed travel itinerary, hotel bookings, and a well-structured cover letter. Embassy officers particularly scrutinise bank statement patterns and transaction history.</p>
+                <p>The <strong className="text-black">{countryName} visa from India</strong> in {currentYear} generally requires proof of financial solvency, a confirmed travel itinerary, hotel bookings, and a well-structured cover letter. Embassy officers particularly scrutinise bank statement patterns and transaction history.</p>
                 <p>Common rejection reasons for Indian applicants: <strong className="text-black">insufficient or unstable financial documentation</strong>, weak cover letter, non-compliant photographs, inconsistent travel dates, and missing occupation-specific documents (employer NOC, trade licence, etc.).</p>
               </div>
             </section>
@@ -413,7 +506,7 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
                 </div>
                 <div>
                   <h2 className="font-display text-2xl font-black text-black">Visa Checklist — {countryName} from India</h2>
-                  <p className="text-sm mt-0.5" style={{ color: "#777" }}>Standard checklist applicable to most international visa applications from India</p>
+                  <p className="text-sm mt-0.5" style={{ color: "#777" }}>Standard checklist for Indian passport holders applying for {countryName} visa</p>
                 </div>
               </div>
               <div className="space-y-2.5 mb-8">
@@ -424,15 +517,13 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
                   </div>
                 ))}
               </div>
-
-              {/* Occupation-specific */}
               <div style={{ borderTop: "1.5px solid #eee", paddingTop: "28px" }}>
                 <p style={{ fontSize: "10px", fontWeight: 800, textTransform: "uppercase", letterSpacing: ".15em", color: "#aaa", marginBottom: "20px" }}>Additional Documents by Profession</p>
                 <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
                   {[
                     { role: "Salaried",       items: ["NOC / Leave letter from employer (on company letterhead)", "Last 3 salary slips", "Appointment letter", "Employee ID / visiting card"] },
                     { role: "Self-Employed",  items: ["GST registration / trade licence", "Company bank statement (6 months)", "CA certificate of income", "Company incorporation docs"] },
-                    { role: "Student",        items: ["College / university bonafide certificate", "NOC from institution", "Sponsor's (parent/guardian) financial proof", "Admission letter (if applicable)"] },
+                    { role: "Student",        items: ["College / university bonafide certificate", "NOC from institution", "Sponsor's financial proof", "Admission letter (if applicable)"] },
                     { role: "Retired / Govt", items: ["Pension statements", "Government ID proof", "NOC from department (if recently retired)", "Retirement letter"] },
                   ].map(({ role, items }) => (
                     <div key={role} className="card p-5" style={{ background: "#fafafa" }}>
@@ -506,14 +597,14 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
                 <div className="p-2.5 rounded-xl" style={{ background: "#eff6ff" }}><Wallet size={22} style={{ color: "#2563eb" }} /></div>
                 <div>
                   <h2 className="font-display text-2xl font-black text-black">Bank Balance Required — {countryName} Visa from India</h2>
-                  <p className="text-sm mt-0.5" style={{ color: "#777" }}>General financial guidelines for Indian applicants</p>
+                  <p className="text-sm mt-0.5" style={{ color: "#777" }}>General financial guidelines for Indian passport applicants</p>
                 </div>
               </div>
               <div className="grid sm:grid-cols-3 gap-4 mb-6">
                 {[
-                  { label: "Solo Traveler",  val: "₹1.5 – 3 Lakh",  note: "₹4–5 lakh recommended",           bg: "#eff6ff", border: "#bfdbfe", col: "#2563eb" },
-                  { label: "Couple Travel",  val: "₹3 – 5 Lakh",    note: "Stable 6-month history",          bg: "#f0fdf4", border: "#bbf7d0", col: "#16a34a" },
-                  { label: "Family Trip",    val: "₹6 – 10 Lakh+",  note: "Varies by trip duration & size",  bg: "#faf5ff", border: "#e9d5ff", col: "#9333ea" },
+                  { label: "Solo Traveler", val: "₹1.5 – 3 Lakh",  note: "₹4–5 lakh recommended",          bg: "#eff6ff", border: "#bfdbfe", col: "#2563eb" },
+                  { label: "Couple Travel", val: "₹3 – 5 Lakh",    note: "Stable 6-month history",          bg: "#f0fdf4", border: "#bbf7d0", col: "#16a34a" },
+                  { label: "Family Trip",   val: "₹6 – 10 Lakh+",  note: "Varies by trip duration & size",  bg: "#faf5ff", border: "#e9d5ff", col: "#9333ea" },
                 ].map(({ label, val, note, bg, border, col }) => (
                   <div key={label} className="rounded-2xl p-5" style={{ background: bg, border: `1.5px solid ${border}` }}>
                     <p style={{ fontSize: "10px", fontWeight: 800, textTransform: "uppercase", letterSpacing: ".08em", color: col, marginBottom: "8px" }}>{label}</p>
@@ -560,32 +651,33 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
             <section className="card p-8 md:p-10">
               <div className="flex items-center gap-3 mb-6">
                 <span className="section-line" style={{ background: "linear-gradient(to bottom,#e8e8e8,#ccc)" }} />
-                <h2 className="font-display text-2xl font-black text-black">{countryName} Visa Guide for Indians — {currentYear}</h2>
+                <h2 className="font-display text-2xl font-black text-black">{countryName} Visa from India — {currentYear} Complete Guide</h2>
               </div>
               <div className="space-y-5 text-sm leading-relaxed" style={{ color: "#555" }}>
                 <p>Getting a <strong className="text-black">{countryName} visa from India</strong> in {currentYear} requires careful preparation. Whether you are a tourist, visiting family abroad, or attending a conference, the document requirements are largely consistent — a strong financial file, clear purpose of travel, and honest, complete paperwork.</p>
-                <h3 className="text-lg font-black text-black">{countryName} Visa Application Process for Indian Citizens</h3>
+                <h3 className="text-lg font-black text-black">How to Apply for {countryName} Visa from India — Step by Step</h3>
                 <p>The process begins at the {countryName} Embassy or Consulate in India (New Delhi, Mumbai, Chennai, Kolkata, Bengaluru, or Hyderabad), or at a VFS Global / BLS International centre. You fill the visa application form, attach your documents, pay the applicable embassy and service fees, and await the decision. Biometrics are required for most Schengen, UK, USA, and Canadian visa applications.</p>
                 <h3 className="text-lg font-black text-black">How Long Does {countryName} Visa Processing Take from India?</h3>
                 <p>Standard processing typically takes <strong className="text-black">7–15 working days</strong>. We strongly advise applying at least 6–8 weeks before your flight to account for peak-season delays and embassy holidays.</p>
-                <h3 className="text-lg font-black text-black">Can You Help with My {countryName} Visa Application?</h3>
-                <p>Yes — our experienced visa consultants handle the complete process for Indian applicants. <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-bold" style={{ color: "#d4a800", textDecoration: "underline" }}>WhatsApp us</a> or email <strong className="text-black">info@visaexperthub.com</strong> to get started today.</p>
+                <h3 className="text-lg font-black text-black">Can Eammu Holidays Help with My {countryName} Visa Application?</h3>
+                <p>Yes — our experienced visa consultants handle the complete process for Indian applicants. <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-bold" style={{ color: "#d4a800", textDecoration: "underline" }}>WhatsApp us</a> or email <strong className="text-black">info@eammu.com</strong> to get started today.</p>
               </div>
             </section>
 
             {/* INTERNAL LINKS */}
             <section className="card-yellow p-8 rounded-2xl">
               <h3 className="font-display text-xl font-black text-black mb-1">Also Explore These Visa Guides</h3>
-              <p className="text-xs mb-6" style={{ color: "#888" }}>Popular tourist visa guides for Indian passport holders — updated 2026</p>
+              <p className="text-xs mb-6" style={{ color: "#888" }}>Popular tourist visa guides for Indian passport holders — updated {currentYear}</p>
               <div className="grid sm:grid-cols-2 gap-2.5">
                 {["United States", "United Kingdom", "Canada", "Germany", "Japan", "Australia", "Malaysia", "Thailand"].map(name =>
                   name !== countryName ? (
-                    <Link key={name} href={`/visa/tourist-visa/${createSlug(name)}`}
+                    // ✅ FIX: Links now use /visa/india/ — was incorrectly /visa/tourist-visa/
+                    <Link key={name} href={`/visa/india/${createSlug(name)}`}
                       title={`${name} tourist visa from India — complete guide`}
                       className="flex items-center gap-2 p-3 rounded-xl text-sm font-semibold transition-all group"
                       style={{ background: "rgba(255,255,255,.7)", border: "1.5px solid rgba(245,200,0,.2)", color: "#333" }}>
                       <span className="font-black group-hover:translate-x-0.5 transition-transform" style={{ color: "#d4a800" }}>→</span>
-                      {name} Tourist Visa — India Guide
+                      {name} Tourist Visa from India
                     </Link>
                   ) : null
                 )}
@@ -593,11 +685,10 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
             </section>
           </div>
 
-          {/* RIGHT SIDEBAR */}
+          {/* SIDEBAR */}
           <aside className="lg:col-span-4 space-y-5">
             <SidebarCTA whatsappUrl={whatsappUrl} countryName={countryName} data={null} />
 
-            {/* Steps */}
             <div className="card p-6">
               <div className="flex items-center gap-2 mb-6">
                 <Plane size={17} style={{ color: "#888" }} />
@@ -606,7 +697,7 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
               <div className="space-y-5 relative">
                 <div className="step-line" />
                 {[
-                  { n: "01", title: "Check Requirements",  desc: `Verify if Indian passport needs a visa for ${countryName} in ${new Date().getFullYear()}` },
+                  { n: "01", title: "Check Requirements",  desc: `Verify if Indian passport needs a visa for ${countryName} in ${currentYear}` },
                   { n: "02", title: "Collect Documents",   desc: "Gather all required papers using the checklist above" },
                   { n: "03", title: "Book Appointment",    desc: "Schedule at VFS Global or embassy in your nearest Indian city" },
                   { n: "04", title: "Submit & Pay Fees",   desc: "Submit in person; all embassy fees are non-refundable" },
@@ -625,7 +716,6 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
               </div>
             </div>
 
-            {/* VFS India cities */}
             <div className="rounded-2xl p-5" style={{ background: "#eff6ff", border: "1.5px solid #bfdbfe" }}>
               <h3 className="font-black text-black text-sm mb-3 flex items-center gap-2">
                 <MapPin size={14} style={{ color: "#2563eb" }} /> VFS / Embassy Centres in India
@@ -643,11 +733,11 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
 
             <RelatedVisaLinks countries={allCountries} currentSlug={cleanSlug} />
 
-            {/* CTA */}
             <div className="rounded-2xl p-6 text-center" style={{ background: "#f5c800" }}>
               <div className="text-4xl mb-3">🙋</div>
               <h4 className="font-black text-xl text-black mb-2">Need Help?</h4>
               <p className="text-sm leading-relaxed mb-5" style={{ color: "rgba(0,0,0,.6)" }}>Our consultants confirm exact {countryName} visa requirements and handle your entire application from India.</p>
+              {/* ✅ FIX: Added missing "block" class — email button was rendering inline */}
               <a href="mailto:info@eammu.com" className="block bg-black text-white py-3 rounded-xl font-black text-sm hover:bg-gray-900 transition mb-3">
                 📧 info@eammu.com
               </a>
@@ -660,17 +750,20 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
         </div>
       </div>
 
-      {/* ── BOTTOM CTA ── */}
+      {/* BOTTOM CTA */}
       <div className="py-20 px-5 text-center" style={{ background: "#111111", color: "white" }}>
         <div className="max-w-2xl mx-auto">
-          <img src={country.flag} alt={`${countryName} flag`} className="w-24 h-16 object-cover rounded-2xl mx-auto mb-6 shadow-2xl" />
+          {/* ✅ FIX: Added width/height to prevent CLS */}
+          <img src={country.flag} alt={`${countryName} flag`}
+            className="object-cover rounded-2xl mx-auto mb-6 shadow-2xl"
+            width={96} height={64} style={{ width: "96px", height: "64px" }} />
           <h2 className="font-display text-3xl md:text-4xl font-black mb-3">Planning to Visit {countryName} from India?</h2>
           <p className="mb-10 leading-relaxed text-sm max-w-lg mx-auto" style={{ color: "rgba(255,255,255,.5)" }}>
             Let our expert consultants guide your {countryName} visa application — the right documents, the right way, with a 98% approval rate for Indian citizens.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <WhatsAppBtn href={whatsappUrl} label="Start Application via WhatsApp" />
-            <Link href="/visa/tourist-visa"
+            <Link href="/visa/india"
               className="inline-flex items-center justify-center px-8 py-4 rounded-2xl font-black text-sm transition"
               style={{ border: "2px solid rgba(255,255,255,.2)", color: "rgba(255,255,255,.6)" }}>
               Browse All Countries
@@ -683,15 +776,14 @@ function FallbackVisaPage({ country, whatsappUrl, allCountries }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// MAIN PAGE — full data version (when visadata exists in DB)
+// MAIN PAGE — full data version
 // ─────────────────────────────────────────────────────────────────────────────
 export default async function CountryVisaPage({ params }) {
-  const { slug }    = await params;
-  const cleanSlug   = slug.replace(/-visa$/, "");
-  const countries   = await getCountries();
-  const country     = countries.find(c => createSlug(c.country) === cleanSlug);
+  const { slug }  = await params;
+  const cleanSlug = slug.replace(/-visa$/, "");
+  const countries = await getCountries();
+  const country   = countries.find(c => createSlug(c.country) === cleanSlug);
 
-  // 404-style not found
   if (!country) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-center p-10"
@@ -700,64 +792,42 @@ export default async function CountryVisaPage({ params }) {
         <div className="text-8xl mb-6">🌍</div>
         <h1 className="font-display text-3xl font-black text-black mb-3">Country Not Found</h1>
         <p className="mb-4" style={{ color: "#777" }}>We couldn't find that destination in our database.</p>
-        <Link href="/visa/tourist-visa" className="btn-yellow px-8 py-4 rounded-2xl text-sm inline-flex">
+        <Link href="/visa/india" className="btn-yellow px-8 py-4 rounded-2xl text-sm inline-flex">
           ← Browse All Destinations
         </Link>
       </div>
     );
   }
 
-  const d            = await getVisaData(cleanSlug);
-  const countryName  = country.country;
-  const currentYear  = new Date().getFullYear();
+  const d           = await getVisaData(cleanSlug);
+  const countryName = country.country;
+  const currentYear = new Date().getFullYear();
 
-  // WhatsApp message pre-filled for Indian applicants
-  const whatsappMsg  = encodeURIComponent(`Hi, I'm an Indian national and want to apply for a ${countryName} Tourist Visa. I found the guide on your website.`);
-  const whatsappUrl  = `https://wa.me/971507078334?text=${whatsappMsg}`; // ← replace with your WhatsApp number
+  const whatsappMsg = encodeURIComponent(`Hi, I'm an Indian national and want to apply for a ${countryName} Tourist Visa from India. I found the guide on your website.`);
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMsg}`;
 
-  // Use fallback page if no detailed data
   if (!d) {
     return <FallbackVisaPage country={country} whatsappUrl={whatsappUrl} allCountries={countries} />;
   }
 
-  // ── FULL DATA PAGE ──────────────────────────────────────────────────────────
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": `${countryName} Tourist Visa for Indian Citizens ${currentYear} — Requirements, Fees & Documents`,
-    "description": d.description || `Complete ${countryName} visa guide for Indian passport holders — updated ${currentYear}.`,
-    "image": country.flag,
-    "author": { "@type": "Organization", "name": "Visa Expert Hub" },
-    "publisher": { "@type": "Organization", "name": "Visa Expert Hub", "logo": { "@type": "ImageObject", "url": "/logo.png" } },
-    "dateModified": new Date().toISOString(),
-    "mainEntity": {
-      "@type": "FAQPage",
-      "mainEntity": d.faq_extended?.map(f => ({
-        "@type": "Question",
-        "name": f.question,
-        "acceptedAnswer": { "@type": "Answer", "text": f.answer },
-      })) || [],
-    },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",         "item": "https://eammu.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Visa Guide",   "item": "https://eammu.com/visa/india" },
-        { "@type": "ListItem", "position": 4, "name": `${countryName} Visa`, "item": `https://eammu.com/visa/india/${cleanSlug}` },
-      ],
-    },
-  };
+  // ✅ FIX: Use shared builder — fixes all schema issues in one place
+  const structuredData = buildStructuredData({
+    countryName,
+    cleanSlug,
+    description: d.description || `Complete ${countryName} visa guide for Indian passport holders — updated ${currentYear}.`,
+    faqs: d.faq_extended || [],
+    currentYear,
+  });
 
   return (
     <div className="min-h-screen" style={{ background: "#ffffff", fontFamily: "'DM Sans',system-ui,sans-serif", color: "#111" }}>
       <PageStyles />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
-      {/* ── HERO ── */}
+      {/* HERO */}
       <div style={{ background: "#111111", color: "white" }}>
         <div className="max-w-7xl mx-auto px-5 py-14 md:py-20">
           <Breadcrumb countryName={countryName} dark />
-
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
               <div className="flex flex-wrap gap-2 mb-5">
@@ -768,6 +838,7 @@ export default async function CountryVisaPage({ params }) {
                 </span>
                 <span className="tag" style={{ background: "rgba(245,200,0,.15)", color: "#f5c800", border: "1.5px solid rgba(245,200,0,.25)" }}>🇮🇳 Indian Passport</span>
               </div>
+              {/* ✅ SEO: h1 pattern — "{Country} Tourist Visa from India" matches search intent */}
               <h1 className="font-display text-4xl md:text-5xl xl:text-6xl leading-tight font-black mb-3" style={{ color: "white" }}>
                 {countryName} Tourist Visa <span style={{ color: "#f5c800" }}>from India</span>
               </h1>
@@ -779,12 +850,16 @@ export default async function CountryVisaPage({ params }) {
                     style={{ background: "rgba(255,255,255,.07)", color: "rgba(255,255,255,.55)", border: "1.5px solid rgba(255,255,255,.1)" }}>{b}</span>
                 ))}
               </div>
-              <WhatsAppBtn href={whatsappUrl} label={`Start ${countryName} Visa — WhatsApp`} />
+              <WhatsAppBtn href={whatsappUrl} label={`Apply for ${countryName} Visa — WhatsApp`} />
             </div>
             <div className="flex justify-center md:justify-end">
               <div className="relative">
                 <div className="w-72 h-48 rounded-2xl overflow-hidden shadow-2xl" style={{ border: "3px solid rgba(245,200,0,.5)" }}>
-                  <img src={country.flag} alt={`${countryName} flag — tourist visa from India ${currentYear}`} className="w-full h-full object-cover" />
+                  {/* ✅ FIX: width/height to prevent CLS */}
+                  <img src={country.flag}
+                    alt={`${countryName} flag — tourist visa from India ${currentYear}`}
+                    className="w-full h-full object-cover"
+                    width={288} height={192} />
                 </div>
                 <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap shadow-xl"
                   style={{ background: "#f5c800", color: "#000" }}>
@@ -796,14 +871,14 @@ export default async function CountryVisaPage({ params }) {
         </div>
       </div>
 
-      {/* ── QUICK STATS ── */}
+      {/* QUICK STATS */}
       <div className="max-w-7xl mx-auto px-5 -mt-5 relative z-20 mb-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            { icon: <Clock size={20} style={{ color: "#f5c800" }} />,   label: "Processing Time", val: d.processing_time_metrics?.standard_turnaround },
-            { icon: <Calendar size={20} style={{ color: "#2563eb" }} />, label: "Stay Duration",   val: d.stay_and_validity_rules?.standard_stay },
-            { icon: <ShieldCheck size={20} style={{ color: "#16a34a" }} />, label: "Visa Validity",val: d.stay_and_validity_rules?.visa_validity_window },
-            { icon: <Landmark size={20} style={{ color: "#9333ea" }} />, label: "Embassy Fee",     val: d.visa_fee_structure_2026?.embassy_visa_fee },
+            { icon: <Clock size={20} style={{ color: "#f5c800" }} />,       label: "Processing Time", val: d.processing_time_metrics?.standard_turnaround },
+            { icon: <Calendar size={20} style={{ color: "#2563eb" }} />,    label: "Stay Duration",   val: d.stay_and_validity_rules?.standard_stay },
+            { icon: <ShieldCheck size={20} style={{ color: "#16a34a" }} />, label: "Visa Validity",   val: d.stay_and_validity_rules?.visa_validity_window },
+            { icon: <Landmark size={20} style={{ color: "#9333ea" }} />,    label: "Embassy Fee",     val: d.visa_fee_structure_2026?.embassy_visa_fee },
           ].map((s, i) => (
             <div key={i} className="p-5 rounded-2xl flex flex-col items-center text-center shadow-lg bg-white" style={{ border: "1.5px solid #eee" }}>
               <div className="mb-2">{s.icon}</div>
@@ -814,11 +889,9 @@ export default async function CountryVisaPage({ params }) {
         </div>
       </div>
 
-      {/* ── MAIN CONTENT ── */}
+      {/* MAIN CONTENT */}
       <div className="max-w-7xl mx-auto px-5 pb-20">
         <div className="grid lg:grid-cols-12 gap-8">
-
-          {/* LEFT CONTENT */}
           <div className="lg:col-span-8 space-y-6">
 
             {/* INTRO */}
@@ -839,7 +912,7 @@ export default async function CountryVisaPage({ params }) {
               <div className="flex items-center gap-4 mb-8">
                 <div className="p-3 rounded-2xl" style={{ background: "#f0fdf4" }}><CheckCircle size={24} style={{ color: "#16a34a" }} /></div>
                 <div>
-                  <h2 className="font-display text-2xl font-black text-black">{countryName} Visa — Mandatory Documents for Indians</h2>
+                  <h2 className="font-display text-2xl font-black text-black">{countryName} Visa Documents — Checklist for Indians</h2>
                   <p className="text-sm mt-0.5" style={{ color: "#777" }}>All items below are required. Missing even one document causes rejection.</p>
                 </div>
               </div>
@@ -880,8 +953,6 @@ export default async function CountryVisaPage({ params }) {
                   )}
                 </div>
               </div>
-
-              {/* Occupation-specific */}
               {d.comprehensive_requirements_checklist?.occupation_specific && (
                 <div style={{ borderTop: "1.5px solid #eee", paddingTop: "28px" }}>
                   <p style={{ fontSize: "10px", fontWeight: 800, textTransform: "uppercase", letterSpacing: ".15em", color: "#aaa", marginBottom: "20px" }}>04. Occupation-Specific Documents</p>
@@ -955,7 +1026,7 @@ export default async function CountryVisaPage({ params }) {
               </section>
             </div>
 
-            {/* JVAC / SUBMISSION CENTRES */}
+            {/* SUBMISSION CENTRES */}
             {d.geospatial_submission_data?.length > 0 && (
               <section className="card p-8 md:p-10">
                 <div className="flex items-center gap-3 mb-8">
@@ -1066,10 +1137,10 @@ export default async function CountryVisaPage({ params }) {
               </section>
             )}
 
-            {/* YOUTUBE VIDEOS */}
+            {/* YOUTUBE */}
             {d.youtube_video_options?.length > 0 && (
               <section>
-                <h2 className="font-display text-2xl font-black text-black mb-6">{countryName} Visa — Watch & Learn</h2>
+                <h2 className="font-display text-2xl font-black text-black mb-6">{countryName} Visa — Watch &amp; Learn</h2>
                 <div className="grid md:grid-cols-3 gap-5">
                   {d.youtube_video_options.map((video, i) => {
                     const videoId = video.video_link?.split("v=")[1]?.split("&")[0];
@@ -1078,7 +1149,10 @@ export default async function CountryVisaPage({ params }) {
                       <a key={i} href={video.video_link} target="_blank" rel="noopener noreferrer"
                         className="card group rounded-2xl overflow-hidden transition-all hover-yellow">
                         <div className="relative aspect-video overflow-hidden" style={{ background: "#f5f5f5" }}>
-                          {thumb && <img src={thumb} alt={video.video_title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />}
+                          {/* ✅ FIX: Added width/height to YouTube thumbnails to prevent CLS */}
+                          {thumb && <img src={thumb} alt={video.video_title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy" width={320} height={180} />}
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform" style={{ background: "#f5c800" }}>
                               <svg className="w-6 h-6 fill-black ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
@@ -1128,7 +1202,7 @@ export default async function CountryVisaPage({ params }) {
             <section className="card p-8 md:p-10">
               <div className="flex items-center gap-3 mb-6">
                 <span className="section-line" />
-                <h2 className="font-display text-2xl font-black text-black">{countryName} Visa for Indians — {currentYear} Complete Guide</h2>
+                <h2 className="font-display text-2xl font-black text-black">{countryName} Visa from India — {currentYear} Complete Guide</h2>
               </div>
               <div className="space-y-5 text-sm leading-relaxed" style={{ color: "#555" }}>
                 <p>Applying for a <strong className="text-black">{countryName} tourist visa from India</strong> involves submitting a complete document package to the {countryName} Embassy or VFS Global / BLS centre in India. The {d.visa_category_details?.visa_type} allows a stay of <strong className="text-black">{d.stay_and_validity_rules?.standard_stay}</strong>.</p>
@@ -1144,16 +1218,17 @@ export default async function CountryVisaPage({ params }) {
             {/* INTERNAL LINKS */}
             <section className="card-yellow p-8 rounded-2xl">
               <h3 className="font-display text-xl font-black text-black mb-1">Also Explore These Visa Guides</h3>
-              <p className="text-xs mb-6" style={{ color: "#888" }}>Popular tourist visa guides for Indian passport holders — updated 2026</p>
+              <p className="text-xs mb-6" style={{ color: "#888" }}>Popular tourist visa guides for Indian passport holders — updated {currentYear}</p>
               <div className="grid sm:grid-cols-2 gap-2.5">
                 {["United States", "United Kingdom", "Canada", "Germany", "France", "Japan", "Australia", "Malaysia", "Thailand", "Singapore"].map(name =>
                   name !== countryName ? (
-                    <Link key={name} href={`/visa/tourist-visa/${createSlug(name)}`}
-                      title={`${name} tourist visa from India — complete 2026 guide`}
+                    // ✅ FIX: All links use /visa/india/ — was incorrectly /visa/tourist-visa/
+                    <Link key={name} href={`/visa/india/${createSlug(name)}`}
+                      title={`${name} tourist visa from India — complete ${currentYear} guide`}
                       className="flex items-center gap-2 p-3 rounded-xl text-sm font-semibold transition-all group"
                       style={{ background: "rgba(255,255,255,.7)", border: "1.5px solid rgba(245,200,0,.2)", color: "#333" }}>
                       <span className="font-black group-hover:translate-x-0.5 transition-transform" style={{ color: "#d4a800" }}>→</span>
-                      {name} Tourist Visa — India Guide
+                      {name} Tourist Visa from India
                     </Link>
                   ) : null
                 )}
@@ -1161,7 +1236,7 @@ export default async function CountryVisaPage({ params }) {
             </section>
           </div>
 
-          {/* RIGHT SIDEBAR */}
+          {/* SIDEBAR */}
           <aside className="lg:col-span-4 space-y-5">
             <SidebarCTA whatsappUrl={whatsappUrl} countryName={countryName} data={d} />
 
@@ -1197,14 +1272,14 @@ export default async function CountryVisaPage({ params }) {
             <div className="card p-6">
               <div className="flex items-center gap-2 mb-6">
                 <Clock size={17} style={{ color: "#888" }} />
-                <h3 className="font-black text-black text-sm">Processing Timeline</h3>
+                <h3 className="font-black text-black text-sm">Processing Timeline from India</h3>
               </div>
               <div className="space-y-5 relative">
                 <div className="step-line" />
                 {[
-                  { label: "Standard Turnaround",   time: d.processing_time_metrics?.standard_turnaround, col: "#16a34a" },
-                  { label: "Embassy Review Phase",   time: d.processing_time_metrics?.embassy_review_phase, col: "#2563eb" },
-                  { label: "Peak Season Delay",      time: d.processing_time_metrics?.peak_season_delay, col: "#ea580c" },
+                  { label: "Standard Turnaround",  time: d.processing_time_metrics?.standard_turnaround, col: "#16a34a" },
+                  { label: "Embassy Review Phase",  time: d.processing_time_metrics?.embassy_review_phase, col: "#2563eb" },
+                  { label: "Peak Season Delay",     time: d.processing_time_metrics?.peak_season_delay, col: "#ea580c" },
                   ...(d.processing_time_metrics?.express_service ? [{ label: "Express Option", time: d.processing_time_metrics.express_service, col: "#9333ea" }] : []),
                 ].filter(s => s.time).map((item, i) => (
                   <div key={i} className="relative pl-9">
@@ -1255,9 +1330,10 @@ export default async function CountryVisaPage({ params }) {
               <div className="text-4xl mb-3">🙋</div>
               <h4 className="font-black text-xl text-black mb-2">Need Help?</h4>
               <p className="text-sm leading-relaxed mb-5" style={{ color: "rgba(0,0,0,.6)" }}>
-                Our experts handle form-filling, photo verification & document review for {countryName} visa from India.
+                Our experts handle form-filling, photo verification &amp; document review for {countryName} visa from India.
               </p>
-              <a href="mailto:info@eammu.com" className=" bg-black text-white py-3 rounded-xl font-black text-sm mb-3">
+              {/* ✅ FIX: Added "block" class — was missing, causing inline rendering */}
+              <a href="mailto:info@eammu.com" className="block bg-black text-white py-3 rounded-xl font-black text-sm hover:bg-gray-900 transition mb-3">
                 📧 info@eammu.com
               </a>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer"
@@ -1269,10 +1345,13 @@ export default async function CountryVisaPage({ params }) {
         </div>
       </div>
 
-      {/* ── BOTTOM CTA ── */}
+      {/* BOTTOM CTA */}
       <div className="py-20 px-5 text-center" style={{ background: "#111111" }}>
         <div className="max-w-2xl mx-auto">
-          <img src={country.flag} alt={`${countryName} flag`} className="w-24 h-16 object-cover rounded-2xl mx-auto mb-6 shadow-2xl" />
+          {/* ✅ FIX: width/height to prevent CLS */}
+          <img src={country.flag} alt={`${countryName} flag`}
+            className="object-cover rounded-2xl mx-auto mb-6 shadow-2xl"
+            width={96} height={64} style={{ width: "96px", height: "64px" }} />
           <h2 className="font-display text-3xl md:text-4xl font-black mb-3" style={{ color: "white" }}>
             Ready to Apply for Your <span style={{ color: "#f5c800" }}>{countryName} Visa from India?</span>
           </h2>

@@ -10,14 +10,11 @@ export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
 
   title: {
-    default:
-      "Best Travel Agency in Bangladesh 2026 | Visa, Tours & Flights | Eammu Holidays",
-    template: "%s | Eammu Holidays – Travel Agency Bangladesh",
+    default: "Travel Agency in Bangladesh | Eammu Holidays",
   },
 
   description:
-    "Eammu Holidays – Bangladesh's #1 IATA-accredited online travel and visa agency since 2012. Canada, UK, USA, Schengen, Dubai, Australia & Europe work permit visas with 98% success rate. Air tickets, Umrah packages, student visa, work permits & holiday tours from Cumilla, Dhaka & Dubai. Free expert consultation — call +8801631312524.",
-
+    "Travel Agency Bangladesh – Eammu Holidays is an IATA-accredited travel agency offering tourist visas, Schengen visas, air tickets, Umrah packages, holiday tours and travel services worldwide.",
   keywords: [
     // ── Core brand & agency
     "online travel agency Bangladesh",

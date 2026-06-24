@@ -1,4 +1,5 @@
 import TouristVisa from '@/Components/Client/visaServices/Visa/TouristVisaBangladesh/TouristVisa/TouristVisa'
+import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react'
 
 export const metadata = {
@@ -443,6 +444,7 @@ export default function VisaPage() {
       />
 
       <TouristVisa />
+      <HomeSeoLinks />
     </>
   );
 }

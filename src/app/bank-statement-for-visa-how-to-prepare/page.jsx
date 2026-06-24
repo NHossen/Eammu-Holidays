@@ -20,11 +20,11 @@ export const metadata = {
     "bank statement mistakes visa rejection",
     "how to prepare financial documents for visa",
   ],
-  alternates: { canonical: "https://www.eammu.com/travel-resources/bank-statement-for-visa-how-to-prepare" },
+  alternates: { canonical: "https://www.eammu.com/bank-statement-for-visa-how-to-prepare" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/bank-statement-for-visa-how-to-prepare",
+    url: "https://www.eammu.com/bank-statement-for-visa-how-to-prepare",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "How to Prepare Bank Statement for Visa 2026 | Eammu Holidays",
@@ -41,7 +41,7 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/bank-statement-for-visa-how-to-prepare#article",
+      "@id": "https://www.eammu.com/bank-statement-for-visa-how-to-prepare#article",
       headline: "How to Prepare Your Bank Statement for a Visa Application — 2026 Guide",
       description: "Step-by-step guide to preparing a bank statement for a Bangladeshi visa application in 2026 — format, timing, mistakes to avoid, and solvency certificate requirements.",
       image: "https://www.eammu.com/preview-banner.webp",
@@ -49,7 +49,7 @@ const structuredData = {
       publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/bank-statement-for-visa-how-to-prepare",
+      mainEntityOfPage: "https://www.eammu.com/bank-statement-for-visa-how-to-prepare",
     },
     {
       "@type": "BreadcrumbList",
@@ -156,10 +156,10 @@ export default function BankStatementPreparePage() {
             <h2 className="text-xl font-black text-[#005a31] mb-6 text-center">Related <span className="text-orange-500">Financial Guides</span></h2>
             <nav className="flex flex-wrap justify-center gap-2.5" aria-label="Related financial visa guides">
               {[
-                { label: "Bank Statement Overview", href: "/travel-resources/bank-statement-for-visa" },
-                { label: "How Much Bank Balance for Visa", href: "/travel-resources/how-much-bank-balance-needed-for-visa" },
-                { label: "Bank Solvency Certificate", href: "/travel-resources/bank-solvency-certificate-for-visa" },
-                { label: "Sponsor Financial Documents", href: "/travel-resources/sponsor-financial-documents-for-visa" },
+                { label: "Bank Statement Overview", href: "/bank-statement-for-visa" },
+                { label: "How Much Bank Balance for Visa", href: "/how-much-bank-balance-needed-for-visa" },
+                { label: "Bank Solvency Certificate", href: "/bank-solvency-certificate-for-visa" },
+                { label: "Sponsor Financial Documents", href: "/sponsor-financial-documents-for-visa" },
                 { label: "Visa Rejection Reasons", href: "/visa-rejection/common-reasons" },
                 { label: "All Visa Services", href: "/visa" },
               ].map((lnk) => (
