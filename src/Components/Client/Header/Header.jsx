@@ -150,7 +150,7 @@ export default function Header() {
                          hover:bg-right transition-all duration-500 overflow-hidden cursor-pointer"
             >
               <motion.div
-                className="flex items-center gap-2 w-full h-full"
+                className="flex items-center text-cyan-50 gap-2 w-full h-full"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 10 }}
@@ -161,7 +161,7 @@ export default function Header() {
                   animate={{ x: ['-100%', '200%'] }}
                   transition={{ repeat: Infinity, duration: 2, ease: "linear", repeatDelay: 1 }}
                 />
-                <span className="relative z-10">GET TOUCH</span>
+                <span className="relative z-10 ">GET TOUCH</span>
               </motion.div>
             </Link>
           </div>
