@@ -67,6 +67,7 @@ const HomeSeoLinks = dynamic(
 
 const BASE_URL = "https://www.eammu.com";
 
+export const revalidate = 3600; // ✅ 1 ঘন্টা
 // ── HOME PAGE SEO METADATA ────────────────────────────────────────────────────
 export const metadata = {
   // 🔴 FIX: root layout.jsx sets `title.template = "%s | Eammu Holidays"`.
@@ -212,7 +213,6 @@ const homepageSchema = {
       significantLink: [
         `${BASE_URL}/visa`,
         `${BASE_URL}/visa/e-visa`,
-        `${BASE_URL}/visa`,
         `${BASE_URL}/blogs`,
         `${BASE_URL}/schengen-visa`,
         `${BASE_URL}/visa-checker`,
@@ -240,14 +240,6 @@ const homepageSchema = {
           description:
             "Real-time visa processing time tracker for all major embassies and destinations.",
           url: `${BASE_URL}/travel-resources/visa-processing-time-tracker`,
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "Umrah Packages 2026",
-          description:
-            "Affordable and premium Umrah packages 2026 from Bangladesh including flights, hotel and visa.",
-          url: `${BASE_URL}/visa`,
         },
         {
           "@type": "ListItem",
