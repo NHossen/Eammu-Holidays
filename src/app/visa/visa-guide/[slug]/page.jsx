@@ -5,6 +5,24 @@ import Link from 'next/link';
 
 export const revalidate = 86400;
 
+// ✅ এখানে নতুন ফাংশনটা পেস্ট করুন — generateMetadata এর ঠিক আগে
+export async function generateStaticParams() {
+  const popularOrigins = ['bangladesh', 'india', 'pakistan', 'nepal', 'sri-lanka', 'united-arab-emirates'];
+  const popularDestinations = [
+    'united-states', 'united-kingdom', 'canada', 'australia',
+    'germany', 'malaysia', 'singapore', 'turkey', 'japan', 'thailand',
+  ];
+
+  const params = [];
+  for (const dest of popularDestinations) {
+    for (const orig of popularOrigins) {
+      params.push({ slug: `${dest}-visa-for-${orig}` });
+    }
+  }
+  return params;
+}
+// ✅ নতুন যুক্ত করুন — module load-এ একবারই তৈরি হবে, O(1) lookup
+const visaBySlug = new Map(visaData.map(c => [createSlug(c.country), c]));
 // ─────────────────────────────────────────────────────────────────────────────
 // METADATA — dynamic, keyword-rich, covers every user intent variant
 // ─────────────────────────────────────────────────────────────────────────────
@@ -14,13 +32,17 @@ export async function generateMetadata({ params }) {
   const destSlug  = parts[0];
   const origSlug  = parts[1];
 
-  const destination = visaData.find(c => createSlug(c.country) === destSlug);
-  const origin      = visaData.find(c => createSlug(c.country) === origSlug);
+ // ✅ এভাবে করুন
+const destination = visaBySlug.get(destSlug);
+const origin      = visaBySlug.get(origSlug);
   const dest        = destination?.country || 'Destination';
   const orig        = origin?.country      || 'Your Country';
 
-  const title       = `${dest} Visa for ${orig} Citizens 2026 — Requirements, Documents & Fees`;
-  const description = `Complete ${dest} visa guide for ${orig} passport holders. Embassy-verified document checklist, bank statement rules, 47×36mm photo specs, processing time (10–21 days), visa fees, cover letter tips, and expert strategies to avoid rejection — updated 2026.`;
+const title = `${dest} Visa for ${orig} Citizens — Requirements & Fees (2026)`;
+// ~65 chars max. Year at end = cleaner, still keyword-rich
+
+const description = `Apply for a ${dest} visa from ${orig}. Get the full document checklist, processing times, visa fees, photo requirements, and step-by-step application guide. Updated 2026.`;
+// ~155 chars. Conversational, benefit-driven, no stuffing
 
   return {
     metadataBase: new URL('https://www.eammu.com'),
@@ -532,8 +554,9 @@ export default async function VisaDetails({ params }) {
   const destSlug = parts[0];
   const origSlug = parts[1];
 
-  const destinationData = visaData.find(c => createSlug(c.country) === destSlug);
-  const originData      = visaData.find(c => createSlug(c.country) === origSlug);
+  // ✅ এভাবে করুন
+const destinationData = visaBySlug.get(destSlug);
+const originData      = visaBySlug.get(origSlug);
 
   if (!destinationData || !originData) {
     return (

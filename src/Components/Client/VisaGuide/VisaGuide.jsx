@@ -540,7 +540,7 @@ export default function VisaGuide() {
               {/* CTA */}
               <Link
                 href={`/visa/visa-guide/${createSlug(destination)}-visa-for-${createSlug(origin)}`}
-                className="w-full md:w-auto bg-slate-900 hover:bg-yellow-400 hover:text-black text-white px-8 py-6 rounded-[1.8rem] font-black transition-all shadow-xl active:scale-95 text-center flex items-center justify-center gap-2 group whitespace-nowrap"
+                className="w-full md:w-auto bg-white hover:bg-yellow-400 hover:text-black text-white px-8 py-6 rounded-[1.8rem] font-black transition-all shadow-xl active:scale-95 text-center flex items-center justify-center gap-2 group whitespace-nowrap"
               >
                 <span>Check Requirements</span>
                 <svg className="group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">

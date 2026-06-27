@@ -7,7 +7,7 @@
 import { getRejectionData } from "@/app/lib/rejectionData";
 import VisaRejectionSlugClient from "@/Components/Client/VisaRejectionSlugClient/VisaRejectionSlugClient";
 import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
-
+import { Suspense } from "react";
 // ─────────────────────────────────────────────
 // ISR CONFIG
 // ─────────────────────────────────────────────
@@ -38,11 +38,9 @@ function toName(slug) {
 // ─────────────────────────────────────────────
 // METADATA
 // ─────────────────────────────────────────────
-export async function generateMetadata({ params, searchParams }) {
-  // ✅ Next.js 15: params and searchParams are Promises — await before use
+export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const { type } = await searchParams;
-  const visaType = type || "tourist";
+  const visaType = "tourist"; // metadata সবসময় default type-এর জন্য
   const parsed   = parseSlug(slug);
 
   if (!parsed) {
@@ -89,11 +87,10 @@ export async function generateMetadata({ params, searchParams }) {
 // ─────────────────────────────────────────────
 // PAGE  (Server Component)
 // ─────────────────────────────────────────────
-export default async function VisaRejectionSlugPage({ params, searchParams }) {
-  // ✅ Next.js 15: await both before accessing properties
+// ✅ এভাবে করুন
+export default async function VisaRejectionSlugPage({ params }) {
   const { slug } = await params;
-  const { type } = await searchParams;
-  const visaType = type || "tourist";
+  const visaType = "tourist"; // page এখন শুধু slug দিয়েই static হবে
   const parsed   = parseSlug(slug);
 
   // Invalid URL format
@@ -156,14 +153,16 @@ export default async function VisaRejectionSlugPage({ params, searchParams }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <VisaRejectionSlugClient
-        slug={slug}
-        visaType={visaType}
-        natName={natName}
-        destName={destName}
-        rejData={rejData}
-        rule={rule}
-      />
+      <Suspense fallback={null}>
+  <VisaRejectionSlugClient
+    slug={slug}
+    visaType={visaType}
+    natName={natName}
+    destName={destName}
+    rejData={rejData}
+    rule={rule}
+  />
+</Suspense>
       <HomeSeoLinks />
     </>
   );

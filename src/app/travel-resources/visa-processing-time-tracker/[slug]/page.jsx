@@ -1,12 +1,15 @@
 // /app/travel-resources/visa-processing-time-tracker/[slug]/page.jsx
-// ─── Dynamic SEO metadata changes with every country combination ──────────
-
+// ✅ OPTIMIZED: searchParams সরানো হয়েছে — type এখন slug-এর শেষে
+// URL: /bangladeshi-national-visa-processing-time-for-canada-sticker  (static ✅)
+// আগে: /bangladeshi-national-visa-processing-time-for-canada?type=sticker (dynamic ❌)
 
 import COUNTRIES from "@/app/data/countries.json";
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 import VisaProcessingSlugPage from "@/Components/Server/VisaProcessingTimeTracker/VisaProcessingTimeTracker";
 
-export const revalidate = 86400; // cache for 24 hours
-// ── VISA RULES (same as client — used for metadata) ────────────────────────
+export const revalidate = 86400; // 24 ঘণ্টা cache
+
+// ── VISA RULES ─────────────────────────────────────────────────────────────
 const VISA_RULES = {
   canada: {
     name: "Canada", flag: "🇨🇦",
@@ -121,7 +124,80 @@ const VISA_RULES = {
       "transit":           { min:6,  max:24, unit:"hours", label:"Thailand Transit Visa" },
     },
   },
+  "south-korea": {
+    name: "South Korea", flag: "🇰🇷",
+    types: {
+      "e-visa":            { min:3,  max:5,  label:"Korea Electronic Visa (K-ETA)" },
+      "sticker":           { min:5,  max:10, label:"Korea Tourist Visa (C-3)" },
+      "sticker-extended":  { min:30, max:60, label:"Korea D-2/D-10 Student or Long-Stay" },
+      "transit":           { min:6,  max:24, unit:"hours", label:"Korea Transit Visa (TWOV)" },
+    },
+  },
+  georgia: {
+    name: "Georgia", flag: "🇬🇪",
+    types: {
+      "e-visa":            { min:1,  max:5,  label:"Georgia e-Visa" },
+      "sticker":           { min:1,  max:1,  label:"Georgia Visa-Free Entry (365 days)" },
+      "sticker-extended":  { min:30, max:60, label:"Georgia TRC (Temporary Residence)" },
+      "transit":           { min:1,  max:3,  unit:"hours", label:"Georgia Transit (Visa-Free)" },
+    },
+  },
+  armenia: {
+    name: "Armenia", flag: "🇦🇲",
+    types: {
+      "e-visa":            { min:1,  max:3,  label:"Armenia e-Visa (evisa.am)" },
+      "sticker":           { min:3,  max:5,  label:"Armenia Visa on Arrival" },
+      "sticker-extended":  { min:30, max:60, label:"Armenia Residence Permit" },
+      "transit":           { min:1,  max:3,  unit:"hours", label:"Armenia Transit Visa" },
+    },
+  },
+  turkey: {
+    name: "Turkey", flag: "🇹🇷",
+    types: {
+      "e-visa":            { min:1,  max:2,  label:"Turkey e-Visa (evisa.gov.tr)" },
+      "sticker":           { min:10, max:21, label:"Turkey Sticker Visa" },
+      "sticker-extended":  { min:30, max:60, label:"Turkey Residence / Long-Stay" },
+      "transit":           { min:6,  max:24, unit:"hours", label:"Turkey Airport Transit Visa" },
+    },
+  },
 };
+
+// ── VISA TYPE LABELS ────────────────────────────────────────────────────────
+const VISA_TYPE_LABELS = {
+  "e-visa":           "E-Visa",
+  "sticker":          "Sticker Visa",
+  "sticker-extended": "Complex Case Visa",
+  "transit":          "Transit Visa",
+};
+
+// ── ALL VISA TYPE KEYS (longest first to avoid partial matches) ─────────────
+const VISA_TYPE_KEYS = ["sticker-extended", "e-visa", "sticker", "transit"];
+
+// ── SLUG PARSER ─────────────────────────────────────────────────────────────
+// ✅ type এখন slug-এর শেষে: "bangladeshi-...-for-canada-sticker"
+function parseSlug(slug = "") {
+  let visaType = "sticker";
+  let baseSlug = slug;
+
+  // longest match first ("sticker-extended" before "sticker")
+  for (const t of VISA_TYPE_KEYS) {
+    if (baseSlug.endsWith(`-${t}`)) {
+      visaType = t;
+      baseSlug = baseSlug.slice(0, -(t.length + 1));
+      break;
+    }
+  }
+
+  const marker = "-national-visa-processing-time-for-";
+  const idx = baseSlug.indexOf(marker);
+  if (idx === -1) return { natSlug: baseSlug, destSlug: "unknown", visaType };
+
+  return {
+    natSlug:  baseSlug.slice(0, idx),
+    destSlug: baseSlug.slice(idx + marker.length),
+    visaType,
+  };
+}
 
 function getCountryData(destSlug) {
   const key = Object.keys(VISA_RULES).find(k => destSlug.includes(k));
@@ -140,98 +216,110 @@ function getCountryData(destSlug) {
   };
 }
 
-function parseSlug(slug) {
-  const marker = "-national-visa-processing-time-for-";
-  const idx    = (slug || "").indexOf(marker);
-  if (idx === -1) return [slug || "", "unknown"];
-  return [slug.slice(0, idx), slug.slice(idx + marker.length)];
-}
-
 function toName(slugPart) {
-  const found = COUNTRIES.find(c =>
-    c.country.toLowerCase().replace(/\s+/g, "-") === slugPart
+  const found = COUNTRIES.find(
+    c => c.country.toLowerCase().replace(/\s+/g, "-") === slugPart
   );
-  return found?.country || slugPart.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+  return found?.country ||
+    slugPart.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 }
 
-// ── DYNAMIC METADATA ───────────────────────────────────────────────────────
-export async function generateMetadata({ params, searchParams }) {
-  // Unwrapping the promises
-  const resolvedParams = await params;
-  const resolvedSearchParams = await searchParams;
-
-  const slug = resolvedParams?.slug || "";
-  const visaType = resolvedSearchParams?.type || "sticker";
-  
-  const [natSlug, destSlug] = parseSlug(slug);
-
-  const natName    = toName(natSlug);
+// ✅ Single shared function — generateMetadata ও page component উভয়ে use করে
+// আগে দুটো আলাদা আলাদা same calculation করছিল
+function getPageData(slug) {
+  const { natSlug, destSlug, visaType } = parseSlug(slug);
+  const natName     = toName(natSlug);
   const countryData = getCountryData(destSlug);
-  const destName   = countryData.name;
-  const rule       = countryData.types[visaType] || countryData.types["sticker"];
-  const typeLabel  = rule?.label || "Visa";
-  const timeStr    = rule?.unit === "hours"
+  const activeType  = countryData.types[visaType] ? visaType : "sticker";
+  const rule        = countryData.types[activeType];
+  const isHours     = rule?.unit === "hours";
+  const timeStr     = isHours
     ? `${rule.min}–${rule.max} hours`
     : `${rule.min}–${rule.max} business days`;
+  const visaLabel   = VISA_TYPE_LABELS[activeType] || "Visa";
+  // baseSlug = type suffix ছাড়া — VisaTypeSwitcher-এ পাঠানো হবে
+  const baseSlug    = visaType !== "sticker" || slug.endsWith("-sticker")
+    ? slug.slice(0, slug.lastIndexOf(`-${visaType}`))
+    : slug;
 
-  const VISA_TYPE_LABELS = {
-    "e-visa":           "E-Visa",
-    "sticker":          "Sticker Visa",
-    "sticker-extended": "Complex Case Visa",
-    "transit":          "Transit Visa",
-  };
-  const visaLabel = VISA_TYPE_LABELS[visaType] || "Visa";
+  return { natSlug, destSlug, natName, countryData, activeType, rule, isHours, timeStr, visaLabel, baseSlug };
+}
 
-  const title       = `${natName} Visa Processing Time for ${destName} (${visaLabel}) 2026`;
-  const description = `${natName} passport holders: ${destName} ${visaLabel} (${typeLabel}) processing takes ${timeStr}. Learn what causes delays, pro tips to speed up your visa, and when to apply. Free tracker by Eammu.`;
-
-  const keywords = [
-    `${natName} visa processing time ${destName}`,
-    `${natName} ${destName} ${visaLabel.toLowerCase()} processing time`,
-    `how long ${destName} visa takes ${natName}`,
-    `${destName} ${visaLabel.toLowerCase()} ${natName} 2026`,
-    `${natName} passport ${destName} visa duration`,
-    `${destName} visa processing time 2026`,
-    `${visaLabel.toLowerCase()} processing time`,
-    "visa processing time tracker",
-    "eammu visa tracker",
+// ── STATIC PARAMS — popular combinations pre-build ─────────────────────────
+// ✅ এগুলো build time-এ generate হবে → runtime invocation শূন্য
+export async function generateStaticParams() {
+  const TOP_DESTINATIONS = [
+    "canada", "united-states", "united-kingdom", "schengen",
+    "australia", "united-arab-emirates", "germany", "france",
+    "saudi-arabia", "singapore", "japan", "malaysia", "thailand",
+    "south-korea", "georgia", "armenia", "turkey",
+  ];
+  const TOP_NATIONALITIES = [
+    "bangladeshi", "indian", "pakistani", "nigerian", "egyptian",
+    "philippine", "indonesian", "vietnamese", "nepali", "sri-lankan",
   ];
 
-  const canonical = `https://eammu.com/travel-resources/visa-processing-time-tracker/${slug}-${visaType}`;
+  const params = [];
+  for (const nat of TOP_NATIONALITIES) {
+    for (const dest of TOP_DESTINATIONS) {
+      for (const type of VISA_TYPE_KEYS) {
+        params.push({
+          slug: `${nat}-national-visa-processing-time-for-${dest}-${type}`,
+        });
+      }
+    }
+  }
+  return params;
+}
+
+// ── METADATA ───────────────────────────────────────────────────────────────
+// ✅ searchParams নেই — params.slug থেকেই সব বের হয়
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug || "";
+
+  const { natName, destSlug, countryData, timeStr, visaLabel, activeType } = getPageData(slug);
+  const destName = countryData.name;
+
+  const title       = `${natName} Visa Processing Time for ${destName} (${visaLabel}) 2026`;
+  const description = `${natName} passport holders: ${destName} ${visaLabel} processing takes ${timeStr}. Learn what causes delays, pro tips to speed up your visa, and when to apply. Free tracker by Eammu.`;
+
+  // ✅ Canonical-এ ?type= নেই — clean slug URL
+  const canonical = `https://eammu.com/travel-resources/visa-processing-time-tracker/${slug}`;
 
   return {
     title,
     description,
-    keywords,
+    keywords: [
+      `${natName} visa processing time ${destName}`,
+      `${natName} ${destName} ${visaLabel.toLowerCase()} processing time`,
+      `how long ${destName} visa takes ${natName}`,
+      `${destName} ${visaLabel.toLowerCase()} ${natName} 2026`,
+      `${natName} passport ${destName} visa duration`,
+      `${destName} visa processing time 2026`,
+      `${visaLabel.toLowerCase()} processing time`,
+      "visa processing time tracker",
+      "eammu visa tracker",
+    ],
     openGraph: {
       title,
       description,
       url:      canonical,
       siteName: "Eammu",
       type:     "article",
-      images: [
-        {
-          url:   `https://eammu.com/og/visa-processing-${destSlug}.jpg`,
-          width:  1200,
-          height: 630,
-          alt:   `${natName} to ${destName} Visa Processing Time`,
-        },
-      ],
+      images: [{
+        url:    `https://eammu.com/og/visa-processing-${destSlug}.jpg`,
+        width:  1200,
+        height: 630,
+        alt:    `${natName} to ${destName} Visa Processing Time`,
+      }],
     },
-    twitter: {
-      card:        "summary_large_image",
-      title,
-      description,
-    },
-    alternates: {
-      canonical,
-    },
+    twitter: { card: "summary_large_image", title, description },
+    alternates: { canonical },
     robots: {
-      index:          true,
-      follow:         true,
+      index: true, follow: true,
       googleBot: {
-        index:              true,
-        follow:             true,
+        index: true, follow: true,
         "max-video-preview": -1,
         "max-image-preview": "large",
         "max-snippet":       -1,
@@ -239,20 +327,21 @@ export async function generateMetadata({ params, searchParams }) {
     },
     other: {
       "article:published_time": "2025-01-01",
-      "article:modified_time":  new Date().toISOString().split("T")[0],
+      // ✅ new Date() সরানো হয়েছে — এটা প্রতি request-এ আলাদা value দিয়ে cache break করছিল
+      "article:modified_time":  "2026-01-01",
     },
   };
 }
 
-// ── JSON-LD STRUCTURED DATA (for Google rich results) ─────────────────────
-function JsonLd({ natName, destName, visaLabel, timeStr, slug, visaType }) {
+// ── JSON-LD ────────────────────────────────────────────────────────────────
+function JsonLd({ natName, destName, visaLabel, timeStr }) {
   const data = {
     "@context": "https://schema.org",
     "@type":    "FAQPage",
     mainEntity: [
       {
-        "@type":          "Question",
-        name:             `How long does ${destName} ${visaLabel} take for ${natName} passport holders?`,
+        "@type": "Question",
+        name:    `How long does ${destName} ${visaLabel} take for ${natName} passport holders?`,
         acceptedAnswer: {
           "@type": "Answer",
           text:   `${natName} passport holders applying for a ${destName} ${visaLabel} typically wait ${timeStr}. Processing time depends on embassy workload, seasonal demand, and application completeness.`,
@@ -276,6 +365,7 @@ function JsonLd({ natName, destName, visaLabel, timeStr, slug, visaType }) {
       },
     ],
   };
+
   return (
     <script
       type="application/ld+json"
@@ -284,48 +374,25 @@ function JsonLd({ natName, destName, visaLabel, timeStr, slug, visaType }) {
   );
 }
 
-// ── DEFAULT EXPORT (Server Component wrapper) ──────────────────────────────
-export default async function VisaProcessingSlugPageSeo({ params, searchParams }) {
-  // 1. Unwrapping the promises (Crucial for Next.js 15+)
+// ── PAGE ───────────────────────────────────────────────────────────────────
+// ✅ searchParams parameter সম্পূর্ণ সরানো হয়েছে
+export default async function VisaProcessingSlugPageSeo({ params }) {
   const resolvedParams = await params;
-  const resolvedSearchParams = await searchParams;
-
   const slug = resolvedParams?.slug || "";
-  const visaType = resolvedSearchParams?.type || "sticker";
-  
-  // 2. Logic processing
-  const [natSlug, destSlug] = parseSlug(slug);
-  const natName = toName(natSlug);
-  const countryData = getCountryData(destSlug);
-  
-  const rule = countryData.types[visaType] || countryData.types["sticker"];
-  const timeStr = rule?.unit === "hours"
-    ? `${rule.min}–${rule.max} hours`
-    : `${rule.min}–${rule.max} business days`;
 
-  const VISA_TYPE_LABELS = {
-    "e-visa": "E-Visa",
-    "sticker": "Sticker Visa",
-    "sticker-extended": "Complex Case Visa",
-    "transit": "Transit Visa",
-  };
+  const { natName, countryData, timeStr, visaLabel } = getPageData(slug);
 
   return (
     <>
       <JsonLd
         natName={natName}
         destName={countryData.name}
-        visaLabel={VISA_TYPE_LABELS[visaType] || "Visa"}
+        visaLabel={visaLabel}
         timeStr={timeStr}
-        slug={slug}
-        visaType={visaType}
       />
-      {/* 3. Pass the resolved params to your client/child component */}
-      <VisaProcessingSlugPage
-        params={resolvedParams} 
-        searchParams={resolvedSearchParams} 
-      />
-  
+      {/* ✅ slug একটাই prop — searchParams পাঠানো হচ্ছে না */}
+      <VisaProcessingSlugPage slug={slug} />
+      <HomeSeoLinks />
     </>
   );
 }

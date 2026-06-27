@@ -1,17 +1,6 @@
 "use client";
-
-/**
- * ✅ CLIENT COMPONENT
- * File: Components/Client/VisaRejectionSlugClient/VisaRejectionSlugClient.jsx
- *
- * SEO-DOMINANT VISA REJECTION PAGE
- * - Rich structured statistics for every search intent
- * - Full dynamic country switching (all data changes with country)
- * - Comprehensive internal linking mesh
- * - FAQ, trends, history, nationality breakdown, comparisons
- * - Schema-ready section structure
- */
-
+// টপে import যুক্ত করুন
+import { useSearchParams } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
@@ -234,7 +223,10 @@ export default function VisaRejectionSlugClient({
   rejData,
   rule: initialRule,
 }) {
-  const [activeType, setActiveType] = useState(initialVisaType || "tourist");
+  // ✅ এভাবে করুন
+const searchParams = useSearchParams();
+const typeFromUrl = searchParams.get("type");
+const [activeType, setActiveType] = useState(typeFromUrl || initialVisaType || "tourist");
   const [activeTab,  setActiveTab]  = useState("overview");
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
@@ -260,7 +252,7 @@ export default function VisaRejectionSlugClient({
   if (!rule) return null;
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white font-sans my-8">
 
 
       {/* ── HERO ── */}

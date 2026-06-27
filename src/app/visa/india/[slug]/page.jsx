@@ -59,13 +59,16 @@ export async function generateMetadata({ params }) {
   // year signals freshness. With layout.jsx template "%s | Eammu Holidays" total ~54+18=72.
   // Google shows up to 70 chars — "Eammu Holidays" may clip on longest country names,
   // but the keyword phrase is always fully visible.
-  const defaultTitle = d?.seo_and_metadata?.meta_title ||
-    `${countryName} Tourist Visa from India ${currentYear} — Requirements & Fees`;
+const defaultTitle =
+  d?.seo_and_metadata?.meta_title ||
+  `${countryName} Visa for Indians ${currentYear} — Requirements, Fees & Apply`;
+// ~65 chars for avg country name. "for Indians" matches high-volume search intent.
+// "Apply" at end = action keyword, boosts CTR.
 
-  // ✅ FIX: Description — action-first, exact "from India" phrase, trust signal,
-  // phone CTA, 155 chars for most country names
-  const defaultDesc = d?.description ||
-    `Apply for ${countryName} tourist visa from India. Documents, fees, bank balance & processing time for Indian passport holders. IATA-accredited agency. Call +${WHATSAPP_NUMBER}.`;
+const defaultDesc =
+  d?.description ||
+  `Planning a trip to ${countryName}? Get the complete visa guide for Indian passport holders — document checklist, bank balance required, fees, and processing time. IATA-accredited. Call +${WHATSAPP_NUMBER}.`;
+// ~175 chars. Opens with intent question → trust signal → CTA. No keyword stuffing.
 
   // ✅ FIX: Canonical uses www.eammu.com — was missing www, causing canonical domain split
   const canonicalUrl = d?.seo_and_metadata?.canonical_url ||
