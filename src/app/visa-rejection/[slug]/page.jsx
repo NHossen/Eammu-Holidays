@@ -11,8 +11,10 @@ import { Suspense } from "react";
 // ─────────────────────────────────────────────
 // ISR CONFIG
 // ─────────────────────────────────────────────
-export const revalidate    = 86400;  // cache each page 24h
-export const dynamicParams = true;   // build unknown slugs on first request
+// এই দুটো line শুধু পরিবর্তন করুন, বাকি সব same থাকবে
+
+export const dynamicParams = true; // ← এটা যোগ করুন
+export const revalidate = 2592000; // ← 86400 থেকে 2592000 করুন (30 দিন)
 
 // ─────────────────────────────────────────────
 // HELPERS

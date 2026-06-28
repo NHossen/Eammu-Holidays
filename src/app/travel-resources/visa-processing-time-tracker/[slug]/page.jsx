@@ -7,7 +7,10 @@ import COUNTRIES from "@/app/data/countries.json";
 import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 import VisaProcessingSlugPage from "@/Components/Server/VisaProcessingTimeTracker/VisaProcessingTimeTracker";
 
-export const revalidate = 86400; // 24 ঘণ্টা cache
+// এই দুটো line শুধু পরিবর্তন করুন, বাকি সব same থাকবে
+
+export const dynamicParams = true; // ← এটা যোগ করুন
+export const revalidate = 2592000; // ← 86400 থেকে 2592000 করুন (30 দিন)
 
 // ── VISA RULES ─────────────────────────────────────────────────────────────
 const VISA_RULES = {
