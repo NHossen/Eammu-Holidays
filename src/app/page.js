@@ -67,7 +67,6 @@ const HomeSeoLinks = dynamic(
 
 const BASE_URL = "https://www.eammu.com";
 
-export const revalidate = 3600; // ✅ 1 ঘন্টা
 // ── HOME PAGE SEO METADATA ────────────────────────────────────────────────────
 export const metadata = {
   // 🔴 FIX: root layout.jsx sets `title.template = "%s | Eammu Holidays"`.
