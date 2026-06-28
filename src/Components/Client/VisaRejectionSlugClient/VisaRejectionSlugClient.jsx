@@ -1,6 +1,5 @@
 "use client";
 // টপে import যুক্ত করুন
-import { useSearchParams } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
@@ -224,9 +223,8 @@ export default function VisaRejectionSlugClient({
   rule: initialRule,
 }) {
   // ✅ এভাবে করুন
-const searchParams = useSearchParams();
-const typeFromUrl = searchParams.get("type");
-const [activeType, setActiveType] = useState(typeFromUrl || initialVisaType || "tourist");
+// ✅ এখন (শুধু prop থেকে নিন):
+const [activeType, setActiveType] = useState(initialVisaType || "tourist");
   const [activeTab,  setActiveTab]  = useState("overview");
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);

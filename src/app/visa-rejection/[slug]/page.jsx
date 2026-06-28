@@ -1,20 +1,43 @@
 /**
- * ✅ FIXED [slug]/page.jsx
+ * ✅ OPTIMIZED [slug]/page.jsx
  * File: app/visa-rejection/[slug]/page.jsx
- *
+ * পরিবর্তন: generateStaticParams যোগ করা হয়েছে — ISR Writes কমাতে
  */
 
 import { getRejectionData } from "@/app/lib/rejectionData";
 import VisaRejectionSlugClient from "@/Components/Client/VisaRejectionSlugClient/VisaRejectionSlugClient";
 import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 import { Suspense } from "react";
+
 // ─────────────────────────────────────────────
 // ISR CONFIG
 // ─────────────────────────────────────────────
-// এই দুটো line শুধু পরিবর্তন করুন, বাকি সব same থাকবে
+export const dynamicParams = true;
+export const revalidate = 2592000; // 30 দিন — মাসে একবার rewrite
 
-export const dynamicParams = true; // ← এটা যোগ করুন
-export const revalidate = 2592000; // ← 86400 থেকে 2592000 করুন (30 দিন)
+// ─────────────────────────────────────────────
+// ✅ STATIC PARAMS — popular combinations pre-build
+// এগুলো build time-এ generate হবে → runtime ISR Write শূন্য
+// বাকি slugs প্রথম visit-এ on-demand build হবে, তারপর 30 দিন cache
+// ─────────────────────────────────────────────
+export async function generateStaticParams() {
+  const TOP_DESTINATIONS = [
+    "canada", "united-states", "united-kingdom", "schengen",
+    "australia", "united-arab-emirates", "saudi-arabia",
+    "singapore", "japan", "malaysia",
+  ];
+  const TOP_NATIONALITIES = ["bangladeshi", "indian", "pakistani"];
+  const TOP_TYPES = ["tourist"]; // শুধু default type — বাকি on-demand
+
+  return TOP_NATIONALITIES.flatMap(nat =>
+    TOP_DESTINATIONS.flatMap(dest =>
+      TOP_TYPES.map(type => ({
+        slug: `${nat}-visa-rejection-rate-for-${dest}-${type}`,
+      }))
+    )
+  );
+  // মোট: 3 × 10 × 1 = 30 pages (আগে 0 ছিল, ISR Write unlimited ছিল)
+}
 
 // ─────────────────────────────────────────────
 // HELPERS
@@ -42,7 +65,7 @@ function toName(slug) {
 // ─────────────────────────────────────────────
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const visaType = "tourist"; // metadata সবসময় default type-এর জন্য
+  const visaType = "tourist";
   const parsed   = parseSlug(slug);
 
   if (!parsed) {
@@ -53,10 +76,10 @@ export async function generateMetadata({ params }) {
   }
 
   const { natSlug, destSlug } = parsed;
-  const natName   = toName(natSlug);
-  const rejData   = getRejectionData(destSlug);
-  const destName  = rejData.name;
-  const rule      = rejData.types[visaType] || rejData.types["tourist"];
+  const natName  = toName(natSlug);
+  const rejData  = getRejectionData(destSlug);
+  const destName = rejData.name;
+  const rule     = rejData.types[visaType] || rejData.types["tourist"];
   const canonical = `https://eammu.com/visa-rejection/${slug}`;
 
   return {
@@ -89,13 +112,11 @@ export async function generateMetadata({ params }) {
 // ─────────────────────────────────────────────
 // PAGE  (Server Component)
 // ─────────────────────────────────────────────
-// ✅ এভাবে করুন
 export default async function VisaRejectionSlugPage({ params }) {
   const { slug } = await params;
-  const visaType = "tourist"; // page এখন শুধু slug দিয়েই static হবে
+  const visaType = "tourist";
   const parsed   = parseSlug(slug);
 
-  // Invalid URL format
   if (!parsed) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center px-6 py-12">
@@ -118,7 +139,6 @@ export default async function VisaRejectionSlugPage({ params }) {
   const destName = rejData.name;
   const rule     = rejData.types[visaType] || rejData.types["tourist"];
 
-  // JSON-LD Schema
   const jsonLd = {
     "@context": "https://schema.org",
     "@type":    "FAQPage",
@@ -156,15 +176,15 @@ export default async function VisaRejectionSlugPage({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Suspense fallback={null}>
-  <VisaRejectionSlugClient
-    slug={slug}
-    visaType={visaType}
-    natName={natName}
-    destName={destName}
-    rejData={rejData}
-    rule={rule}
-  />
-</Suspense>
+        <VisaRejectionSlugClient
+          slug={slug}
+          visaType={visaType}
+          natName={natName}
+          destName={destName}
+          rejData={rejData}
+          rule={rule}
+        />
+      </Suspense>
       <HomeSeoLinks />
     </>
   );
