@@ -252,29 +252,22 @@ function getPageData(slug) {
 // ✅ এগুলো build time-এ generate হবে → runtime invocation শূন্য
 export async function generateStaticParams() {
   const TOP_DESTINATIONS = [
-    "canada", "united-states", "united-kingdom", "schengen",
-    "australia", "united-arab-emirates", "germany", "france",
-    "saudi-arabia", "singapore", "japan", "malaysia", "thailand",
-    "south-korea", "georgia", "armenia", "turkey",
+    "canada", "united-states", "united-kingdom",
+    "australia", "united-arab-emirates",
+    "singapore", "japan", "malaysia",  // 10 destinations
   ];
   const TOP_NATIONALITIES = [
-    "bangladeshi", "indian", "pakistani", "nigerian", "egyptian",
-    "philippine", "indonesian", "vietnamese", "nepali", "sri-lankan",
+    "bangladeshi", "indian", "pakistani",  // 3 nationalities only
   ];
 
-  const params = [];
-  for (const nat of TOP_NATIONALITIES) {
-    for (const dest of TOP_DESTINATIONS) {
-      for (const type of VISA_TYPE_KEYS) {
-        params.push({
-          slug: `${nat}-national-visa-processing-time-for-${dest}-${type}`,
-        });
-      }
-    }
-  }
-  return params;
+  // ✅ শুধু sticker type — বাকি types on-demand build হবে
+  return TOP_NATIONALITIES.flatMap(nat =>
+    TOP_DESTINATIONS.map(dest => ({
+      slug: `${nat}-national-visa-processing-time-for-${dest}-sticker`,
+    }))
+  );
+  // মোট: 3 × 10 = 30 pages (আগে 680 ছিল)
 }
-
 // ── METADATA ───────────────────────────────────────────────────────────────
 // ✅ searchParams নেই — params.slug থেকেই সব বের হয়
 export async function generateMetadata({ params }) {
