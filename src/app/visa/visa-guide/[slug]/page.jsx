@@ -3,24 +3,7 @@ import { createSlug } from '@/app/lib/utils';
 import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import Link from 'next/link';
 
-export const revalidate = 86400;
-
-// ✅ এখানে নতুন ফাংশনটা পেস্ট করুন — generateMetadata এর ঠিক আগে
-export async function generateStaticParams() {
-  const popularOrigins = ['bangladesh', 'india', 'pakistan', 'nepal', 'sri-lanka', 'united-arab-emirates'];
-  const popularDestinations = [
-    'united-states', 'united-kingdom', 'canada', 'australia',
-    'germany', 'malaysia', 'singapore', 'turkey', 'japan', 'thailand',
-  ];
-
-  const params = [];
-  for (const dest of popularDestinations) {
-    for (const orig of popularOrigins) {
-      params.push({ slug: `${dest}-visa-for-${orig}` });
-    }
-  }
-  return params;
-}
+export const dynamic = "force-dynamic";
 // ✅ নতুন যুক্ত করুন — module load-এ একবারই তৈরি হবে, O(1) lookup
 const visaBySlug = new Map(visaData.map(c => [createSlug(c.country), c]));
 // ─────────────────────────────────────────────────────────────────────────────
