@@ -12,33 +12,16 @@ import { Suspense } from "react";
 // ─────────────────────────────────────────────
 // ISR CONFIG
 // ─────────────────────────────────────────────
-export const dynamicParams = true;
-export const revalidate = 2592000; // 30 দিন — মাসে একবার rewrite
+//export const dynamicParams = true;
+//export const revalidate = 2592000; // 30 দিন — মাসে একবার rewrite
 
 // ─────────────────────────────────────────────
 // ✅ STATIC PARAMS — popular combinations pre-build
 // এগুলো build time-এ generate হবে → runtime ISR Write শূন্য
 // বাকি slugs প্রথম visit-এ on-demand build হবে, তারপর 30 দিন cache
 // ─────────────────────────────────────────────
-export async function generateStaticParams() {
-  const TOP_DESTINATIONS = [
-    "canada", "united-states", "united-kingdom", "schengen",
-    "australia", "united-arab-emirates", "saudi-arabia",
-    "singapore", "japan", "malaysia",
-  ];
-  const TOP_NATIONALITIES = ["bangladeshi", "indian", "pakistani"];
-  const TOP_TYPES = ["tourist"]; // শুধু default type — বাকি on-demand
 
-  return TOP_NATIONALITIES.flatMap(nat =>
-    TOP_DESTINATIONS.flatMap(dest =>
-      TOP_TYPES.map(type => ({
-        slug: `${nat}-visa-rejection-rate-for-${dest}-${type}`,
-      }))
-    )
-  );
-  // মোট: 3 × 10 × 1 = 30 pages (আগে 0 ছিল, ISR Write unlimited ছিল)
-}
-
+export const dynamic = "force-dynamic";
 // ─────────────────────────────────────────────
 // HELPERS
 // ─────────────────────────────────────────────

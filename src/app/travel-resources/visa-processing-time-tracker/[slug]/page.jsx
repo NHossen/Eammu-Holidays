@@ -9,9 +9,9 @@ import VisaProcessingSlugPage from "@/Components/Server/VisaProcessingTimeTracke
 
 // এই দুটো line শুধু পরিবর্তন করুন, বাকি সব same থাকবে
 
-export const dynamicParams = true; // ← এটা যোগ করুন
-export const revalidate = 2592000; // ← 86400 থেকে 2592000 করুন (30 দিন)
-
+//export const dynamicParams = true; // ← এটা যোগ করুন
+//export const revalidate = 2592000; // ← 86400 থেকে 2592000 করুন (30 দিন)
+export const dynamic = "force-dynamic";
 // ── VISA RULES ─────────────────────────────────────────────────────────────
 const VISA_RULES = {
   canada: {
@@ -248,26 +248,7 @@ function getPageData(slug) {
   return { natSlug, destSlug, natName, countryData, activeType, rule, isHours, timeStr, visaLabel, baseSlug };
 }
 
-// ── STATIC PARAMS — popular combinations pre-build ─────────────────────────
-// ✅ এগুলো build time-এ generate হবে → runtime invocation শূন্য
-export async function generateStaticParams() {
-  const TOP_DESTINATIONS = [
-    "canada", "united-states", "united-kingdom",
-    "australia", "united-arab-emirates",
-    "singapore", "japan", "malaysia",  // 10 destinations
-  ];
-  const TOP_NATIONALITIES = [
-    "bangladeshi", "indian", "pakistani",  // 3 nationalities only
-  ];
 
-  // ✅ শুধু sticker type — বাকি types on-demand build হবে
-  return TOP_NATIONALITIES.flatMap(nat =>
-    TOP_DESTINATIONS.map(dest => ({
-      slug: `${nat}-national-visa-processing-time-for-${dest}-sticker`,
-    }))
-  );
-  // মোট: 3 × 10 = 30 pages (আগে 680 ছিল)
-}
 // ── METADATA ───────────────────────────────────────────────────────────────
 // ✅ searchParams নেই — params.slug থেকেই সব বের হয়
 export async function generateMetadata({ params }) {
