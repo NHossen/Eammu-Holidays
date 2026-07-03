@@ -4,6 +4,7 @@ import Header from "@/Components/Client/Header/Header";
 import Footer from "@/Components/Server/Footer/Footer";
 import WhatsAppFloatingButton from "@/Components/Client/WhatsAppFloatingButton/WhatsAppFloatingButton";
 import Scroll from "@/Components/Client/Scroll/Scroll";
+import ServiceWorkerRegister from "@/Components/ServiceWorkerRegister";
 
 const BASE_URL = "https://www.eammu.com";
 
@@ -145,11 +146,11 @@ export const metadata = {
     apple: [{ url: "/emf.jpg", sizes: "180x180", type: "image/jpeg" }],
   },
 
-  other: {
+   other: {
     "geo.region": "BD",
     "geo.placename": "Cumilla, Bangladesh",
-    "geo.position": "23.4607;91.1809",   // semicolon is correct per spec ✅
-    ICBM: "23.4607, 91.1809",            // comma is correct per spec ✅
+    "geo.position": "23.4607;91.1809",
+    ICBM: "23.4607, 91.1809",
     "DC.title": "Eammu Holidays",
     "DC.description":
       "Bangladesh's leading IATA-accredited travel agency for visa, tours, Umrah, and flight booking.",
@@ -162,8 +163,22 @@ export const metadata = {
     "color-scheme": "light dark",
     rating: "general",
     language: "English",
-    // ✅ FIX: Removed revisitAfter — ignored by all crawlers since 2003, dead weight.
+    "mobile-web-app-capable": "yes",
   },
+
+ manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Eammu Holidays",
+  },
+  other: {
+    "mobile-web-app-capable": "yes",
+  },
+};
+
+export const viewport = {
+  themeColor: "#005a31",
 };
 
 const globalSchema = {
@@ -454,6 +469,7 @@ export default function RootLayout({ children }) {
         {/* ✅ SINGLE <main> landmark for the entire site. page.jsx (and every
             other page) must NOT render its own <main> — they render directly
             into this one. */}
+            <ServiceWorkerRegister />
         <main id="main-content" role="main">
           {children}
         </main>
