@@ -472,7 +472,6 @@ const FOOTER_GROUPS = [
       { label: "Scholarships", href: "/scholarships" },
       { label: "Processing Times", href: "/travel-resources/visa-processing-time-tracker" },
       { label: "Rejection Rates", href: "/visa-rejection" },
-      { label: "Travel Resources", href: "/travel-resources" },
       { label: "Travel Insurance", href: "/travel-insurance" },
       { label: "Flight Booking", href: "/flight-booking" },
       { label: "Things to Do", href: "/our-services/things-to-do" },
@@ -484,30 +483,17 @@ const FOOTER_GROUPS = [
     heading: "Company",
     links: [
       { label: "About Us", href: "/online-travel-agency-bangladesh" },
-      { label: "Our Team", href: "/our-leading-team" },
       { label: "Naeem Hossen — Founder", href: "/naeem-hossen" },
       { label: "Testimonials", href: "/testimonials" },
-      { label: "Careers", href: "/careers" },
       { label: "Offers", href: "/offers" },
-      { label: "News & Updates", href: "/news-feeds" },
       { label: "Blogs", href: "/blogs" },
       { label: "Contact", href: "/contact" },
-      { label: "Privacy Policy", href: "/terms-privacy-policy" },
-    ],
-  },
-  {
-    heading: "Eammu Group Ventures",
-    links: [
-      { label: "Eammu Fashion", href: "/eammu-fashion" },
-      { label: "Eammu Fashion Store", href: "/eammu-fashion/eammu-store" },
-      { label: "Eammu Dairy & Poultry", href: "/eammu-dairy-poultry" },
-      { label: "Eammu Textile Bangladesh", href: "/eammu-textile-bangladesh" },
-      { label: "Eammu Social Responsibility (CSR)", href: "/eammu-social-responsibility" },
-      { label: "Web Development & Digital Marketing", href: "/web-development-digital-marketing" },
-      { label: "Event Management", href: "/event-management" },
     ],
   },
 ];
+// Note: items already present in the site Footer (Eammu Group ventures, Careers,
+// Privacy Policy, Newsfeeds, Our Leading Team, Travel Resources) are intentionally
+// left out here to avoid duplicate links between this block and the Footer.
 
 // ─────────────────────────────────────────────────────────────────────────────
 // STRUCTURED DATA
@@ -578,7 +564,7 @@ function buildStructuredData() {
 
 function SectionLabel({ children }) {
   return (
-    <span className="inline-block text-[10px] font-bold tracking-[0.15em] uppercase text-[#0057FF] mb-3">
+    <span className="inline-block text-[10px] font-bold tracking-[0.15em] uppercase text-[#0057FF] mb-2">
       {children}
     </span>
   );
@@ -588,20 +574,20 @@ function SectionLabel({ children }) {
 // the single <h2> that introduces this whole block (see component root).
 function SectionHeading({ label, title, subtitle, href, linkLabel }) {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-6 mb-6">
+    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
       <div>
         {label && <SectionLabel>{label}</SectionLabel>}
-        <h3 className="text-[1.05rem] sm:text-[1.15rem] font-bold text-[#0D0D0D] leading-tight tracking-tight">
+        <h3 className="text-[1rem] sm:text-[1.1rem] font-bold text-[#0D0D0D] leading-tight tracking-tight">
           {title}
         </h3>
         {subtitle && (
-          <p className="text-[0.8rem] text-[#6B7280] mt-1 leading-relaxed max-w-xl">{subtitle}</p>
+          <p className="text-[0.78rem] text-[#6B7280] mt-1 leading-relaxed max-w-xl">{subtitle}</p>
         )}
       </div>
       {href && (
         <Link
           href={href}
-          className="shrink-0 mt-1 text-[11px] font-semibold text-[#0057FF] hover:text-[#003FBF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF] rounded flex items-center gap-1 transition-colors whitespace-nowrap"
+          className="shrink-0 mt-0.5 text-[11px] font-semibold text-[#0057FF] hover:text-[#003FBF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF] rounded flex items-center gap-1 transition-colors whitespace-nowrap"
         >
           {linkLabel || "View all"} <span aria-hidden="true">→</span>
         </Link>
@@ -611,27 +597,27 @@ function SectionHeading({ label, title, subtitle, href, linkLabel }) {
 }
 
 function Divider() {
-  return <hr className="border-[#F0F0F0] my-10 sm:my-12" />;
+  return <hr className="border-[#F0F0F0] my-6 sm:my-8" />;
 }
 
 function VisaTypeCard({ type }) {
   const accentStyle = { borderTopColor: type.color };
   return (
     <div
-      className="bg-white border border-[#EBEBEB] rounded-xl p-5 flex flex-col hover:border-[#C8C8C8] hover:shadow-md transition-all duration-200 group border-t-2"
+      className="bg-white border border-[#EBEBEB] rounded-xl p-4 flex flex-col hover:border-[#C8C8C8] hover:shadow-md transition-all duration-200 group border-t-2"
       style={accentStyle}
     >
       <Link
         href={type.href}
-        className="flex items-center gap-2.5 mb-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF] rounded"
+        className="flex items-center gap-2 mb-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF] rounded"
       >
         <span className="text-xl" aria-hidden="true">{type.icon}</span>
         <span className="text-[0.9rem] font-bold text-[#0D0D0D] group-hover:text-[#0057FF] transition-colors leading-tight">
           {type.label}
         </span>
       </Link>
-      <p className="text-[11px] text-[#9CA3AF] mb-4 leading-relaxed">{type.description}</p>
-      <ul className="space-y-2 flex-1">
+      <p className="text-[11px] text-[#9CA3AF] mb-3 leading-relaxed">{type.description}</p>
+      <ul className="space-y-1.5 flex-1">
         {type.links.map((l) => (
           <li key={l.href}>
             <Link
@@ -646,7 +632,7 @@ function VisaTypeCard({ type }) {
       </ul>
       <Link
         href={type.href}
-        className="mt-4 text-[11px] font-semibold text-[#0057FF] hover:text-[#003FBF] transition-colors"
+        className="mt-3 text-[11px] font-semibold text-[#0057FF] hover:text-[#003FBF] transition-colors"
       >
         All {type.label} guides →
       </Link>
@@ -658,16 +644,16 @@ function ToolCard({ tool }) {
   return (
     <Link
       href={tool.href}
-      className="group flex items-start gap-4 bg-white border border-[#EBEBEB] rounded-xl p-4 hover:border-[#0057FF] hover:shadow-sm transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
+      className="group flex items-start gap-3 bg-white border border-[#EBEBEB] rounded-xl p-3.5 hover:border-[#0057FF] hover:shadow-sm transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
     >
       <span
-        className="text-[1.4rem] shrink-0 w-10 h-10 flex items-center justify-center bg-[#F5F8FF] rounded-lg group-hover:bg-[#EBF0FF] transition-colors"
+        className="text-[1.3rem] shrink-0 w-9 h-9 flex items-center justify-center bg-[#F5F8FF] rounded-lg group-hover:bg-[#EBF0FF] transition-colors"
         aria-hidden="true"
       >
         {tool.icon}
       </span>
       <div>
-        <div className="text-[0.82rem] font-bold text-[#0D0D0D] group-hover:text-[#0057FF] transition-colors leading-tight mb-1">
+        <div className="text-[0.8rem] font-bold text-[#0D0D0D] group-hover:text-[#0057FF] transition-colors leading-tight mb-0.5">
           {tool.label}
         </div>
         <div className="text-[11px] text-[#9CA3AF] leading-relaxed">{tool.desc}</div>
@@ -678,12 +664,12 @@ function ToolCard({ tool }) {
 
 function HubCard({ hub }) {
   return (
-    <div className="bg-[#FAFAFA] border border-[#EBEBEB] rounded-xl p-5 hover:border-[#C8C8C8] transition-all duration-200">
-      <div className="flex items-center justify-between mb-4">
-        <Link href={hub.href} className="flex items-center gap-2.5 group">
+    <div className="bg-[#FAFAFA] border border-[#EBEBEB] rounded-xl p-4 hover:border-[#C8C8C8] transition-all duration-200">
+      <div className="flex items-center justify-between mb-3">
+        <Link href={hub.href} className="flex items-center gap-2 group">
           <span className="text-xl" aria-hidden="true">{hub.icon}</span>
           <div>
-            <div className="text-[0.88rem] font-bold text-[#0D0D0D] group-hover:text-[#0057FF] transition-colors leading-tight">
+            <div className="text-[0.86rem] font-bold text-[#0D0D0D] group-hover:text-[#0057FF] transition-colors leading-tight">
               {hub.label} Visas
             </div>
             <div className="text-[10px] text-[#9CA3AF]">{hub.tagline}</div>
@@ -696,7 +682,7 @@ function HubCard({ hub }) {
           View all →
         </Link>
       </div>
-      <ul className="grid grid-cols-1 gap-1.5">
+      <ul className="grid grid-cols-1 gap-1">
         {hub.links.map((l) => (
           <li key={l.href}>
             <Link
@@ -717,7 +703,7 @@ function CountryChip({ href, flag, label }) {
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-1.5 bg-white border border-[#E5E7EB] hover:border-[#0057FF] hover:bg-[#F5F8FF] rounded-lg px-3 py-2 text-[12px] font-medium text-[#374151] hover:text-[#0057FF] transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
+      className="inline-flex items-center gap-1.5 bg-white border border-[#E5E7EB] hover:border-[#0057FF] hover:bg-[#F5F8FF] rounded-lg px-2.5 py-1.5 text-[12px] font-medium text-[#374151] hover:text-[#0057FF] transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
     >
       <span aria-hidden="true">{flag}</span>
       {label}
@@ -729,7 +715,7 @@ function PillLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="inline-flex text-[12px] text-[#4B5563] hover:text-[#0057FF] bg-[#F9FAFB] hover:bg-[#EBF0FF] border border-[#E5E7EB] hover:border-[#0057FF] rounded-full px-3.5 py-1.5 transition-all duration-150 leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
+      className="inline-flex text-[12px] text-[#4B5563] hover:text-[#0057FF] bg-[#F9FAFB] hover:bg-[#EBF0FF] border border-[#E5E7EB] hover:border-[#0057FF] rounded-full px-3 py-1 transition-all duration-150 leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
     >
       {children}
     </Link>
@@ -739,7 +725,7 @@ function PillLink({ href, children }) {
 function StatRow({ icon, label, href }) {
   return (
     <li>
-      <Link href={href} className="flex items-start gap-2.5 group py-1.5">
+      <Link href={href} className="flex items-start gap-2 group py-1">
         <span className="text-[#9CA3AF] text-[12px] mt-0.5 shrink-0" aria-hidden="true">{icon}</span>
         <span className="text-[12px] text-[#4B5563] group-hover:text-[#0057FF] transition-colors leading-snug">
           {label}
@@ -756,7 +742,7 @@ function ExpandablePills({ items, initialCount = 10 }) {
   const visible = items.slice(0, initialCount);
   const rest = items.slice(initialCount);
   return (
-    <div className="flex flex-wrap gap-2 items-start">
+    <div className="flex flex-wrap gap-1.5 items-start">
       {visible.map((v) => (
         <PillLink key={v.href} href={v.href}>
           {v.label}
@@ -764,11 +750,11 @@ function ExpandablePills({ items, initialCount = 10 }) {
       ))}
       {rest.length > 0 && (
         <details className="group [&_summary::-webkit-details-marker]:hidden">
-          <summary className="list-none cursor-pointer inline-flex text-[12px] font-semibold text-[#0057FF] bg-white hover:bg-[#F5F8FF] border border-[#0057FF] rounded-full px-3.5 py-1.5 transition-all duration-150">
+          <summary className="list-none cursor-pointer inline-flex text-[12px] font-semibold text-[#0057FF] bg-white hover:bg-[#F5F8FF] border border-[#0057FF] rounded-full px-3 py-1 transition-all duration-150">
             <span className="group-open:hidden">Show {rest.length} more</span>
             <span className="hidden group-open:inline">Show fewer</span>
           </summary>
-          <div className="flex flex-wrap gap-2 mt-2">
+          <div className="flex flex-wrap gap-1.5 mt-1.5">
             {rest.map((v) => (
               <PillLink key={v.href} href={v.href}>
                 {v.label}
@@ -793,8 +779,8 @@ function ExpandableChips({ items, initialCount = 16, gridClass }) {
         ))}
       </div>
       {rest.length > 0 && (
-        <details className="group mt-3 [&_summary::-webkit-details-marker]:hidden">
-          <summary className="list-none cursor-pointer inline-flex text-[12px] font-semibold text-[#0057FF] bg-white hover:bg-[#F5F8FF] border border-[#0057FF] rounded-lg px-3.5 py-1.5 transition-all duration-150">
+        <details className="group mt-2 [&_summary::-webkit-details-marker]:hidden">
+          <summary className="list-none cursor-pointer inline-flex text-[12px] font-semibold text-[#0057FF] bg-white hover:bg-[#F5F8FF] border border-[#0057FF] rounded-lg px-3 py-1.5 transition-all duration-150">
             <span className="group-open:hidden">Show {rest.length} more countries</span>
             <span className="hidden group-open:inline">Show fewer</span>
           </summary>
@@ -814,7 +800,7 @@ function ExpandableStatRows({ items, icon, initialCount = 6 }) {
   const visible = items.slice(0, initialCount);
   const rest = items.slice(initialCount);
   return (
-    <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
+    <div className="bg-white border border-[#EBEBEB] rounded-xl p-3.5">
       <ul className="divide-y divide-[#F3F4F6]">
         {visible.map((item) => (
           <StatRow key={item.href} icon={icon} label={item.label} href={item.href} />
@@ -822,7 +808,7 @@ function ExpandableStatRows({ items, icon, initialCount = 6 }) {
       </ul>
       {rest.length > 0 && (
         <details className="group mt-1 [&_summary::-webkit-details-marker]:hidden">
-          <summary className="list-none cursor-pointer text-[11px] font-semibold text-[#0057FF] py-2">
+          <summary className="list-none cursor-pointer text-[11px] font-semibold text-[#0057FF] py-1.5">
             <span className="group-open:hidden">Show {rest.length} more →</span>
             <span className="hidden group-open:inline">Show fewer ←</span>
           </summary>
@@ -840,12 +826,12 @@ function ExpandableStatRows({ items, icon, initialCount = 6 }) {
 // Compact bordered list used for the document-guide categories.
 function GuideGroupCard({ group }) {
   return (
-    <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
-      <div className="flex items-center gap-2 mb-3">
+    <div className="bg-white border border-[#EBEBEB] rounded-xl p-3.5">
+      <div className="flex items-center gap-2 mb-2.5">
         <span className="text-base" aria-hidden="true">{group.icon}</span>
         <span className="text-[12.5px] font-bold text-[#0D0D0D]">{group.heading}</span>
       </div>
-      <ul className="space-y-2">
+      <ul className="space-y-1.5">
         {group.links.map((l) => (
           <li key={l.href}>
             <Link
@@ -868,12 +854,12 @@ function GuideGroupCard({ group }) {
 
 export default function HomeSeoLinks() {
   const lastUpdated = new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
-  const chipGrid = "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2";
+  const chipGrid = "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1.5";
 
   return (
     <section
       aria-label="Explore Visa Services, Study Abroad, Tools and Resources — Eammu Holidays"
-      className="py-12 sm:py-16 px-4"
+      className="py-8 sm:py-10 px-3 sm:px-4"
       style={{ fontFamily: "'DM Sans', 'Inter', sans-serif" }}
     >
       {/* Structured Data */}
@@ -888,17 +874,17 @@ export default function HomeSeoLinks() {
         {/* This is the only heading in the block — kept at h2 so it nests under
             the page's existing h1 instead of competing with it. Every
             sub-section below uses h3, so the outline reads h1 → h2 → h3. */}
-        <div className="mb-12 pb-8 border-b border-[#EBEBEB]">
+        <div className="mb-8 pb-5 border-b border-[#EBEBEB]">
           <span className="inline-block text-[10px] font-bold tracking-[0.15em] uppercase text-[#0057FF] mb-2">
             Eammu Holidays — Visa &amp; Travel Services
           </span>
-          <h2 className="text-xl sm:text-2xl font-bold text-[#0D0D0D] tracking-tight">
+          <h2 className="text-lg sm:text-xl font-bold text-[#0D0D0D] tracking-tight">
             Complete Visa &amp; Travel Resource Hub
           </h2>
-          <p className="text-[0.85rem] text-[#6B7280] mt-2 max-w-2xl leading-relaxed">
+          <p className="text-[0.83rem] text-[#6B7280] mt-1.5 max-w-2xl leading-relaxed">
             IATA-accredited visa assistance from Bangladesh — tourist, student, work &amp; e-visas, Europe &amp; Schengen guidance, document preparation guides, study abroad support, local offices, and free travel planning tools.
           </p>
-          <p className="text-[11px] text-[#9CA3AF] mt-3">
+          <p className="text-[11px] text-[#9CA3AF] mt-2">
             Visa rules change often — this hub is reviewed and refreshed monthly. Last reviewed: {lastUpdated}.
           </p>
         </div>
@@ -912,7 +898,7 @@ export default function HomeSeoLinks() {
             href="/our-services/visa-services"
             linkLabel="All visa services"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
             {VISA_GUIDES.map((type) => (
               <VisaTypeCard key={type.slug} type={type} />
             ))}
@@ -958,7 +944,7 @@ export default function HomeSeoLinks() {
             href="/our-services/visa-services"
             linkLabel="All destinations"
           />
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {POPULAR_DESTINATIONS.map((d) => (
               <CountryChip key={d.href} href={d.href} flag={d.flag} label={d.label} />
             ))}
@@ -1018,7 +1004,7 @@ export default function HomeSeoLinks() {
             href="/visa"
             linkLabel="All passport hubs"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <HubCard hub={DUBAI_RESIDENTS} />
             <HubCard hub={INDIA_HUB} />
           </div>
@@ -1027,7 +1013,7 @@ export default function HomeSeoLinks() {
         <Divider />
 
         {/* ── 9. STUDY ABROAD + SCHOLARSHIPS ───────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10" id="study-scholarships">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="study-scholarships">
 
           <div id="study-abroad">
             <SectionHeading
@@ -1037,13 +1023,13 @@ export default function HomeSeoLinks() {
               href="/study-abroad"
               linkLabel="Full study guide"
             />
-            <div className="bg-white border border-[#EBEBEB] rounded-xl p-5">
-              <div className="grid grid-cols-2 gap-2">
+            <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
+              <div className="grid grid-cols-2 gap-1.5">
                 {STUDY_ABROAD.map((s) => (
                   <Link
                     key={s.href}
                     href={s.href}
-                    className="flex items-center gap-2 text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors py-1.5 border-b border-[#F3F4F6] last:border-0"
+                    className="flex items-center gap-2 text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors py-1 border-b border-[#F3F4F6] last:border-0"
                   >
                     <span aria-hidden="true">{s.flag}</span>
                     {s.label}
@@ -1052,7 +1038,7 @@ export default function HomeSeoLinks() {
               </div>
               <Link
                 href="/study-abroad/student-visa"
-                className="inline-flex items-center gap-1.5 mt-4 text-[11px] font-bold text-[#0057FF] hover:text-[#003FBF] transition-colors"
+                className="inline-flex items-center gap-1.5 mt-3 text-[11px] font-bold text-[#0057FF] hover:text-[#003FBF] transition-colors"
               >
                 🎓 All Student Visa Guides →
               </Link>
@@ -1067,13 +1053,13 @@ export default function HomeSeoLinks() {
               href="/scholarships"
               linkLabel="All scholarships"
             />
-            <div className="bg-white border border-[#EBEBEB] rounded-xl p-5">
-              <ul className="space-y-1">
+            <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
+              <ul className="space-y-0.5">
                 {SCHOLARSHIPS.map((s, i) => (
                   <li key={s.href}>
                     <Link
                       href={s.href}
-                      className={`flex items-center gap-2 text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors py-2 ${
+                      className={`flex items-center gap-2 text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors py-1.5 ${
                         i < SCHOLARSHIPS.length - 1 ? "border-b border-[#F3F4F6]" : ""
                       }`}
                     >
@@ -1096,7 +1082,7 @@ export default function HomeSeoLinks() {
             title="Visa Document & Application Guides"
             subtitle="Everything needed to prepare a complete, embassy-ready visa application"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
             {DOCUMENT_GUIDES.map((group) => (
               <GuideGroupCard key={group.heading} group={group} />
             ))}
@@ -1114,7 +1100,7 @@ export default function HomeSeoLinks() {
             href="/travel-resources"
             linkLabel="All resources"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
             {TOOLS.map((tool) => (
               <ToolCard key={tool.href} tool={tool} />
             ))}
@@ -1124,7 +1110,7 @@ export default function HomeSeoLinks() {
         <Divider />
 
         {/* ── 12. PROCESSING TIMES + REJECTION RATES ────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <div id="processing-times">
             <SectionHeading
@@ -1160,18 +1146,18 @@ export default function HomeSeoLinks() {
             href="/contact"
             linkLabel="Contact head office"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
-              <p className="text-[11px] font-bold text-[#6B7280] mb-3">Contact a Regional Office</p>
-              <div className="flex flex-wrap gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-white border border-[#EBEBEB] rounded-xl p-3.5">
+              <p className="text-[11px] font-bold text-[#6B7280] mb-2.5">Contact a Regional Office</p>
+              <div className="flex flex-wrap gap-1.5">
                 {OFFICE_CONTACTS.map((o) => (
                   <CountryChip key={o.href} href={o.href} flag={o.flag} label={o.label} />
                 ))}
               </div>
             </div>
-            <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
-              <p className="text-[11px] font-bold text-[#6B7280] mb-3">Travel Agency Near You</p>
-              <div className="flex flex-wrap gap-2">
+            <div className="bg-white border border-[#EBEBEB] rounded-xl p-3.5">
+              <p className="text-[11px] font-bold text-[#6B7280] mb-2.5">Travel Agency Near You</p>
+              <div className="flex flex-wrap gap-1.5">
                 {OFFICE_LOCATIONS.map((o) => (
                   <CountryChip key={o.href} href={o.href} flag={o.flag} label={o.label} />
                 ))}
@@ -1183,15 +1169,15 @@ export default function HomeSeoLinks() {
         <Divider />
 
         {/* ── 14. SEO FOOTER NAV ────────────────────────────────────────── */}
-        <nav aria-label="Eammu Holidays — site-wide quick navigation" className="pt-2">
-          <p className="text-[10px] font-bold text-[#C5C7CB] uppercase tracking-[0.15em] mb-5">
+        <nav aria-label="Eammu Holidays — site-wide quick navigation" className="pt-1">
+          <p className="text-[10px] font-bold text-[#C5C7CB] uppercase tracking-[0.15em] mb-4">
             Quick Navigation
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {FOOTER_GROUPS.map((group) => (
               <div key={group.heading}>
-                <p className="text-[11px] font-bold text-[#6B7280] mb-3">{group.heading}</p>
-                <ul className="space-y-2">
+                <p className="text-[11px] font-bold text-[#6B7280] mb-2.5">{group.heading}</p>
+                <ul className="space-y-1.5">
                   {group.links.map((l) => (
                     <li key={l.href}>
                       <Link
@@ -1206,7 +1192,7 @@ export default function HomeSeoLinks() {
               </div>
             ))}
           </div>
-          <p className="mt-10 text-[11px] text-[#C5C7CB]">
+          <p className="mt-8 text-[11px] text-[#C5C7CB]">
             © {new Date().getFullYear()} Eammu Holidays · IATA Accredited Travel Agency · Bangladesh
           </p>
         </nav>

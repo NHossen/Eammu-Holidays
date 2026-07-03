@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import BackgroundSlider from '@/Components/Client/HeroHome/BackgroundSlider/BackgroundSlider';
 import HeroButtons    from '@/Components/Client/HeroHome/HeroButtons/HeroButtons';
 import TravelMenu     from '@/Components/Client/HeroHome/PremiumNavBar/TravelMenu/TravelMenu';
-
+import Link           from 'next/link';
 // PromoCard — visible above fold but non-critical for LCP
 const PromoCard = dynamic(
   () => import('@/Components/Client/HeroHome/PromoCard/PromoCard'),
@@ -30,17 +30,18 @@ const HeroSection = () => {
             <div className="max-w-5xl mx-auto px-4 w-full flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 items-center">
 
               <div className="text-white text-center lg:text-left">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-                  Your Trusted Travel Partner <br />
-                  to the World <span className="text-[#ffcc00]">Since 2012</span>
-                </h1>
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
+  Bangladesh's Trusted Online Travel Agency <span className="text-[#ffcc00]">Since 2012</span>
+</h1>
                 <p className="text-sm md:text-base leading-relaxed mb-5 opacity-90">
-                  Eammu Holidays is a leading{' '}
-                  <a href="/online-travel-agency-bangladesh">online travel agency in Bangladesh</a>{' '}
-                  — offering flight bookings, worldwide visa assistance, Holiday Tour Packages,
-                  and exciting desert safari tours. With expert guidance, we make international
-                  travel simple, affordable, and hassle-free.
-                </p>
+  Eammu Holidays is a leading{' '}
+  <Link href="/online-travel-agency-bangladesh" className="hover:text-[#ffcc00]">
+    online travel agency in Bangladesh
+  </Link>
+  , specializing in visa processing, international air ticket booking, holiday
+  and Umrah packages, travel insurance, hotel reservations, and Europe work
+  permit support.
+</p>
                 <HeroButtons />
                 <div className="flex flex-wrap justify-center lg:justify-start gap-3 text-xs">
                   <span><span aria-hidden="true">🏆</span> IATA Accredited</span>

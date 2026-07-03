@@ -15,7 +15,8 @@ import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 const BASE = "https://api.eammu.com/api/v1";
 const API_KEY = process.env.NEXT_PUBLIC_EAMMU_API_KEY;
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://yoursite.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://api.eammu.com";
+const EAMMU_API_KEY = process.env.EAMMU_API_KEY;
 
 // ── Helpers (shared between server + client) ──────────────────────────────────
 
@@ -104,14 +105,38 @@ function getVisaMeta(slug) {
 // ── Server-side: fetch guide for metadata ────────────────────────────────────
 
 async function fetchGuideForMeta(visaGuideSlug) {
+  const ALLOWED = ["e-visa", "visa-required", "visa-on-arrival", "eta", "no-admission", "visa-free"];
+  if (!ALLOWED.includes(visaGuideSlug)) return null;
+
+  if (!EAMMU_API_KEY) {
+    console.error("[VisaGuidePage] EAMMU_API_KEY missing in this environment");
+    return null;
+  }
+
   try {
     const res = await fetch(
-      `${SITE_URL}/api/visa-guide/${visaGuideSlug}`,
-      { next: { revalidate: 3600 } }
+      `https://api.eammu.com/api/v1/visa-guides/${visaGuideSlug}?api_key=${EAMMU_API_KEY}`,
+      {
+        headers: { Accept: "application/json", "x-api-key": EAMMU_API_KEY },
+        next: { revalidate: 3600 },
+      }
     );
-    if (!res.ok) return null;
-    return res.json();
-  } catch {
+
+    if (!res.ok) {
+      const body = await res.text();
+      console.error(`[VisaGuidePage] upstream ${res.status} for "${visaGuideSlug}":`, body.slice(0, 200));
+      return null;
+    }
+
+    const text = await res.text();
+    try {
+      return JSON.parse(text);
+    } catch {
+      console.error(`[VisaGuidePage] Non-JSON response for "${visaGuideSlug}":`, text.slice(0, 200));
+      return null;
+    }
+  } catch (err) {
+    console.error(`[VisaGuidePage] fetch error for "${visaGuideSlug}":`, err?.message || err);
     return null;
   }
 }
