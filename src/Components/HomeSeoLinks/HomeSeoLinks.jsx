@@ -1,9 +1,5 @@
 import Link from "next/link";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// DATA
-// ─────────────────────────────────────────────────────────────────────────────
-
 const VISA_GUIDES = [
   {
     label: "Tourist Visa",
@@ -391,6 +387,7 @@ const DOCUMENT_GUIDES = [
   {
     heading: "Document Preparation",
     icon: "📋",
+    color: "#EA580C",
     links: [
       { label: "Bank Statement for Visa", href: "/bank-statement-for-visa" },
       { label: "How to Prepare a Bank Statement", href: "/bank-statement-for-visa-how-to-prepare" },
@@ -405,6 +402,7 @@ const DOCUMENT_GUIDES = [
   {
     heading: "Application & Interview Prep",
     icon: "🗂️",
+    color: "#0891B2",
     links: [
       { label: "DS-160 Form Guide", href: "/ds-160-form-guide" },
       { label: "Embassy Appointment Tips", href: "/embassy-appointment-tips" },
@@ -419,6 +417,7 @@ const DOCUMENT_GUIDES = [
   {
     heading: "Rejection, Appeals & Timing",
     icon: "⚖️",
+    color: "#7C3AED",
     links: [
       { label: "Common Reasons for Visa Rejection", href: "/common-reasons" },
       { label: "Appeal Process for Visa Rejection", href: "/appeal-process-for-visa" },
@@ -445,59 +444,6 @@ const OFFICE_LOCATIONS = [
   { label: "Travel Agency in Dhaka", href: "/travel-agency-dhaka", flag: "🇧🇩" },
   { label: "Travel Agency in Sharjah", href: "/travel-agency-sharjah", flag: "🇦🇪" },
 ];
-
-// Footer quick links — grouped by category
-const FOOTER_GROUPS = [
-  {
-    heading: "Visa Services",
-    links: [
-      { label: "All Visa Services", href: "/our-services/visa-services" },
-      { label: "Our Services", href: "/our-services" },
-      { label: "Tourist Visa from Bangladesh", href: "/our-services/visa-services/tourist-visa-from-bangladesh" },
-      { label: "Student Visa from Bangladesh", href: "/our-services/visa-services/student-visa-from-bangladesh" },
-      { label: "Work Visa from Bangladesh", href: "/our-services/visa-services/work-visa-from-bangladesh" },
-      { label: "Bangladesh Tourist Visa", href: "/visa" },
-      { label: "Dubai Residents Visa", href: "/visa/dubai-residents" },
-      { label: "India Passport Visas", href: "/visa/india" },
-      { label: "Visa Guide", href: "/visa/visa-guide" },
-      { label: "E-Visa Guide", href: "/visa/e-visa" },
-      { label: "Schengen Visa", href: "/schengen-visa" },
-      { label: "Visa Checker", href: "/visa-checker" },
-    ],
-  },
-  {
-    heading: "Resources & Tools",
-    links: [
-      { label: "Study Abroad", href: "/study-abroad" },
-      { label: "Scholarships", href: "/scholarships" },
-      { label: "Processing Times", href: "/travel-resources/visa-processing-time-tracker" },
-      { label: "Rejection Rates", href: "/visa-rejection" },
-      { label: "Travel Insurance", href: "/travel-insurance" },
-      { label: "Flight Booking", href: "/flight-booking" },
-      { label: "Things to Do", href: "/our-services/things-to-do" },
-      { label: "Tour Packages", href: "/our-services/tour-packages" },
-      { label: "Target IELTS Immigration Center", href: "/target-ielts-immigration-center" },
-    ],
-  },
-  {
-    heading: "Company",
-    links: [
-      { label: "About Us", href: "/online-travel-agency-bangladesh" },
-      { label: "Naeem Hossen — Founder", href: "/naeem-hossen" },
-      { label: "Testimonials", href: "/testimonials" },
-      { label: "Offers", href: "/offers" },
-      { label: "Blogs", href: "/blogs" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
-];
-// Note: items already present in the site Footer (Eammu Group ventures, Careers,
-// Privacy Policy, Newsfeeds, Our Leading Team, Travel Resources) are intentionally
-// left out here to avoid duplicate links between this block and the Footer.
-
-// ─────────────────────────────────────────────────────────────────────────────
-// STRUCTURED DATA
-// ─────────────────────────────────────────────────────────────────────────────
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://eammu.com";
 
@@ -559,12 +505,32 @@ function buildStructuredData() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// COLOR HELPERS
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Converts a hex color to an rgba() string so every accent color can be used
+// as a soft tint (backgrounds, borders) without hand-picking a separate
+// pastel shade for each of the ~15 section colors below.
+function hexToRgba(hex, alpha) {
+  const clean = hex.replace("#", "");
+  const full = clean.length === 3 ? clean.split("").map((c) => c + c).join("") : clean;
+  const bigint = parseInt(full, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // SUB-COMPONENTS
 // ─────────────────────────────────────────────────────────────────────────────
 
-function SectionLabel({ children }) {
+function SectionLabel({ children, color = "#0057FF" }) {
   return (
-    <span className="inline-block text-[10px] font-bold tracking-[0.15em] uppercase text-[#0057FF] mb-2">
+    <span
+      className="inline-block text-[10px] font-bold tracking-[0.15em] uppercase mb-2"
+      style={{ color }}
+    >
       {children}
     </span>
   );
@@ -572,11 +538,13 @@ function SectionLabel({ children }) {
 
 // Subsection heading. Renders as <h3> so the outline nests correctly under
 // the single <h2> that introduces this whole block (see component root).
-function SectionHeading({ label, title, subtitle, href, linkLabel }) {
+// `color` gives every section its own accent (label text + "view all" link)
+// so the long page reads as clearly separated, colorful sections.
+function SectionHeading({ label, title, subtitle, href, linkLabel, color = "#0057FF" }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
       <div>
-        {label && <SectionLabel>{label}</SectionLabel>}
+        {label && <SectionLabel color={color}>{label}</SectionLabel>}
         <h3 className="text-[1rem] sm:text-[1.1rem] font-bold text-[#0D0D0D] leading-tight tracking-tight">
           {title}
         </h3>
@@ -587,7 +555,8 @@ function SectionHeading({ label, title, subtitle, href, linkLabel }) {
       {href && (
         <Link
           href={href}
-          className="shrink-0 mt-0.5 text-[11px] font-semibold text-[#0057FF] hover:text-[#003FBF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF] rounded flex items-center gap-1 transition-colors whitespace-nowrap"
+          style={{ color }}
+          className="shrink-0 mt-0.5 text-[11px] font-semibold hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 rounded flex items-center gap-1 transition-opacity whitespace-nowrap"
         >
           {linkLabel || "View all"} <span aria-hidden="true">→</span>
         </Link>
@@ -596,64 +565,127 @@ function SectionHeading({ label, title, subtitle, href, linkLabel }) {
   );
 }
 
-function Divider() {
-  return <hr className="border-[#F0F0F0] my-6 sm:my-8" />;
-}
-
-function VisaTypeCard({ type }) {
-  const accentStyle = { borderTopColor: type.color };
+// Wraps every major section in a soft, color-tinted card: light background
+// wash + thin border + a 4px colored left accent. Keeps the design simple
+// (no gradients, no heavy shadows) while making each section immediately
+// scannable and visually distinct as you scroll — and fully responsive via
+// fluid padding.
+function SectionWrap({ id, color = "#0057FF", children }) {
   return (
     <div
-      className="bg-white border border-[#EBEBEB] rounded-xl p-4 flex flex-col hover:border-[#C8C8C8] hover:shadow-md transition-all duration-200 group border-t-2"
-      style={accentStyle}
+      id={id}
+      className="rounded-2xl p-4 sm:p-6 border border-l-4"
+      style={{
+        backgroundColor: hexToRgba(color, 0.03),
+        borderColor: hexToRgba(color, 0.14),
+        borderLeftColor: color,
+      }}
     >
-      <Link
-        href={type.href}
-        className="flex items-center gap-2 mb-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF] rounded"
-      >
-        <span className="text-xl" aria-hidden="true">{type.icon}</span>
-        <span className="text-[0.9rem] font-bold text-[#0D0D0D] group-hover:text-[#0057FF] transition-colors leading-tight">
-          {type.label}
-        </span>
-      </Link>
-      <p className="text-[11px] text-[#9CA3AF] mb-3 leading-relaxed">{type.description}</p>
-      <ul className="space-y-1.5 flex-1">
-        {type.links.map((l) => (
-          <li key={l.href}>
-            <Link
-              href={l.href}
-              className="text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors flex items-center gap-1.5 leading-snug"
-            >
-              <span className="w-1 h-1 rounded-full bg-[#D1D5DB] shrink-0" aria-hidden="true" />
-              {l.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <Link
-        href={type.href}
-        className="mt-3 text-[11px] font-semibold text-[#0057FF] hover:text-[#003FBF] transition-colors"
-      >
-        All {type.label} guides →
-      </Link>
+      {children}
     </div>
   );
 }
 
-function ToolCard({ tool }) {
+// Compact, row-based pill link, tinted with the section's accent color so
+// every "column list" reads as a colorful, scannable horizontal row.
+function PillLink({ href, children, accent = "#0057FF" }) {
+  return (
+    <Link
+      href={href}
+      style={{
+        color: accent,
+        backgroundColor: hexToRgba(accent, 0.07),
+        borderColor: hexToRgba(accent, 0.28),
+      }}
+      className="inline-flex text-[12px] font-semibold border rounded-full px-3 py-1.5 transition-all duration-150 leading-none hover:shadow-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+    >
+      {children}
+    </Link>
+  );
+}
+
+// Same pill, with a leading icon — used for icon-labelled rows (processing
+// times, rejection rates).
+function PillLinkIcon({ href, icon, children, accent = "#0057FF" }) {
+  return (
+    <Link
+      href={href}
+      style={{
+        color: accent,
+        backgroundColor: hexToRgba(accent, 0.07),
+        borderColor: hexToRgba(accent, 0.28),
+      }}
+      className="inline-flex items-center gap-1.5 text-[12px] font-semibold border rounded-full px-3 py-1.5 transition-all duration-150 leading-none hover:shadow-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+    >
+      {icon && <span aria-hidden="true">{icon}</span>}
+      {children}
+    </Link>
+  );
+}
+
+function VisaTypeCard({ type }) {
+  return (
+    <div
+      className="bg-white rounded-xl p-4 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 hover:shadow-md transition-all duration-200 group border border-l-4"
+      style={{ borderColor: hexToRgba(type.color, 0.16), borderLeftColor: type.color }}
+    >
+      <div className="sm:w-56 shrink-0">
+        <Link
+          href={type.href}
+          className="flex items-center gap-2 mb-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 rounded"
+          style={{ outlineColor: type.color }}
+        >
+          <span
+            className="text-xl w-9 h-9 flex items-center justify-center rounded-lg shrink-0"
+            style={{ backgroundColor: hexToRgba(type.color, 0.12) }}
+            aria-hidden="true"
+          >
+            {type.icon}
+          </span>
+          <span className="text-[0.95rem] font-bold text-[#0D0D0D] leading-tight">
+            {type.label}
+          </span>
+        </Link>
+        <p className="text-[11px] text-[#9CA3AF] mb-3 leading-relaxed">{type.description}</p>
+        <Link
+          href={type.href}
+          style={{ backgroundColor: type.color }}
+          className="inline-flex items-center gap-1 text-[11px] font-bold text-white rounded-full px-3.5 py-1.5 hover:opacity-90 transition-opacity"
+        >
+          Apply Now <span aria-hidden="true">→</span>
+        </Link>
+      </div>
+      {/* Row-based link layout instead of a vertical bullet list */}
+      <div className="flex flex-wrap gap-1.5 content-start flex-1">
+        {type.links.map((l) => (
+          <PillLink key={l.href} href={l.href} accent={type.color}>
+            {l.label}
+          </PillLink>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ToolCard({ tool, accent = "#0D9488" }) {
   return (
     <Link
       href={tool.href}
-      className="group flex items-start gap-3 bg-white border border-[#EBEBEB] rounded-xl p-3.5 hover:border-[#0057FF] hover:shadow-sm transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
+      style={{ borderColor: hexToRgba(accent, 0.18) }}
+      className="group flex items-start gap-3 bg-white border rounded-xl p-3.5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
     >
       <span
-        className="text-[1.3rem] shrink-0 w-9 h-9 flex items-center justify-center bg-[#F5F8FF] rounded-lg group-hover:bg-[#EBF0FF] transition-colors"
+        className="text-[1.3rem] shrink-0 w-9 h-9 flex items-center justify-center rounded-lg transition-colors"
+        style={{ backgroundColor: hexToRgba(accent, 0.12) }}
         aria-hidden="true"
       >
         {tool.icon}
       </span>
       <div>
-        <div className="text-[0.8rem] font-bold text-[#0D0D0D] group-hover:text-[#0057FF] transition-colors leading-tight mb-0.5">
+        <div
+          className="text-[0.8rem] font-bold leading-tight mb-0.5 transition-colors"
+          style={{ color: "#0D0D0D" }}
+        >
           {tool.label}
         </div>
         <div className="text-[11px] text-[#9CA3AF] leading-relaxed">{tool.desc}</div>
@@ -662,14 +694,23 @@ function ToolCard({ tool }) {
   );
 }
 
-function HubCard({ hub }) {
+function HubCard({ hub, accent = "#DB2777" }) {
   return (
-    <div className="bg-[#FAFAFA] border border-[#EBEBEB] rounded-xl p-4 hover:border-[#C8C8C8] transition-all duration-200">
-      <div className="flex items-center justify-between mb-3">
-        <Link href={hub.href} className="flex items-center gap-2 group">
-          <span className="text-xl" aria-hidden="true">{hub.icon}</span>
-          <div>
-            <div className="text-[0.86rem] font-bold text-[#0D0D0D] group-hover:text-[#0057FF] transition-colors leading-tight">
+    <div
+      className="bg-white rounded-xl p-4 border border-l-4"
+      style={{ borderColor: hexToRgba(accent, 0.16), borderLeftColor: accent }}
+    >
+      <div className="flex items-center justify-between mb-3 gap-2">
+        <Link href={hub.href} className="flex items-center gap-2 group min-w-0">
+          <span
+            className="text-xl w-9 h-9 flex items-center justify-center rounded-lg shrink-0"
+            style={{ backgroundColor: hexToRgba(accent, 0.12) }}
+            aria-hidden="true"
+          >
+            {hub.icon}
+          </span>
+          <div className="min-w-0">
+            <div className="text-[0.86rem] font-bold text-[#0D0D0D] leading-tight truncate">
               {hub.label} Visas
             </div>
             <div className="text-[10px] text-[#9CA3AF]">{hub.tagline}</div>
@@ -677,33 +718,33 @@ function HubCard({ hub }) {
         </Link>
         <Link
           href={hub.href}
-          className="text-[11px] font-semibold text-[#0057FF] hover:text-[#003FBF] transition-colors whitespace-nowrap"
+          style={{ color: accent }}
+          className="text-[11px] font-semibold hover:opacity-70 transition-opacity whitespace-nowrap shrink-0"
         >
           View all →
         </Link>
       </div>
-      <ul className="grid grid-cols-1 gap-1">
+      <div className="flex flex-wrap gap-1.5">
         {hub.links.map((l) => (
-          <li key={l.href}>
-            <Link
-              href={l.href}
-              className="text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors flex items-center gap-1.5"
-            >
-              <span className="w-1 h-1 rounded-full bg-[#D1D5DB] shrink-0" aria-hidden="true" />
-              {l.label}
-            </Link>
-          </li>
+          <PillLink key={l.href} href={l.href} accent={accent}>
+            {l.label}
+          </PillLink>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
 
-function CountryChip({ href, flag, label }) {
+function CountryChip({ href, flag, label, accent = "#0057FF" }) {
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-1.5 bg-white border border-[#E5E7EB] hover:border-[#0057FF] hover:bg-[#F5F8FF] rounded-lg px-2.5 py-1.5 text-[12px] font-medium text-[#374151] hover:text-[#0057FF] transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
+      style={{
+        color: accent,
+        backgroundColor: hexToRgba(accent, 0.06),
+        borderColor: hexToRgba(accent, 0.24),
+      }}
+      className="inline-flex items-center gap-1.5 border rounded-lg px-2.5 py-1.5 text-[12px] font-semibold transition-all duration-150 hover:shadow-md hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
     >
       <span aria-hidden="true">{flag}</span>
       {label}
@@ -711,52 +752,31 @@ function CountryChip({ href, flag, label }) {
   );
 }
 
-function PillLink({ href, children }) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex text-[12px] text-[#4B5563] hover:text-[#0057FF] bg-[#F9FAFB] hover:bg-[#EBF0FF] border border-[#E5E7EB] hover:border-[#0057FF] rounded-full px-3 py-1 transition-all duration-150 leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0057FF]"
-    >
-      {children}
-    </Link>
-  );
-}
-
-function StatRow({ icon, label, href }) {
-  return (
-    <li>
-      <Link href={href} className="flex items-start gap-2 group py-1">
-        <span className="text-[#9CA3AF] text-[12px] mt-0.5 shrink-0" aria-hidden="true">{icon}</span>
-        <span className="text-[12px] text-[#4B5563] group-hover:text-[#0057FF] transition-colors leading-snug">
-          {label}
-        </span>
-      </Link>
-    </li>
-  );
-}
-
 // Shows the first `initialCount` pill links, tucking the rest behind a native
 // <details> disclosure. No JS required, fully crawlable/indexable, and keeps
 // the visible page from looking like an auto-generated link dump.
-function ExpandablePills({ items, initialCount = 10 }) {
+function ExpandablePills({ items, initialCount = 10, accent = "#0057FF" }) {
   const visible = items.slice(0, initialCount);
   const rest = items.slice(initialCount);
   return (
     <div className="flex flex-wrap gap-1.5 items-start">
       {visible.map((v) => (
-        <PillLink key={v.href} href={v.href}>
+        <PillLink key={v.href} href={v.href} accent={accent}>
           {v.label}
         </PillLink>
       ))}
       {rest.length > 0 && (
         <details className="group [&_summary::-webkit-details-marker]:hidden">
-          <summary className="list-none cursor-pointer inline-flex text-[12px] font-semibold text-[#0057FF] bg-white hover:bg-[#F5F8FF] border border-[#0057FF] rounded-full px-3 py-1 transition-all duration-150">
+          <summary
+            style={{ color: accent, borderColor: accent }}
+            className="list-none cursor-pointer inline-flex text-[12px] font-semibold bg-white border rounded-full px-3 py-1.5 transition-all duration-150 hover:shadow-md"
+          >
             <span className="group-open:hidden">Show {rest.length} more</span>
             <span className="hidden group-open:inline">Show fewer</span>
           </summary>
           <div className="flex flex-wrap gap-1.5 mt-1.5">
             {rest.map((v) => (
-              <PillLink key={v.href} href={v.href}>
+              <PillLink key={v.href} href={v.href} accent={accent}>
                 {v.label}
               </PillLink>
             ))}
@@ -767,26 +787,31 @@ function ExpandablePills({ items, initialCount = 10 }) {
   );
 }
 
-// Same disclosure pattern, but for flag-chip grids (country lists).
-function ExpandableChips({ items, initialCount = 16, gridClass }) {
+// Same disclosure pattern, but for flag-chip country lists. Uses a
+// horizontal, wrapping flex row so every "country chip" section on the page
+// reads as the same style of flowing row regardless of chip count.
+function ExpandableChips({ items, initialCount = 16, accent = "#0057FF" }) {
   const visible = items.slice(0, initialCount);
   const rest = items.slice(initialCount);
   return (
     <div>
-      <div className={gridClass}>
+      <div className="flex flex-wrap gap-1.5">
         {visible.map((v) => (
-          <CountryChip key={v.href} href={v.href} flag={v.flag} label={v.label} />
+          <CountryChip key={v.href} href={v.href} flag={v.flag} label={v.label} accent={accent} />
         ))}
       </div>
       {rest.length > 0 && (
         <details className="group mt-2 [&_summary::-webkit-details-marker]:hidden">
-          <summary className="list-none cursor-pointer inline-flex text-[12px] font-semibold text-[#0057FF] bg-white hover:bg-[#F5F8FF] border border-[#0057FF] rounded-lg px-3 py-1.5 transition-all duration-150">
+          <summary
+            style={{ color: accent, borderColor: accent }}
+            className="list-none cursor-pointer inline-flex text-[12px] font-semibold bg-white border rounded-lg px-3 py-1.5 transition-all duration-150 hover:shadow-md"
+          >
             <span className="group-open:hidden">Show {rest.length} more countries</span>
             <span className="hidden group-open:inline">Show fewer</span>
           </summary>
-          <div className={`${gridClass} mt-2`}>
+          <div className="flex flex-wrap gap-1.5 mt-2">
             {rest.map((v) => (
-              <CountryChip key={v.href} href={v.href} flag={v.flag} label={v.label} />
+              <CountryChip key={v.href} href={v.href} flag={v.flag} label={v.label} accent={accent} />
             ))}
           </div>
         </details>
@@ -795,55 +820,71 @@ function ExpandableChips({ items, initialCount = 16, gridClass }) {
   );
 }
 
-// Same disclosure pattern for the stat-row style lists (processing times, rejections).
-function ExpandableStatRows({ items, icon, initialCount = 6 }) {
+// Row-based (flex-wrap) version of the icon-labelled lists — used for
+// processing times / rejection rates. Card gets a colored left accent to
+// match its SectionHeading.
+function ExpandableIconPills({ items, icon, initialCount = 6, color = "#0057FF" }) {
   const visible = items.slice(0, initialCount);
   const rest = items.slice(initialCount);
   return (
-    <div className="bg-white border border-[#EBEBEB] rounded-xl p-3.5">
-      <ul className="divide-y divide-[#F3F4F6]">
-        {visible.map((item) => (
-          <StatRow key={item.href} icon={icon} label={item.label} href={item.href} />
+    <div
+      className="bg-white border border-l-4 rounded-xl p-3.5"
+      style={{ borderColor: hexToRgba(color, 0.16), borderLeftColor: color }}
+    >
+      <div className="flex flex-wrap gap-1.5">
+        {visible.map((v) => (
+          <PillLinkIcon key={v.href} href={v.href} icon={icon} accent={color}>
+            {v.label}
+          </PillLinkIcon>
         ))}
-      </ul>
+      </div>
       {rest.length > 0 && (
-        <details className="group mt-1 [&_summary::-webkit-details-marker]:hidden">
-          <summary className="list-none cursor-pointer text-[11px] font-semibold text-[#0057FF] py-1.5">
+        <details className="group mt-2 [&_summary::-webkit-details-marker]:hidden">
+          <summary
+            style={{ color }}
+            className="list-none cursor-pointer inline-flex text-[11px] font-semibold py-1.5"
+          >
             <span className="group-open:hidden">Show {rest.length} more →</span>
             <span className="hidden group-open:inline">Show fewer ←</span>
           </summary>
-          <ul className="divide-y divide-[#F3F4F6] border-t border-[#F3F4F6]">
-            {rest.map((item) => (
-              <StatRow key={item.href} icon={icon} label={item.label} href={item.href} />
+          <div className="flex flex-wrap gap-1.5 mt-1.5">
+            {rest.map((v) => (
+              <PillLinkIcon key={v.href} href={v.href} icon={icon} accent={color}>
+                {v.label}
+              </PillLinkIcon>
             ))}
-          </ul>
+          </div>
         </details>
       )}
     </div>
   );
 }
 
-// Compact bordered list used for the document-guide categories.
-function GuideGroupCard({ group }) {
+// Compact bordered list used for the document-guide categories — row-based,
+// each card carrying its own accent color.
+function GuideGroupCard({ group, color = "#EA580C" }) {
   return (
-    <div className="bg-white border border-[#EBEBEB] rounded-xl p-3.5">
+    <div
+      className="bg-white border border-l-4 rounded-xl p-3.5"
+      style={{ borderColor: hexToRgba(color, 0.16), borderLeftColor: color }}
+    >
       <div className="flex items-center gap-2 mb-2.5">
-        <span className="text-base" aria-hidden="true">{group.icon}</span>
+        <span
+          className="text-base w-7 h-7 flex items-center justify-center rounded-md"
+          style={{ backgroundColor: hexToRgba(color, 0.12) }}
+          aria-hidden="true"
+        >
+          {group.icon}
+        </span>
         <span className="text-[12.5px] font-bold text-[#0D0D0D]">{group.heading}</span>
       </div>
-      <ul className="space-y-1.5">
+      <div className="flex flex-wrap gap-1.5">
         {group.links.map((l) => (
-          <li key={l.href}>
-            <Link
-              href={l.href}
-              className="text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors flex items-start gap-1.5 leading-snug"
-            >
-              <span className="w-1 h-1 rounded-full bg-[#D1D5DB] shrink-0 mt-1.5" aria-hidden="true" />
-              {l.label}
-            </Link>
-          </li>
+          <PillLink key={l.href} href={l.href} accent={color}>
+            {l.label}
+          </PillLink>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
@@ -854,7 +895,6 @@ function GuideGroupCard({ group }) {
 
 export default function HomeSeoLinks() {
   const lastUpdated = new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" });
-  const chipGrid = "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1.5";
 
   return (
     <section
@@ -870,333 +910,298 @@ export default function HomeSeoLinks() {
 
       <div className="max-w-7xl mx-auto">
 
-        {/* ── SECTION INTRO ─────────────────────────────────────────────── */}
+        {/* ── SECTION INTRO / HERO ─────────────────────────────────────── */}
         {/* This is the only heading in the block — kept at h2 so it nests under
             the page's existing h1 instead of competing with it. Every
             sub-section below uses h3, so the outline reads h1 → h2 → h3. */}
-        <div className="mb-8 pb-5 border-b border-[#EBEBEB]">
-          <span className="inline-block text-[10px] font-bold tracking-[0.15em] uppercase text-[#0057FF] mb-2">
-            Eammu Holidays — Visa &amp; Travel Services
-          </span>
-          <h2 className="text-lg sm:text-xl font-bold text-[#0D0D0D] tracking-tight">
-            Complete Visa &amp; Travel Resource Hub
-          </h2>
-          <p className="text-[0.83rem] text-[#6B7280] mt-1.5 max-w-2xl leading-relaxed">
-            IATA-accredited visa assistance from Bangladesh — tourist, student, work &amp; e-visas, Europe &amp; Schengen guidance, document preparation guides, study abroad support, local offices, and free travel planning tools.
-          </p>
-          <p className="text-[11px] text-[#9CA3AF] mt-2">
-            Visa rules change often — this hub is reviewed and refreshed monthly. Last reviewed: {lastUpdated}.
-          </p>
-        </div>
-
-        {/* ── 1. VISA TYPES ────────────────────────────────────────────── */}
-        <div id="visa-types">
-          <SectionHeading
-            label="Visa Services"
-            title="Visa Services from Bangladesh"
-            subtitle="Tourist, student, work, e-visa, and European visa assistance — expert guidance for every journey"
-            href="/our-services/visa-services"
-            linkLabel="All visa services"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-            {VISA_GUIDES.map((type) => (
-              <VisaTypeCard key={type.slug} type={type} />
-            ))}
+        <div
+          className="mb-8 rounded-2xl p-5 sm:p-7 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5"
+          style={{
+            background: "linear-gradient(135deg, rgba(0,87,255,0.06), rgba(124,58,237,0.05))",
+            border: "1px solid rgba(0,87,255,0.14)",
+          }}
+        >
+          <div className="max-w-2xl">
+            <span className="inline-block text-[10px] font-bold tracking-[0.15em] uppercase text-[#0057FF] mb-2">
+              Eammu Holidays — Visa &amp; Travel Services
+            </span>
+            <h2 className="text-lg sm:text-2xl font-bold text-[#0D0D0D] tracking-tight">
+              Complete Visa &amp; Travel Resource Hub
+            </h2>
+            <p className="text-[0.83rem] sm:text-[0.9rem] text-[#4B5563] mt-1.5 leading-relaxed">
+              IATA-accredited visa assistance from Bangladesh — tourist, student, work &amp; e-visas, Europe &amp; Schengen guidance, document preparation guides, study abroad support, local offices, and free travel planning tools.
+            </p>
+            <p className="text-[11px] text-[#9CA3AF] mt-2">
+              Visa rules change often — this hub is reviewed and refreshed monthly. Last reviewed: {lastUpdated}.
+            </p>
           </div>
-        </div>
-
-        <Divider />
-
-        {/* ── 2. VISA APPLICATION BY COUNTRY (cornerstone pages) ─────────── */}
-        <div id="visa-application">
-          <SectionHeading
-            label="Cornerstone Guides"
-            title="Visa Application Pages by Country"
-            subtitle="In-depth requirements, fees, and step-by-step application help for each destination"
+          <Link
             href="/our-services/visa-services"
-            linkLabel="All countries"
-          />
-          <ExpandableChips items={VISA_APPLICATION_COUNTRIES} initialCount={16} gridClass={chipGrid} />
+            className="inline-flex items-center justify-center gap-2 shrink-0 bg-[#0057FF] hover:bg-[#003FBF] text-white font-bold text-[0.85rem] rounded-full px-6 py-3 shadow-sm hover:shadow-md transition-all duration-200 w-full lg:w-auto"
+          >
+            Apply for Your Visa <span aria-hidden="true">→</span>
+          </Link>
         </div>
 
-        <Divider />
+        {/* ── ALL SECTIONS ──────────────────────────────────────────────── */}
+        <div className="flex flex-col gap-5 sm:gap-6">
 
-        {/* ── 3. BANGLADESH TOURIST VISAS (/visa/[country]-visa) ────────── */}
-        <div id="bangladesh-tourist-visas">
-          <SectionHeading
-            label="Bangladesh Nationals"
-            title="Tourist Visa for Bangladesh Nationals"
-            subtitle="Quick-reference tourist visa pages — fees & on-arrival vs. e-visa vs. embassy requirements"
-            href="/visa"
-            linkLabel="All tourist visas"
-          />
-          <ExpandableChips items={BANGLADESH_TOURIST_VISAS} initialCount={16} gridClass={chipGrid} />
-        </div>
+          {/* 1. VISA TYPES */}
+          <SectionWrap id="visa-types" color="#0057FF">
+            <SectionHeading
+              label="Visa Services"
+              title="Visa Services from Bangladesh"
+              subtitle="Tourist, student, work, e-visa, and European visa assistance — expert guidance for every journey"
+              href="/our-services/visa-services"
+              linkLabel="All visa services"
+              color="#0057FF"
+            />
+            <div className="flex flex-col gap-3">
+              {VISA_GUIDES.map((type) => (
+                <VisaTypeCard key={type.slug} type={type} />
+              ))}
+            </div>
+          </SectionWrap>
 
-        <Divider />
+          {/* 2. VISA APPLICATION BY COUNTRY (cornerstone pages) */}
+          <SectionWrap id="visa-application" color="#7C3AED">
+            <SectionHeading
+              label="Cornerstone Guides"
+              title="Visa Application Pages by Country"
+              subtitle="In-depth requirements, fees, and step-by-step application help for each destination"
+              href="/our-services/visa-services"
+              linkLabel="All countries"
+              color="#7C3AED"
+            />
+            <ExpandableChips items={VISA_APPLICATION_COUNTRIES} initialCount={16} accent="#7C3AED" />
+          </SectionWrap>
 
-        {/* ── 4. POPULAR DESTINATIONS ──────────────────────────────────── */}
-        <div id="popular-destinations">
-          <SectionHeading
-            label="Most Popular"
-            title="Popular Visa Destinations"
-            subtitle="Most searched countries for Bangladeshi passport holders"
-            href="/our-services/visa-services"
-            linkLabel="All destinations"
-          />
-          <div className="flex flex-wrap gap-1.5">
-            {POPULAR_DESTINATIONS.map((d) => (
-              <CountryChip key={d.href} href={d.href} flag={d.flag} label={d.label} />
-            ))}
-          </div>
-        </div>
+          {/* 3. BANGLADESH TOURIST VISAS (/visa/[country]-visa) */}
+          <SectionWrap id="bangladesh-tourist-visas" color="#059669">
+            <SectionHeading
+              label="Bangladesh Nationals"
+              title="Tourist Visa for Bangladesh Nationals"
+              subtitle="Quick-reference tourist visa pages — fees & on-arrival vs. e-visa vs. embassy requirements"
+              href="/visa"
+              linkLabel="All tourist visas"
+              color="#059669"
+            />
+            <ExpandableChips items={BANGLADESH_TOURIST_VISAS} initialCount={16} accent="#059669" />
+          </SectionWrap>
 
-        <Divider />
+          {/* 4. POPULAR DESTINATIONS */}
+          <SectionWrap id="popular-destinations" color="#DC2626">
+            <SectionHeading
+              label="Most Popular"
+              title="Popular Visa Destinations"
+              subtitle="Most searched countries for Bangladeshi passport holders"
+              href="/our-services/visa-services"
+              linkLabel="All destinations"
+              color="#DC2626"
+            />
+            <div className="flex flex-wrap gap-1.5">
+              {POPULAR_DESTINATIONS.map((d) => (
+                <CountryChip key={d.href} href={d.href} flag={d.flag} label={d.label} accent="#DC2626" />
+              ))}
+            </div>
+          </SectionWrap>
 
-        {/* ── 5. COUNTRY VISA GUIDES (slug pages) ──────────────────────── */}
-        <div id="visa-guides">
-          <SectionHeading
-            label="In-Depth Guides"
-            title="Visa Guides by Nationality"
-            subtitle="Step-by-step visa guides — requirements, documents, fees, and processing times"
-            href="/visa/visa-guide"
-            linkLabel="All guides"
-          />
-          <ExpandablePills items={VISA_GUIDE_SLUGS} initialCount={10} />
-        </div>
+          {/* 5. COUNTRY VISA GUIDES (slug pages) */}
+          <SectionWrap id="visa-guides" color="#D97706">
+            <SectionHeading
+              label="In-Depth Guides"
+              title="Visa Guides by Nationality"
+              subtitle="Step-by-step visa guides — requirements, documents, fees, and processing times"
+              href="/visa/visa-guide"
+              linkLabel="All guides"
+              color="#D97706"
+            />
+            <ExpandablePills items={VISA_GUIDE_SLUGS} initialCount={10} accent="#D97706" />
+          </SectionWrap>
 
-        <Divider />
+          {/* 6. VISA CHECKER PAIRS */}
+          <SectionWrap id="visa-checker" color="#0891B2">
+            <SectionHeading
+              label="Visa Checker"
+              title="Check Visa Requirements by Nationality"
+              subtitle="Instant visa requirement lookup for Bangladesh, India & other nationalities — visa-on-arrival, e-visa, or embassy required"
+              href="/visa-checker"
+              linkLabel="Open visa checker"
+              color="#0891B2"
+            />
+            <ExpandablePills items={VISA_CHECKER_PAIRS} initialCount={10} accent="#0891B2" />
+          </SectionWrap>
 
-        {/* ── 6. VISA CHECKER PAIRS ─────────────────────────────────────── */}
-        <div id="visa-checker">
-          <SectionHeading
-            label="Visa Checker"
-            title="Check Visa Requirements by Nationality"
-            subtitle="Instant visa requirement lookup for Bangladesh, India & other nationalities — visa-on-arrival, e-visa, or embassy required"
-            href="/visa-checker"
-            linkLabel="Open visa checker"
-          />
-          <ExpandablePills items={VISA_CHECKER_PAIRS} initialCount={10} />
-        </div>
+          {/* 7. E-VISA REQUIREMENT GUIDES */}
+          <SectionWrap id="e-visa-guides" color="#2563EB">
+            <SectionHeading
+              label="E-Visa"
+              title="E-Visa Requirements by Nationality"
+              subtitle="Eligibility, documents, and turnaround times for electronic visas, by passport and destination"
+              href="/visa/e-visa"
+              linkLabel="All e-visa guides"
+              color="#2563EB"
+            />
+            <ExpandablePills items={E_VISA_GUIDES} initialCount={10} accent="#2563EB" />
+          </SectionWrap>
 
-        <Divider />
+          {/* 8. COUNTRY HUBS */}
+          <SectionWrap id="country-hubs" color="#DB2777">
+            <SectionHeading
+              label="Passport Hubs"
+              title="Visa Hub by Passport Country"
+              subtitle="Tailored visa guides for Dubai-based residents and Indian passport holders"
+              href="/visa"
+              linkLabel="All passport hubs"
+              color="#DB2777"
+            />
+            <div className="flex flex-col gap-3">
+              <HubCard hub={DUBAI_RESIDENTS} accent="#DB2777" />
+              <HubCard hub={INDIA_HUB} accent="#DB2777" />
+            </div>
+          </SectionWrap>
 
-        {/* ── 7. E-VISA REQUIREMENT GUIDES ─────────────────────────────── */}
-        <div id="e-visa-guides">
-          <SectionHeading
-            label="E-Visa"
-            title="E-Visa Requirements by Nationality"
-            subtitle="Eligibility, documents, and turnaround times for electronic visas, by passport and destination"
-            href="/visa/e-visa"
-            linkLabel="All e-visa guides"
-          />
-          <ExpandablePills items={E_VISA_GUIDES} initialCount={10} />
-        </div>
-
-        <Divider />
-
-        {/* ── 8. COUNTRY HUBS ───────────────────────────────────────────── */}
-        <div id="country-hubs">
-          <SectionHeading
-            label="Passport Hubs"
-            title="Visa Hub by Passport Country"
-            subtitle="Tailored visa guides for Dubai-based residents and Indian passport holders"
-            href="/visa"
-            linkLabel="All passport hubs"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <HubCard hub={DUBAI_RESIDENTS} />
-            <HubCard hub={INDIA_HUB} />
-          </div>
-        </div>
-
-        <Divider />
-
-        {/* ── 9. STUDY ABROAD + SCHOLARSHIPS ───────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="study-scholarships">
-
-          <div id="study-abroad">
+          {/* 9. STUDY ABROAD */}
+          <SectionWrap id="study-abroad" color="#4F46E5">
             <SectionHeading
               label="Study Abroad"
               title="Study Abroad Destinations"
               subtitle="Student visa guidance for popular academic destinations"
               href="/study-abroad"
               linkLabel="Full study guide"
+              color="#4F46E5"
             />
             <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
-              <div className="grid grid-cols-2 gap-1.5">
+              <div className="flex flex-wrap gap-1.5">
                 {STUDY_ABROAD.map((s) => (
-                  <Link
-                    key={s.href}
-                    href={s.href}
-                    className="flex items-center gap-2 text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors py-1 border-b border-[#F3F4F6] last:border-0"
-                  >
-                    <span aria-hidden="true">{s.flag}</span>
-                    {s.label}
-                  </Link>
+                  <CountryChip key={s.href} href={s.href} flag={s.flag} label={s.label} accent="#4F46E5" />
                 ))}
               </div>
               <Link
                 href="/study-abroad/student-visa"
-                className="inline-flex items-center gap-1.5 mt-3 text-[11px] font-bold text-[#0057FF] hover:text-[#003FBF] transition-colors"
+                className="inline-flex items-center gap-1.5 mt-3 text-[11px] font-bold text-[#4F46E5] hover:opacity-70 transition-opacity"
               >
                 🎓 All Student Visa Guides →
               </Link>
             </div>
-          </div>
+          </SectionWrap>
 
-          <div id="scholarships">
+          {/* 10. SCHOLARSHIPS */}
+          <SectionWrap id="scholarships" color="#16A34A">
             <SectionHeading
               label="Scholarships"
               title="Scholarships by Country"
               subtitle="Fully-funded and partial scholarships for Bangladeshi students"
               href="/scholarships"
               linkLabel="All scholarships"
+              color="#16A34A"
             />
             <div className="bg-white border border-[#EBEBEB] rounded-xl p-4">
-              <ul className="space-y-0.5">
-                {SCHOLARSHIPS.map((s, i) => (
-                  <li key={s.href}>
-                    <Link
-                      href={s.href}
-                      className={`flex items-center gap-2 text-[12px] text-[#4B5563] hover:text-[#0057FF] transition-colors py-1.5 ${
-                        i < SCHOLARSHIPS.length - 1 ? "border-b border-[#F3F4F6]" : ""
-                      }`}
-                    >
-                      <span className="w-1 h-1 rounded-full bg-[#D1D5DB] shrink-0" aria-hidden="true" />
-                      {s.label}
-                    </Link>
-                  </li>
+              <div className="flex flex-wrap gap-1.5">
+                {SCHOLARSHIPS.map((s) => (
+                  <PillLink key={s.href} href={s.href} accent="#16A34A">
+                    {s.label}
+                  </PillLink>
                 ))}
-              </ul>
+              </div>
             </div>
-          </div>
-        </div>
+          </SectionWrap>
 
-        <Divider />
+          {/* 11. DOCUMENT & APPLICATION GUIDES */}
+          <SectionWrap id="document-guides" color="#EA580C">
+            <SectionHeading
+              label="Step-by-Step Help"
+              title="Visa Document & Application Guides"
+              subtitle="Everything needed to prepare a complete, embassy-ready visa application"
+              color="#EA580C"
+            />
+            <div className="flex flex-col gap-3">
+              {DOCUMENT_GUIDES.map((group) => (
+                <GuideGroupCard key={group.heading} group={group} color={group.color} />
+              ))}
+            </div>
+          </SectionWrap>
 
-        {/* ── 10. DOCUMENT & APPLICATION GUIDES ─────────────────────────── */}
-        <div id="document-guides">
-          <SectionHeading
-            label="Step-by-Step Help"
-            title="Visa Document & Application Guides"
-            subtitle="Everything needed to prepare a complete, embassy-ready visa application"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-            {DOCUMENT_GUIDES.map((group) => (
-              <GuideGroupCard key={group.heading} group={group} />
-            ))}
-          </div>
-        </div>
+          {/* 12. TOOLS & RESOURCES */}
+          <SectionWrap id="visa-tools" color="#0D9488">
+            <SectionHeading
+              label="Free Tools"
+              title="Travel &amp; Visa Tools"
+              subtitle="Free tools to help you prepare, track, calculate, and successfully apply for any visa"
+              href="/travel-resources"
+              linkLabel="All resources"
+              color="#0D9488"
+            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+              {TOOLS.map((tool) => (
+                <ToolCard key={tool.href} tool={tool} accent="#0D9488" />
+              ))}
+            </div>
+          </SectionWrap>
 
-        <Divider />
-
-        {/* ── 11. TOOLS & RESOURCES ─────────────────────────────────────── */}
-        <div id="visa-tools">
-          <SectionHeading
-            label="Free Tools"
-            title="Travel &amp; Visa Tools"
-            subtitle="Free tools to help you prepare, track, calculate, and successfully apply for any visa"
-            href="/travel-resources"
-            linkLabel="All resources"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-            {TOOLS.map((tool) => (
-              <ToolCard key={tool.href} tool={tool} />
-            ))}
-          </div>
-        </div>
-
-        <Divider />
-
-        {/* ── 12. PROCESSING TIMES + REJECTION RATES ────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          <div id="processing-times">
+          {/* 13. PROCESSING TIMES */}
+          <SectionWrap id="processing-times" color="#9333EA">
             <SectionHeading
               label="Processing Data"
               title="Visa Processing Time Data"
               subtitle="Real applicant data on how long each embassy takes"
               href="/travel-resources/visa-processing-time-tracker"
               linkLabel="Track all times"
+              color="#9333EA"
             />
-            <ExpandableStatRows items={PROCESSING_TIMES} icon="⏱" initialCount={6} />
-          </div>
+            <ExpandableIconPills items={PROCESSING_TIMES} icon="⏱" initialCount={6} color="#9333EA" />
+          </SectionWrap>
 
-          <div id="rejection-rates">
+          {/* 14. REJECTION RATES */}
+          <SectionWrap id="rejection-rates" color="#E11D48">
             <SectionHeading
               label="Rejection Stats"
               title="Visa Rejection Rate Data"
               subtitle="Country-specific rejection rates to help you apply smarter"
               href="/visa-rejection"
               linkLabel="See all stats"
+              color="#E11D48"
             />
-            <ExpandableStatRows items={REJECTION_RATES} icon="📊" initialCount={6} />
-          </div>
-        </div>
+            <ExpandableIconPills items={REJECTION_RATES} icon="📊" initialCount={6} color="#E11D48" />
+          </SectionWrap>
 
-        <Divider />
-
-        {/* ── 13. OFFICES & LOCAL LANDING PAGES ─────────────────────────── */}
-        <div id="our-offices">
-          <SectionHeading
-            label="Where We Are"
-            title="Our Offices & Local Travel Agency Pages"
-            subtitle="Reach a local Eammu Holidays team, or find the page for your city"
-            href="/contact"
-            linkLabel="Contact head office"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-white border border-[#EBEBEB] rounded-xl p-3.5">
-              <p className="text-[11px] font-bold text-[#6B7280] mb-2.5">Contact a Regional Office</p>
-              <div className="flex flex-wrap gap-1.5">
-                {OFFICE_CONTACTS.map((o) => (
-                  <CountryChip key={o.href} href={o.href} flag={o.flag} label={o.label} />
-                ))}
-              </div>
-            </div>
-            <div className="bg-white border border-[#EBEBEB] rounded-xl p-3.5">
-              <p className="text-[11px] font-bold text-[#6B7280] mb-2.5">Travel Agency Near You</p>
-              <div className="flex flex-wrap gap-1.5">
-                {OFFICE_LOCATIONS.map((o) => (
-                  <CountryChip key={o.href} href={o.href} flag={o.flag} label={o.label} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <Divider />
-
-        {/* ── 14. SEO FOOTER NAV ────────────────────────────────────────── */}
-        <nav aria-label="Eammu Holidays — site-wide quick navigation" className="pt-1">
-          <p className="text-[10px] font-bold text-[#C5C7CB] uppercase tracking-[0.15em] mb-4">
-            Quick Navigation
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {FOOTER_GROUPS.map((group) => (
-              <div key={group.heading}>
-                <p className="text-[11px] font-bold text-[#6B7280] mb-2.5">{group.heading}</p>
-                <ul className="space-y-1.5">
-                  {group.links.map((l) => (
-                    <li key={l.href}>
-                      <Link
-                        href={l.href}
-                        className="text-[11.5px] text-[#9CA3AF] hover:text-[#0057FF] hover:underline underline-offset-2 transition-colors"
-                      >
-                        {l.label}
-                      </Link>
-                    </li>
+          {/* 15. OFFICES & LOCAL LANDING PAGES */}
+          <SectionWrap id="our-offices" color="#65A30D">
+            <SectionHeading
+              label="Where We Are"
+              title="Our Offices & Local Travel Agency Pages"
+              subtitle="Reach a local Eammu Holidays team, or find the page for your city"
+              href="/contact"
+              linkLabel="Contact head office"
+              color="#65A30D"
+            />
+            <div className="flex flex-col gap-3">
+              <div
+                className="bg-white border border-l-4 rounded-xl p-3.5"
+                style={{ borderColor: hexToRgba("#65A30D", 0.16), borderLeftColor: "#65A30D" }}
+              >
+                <p className="text-[11px] font-bold text-[#6B7280] mb-2.5">Contact a Regional Office</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {OFFICE_CONTACTS.map((o) => (
+                    <CountryChip key={o.href} href={o.href} flag={o.flag} label={o.label} accent="#65A30D" />
                   ))}
-                </ul>
+                </div>
               </div>
-            ))}
-          </div>
-          <p className="mt-8 text-[11px] text-[#C5C7CB]">
-            © {new Date().getFullYear()} Eammu Holidays · IATA Accredited Travel Agency · Bangladesh
-          </p>
-        </nav>
+              <div
+                className="bg-white border border-l-4 rounded-xl p-3.5"
+                style={{ borderColor: hexToRgba("#0EA5E9", 0.16), borderLeftColor: "#0EA5E9" }}
+              >
+                <p className="text-[11px] font-bold text-[#6B7280] mb-2.5">Travel Agency Near You</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {OFFICE_LOCATIONS.map((o) => (
+                    <CountryChip key={o.href} href={o.href} flag={o.flag} label={o.label} accent="#0EA5E9" />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </SectionWrap>
 
+        </div>
       </div>
     </section>
   );

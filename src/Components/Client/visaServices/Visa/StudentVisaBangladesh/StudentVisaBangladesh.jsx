@@ -15,6 +15,7 @@ import TopStudyDestinations from "./TopStudyDestinations/TopStudyDestinations";
 import StudentVisa from "./StudentVisa/StudentVisa";
 
 
+
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
 // Country student visa pages — spoke links going DOWN
@@ -279,7 +280,7 @@ const StudentVisaBangladesh = () => {
       <meta itemProp="description" content="Expert student visa consultancy from Bangladesh for USA, UK, Canada, Australia, Germany, and 25+ countries. Free counseling. 1,000+ students placed." />
 
       {/* ── HERO / STUDENT VISA COMPONENT ── */}
-      <StudentVisa />
+    <StudentVisa />
 
       {/* ── RESOURCE STRIP ── */}
       <ResourceStrip />

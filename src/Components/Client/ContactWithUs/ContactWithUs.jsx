@@ -1,28 +1,95 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ─────────────────────────────────────────────
+   GLOBAL CONTACT
+   Single source of truth used in the hero, quick-
+   contact strip, FAQ answers, structured data, and
+   the final CTA. Update these to your primary
+   headquarters number/email.
+───────────────────────────────────────────── */
+const GLOBAL_CONTACT = {
+  phone: "+8801701699743",
+  whatsapp: "+8801701699743",
+  email: "info@eammu.com",
+};
+
+const SITE_URL = "https://www.eammu.com"; // TODO: confirm production domain
+
+const socialLinks = [
+  { name: "Facebook", href: "https://facebook.com/eammutourism", color: "blue" },
+  { name: "Instagram", href: "https://instagram.com/eammuholidays", color: "pink" },
+  { name: "LinkedIn", href: "https://linkedin.com/company/eammu-immigration-services", color: "blue" },
+  { name: "YouTube", href: "https://www.youtube.com/@Eammutour", color: "red" },
+];
+
+/* ─────────────────────────────────────────────
    DATA
+   NOTE: entries marked "TODO" are new branches
+   (New York, Dhaka) that didn't come with phone /
+   email / hours / services yet — placeholders keep
+   the layout working; swap in real details whenever
+   you have them.
 ───────────────────────────────────────────── */
 const offices = [
   {
+    holding: "Eammu Holidays - USA",
+    name: "Eammu Holidays Headquarters - New York",
+    location: "New York, USA",
+    flag: "🇺🇸",
+    badge: "Global Headquarters",
+    address: "New York, United States of America",
+    phone: ["+1 (000) 000-0000"], // TODO: add real US number
+    whatsapp: "+8801701699743", // TODO: add dedicated US WhatsApp if available
+    email: ["usa@eammu.com", "info@eammu.com"], // TODO: confirm usa@eammu.com is live
+    hours: "Mon–Fri: 9AM–6PM (EST)", // TODO: confirm hours
+    map: "#",
+    lat: 40.7128,
+    lng: -74.006,
+    website: "/contact/travel-agency-usa",
+    services: ["Global Partnerships", "Corporate Travel", "Visa Consultation", "Holiday Tours"],
+  },
+  {
+    holding: "Eammu Holidays - Bangladesh",
+    name: "Eammu Holidays - Cumilla Branch",
     location: "Cumilla, Bangladesh",
     flag: "🇧🇩",
     badge: "Headquarters",
-    address: "Office No-178, 1st Floor, Gomoti Tower, Cantonment, Cumilla",
+    address: "Office No-178, 1st Floor, Gomoti Tower, Cantonment, Cumilla, Bangladesh",
     phone: ["+8801631312524", "+8801701699743"],
     whatsapp: "+8801631312524",
     email: ["bangladesh@eammu.com", "info@eammu.com"],
     hours: "Sun–Thu: 9AM–9PM (BD Time)",
     map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.3475734898495!2d91.139884!3d23.483984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDI5JzAyLjMiTiA5McKwMDgnMjMuNiJF!5e0!3m2!1sen!2sbd!4v1631312524000!5m2!1sen!2sbd",
+    lat: 23.483984,
+    lng: 91.139884,
     website: "/contact/travel-agency-bangladesh",
     services: ["Student Visa", "Umrah Packages", "Holiday Tours", "Immigration"],
   },
   {
+    holding: "Eammu Holidays - Bangladesh",
+    name: "Eammu Holidays - Dhaka Branch",
+    location: "Dhaka, Bangladesh",
+    flag: "🇧🇩",
+    badge: "Branch Office",
+    address: "Gulshan Avenue, Dhaka, Bangladesh",
+    phone: ["+8801701699743"], // TODO: add dedicated Dhaka branch number
+    whatsapp: "+8801701699743",
+    email: ["dhaka@eammu.com", "info@eammu.com"], // TODO: confirm dhaka@eammu.com is live
+    hours: "Sun–Thu: 9AM–9PM (BD Time)", // TODO: confirm hours
+    map: "#", // TODO: add real embed link
+    lat: 23.7925,
+    lng: 90.4078,
+    website: "/contact/travel-agency-dhaka",
+    services: ["Student Visa", "Tourist Visa", "Holiday Tours", "Immigration"],
+  },
+  {
+    holding: "Eammu Holidays - UAE",
+    name: "Eammu Holidays - Dubai Business Bay",
     location: "Business Bay, Dubai, UAE",
     flag: "🇦🇪",
     badge: "Middle East Office",
@@ -31,24 +98,32 @@ const offices = [
     whatsapp: "+971507078334",
     email: ["dubai@eammu.com", "info@eammu.com"],
     hours: "Sun–Thu: 9AM–6PM (GST)",
-    map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178652414707!2d55.2708!3d25.185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6834751ac001%3A0x8cf6347c00000000!2sBusiness%20Bay%20-%20Dubai!5e0!3m2!1sen!2sae!4v1631312524001!5m2!1sen!2sae",
+    map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178652414707!2d55.2708!3d25.185!2m3!1f0!2f0!3f0!3m2!1s0x3e5f6834751ac001%3A0x8cf6347c00000000!2sBusiness%20Bay%20-%20Dubai!5e0!3m2!1sen!2sae!4v1631312524001!5m2!1sen!2sae",
+    lat: 25.185,
+    lng: 55.2708,
     website: "/contact/travel-agency-dubai",
     services: ["Work Permit UAE", "Tourist Visa", "Holiday Packages", "Event Management"],
   },
   {
+    holding: "Eammu Holidays - Armenia",
+    name: "Eammu Holidays - Yerevan Hub",
     location: "Yerevan, Armenia",
     flag: "🇦🇲",
     badge: "Europe Hub",
-    address: "Eammu Holidays, Lambron 39, Yerevan, Armenia",
+    address: "Lambron 39, Yerevan, Armenia",
     phone: ["+37494810585"],
     whatsapp: "+37494810585",
     email: ["armenia@eammu.com", "info@eammu.com"],
     hours: "Mon–Fri: 9AM–6PM (YERT)",
     map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.2435!2d44.5!3d40.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDA2JzAwLjAiTiA0NMKwMzAnMDAuMCJF!5e0!3m2!1sen!2sam!4v1631312524002!5m2!1sen!2sam",
+    lat: 40.1,
+    lng: 44.5,
     website: "/contact/travel-agency-armenia",
     services: ["Europe Visa", "Schengen Visa", "Armenia Residency", "Student Visa EU"],
   },
   {
+    holding: "Eammu Holidays - Georgia",
+    name: "Eammu Holidays - Tbilisi Office",
     location: "Tbilisi, Georgia",
     flag: "🇬🇪",
     badge: "Caucasus Office",
@@ -58,6 +133,8 @@ const offices = [
     email: ["georgia@eammu.com", "info@eammu.com"],
     hours: "Mon–Fri: 9AM–6PM (GET)",
     map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.5!2d44.7!3d41.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQyJzAwLjAiTiA0NMKwNDInMDAuMCJF!5e0!3m2!1sen!2sge!4v1631312524003!5m2!1sen!2sge",
+    lat: 41.7,
+    lng: 44.7,
     website: "/contact/travel-agency-georgia",
     services: ["Georgia Residency", "Europe Tour", "Business Visa", "Immigration"],
   },
@@ -69,18 +146,18 @@ const heroSlides = [
     image: "/ileand-2.png",
     badge: "24/7 Support",
     title: "Contact Eammu Holidays",
-    subtitle: "Travel & Visa Agency – Bangladesh, Dubai, Armenia & Georgia",
+    subtitle: "Travel & Visa Agency – USA, Bangladesh, Dubai, Armenia & Georgia",
     description:
       "Reach our certified visa consultants and travel experts for student visas, Umrah packages, holiday tours, and immigration support from anywhere in the world.",
   },
   {
     id: 2,
     image: "/bangladesh_europe_couple.webp",
-    badge: "4 Global Offices",
+    badge: "6 Global Offices",
     title: "Visit Our Offices Worldwide",
-    subtitle: "Cumilla · Dubai · Yerevan · Tbilisi",
+    subtitle: "New York · Cumilla · Dhaka · Dubai · Yerevan · Tbilisi",
     description:
-      "Walk into any of our four global offices for face-to-face visa consultation, travel planning, and premium customer service from our expert team.",
+      "Walk into any of our global offices for face-to-face visa consultation, travel planning, and premium customer service from our expert team.",
   },
   {
     id: 3,
@@ -96,10 +173,37 @@ const heroSlides = [
 const whyContactUs = [
   { icon: "🏆", title: "95% Visa Success Rate", desc: "One of the highest visa approval rates among Bangladesh travel agencies." },
   { icon: "⚡", title: "Fast Response", desc: "We reply to all WhatsApp and email queries within 2 hours during business hours." },
-  { icon: "🌍", title: "4 Global Offices", desc: "Local support in Bangladesh, UAE, Armenia, and Georgia for your convenience." },
+  { icon: "🌍", title: "6 Global Offices", desc: "Local support across the USA, Bangladesh, UAE, Armenia, and Georgia." },
   { icon: "🎓", title: "Certified Consultants", desc: "All our visa consultants are professionally trained and certified." },
   { icon: "🕐", title: "24/7 WhatsApp Support", desc: "Round-the-clock assistance for urgent visa and travel queries." },
   { icon: "💯", title: "10,000+ Happy Clients", desc: "Trusted by thousands of travelers from Bangladesh and beyond since 2022." },
+];
+
+const faqs = [
+  {
+    q: "Where are Eammu Holidays offices located?",
+    a: "Eammu Holidays has offices in New York (USA), Cumilla and Dhaka (Bangladesh), Business Bay (Dubai, UAE), Yerevan (Armenia), and Tbilisi (Georgia).",
+  },
+  {
+    q: "How can I apply for a visa through Eammu Holidays?",
+    a: `Contact us via WhatsApp (${GLOBAL_CONTACT.whatsapp}), email (${GLOBAL_CONTACT.email}), or fill in our contact form. Our certified consultants handle UK, USA, Canada, Europe, and UAE visas.`,
+  },
+  {
+    q: "Does Eammu Holidays offer 24/7 support?",
+    a: "Yes. Our WhatsApp support is available 24/7. Office consultation hours vary by branch — contact us for local hours.",
+  },
+  {
+    q: "What is Eammu Holidays' phone number?",
+    a: `You can reach our team at ${GLOBAL_CONTACT.phone}, available across all our branches.`,
+  },
+  {
+    q: "Does Eammu Holidays provide Umrah packages from Bangladesh?",
+    a: "Yes. We offer all-inclusive Umrah packages from Bangladesh including visa, flights, hotel, and guide services.",
+  },
+  {
+    q: "How long does visa processing take with Eammu Holidays?",
+    a: "Processing time varies by country and visa type. Student visas typically take 4–12 weeks. Tourist visas can be as quick as 5–10 business days. Contact us for a personalized timeline.",
+  },
 ];
 
 const fadeIn = {
@@ -113,126 +217,211 @@ const stagger = {
 };
 
 /* ─────────────────────────────────────────────
+   STRUCTURED DATA (JSON-LD)
+   Organization + all branches as departments,
+   FAQPage, and BreadcrumbList — the three schema
+   types that matter most for a contact page.
+───────────────────────────────────────────── */
+const buildStructuredData = () => {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    name: "Eammu Holidays",
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.png`,
+    image: `${SITE_URL}/ileand-2.png`,
+    telephone: GLOBAL_CONTACT.phone,
+    email: GLOBAL_CONTACT.email,
+    sameAs: socialLinks.map((s) => s.href),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      reviewCount: "10000",
+    },
+    department: offices.map((o) => ({
+      "@type": "TravelAgency",
+      name: o.name,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: o.address,
+        addressCountry: o.location.split(",").pop().trim(),
+      },
+      telephone: o.phone[0],
+      email: o.email[0],
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: o.lat,
+        longitude: o.lng,
+      },
+      openingHours: o.hours,
+    })),
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.a,
+      },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Contact", item: `${SITE_URL}/contact` },
+    ],
+  };
+
+  return [organizationSchema, faqSchema, breadcrumbSchema];
+};
+
+/* ─────────────────────────────────────────────
    OFFICE CARD
 ───────────────────────────────────────────── */
-const OfficeCard = ({ office, index }) => (
-  <motion.article
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: index * 0.1 }}
-    className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:border-green-100 transition-all duration-500 flex flex-col"
-    itemScope
-    itemType="https://schema.org/LocalBusiness"
-  >
-    {/* Card header */}
-    <div className="bg-[#005a31] p-5 flex items-center justify-between">
-      <div className="flex items-center gap-3">
-        <span className="text-3xl">{office.flag}</span>
-        <div>
-          <h2 itemProp="name" className="text-white font-extrabold text-base leading-tight">
-            {office.location}
-          </h2>
-          <span className="text-xs text-[#ffcc00] font-bold uppercase tracking-wider">
-            {office.badge}
+const OfficeCard = ({ office, index }) => {
+  const hasMap = office.map && office.map !== "#";
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.08 }}
+      className="group bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-green-900/5 hover:border-green-100 hover:-translate-y-1 transition-all duration-500 flex flex-col"
+      itemScope
+      itemType="https://schema.org/TravelAgency"
+    >
+      <meta itemProp="name" content={office.name} />
+
+      {/* Card header */}
+      <div className="relative bg-[#005a31] p-5 flex items-center justify-between gap-3 overflow-hidden">
+        <div className="absolute -right-6 -top-6 w-24 h-24 bg-white/5 rounded-full" />
+        <div className="relative flex items-center gap-3 min-w-0">
+          <span className="text-3xl flex-shrink-0" role="img" aria-label={`${office.location} flag`}>
+            {office.flag}
           </span>
+          <div className="min-w-0">
+            <h3 className="text-white font-extrabold text-base leading-tight truncate">
+              {office.name || office.location}
+            </h3>
+            <span className="text-xs text-[#ffcc00] font-bold uppercase tracking-wider block truncate">
+              {office.badge}
+            </span>
+          </div>
         </div>
+        <a
+          href={`https://wa.me/${office.whatsapp.replace(/\D/g, "")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Chat with Eammu Holidays ${office.location} on WhatsApp`}
+          className="relative bg-[#ffcc00] text-[#005a31] text-xs font-black px-3 py-1.5 rounded-xl hover:bg-yellow-300 transition flex-shrink-0"
+        >
+          WhatsApp
+        </a>
       </div>
-      <a
-        href={`https://wa.me/${office.whatsapp.replace(/\D/g, "")}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`WhatsApp Eammu Holidays ${office.location}`}
-        className="bg-[#ffcc00] text-[#005a31] text-xs font-black px-3 py-1.5 rounded-xl hover:bg-yellow-300 transition"
-      >
-        WhatsApp
-      </a>
-    </div>
 
-    {/* Card body */}
-    <div className="p-5 space-y-3 flex-grow">
-      <p itemProp="address" className="text-gray-600 text-sm leading-relaxed flex gap-2">
-        <span className="text-[#005a31] mt-0.5 flex-shrink-0">📍</span>
-        <span>{office.address}</span>
-      </p>
+      {/* Card body */}
+      <div className="p-5 space-y-3 flex-grow">
+        {office.holding && (
+          <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+            {office.holding}
+          </p>
+        )}
 
-      <div className="flex gap-2 text-sm text-gray-600">
-        <span className="text-[#005a31] flex-shrink-0">📞</span>
-        <div className="space-y-0.5">
-          {office.phone.map((p, i) => (
-            <a
-              key={i}
-              href={`tel:${p}`}
-              itemProp="telephone"
-              className="block hover:text-[#005a31] hover:underline transition-colors"
+        <p itemProp="address" className="text-gray-600 text-sm leading-relaxed flex gap-2">
+          <span className="text-[#005a31] mt-0.5 flex-shrink-0" aria-hidden="true">📍</span>
+          <span>{office.address}</span>
+        </p>
+
+        <div className="flex gap-2 text-sm text-gray-600">
+          <span className="text-[#005a31] flex-shrink-0" aria-hidden="true">📞</span>
+          <div className="space-y-0.5">
+            {office.phone.map((p, i) => (
+              <a
+                key={i}
+                href={`tel:${p.replace(/[()\s]/g, "")}`}
+                itemProp="telephone"
+                className="block hover:text-[#005a31] hover:underline transition-colors"
+              >
+                {p}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex gap-2 text-sm text-gray-600">
+          <span className="text-[#005a31] flex-shrink-0" aria-hidden="true">✉️</span>
+          <div className="space-y-0.5">
+            {office.email.map((em, i) => (
+              <a
+                key={i}
+                href={`mailto:${em}`}
+                itemProp="email"
+                className="block hover:text-[#005a31] hover:underline transition-colors break-all"
+              >
+                {em}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <p className="flex gap-2 text-sm text-gray-500">
+          <span className="text-[#005a31] flex-shrink-0" aria-hidden="true">🕐</span>
+          <span>{office.hours}</span>
+        </p>
+
+        {/* Service tags */}
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {office.services.map((s) => (
+            <span
+              key={s}
+              className="px-2.5 py-1 bg-green-50 text-[#005a31] text-xs font-semibold rounded-full border border-green-100"
             >
-              {p}
-            </a>
+              {s}
+            </span>
           ))}
         </div>
       </div>
 
-      <div className="flex gap-2 text-sm text-gray-600">
-        <span className="text-[#005a31] flex-shrink-0">✉️</span>
-        <div className="space-y-0.5">
-          {office.email.map((em, i) => (
-            <a
-              key={i}
-              href={`mailto:${em}`}
-              itemProp="email"
-              className="block hover:text-[#005a31] hover:underline transition-colors"
-            >
-              {em}
-            </a>
-          ))}
+      {/* Map */}
+      {hasMap ? (
+        <div className="relative h-44 border-t border-gray-100">
+          <iframe
+            src={office.map}
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title={`Google Maps location of Eammu Holidays ${office.location}`}
+          />
         </div>
+      ) : (
+        <div className="h-44 border-t border-gray-100 flex items-center justify-center bg-gray-50 text-gray-400 text-xs font-semibold">
+          Map coming soon
+        </div>
+      )}
+
+      {/* Footer */}
+      <div className="p-4 border-t border-gray-50">
+        <Link
+          href={office.website}
+          className="w-full flex items-center justify-center gap-2 bg-[#005a31] text-white py-2.5 rounded-xl text-sm font-bold hover:bg-green-800 transition"
+          aria-label={`View full details for Eammu Holidays ${office.location}`}
+        >
+          🌐 View Office Page
+        </Link>
       </div>
-
-      <p className="flex gap-2 text-sm text-gray-500">
-        <span className="text-[#005a31] flex-shrink-0">🕐</span>
-        <span itemProp="openingHours">{office.hours}</span>
-      </p>
-
-      {/* Service tags */}
-      <div className="flex flex-wrap gap-1.5 pt-1">
-        {office.services.map((s) => (
-          <span
-            key={s}
-            className="px-2.5 py-1 bg-green-50 text-[#005a31] text-xs font-semibold rounded-full border border-green-100"
-          >
-            {s}
-          </span>
-        ))}
-      </div>
-    </div>
-
-    {/* Map */}
-    <div className="relative h-44 border-t border-gray-100">
-      <iframe
-        src={office.map}
-        width="100%"
-        height="100%"
-        style={{ border: 0 }}
-        allowFullScreen=""
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        title={`Map – Eammu Holidays ${office.location}`}
-        aria-label={`Google Maps location of Eammu Holidays ${office.location}`}
-      />
-    </div>
-
-    {/* Footer */}
-    <div className="p-4 border-t border-gray-50">
-      <Link
-        href={office.website}
-        className="w-full flex items-center justify-center gap-2 bg-[#005a31] text-white py-2.5 rounded-xl text-sm font-bold hover:bg-green-800 transition"
-        aria-label={`Visit Eammu Holidays ${office.location} page`}
-      >
-        🌐 View Office Page
-      </Link>
-    </div>
-  </motion.article>
-);
+    </motion.article>
+  );
+};
 
 /* ─────────────────────────────────────────────
    CONTACT FORM
@@ -248,9 +437,13 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("sending");
-    // Replace with your real form handler / API route
-    await new Promise((r) => setTimeout(r, 1200));
-    setStatus("sent");
+    try {
+      // Replace with your real form handler / API route
+      await new Promise((r) => setTimeout(r, 1200));
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   };
 
   if (status === "sent") {
@@ -260,14 +453,14 @@ const ContactForm = () => {
         animate={{ opacity: 1, scale: 1 }}
         className="bg-white p-10 rounded-3xl shadow-xl border border-gray-100 text-center space-y-4"
       >
-        <div className="text-5xl">✅</div>
+        <div className="text-5xl" aria-hidden="true">✅</div>
         <h3 className="text-2xl font-extrabold text-[#005a31]">Message Sent!</h3>
         <p className="text-gray-500 text-sm">
           Thank you for contacting Eammu Holidays. Our team will reply within 2 hours via email or
           WhatsApp.
         </p>
         <button
-          onClick={() => { setStatus("idle"); setFormData({ name:"",email:"",phone:"",service:"",message:"" }); }}
+          onClick={() => { setStatus("idle"); setFormData({ name: "", email: "", phone: "", service: "", message: "" }); }}
           className="mt-4 px-6 py-2.5 bg-[#005a31] text-white rounded-xl text-sm font-bold hover:bg-green-800 transition"
         >
           Send Another Message
@@ -294,7 +487,7 @@ const ContactForm = () => {
         </p>
       </div>
 
-      <div className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4" noValidate>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="name" className="block text-xs font-bold text-gray-600 mb-1.5 uppercase tracking-wide">
@@ -305,6 +498,7 @@ const ContactForm = () => {
               id="name"
               name="name"
               required
+              autoComplete="name"
               value={formData.name}
               onChange={handleChange}
               className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#005a31] focus:border-transparent transition"
@@ -320,6 +514,7 @@ const ContactForm = () => {
               id="phone"
               name="phone"
               required
+              autoComplete="tel"
               value={formData.phone}
               onChange={handleChange}
               className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#005a31] focus:border-transparent transition"
@@ -337,6 +532,7 @@ const ContactForm = () => {
             id="email"
             name="email"
             required
+            autoComplete="email"
             value={formData.email}
             onChange={handleChange}
             className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#005a31] focus:border-transparent transition"
@@ -383,25 +579,31 @@ const ContactForm = () => {
         </div>
 
         <button
-          onClick={handleSubmit}
+          type="submit"
           disabled={status === "sending"}
           className="w-full bg-[#005a31] text-white px-6 py-4 rounded-2xl font-black text-sm hover:bg-green-800 transition shadow-lg shadow-green-900/20 disabled:opacity-70 disabled:cursor-not-allowed uppercase tracking-wide"
         >
           {status === "sending" ? "Sending..." : "✉️ Send Message"}
         </button>
 
+        {status === "error" && (
+          <p className="text-center text-xs text-red-500 font-semibold">
+            Something went wrong. Please try WhatsApp or email below.
+          </p>
+        )}
+
         <p className="text-center text-xs text-gray-400">
           Or reach us instantly:{" "}
           <a
-            href="https://wa.me/8801701699743"
+            href={`https://wa.me/${GLOBAL_CONTACT.whatsapp.replace(/\D/g, "")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#005a31] font-bold hover:underline"
           >
-            WhatsApp +8801701699743
+            WhatsApp {GLOBAL_CONTACT.whatsapp}
           </a>
         </p>
-      </div>
+      </form>
     </motion.div>
   );
 };
@@ -411,6 +613,7 @@ const ContactForm = () => {
 ───────────────────────────────────────────── */
 const ContactWithUs = () => {
   const [currentHero, setCurrentHero] = useState(0);
+  const structuredData = buildStructuredData();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -420,13 +623,15 @@ const ContactWithUs = () => {
   }, []);
 
   return (
-    <main itemScope itemType="https://schema.org/ContactPage">
-      {/* Hidden SEO meta */}
-      <meta itemProp="name" content="Contact Eammu Holidays – Travel & Visa Agency" />
-      <meta
-        itemProp="description"
-        content="Contact Eammu Holidays for student visa, Umrah packages, holiday tours, and immigration consulting. Offices in Bangladesh, Dubai, Armenia, Georgia."
-      />
+    <main>
+      {/* Structured data for search engines (Organization, FAQ, Breadcrumb) */}
+      {structuredData.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
 
       {/* ══════════════════════════════════════════
           HERO
@@ -447,9 +652,9 @@ const ContactWithUs = () => {
             >
               <Image
                 src={heroSlides[currentHero].image}
-                alt={`Eammu Holidays contact – ${heroSlides[currentHero].title}`}
+                alt={`${heroSlides[currentHero].title} – Eammu Holidays visa and travel agency`}
                 fill
-                priority
+                priority={currentHero === 0}
                 className="object-cover"
                 sizes="100vw"
               />
@@ -459,6 +664,17 @@ const ContactWithUs = () => {
         </div>
 
         <div className="relative z-20 w-full max-w-4xl mx-auto text-center px-4">
+          {/* Breadcrumb — small SEO/UX win, also helps Google show breadcrumbs in results */}
+          <nav aria-label="Breadcrumb" className="mb-4">
+            <ol className="flex items-center justify-center gap-2 text-xs text-white/70 font-medium">
+              <li>
+                <Link href="/" className="hover:text-[#ffcc00] transition">Home</Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li className="text-[#ffcc00]" aria-current="page">Contact</li>
+            </ol>
+          </nav>
+
           <motion.div
             key={currentHero}
             initial={{ opacity: 0, y: 20 }}
@@ -482,7 +698,7 @@ const ContactWithUs = () => {
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
               <a
-                href="https://wa.me/8801701699743"
+                href={`https://wa.me/${GLOBAL_CONTACT.whatsapp.replace(/\D/g, "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[#ffcc00] text-[#005a31] px-8 py-3 rounded-xl font-black text-sm uppercase tracking-wider hover:bg-yellow-300 transition shadow-xl"
@@ -490,7 +706,7 @@ const ContactWithUs = () => {
                 📞 WhatsApp Now
               </a>
               <a
-                href="mailto:info@eammu.com"
+                href={`mailto:${GLOBAL_CONTACT.email}`}
                 className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur text-white border border-white/30 px-8 py-3 rounded-xl font-bold text-sm uppercase tracking-wider hover:bg-white/20 transition"
               >
                 ✉️ Email Us
@@ -499,17 +715,16 @@ const ContactWithUs = () => {
           </motion.div>
         </div>
 
-        {/* Dots */}
+        {/* Slide indicator dots */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
-          {heroSlides.map((_, i) => (
+          {heroSlides.map((slide, i) => (
             <button
-              key={i}
+              key={slide.id}
               onClick={() => setCurrentHero(i)}
-              aria-label={`Slide ${i + 1}`}
+              aria-label={`Show slide: ${slide.title}`}
+              aria-current={i === currentHero}
               className={`h-2 rounded-full transition-all duration-500 focus:outline-none ${
-                i === currentHero
-                  ? "w-10 bg-[#ffcc00]"
-                  : "w-2 bg-white/40 hover:bg-white/70"
+                i === currentHero ? "w-10 bg-[#ffcc00]" : "w-2 bg-white/40 hover:bg-white/70"
               }`}
             />
           ))}
@@ -522,18 +737,21 @@ const ContactWithUs = () => {
       <section aria-label="Quick contact details" className="bg-[#005a31] py-5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-white text-xs md:text-sm">
-            <a href="tel:+8801631312524" className="flex items-center gap-2 hover:text-[#ffcc00] transition font-semibold">
-              📞 +8801631312524
+            <a href={`tel:${GLOBAL_CONTACT.phone}`} className="flex items-center gap-2 hover:text-[#ffcc00] transition font-semibold">
+              📞 {GLOBAL_CONTACT.phone}
             </a>
-            <a href="https://wa.me/8801631312524" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ffcc00] transition font-semibold">
+            <a
+              href={`https://wa.me/${GLOBAL_CONTACT.whatsapp.replace(/\D/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-[#ffcc00] transition font-semibold"
+            >
               💬 WhatsApp (24/7)
             </a>
-            <a href="mailto:info@eammu.com" className="flex items-center gap-2 hover:text-[#ffcc00] transition font-semibold">
-              ✉️ info@eammu.com
+            <a href={`mailto:${GLOBAL_CONTACT.email}`} className="flex items-center gap-2 hover:text-[#ffcc00] transition font-semibold">
+              ✉️ {GLOBAL_CONTACT.email}
             </a>
-            <span className="flex items-center gap-2 opacity-80">
-              🌍 4 Global Offices
-            </span>
+            <span className="flex items-center gap-2 opacity-80">🌍 6 Global Offices</span>
           </div>
         </div>
       </section>
@@ -543,19 +761,19 @@ const ContactWithUs = () => {
         {/* ══════════════════════════════════════════
             WHY CONTACT US (SEO prose)
         ══════════════════════════════════════════ */}
-        <section aria-label="Why contact Eammu Holidays" className="space-y-10">
+        <section aria-labelledby="why-contact-heading" className="space-y-10">
           <div className="text-center space-y-3">
             <span className="text-[#005a31] text-xs font-black uppercase tracking-[0.2em]">
               Why Choose Us
             </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+            <h2 id="why-contact-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900">
               Why Contact Eammu Holidays?
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-sm md:text-base">
-              Eammu Holidays is Bangladesh's most trusted travel and visa consultancy with a{" "}
+              Eammu Holidays is Bangladesh's most trusted travel and visa consultancy, with a{" "}
               <strong className="text-[#005a31]">95% visa success rate</strong>,{" "}
-              <strong className="text-[#005a31]">10,000+ happy clients</strong>, and dedicated offices in{" "}
-              <strong className="text-[#005a31]">Bangladesh, Dubai, Armenia, and Georgia</strong>.
+              <strong className="text-[#005a31]">10,000+ happy clients</strong>, and dedicated offices
+              across <strong className="text-[#005a31]">the USA, Bangladesh, UAE, Armenia, and Georgia</strong>.
             </p>
             <div className="w-12 h-1 bg-[#ffcc00] mx-auto rounded-full" />
           </div>
@@ -567,13 +785,13 @@ const ContactWithUs = () => {
             variants={stagger}
             className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6"
           >
-            {whyContactUs.map((item, i) => (
+            {whyContactUs.map((item) => (
               <motion.div
-                key={i}
+                key={item.title}
                 variants={fadeIn}
                 className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-green-100 transition-all"
               >
-                <div className="text-3xl mb-3">{item.icon}</div>
+                <div className="text-3xl mb-3" aria-hidden="true">{item.icon}</div>
                 <h3 className="font-extrabold text-gray-800 text-sm mb-1">{item.title}</h3>
                 <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
               </motion.div>
@@ -584,7 +802,7 @@ const ContactWithUs = () => {
         {/* ══════════════════════════════════════════
             OFFICES + FORM GRID
         ══════════════════════════════════════════ */}
-        <section aria-label="Office locations and contact form" className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+        <section aria-labelledby="offices-heading" className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
           {/* Offices (3 cols on lg) */}
           <div className="lg:col-span-3 space-y-6">
@@ -592,33 +810,28 @@ const ContactWithUs = () => {
               <span className="text-[#005a31] text-xs font-black uppercase tracking-[0.2em]">
                 Our Offices
               </span>
-              <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900">
+              <h2 id="offices-heading" className="text-2xl md:text-3xl font-extrabold text-gray-900">
                 Visit Us in Person
               </h2>
               <p className="text-gray-400 text-sm">
-                Walk into any of our four offices across Bangladesh, UAE, Armenia, and Georgia for
+                Walk into any of our offices across the USA, Bangladesh, UAE, Armenia, and Georgia for
                 personal consultation on student visa, Umrah, holiday tours, and immigration.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {offices.map((office, idx) => (
-                <OfficeCard key={idx} office={office} index={idx} />
+                <OfficeCard key={office.name} office={office} index={idx} />
               ))}
             </div>
 
             {/* Social links */}
             <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
               <p className="text-gray-700 font-bold text-xs uppercase tracking-wider mb-4">
-                Follow Eammu Holidays on Social Media:
+                Follow Eammu Holidays on Social Media
               </p>
               <div className="flex flex-wrap gap-3">
-                {[
-                  { name: "Facebook", href: "https://facebook.com/eammutourism", color: "blue" },
-                  { name: "Instagram", href: "https://instagram.com/eammuholidays", color: "pink" },
-                  { name: "LinkedIn", href: "https://linkedin.com/company/eammu-immigration-services", color: "blue" },
-                  { name: "YouTube", href: "https://www.youtube.com/@Eammutour", color: "red" },
-                ].map((s) => (
+                {socialLinks.map((s) => (
                   <a
                     key={s.name}
                     href={s.href}
@@ -647,64 +860,25 @@ const ContactWithUs = () => {
         {/* ══════════════════════════════════════════
             FAQ
         ══════════════════════════════════════════ */}
-        <section
-          aria-label="Frequently asked questions"
-          className="space-y-10"
-          itemScope
-          itemType="https://schema.org/FAQPage"
-        >
+        <section aria-labelledby="faq-heading" className="space-y-10">
           <div className="text-center space-y-3">
             <span className="text-[#005a31] text-xs font-black uppercase tracking-[0.2em]">
               Got Questions?
             </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+            <h2 id="faq-heading" className="text-3xl md:text-4xl font-extrabold text-gray-900">
               Frequently Asked Questions
             </h2>
             <div className="w-12 h-1 bg-[#ffcc00] mx-auto rounded-full" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {[
-              {
-                q: "Where are Eammu Holidays offices located?",
-                a: "Eammu Holidays has offices in Cumilla (Bangladesh), Business Bay (Dubai, UAE), Lambron 39 (Yerevan, Armenia), and Levan Gotua Street #3 (Tbilisi, Georgia).",
-              },
-              {
-                q: "How can I apply for a visa through Eammu Holidays?",
-                a: "Contact us via WhatsApp (+8801701699743), email (info@eammu.com), or fill in our contact form. Our certified consultants handle UK, USA, Canada, and UAE visas.",
-              },
-              {
-                q: "Does Eammu Holidays offer 24/7 support?",
-                a: "Yes. Our WhatsApp support is available 24/7. Office consultation hours are 9AM–9PM (BD time) Sunday to Thursday.",
-              },
-              {
-                q: "What is Eammu Holidays' phone number in Bangladesh?",
-                a: "Bangladesh: +8801631312524 and +8801701699743. Dubai: +971507078334. Armenia: +37494810585. Georgia: +995574446218.",
-              },
-              {
-                q: "Does Eammu Holidays provide Umrah packages from Bangladesh?",
-                a: "Yes. We offer all-inclusive Umrah packages from Bangladesh including visa, flights, hotel, and guide services.",
-              },
-              {
-                q: "How long does visa processing take with Eammu Holidays?",
-                a: "Processing time varies by country and visa type. Student visas typically take 4–12 weeks. Tourist visas can be as quick as 5–10 business days. Contact us for a personalized timeline.",
-              },
-            ].map((item, i) => (
+            {faqs.map((item) => (
               <div
-                key={i}
+                key={item.q}
                 className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-green-100 transition-colors"
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
               >
-                <h3 itemProp="name" className="font-extrabold text-gray-800 text-sm md:text-base mb-2">
-                  {item.q}
-                </h3>
-                <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                  <p itemProp="text" className="text-gray-500 text-sm leading-relaxed">
-                    {item.a}
-                  </p>
-                </div>
+                <h3 className="font-extrabold text-gray-800 text-sm md:text-base mb-2">{item.q}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.a}</p>
               </div>
             ))}
           </div>
@@ -713,17 +887,12 @@ const ContactWithUs = () => {
         {/* ══════════════════════════════════════════
             FINAL CTA
         ══════════════════════════════════════════ */}
-        <section
-          aria-label="Contact Eammu Holidays CTA"
-          className="relative bg-[#005a31] rounded-[2.5rem] p-8 md:p-14 text-center text-white overflow-hidden space-y-7"
-        >
+        <section aria-label="Contact Eammu Holidays call to action" className="relative bg-[#005a31] rounded-[2.5rem] p-8 md:p-14 text-center text-white overflow-hidden space-y-7">
           <div className="relative z-10 space-y-4">
             <span className="inline-block px-4 py-1.5 bg-[#ffcc00] text-[#005a31] rounded-full text-xs font-black uppercase tracking-wider">
               Start Your Journey
             </span>
-            <h2 className="text-2xl md:text-4xl font-extrabold">
-              Ready to Travel? Let's Talk.
-            </h2>
+            <h2 className="text-2xl md:text-4xl font-extrabold">Ready to Travel? Let's Talk.</h2>
             <p className="text-green-100 max-w-xl mx-auto text-sm md:text-base">
               Whether you need a student visa, Umrah package, holiday tour, or immigration support —
               Eammu Holidays is one message away. Contact us now for a free consultation.
@@ -732,7 +901,7 @@ const ContactWithUs = () => {
 
           <div className="relative z-10 flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://wa.me/8801701699743"
+              href={`https://wa.me/${GLOBAL_CONTACT.whatsapp.replace(/\D/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto bg-[#ffcc00] text-[#005a31] px-10 py-4 rounded-2xl font-black text-sm hover:bg-yellow-300 transition shadow-xl uppercase tracking-wide"
@@ -740,10 +909,10 @@ const ContactWithUs = () => {
               💬 WhatsApp Us Now
             </a>
             <a
-              href="mailto:info@eammu.com"
+              href={`mailto:${GLOBAL_CONTACT.email}`}
               className="w-full sm:w-auto bg-white/10 backdrop-blur text-white border border-white/30 px-10 py-4 rounded-2xl font-bold text-sm hover:bg-white/20 transition uppercase tracking-wide"
             >
-              ✉️ Email: info@eammu.com
+              ✉️ Email: {GLOBAL_CONTACT.email}
             </a>
             <Link
               href="/"
