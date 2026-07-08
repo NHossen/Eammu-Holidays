@@ -16,7 +16,7 @@ const offices = [
         address: "New York, United States of America",
         hours: "Mon–Fri: 9AM–6PM (EST)",
         // Paste the link you copied from Google Maps "Share" here
-        mapLink: "https://maps.app.goo.gl/PASTE-YOUR-NEW-YORK-LINK-HERE",
+        mapLink: "https://maps.app.goo.gl/iTW2XsRCHqMq47hi7",
     },
     {
         holding: "Eammu Holidays - Bangladesh",
@@ -27,7 +27,7 @@ const offices = [
         address: "Office No-178, 1st Floor, Gomoti Tower, Cantonment, Cumilla, Bangladesh",
         hours: "Sun–Thu: 9AM–9PM (BD Time)",
         // Paste the link you copied from Google Maps "Share" here
-        mapLink: "https://maps.app.goo.gl/PASTE-YOUR-CUMILLA-LINK-HERE",
+        mapLink: "https://maps.app.goo.gl/sgbsHeeDCQkk6xvn7",
     },
     {
         holding: "Eammu Holidays - Bangladesh",
@@ -38,7 +38,7 @@ const offices = [
         address: "Gulshan Avenue, Dhaka, Bangladesh",
         hours: "Sun–Thu: 9AM–9PM (BD Time)",
         // Paste the link you copied from Google Maps "Share" here
-        mapLink: "https://maps.app.goo.gl/PASTE-YOUR-DHAKA-LINK-HERE",
+        mapLink: "https://maps.app.goo.gl/ANah7V16vQWGacCy8",
     },
     {
         holding: "Eammu Holidays - UAE",
@@ -49,7 +49,7 @@ const offices = [
         address: "Shop No 3/ Al Nasser Building, Dubai, United Arab Emirates",
         hours: "Sun–Thu: 9AM–6PM (GST)",
         // Paste the link you copied from Google Maps "Share" here
-        mapLink: "https://maps.app.goo.gl/PASTE-YOUR-DUBAI-LINK-HERE",
+        mapLink: "https://maps.app.goo.gl/S9d4brsF5eWjJRKD7",
     },
     {
         holding: "Eammu Holidays - Armenia",
@@ -60,7 +60,7 @@ const offices = [
         address: "Lambron 39, Yerevan, Armenia",
         hours: "Mon–Fri: 9AM–6PM (YERT)",
         // Paste the link you copied from Google Maps "Share" here
-        mapLink: "https://maps.app.goo.gl/PASTE-YOUR-YEREVAN-LINK-HERE",
+        mapLink: "https://maps.app.goo.gl/btAxXjZGKM1xEgqZ8",
     },
     {
         holding: "Eammu Holidays - Georgia",
@@ -71,7 +71,7 @@ const offices = [
         address: "Floor 5, Levan Gotua Street #3, Tbilisi, Georgia",
         hours: "Mon–Fri: 9AM–6PM (GET)",
         // Paste the link you copied from Google Maps "Share" here
-        mapLink: "https://maps.app.goo.gl/PASTE-YOUR-TBILISI-LINK-HERE",
+        mapLink: "https://maps.app.goo.gl/jvfYo9RTB2QuTejD9",
     },
 ];
 
@@ -123,7 +123,7 @@ const Footer = () => {
     };
 
     return (
-        <div className="w-full text-[#4b4b4b] font-sans pt-16 relative">
+        <div className="w-full text-[#4b4b4b] font-sans pt-6 relative">
 
             {/* Toast notification */}
             <div
@@ -289,7 +289,7 @@ const Footer = () => {
                 </div>
 
                 {/* Middle Section: Navigation Links */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-10">
 
                     {/* Column 1 */}
                     <nav className="flex flex-col space-y-3" aria-label="Eammu Group companies">

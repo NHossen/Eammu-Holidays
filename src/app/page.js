@@ -429,17 +429,6 @@ export default function Home() {
       {/* ✅ LandingModal — নিজেই 3s delay করে, DOM এ কিছু add করে না */}
       <LandingModal />
 
-      {/*
-        🔴 FIX: Removed the <main id="main-content"> wrapper that used to be
-        here. layout.jsx's <main id="main-content" role="main"> already wraps
-        {children} (which is this component). Two <main> landmarks on one
-        page is invalid HTML (only one <main> is allowed per document) and
-        the duplicate id="main-content" is also invalid — getElementById and
-        in-page #main-content anchor links would only ever find the outer
-        one, and screen readers see two competing "main" landmarks. These
-        sections are now direct children of the layout's single <main>.
-      */}
-
       {/* ✅ ABOVE THE FOLD — eager load */}
       <HeroSection />
 

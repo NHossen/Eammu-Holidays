@@ -47,7 +47,8 @@ const offices = [
     whatsapp: "+8801701699743", // TODO: add dedicated US WhatsApp if available
     email: ["usa@eammu.com", "info@eammu.com"], // TODO: confirm usa@eammu.com is live
     hours: "Mon–Fri: 9AM–6PM (EST)", // TODO: confirm hours
-    map: "#",
+    // Paste the link you copied from Google Maps "Share" here
+    mapLink: "https://maps.app.goo.gl/iTW2XsRCHqMq47hi7",
     lat: 40.7128,
     lng: -74.006,
     website: "/contact/travel-agency-usa",
@@ -64,7 +65,8 @@ const offices = [
     whatsapp: "+8801631312524",
     email: ["bangladesh@eammu.com", "info@eammu.com"],
     hours: "Sun–Thu: 9AM–9PM (BD Time)",
-    map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.3475734898495!2d91.139884!3d23.483984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDI5JzAyLjMiTiA5McKwMDgnMjMuNiJF!5e0!3m2!1sen!2sbd!4v1631312524000!5m2!1sen!2sbd",
+    // Paste the link you copied from Google Maps "Share" here
+    mapLink: "https://maps.app.goo.gl/sgbsHeeDCQkk6xvn7",
     lat: 23.483984,
     lng: 91.139884,
     website: "/contact/travel-agency-bangladesh",
@@ -81,7 +83,8 @@ const offices = [
     whatsapp: "+8801701699743",
     email: ["dhaka@eammu.com", "info@eammu.com"], // TODO: confirm dhaka@eammu.com is live
     hours: "Sun–Thu: 9AM–9PM (BD Time)", // TODO: confirm hours
-    map: "#", // TODO: add real embed link
+    // Paste the link you copied from Google Maps "Share" here
+    mapLink: "https://maps.app.goo.gl/ANah7V16vQWGacCy8",
     lat: 23.7925,
     lng: 90.4078,
     website: "/contact/travel-agency-dhaka",
@@ -98,7 +101,8 @@ const offices = [
     whatsapp: "+971507078334",
     email: ["dubai@eammu.com", "info@eammu.com"],
     hours: "Sun–Thu: 9AM–6PM (GST)",
-    map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178652414707!2d55.2708!3d25.185!2m3!1f0!2f0!3f0!3m2!1s0x3e5f6834751ac001%3A0x8cf6347c00000000!2sBusiness%20Bay%20-%20Dubai!5e0!3m2!1sen!2sae!4v1631312524001!5m2!1sen!2sae",
+    // Paste the link you copied from Google Maps "Share" here
+    mapLink: "https://maps.app.goo.gl/S9d4brsF5eWjJRKD7",
     lat: 25.185,
     lng: 55.2708,
     website: "/contact/travel-agency-dubai",
@@ -115,7 +119,8 @@ const offices = [
     whatsapp: "+37494810585",
     email: ["armenia@eammu.com", "info@eammu.com"],
     hours: "Mon–Fri: 9AM–6PM (YERT)",
-    map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.2435!2d44.5!3d40.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDA2JzAwLjAiTiA0NMKwMzAnMDAuMCJF!5e0!3m2!1sen!2sam!4v1631312524002!5m2!1sen!2sam",
+    // Paste the link you copied from Google Maps "Share" here
+    mapLink: "https://maps.app.goo.gl/btAxXjZGKM1xEgqZ8",
     lat: 40.1,
     lng: 44.5,
     website: "/contact/travel-agency-armenia",
@@ -132,7 +137,8 @@ const offices = [
     whatsapp: "+995574446218",
     email: ["georgia@eammu.com", "info@eammu.com"],
     hours: "Mon–Fri: 9AM–6PM (GET)",
-    map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.5!2d44.7!3d41.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQyJzAwLjAiTiA0NMKwNDInMDAuMCJF!5e0!3m2!1sen!2sge!4v1631312524003!5m2!1sen!2sge",
+    // Paste the link you copied from Google Maps "Share" here
+    mapLink: "https://maps.app.goo.gl/jvfYo9RTB2QuTejD9",
     lat: 41.7,
     lng: 44.7,
     website: "/contact/travel-agency-georgia",
@@ -283,11 +289,22 @@ const buildStructuredData = () => {
 };
 
 /* ─────────────────────────────────────────────
+   ICONS
+───────────────────────────────────────────── */
+const PinIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 flex-shrink-0" aria-hidden="true">
+    <path
+      fillRule="evenodd"
+      d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+
+/* ─────────────────────────────────────────────
    OFFICE CARD
 ───────────────────────────────────────────── */
 const OfficeCard = ({ office, index }) => {
-  const hasMap = office.map && office.map !== "#";
-
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -388,26 +405,19 @@ const OfficeCard = ({ office, index }) => {
             </span>
           ))}
         </div>
-      </div>
 
-      {/* Map */}
-      {hasMap ? (
-        <div className="relative h-44 border-t border-gray-100">
-          <iframe
-            src={office.map}
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title={`Google Maps location of Eammu Holidays ${office.location}`}
-          />
-        </div>
-      ) : (
-        <div className="h-44 border-t border-gray-100 flex items-center justify-center bg-gray-50 text-gray-400 text-xs font-semibold">
-          Map coming soon
-        </div>
-      )}
+        {/* Direct Google Maps link */}
+        <a
+          href={office.mapLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Get directions to Eammu Holidays ${office.location} on Google Maps`}
+          className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#005a31] hover:underline pt-1"
+        >
+          <PinIcon />
+          Get Directions on Google Maps
+        </a>
+      </div>
 
       {/* Footer */}
       <div className="p-4 border-t border-gray-50">
