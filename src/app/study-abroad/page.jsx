@@ -4,37 +4,39 @@ import React from 'react'
 
 // ─── PAGE METADATA ────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
-      "Student Visa from Bangladesh 2026 | USA, UK, Canada, Australia, Germany",
+      "Study Abroad Destinations | Study Abroad Consultants in Dubai And Bangladesh",
     template: "%s | Eammu Holidays",
   },
 
   description:
-    "Apply for a student visa from Bangladesh in 2026. Expert consultancy for USA F-1, UK Student Route, Canada Study Permit, Australia Subclass 500 & Germany blocked account. 1,000+ students placed. Free counseling available.",
+    "Study abroad from Bangladesh And Dubai in 2026 with expert consultancy. Student visa support for USA F-1, UK Student Route, Canada Study Permit, Australia Subclass 500 & Germany blocked account. 1,000+ students placed. Free counseling available.",
 
   keywords: [
+    "study abroad from Bangladesh",
+    "study abroad from Dubai",
+    "study abroad Bangladesh 2026",
     "student visa from Bangladesh",
     "student visa Bangladesh 2026",
-    "study abroad from Bangladesh",
     "USA student visa Bangladesh",
     "UK student visa Bangladesh",
     "Canada study permit Bangladesh",
     "Australia student visa Bangladesh",
     "Germany student visa Bangladesh blocked account",
-    "student visa consultancy Bangladesh",
+    "study abroad consultancy Bangladesh",
     "IELTS requirement student visa 2026",
     "student visa rejection rate Bangladesh",
     "education consultancy Cumilla Bangladesh",
-    "Eammu Holidays student visa",
-    "how to apply student visa from Bangladesh",
+    "Eammu Holidays study abroad",
+    "how to study abroad from Bangladesh",
     "foreign university admission Bangladesh",
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/our-services/visa-services/student-visa-from-bangladesh",
+    canonical: "https://eammu.com/study-abroad",
   },
 
   robots: {
@@ -51,29 +53,29 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/our-services/visa-services/student-visa-from-bangladesh",
+    url: "https://eammu.com/study-abroad",
     siteName: "Eammu Holidays",
     locale: "en_BD",
 
     title:
-      "Student Visa from Bangladesh 2026 — USA, UK, Canada, Australia & Germany",
+      "Study Abroad from Bangladesh 2026 | Top Destinations & Student Visa Guide",
 
     description:
-      "Get expert help applying for a student visa from Bangladesh. Eammu Holidays has placed 1,000+ students in top universities across 25+ countries. Free counseling available.",
+      "Get expert help to study abroad from Bangladesh. Eammu Holidays has placed 1,000+ students in top universities across 25+ countries. Free counseling available.",
 
     images: [
       {
         url: "/eammu_banner_four.webp",
         width: 1200,
         height: 630,
-        alt: "Student visa consultancy from Bangladesh — Eammu Holidays",
+        alt: "Study abroad consultancy from Bangladesh — Eammu Holidays",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Student Visa from Bangladesh 2026 | Eammu Holidays",
+    title: "Study Abroad from Bangladesh 2026 | Eammu Holidays",
     description:
       "USA F-1, UK Student Route, Canada Study Permit & more. 1,000+ placements. Free counseling.",
     images: ["/eammu_banner_four.webp"],
@@ -89,18 +91,18 @@ export const metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
-  "@id": "https://www.eammu.com/#organization",
+  "@id": "https://eammu.com/#organization",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
+  url: "https://eammu.com",
   logo: {
     "@type": "ImageObject",
-    url: "https://www.eammu.com/images/logo.png",
+    url: "https://eammu.com/images/logo.png",
     width: 200,
     height: 60,
   },
   description:
-    "Bangladesh's leading student visa consultancy. Helping Bangladeshi students get admitted to top universities in the USA, UK, Canada, Australia, Germany, and 25+ countries since 2018.",
-  foundingDate: "2018",
+    "Bangladesh's leading study abroad consultancy. Helping Bangladeshi students get admitted to top universities in the USA, UK, Canada, Australia, Germany, and 25+ countries since 2012.",
+  foundingDate: "2012",
   areaServed: {
     "@type": "Country",
     name: "Bangladesh",
@@ -126,25 +128,42 @@ const organizationSchema = {
     },
   },
   sameAs: [
-    "https://www.facebook.com/eammuholidays",
+    "https://www.facebook.com/eammutourism",
   ],
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://eammu.com/study-abroad#webpage",
+  url: "https://eammu.com/study-abroad",
+  name: "Study Abroad from Bangladesh 2026 | Top Destinations & Student Visa Guide",
+  description:
+    "Study abroad from Bangladesh in 2026 with expert consultancy. Student visa support for USA, UK, Canada, Australia, and Germany.",
+  isPartOf: {
+    "@id": "https://eammu.com/#organization",
+  },
+  about: {
+    "@id": "https://eammu.com/#organization",
+  },
+  inLanguage: "en-BD",
 };
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://www.eammu.com/our-services/visa-services/student-visa-from-bangladesh#service",
-  name: "Student Visa Consultancy from Bangladesh",
+  "@id": "https://eammu.com/study-abroad#service",
+  name: "Study Abroad Consultancy from Bangladesh",
   serviceType: "Student Visa Application Assistance",
   provider: {
-    "@id": "https://www.eammu.com/#organization",
+    "@id": "https://eammu.com/#organization",
   },
   areaServed: {
     "@type": "Country",
     name: "Bangladesh",
   },
   description:
-    "Complete student visa application support for Bangladeshi students — from university selection, SOP writing, and document preparation to visa filing and pre-departure briefing.",
+    "Complete study abroad and student visa application support for Bangladeshi students — from university selection, SOP writing, and document preparation to visa filing and pre-departure briefing.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -153,7 +172,7 @@ const serviceSchema = {
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Student Visa Services",
+    name: "Study Abroad Services",
     itemListElement: [
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "USA F-1 Student Visa Assistance" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "UK Student Route Visa Assistance" } },
@@ -171,9 +190,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://www.eammu.com/our-services/visa-services" },
-    { "@type": "ListItem", position: 3, name: "Student Visa from Bangladesh", item: "https://www.eammu.com/our-services/visa-services/student-visa-from-bangladesh" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Study Abroad", item: "https://eammu.com/study-abroad" },
   ],
 };
 
@@ -181,6 +199,14 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
+    {
+      "@type": "Question",
+      name: "How can I study abroad from Bangladesh in 2026?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "To study abroad from Bangladesh, you need university admission, proof of English proficiency (IELTS/TOEFL or an MOI waiver), financial documents, and a valid student visa. Eammu Holidays guides Bangladeshi students through every step, from university selection to visa filing, for USA, UK, Canada, Australia, Germany, and 20+ other countries.",
+      },
+    },
     {
       "@type": "Question",
       name: "What is the IELTS requirement for a student visa in 2026?",
@@ -199,7 +225,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "When should I start my student visa application from Bangladesh?",
+      name: "When should I start my study abroad application from Bangladesh?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "For the September intake, Bangladeshi students should begin the process at least 6 months in advance — ideally between January and February. This allows enough time to secure university admission, apply for scholarships, book IELTS, prepare financial documents, and schedule visa appointments.",
@@ -216,19 +242,34 @@ const faqSchema = {
   ],
 };
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Study Abroad from Bangladesh",
+  description: "Step-by-step process for Bangladeshi students to study abroad in 2026.",
+  step: [
+    { "@type": "HowToStep", position: 1, name: "Free counseling", text: "Book a free counseling session with Eammu Holidays to choose the right country and university." },
+    { "@type": "HowToStep", position: 2, name: "University selection & admission", text: "Shortlist universities and apply for admission with SOP and academic documents." },
+    { "@type": "HowToStep", position: 3, name: "IELTS/English proficiency", text: "Complete IELTS, TOEFL, or secure an MOI waiver as required by the destination country." },
+    { "@type": "HowToStep", position: 4, name: "Financial documentation", text: "Prepare bank statements, sponsorship letters, or blocked account proof as required." },
+    { "@type": "HowToStep", position: 5, name: "Student visa filing", text: "Submit the student visa application with embassy interview preparation support." },
+    { "@type": "HowToStep", position: 6, name: "Pre-departure briefing", text: "Attend a pre-departure briefing covering travel, accommodation, and settling-in guidance." },
+  ],
+};
+
 const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Student Visa Guide by Country for Bangladeshi Students",
+  name: "Study Abroad Guide by Country for Bangladeshi Students",
   description: "Top study destinations with student visa guides for Bangladeshi passport holders in 2026.",
   numberOfItems: 6,
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "USA Student Visa (F-1) from Bangladesh", url: "https://www.eammu.com/study-abroad/student-visa/usa" },
-    { "@type": "ListItem", position: 2, name: "UK Student Route Visa from Bangladesh", url: "https://www.eammu.com/study-abroad/student-visa/uk" },
-    { "@type": "ListItem", position: 3, name: "Canada Study Permit from Bangladesh", url: "https://www.eammu.com/study-abroad/student-visa/canada" },
-    { "@type": "ListItem", position: 4, name: "Australia Subclass 500 Student Visa from Bangladesh", url: "https://www.eammu.com/study-abroad/student-visa/australia" },
-    { "@type": "ListItem", position: 5, name: "Germany Student Visa from Bangladesh", url: "https://www.eammu.com/study-abroad/student-visa/germany" },
-    { "@type": "ListItem", position: 6, name: "Portugal D-Student Visa from Bangladesh", url: "https://www.eammu.com/study-abroad/student-visa/portugal" },
+    { "@type": "ListItem", position: 1, name: "USA Student Visa (F-1) from Bangladesh", url: "https://eammu.com/study-abroad/student-visa/united-states" },
+    { "@type": "ListItem", position: 2, name: "UK Student Route Visa from Bangladesh", url: "https://eammu.com/study-abroad/student-visa/united-kingdom" },
+    { "@type": "ListItem", position: 3, name: "Canada Study Permit from Bangladesh", url: "https://eammu.com/study-abroad/student-visa/canada" },
+    { "@type": "ListItem", position: 4, name: "Australia Subclass 500 Student Visa from Bangladesh", url: "https://eammu.com/study-abroad/student-visa/australia" },
+    { "@type": "ListItem", position: 5, name: "Germany Student Visa from Bangladesh", url: "https://eammu.com/study-abroad/student-visa/germany" },
+    { "@type": "ListItem", position: 6, name: "Portugal D-Student Visa from Bangladesh", url: "https://eammu.com/study-abroad/student-visa/portugal" },
   ],
 };
 
@@ -241,6 +282,11 @@ export default function StudentVisaFromBangladeshPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      {/* WebPage — binds this exact URL to the org */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
       {/* Service */}
       <script
@@ -256,6 +302,11 @@ export default function StudentVisaFromBangladeshPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      {/* HowTo — powers Google HowTo rich results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       {/* ItemList — for country cards */}
       <script
