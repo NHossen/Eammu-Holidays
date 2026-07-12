@@ -1,7 +1,7 @@
 import MontenegroVisa from '@/Components/Server/VisaCountry/MontenegroVisa/MontenegroVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Montenegro Visa Requirements, Fees, and Application | Tourist & Visit Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/montenegro-visa-application",
+      "https://eammu.com/our-services/visa/montenegro-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Montenegro visa support for Bangladeshi travelers. Tourist and visit visa guidance with documents, fees, and application assistance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/montenegro-visa-application",
+      "https://eammu.com/our-services/visa/montenegro-visa-application",
 
     siteName: "Eammu Holidays",
 

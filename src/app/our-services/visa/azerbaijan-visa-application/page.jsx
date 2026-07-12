@@ -1,7 +1,7 @@
 import AzerbaijanVisa from '@/Components/Server/VisaCountry/AzerbaijanVisa/AzerbaijanVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Azerbaijan Visa Requirements, Fees, and Application | Tourist & Business Visa Support | Travel Agency Bangladesh",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/azerbaijan-visa-application",
+      "https://eammu.com/our-services/visa/azerbaijan-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Azerbaijan visa support for Bangladeshi travelers. Tourist visa, business visa, e-visa, documents, fees, and application guidance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/azerbaijan-visa-application",
+      "https://eammu.com/our-services/visa/azerbaijan-visa-application",
 
     siteName: "Eammu Holidays",
 

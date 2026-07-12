@@ -5,7 +5,7 @@ import React from "react";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -52,10 +52,10 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/testimonials",
+    canonical: "https://eammu.com/testimonials",
     languages: {
-      "en-US": "https://www.eammu.com/testimonials",
-      "bn-BD": "https://www.eammu.com/bn/testimonials",
+      "en-US": "https://eammu.com/testimonials",
+      "bn-BD": "https://eammu.com/bn/testimonials",
     },
   },
 
@@ -73,7 +73,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/testimonials",
+    url: "https://eammu.com/testimonials",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "5,000+ Happy Clients | Real Visa Success Stories – Eammu Holidays Bangladesh",
@@ -121,17 +121,17 @@ export const metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["TravelAgency", "LocalBusiness"],
-  "@id": "https://www.eammu.com/#organization",
+  "@id": "https://eammu.com/#organization",
   name: "Eammu Holidays",
   alternateName: "Eammu Holidays Bangladesh",
-  url: "https://www.eammu.com",
+  url: "https://eammu.com",
   logo: {
     "@type": "ImageObject",
-    url: "https://www.eammu.com/emf.jpg",
+    url: "https://eammu.com/emf.jpg",
     width: 200,
     height: 200,
   },
-  image: "https://www.eammu.com/eammu_banner_four.webp",
+  image: "https://eammu.com/eammu_banner_four.webp",
   description:
     "Eammu Holidays is Bangladesh's most trusted travel and visa consultancy, specializing in Canada, UK, USA, Dubai, and Schengen visa processing, work permits, student visas, Umrah packages, and group tour services.",
   telephone: "+880-XXXXXXXXXX",
@@ -233,8 +233,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "Testimonials", item: "https://www.eammu.com/testimonials" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Testimonials", item: "https://eammu.com/testimonials" },
   ],
 };
 
@@ -271,7 +271,7 @@ const faqSchema = {
       name: "How can I see real customer testimonials for Eammu Holidays?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can view verified customer photos, YouTube video testimonials, and written reviews on https://www.eammu.com/testimonials, showcasing real visa approvals, work permit successes, group tour experiences, and Umrah package reviews from happy clients.",
+        text: "You can view verified customer photos, YouTube video testimonials, and written reviews on https://eammu.com/testimonials, showcasing real visa approvals, work permit successes, group tour experiences, and Umrah package reviews from happy clients.",
       },
     },
     {
@@ -279,7 +279,7 @@ const faqSchema = {
       name: "How do I contact Eammu Holidays for a free visa consultation?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can contact Eammu Holidays through their website at https://www.eammu.com/contact, via phone, or through their official Facebook page. They offer free initial consultations for all visa categories.",
+        text: "You can contact Eammu Holidays through their website at https://eammu.com/contact, via phone, or through their official Facebook page. They offer free initial consultations for all visa categories.",
       },
     },
   ],
@@ -290,7 +290,7 @@ const videoObjectSchema = {
   "@type": "ItemList",
   name: "Eammu Holidays Video Testimonials",
   description: "Customer video reviews and visa success stories from Eammu Holidays Bangladesh",
-  url: "https://www.eammu.com/testimonials",
+  url: "https://eammu.com/testimonials",
   numberOfItems: 5,
   itemListElement: [
     {
@@ -303,7 +303,7 @@ const videoObjectSchema = {
         thumbnailUrl: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
         uploadDate: "2024-11-15",
         embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        publisher: { "@type": "Organization", name: "Eammu Holidays", logo: "https://www.eammu.com/emf.jpg" },
+        publisher: { "@type": "Organization", name: "Eammu Holidays", logo: "https://eammu.com/emf.jpg" },
       },
     },
     {
@@ -316,7 +316,7 @@ const videoObjectSchema = {
         thumbnailUrl: "https://img.youtube.com/vi/7e90gBu4pas/maxresdefault.jpg",
         uploadDate: "2025-01-20",
         embedUrl: "https://www.youtube.com/embed/7e90gBu4pas",
-        publisher: { "@type": "Organization", name: "Eammu Holidays", logo: "https://www.eammu.com/emf.jpg" },
+        publisher: { "@type": "Organization", name: "Eammu Holidays", logo: "https://eammu.com/emf.jpg" },
       },
     },
   ],
@@ -348,8 +348,8 @@ export default function TestimonialsPage() {
         </p>
         <nav aria-label="Breadcrumb">
           <ol>
-            <li><a href="https://www.eammu.com">Home</a></li>
-            <li><a href="https://www.eammu.com/testimonials">Testimonials</a></li>
+            <li><a href="https://eammu.com">Home</a></li>
+            <li><a href="https://eammu.com/testimonials">Testimonials</a></li>
           </ol>
         </nav>
         {/* SEO: List of verified services for crawlers */}
@@ -399,11 +399,11 @@ export default function TestimonialsPage() {
             },
             {
               q: "How can I view real Eammu Holidays customer testimonials?",
-              a: "Browse verified customer photos, YouTube video testimonials, and written reviews directly on this page (https://www.eammu.com/testimonials). All testimonials show real visa approvals, group tour reviews, and work permit success stories.",
+              a: "Browse verified customer photos, YouTube video testimonials, and written reviews directly on this page (https://eammu.com/testimonials). All testimonials show real visa approvals, group tour reviews, and work permit success stories.",
             },
             {
               q: "How do I book a free consultation with Eammu Holidays?",
-              a: "Contact Eammu Holidays through their website at https://www.eammu.com/contact or via their official social media channels. They offer free initial consultations for all visa and travel inquiries.",
+              a: "Contact Eammu Holidays through their website at https://eammu.com/contact or via their official social media channels. They offer free initial consultations for all visa and travel inquiries.",
             },
           ].map(({ q, a }) => (
             <details
@@ -456,7 +456,7 @@ export default function TestimonialsPage() {
           ].map(({ href, label }) => (
             <li key={href}>
               <a
-                href={`https://www.eammu.com${href}`}
+                href={`https://eammu.com${href}`}
                 className="text-xs font-semibold px-4 py-2 rounded-full transition-colors"
                 style={{
                   background: "#e8f5ee",

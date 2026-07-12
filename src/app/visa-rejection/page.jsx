@@ -23,7 +23,7 @@ export const dynamic    = 'force-static';
 // METADATA
 // ─────────────────────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL('https://www.eammu.com'),
+  metadataBase: new URL('https://eammu.com'),
 
   title: {
     default: 'Visa Rejection Checker 2026 – Real Refusal Rates for 195+ Countries | Eammu Holidays',
@@ -71,7 +71,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: 'https://www.eammu.com/visa-rejection',
+    canonical: 'https://eammu.com/visa-rejection',
   },
 
   robots: {
@@ -88,7 +88,7 @@ export const metadata = {
 
   openGraph: {
     type: 'website',
-    url: 'https://www.eammu.com/visa-rejection',
+    url: 'https://eammu.com/visa-rejection',
     siteName: 'Eammu Holidays',
     locale: 'en_US',
     title: 'Visa Rejection Checker 2026 – Real Refusal Rates for 195+ Countries',
@@ -136,10 +136,10 @@ export const metadata = {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'TravelAgency',
-  '@id': 'https://www.eammu.com/#organization',
+  '@id': 'https://eammu.com/#organization',
   name: 'Eammu Holidays',
-  url: 'https://www.eammu.com',
-  logo: { '@type': 'ImageObject', url: 'https://www.eammu.com/emf.jpg' },
+  url: 'https://eammu.com',
+  logo: { '@type': 'ImageObject', url: 'https://eammu.com/emf.jpg' },
   description:
     'Bangladesh-based travel and visa consultancy offering visa rejection analysis, document preparation, and application support for 195+ countries.',
   areaServed: [
@@ -151,13 +151,13 @@ const organizationSchema = {
       '@type': 'ContactPoint',
       contactType: 'customer service',
       availableLanguage: ['English', 'Bengali'],
-      url: 'https://www.eammu.com/contact/travel-agency-bangladesh',
+      url: 'https://eammu.com/contact/travel-agency-bangladesh',
     },
     {
       '@type': 'ContactPoint',
       contactType: 'customer service',
       availableLanguage: ['English'],
-      url: 'https://www.eammu.com/contact/travel-agency-dubai',
+      url: 'https://eammu.com/contact/travel-agency-dubai',
     },
   ],
   aggregateRating: {
@@ -171,29 +171,29 @@ const organizationSchema = {
 const webPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://www.eammu.com/visa-rejection#webpage',
-  url: 'https://www.eammu.com/visa-rejection',
+  '@id': 'https://eammu.com/visa-rejection#webpage',
+  url: 'https://eammu.com/visa-rejection',
   name: 'Visa Rejection Checker 2026 – Real Refusal Rates for 195+ Countries',
   description:
     'Check real visa rejection rates by nationality, destination, and visa type. Understand why visas get refused and improve your approval chances.',
   isPartOf: {
     '@type': 'WebSite',
-    '@id': 'https://www.eammu.com/#website',
-    url: 'https://www.eammu.com',
+    '@id': 'https://eammu.com/#website',
+    url: 'https://eammu.com',
     name: 'Eammu Holidays',
-    publisher: { '@id': 'https://www.eammu.com/#organization' },
+    publisher: { '@id': 'https://eammu.com/#organization' },
   },
   breadcrumb: {
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home',          item: 'https://www.eammu.com' },
-      { '@type': 'ListItem', position: 2, name: 'Visa Services', item: 'https://www.eammu.com/visa' },
-      { '@type': 'ListItem', position: 3, name: 'Visa Rejection Checker', item: 'https://www.eammu.com/visa-rejection' },
+      { '@type': 'ListItem', position: 1, name: 'Home',          item: 'https://eammu.com' },
+      { '@type': 'ListItem', position: 2, name: 'Visa Services', item: 'https://eammu.com/visa' },
+      { '@type': 'ListItem', position: 3, name: 'Visa Rejection Checker', item: 'https://eammu.com/visa-rejection' },
     ],
   },
   primaryImageOfPage: {
     '@type': 'ImageObject',
-    url: 'https://www.eammu.com/og/visa-rejection-checker.jpg',
+    url: 'https://eammu.com/og/visa-rejection-checker.jpg',
     width: 1200,
     height: 630,
   },
@@ -208,9 +208,9 @@ const webPageSchema = {
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  '@id': 'https://www.eammu.com/visa-rejection#service',
+  '@id': 'https://eammu.com/visa-rejection#service',
   name: 'Visa Rejection Risk Analysis & Consultation',
-  provider: { '@id': 'https://www.eammu.com/#organization' },
+  provider: { '@id': 'https://eammu.com/#organization' },
   serviceType: 'Visa Rejection Analysis',
   description:
     'Real-time visa rejection rate checker covering 195+ countries and all visa types. Includes document gap analysis, rejection reason breakdown, and expert consultation to improve approval chances.',
@@ -225,10 +225,10 @@ const serviceSchema = {
     '@type': 'OfferCatalog',
     name: 'Visa Rejection Services',
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tourist Visa Rejection Check', url: 'https://www.eammu.com/visa-rejection' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Student Visa Rejection Check', url: 'https://www.eammu.com/visa-rejection' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Schengen Visa Rejection Check', url: 'https://www.eammu.com/visa-rejection/bangladesh-visa-rejection-rate-for-schengen-tourist' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'UK Visa Rejection Analysis', url: 'https://www.eammu.com/visa-rejection/bangladesh-visa-rejection-rate-for-united-kingdom-tourist' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tourist Visa Rejection Check', url: 'https://eammu.com/visa-rejection' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Student Visa Rejection Check', url: 'https://eammu.com/visa-rejection' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Schengen Visa Rejection Check', url: 'https://eammu.com/visa-rejection/bangladesh-visa-rejection-rate-for-schengen-tourist' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'UK Visa Rejection Analysis', url: 'https://eammu.com/visa-rejection/bangladesh-visa-rejection-rate-for-united-kingdom-tourist' } },
     ],
   },
   aggregateRating: {
@@ -308,7 +308,7 @@ const howToSchema = {
   name: 'How to Avoid Visa Rejection – Step-by-Step Guide for Bangladeshi Applicants',
   description:
     'Follow these steps to maximize your visa approval chances and avoid common rejection reasons.',
-  image: 'https://www.eammu.com/og/visa-rejection-checker.jpg',
+  image: 'https://eammu.com/og/visa-rejection-checker.jpg',
   totalTime: 'P7D',
   step: [
     {
@@ -316,14 +316,14 @@ const howToSchema = {
       position: 1,
       name: 'Check your rejection risk first',
       text: 'Use the Visa Rejection Checker to see the real refusal rate for your nationality and destination combination before applying.',
-      url: 'https://www.eammu.com/visa-rejection',
+      url: 'https://eammu.com/visa-rejection',
     },
     {
       '@type': 'HowToStep',
       position: 2,
       name: 'Build your document checklist',
       text: 'Generate a personalized document checklist for your destination to ensure nothing is missing.',
-      url: 'https://www.eammu.com/travel-resources/visa-checklist-generator',
+      url: 'https://eammu.com/travel-resources/visa-checklist-generator',
     },
     {
       '@type': 'HowToStep',
@@ -342,7 +342,7 @@ const howToSchema = {
       position: 5,
       name: 'Get your application reviewed',
       text: 'Have our certified visa consultants review your complete application before submission.',
-      url: 'https://www.eammu.com/contact',
+      url: 'https://eammu.com/contact',
     },
   ],
 };
@@ -350,13 +350,13 @@ const howToSchema = {
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  '@id': 'https://www.eammu.com/visa-rejection#article',
+  '@id': 'https://eammu.com/visa-rejection#article',
   headline: 'Visa Rejection Checker 2026 – Real Refusal Rates, Reasons & Fix Guide',
   description:
     'Real visa rejection rates for 195+ countries by nationality and visa type. Why visas get refused and how to improve your approval chances.',
   image: {
     '@type': 'ImageObject',
-    url: 'https://www.eammu.com/og/visa-rejection-checker.jpg',
+    url: 'https://eammu.com/og/visa-rejection-checker.jpg',
     width: 1200,
     height: 630,
   },
@@ -365,14 +365,14 @@ const articleSchema = {
   author: {
     '@type': 'Organization',
     name: 'Eammu Holidays',
-    url: 'https://www.eammu.com',
+    url: 'https://eammu.com',
   },
   publisher: {
     '@type': 'Organization',
     name: 'Eammu Holidays',
-    logo: { '@type': 'ImageObject', url: 'https://www.eammu.com/emf.jpg' },
+    logo: { '@type': 'ImageObject', url: 'https://eammu.com/emf.jpg' },
   },
-  mainEntityOfPage: 'https://www.eammu.com/visa-rejection',
+  mainEntityOfPage: 'https://eammu.com/visa-rejection',
   keywords:
     'visa rejection rate, visa refusal reasons, how to avoid visa rejection, bangladesh visa rejection, schengen rejection rate, uk visa refusal',
   articleSection: 'Visa Guides',
@@ -388,20 +388,20 @@ const articleSchema = {
 const webAppSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  '@id': 'https://www.eammu.com/visa-rejection#app',
+  '@id': 'https://eammu.com/visa-rejection#app',
   name: 'Eammu Visa Rejection Risk Checker',
-  url: 'https://www.eammu.com/visa-rejection',
+  url: 'https://eammu.com/visa-rejection',
   applicationCategory: 'UtilityApplication',
   operatingSystem: 'Web Browser',
   description:
     'Free visa rejection rate checker for 195+ countries. Enter your nationality, destination, and visa type to see your refusal risk and learn how to improve your chances.',
-  screenshot: 'https://www.eammu.com/og/visa-rejection-checker.jpg',
+  screenshot: 'https://eammu.com/og/visa-rejection-checker.jpg',
   offers: {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'USD',
   },
-  publisher: { '@id': 'https://www.eammu.com/#organization' },
+  publisher: { '@id': 'https://eammu.com/#organization' },
   featureList: [
     'Real rejection rates for 195+ countries',
     'All visa types covered (tourist, student, work, business, transit, family)',

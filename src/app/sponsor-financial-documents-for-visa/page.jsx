@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
   title: { default: "Sponsor Financial Documents for Visa 2026 | Complete Checklist | Eammu Holidays" },
   description:
     "What financial documents are required when a sponsor is funding your visa application? Complete 2026 guide to sponsor bank statements, affidavit of support, sponsor letters, and relationship proof for Schengen, UK, USA, Canada & Dubai visas — by Eammu Holidays.",
@@ -24,18 +24,18 @@ export const metadata = {
     "proof of relationship sponsor visa",
     "sponsor visa documents 2026",
   ],
-  alternates: { canonical: "https://www.eammu.com/sponsor-financial-documents-for-visa" },
+  alternates: { canonical: "https://eammu.com/sponsor-financial-documents-for-visa" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/sponsor-financial-documents-for-visa",
+    url: "https://eammu.com/sponsor-financial-documents-for-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Sponsor Financial Documents for Visa 2026 — Full Checklist | Eammu Holidays",
     description: "Everything a visa sponsor needs to provide — bank statements, solvency certificate, affidavit of support, sponsor letter, and relationship proof for Bangladesh visa applications.",
-    images: [{ url: "https://www.eammu.com/preview-banner.webp", width: 1200, height: 630, alt: "Sponsor Financial Documents for Visa — Eammu Holidays" }],
+    images: [{ url: "https://eammu.com/preview-banner.webp", width: 1200, height: 630, alt: "Sponsor Financial Documents for Visa — Eammu Holidays" }],
   },
-  twitter: { card: "summary_large_image", site: "@eammuholidays", title: "Sponsor Financial Documents for Visa 2026 | Eammu Holidays", images: ["https://www.eammu.com/preview-banner.webp"] },
+  twitter: { card: "summary_large_image", site: "@eammuholidays", title: "Sponsor Financial Documents for Visa 2026 | Eammu Holidays", images: ["https://eammu.com/preview-banner.webp"] },
   icons: { icon: "/emf.jpg", shortcut: "/emf.jpg", apple: "/emf.jpg" },
   category: "travel",
 };
@@ -45,22 +45,22 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/sponsor-financial-documents-for-visa#article",
+      "@id": "https://eammu.com/sponsor-financial-documents-for-visa#article",
       headline: "Sponsor Financial Documents for Visa 2026 — Complete Checklist for Bangladesh Applicants",
       description: "Full guide to documents required when a sponsor is funding your visa: bank statements, solvency certificate, affidavit of support, sponsor letter, and proof of relationship.",
-      image: "https://www.eammu.com/preview-banner.webp",
-      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://www.eammu.com" },
-      publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
+      image: "https://eammu.com/preview-banner.webp",
+      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://eammu.com" },
+      publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" } },
       datePublished: "2026-01-15",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/sponsor-financial-documents-for-visa",
+      mainEntityOfPage: "https://eammu.com/travel-resources/sponsor-financial-documents-for-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-        { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "Sponsor Financial Documents for Visa", item: "https://www.eammu.com/travel-resources/sponsor-financial-documents-for-visa" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+        { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://eammu.com/travel-resources" },
+        { "@type": "ListItem", position: 3, name: "Sponsor Financial Documents for Visa", item: "https://eammu.com/travel-resources/sponsor-financial-documents-for-visa" },
       ],
     },
   ],
@@ -91,7 +91,7 @@ export default function SponsorFinancialDocumentsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div className="sr-only" aria-hidden="true">
         <h1>Sponsor Financial Documents for Visa 2026 — Complete Checklist for Bangladesh | Eammu Holidays</h1>
-        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/travel-resources/sponsor-financial-documents-for-visa">Sponsor Financial Documents</a></li></ol></nav>
+        <nav aria-label="Breadcrumb"><ol><li><a href="https://eammu.com">Home</a></li><li><a href="https://eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://eammu.com/travel-resources/sponsor-financial-documents-for-visa">Sponsor Financial Documents</a></li></ol></nav>
       </div>
 
       <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">

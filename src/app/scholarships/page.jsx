@@ -11,7 +11,7 @@ export const revalidate = 86400;
 // METADATA
 // ─────────────────────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default: "Scholarships 2026 – Fully Funded Study Abroad for Bangladeshi Students | Eammu Holidays",
@@ -62,7 +62,7 @@ export const metadata = {
   ].join(", "),
 
   alternates: {
-    canonical: "https://www.eammu.com/scholarships",
+    canonical: "https://eammu.com/scholarships",
   },
 
   robots: {
@@ -79,7 +79,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/scholarships",
+    url: "https://eammu.com/scholarships",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Scholarships 2026 – 850+ Fully Funded Programs for Bangladeshi Students",
@@ -261,10 +261,10 @@ function buildSchemas() {
   const organization = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
-    "@id": "https://www.eammu.com/#organization",
+    "@id": "https://eammu.com/#organization",
     name: "Eammu Holidays",
-    url: "https://www.eammu.com",
-    logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" },
+    url: "https://eammu.com",
+    logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
     description: "Bangladesh-based visa consultancy and scholarship guidance center helping students secure fully funded international scholarships and student visas.",
     areaServed: { "@type": "Country", name: "Bangladesh" },
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "1247", bestRating: "5" },
@@ -273,20 +273,20 @@ function buildSchemas() {
   const webPage = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://www.eammu.com/scholarships#webpage",
-    url: "https://www.eammu.com/scholarships",
+    "@id": "https://eammu.com/scholarships#webpage",
+    url: "https://eammu.com/scholarships",
     name: "Scholarships 2026 – 850+ Fully Funded Programs for Bangladeshi Students",
     description: "Browse 850+ verified fully funded scholarships for Bangladeshi students. Fulbright, Chevening, DAAD, MEXT, CSC, Erasmus+, Australia Awards, and more — updated 2026.",
-    isPartOf: { "@type": "WebSite", "@id": "https://www.eammu.com/#website", url: "https://www.eammu.com", name: "Eammu Holidays" },
+    isPartOf: { "@type": "WebSite", "@id": "https://eammu.com/#website", url: "https://eammu.com", name: "Eammu Holidays" },
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home",         item: "https://www.eammu.com" },
-        { "@type": "ListItem", position: 2, name: "Study Abroad", item: "https://www.eammu.com/study-abroad" },
-        { "@type": "ListItem", position: 3, name: "Scholarships", item: "https://www.eammu.com/scholarships" },
+        { "@type": "ListItem", position: 1, name: "Home",         item: "https://eammu.com" },
+        { "@type": "ListItem", position: 2, name: "Study Abroad", item: "https://eammu.com/study-abroad" },
+        { "@type": "ListItem", position: 3, name: "Scholarships", item: "https://eammu.com/scholarships" },
       ],
     },
-    primaryImageOfPage: { "@type": "ImageObject", url: "https://www.eammu.com/og/scholarships-2026.jpg", width: 1200, height: 630 },
+    primaryImageOfPage: { "@type": "ImageObject", url: "https://eammu.com/og/scholarships-2026.jpg", width: 1200, height: 630 },
     dateModified: new Date().toISOString().split("T")[0],
     inLanguage: "en-US",
     speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", ".seo-speakable"] },
@@ -295,9 +295,9 @@ function buildSchemas() {
   const service = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://www.eammu.com/scholarships#service",
+    "@id": "https://eammu.com/scholarships#service",
     name: "International Scholarship Guidance & Application Support",
-    provider: { "@id": "https://www.eammu.com/#organization" },
+    provider: { "@id": "https://eammu.com/#organization" },
     serviceType: "Scholarship Consultancy",
     description: "End-to-end scholarship application support for Bangladeshi students — SOP writing, document preparation, university shortlisting, IELTS preparation, and student visa processing after scholarship confirmation.",
     areaServed: { "@type": "Country", name: "Bangladesh" },
@@ -309,7 +309,7 @@ function buildSchemas() {
         itemOffered: {
           "@type": "Service",
           name: `${s.name} Application Support`,
-          url: `https://www.eammu.com/scholarships/${s.slug}`,
+          url: `https://eammu.com/scholarships/${s.slug}`,
         },
       })),
     },
@@ -329,15 +329,15 @@ function buildSchemas() {
   const article = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "@id": "https://www.eammu.com/scholarships#article",
+    "@id": "https://eammu.com/scholarships#article",
     headline: "Scholarships 2026 – 850+ Fully Funded Programs for Bangladeshi Students",
     description: "Complete guide to fully funded international scholarships for Bangladeshi students — Fulbright, Chevening, DAAD, MEXT, CSC, Australia Awards, and 844 more.",
-    image: { "@type": "ImageObject", url: "https://www.eammu.com/og/scholarships-2026.jpg", width: 1200, height: 630 },
+    image: { "@type": "ImageObject", url: "https://eammu.com/og/scholarships-2026.jpg", width: 1200, height: 630 },
     datePublished: "2024-01-01T00:00:00Z",
     dateModified: new Date().toISOString(),
-    author: { "@type": "Organization", name: "Eammu Holidays", url: "https://www.eammu.com" },
-    publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
-    mainEntityOfPage: "https://www.eammu.com/scholarships",
+    author: { "@type": "Organization", name: "Eammu Holidays", url: "https://eammu.com" },
+    publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" } },
+    mainEntityOfPage: "https://eammu.com/scholarships",
     keywords: "fully funded scholarships bangladeshi students, fulbright scholarship bangladesh, chevening scholarship bangladesh, daad scholarship bangladesh",
     articleSection: "Scholarships",
     inLanguage: "en-US",
@@ -348,14 +348,14 @@ function buildSchemas() {
     "@type": "ItemList",
     name: "Top Fully Funded Scholarships 2026",
     description: "Most popular fully funded scholarships for Bangladeshi students in 2026",
-    url: "https://www.eammu.com/scholarships",
+    url: "https://eammu.com/scholarships",
     numberOfItems: popularScholarships.length,
     itemListElement: popularScholarships.map((s, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: s.name,
       description: `${s.name} — ${s.country} — ${s.tag} — ${s.coverage}`,
-      url: `https://www.eammu.com/scholarships/${s.slug}`,
+      url: `https://eammu.com/scholarships/${s.slug}`,
     })),
   };
 
@@ -366,12 +366,12 @@ function buildSchemas() {
     description: "Step-by-step guide for Bangladeshi students applying for international fully funded scholarships.",
     totalTime: "P90D",
     step: [
-      { "@type": "HowToStep", position: 1, name: "Choose your target scholarship", text: "Browse our database and filter by country, degree level, and funding type. Match your GPA and IELTS score to the scholarship's requirements.", url: "https://www.eammu.com/scholarships" },
-      { "@type": "HowToStep", position: 2, name: "Prepare your IELTS score", text: "Most fully funded scholarships require IELTS 6.5+. Enroll in our IELTS preparation center in Bangladesh to hit your target score.", url: "https://www.eammu.com/target-ielts-immigration-center" },
-      { "@type": "HowToStep", position: 3, name: "Write your Statement of Purpose", text: "Draft a compelling SOP addressing your research interests, career goals, and why this specific scholarship and country. Use our Travel Document Generator for SOP templates.", url: "https://www.eammu.com/travel-resources/travel-document-generator" },
-      { "@type": "HowToStep", position: 4, name: "Collect supporting documents", text: "Gather academic transcripts, reference letters, passport copy, bank statements, and any scholarship-specific forms. Use our Visa Checklist Generator for a complete list.", url: "https://www.eammu.com/travel-resources/visa-checklist-generator" },
-      { "@type": "HowToStep", position: 5, name: "Submit application before deadline", text: "Apply directly through the official scholarship portal before the stated deadline. Have Eammu Holidays review your application package before submission.", url: "https://www.eammu.com/contact" },
-      { "@type": "HowToStep", position: 6, name: "Apply for student visa after confirmation", text: "Once scholarship is confirmed, apply for your student visa. Eammu Holidays handles the complete student visa process from Bangladesh.", url: "https://www.eammu.com/our-services/visa-services/student-visa-from-bangladesh" },
+      { "@type": "HowToStep", position: 1, name: "Choose your target scholarship", text: "Browse our database and filter by country, degree level, and funding type. Match your GPA and IELTS score to the scholarship's requirements.", url: "https://eammu.com/scholarships" },
+      { "@type": "HowToStep", position: 2, name: "Prepare your IELTS score", text: "Most fully funded scholarships require IELTS 6.5+. Enroll in our IELTS preparation center in Bangladesh to hit your target score.", url: "https://eammu.com/target-ielts-immigration-center" },
+      { "@type": "HowToStep", position: 3, name: "Write your Statement of Purpose", text: "Draft a compelling SOP addressing your research interests, career goals, and why this specific scholarship and country. Use our Travel Document Generator for SOP templates.", url: "https://eammu.com/travel-resources/travel-document-generator" },
+      { "@type": "HowToStep", position: 4, name: "Collect supporting documents", text: "Gather academic transcripts, reference letters, passport copy, bank statements, and any scholarship-specific forms. Use our Visa Checklist Generator for a complete list.", url: "https://eammu.com/travel-resources/visa-checklist-generator" },
+      { "@type": "HowToStep", position: 5, name: "Submit application before deadline", text: "Apply directly through the official scholarship portal before the stated deadline. Have Eammu Holidays review your application package before submission.", url: "https://eammu.com/contact" },
+      { "@type": "HowToStep", position: 6, name: "Apply for student visa after confirmation", text: "Once scholarship is confirmed, apply for your student visa. Eammu Holidays handles the complete student visa process from Bangladesh.", url: "https://eammu.com/our-services/visa-services/student-visa-from-bangladesh" },
     ],
   };
 

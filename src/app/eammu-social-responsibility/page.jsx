@@ -1,7 +1,7 @@
 import EammuSocialResponsibility from '@/Components/Client/eammuGroupClient/EammuSocialResponsibility/EammuSocialResponsibility'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Eammu Social Responsibility | Community Support, Charity & Sustainable Impact",
@@ -23,7 +23,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/eammu-social-responsibility",
+    canonical: "https://eammu.com/eammu-social-responsibility",
   },
 
   robots: {
@@ -43,7 +43,7 @@ export const metadata = {
     description:
       "Learn about Eammu’s commitment to social responsibility, including education support, charity programs, and sustainable development initiatives.",
 
-    url: "https://www.eammu.com/eammu-social-responsibility",
+    url: "https://eammu.com/eammu-social-responsibility",
 
     siteName: "Eammu Holidays",
 

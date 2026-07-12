@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
   title: { default: "SOP Sample for Student Visa 2026 | Statement of Purpose Guide | Eammu Holidays" },
   description:
     "How to write an SOP (Statement of Purpose) for a student visa from Bangladesh. 2026 guide with sample SOP for Canada, UK, USA, Schengen, Australia student visas — structure, key points, and common mistakes by Eammu Holidays.",
@@ -22,17 +22,17 @@ export const metadata = {
     "sop for schengen student visa",
     "sop writing tips student visa",
   ],
-  alternates: { canonical: "https://www.eammu.com/sop-sample-for-student-visa" },
+  alternates: { canonical: "https://eammu.com/sop-sample-for-student-visa" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/sop-sample-for-student-visa",
+    url: "https://eammu.com/sop-sample-for-student-visa",
     siteName: "Eammu Holidays",
     title: "SOP Sample for Student Visa 2026 | Statement of Purpose Guide | Eammu Holidays",
     description: "Complete guide to writing an SOP (Statement of Purpose) for a student visa from Bangladesh — with structure, sample, and tips for Canada, UK, Australia, and USA.",
-    images: [{ url: "https://www.eammu.com/preview-banner.webp", width: 1200, height: 630, alt: "SOP for Student Visa — Eammu Holidays" }],
+    images: [{ url: "https://eammu.com/preview-banner.webp", width: 1200, height: 630, alt: "SOP for Student Visa — Eammu Holidays" }],
   },
-  twitter: { card: "summary_large_image", site: "@eammuholidays", title: "SOP Sample for Student Visa 2026 | Eammu Holidays", images: ["https://www.eammu.com/preview-banner.webp"] },
+  twitter: { card: "summary_large_image", site: "@eammuholidays", title: "SOP Sample for Student Visa 2026 | Eammu Holidays", images: ["https://eammu.com/preview-banner.webp"] },
   icons: { icon: "/emf.jpg", shortcut: "/emf.jpg", apple: "/emf.jpg" },
   category: "travel",
 };
@@ -42,22 +42,22 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/sop-sample-for-student-visa#article",
+      "@id": "https://eammu.com/sop-sample-for-student-visa#article",
       headline: "SOP (Statement of Purpose) for Student Visa — 2026 Guide and Sample for Bangladesh Applicants",
       description: "How to write an SOP for a student visa from Bangladesh, with structure guide, sample paragraphs, and tips for Canada, UK, USA, Australia, and Schengen applications.",
-      image: "https://www.eammu.com/preview-banner.webp",
-      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://www.eammu.com" },
-      publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
+      image: "https://eammu.com/preview-banner.webp",
+      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://eammu.com" },
+      publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/sop-sample-for-student-visa",
+      mainEntityOfPage: "https://eammu.com/sop-sample-for-student-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-        { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "SOP Sample for Student Visa", item: "https://www.eammu.com/sop-sample-for-student-visa" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+        { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://eammu.com/travel-resources" },
+        { "@type": "ListItem", position: 3, name: "SOP Sample for Student Visa", item: "https://eammu.com/sop-sample-for-student-visa" },
       ],
     },
   ],
@@ -87,7 +87,7 @@ export default function SOPSampleStudentVisaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div className="sr-only" aria-hidden="true">
         <h1>SOP Sample for Student Visa 2026 — Statement of Purpose Guide Bangladesh | Eammu Holidays</h1>
-        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/sop-sample-for-student-visa">SOP for Student Visa</a></li></ol></nav>
+        <nav aria-label="Breadcrumb"><ol><li><a href="https://eammu.com">Home</a></li><li><a href="https://eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://eammu.com/sop-sample-for-student-visa">SOP for Student Visa</a></li></ol></nav>
       </div>
 
       <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">

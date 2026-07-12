@@ -1,7 +1,7 @@
 import EammuTextile from '@/Components/Client/eammuGroupClient/EammuTextile/EammuTextile'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Eammu Textile Bangladesh | Garments Manufacturing, Export & Supply Chain",
@@ -23,7 +23,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/eammu-textile-bangladesh",
+    canonical: "https://eammu.com/eammu-textile-bangladesh",
   },
 
   robots: {
@@ -43,7 +43,7 @@ export const metadata = {
     description:
       "High-quality textile and garments production by Eammu Textile Bangladesh. Export-ready apparel manufacturing with strong quality control and global standards.",
 
-    url: "https://www.eammu.com/eammu-textile-bangladesh",
+    url: "https://eammu.com/eammu-textile-bangladesh",
 
     siteName: "Eammu Holidays",
 

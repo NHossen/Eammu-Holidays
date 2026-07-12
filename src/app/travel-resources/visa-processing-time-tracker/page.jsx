@@ -9,7 +9,7 @@ export const revalidate    = 86400;  // cache each page 24h
 // METADATA
 // ─────────────────────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -58,7 +58,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/travel-resources/visa-processing-time-tracker",
+    canonical: "https://eammu.com/travel-resources/visa-processing-time-tracker",
   },
 
   robots: {
@@ -75,7 +75,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/travel-resources/visa-processing-time-tracker",
+    url: "https://eammu.com/travel-resources/visa-processing-time-tracker",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -111,10 +111,10 @@ export const metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  "@id": "https://www.eammu.com/#organization",
+  "@id": "https://eammu.com/#organization",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
-  logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" },
+  url: "https://eammu.com",
+  logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
   description:
     "Bangladesh's leading tourist visa consultancy with offices in Cumilla and Dubai. Expert visa processing time guidance for 200+ countries.",
   aggregateRating: {
@@ -128,8 +128,8 @@ const organizationSchema = {
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://www.eammu.com/travel-resources/visa-processing-time-tracker/#webpage",
-  url: "https://www.eammu.com/travel-resources/visa-processing-time-tracker",
+  "@id": "https://eammu.com/travel-resources/visa-processing-time-tracker/#webpage",
+  url: "https://eammu.com/travel-resources/visa-processing-time-tracker",
   name: "Visa Processing Time Tracker 2026 — Check Wait Times by Country & Visa Type",
   description:
     "Real-time visa processing times for 200+ countries by nationality, destination, and visa type.",
@@ -137,15 +137,15 @@ const webPageSchema = {
   dateModified: new Date().toISOString().split("T")[0],
   isPartOf: {
     "@type": "WebSite",
-    "@id": "https://www.eammu.com/#website",
+    "@id": "https://eammu.com/#website",
     name: "Eammu Holidays",
-    url: "https://www.eammu.com",
+    url: "https://eammu.com",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
         urlTemplate:
-          "https://www.eammu.com/travel-resources/visa-processing-time-tracker?nationality={search_term_string}",
+          "https://eammu.com/travel-resources/visa-processing-time-tracker?nationality={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
@@ -160,18 +160,18 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home",             item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-    { "@type": "ListItem", position: 3, name: "Visa Processing Time Tracker 2026", item: "https://www.eammu.com/travel-resources/visa-processing-time-tracker" },
+    { "@type": "ListItem", position: 1, name: "Home",             item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://eammu.com/travel-resources" },
+    { "@type": "ListItem", position: 3, name: "Visa Processing Time Tracker 2026", item: "https://eammu.com/travel-resources/visa-processing-time-tracker" },
   ],
 };
 
 const softwareAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "@id": "https://www.eammu.com/travel-resources/visa-processing-time-tracker/#app",
+  "@id": "https://eammu.com/travel-resources/visa-processing-time-tracker/#app",
   name: "Visa Processing Time Tracker",
-  url: "https://www.eammu.com/travel-resources/visa-processing-time-tracker",
+  url: "https://eammu.com/travel-resources/visa-processing-time-tracker",
   applicationCategory: "TravelApplication",
   operatingSystem: "Web",
   description:
@@ -183,7 +183,7 @@ const softwareAppSchema = {
     reviewCount: "2847",
     bestRating: "5",
   },
-  provider: { "@id": "https://www.eammu.com/#organization" },
+  provider: { "@id": "https://eammu.com/#organization" },
   featureList: [
     "Check e-visa processing times by nationality",
     "Check sticker visa processing times",
@@ -282,7 +282,7 @@ const howToSchema = {
   description:
     "Step-by-step guide to checking visa processing time by nationality, destination, and visa type.",
   step: [
-    { "@type": "HowToStep", position: 1, name: "Select your nationality", text: "Choose your passport nationality from the dropdown. Processing times vary significantly by nationality due to bilateral visa agreements and embassy workload.", url: "https://www.eammu.com/travel-resources/visa-processing-time-tracker" },
+    { "@type": "HowToStep", position: 1, name: "Select your nationality", text: "Choose your passport nationality from the dropdown. Processing times vary significantly by nationality due to bilateral visa agreements and embassy workload.", url: "https://eammu.com/travel-resources/visa-processing-time-tracker" },
     { "@type": "HowToStep", position: 2, name: "Choose your destination country", text: "Select the country you want to visit. Each country has different embassy processing speeds, seasonal backlogs, and VFS Global wait times." },
     { "@type": "HowToStep", position: 3, name: "Select your visa type", text: "Choose from e-visa, sticker visa, transit visa, or sticker-extended. Each type has dramatically different processing times — e-visa is fastest (2–4 days), sticker visa slowest (15–21 days)." },
     { "@type": "HowToStep", position: 4, name: "View your processing time estimate", text: "Get a real-time estimate based on current embassy data, VFS backlogs, and seasonal demand. The tracker shows standard, priority, and peak-season processing times." },
@@ -296,8 +296,8 @@ const datasetSchema = {
   name: "Visa Processing Times 2026 — Global Database",
   description:
     "Comprehensive database of visa processing times for 200+ destination countries across 180+ nationalities, covering e-visa, sticker, transit, and extended-stay visa types. Updated weekly from official embassy and VFS Global sources.",
-  url: "https://www.eammu.com/travel-resources/visa-processing-time-tracker",
-  creator: { "@id": "https://www.eammu.com/#organization" },
+  url: "https://eammu.com/travel-resources/visa-processing-time-tracker",
+  creator: { "@id": "https://eammu.com/#organization" },
   dateModified: new Date().toISOString().split("T")[0],
   keywords: [
     "visa processing time", "visa wait time", "embassy processing time",
@@ -305,7 +305,7 @@ const datasetSchema = {
     "transit visa processing", "Schengen processing time", "UK visa processing",
     "USA visa processing", "Canada visa processing", "Japan visa processing",
   ],
-  license: "https://www.eammu.com/terms-privacy-policy",
+  license: "https://eammu.com/terms-privacy-policy",
   temporalCoverage: "2026",
   spatialCoverage: "Worldwide",
 };

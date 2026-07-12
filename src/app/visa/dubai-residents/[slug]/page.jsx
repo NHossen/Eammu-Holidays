@@ -39,7 +39,7 @@ const RELATED_VISA_LINKS = {
   americas: ["United States", "Canada", "Brazil", "Mexico", "Argentina"],
 };
 
-const BASE_URL = "https://www.eammu.com";
+const BASE_URL = "https://eammu.com";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SEO METADATA

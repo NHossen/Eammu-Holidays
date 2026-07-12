@@ -1,7 +1,7 @@
 import ChinaVisa from '@/Components/Server/VisaCountry/ChinaVisa/ChinaVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "China Visa Requirements, Fees, and Application | Tourist, Business & Student Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/china-visa-application",
+      "https://eammu.com/our-services/visa/china-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional China visa support for Bangladeshi applicants. Tourist, business, and student visa guidance with documents, fees, and appointment support.",
 
     url:
-      "https://www.eammu.com/our-services/visa/china-visa-application",
+      "https://eammu.com/our-services/visa/china-visa-application",
 
     siteName: "Eammu Holidays",
 

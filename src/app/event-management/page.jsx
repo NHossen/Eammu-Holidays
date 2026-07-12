@@ -1,7 +1,7 @@
 import EammuEvent from '@/Components/Client/eammuGroupClient/EammuEvent/EammuEvent'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Event Management Services | Corporate, Wedding & Private Event Planning",
@@ -23,7 +23,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/event-management",
+    canonical: "https://eammu.com/event-management",
   },
 
   robots: {
@@ -44,7 +44,7 @@ export const metadata = {
     description:
       "Complete event planning and management solutions for corporate events, weddings, and private functions with professional execution.",
 
-    url: "https://www.eammu.com/event-management",
+    url: "https://eammu.com/event-management",
 
     siteName: "Eammu Holidays",
 

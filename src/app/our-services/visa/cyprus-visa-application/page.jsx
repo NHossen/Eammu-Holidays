@@ -1,7 +1,7 @@
 import CyprusVisa from '@/Components/Server/VisaCountry/CyprusVisa/CyprusVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Cyprus Visa Requirements, Fees, and Application | Tourist, Student & Work Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/cyprus-visa-application",
+      "https://eammu.com/our-services/visa/cyprus-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Cyprus visa support for Bangladeshi applicants. Tourist, student, and work visa guidance with fees, documents, and application support.",
 
     url:
-      "https://www.eammu.com/our-services/visa/cyprus-visa-application",
+      "https://eammu.com/our-services/visa/cyprus-visa-application",
 
     siteName: "Eammu Holidays",
 

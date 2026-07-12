@@ -8,7 +8,7 @@ import React from 'react';
 ───────────────────────────────────────────────────────────────────────────── */
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Target IELTS & Immigration Center (TIIC) Cumilla | Best IELTS Coaching, PTE & Study Abroad — Eammu Holidays",
@@ -61,7 +61,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/target-ielts-immigration-center",
+    canonical: "https://eammu.com/target-ielts-immigration-center",
   },
 
   robots: {
@@ -78,7 +78,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/target-ielts-immigration-center",
+    url: "https://eammu.com/target-ielts-immigration-center",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -114,12 +114,12 @@ const jsonLd = {
   "@graph": [
     {
       "@type": ["EducationalOrganization", "LocalBusiness"],
-      "@id": "https://www.eammu.com/target-ielts-immigration-center#tiic",
+      "@id": "https://eammu.com/target-ielts-immigration-center#tiic",
       "name": "Target IELTS & Immigration Center (TIIC)",
       "alternateName": "TIIC Cumilla",
       "description":
         "Target IELTS & Immigration Center (TIIC) is Cumilla's most trusted IELTS Academic & General Training, PTE Academic, and Study Abroad consultancy, operating under Eammu Holidays at Gomoti Tower, Cumilla Cantonment, Bangladesh.",
-      "url": "https://www.eammu.com/target-ielts-immigration-center",
+      "url": "https://eammu.com/target-ielts-immigration-center",
       "telephone": "+8801701699743",
       "email": "info@eammu.com",
       "address": {
@@ -145,7 +145,7 @@ const jsonLd = {
       "parentOrganization": {
         "@type": "Organization",
         "name": "Eammu Holidays",
-        "url": "https://www.eammu.com",
+        "url": "https://eammu.com",
       },
       "hasMap": "https://maps.google.com/?q=Gomoti+Tower+Cumilla+Cantonment",
       "priceRange": "৳৳",
@@ -153,7 +153,7 @@ const jsonLd = {
       "paymentAccepted": "Cash, bKash, Nagad, Bank Transfer",
       "areaServed": { "@type": "City", "name": "Cumilla" },
       "knowsLanguage": ["bn", "en"],
-      "image": "https://www.eammu.com/preview-banner.webp",
+      "image": "https://eammu.com/preview-banner.webp",
       "sameAs": [
         "https://wa.me/8801701699743",
         "https://www.facebook.com/eammuholidays",
@@ -170,8 +170,8 @@ const jsonLd = {
       "@type": "Course",
       "name": "IELTS Academic & General Training",
       "description": "Comprehensive IELTS preparation covering Listening, Reading, Writing, and Speaking. British Council exam pattern, weekly full mock tests, Band 8+ strategy, and personalised feedback.",
-      "provider": { "@id": "https://www.eammu.com/target-ielts-immigration-center#tiic" },
-      "url": "https://www.eammu.com/target-ielts-immigration-center",
+      "provider": { "@id": "https://eammu.com/target-ielts-immigration-center#tiic" },
+      "url": "https://eammu.com/target-ielts-immigration-center",
       "courseLanguage": "Bengali",
       "educationalLevel": "Advanced",
       "hasCourseInstance": {
@@ -188,8 +188,8 @@ const jsonLd = {
       "@type": "Course",
       "name": "PTE Academic Training",
       "description": "AI-based PTE Academic preparation with real exam environment, scoring techniques, and 30-day fast-track programme.",
-      "provider": { "@id": "https://www.eammu.com/target-ielts-immigration-center#tiic" },
-      "url": "https://www.eammu.com/target-ielts-immigration-center",
+      "provider": { "@id": "https://eammu.com/target-ielts-immigration-center#tiic" },
+      "url": "https://eammu.com/target-ielts-immigration-center",
     },
     // FAQPage
     {
@@ -249,8 +249,8 @@ const jsonLd = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://www.eammu.com" },
-        { "@type": "ListItem", "position": 2, "name": "TIIC — IELTS & Immigration Center", "item": "https://www.eammu.com/target-ielts-immigration-center" },
+        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://eammu.com" },
+        { "@type": "ListItem", "position": 2, "name": "TIIC — IELTS & Immigration Center", "item": "https://eammu.com/target-ielts-immigration-center" },
       ],
     },
   ],

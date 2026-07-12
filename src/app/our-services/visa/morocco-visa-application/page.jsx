@@ -1,7 +1,7 @@
 import MoroccoVisa from '@/Components/Server/VisaCountry/MoroccoVisa/MoroccoVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Morocco Visa Requirements, Fees, and Application | Tourist & Visit Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/morocco-visa-application",
+      "https://eammu.com/our-services/visa/morocco-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Morocco visa support for Bangladeshi travelers. Tourist and visit visa guidance with documents, fees, and application assistance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/morocco-visa-application",
+      "https://eammu.com/our-services/visa/morocco-visa-application",
 
     siteName: "Eammu Holidays",
 

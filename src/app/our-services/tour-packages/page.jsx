@@ -2,7 +2,7 @@ import TourPackages from '@/Components/Client/tour-packages/tour-packages'
 import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -27,7 +27,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/tour-packages",
+      "https://eammu.com/our-services/tour-packages",
   },
 
   robots: {
@@ -43,7 +43,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/our-services/tour-packages",
+    url: "https://eammu.com/our-services/tour-packages",
     siteName: "Eammu Holidays",
 
     title:
@@ -85,7 +85,7 @@ export default function page() {
       "@context": "https://schema.org",
       "@type": "OfferCatalog",
       name: "Tour Packages by Eammu Holidays",
-      url: "https://www.eammu.com/our-services/tour-packages",
+      url: "https://eammu.com/our-services/tour-packages",
       itemListElement: [
         {
           "@type": "Offer",

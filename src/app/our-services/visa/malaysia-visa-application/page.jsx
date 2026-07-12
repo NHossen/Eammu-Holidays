@@ -1,7 +1,7 @@
 import MalaysiaVisa from '@/Components/Server/VisaCountry/MalaysiaVisa/MalaysiaVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Malaysia Visa Requirements, Fees, and Application | Tourist, Work & Student Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/malaysia-visa-application",
+      "https://eammu.com/our-services/visa/malaysia-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Malaysia visa support for Bangladeshi travelers. Tourist, work, and student visa guidance with documents, fees, and eVisa processing help.",
 
     url:
-      "https://www.eammu.com/our-services/visa/malaysia-visa-application",
+      "https://eammu.com/our-services/visa/malaysia-visa-application",
 
     siteName: "Eammu Holidays",
 

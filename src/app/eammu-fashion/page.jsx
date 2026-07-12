@@ -1,7 +1,7 @@
 import EammuFashion from '@/Components/Client/eammuGroupClient/EammuFashion/EammuFashion'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Eammu: Premium Fashion Brand in Bangladesh",
@@ -23,7 +23,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/eammu-fashion",
+    canonical: "https://eammu.com/eammu-fashion",
   },
 
   robots: {
@@ -43,7 +43,7 @@ export const metadata = {
     description:
       "Explore stylish and modern fashion collections from Eammu Fashion. Premium quality clothing designed for comfort, style, and everyday lifestyle.",
 
-    url: "https://www.eammu.com/eammu-fashion",
+    url: "https://eammu.com/eammu-fashion",
 
     siteName: "Eammu Holidays",
 

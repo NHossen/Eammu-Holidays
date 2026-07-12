@@ -13,7 +13,7 @@ import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -56,9 +56,9 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/news-feeds",
+    canonical: "https://eammu.com/news-feeds",
     languages: {
-      "en-US": "https://www.eammu.com/news-feeds",
+      "en-US": "https://eammu.com/news-feeds",
     },
   },
 
@@ -76,7 +76,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/news-feeds",
+    url: "https://eammu.com/news-feeds",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -117,15 +117,15 @@ const newsMediaSchema = {
   "@context": "https://schema.org",
   "@type": "NewsMediaOrganization",
   name: "Eammu Holidays Newsfeeds",
-  url: "https://www.eammu.com/news-feeds",
-  logo: "https://www.eammu.com/emf.jpg",
+  url: "https://eammu.com/news-feeds",
+  logo: "https://eammu.com/emf.jpg",
   description:
     "Daily travel news, visa policy updates, immigration alerts, and scholarship announcements for Bangladeshi travellers — powered by Eammu Holidays.",
-  publishingPrinciples: "https://www.eammu.com/about",
+  publishingPrinciples: "https://eammu.com/about",
   parentOrganization: {
     "@type": "TravelAgency",
     name: "Eammu Holidays",
-    url: "https://www.eammu.com",
+    url: "https://eammu.com",
   },
 };
 
@@ -133,8 +133,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "News Feeds", item: "https://www.eammu.com/news-feeds" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "News Feeds", item: "https://eammu.com/news-feeds" },
   ],
 };
 
@@ -142,19 +142,19 @@ const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Latest Travel News & Visa Updates 2026 | Eammu Holidays",
-  url: "https://www.eammu.com/news-feeds",
+  url: "https://eammu.com/news-feeds",
   description:
     "Stay updated with the latest visa policy changes, immigration news, embassy alerts, scholarship announcements, and travel insights from Bangladesh's most trusted travel agency.",
   publisher: {
     "@type": "Organization",
     name: "Eammu Holidays",
-    logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" },
+    logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
   },
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-      { "@type": "ListItem", position: 2, name: "News Feeds", item: "https://www.eammu.com/news-feeds" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+      { "@type": "ListItem", position: 2, name: "News Feeds", item: "https://eammu.com/news-feeds" },
     ],
   },
 };
@@ -287,8 +287,8 @@ const EammuNewsfeeds = () => {
         </p>
         <nav aria-label="Breadcrumb">
           <ol>
-            <li><a href="https://www.eammu.com">Home</a></li>
-            <li><a href="https://www.eammu.com/news-feeds">News Feeds</a></li>
+            <li><a href="https://eammu.com">Home</a></li>
+            <li><a href="https://eammu.com/news-feeds">News Feeds</a></li>
           </ol>
         </nav>
       </div>

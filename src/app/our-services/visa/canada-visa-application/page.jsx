@@ -1,7 +1,7 @@
 import CanadaVisa from '@/Components/Server/VisaCountry/CanadaVisa/CanadaVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Canada Visa Requirements, Fees, and Application | Tourist, Student & Work Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/canada-visa-application",
+      "https://eammu.com/our-services/visa/canada-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Canada visa support for Bangladeshi applicants. Tourist visa, student visa, work permit guidance, fees, and document assistance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/canada-visa-application",
+      "https://eammu.com/our-services/visa/canada-visa-application",
 
     siteName: "Eammu Holidays",
 

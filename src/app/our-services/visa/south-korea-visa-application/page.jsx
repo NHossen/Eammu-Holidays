@@ -1,7 +1,7 @@
 import SouthKoreaVisa from '@/Components/Server/VisaCountry/SouthKoreaVisa/SouthKoreaVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "South Korea Visa Requirements, Fees, and Application | Tourist, Business & Student Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/south-korea-visa-application",
+      "https://eammu.com/our-services/visa/south-korea-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional South Korea visa support for Bangladeshi travelers. Tourist, business, and student visa guidance with documents, fees, and application assistance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/south-korea-visa-application",
+      "https://eammu.com/our-services/visa/south-korea-visa-application",
 
     siteName: "Eammu Holidays",
 

@@ -1,7 +1,7 @@
 import IndiaVisa from '@/Components/Server/VisaCountry/IndiaVisa/IndiaVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "India Visa Requirements, Fees, and Application | Tourist, Medical & Business Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/india-visa-application",
+      "https://eammu.com/our-services/visa/india-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional India visa support for Bangladeshi travelers. Tourist, medical, and business visa guidance with documents, fees, and application assistance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/india-visa-application",
+      "https://eammu.com/our-services/visa/india-visa-application",
 
     siteName: "Eammu Holidays",
 

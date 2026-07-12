@@ -1,7 +1,7 @@
 import IndonesiaVisa from '@/Components/Server/VisaCountry/IndonesiaVisa/IndonesiaVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Indonesia Visa Requirements for Bangladeshis | Tourist & Business Visa Fees",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/indonesia-visa-application",
+      "https://eammu.com/our-services/visa/indonesia-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Planning a trip to Bali or Jakarta? Get expert support for your Indonesia visa application from Bangladesh. Reliable guidance on documents and e-visa fees.",
 
     url:
-      "https://www.eammu.com/our-services/visa/indonesia-visa-application",
+      "https://eammu.com/our-services/visa/indonesia-visa-application",
 
     siteName: "Eammu Holidays",
 

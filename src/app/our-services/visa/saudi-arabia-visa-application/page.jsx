@@ -1,7 +1,7 @@
 import SaudiArabiaVisa from '@/Components/Server/VisaCountry/SaudiArabiaVisa/SaudiArabiaVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Saudi Arabia Visa Requirements, Fees, and Application | Tourist, Work & Umrah Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/saudi-arabia-visa-application",
+      "https://eammu.com/our-services/visa/saudi-arabia-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Saudi Arabia visa support for Bangladeshi travelers. Tourist, work, visit, and Umrah visa guidance with documents, fees, and sponsorship assistance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/saudi-arabia-visa-application",
+      "https://eammu.com/our-services/visa/saudi-arabia-visa-application",
 
     siteName: "Eammu Holidays",
 

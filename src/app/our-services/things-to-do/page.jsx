@@ -3,7 +3,7 @@ import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react'
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -28,7 +28,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/things-to-do",
+      "https://eammu.com/our-services/things-to-do",
   },
 
   robots: {
@@ -44,7 +44,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/our-services/things-to-do",
+    url: "https://eammu.com/our-services/things-to-do",
     siteName: "Eammu Holidays",
 
     title:

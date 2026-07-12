@@ -7,7 +7,7 @@ import React from "react";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -33,7 +33,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/best-time-to-apply-schengen-visa",
+    canonical: "https://eammu.com/best-time-to-apply-schengen-visa",
   },
 
   robots: {
@@ -50,7 +50,7 @@ export const metadata = {
 
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/best-time-to-apply-schengen-visa",
+    url: "https://eammu.com/best-time-to-apply-schengen-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Best Time to Apply for Schengen Visa 2026 | Eammu Holidays",
@@ -58,7 +58,7 @@ export const metadata = {
       "When should Bangladeshi applicants apply for a Schengen visa to avoid peak-season delays? Full 2026 timing guide from Eammu Holidays.",
     images: [
       {
-        url: "https://www.eammu.com/preview-banner.webp",
+        url: "https://eammu.com/preview-banner.webp",
         width: 1200,
         height: 630,
         alt: "Best Time to Apply for Schengen Visa — Eammu Holidays",
@@ -72,7 +72,7 @@ export const metadata = {
     site: "@eammuholidays",
     title: "Best Time to Apply for Schengen Visa 2026 | Eammu Holidays",
     description: "Avoid peak-season Schengen visa delays — when to apply from Bangladesh in 2026.",
-    images: ["https://www.eammu.com/preview-banner.webp"],
+    images: ["https://eammu.com/preview-banner.webp"],
   },
 
   icons: {
@@ -90,27 +90,27 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/best-time-to-apply-schengen-visa#article",
+      "@id": "https://eammu.com/best-time-to-apply-schengen-visa#article",
       headline: "Best Time to Apply for Schengen Visa 2026 — Avoid Peak Season Delays",
       description:
         "A timing guide for Bangladeshi applicants on when to apply for a Schengen visa to avoid appointment delays during peak travel seasons.",
-      image: "https://www.eammu.com/preview-banner.webp",
-      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://www.eammu.com" },
+      image: "https://eammu.com/preview-banner.webp",
+      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://eammu.com" },
       publisher: {
         "@type": "Organization",
         name: "Eammu Holidays",
-        logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" },
+        logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
       },
       datePublished: "2026-01-20",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/best-time-to-apply-schengen-visa",
+      mainEntityOfPage: "https://eammu.com/best-time-to-apply-schengen-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-        { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://www.eammu.com/visa" },
-        { "@type": "ListItem", position: 3, name: "Best Time to Apply for Schengen Visa", item: "https://www.eammu.com/best-time-to-apply-schengen-visa" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+        { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://eammu.com/visa" },
+        { "@type": "ListItem", position: 3, name: "Best Time to Apply for Schengen Visa", item: "https://eammu.com/best-time-to-apply-schengen-visa" },
       ],
     },
     {
@@ -193,9 +193,9 @@ export default function BestTimeSchengenVisaPage() {
         </p>
         <nav aria-label="Breadcrumb">
           <ol>
-            <li><a href="https://www.eammu.com">Home</a></li>
-            <li><a href="https://www.eammu.com/visa">Visa Services</a></li>
-            <li><a href="https://www.eammu.com/best-time-to-apply-schengen-visa">Best Time to Apply for Schengen Visa</a></li>
+            <li><a href="https://eammu.com">Home</a></li>
+            <li><a href="https://eammu.com/visa">Visa Services</a></li>
+            <li><a href="https://eammu.com/best-time-to-apply-schengen-visa">Best Time to Apply for Schengen Visa</a></li>
           </ol>
         </nav>
       </div>

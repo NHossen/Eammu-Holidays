@@ -65,7 +65,7 @@ const HomeSeoLinks = dynamic(
 );
 
 
-const BASE_URL = "https://www.eammu.com";
+const BASE_URL = "https://eammu.com";
 
 // ── HOME PAGE SEO METADATA ────────────────────────────────────────────────────
 export const metadata = {

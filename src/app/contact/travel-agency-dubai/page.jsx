@@ -9,7 +9,7 @@ import React from 'react';
 ───────────────────────────────────────────────────────────────────────────── */
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Travel Agency in Dubai,United Arab Emirates | Eammu Holidays",
@@ -63,7 +63,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/contact/travel-agency-dubai",
+    canonical: "https://eammu.com/contact/travel-agency-dubai",
   },
 
   robots: {
@@ -80,7 +80,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/contact/travel-agency-dubai",
+    url: "https://eammu.com/contact/travel-agency-dubai",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -116,12 +116,12 @@ const jsonLd = {
   "@graph": [
     {
       "@type": ["LocalBusiness", "TravelAgency"],
-      "@id": "https://www.eammu.com/contact/travel-agency-dubai#business",
+      "@id": "https://eammu.com/contact/travel-agency-dubai#business",
       "name": "Eammu Holidays — Business Bay Dubai",
       "alternateName": "Eammu Holidays Dubai",
       "description":
         "Eammu Holidays Dubai is a DED-licensed travel agency and visa consultancy located at Office 12B, Executive Tower, Business Bay, Dubai, UAE. We specialise in UAE Golden Visa, Dubai resident visas for Albania, Andorra, Armenia, Serbia, Kosovo and 50+ countries, Schengen, UK, USA, Canada, India visa processing, desert safari tours, and luxury holiday packages.",
-      "url": "https://www.eammu.com/contact/travel-agency-dubai",
+      "url": "https://eammu.com/contact/travel-agency-dubai",
       "telephone": "+971507078334",
       "email": "dubai@eammu.com",
       "address": {
@@ -177,7 +177,7 @@ const jsonLd = {
         "https://wa.me/971507078334",
         "https://www.facebook.com/eammuholidays",
       ],
-      "image": "https://www.eammu.com/preview-banner.webp",
+      "image": "https://eammu.com/preview-banner.webp",
     },
     {
       "@type": "FAQPage",
@@ -235,9 +235,9 @@ const jsonLd = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://www.eammu.com" },
-        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.eammu.com/contact" },
-        { "@type": "ListItem", "position": 3, "name": "Travel Agency Dubai", "item": "https://www.eammu.com/contact/travel-agency-dubai" },
+        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://eammu.com" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://eammu.com/contact" },
+        { "@type": "ListItem", "position": 3, "name": "Travel Agency Dubai", "item": "https://eammu.com/contact/travel-agency-dubai" },
       ],
     },
   ],

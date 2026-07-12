@@ -7,7 +7,7 @@ import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 // SEO METADATA
 // ─────────────────────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -61,7 +61,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/visa/dubai-residents",
+    canonical: "https://eammu.com/visa/dubai-residents",
   },
 
   robots: {
@@ -78,7 +78,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/visa/dubai-residents",
+    url: "https://eammu.com/visa/dubai-residents",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -422,10 +422,10 @@ const SEO_LINKS = [
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  "@id": "https://www.eammu.com/#organization",
+  "@id": "https://eammu.com/#organization",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
-  logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" },
+  url: "https://eammu.com",
+  logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
   description:
     "Dubai's trusted tourist visa consultancy for UAE residents. 98% approval rate. Expert help for USA, UK, Schengen, Canada, Japan & 200+ countries.",
   areaServed: ["AE", "BD", "Worldwide"],
@@ -454,22 +454,22 @@ const organizationSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://www.eammu.com/visa/dubai-residents/#service",
+  "@id": "https://eammu.com/visa/dubai-residents/#service",
   serviceType: "Tourist Visa Consultancy for Dubai Residents",
   name: "Tourist Visa for Dubai & UAE Residents — Expert Visa Consultancy",
   description:
     "Professional tourist visa consultancy for Dubai and UAE residents. We prepare embassy-accurate documentation for USA B1/B2, UK Standard Visitor, Canada TRV, Schengen, Japan, Australia & 200+ destinations with a 98% approval rate.",
-  provider: { "@id": "https://www.eammu.com/#organization" },
+  provider: { "@id": "https://eammu.com/#organization" },
   areaServed: { "@type": "City", name: "Dubai", containedInPlace: { "@type": "Country", name: "United Arab Emirates" } },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Visa Services for Dubai Residents",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "USA B1/B2 Visa for Dubai Residents", url: "https://www.eammu.com/visa/dubai-residents/united-states" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "UK Standard Visitor Visa from Dubai", url: "https://www.eammu.com/visa/dubai-residents/united-kingdom" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Schengen Visa for UAE Residents", url: "https://www.eammu.com/schengen-visa" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Canada TRV from Dubai", url: "https://www.eammu.com/visa/dubai-residents/canada" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Japan Tourist Visa from Dubai", url: "https://www.eammu.com/visa/dubai-residents/japan" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "USA B1/B2 Visa for Dubai Residents", url: "https://eammu.com/visa/dubai-residents/united-states" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "UK Standard Visitor Visa from Dubai", url: "https://eammu.com/visa/dubai-residents/united-kingdom" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Schengen Visa for UAE Residents", url: "https://eammu.com/schengen-visa" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Canada TRV from Dubai", url: "https://eammu.com/visa/dubai-residents/canada" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Japan Tourist Visa from Dubai", url: "https://eammu.com/visa/dubai-residents/japan" } },
     ],
   },
 };
@@ -478,22 +478,22 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home",          item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://www.eammu.com/visa" },
-    { "@type": "ListItem", position: 3, name: "Dubai Residents Visa Guide 2026", item: "https://www.eammu.com/visa/dubai-residents" },
+    { "@type": "ListItem", position: 1, name: "Home",          item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://eammu.com/visa" },
+    { "@type": "ListItem", position: 3, name: "Dubai Residents Visa Guide 2026", item: "https://eammu.com/visa/dubai-residents" },
   ],
 };
 
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://www.eammu.com/visa/dubai-residents/#webpage",
-  url: "https://www.eammu.com/visa/dubai-residents",
+  "@id": "https://eammu.com/visa/dubai-residents/#webpage",
+  url: "https://eammu.com/visa/dubai-residents",
   name: "Tourist Visa for Dubai Residents 2026 — 200+ Countries | Eammu Holidays",
   description: "Expert tourist visa consultancy for Dubai and UAE residents. 98% approval rate. 200+ countries covered.",
   inLanguage: "en-US",
   dateModified: new Date().toISOString().split("T")[0],
-  breadcrumb: { "@id": "https://www.eammu.com/visa/dubai-residents/#breadcrumb" },
+  breadcrumb: { "@id": "https://eammu.com/visa/dubai-residents/#breadcrumb" },
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: ["#hero-heading", "#why-heading", "#faq-heading", "#top-dest-heading"],
@@ -553,8 +553,8 @@ const howToSchema = {
   name: "How to Apply for a Tourist Visa from Dubai with Eammu Holidays",
   description: "Step-by-step process for Dubai and UAE residents to apply for a tourist visa through Eammu Holidays visa consultancy.",
   step: [
-    { "@type": "HowToStep", position: 1, name: "Choose your destination", text: "Browse 200+ tourist visa guides for Dubai residents at eammu.com/visa/dubai-residents.", url: "https://www.eammu.com/visa/dubai-residents" },
-    { "@type": "HowToStep", position: 2, name: "Generate your free visa checklist", text: "Use our free checklist generator for a destination-specific document list for UAE residents.", url: "https://www.eammu.com/travel-resources/visa-checklist-generator" },
+    { "@type": "HowToStep", position: 1, name: "Choose your destination", text: "Browse 200+ tourist visa guides for Dubai residents at eammu.com/visa/dubai-residents.", url: "https://eammu.com/visa/dubai-residents" },
+    { "@type": "HowToStep", position: 2, name: "Generate your free visa checklist", text: "Use our free checklist generator for a destination-specific document list for UAE residents.", url: "https://eammu.com/travel-resources/visa-checklist-generator" },
     { "@type": "HowToStep", position: 3, name: "24-hr document review", text: "Submit your UAE bank statements, Dubai NOC, and cover letter for expert review." },
     { "@type": "HowToStep", position: 4, name: "VFS / Consulate submission in Dubai", text: "We guide you through VFS Global UAE appointment booking and submission." },
     { "@type": "HowToStep", position: 5, name: "Collect your visa", text: "Collect your approved visa from VFS Global UAE or the relevant consulate in Dubai or Abu Dhabi." },
@@ -564,11 +564,11 @@ const howToSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://www.eammu.com/contact/travel-agency-dubai/",
+  "@id": "https://eammu.com/contact/travel-agency-dubai/",
   name: "Eammu Holidays — Dubai Branch",
   description: "Dubai's leading tourist visa consultancy for UAE residents and expats. Expert help for USA, UK, Schengen, Canada & 200+ countries.",
-  url: "https://www.eammu.com/contact/travel-agency-dubai",
-  image: "https://www.eammu.com/eammu_banner_four.webp",
+  url: "https://eammu.com/contact/travel-agency-dubai",
+  image: "https://eammu.com/eammu_banner_four.webp",
   priceRange: "$$",
   address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
   geo: { "@type": "GeoCoordinates", latitude: "25.2048", longitude: "55.2708" },

@@ -1,7 +1,7 @@
 import KosovoVisa from '@/Components/Server/VisaCountry/KosovoVisa/KosovoVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Kosovo Visa Requirements for Bangladeshi Citizens | Embassy & Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/kosovo-visa-application",
+      "https://eammu.com/our-services/visa/kosovo-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Expert assistance for Kosovo visa applications in Bangladesh. We provide updated information on required documents, embassy appointments in Dhaka, and processing times.",
 
     url:
-      "https://www.eammu.com/our-services/visa/kosovo-visa-application",
+      "https://eammu.com/our-services/visa/kosovo-visa-application",
 
     siteName: "Eammu Holidays",
 

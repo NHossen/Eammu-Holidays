@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
   title: { default: "Embassy Appointment Tips 2026 | How to Get Visa Appointment Fast | Eammu Holidays" },
   description:
     "Expert tips for securing embassy and VFS visa appointments fast from Bangladesh in 2026. How to get Schengen, UK, USA, Canada appointment slots, what to bring, how to reschedule, and common mistakes — by Eammu Holidays.",
@@ -21,18 +21,18 @@ export const metadata = {
     "how to reschedule visa appointment",
     "embassy appointment checklist bangladesh",
   ],
-  alternates: { canonical: "https://www.eammu.com/embassy-appointment-tips" },
+  alternates: { canonical: "https://eammu.com/embassy-appointment-tips" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/embassy-appointment-tips",
+    url: "https://eammu.com/embassy-appointment-tips",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Embassy Appointment Tips 2026 | Eammu Holidays",
     description: "How to secure embassy and VFS appointment slots fast from Bangladesh, what to bring, how to prepare, and what NOT to do on appointment day.",
-    images: [{ url: "https://www.eammu.com/preview-banner.webp", width: 1200, height: 630, alt: "Embassy Appointment Tips — Eammu Holidays" }],
+    images: [{ url: "https://eammu.com/preview-banner.webp", width: 1200, height: 630, alt: "Embassy Appointment Tips — Eammu Holidays" }],
   },
-  twitter: { card: "summary_large_image", site: "@eammuholidays", title: "Embassy Appointment Tips 2026 | Eammu Holidays", images: ["https://www.eammu.com/preview-banner.webp"] },
+  twitter: { card: "summary_large_image", site: "@eammuholidays", title: "Embassy Appointment Tips 2026 | Eammu Holidays", images: ["https://eammu.com/preview-banner.webp"] },
   icons: { icon: "/emf.jpg", shortcut: "/emf.jpg", apple: "/emf.jpg" },
   category: "travel",
 };
@@ -42,22 +42,22 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/embassy-appointment-tips#article",
+      "@id": "https://eammu.com/embassy-appointment-tips#article",
       headline: "Embassy Visa Appointment Tips 2026 — How to Get Slots Fast from Bangladesh",
       description: "Expert tips for securing embassy and VFS Global visa appointment slots from Bangladesh, with preparation checklist and day-of guidance.",
-      image: "https://www.eammu.com/preview-banner.webp",
-      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://www.eammu.com" },
-      publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
+      image: "https://eammu.com/preview-banner.webp",
+      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://eammu.com" },
+      publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/embassy-appointment-tips",
+      mainEntityOfPage: "https://eammu.com/embassy-appointment-tips",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-        { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "Embassy Appointment Tips", item: "https://www.eammu.com/embassy-appointment-tips" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+        { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://eammu.com/travel-resources" },
+        { "@type": "ListItem", position: 3, name: "Embassy Appointment Tips", item: "https://eammu.com/embassy-appointment-tips" },
       ],
     },
   ],
@@ -91,7 +91,7 @@ export default function EmbassyAppointmentTipsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div className="sr-only" aria-hidden="true">
         <h1>Embassy Appointment Tips 2026 — How to Get Visa Appointment Fast Bangladesh | Eammu Holidays</h1>
-        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/travel-resources/embassy-appointment-tips">Embassy Appointment Tips</a></li></ol></nav>
+        <nav aria-label="Breadcrumb"><ol><li><a href="https://eammu.com">Home</a></li><li><a href="https://eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://eammu.com/travel-resources/embassy-appointment-tips">Embassy Appointment Tips</a></li></ol></nav>
       </div>
 
       <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">

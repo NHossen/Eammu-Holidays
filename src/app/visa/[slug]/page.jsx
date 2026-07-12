@@ -55,10 +55,10 @@ function FallbackVisaPage({ country, whatsappUrl }) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home",         item: "https://www.eammu.com" },
-      { "@type": "ListItem", position: 2, name: "Visa Services",item: "https://www.eammu.com/visa" },
-      { "@type": "ListItem", position: 3, name: "Visa Guide",   item: "https://www.eammu.com/visa/visa-guide" },
-      { "@type": "ListItem", position: 4, name: `${countryName} Visa for Bangladeshi Citizens`, item: `https://www.eammu.com/visa/${countrySlug}-visa` },
+      { "@type": "ListItem", position: 1, name: "Home",         item: "https://eammu.com" },
+      { "@type": "ListItem", position: 2, name: "Visa Services",item: "https://eammu.com/visa" },
+      { "@type": "ListItem", position: 3, name: "Visa Guide",   item: "https://eammu.com/visa/visa-guide" },
+      { "@type": "ListItem", position: 4, name: `${countryName} Visa for Bangladeshi Citizens`, item: `https://eammu.com/visa/${countrySlug}-visa` },
     ],
   };
 
@@ -69,9 +69,9 @@ function FallbackVisaPage({ country, whatsappUrl }) {
     description: `Complete ${countryName} visa guide for Bangladesh passport holders — document checklist, bank balance requirements, photo specifications, processing times, and expert tips for ${currentYear}.`,
     datePublished: "2024-01-01T00:00:00Z",
     dateModified: new Date().toISOString(),
-    author: { "@type": "Organization", name: "Eammu Holidays", url: "https://www.eammu.com" },
-    publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
-    mainEntityOfPage: `https://www.eammu.com/visa/${countrySlug}-visa`,
+    author: { "@type": "Organization", name: "Eammu Holidays", url: "https://eammu.com" },
+    publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" } },
+    mainEntityOfPage: `https://eammu.com/visa/${countrySlug}-visa`,
     keywords: `${countryName} visa Bangladesh, ${countryName} visa requirements Bangladeshi, ${countryName} visa documents, ${countryName} visa bank balance`,
     inLanguage: "en-US",
   };
@@ -80,7 +80,7 @@ function FallbackVisaPage({ country, whatsappUrl }) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: `${countryName} Visa Application Assistance for Bangladeshi Citizens`,
-    provider: { "@type": "TravelAgency", name: "Eammu Holidays", url: "https://www.eammu.com" },
+    provider: { "@type": "TravelAgency", name: "Eammu Holidays", url: "https://eammu.com" },
     serviceType: "Visa Consultancy",
     description: `Complete ${countryName} visa assistance for Bangladesh passport holders — document preparation, cover letter writing, embassy submission, and tracking.`,
     areaServed: { "@type": "Country", name: "Bangladesh" },
@@ -115,11 +115,11 @@ function FallbackVisaPage({ country, whatsappUrl }) {
     description: `Complete step-by-step guide for Bangladeshi citizens applying for a ${countryName} visa.`,
     totalTime: "P14D",
     step: [
-      { "@type": "HowToStep", position: 1, name: "Check requirements & build checklist", text: `Use Eammu Holidays' Visa Checklist Generator to get a personalized ${countryName} document list.`, url: "https://www.eammu.com/travel-resources/visa-checklist-generator" },
+      { "@type": "HowToStep", position: 1, name: "Check requirements & build checklist", text: `Use Eammu Holidays' Visa Checklist Generator to get a personalized ${countryName} document list.`, url: "https://eammu.com/travel-resources/visa-checklist-generator" },
       { "@type": "HowToStep", position: 2, name: "Prepare financial documents",           text: "Gather 3–6 months of bank statements (stamped every page), bank solvency certificate, and income tax returns." },
-      { "@type": "HowToStep", position: 3, name: "Write your cover letter",               text: `Write a personalized cover letter to the ${countryName} Visa Officer demonstrating your home-country ties and clear travel purpose.`, url: "https://www.eammu.com/travel-resources/travel-document-generator" },
+      { "@type": "HowToStep", position: 3, name: "Write your cover letter",               text: `Write a personalized cover letter to the ${countryName} Visa Officer demonstrating your home-country ties and clear travel purpose.`, url: "https://eammu.com/travel-resources/travel-document-generator" },
       { "@type": "HowToStep", position: 4, name: "Book appointment & submit",             text: `Submit at the ${countryName} Embassy or VFS Dhaka with all original documents and fees.` },
-      { "@type": "HowToStep", position: 5, name: "Track & collect",                       text: "Monitor application status via the embassy portal. Collect your passport once the decision is made — verify all details immediately.", url: "https://www.eammu.com/travel-resources/visa-processing-time-tracker" },
+      { "@type": "HowToStep", position: 5, name: "Track & collect",                       text: "Monitor application status via the embassy portal. Collect your passport once the decision is made — verify all details immediately.", url: "https://eammu.com/travel-resources/visa-processing-time-tracker" },
     ],
   };
 

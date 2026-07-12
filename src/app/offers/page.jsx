@@ -3,7 +3,7 @@ import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react';
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -38,7 +38,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/offers",
+    canonical: "https://eammu.com/offers",
   },
 
   robots: {
@@ -54,7 +54,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/offers",
+    url: "https://eammu.com/offers",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Best Travel Deals & Offers 2025 | Eammu Holidays Bangladesh",
@@ -89,7 +89,7 @@ const offerListSchema = {
   name: "Eammu Holidays Travel Deals & Offers 2025",
   description:
     "Exclusive travel deals on visa processing, Umrah packages, holiday tours, and flights from Eammu Holidays Bangladesh.",
-  url: "https://www.eammu.com/offers",
+  url: "https://eammu.com/offers",
   numberOfItems: 6,
   itemListElement: [
     {
@@ -100,7 +100,7 @@ const offerListSchema = {
         name: "Summer Special Discount – 15% Off International Tours",
         description:
           "Get 15% off on all international tour packages booked before July 31. Valid for Dubai, Europe, Thailand, Malaysia, and more.",
-        url: "https://www.eammu.com/offers/summer-special-discount",
+        url: "https://eammu.com/offers/summer-special-discount",
         seller: { "@type": "Organization", name: "Eammu Holidays" },
         priceCurrency: "BDT",
         availability: "https://schema.org/LimitedAvailability",
@@ -115,7 +115,7 @@ const offerListSchema = {
         name: "Student Visa Promo – Flat $100 Off Processing Fee",
         description:
           "Flat $100 off on student visa processing fees for UK, USA, Canada, and Australia. Contact Eammu Holidays to claim.",
-        url: "https://www.eammu.com/offers/student-visa-promo",
+        url: "https://eammu.com/offers/student-visa-promo",
         seller: { "@type": "Organization", name: "Eammu Holidays" },
         availability: "https://schema.org/LimitedAvailability",
       },
@@ -128,7 +128,7 @@ const offerListSchema = {
         name: "Early Bird Flight Deal – Save Up to 20%",
         description:
           "Book international air tickets 3 months in advance and save up to 20% on flights from Bangladesh.",
-        url: "https://www.eammu.com/offers/early-bird-flight-deal",
+        url: "https://eammu.com/offers/early-bird-flight-deal",
         seller: { "@type": "Organization", name: "Eammu Holidays" },
         availability: "https://schema.org/InStock",
       },
@@ -141,7 +141,7 @@ const offerListSchema = {
         name: "Family Tour Package – Group Discounts for 4+ Members",
         description:
           "Book for 4 or more family members and enjoy special group discounts on international holiday packages.",
-        url: "https://www.eammu.com/offers/family-tour-package",
+        url: "https://eammu.com/offers/family-tour-package",
         seller: { "@type": "Organization", name: "Eammu Holidays" },
         availability: "https://schema.org/InStock",
       },
@@ -154,7 +154,7 @@ const offerListSchema = {
         name: "Fast Track Visa – Zero Extra Charge",
         description:
           "Fast track your visa application with zero extra processing charge for June. Available for select countries.",
-        url: "https://www.eammu.com/offers/fast-track-visa",
+        url: "https://eammu.com/offers/fast-track-visa",
         seller: { "@type": "Organization", name: "Eammu Holidays" },
         availability: "https://schema.org/LimitedAvailability",
       },
@@ -167,7 +167,7 @@ const offerListSchema = {
         name: "Travel Promo Deals 2025 – Exclusive Packages",
         description:
           "Exclusive 2025 promo travel deals with zero extra visa charge for select months. Book now for the best rates.",
-        url: "https://www.eammu.com/offers/travel-promo-2026",
+        url: "https://eammu.com/offers/travel-promo-2026",
         seller: { "@type": "Organization", name: "Eammu Holidays" },
         availability: "https://schema.org/InStock",
       },
@@ -179,8 +179,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
-  logo: "https://www.eammu.com/logo.png",
+  url: "https://eammu.com",
+  logo: "https://eammu.com/logo.png",
   description:
     "Bangladesh's trusted travel and visa consultancy offering exclusive travel deals on student visa processing, Umrah packages, holiday tours, and international flights.",
   telephone: "+8801701699743",
@@ -200,8 +200,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "Offers", item: "https://www.eammu.com/offers" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Offers", item: "https://eammu.com/offers" },
   ],
 };
 

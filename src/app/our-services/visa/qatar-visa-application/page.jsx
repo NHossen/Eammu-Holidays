@@ -1,7 +1,7 @@
 import QatarVisa from '@/Components/Server/VisaCountry/QatarVisa/QatarVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Qatar Visa Requirements, Fees, and Application | Tourist, Visit & Work Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/qatar-visa-application",
+      "https://eammu.com/our-services/visa/qatar-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Qatar visa support for Bangladeshi travelers. Tourist, visit, and work visa guidance with documents, fees, and application assistance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/qatar-visa-application",
+      "https://eammu.com/our-services/visa/qatar-visa-application",
 
     siteName: "Eammu Holidays",
 

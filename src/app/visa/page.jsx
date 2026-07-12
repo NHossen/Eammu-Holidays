@@ -3,7 +3,7 @@ import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react'
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -51,7 +51,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/visa",
+    canonical: "https://eammu.com/visa",
   },
 
   robots: {
@@ -68,7 +68,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/visa",
+    url: "https://eammu.com/visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -113,16 +113,16 @@ export const metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  "@id": "https://www.eammu.com/#organization",
+  "@id": "https://eammu.com/#organization",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
+  url: "https://eammu.com",
   logo: {
     "@type": "ImageObject",
-    url: "https://www.eammu.com/emf.jpg",
+    url: "https://eammu.com/emf.jpg",
     width: 200,
     height: 200,
   },
-  image: "https://www.eammu.com/eammu_banner_four.webp",
+  image: "https://eammu.com/eammu_banner_four.webp",
   description:
     "Bangladesh's leading tourist visa consultancy with 98% approval rate. Expert visa assistance for USA, UK, Canada, Schengen, Japan, Australia & 200+ countries.",
   foundingDate: "2015",
@@ -167,13 +167,13 @@ const organizationSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://www.eammu.com/visa/#service",
+  "@id": "https://eammu.com/visa/#service",
   serviceType: "Tourist Visa Consultancy",
   name: "Tourist Visa from Bangladesh — Expert Consultancy",
   description:
     "Professional tourist visa consultancy for Bangladeshi travelers. We prepare embassy-accurate documentation for USA B1/B2, UK Standard Visitor, Canada, Schengen, Japan, Australia & 200+ destinations with a 98% approval rate.",
   provider: {
-    "@id": "https://www.eammu.com/#organization",
+    "@id": "https://eammu.com/#organization",
   },
   areaServed: {
     "@type": "Country",
@@ -188,7 +188,7 @@ const serviceSchema = {
         itemOffered: {
           "@type": "Service",
           name: "USA B1/B2 Tourist Visa",
-          url: "https://www.eammu.com/visa/united-states-visa",
+          url: "https://eammu.com/visa/united-states-visa",
         },
       },
       {
@@ -196,7 +196,7 @@ const serviceSchema = {
         itemOffered: {
           "@type": "Service",
           name: "UK Standard Visitor Visa",
-          url: "https://www.eammu.com/visa/united-kingdom-visa",
+          url: "https://eammu.com/visa/united-kingdom-visa",
         },
       },
       {
@@ -204,7 +204,7 @@ const serviceSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Schengen Area Visa",
-          url: "https://www.eammu.com/schengen-visa",
+          url: "https://eammu.com/schengen-visa",
         },
       },
       {
@@ -212,7 +212,7 @@ const serviceSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Canada Tourist Visa",
-          url: "https://www.eammu.com/visa/canada-visa",
+          url: "https://eammu.com/visa/canada-visa",
         },
       },
       {
@@ -220,7 +220,7 @@ const serviceSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Japan Tourist Visa",
-          url: "https://www.eammu.com/visa/japan-visa",
+          url: "https://eammu.com/visa/japan-visa",
         },
       },
       {
@@ -228,7 +228,7 @@ const serviceSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Australia Tourist Visa",
-          url: "https://www.eammu.com/visa/australia-visa",
+          url: "https://eammu.com/visa/australia-visa",
         },
       },
     ],
@@ -243,19 +243,19 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.eammu.com",
+      item: "https://eammu.com",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Visa Services",
-      item: "https://www.eammu.com/visa",
+      item: "https://eammu.com/visa",
     },
     {
       "@type": "ListItem",
       position: 3,
       name: "Tourist Visa from Bangladesh 2026",
-      item: "https://www.eammu.com/visa",
+      item: "https://eammu.com/visa",
     },
   ],
 };
@@ -263,31 +263,31 @@ const breadcrumbSchema = {
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://www.eammu.com/visa/#webpage",
-  url: "https://www.eammu.com/visa",
+  "@id": "https://eammu.com/visa/#webpage",
+  url: "https://eammu.com/visa",
   name: "Tourist Visa from Bangladesh 2026 — Expert Visa Consultancy | Eammu Holidays",
   description:
     "Apply for tourist visa from Bangladesh with 98% approval rate. Expert consultancy for USA B1/B2, UK visitor visa, Canada, Schengen, Japan, Australia & 200+ countries.",
   inLanguage: "en-US",
   isPartOf: {
     "@type": "WebSite",
-    "@id": "https://www.eammu.com/#website",
+    "@id": "https://eammu.com/#website",
     name: "Eammu Holidays",
-    url: "https://www.eammu.com",
+    url: "https://eammu.com",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://www.eammu.com/visa?search={search_term_string}",
+        urlTemplate: "https://eammu.com/visa?search={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
   },
   about: {
-    "@id": "https://www.eammu.com/visa/#service",
+    "@id": "https://eammu.com/visa/#service",
   },
   provider: {
-    "@id": "https://www.eammu.com/#organization",
+    "@id": "https://eammu.com/#organization",
   },
   dateModified: new Date().toISOString().split("T")[0],
   speakable: {
@@ -379,14 +379,14 @@ const howToSchema = {
       position: 1,
       name: "Choose your destination",
       text: "Browse 200+ tourist visa destinations or search your country on eammu.com/visa. Each country page lists 2026 visa requirements for Bangladeshi applicants.",
-      url: "https://www.eammu.com/visa",
+      url: "https://eammu.com/visa",
     },
     {
       "@type": "HowToStep",
       position: 2,
       name: "Generate your free visa checklist",
       text: "Use our free visa checklist generator at eammu.com/travel-resources/visa-checklist-generator to get a destination-specific document list verified against official embassy circulars.",
-      url: "https://www.eammu.com/travel-resources/visa-checklist-generator",
+      url: "https://eammu.com/travel-resources/visa-checklist-generator",
     },
     {
       "@type": "HowToStep",

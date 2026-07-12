@@ -7,7 +7,7 @@ import React from "react";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -35,7 +35,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/common-reasons",
+    canonical: "https://eammu.com/common-reasons",
   },
 
   robots: {
@@ -52,7 +52,7 @@ export const metadata = {
 
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/common-reasons",
+    url: "https://eammu.com/common-reasons",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Common Visa Rejection Reasons 2026 | Eammu Holidays",
@@ -60,7 +60,7 @@ export const metadata = {
       "Top reasons visa applications get rejected from Bangladesh for Canada, UK, USA, Schengen & Dubai — and how to fix them.",
     images: [
       {
-        url: "https://www.eammu.com/preview-banner.webp",
+        url: "https://eammu.com/preview-banner.webp",
         width: 1200,
         height: 630,
         alt: "Common Visa Rejection Reasons — Eammu Holidays",
@@ -75,7 +75,7 @@ export const metadata = {
     title: "Common Visa Rejection Reasons 2026 | Eammu Holidays",
     description:
       "Top reasons visas get rejected from Bangladesh — and how to fix each one before you apply.",
-    images: ["https://www.eammu.com/preview-banner.webp"],
+    images: ["https://eammu.com/preview-banner.webp"],
   },
 
   icons: {
@@ -93,27 +93,27 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/common-reasons#article",
+      "@id": "https://eammu.com/common-reasons#article",
       headline: "Common Visa Rejection Reasons 2026 — Canada, UK, Schengen, USA & Dubai",
       description:
         "A breakdown of the most common visa rejection reasons for Bangladeshi applicants applying for Canada, UK, USA, Schengen, and Dubai visas, with practical fixes.",
-      image: "https://www.eammu.com/preview-banner.webp",
-      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://www.eammu.com" },
+      image: "https://eammu.com/preview-banner.webp",
+      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://eammu.com" },
       publisher: {
         "@type": "Organization",
         name: "Eammu Holidays",
-        logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" },
+        logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
       },
       datePublished: "2026-01-18",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/common-reasons",
+      mainEntityOfPage: "https://eammu.com/common-reasons",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-        { "@type": "ListItem", position: 2, name: "Visa Rejection Help", item: "https://www.eammu.com/visa-rejection" },
-        { "@type": "ListItem", position: 3, name: "Common Visa Rejection Reasons", item: "https://www.eammu.com/common-reasons" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+        { "@type": "ListItem", position: 2, name: "Visa Rejection Help", item: "https://eammu.com/visa-rejection" },
+        { "@type": "ListItem", position: 3, name: "Common Visa Rejection Reasons", item: "https://eammu.com/common-reasons" },
       ],
     },
     {
@@ -249,9 +249,9 @@ export default function CommonVisaRejectionReasonsPage() {
         </p>
         <nav aria-label="Breadcrumb">
           <ol>
-            <li><a href="https://www.eammu.com">Home</a></li>
-            <li><a href="https://www.eammu.com/visa-rejection">Visa Rejection Help</a></li>
-            <li><a href="https://www.eammu.com/common-reasons">Common Visa Rejection Reasons</a></li>
+            <li><a href="https://eammu.com">Home</a></li>
+            <li><a href="https://eammu.com/visa-rejection">Visa Rejection Help</a></li>
+            <li><a href="https://eammu.com/common-reasons">Common Visa Rejection Reasons</a></li>
           </ol>
         </nav>
       </div>

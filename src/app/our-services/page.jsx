@@ -5,7 +5,7 @@ import React from "react";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -65,9 +65,9 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/our-services",
+    canonical: "https://eammu.com/our-services",
     languages: {
-      "en-US": "https://www.eammu.com/our-services",
+      "en-US": "https://eammu.com/our-services",
     },
   },
 
@@ -85,7 +85,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/our-services",
+    url: "https://eammu.com/our-services",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Visa, Tours & Travel Services | Eammu Holidays Bangladesh",
@@ -126,9 +126,9 @@ const travelAgencySchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
-  logo: "https://www.eammu.com/emf.jpg",
-  image: "https://www.eammu.com/eammu_banner_four.webp",
+  url: "https://eammu.com",
+  logo: "https://eammu.com/emf.jpg",
+  image: "https://eammu.com/eammu_banner_four.webp",
   description:
     "Eammu Holidays is Bangladesh's leading travel agency offering visa processing, air tickets, tour packages, Umrah, IELTS, study abroad, and USA interview preparation with a 98% visa success rate.",
   telephone: "+880-1631312524",
@@ -144,12 +144,12 @@ const travelAgencySchema = {
     "@type": "OfferCatalog",
     name: "Eammu Holidays Services",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Global Visa Processing", url: "https://www.eammu.com/visa" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Air Ticket Booking", url: "https://www.eammu.com/flight-booking" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Holiday & Tour Packages", url: "https://www.eammu.com/our-services/tour-packages" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "USA Visa Interview Preparation", url: "https://www.eammu.com/target-usa-visa-interview-preparation" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "IELTS & Study Abroad", url: "https://www.eammu.com/target-ielts-immigration-center" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Umrah Packages", url: "https://www.eammu.com/our-services/tour-packages" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Global Visa Processing", url: "https://eammu.com/visa" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Air Ticket Booking", url: "https://eammu.com/flight-booking" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Holiday & Tour Packages", url: "https://eammu.com/our-services/tour-packages" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "USA Visa Interview Preparation", url: "https://eammu.com/target-usa-visa-interview-preparation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "IELTS & Study Abroad", url: "https://eammu.com/target-ielts-immigration-center" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Umrah Packages", url: "https://eammu.com/our-services/tour-packages" } },
     ],
   },
   aggregateRating: {
@@ -170,8 +170,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "Our Services", item: "https://www.eammu.com/our-services" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Our Services", item: "https://eammu.com/our-services" },
   ],
 };
 
@@ -226,14 +226,14 @@ const serviceListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Eammu Holidays Services",
-  url: "https://www.eammu.com/our-services",
+  url: "https://eammu.com/our-services",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Global Visa Processing", url: "https://www.eammu.com/visa" },
-    { "@type": "ListItem", position: 2, name: "Air Ticket Booking", url: "https://www.eammu.com/flight-booking" },
-    { "@type": "ListItem", position: 3, name: "Holiday & Tour Packages", url: "https://www.eammu.com/our-services/tour-packages" },
-    { "@type": "ListItem", position: 4, name: "Special Travel Offers", url: "https://www.eammu.com/offers" },
-    { "@type": "ListItem", position: 5, name: "USA Visa Interview Prep", url: "https://www.eammu.com/target-usa-visa-interview-preparation" },
-    { "@type": "ListItem", position: 6, name: "IELTS & Study Abroad", url: "https://www.eammu.com/target-ielts-immigration-center" },
+    { "@type": "ListItem", position: 1, name: "Global Visa Processing", url: "https://eammu.com/visa" },
+    { "@type": "ListItem", position: 2, name: "Air Ticket Booking", url: "https://eammu.com/flight-booking" },
+    { "@type": "ListItem", position: 3, name: "Holiday & Tour Packages", url: "https://eammu.com/our-services/tour-packages" },
+    { "@type": "ListItem", position: 4, name: "Special Travel Offers", url: "https://eammu.com/offers" },
+    { "@type": "ListItem", position: 5, name: "USA Visa Interview Prep", url: "https://eammu.com/target-usa-visa-interview-preparation" },
+    { "@type": "ListItem", position: 6, name: "IELTS & Study Abroad", url: "https://eammu.com/target-ielts-immigration-center" },
   ],
 };
 
@@ -276,8 +276,8 @@ export default function OurServicesPage() {
         </p>
         <nav aria-label="Breadcrumb">
           <ol>
-            <li><a href="https://www.eammu.com">Home</a></li>
-            <li><a href="https://www.eammu.com/our-services">Our Services</a></li>
+            <li><a href="https://eammu.com">Home</a></li>
+            <li><a href="https://eammu.com/our-services">Our Services</a></li>
           </ol>
         </nav>
       </div>

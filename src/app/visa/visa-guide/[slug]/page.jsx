@@ -28,7 +28,7 @@ const description = `Apply for a ${dest} visa from ${orig}. Get the full documen
 // ~155 chars. Conversational, benefit-driven, no stuffing
 
   return {
-    metadataBase: new URL('https://www.eammu.com'),
+    metadataBase: new URL('https://eammu.com'),
 
     title,
     description,
@@ -55,7 +55,7 @@ const description = `Apply for a ${dest} visa from ${orig}. Get the full documen
     ].join(', '),
 
     alternates: {
-      canonical: `https://www.eammu.com/visa/visa-guide/${slug}`,
+      canonical: `https://eammu.com/visa/visa-guide/${slug}`,
     },
 
     robots: {
@@ -72,7 +72,7 @@ const description = `Apply for a ${dest} visa from ${orig}. Get the full documen
 
     openGraph: {
       type: 'article',
-      url: `https://www.eammu.com/visa/visa-guide/${slug}`,
+      url: `https://eammu.com/visa/visa-guide/${slug}`,
       siteName: 'Eammu Holidays',
       locale: 'en_US',
       title: `${dest} Visa for ${orig} Citizens — Complete 2026 Guide`,
@@ -107,15 +107,15 @@ const description = `Apply for a ${dest} visa from ${orig}. Get the full documen
 // JSON-LD SCHEMAS (generated per slug)
 // ─────────────────────────────────────────────────────────────────────────────
 function buildSchemas({ slug, dest, orig, originData, destinationData }) {
-  const pageUrl = `https://www.eammu.com/visa/visa-guide/${slug}`;
+  const pageUrl = `https://eammu.com/visa/visa-guide/${slug}`;
 
   const breadcrumb = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home',          item: 'https://www.eammu.com' },
-      { '@type': 'ListItem', position: 2, name: 'Visa Services', item: 'https://www.eammu.com/visa' },
-      { '@type': 'ListItem', position: 3, name: 'Visa Guide',    item: 'https://www.eammu.com/visa/visa-guide' },
+      { '@type': 'ListItem', position: 1, name: 'Home',          item: 'https://eammu.com' },
+      { '@type': 'ListItem', position: 2, name: 'Visa Services', item: 'https://eammu.com/visa' },
+      { '@type': 'ListItem', position: 3, name: 'Visa Guide',    item: 'https://eammu.com/visa/visa-guide' },
       { '@type': 'ListItem', position: 4, name: `${dest} Visa for ${orig}`, item: pageUrl },
     ],
   };
@@ -129,11 +129,11 @@ function buildSchemas({ slug, dest, orig, originData, destinationData }) {
     image: { '@type': 'ImageObject', url: destinationData?.flag || '', width: 800, height: 500 },
     datePublished: '2024-01-01T00:00:00Z',
     dateModified: new Date().toISOString(),
-    author: { '@type': 'Organization', name: 'Eammu Holidays', url: 'https://www.eammu.com' },
+    author: { '@type': 'Organization', name: 'Eammu Holidays', url: 'https://eammu.com' },
     publisher: {
       '@type': 'Organization',
       name: 'Eammu Holidays',
-      logo: { '@type': 'ImageObject', url: 'https://www.eammu.com/emf.jpg' },
+      logo: { '@type': 'ImageObject', url: 'https://eammu.com/emf.jpg' },
     },
     mainEntityOfPage: pageUrl,
     keywords: `${dest} visa, ${orig} visa, ${dest} visa requirements, ${orig} ${dest} visa 2026`,
@@ -210,7 +210,7 @@ function buildSchemas({ slug, dest, orig, originData, destinationData }) {
     totalTime: 'P21D',
     step: [
       { '@type': 'HowToStep', position: 1, name: 'Prepare documents', text: `Gather all required documents per the ${dest} visa checklist: passport, photos, bank statements, NOC, hotel bookings, flight reservation, and travel insurance.`, url: pageUrl },
-      { '@type': 'HowToStep', position: 2, name: 'Expert document review', text: 'Have Eammu Holidays certified consultants review your complete dossier for errors, missing items, and financial inconsistencies.', url: 'https://www.eammu.com/contact' },
+      { '@type': 'HowToStep', position: 2, name: 'Expert document review', text: 'Have Eammu Holidays certified consultants review your complete dossier for errors, missing items, and financial inconsistencies.', url: 'https://eammu.com/contact' },
       { '@type': 'HowToStep', position: 3, name: 'Pay fees & book appointment', text: `Pay the ${dest} embassy visa fee. Book VFS Global or BLS appointment if required for ${orig} citizens.` },
       { '@type': 'HowToStep', position: 4, name: 'Submit to embassy', text: 'Submit your complete dossier to the embassy or VAC. Attend biometrics if required.' },
       { '@type': 'HowToStep', position: 5, name: 'Track & collect', text: `Track your ${dest} visa application online. Collect passport once decision is made — verify all visa details immediately.` },
@@ -225,8 +225,8 @@ function buildSchemas({ slug, dest, orig, originData, destinationData }) {
     provider: {
       '@type': 'TravelAgency',
       name: 'Eammu Holidays',
-      url: 'https://www.eammu.com',
-      logo: 'https://www.eammu.com/emf.jpg',
+      url: 'https://eammu.com',
+      logo: 'https://eammu.com/emf.jpg',
     },
     serviceType: 'Visa Consultancy',
     description: `Complete ${dest} visa assistance for ${orig} passport holders — document preparation, cover letter writing, embassy appointment booking, application tracking, and refusal resubmission.`,

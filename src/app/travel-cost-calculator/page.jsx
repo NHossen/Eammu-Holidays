@@ -9,7 +9,7 @@ import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 ───────────────────────────────────────────────────────────────────────────── */
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Travel Budget Planner 2025 — Plan Your Trip Cost, Best Budget Countries & Flight Deals | Eammu Holidays",
@@ -68,7 +68,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/travel-cost-calculator",
+    canonical: "https://eammu.com/travel-cost-calculator",
   },
 
   robots: {
@@ -85,7 +85,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/travel-cost-calculator",
+    url: "https://eammu.com/travel-cost-calculator",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Travel Cost Calculator 2025 — Plan Your Trip Cost from Bangladesh | Eammu Holidays",
@@ -120,18 +120,18 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.eammu.com/travel-cost-calculator#webpage",
-      "url": "https://www.eammu.com/travel-cost-calculator",
+      "@id": "https://eammu.com/travel-cost-calculator#webpage",
+      "url": "https://eammu.com/travel-cost-calculator",
       "name": "Travel Cost Calculator 2025 — Plan Your Trip Cost from Bangladesh",
       "description":
         "Free travel cost calculator for Bangladeshi travelers. Calculate trip costs, find cheapest countries, get flight and hotel estimates for 100+ destinations.",
-      "isPartOf": { "@type": "WebSite", "url": "https://www.eammu.com" },
-      "breadcrumb": { "@id": "https://www.eammu.com/travel-cost-calculator#breadcrumb" },
+      "isPartOf": { "@type": "WebSite", "url": "https://eammu.com" },
+      "breadcrumb": { "@id": "https://eammu.com/travel-cost-calculator#breadcrumb" },
       "publisher": {
         "@type": "Organization",
         "name": "Eammu Holidays",
-        "url": "https://www.eammu.com",
-        "logo": { "@type": "ImageObject", "url": "https://www.eammu.com/emf.jpg" },
+        "url": "https://eammu.com",
+        "logo": { "@type": "ImageObject", "url": "https://eammu.com/emf.jpg" },
       },
       "dateModified": "2025-05-01",
     },
@@ -219,11 +219,11 @@ const jsonLd = {
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.eammu.com/travel-budget-planner#breadcrumb",
+      "@id": "https://eammu.com/travel-budget-planner#breadcrumb",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",                 "item": "https://www.eammu.com" },
-        { "@type": "ListItem", "position": 2, "name": "Travel Resources",     "item": "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", "position": 3, "name": "Travel Cost Calculator","item": "https://www.eammu.com/travel-cost-calculator" },
+        { "@type": "ListItem", "position": 1, "name": "Home",                 "item": "https://eammu.com" },
+        { "@type": "ListItem", "position": 2, "name": "Travel Resources",     "item": "https://eammu.com/travel-resources" },
+        { "@type": "ListItem", "position": 3, "name": "Travel Cost Calculator","item": "https://eammu.com/travel-cost-calculator" },
       ],
     },
   ],

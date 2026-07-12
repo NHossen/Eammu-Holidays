@@ -3,8 +3,8 @@ import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 // ─── Page URL constant ────────────────────────────────────────────────────────
 const PAGE_URL =
-  "https://www.eammu.com/schengen-visa";
-const BASE_URL = "https://www.eammu.com";
+  "https://eammu.com/schengen-visa";
+const BASE_URL = "https://eammu.com";
 const OG_IMAGE = `${BASE_URL}/schengen-preview.webp`;
 
 // ─── SEO METADATA ─────────────────────────────────────────────────────────────

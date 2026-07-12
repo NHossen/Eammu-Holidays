@@ -6,7 +6,7 @@ import WhatsAppFloatingButton from "@/Components/Client/WhatsAppFloatingButton/W
 import Scroll from "@/Components/Client/Scroll/Scroll";
 import ServiceWorkerRegister from "@/Components/ServiceWorkerRegister";
 
-const BASE_URL = "https://www.eammu.com";
+const BASE_URL = "https://eammu.com";
 
 // ── Font setup ────────────────────────────────────────────────────────────────
 // ✅ FIX: Removed Geist_Mono — monospace font loaded globally on every page

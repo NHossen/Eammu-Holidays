@@ -7,7 +7,7 @@ import React from 'react'
    Injected server-side — zero client JS cost, fully crawlable
 ───────────────────────────────────────────────────────────────────────────── */
 
-const SITE_URL = "https://www.eammu.com"
+const SITE_URL = "https://eammu.com"
 const PAGE_URL = `${SITE_URL}/travel-resources/travel-document-generator`
 const LOGO_URL = `${SITE_URL}/eammu-logo.png`
 

@@ -1,7 +1,7 @@
 import EuropeVisa from '@/Components/Server/VisaCountry/EuropeVisa/EuropeVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Europe Visa Requirements, Fees, and Application | Schengen Tourist & Visit Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/europe-visa-application",
+      "https://eammu.com/our-services/visa/europe-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Europe visa support for Bangladeshi travelers. Schengen tourist visa, visit visa, fees, documents, and embassy appointment guidance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/europe-visa-application",
+      "https://eammu.com/our-services/visa/europe-visa-application",
 
     siteName: "Eammu Holidays",
 

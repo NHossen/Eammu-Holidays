@@ -371,7 +371,7 @@ const CustomerTestimonialSection = () => {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex justify-center gap-2 text-sm" style={{color:"rgba(255,255,255,0.6)"}}>
-              <li><a href="https://www.eammu.com" className="hover:text-white transition-colors" style={{color:"rgba(255,255,255,0.6)"}}>Home</a></li>
+              <li><a href="https://eammu.com" className="hover:text-white transition-colors" style={{color:"rgba(255,255,255,0.6)"}}>Home</a></li>
               <li aria-hidden="true" style={{color:"rgba(255,255,255,0.3)"}}>›</li>
               <li className="text-white font-semibold" aria-current="page">Customer Testimonials</li>
             </ol>
@@ -763,7 +763,7 @@ const CustomerTestimonialSection = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://www.eammu.com/contact"
+              href="https://eammu.com/contact"
               className="font-bold px-8 py-4 rounded-full transition-all"
               style={{background:"#ffb347", color:"#002d1a", fontSize:"15px", textDecoration:"none", boxShadow:"0 4px 16px rgba(255,179,71,0.4)"}}
               aria-label="Book a free visa consultation with Eammu Holidays"
@@ -771,7 +771,7 @@ const CustomerTestimonialSection = () => {
               📞 Free Consultation
             </a>
             <a
-              href="https://www.eammu.com/services"
+              href="https://eammu.com/services"
               className="font-bold px-8 py-4 rounded-full transition-all"
               style={{background:"rgba(255,255,255,0.12)", color:"white", fontSize:"15px", textDecoration:"none", border:"1px solid rgba(255,255,255,0.25)"}}
               aria-label="Browse Eammu Holidays visa and tour services"

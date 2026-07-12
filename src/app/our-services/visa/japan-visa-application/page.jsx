@@ -2,7 +2,7 @@ import JapanVisa from '@/Components/Server/VisaCountry/JapanVisa/JapanVisa'
 import React from 'react'
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Japan Visa Requirements for Bangladeshis | Tourist, Business & Student Support",
@@ -25,7 +25,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/japan-visa-application",
+      "https://eammu.com/our-services/visa/japan-visa-application",
   },
 
   robots: {
@@ -47,7 +47,7 @@ export const metadata = {
       "Planning a trip to Tokyo or Osaka? Eammu Holidays provides professional guidance for Japan visa applications, including document preparation and appointment scheduling at JVAC Dhaka.",
 
     url:
-      "https://www.eammu.com/our-services/visa/japan-visa-application",
+      "https://eammu.com/our-services/visa/japan-visa-application",
 
     siteName: "Eammu Holidays",
 

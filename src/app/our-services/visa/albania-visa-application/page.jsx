@@ -3,7 +3,7 @@ import AlbaniaVisa from '@/Components/Server/VisaCountry/AlbaniaVisa/AlbaniaVisa
 import React from 'react'
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: "Albania Visa Requirements , fees , and Application: Dubai Residents",
 
@@ -23,7 +23,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/albania-visa-application",
+      "https://eammu.com/our-services/visa/albania-visa-application",
   },
 
   robots: {
@@ -45,7 +45,7 @@ export const metadata = {
       "Professional Albania visa support for Bangladeshi travelers. Tourist visa guidance, document review, and travel assistance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/albania-visa-application",
+      "https://eammu.com/our-services/visa/albania-visa-application",
 
     siteName: "Eammu Holidays",
 

@@ -2,7 +2,7 @@ import Blogs from '@/Components/Client/Blog/Blog';
 import React from 'react';
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -37,7 +37,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/blogs",
+    canonical: "https://eammu.com/blogs",
   },
 
   robots: {
@@ -53,7 +53,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/blogs",
+    url: "https://eammu.com/blogs",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Travel Blog & Visa Guides 2025 | Eammu Holidays Bangladesh",
@@ -86,17 +86,17 @@ const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
   name: "Eammu Holidays Travel & Visa Blog",
-  url: "https://www.eammu.com/blogs",
+  url: "https://eammu.com/blogs",
   description:
     "Expert travel guides, visa tips, student visa updates, Umrah package news, and holiday destination insights from Eammu Holidays — Bangladesh's leading travel and visa consultancy.",
   inLanguage: "en-US",
   publisher: {
     "@type": "Organization",
     name: "Eammu Holidays",
-    url: "https://www.eammu.com",
+    url: "https://eammu.com",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.eammu.com/logo.png",
+      url: "https://eammu.com/logo.png",
       width: 200,
       height: 60,
     },
@@ -114,8 +114,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.eammu.com/blogs" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://eammu.com/blogs" },
   ],
 };
 
@@ -178,10 +178,10 @@ const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Travel Blog & Visa Guides | Eammu Holidays",
-  url: "https://www.eammu.com/blogs",
+  url: "https://eammu.com/blogs",
   description:
     "Expert visa guides, student visa tips, Umrah package updates, holiday destination guides, and immigration news from Eammu Holidays.",
-  isPartOf: { "@type": "WebSite", url: "https://www.eammu.com", name: "Eammu Holidays" },
+  isPartOf: { "@type": "WebSite", url: "https://eammu.com", name: "Eammu Holidays" },
   about: { "@type": "Thing", name: "Travel and Visa Consultancy Bangladesh" },
   inLanguage: "en-US",
 };

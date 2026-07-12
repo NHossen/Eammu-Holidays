@@ -1,7 +1,7 @@
 import SrilankaVisa from '@/Components/Server/VisaCountry/SrilankaVisa/SrilankaVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Sri Lanka Visa Requirements, Fees, and Application | Tourist & Visit Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/srilanka-visa-application",
+      "https://eammu.com/our-services/visa/srilanka-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Sri Lanka visa support for Bangladeshi travelers. Tourist and visit visa guidance with documents, fees, and fast eVisa assistance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/srilanka-visa-application",
+      "https://eammu.com/our-services/visa/srilanka-visa-application",
 
     siteName: "Eammu Holidays",
 

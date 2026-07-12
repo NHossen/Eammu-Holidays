@@ -2,7 +2,7 @@ import VisaChecklistGenerator from '@/Components/Client/VisaChecklistGenerator/V
 import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Visa Checklist Generator | Personalized Visa Document Checklist for All Categories",
@@ -28,7 +28,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/travel-resources/visa-checklist-generator",
+    canonical: "https://eammu.com/travel-resources/visa-checklist-generator",
   },
 
   robots: {
@@ -50,7 +50,7 @@ export const metadata = {
     description:
       "Generate and download custom visa document checklists for tourist, student, work, and worldwide visa applications.",
 
-    url: "https://www.eammu.com/travel-resources/visa-checklist-generator",
+    url: "https://eammu.com/travel-resources/visa-checklist-generator",
 
     siteName: "Eammu Holidays",
 

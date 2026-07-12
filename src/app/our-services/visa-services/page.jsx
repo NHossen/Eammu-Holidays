@@ -5,7 +5,7 @@ import { countries } from '@/data/visaData/visaData';
 import Link from 'next/link';
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -30,7 +30,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa-services/work-visa-from-bangladesh",
+      "https://eammu.com/our-services/visa-services/work-visa-from-bangladesh",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/our-services/visa-services",
+    url: "https://eammu.com/our-services/visa-services",
     siteName: "Eammu Holidays",
 
     title:

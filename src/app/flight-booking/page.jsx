@@ -23,7 +23,7 @@ import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 // METADATA
 // ─────────────────────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -76,7 +76,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/flight-booking",
+    canonical: "https://eammu.com/flight-booking",
   },
 
   robots: {
@@ -93,7 +93,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/flight-booking",
+    url: "https://eammu.com/flight-booking",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -136,10 +136,10 @@ export const metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  "@id": "https://www.eammu.com/#organization",
+  "@id": "https://eammu.com/#organization",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
-  logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" },
+  url: "https://eammu.com",
+  logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
   description:
     "Bangladesh's leading online travel agency offering cheap international flight booking, visa assistance, and holiday packages.",
   aggregateRating: {
@@ -157,14 +157,14 @@ const organizationSchema = {
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://www.eammu.com/flight-booking/#webpage",
-  url: "https://www.eammu.com/flight-booking",
+  "@id": "https://eammu.com/flight-booking/#webpage",
+  url: "https://eammu.com/flight-booking",
   name: "Cheap Flight Booking from Bangladesh 2026 — International Air Tickets | Eammu Holidays",
   description:
     "Book cheap international flights from Bangladesh. Compare airfares to 200+ destinations.",
   inLanguage: "en-US",
   dateModified: new Date().toISOString().split("T")[0],
-  isPartOf: { "@id": "https://www.eammu.com/#website" },
+  isPartOf: { "@id": "https://eammu.com/#website" },
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: ["#flight-heading", "#faq-heading", "#routes-heading"],
@@ -175,21 +175,21 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home",          item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "Our Services",  item: "https://www.eammu.com/our-services" },
-    { "@type": "ListItem", position: 3, name: "Flight Booking from Bangladesh 2026", item: "https://www.eammu.com/flight-booking" },
+    { "@type": "ListItem", position: 1, name: "Home",          item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Our Services",  item: "https://eammu.com/our-services" },
+    { "@type": "ListItem", position: 3, name: "Flight Booking from Bangladesh 2026", item: "https://eammu.com/flight-booking" },
   ],
 };
 
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://www.eammu.com/flight-booking/#service",
+  "@id": "https://eammu.com/flight-booking/#service",
   serviceType: "Flight Booking Service",
   name: "Cheap International Flight Booking from Bangladesh",
   description:
     "Book cheap one-way, return, and group international flights from Bangladesh. Compare airfares to Dubai, UK, USA, Canada, Malaysia, Saudi Arabia, Thailand, Australia & 200+ destinations.",
-  provider: { "@id": "https://www.eammu.com/#organization" },
+  provider: { "@id": "https://eammu.com/#organization" },
   areaServed: { "@type": "Country", name: "Bangladesh" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -208,15 +208,15 @@ const serviceSchema = {
 const softwareAppSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "@id": "https://www.eammu.com/flight-booking/#app",
+  "@id": "https://eammu.com/flight-booking/#app",
   name: "Eammu Holidays Flight Search",
-  url: "https://www.eammu.com/flight-booking",
+  url: "https://eammu.com/flight-booking",
   applicationCategory: "TravelApplication",
   operatingSystem: "Web",
   description:
     "Free online flight search tool. Compare international airfares from Bangladesh — one-way, return, and group bookings.",
   offers: { "@type": "Offer", price: "0", priceCurrency: "BDT" },
-  provider: { "@id": "https://www.eammu.com/#organization" },
+  provider: { "@id": "https://eammu.com/#organization" },
   featureList: [
     "Search one-way international flights from Bangladesh",
     "Compare return flight prices",

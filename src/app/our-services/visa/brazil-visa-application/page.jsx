@@ -1,7 +1,7 @@
 import BrazilVisa from '@/Components/Server/VisaCountry/BrazilVisa/BrazilVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Brazil Visa Requirements, Fees, and Application | Tourist & Business Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/brazil-visa-application",
+      "https://eammu.com/our-services/visa/brazil-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Brazil visa support for Bangladeshi travelers. Tourist visa, business visa, fees, documents, and application guidance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/brazil-visa-application",
+      "https://eammu.com/our-services/visa/brazil-visa-application",
 
     siteName: "Eammu Holidays",
 

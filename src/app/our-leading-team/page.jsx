@@ -47,7 +47,7 @@ const TEAM = [
       name: "Naeem Hossen",
       jobTitle: "Founder & Global Visa Expert",
       worksFor: { "@type": "Organization", name: "Eammu Holidays" },
-      url: "https://www.eammu.com/naeem-hossen",
+      url: "https://eammu.com/naeem-hossen",
       sameAs: [
         "https://www.linkedin.com/in/naeemhossen-/",
         "https://facebook.com/naeemhosseen",
@@ -176,10 +176,10 @@ const TESTIMONIAL_VIDEOS = [
 const ORG_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  "@id": "https://www.eammu.com/#organization",
+  "@id": "https://eammu.com/#organization",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
-  logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" },
+  url: "https://eammu.com",
+  logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
   description: "Dubai's leading tourist visa consultancy and travel agency for UAE residents and Bangladeshi expats. 98% visa approval rate. 200+ countries. Expert team led by founder Naeem Hossen.",
   areaServed: ["AE", "BD"],
   aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "3241", bestRating: "5" },
@@ -190,9 +190,9 @@ const BREADCRUMB_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home",          item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "About Eammu",   item: "https://www.eammu.com/about" },
-    { "@type": "ListItem", position: 3, name: "Leadership Team", item: "https://www.eammu.com/our-leading-team" },
+    { "@type": "ListItem", position: 1, name: "Home",          item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "About Eammu",   item: "https://eammu.com/about" },
+    { "@type": "ListItem", position: 3, name: "Leadership Team", item: "https://eammu.com/our-leading-team" },
   ],
 };
 

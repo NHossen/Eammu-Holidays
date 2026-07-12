@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
     `${countryName} student visa Bangladesh ${currentYear}, study in ${countryName} from Bangladesh, ${countryName} student visa requirements Bangladesh, ${countryName} scholarship Bangladeshi students ${currentYear}, ${countryName} student visa bank balance, how to apply ${countryName} student visa Bangladesh, ${countryName} study permit Bangladesh, ${countryName} IELTS requirement student visa, ${countryName} student visa processing time Bangladesh, ${countryName} student visa rejection reasons Bangladesh, ${countryName} student visa fee Bangladesh, study abroad Bangladesh ${countryName}, ${countryName} university admission Bangladesh, student visa consultancy Bangladesh ${countryName}`;
 
   return {
-    metadataBase: new URL("https://www.eammu.com"),
+    metadataBase: new URL("https://eammu.com"),
 
     title: d?.title || defaultTitle,
 
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }) {
     keywords,
 
     alternates: {
-      canonical: `https://www.eammu.com/study-abroad/student-visa/${cleanSlug}`,
+      canonical: `https://eammu.com/study-abroad/student-visa/${cleanSlug}`,
     },
 
     robots: {
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
 
     openGraph: {
       type: "article",
-      url: `https://www.eammu.com/study-abroad/student-visa/${cleanSlug}`,
+      url: `https://eammu.com/study-abroad/student-visa/${cleanSlug}`,
       siteName: "Eammu Holidays",
       title: `Study in ${countryName} — Student Visa Guide for Bangladesh ${currentYear} | Eammu Holidays`,
       description: defaultDesc,
@@ -84,15 +84,15 @@ export async function generateMetadata({ params }) {
 function buildSchemas(country, d, cleanSlug) {
   const countryName = country.country;
   const currentYear = new Date().getFullYear();
-  const pageUrl = `https://www.eammu.com/study-abroad/student-visa/${cleanSlug}`;
+  const pageUrl = `https://eammu.com/study-abroad/student-visa/${cleanSlug}`;
 
   const organization = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    "@id": "https://www.eammu.com/#organization",
+    "@id": "https://eammu.com/#organization",
     name: "Eammu Holidays",
-    url: "https://www.eammu.com",
-    logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" },
+    url: "https://eammu.com",
+    logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
     description: `Bangladesh's leading student visa consultancy with 98% approval rate for ${countryName} and 200+ destinations.`,
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "3241", bestRating: "5" },
     address: [
@@ -105,9 +105,9 @@ function buildSchemas(country, d, cleanSlug) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home",          item: "https://www.eammu.com" },
-      { "@type": "ListItem", position: 2, name: "Study Abroad",  item: "https://www.eammu.com/study-abroad" },
-      { "@type": "ListItem", position: 3, name: "Student Visa",  item: "https://www.eammu.com/study-abroad/student-visa" },
+      { "@type": "ListItem", position: 1, name: "Home",          item: "https://eammu.com" },
+      { "@type": "ListItem", position: 2, name: "Study Abroad",  item: "https://eammu.com/study-abroad" },
+      { "@type": "ListItem", position: 3, name: "Student Visa",  item: "https://eammu.com/study-abroad/student-visa" },
       { "@type": "ListItem", position: 4, name: `${countryName} Student Visa Bangladesh ${currentYear}`, item: pageUrl },
     ],
   };
@@ -121,7 +121,7 @@ function buildSchemas(country, d, cleanSlug) {
     description: `Complete ${currentYear} guide to the ${countryName} student visa for Bangladesh passport holders.`,
     inLanguage: "en-US",
     dateModified: d?.last_updated || new Date().toISOString().split("T")[0],
-    isPartOf: { "@type": "WebSite", "@id": "https://www.eammu.com/#website", name: "Eammu Holidays", url: "https://www.eammu.com" },
+    isPartOf: { "@type": "WebSite", "@id": "https://eammu.com/#website", name: "Eammu Holidays", url: "https://eammu.com" },
     speakable: { "@type": "SpeakableSpecification", cssSelector: ["#page-heading", "#faq-heading", "#checklist-heading"] },
   };
 
@@ -132,7 +132,7 @@ function buildSchemas(country, d, cleanSlug) {
     serviceType: `${countryName} Student Visa Consultancy for Bangladeshi Students`,
     name: `${countryName} Student Visa from Bangladesh — Expert Consultancy`,
     description: `Professional ${countryName} student visa consultancy for Bangladeshi students. Document preparation, SOP writing, university admission support, and complete visa application handling.`,
-    provider: { "@id": "https://www.eammu.com/#organization" },
+    provider: { "@id": "https://eammu.com/#organization" },
     areaServed: { "@type": "Country", name: "Bangladesh" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "BDT", description: "Free initial consultation" },
   };

@@ -7,7 +7,7 @@ import React from "react";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -37,7 +37,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/bank-statement-for-visa",
+    canonical: "https://eammu.com/bank-statement-for-visa",
   },
 
   robots: {
@@ -54,7 +54,7 @@ export const metadata = {
 
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/bank-statement-for-visa",
+    url: "https://eammu.com/bank-statement-for-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Bank Statement Requirement for Visa 2026 — Complete Guide | Eammu Holidays",
@@ -62,7 +62,7 @@ export const metadata = {
       "How much bank balance do you need for Canada, UK, USA, Schengen, Dubai & Australia visas from Bangladesh? Full 2026 breakdown with solvency certificate guidance.",
     images: [
       {
-        url: "https://www.eammu.com/preview-banner.webp",
+        url: "https://eammu.com/preview-banner.webp",
         width: 1200,
         height: 630,
         alt: "Bank Statement Requirement for Visa — Eammu Holidays",
@@ -77,7 +77,7 @@ export const metadata = {
     title: "Bank Statement Requirement for Visa 2026 | Eammu Holidays",
     description:
       "Minimum bank balance & statement requirements for Canada, UK, USA, Schengen, Dubai & Australia visas from Bangladesh — explained.",
-    images: ["https://www.eammu.com/preview-banner.webp"],
+    images: ["https://eammu.com/preview-banner.webp"],
   },
 
   icons: {
@@ -95,27 +95,27 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/bank-statement-for-visa#article",
+      "@id": "https://eammu.com/bank-statement-for-visa#article",
       headline: "Bank Statement Requirement for Visa 2026 — How Much Balance Do You Need?",
       description:
         "Complete 2026 guide to bank statement and minimum balance requirements for Canada, UK, USA, Schengen, Dubai, and Australia visa applications from Bangladesh.",
-      image: "https://www.eammu.com/preview-banner.webp",
-      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://www.eammu.com" },
+      image: "https://eammu.com/preview-banner.webp",
+      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://eammu.com" },
       publisher: {
         "@type": "Organization",
         name: "Eammu Holidays",
-        logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" },
+        logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
       },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/bank-statement-for-visa",
+      mainEntityOfPage: "https://eammu.com/bank-statement-for-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-        { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "Bank Statement for Visa", item: "https://www.eammu.com/bank-statement-for-visa" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+        { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://eammu.com/travel-resources" },
+        { "@type": "ListItem", position: 3, name: "Bank Statement for Visa", item: "https://eammu.com/bank-statement-for-visa" },
       ],
     },
     {
@@ -262,9 +262,9 @@ export default function BankStatementForVisaPage() {
         </p>
         <nav aria-label="Breadcrumb">
           <ol>
-            <li><a href="https://www.eammu.com">Home</a></li>
-            <li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li>
-            <li><a href="https://www.eammu.com/travel-resources/bank-statement-for-visa">Bank Statement for Visa</a></li>
+            <li><a href="https://eammu.com">Home</a></li>
+            <li><a href="https://eammu.com/travel-resources">Travel Resources</a></li>
+            <li><a href="https://eammu.com/travel-resources/bank-statement-for-visa">Bank Statement for Visa</a></li>
           </ol>
         </nav>
       </div>

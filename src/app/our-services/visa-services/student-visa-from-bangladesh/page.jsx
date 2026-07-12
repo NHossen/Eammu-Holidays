@@ -4,7 +4,7 @@ import StudentVisaBangladesh from "@/Components/Client/visaServices/Visa/Student
 import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -29,7 +29,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa-services/student-visa-from-bangladesh",
+      "https://eammu.com/our-services/visa-services/student-visa-from-bangladesh",
   },
 
   robots: {
@@ -45,7 +45,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/our-services/visa-services/student-visa-from-bangladesh",
+    url: "https://eammu.com/our-services/visa-services/student-visa-from-bangladesh",
     siteName: "Eammu Holidays",
 
     title:

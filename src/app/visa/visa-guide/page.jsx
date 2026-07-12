@@ -4,7 +4,7 @@ import React from 'react';
 
 // ─── METADATA ────────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -48,7 +48,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/visa/visa-guide",
+    canonical: "https://eammu.com/visa/visa-guide",
   },
 
   robots: {
@@ -65,7 +65,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/visa/visa-guide",
+    url: "https://eammu.com/visa/visa-guide",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -112,12 +112,12 @@ export const metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  "@id": "https://www.eammu.com/#organization",
+  "@id": "https://eammu.com/#organization",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
+  url: "https://eammu.com",
   logo: {
     "@type": "ImageObject",
-    url: "https://www.eammu.com/emf.jpg",
+    url: "https://eammu.com/emf.jpg",
   },
   description:
     "Bangladesh-based travel and visa consultancy with offices in Dhaka and Dubai. Certified visa consultants helping Bangladeshi travelers get visas for 195+ countries.",
@@ -135,18 +135,18 @@ const organizationSchema = {
       contactType: "customer service",
       availableLanguage: ["English", "Bengali"],
       areaServed: "BD",
-      url: "https://www.eammu.com/contact/travel-agency-bangladesh",
+      url: "https://eammu.com/contact/travel-agency-bangladesh",
     },
     {
       "@type": "ContactPoint",
       contactType: "customer service",
       availableLanguage: ["English"],
       areaServed: "AE",
-      url: "https://www.eammu.com/contact/travel-agency-dubai",
+      url: "https://eammu.com/contact/travel-agency-dubai",
     },
   ],
   sameAs: [
-    "https://www.eammu.com",
+    "https://eammu.com",
   ],
   aggregateRating: {
     "@type": "AggregateRating",
@@ -159,17 +159,17 @@ const organizationSchema = {
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://www.eammu.com/visa/visa-guide#webpage",
-  url: "https://www.eammu.com/visa/visa-guide",
+  "@id": "https://eammu.com/visa/visa-guide#webpage",
+  url: "https://eammu.com/visa/visa-guide",
   name: "Visa Guide 2026 – Requirements, Documents & Application Process",
   description:
     "Embassy-verified visa requirements, document checklists, processing times and rejection rates for 195+ countries.",
   isPartOf: {
     "@type": "WebSite",
-    "@id": "https://www.eammu.com/#website",
-    url: "https://www.eammu.com",
+    "@id": "https://eammu.com/#website",
+    url: "https://eammu.com",
     name: "Eammu Holidays",
-    publisher: { "@id": "https://www.eammu.com/#organization" },
+    publisher: { "@id": "https://eammu.com/#organization" },
   },
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -178,25 +178,25 @@ const webPageSchema = {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.eammu.com",
+        item: "https://eammu.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Visa Services",
-        item: "https://www.eammu.com/visa",
+        item: "https://eammu.com/visa",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Visa Guide",
-        item: "https://www.eammu.com/visa/visa-guide",
+        item: "https://eammu.com/visa/visa-guide",
       },
     ],
   },
   primaryImageOfPage: {
     "@type": "ImageObject",
-    url: "https://www.eammu.com/eammu_banner_four.webp",
+    url: "https://eammu.com/eammu_banner_four.webp",
     width: 1200,
     height: 630,
   },
@@ -211,9 +211,9 @@ const webPageSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://www.eammu.com/visa/visa-guide#service",
+  "@id": "https://eammu.com/visa/visa-guide#service",
   name: "Visa Consultation & Application Assistance",
-  provider: { "@id": "https://www.eammu.com/#organization" },
+  provider: { "@id": "https://eammu.com/#organization" },
   serviceType: "Visa Consultancy",
   description:
     "Professional visa consultation service for tourist, student, work, business and family visas. We provide document preparation, application review, and embassy submission support for 195+ countries.",
@@ -230,7 +230,7 @@ const serviceSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Tourist Visa Assistance",
-          url: "https://www.eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
+          url: "https://eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
         },
       },
       {
@@ -238,7 +238,7 @@ const serviceSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Student Visa Assistance",
-          url: "https://www.eammu.com/our-services/visa-services/student-visa-from-bangladesh",
+          url: "https://eammu.com/our-services/visa-services/student-visa-from-bangladesh",
         },
       },
       {
@@ -246,7 +246,7 @@ const serviceSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Work Visa Assistance",
-          url: "https://www.eammu.com/our-services/visa-services/work-visa-from-bangladesh",
+          url: "https://eammu.com/our-services/visa-services/work-visa-from-bangladesh",
         },
       },
       {
@@ -254,7 +254,7 @@ const serviceSchema = {
         itemOffered: {
           "@type": "Service",
           name: "Schengen Visa Assistance",
-          url: "https://www.eammu.com/schengen-visa",
+          url: "https://eammu.com/schengen-visa",
         },
       },
     ],
@@ -328,7 +328,7 @@ const howToSchema = {
   name: "How to Apply for a Visa from Bangladesh – Step-by-Step Guide",
   description:
     "Complete step-by-step guide to applying for an international visa from Bangladesh with Eammu Holidays.",
-  image: "https://www.eammu.com/eammu_banner_four.webp",
+  image: "https://eammu.com/eammu_banner_four.webp",
   totalTime: "P14D",
   estimatedCost: {
     "@type": "MonetaryAmount",
@@ -348,35 +348,35 @@ const howToSchema = {
       position: 1,
       name: "Check visa requirements",
       text: "Use Eammu Holidays' Visa Guide to look up the exact requirements for your nationality and destination.",
-      url: "https://www.eammu.com/visa/visa-guide",
+      url: "https://eammu.com/visa/visa-guide",
     },
     {
       "@type": "HowToStep",
       position: 2,
       name: "Generate your document checklist",
       text: "Use our Visa Checklist Generator to get a personalized list of required documents.",
-      url: "https://www.eammu.com/travel-resources/visa-checklist-generator",
+      url: "https://eammu.com/travel-resources/visa-checklist-generator",
     },
     {
       "@type": "HowToStep",
       position: 3,
       name: "Check processing times & rejection rates",
       text: "Use our processing time tracker and rejection rate database to plan your application timeline.",
-      url: "https://www.eammu.com/travel-resources/visa-processing-time-tracker",
+      url: "https://eammu.com/travel-resources/visa-processing-time-tracker",
     },
     {
       "@type": "HowToStep",
       position: 4,
       name: "Prepare and review documents",
       text: "Gather all required documents. Our certified consultants review your package before submission.",
-      url: "https://www.eammu.com/contact",
+      url: "https://eammu.com/contact",
     },
     {
       "@type": "HowToStep",
       position: 5,
       name: "Book visa appointment & submit",
       text: "We handle embassy appointment scheduling and application submission on your behalf.",
-      url: "https://www.eammu.com/contact/travel-agency-bangladesh",
+      url: "https://eammu.com/contact/travel-agency-bangladesh",
     },
   ],
 };
@@ -384,13 +384,13 @@ const howToSchema = {
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "@id": "https://www.eammu.com/visa/visa-guide#article",
+  "@id": "https://eammu.com/visa/visa-guide#article",
   headline: "Complete Visa Guide for Bangladeshi Travelers 2026",
   description:
     "Embassy-verified visa requirements, document checklists, processing times and rejection rates for 195+ countries — updated for 2026.",
   image: {
     "@type": "ImageObject",
-    url: "https://www.eammu.com/eammu_banner_four.webp",
+    url: "https://eammu.com/eammu_banner_four.webp",
     width: 1200,
     height: 630,
   },
@@ -399,17 +399,17 @@ const articleSchema = {
   author: {
     "@type": "Organization",
     name: "Eammu Holidays",
-    url: "https://www.eammu.com",
+    url: "https://eammu.com",
   },
   publisher: {
     "@type": "Organization",
     name: "Eammu Holidays",
     logo: {
       "@type": "ImageObject",
-      url: "https://www.eammu.com/emf.jpg",
+      url: "https://eammu.com/emf.jpg",
     },
   },
-  mainEntityOfPage: "https://www.eammu.com/visa/visa-guide",
+  mainEntityOfPage: "https://eammu.com/visa/visa-guide",
   keywords: "visa guide, bangladesh visa, tourist visa, student visa, schengen visa, visa requirements 2026",
   articleSection: "Visa Guides",
   wordCount: 2800,
@@ -424,14 +424,14 @@ const articleSchema = {
 const sitelinksSearchBoxSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://www.eammu.com/#website",
-  url: "https://www.eammu.com",
+  "@id": "https://eammu.com/#website",
+  url: "https://eammu.com",
   name: "Eammu Holidays",
   potentialAction: {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: "https://www.eammu.com/visa/visa-guide?q={search_term_string}",
+      urlTemplate: "https://eammu.com/visa/visa-guide?q={search_term_string}",
     },
     "query-input": "required name=search_term_string",
   },

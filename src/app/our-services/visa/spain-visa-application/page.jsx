@@ -2,7 +2,7 @@ import SpainVisa from '@/Components/Server/VisaCountry/SpainVisa/SpainVisa'
 import React from 'react'
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Spain Visa Requirements, Fees, and Application | Schengen Tourist, Student & Work Visa Support",
@@ -26,7 +26,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/spain-visa-application",
+      "https://eammu.com/our-services/visa/spain-visa-application",
   },
 
   robots: {
@@ -48,7 +48,7 @@ export const metadata = {
       "Professional Spain visa support for Bangladeshi travelers. Schengen tourist, student, and work visa guidance with documents, fees, and embassy support.",
 
     url:
-      "https://www.eammu.com/our-services/visa/spain-visa-application",
+      "https://eammu.com/our-services/visa/spain-visa-application",
 
     siteName: "Eammu Holidays",
 

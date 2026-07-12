@@ -3,7 +3,7 @@ import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 
 // ─── PAGE METADATA ────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -38,7 +38,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
+      "https://eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
   },
 
   robots: {
@@ -55,7 +55,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
+    url: "https://eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
     siteName: "Eammu Holidays",
     locale: "en_BD",
 
@@ -93,12 +93,12 @@ export const metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  "@id": "https://www.eammu.com/#organization",
+  "@id": "https://eammu.com/#organization",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
+  url: "https://eammu.com",
   logo: {
     "@type": "ImageObject",
-    url: "https://www.eammu.com/images/logo.png",
+    url: "https://eammu.com/images/logo.png",
     width: 200,
     height: 60,
   },
@@ -132,11 +132,11 @@ const organizationSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://www.eammu.com/our-services/visa-services/tourist-visa-from-bangladesh#service",
+  "@id": "https://eammu.com/our-services/visa-services/tourist-visa-from-bangladesh#service",
   name: "Tourist Visa Consultancy from Bangladesh",
   alternateName: "Visit Visa Assistance Bangladesh",
   serviceType: "Tourist Visa Application Assistance",
-  provider: { "@id": "https://www.eammu.com/#organization" },
+  provider: { "@id": "https://eammu.com/#organization" },
   areaServed: { "@type": "Country", name: "Bangladesh" },
   description:
     "Complete tourist visa application support for Bangladeshi travelers — from document checklist preparation, NOC drafting, bank statement audit, cover letter writing, VFS appointment booking, and embassy interview coaching.",
@@ -168,9 +168,9 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://www.eammu.com/our-services/visa-services" },
-    { "@type": "ListItem", position: 3, name: "Tourist Visa from Bangladesh", item: "https://www.eammu.com/our-services/visa-services/tourist-visa-from-bangladesh" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://eammu.com/our-services/visa-services" },
+    { "@type": "ListItem", position: 3, name: "Tourist Visa from Bangladesh", item: "https://eammu.com/our-services/visa-services/tourist-visa-from-bangladesh" },
   ],
 };
 
@@ -228,30 +228,30 @@ const itemListSchema = {
   description: "Top tourist visa destinations for Bangladeshi passport holders with expert consultancy from Eammu Holidays.",
   numberOfItems: 7,
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "USA B1/B2 Tourist Visa from Bangladesh", url: "https://www.eammu.com/visa/united-states-visa" },
-    { "@type": "ListItem", position: 2, name: "UK Standard Visitor Visa from Bangladesh", url: "https://www.eammu.com/visa/united-kingdom-visa" },
-    { "@type": "ListItem", position: 3, name: "Canada Tourist Visa from Bangladesh", url: "https://www.eammu.com/visa/canada-visa" },
-    { "@type": "ListItem", position: 4, name: "Schengen Tourist Visa from Bangladesh", url: "https://www.eammu.com/schengen-visa" },
-    { "@type": "ListItem", position: 5, name: "Dubai Tourist Visa from Bangladesh", url: "https://www.eammu.com/our-services/visa/dubai-visa-application" },
-    { "@type": "ListItem", position: 6, name: "Japan Tourist Visa from Bangladesh", url: "https://www.eammu.com/visa/japan-visa" },
-    { "@type": "ListItem", position: 7, name: "Australia Tourist Visa from Bangladesh", url: "https://www.eammu.com/visa/australia-visa" },
+    { "@type": "ListItem", position: 1, name: "USA B1/B2 Tourist Visa from Bangladesh", url: "https://eammu.com/visa/united-states-visa" },
+    { "@type": "ListItem", position: 2, name: "UK Standard Visitor Visa from Bangladesh", url: "https://eammu.com/visa/united-kingdom-visa" },
+    { "@type": "ListItem", position: 3, name: "Canada Tourist Visa from Bangladesh", url: "https://eammu.com/visa/canada-visa" },
+    { "@type": "ListItem", position: 4, name: "Schengen Tourist Visa from Bangladesh", url: "https://eammu.com/schengen-visa" },
+    { "@type": "ListItem", position: 5, name: "Dubai Tourist Visa from Bangladesh", url: "https://eammu.com/our-services/visa/dubai-visa-application" },
+    { "@type": "ListItem", position: 6, name: "Japan Tourist Visa from Bangladesh", url: "https://eammu.com/visa/japan-visa" },
+    { "@type": "ListItem", position: 7, name: "Australia Tourist Visa from Bangladesh", url: "https://eammu.com/visa/australia-visa" },
   ],
 };
 
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://www.eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
+  "@id": "https://eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
   name: "Tourist Visa from Bangladesh 2026 — Eammu Holidays",
-  url: "https://www.eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
+  url: "https://eammu.com/our-services/visa-services/tourist-visa-from-bangladesh",
   description:
     "Comprehensive tourist visa consultancy for Bangladeshi travelers. Expert assistance for 200+ countries including USA, UK, Canada, Schengen, Dubai, and Japan.",
   inLanguage: "en",
-  isPartOf: { "@id": "https://www.eammu.com/#website" },
-  about: { "@id": "https://www.eammu.com/our-services/visa-services/tourist-visa-from-bangladesh#service" },
-  breadcrumb: { "@id": "https://www.eammu.com/our-services/visa-services/tourist-visa-from-bangladesh#breadcrumb" },
+  isPartOf: { "@id": "https://eammu.com/#website" },
+  about: { "@id": "https://eammu.com/our-services/visa-services/tourist-visa-from-bangladesh#service" },
+  breadcrumb: { "@id": "https://eammu.com/our-services/visa-services/tourist-visa-from-bangladesh#breadcrumb" },
   dateModified: "2026-05-01",
-  publisher: { "@id": "https://www.eammu.com/#organization" },
+  publisher: { "@id": "https://eammu.com/#organization" },
 };
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────

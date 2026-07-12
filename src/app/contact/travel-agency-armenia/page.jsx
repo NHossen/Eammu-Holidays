@@ -8,7 +8,7 @@ import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 ───────────────────────────────────────────────────────────────────────────── */
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Eammu Holidays: Travel Agency in Yerevan, Armenia",
@@ -40,7 +40,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/contact/travel-agency-armenia",
+    canonical: "https://eammu.com/contact/travel-agency-armenia",
   },
 
   robots: {
@@ -57,7 +57,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/contact/travel-agency-armenia",
+    url: "https://eammu.com/contact/travel-agency-armenia",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Eammu Holidays Armenia — Travel Agency & Visa Services in Yerevan",
@@ -96,12 +96,12 @@ const jsonLd = {
   "@graph": [
     {
       "@type": ["LocalBusiness", "TravelAgency"],
-      "@id": "https://www.eammu.com/contact/travel-agency-armenia#business",
+      "@id": "https://eammu.com/contact/travel-agency-armenia#business",
       "name": "Eammu Holidays — Yerevan Armenia Branch",
       "alternateName": "Eammu Holidays Armenia",
       "description":
         "Eammu Holidays is a certified travel agency and visa consultancy located in Yerevan, Armenia. We specialise in Armenia e-visa processing, guided tours to Garni Temple, Geghard Monastery and Lake Sevan, airport transfers from Zvartnots International Airport, and hotel bookings for Bangladeshi and international travelers.",
-      "url": "https://www.eammu.com/contact/travel-agency-armenia",
+      "url": "https://eammu.com/contact/travel-agency-armenia",
       "telephone": "+37494810585",
       "email": "armenia@eammu.com",
       "address": {
@@ -151,7 +151,7 @@ const jsonLd = {
         { "@type": "Country", "name": "Georgia" },
       ],
       "knowsLanguage": ["en", "bn", "hy"],
-      "image": "https://www.eammu.com/preview-banner.webp",
+      "image": "https://eammu.com/preview-banner.webp",
     },
     {
       "@type": "FAQPage",
@@ -201,9 +201,9 @@ const jsonLd = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://www.eammu.com" },
-        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.eammu.com/contact" },
-        { "@type": "ListItem", "position": 3, "name": "Travel Agency Armenia", "item": "https://www.eammu.com/contact/travel-agency-armenia" },
+        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://eammu.com" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://eammu.com/contact" },
+        { "@type": "ListItem", "position": 3, "name": "Travel Agency Armenia", "item": "https://eammu.com/contact/travel-agency-armenia" },
       ],
     },
   ],

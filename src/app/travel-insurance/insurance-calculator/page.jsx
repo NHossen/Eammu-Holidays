@@ -169,7 +169,7 @@ export default function InsuranceCalculator() {
       <meta itemProp="name" content="Travel Insurance Cost Calculator — Eammu Holidays" />
       <meta itemProp="applicationCategory" content="TravelApplication" />
       <meta itemProp="operatingSystem" content="Web" />
-      <meta itemProp="url" content="https://www.eammu.com/travel-insurance" />
+      <meta itemProp="url" content="https://eammu.com/travel-insurance" />
 
       {/* Header */}
       <div className="flex items-center gap-3 mb-8">

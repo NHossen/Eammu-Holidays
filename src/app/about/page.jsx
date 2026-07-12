@@ -3,7 +3,7 @@ import AboutServer from '@/Components/Server/AboutServer/AboutServer';
 import React from 'react';
 
 export const metadata = {
-  title: "Travel Agency Bangladesh About Eammu Holidays",
+  title: "Travel Agency Bangladesh | Eammu Holidays",
 
   description:
     "Eammu Holidays is a leading international travel and visa consultancy founded in 2022, serving clients from Bangladesh, Dubai, UAE, Armenia & Georgia. We offer student visa processing, Umrah packages, holiday tours, and immigration consulting with a 95% visa success rate.",
@@ -29,17 +29,17 @@ export const metadata = {
     "UK student visa Bangladesh",
   ],
 
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   alternates: {
-    canonical: "https://www.eammu.com/about",
+    canonical: "https://eammu.com/about",
   },
 
   openGraph: {
     title: "About Eammu Holidays | Trusted Travel & Visa Agency Since 2022",
     description:
       "Meet the team behind Eammu Holidays – a globally trusted travel & visa consultancy helping thousands explore the world from Bangladesh, UAE, Armenia & Georgia. 95% visa success rate.",
-    url: "https://www.eammu.com/about",
+    url: "https://eammu.com/about",
     siteName: "Eammu Holidays",
     locale: "en_US",
     images: [
@@ -78,9 +78,9 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
-  logo: "https://www.eammu.com/logo.png",
-  image: "https://www.eammu.com/preview-banner.webp",
+  url: "https://eammu.com",
+  logo: "https://eammu.com/logo.png",
+  image: "https://eammu.com/preview-banner.webp",
   description:
     "Eammu Holidays is a professional global travel agency offering visa assistance, holiday packages, student visa services, Umrah packages, and international relocation solutions from Bangladesh, Dubai, UAE, Armenia & Georgia.",
   foundingDate: "2022",
@@ -163,13 +163,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://www.eammu.com",
+      item: "https://eammu.com",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "About Us",
-      item: "https://www.eammu.com/about",
+      item: "https://eammu.com/about",
     },
   ],
 };

@@ -9,7 +9,7 @@ import React from 'react';
 ───────────────────────────────────────────────────────────────────────────── */
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Travel Agency in Cumilla , Bangladesh | Eammu Holidays",
@@ -50,7 +50,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/contact/travel-agency-bangladesh",
+    canonical: "https://eammu.com/contact/travel-agency-bangladesh",
   },
 
   robots: {
@@ -67,7 +67,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/contact/travel-agency-bangladesh",
+    url: "https://eammu.com/contact/travel-agency-bangladesh",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -105,12 +105,12 @@ const jsonLd = {
     // ── Main Branch — Cumilla
     {
       "@type": ["LocalBusiness", "TravelAgency"],
-      "@id": "https://www.eammu.com/contact/travel-agency-bangladesh#cumilla",
+      "@id": "https://eammu.com/contact/travel-agency-bangladesh#cumilla",
       "name": "Eammu Holidays — Cumilla Cantonment Branch",
       "alternateName": "Eammu Holidays Cumilla",
       "description":
         "Eammu Holidays main branch in Cumilla Cantonment, Bangladesh. Specialises in visa processing for UK, USA, Canada, Dubai & Schengen, Umrah packages, student visa consultancy, domestic tour packages, and flight bookings.",
-      "url": "https://www.eammu.com/contact/travel-agency-bangladesh",
+      "url": "https://eammu.com/contact/travel-agency-bangladesh",
       "telephone": "+8801701699743",
       "email": "info@eammu.com",
       "address": {
@@ -164,7 +164,7 @@ const jsonLd = {
         { "@type": "Country", "name": "Bangladesh" },
       ],
       "knowsLanguage": ["bn", "en"],
-      "image": "https://www.eammu.com/preview-banner.webp",
+      "image": "https://eammu.com/preview-banner.webp",
       "sameAs": [
         "https://www.facebook.com/eammuholidays",
         "https://wa.me/8801631312524",
@@ -173,12 +173,12 @@ const jsonLd = {
     // ── Branch 2 — Mirpur 12, Dhaka
     {
       "@type": ["LocalBusiness", "TravelAgency"],
-      "@id": "https://www.eammu.com/contact/travel-agency-bangladesh#dhaka",
+      "@id": "https://eammu.com/contact/travel-agency-bangladesh#dhaka",
       "name": "Eammu Holidays — Mirpur 12, Dhaka Branch",
       "alternateName": "Eammu Holidays Dhaka",
       "description":
         "Eammu Holidays Dhaka branch at Mirpur 12. Full-service travel agency offering visa processing, international tour packages, Umrah deals, student visa support, and flight booking for Dhaka clients.",
-      "url": "https://www.eammu.com/contact/travel-agency-bangladesh",
+      "url": "https://eammu.com/contact/travel-agency-bangladesh",
       "telephone": "+8801631312524",
       "address": {
         "@type": "PostalAddress",
@@ -201,7 +201,7 @@ const jsonLd = {
         },
       ],
       "parentOrganization": {
-        "@id": "https://www.eammu.com/contact/travel-agency-bangladesh#cumilla",
+        "@id": "https://eammu.com/contact/travel-agency-bangladesh#cumilla",
       },
     },
     // ── FAQPage
@@ -262,9 +262,9 @@ const jsonLd = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://www.eammu.com" },
-        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.eammu.com/contact" },
-        { "@type": "ListItem", "position": 3, "name": "Travel Agency Bangladesh", "item": "https://www.eammu.com/contact/travel-agency-bangladesh" },
+        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://eammu.com" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://eammu.com/contact" },
+        { "@type": "ListItem", "position": 3, "name": "Travel Agency Bangladesh", "item": "https://eammu.com/contact/travel-agency-bangladesh" },
       ],
     },
   ],

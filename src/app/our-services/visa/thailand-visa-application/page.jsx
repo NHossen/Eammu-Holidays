@@ -1,7 +1,7 @@
 import ThailandVisa from '@/Components/Server/VisaCountry/ThailandVisa/ThailandVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Thailand Visa Requirements, Fees, and Application | Tourist & Visit Visa Support",
@@ -25,7 +25,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/thailand-visa-application",
+      "https://eammu.com/our-services/visa/thailand-visa-application",
   },
 
   robots: {
@@ -47,7 +47,7 @@ export const metadata = {
       "Professional Thailand visa support for Bangladeshi travelers. Tourist and visit visa guidance with documents, fees, and fast processing assistance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/thailand-visa-application",
+      "https://eammu.com/our-services/visa/thailand-visa-application",
 
     siteName: "Eammu Holidays",
 

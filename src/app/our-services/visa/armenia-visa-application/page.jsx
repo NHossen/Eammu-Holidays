@@ -3,7 +3,7 @@ import ArmeniaVisa from '@/Components/Server/VisaCountry/ArmeniaVisa/ArmeniaVisa
 import React from 'react'
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: "Armenia Visa Application 2026 | E-Visa, Tourist & Residency | Eammu Holidays",
 
@@ -48,7 +48,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/our-services/visa/armenia-visa-application",
+    canonical: "https://eammu.com/our-services/visa/armenia-visa-application",
   },
 
   robots: {
@@ -67,7 +67,7 @@ export const metadata = {
     title: "Armenia Visa Application 2026 | E-Visa, Tourist & Residency | Eammu Holidays",
     description:
       "Apply for Armenia visa with 98% approval rate. Eammu Holidays offers expert Armenia e-visa, tourist visa & residency support from Dubai, UAE & Bangladesh. Fast 3-5 day processing.",
-    url: "https://www.eammu.com/our-services/visa/armenia-visa-application",
+    url: "https://eammu.com/our-services/visa/armenia-visa-application",
     siteName: "Eammu Holidays",
     type: "website",
     locale: "en_US",
@@ -92,7 +92,7 @@ export const metadata = {
     creator: "@eammuholidays",
   },
 
-  authors: [{ name: "Eammu Holidays", url: "https://www.eammu.com" }],
+  authors: [{ name: "Eammu Holidays", url: "https://eammu.com" }],
   category: "Travel & Visa Services",
   creator: "Eammu Holidays",
   publisher: "Eammu Holidays",
@@ -121,15 +121,15 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://www.eammu.com/our-services/visa/armenia-visa-application#service",
+      "@id": "https://eammu.com/our-services/visa/armenia-visa-application#service",
       "name": "Armenia Visa Application Service",
       "description": "Professional Armenia e-visa, tourist visa, work permit and residency permit application service for UAE, Dubai and Bangladesh residents. IATA-accredited travel agency with 98% approval rate.",
       "provider": {
         "@type": "TravelAgency",
-        "@id": "https://www.eammu.com#organization",
+        "@id": "https://eammu.com#organization",
         "name": "Eammu Holidays",
-        "url": "https://www.eammu.com",
-        "logo": "https://www.eammu.com/logo.png",
+        "url": "https://eammu.com",
+        "logo": "https://eammu.com/logo.png",
         "telephone": ["+971507078334", "+37494810585", "+8801701699743"],
         "email": "info@eammu.com",
         "address": [
@@ -170,7 +170,7 @@ const jsonLd = {
           "priceCurrency": "USD",
           "description": "Armenia short-stay e-visa valid for 21 days",
           "availability": "https://schema.org/InStock",
-          "url": "https://www.eammu.com/our-services/visa/armenia-visa-application"
+          "url": "https://eammu.com/our-services/visa/armenia-visa-application"
         },
         {
           "@type": "Offer",
@@ -179,7 +179,7 @@ const jsonLd = {
           "priceCurrency": "USD",
           "description": "Armenia long-stay e-visa valid for 120 days",
           "availability": "https://schema.org/InStock",
-          "url": "https://www.eammu.com/our-services/visa/armenia-visa-application"
+          "url": "https://eammu.com/our-services/visa/armenia-visa-application"
         }
       ],
       "aggregateRating": {
@@ -192,7 +192,7 @@ const jsonLd = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.eammu.com/our-services/visa/armenia-visa-application#faq",
+      "@id": "https://eammu.com/our-services/visa/armenia-visa-application#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -267,51 +267,51 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://www.eammu.com"
+          "item": "https://eammu.com"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Our Services",
-          "item": "https://www.eammu.com/our-services"
+          "item": "https://eammu.com/our-services"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Visa Services",
-          "item": "https://www.eammu.com/our-services/visa"
+          "item": "https://eammu.com/our-services/visa"
         },
         {
           "@type": "ListItem",
           "position": 4,
           "name": "Armenia Visa Application",
-          "item": "https://www.eammu.com/our-services/visa/armenia-visa-application"
+          "item": "https://eammu.com/our-services/visa/armenia-visa-application"
         }
       ]
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.eammu.com/our-services/visa/armenia-visa-application",
-      "url": "https://www.eammu.com/our-services/visa/armenia-visa-application",
+      "@id": "https://eammu.com/our-services/visa/armenia-visa-application",
+      "url": "https://eammu.com/our-services/visa/armenia-visa-application",
       "name": "Armenia Visa Application 2026 | E-Visa, Tourist & Residency | Eammu Holidays",
       "description": "Apply for Armenia visa online with Eammu Holidays. Expert support for Armenia e-visa, tourist visa & residency from Dubai, UAE & Bangladesh. 98% approval rate.",
       "inLanguage": "en-US",
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.eammu.com#website",
-        "url": "https://www.eammu.com",
+        "@id": "https://eammu.com#website",
+        "url": "https://eammu.com",
         "name": "Eammu Holidays",
         "description": "IATA-accredited travel agency offering visa services, holiday packages and immigration support worldwide.",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://www.eammu.com/search?q={search_term_string}",
+          "target": "https://eammu.com/search?q={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       },
       "datePublished": "2024-01-01",
       "dateModified": "2026-01-15",
       "breadcrumb": {
-        "@id": "https://www.eammu.com/our-services/visa/armenia-visa-application#breadcrumb"
+        "@id": "https://eammu.com/our-services/visa/armenia-visa-application#breadcrumb"
       }
     }
   ]

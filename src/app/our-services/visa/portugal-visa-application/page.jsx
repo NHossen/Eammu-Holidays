@@ -1,7 +1,7 @@
 import PortugalVisa from '@/Components/Server/VisaCountry/PortugalVisa/PortugalVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Portugal Visa Requirements, Fees, and Application | Schengen Tourist, Student & Work Visa Support",
@@ -25,7 +25,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/portugal-visa-application",
+      "https://eammu.com/our-services/visa/portugal-visa-application",
   },
 
   robots: {
@@ -47,7 +47,7 @@ export const metadata = {
       "Professional Portugal visa support for Bangladeshi travelers. Schengen tourist, student, and work visa guidance with documents, fees, and embassy support.",
 
     url:
-      "https://www.eammu.com/our-services/visa/portugal-visa-application",
+      "https://eammu.com/our-services/visa/portugal-visa-application",
 
     siteName: "Eammu Holidays",
 

@@ -6,7 +6,7 @@ import React from "react";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default: "Travel Agency Bangladesh | visa, tours, and flight booking",
@@ -126,10 +126,10 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/online-travel-agency-bangladesh",
+    canonical: "https://eammu.com/online-travel-agency-bangladesh",
     languages: {
-      "en-US": "https://www.eammu.com/online-travel-agency-bangladesh",
-      "bn-BD": "https://www.eammu.com/online-travel-agency-bangladesh",
+      "en-US": "https://eammu.com/online-travel-agency-bangladesh",
+      "bn-BD": "https://eammu.com/online-travel-agency-bangladesh",
     },
   },
 
@@ -147,7 +147,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/online-travel-agency-bangladesh",
+    url: "https://eammu.com/online-travel-agency-bangladesh",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -156,7 +156,7 @@ export const metadata = {
       "IATA-accredited travel agency in Bangladesh since 2012. Canada, UK, USA, Schengen, Dubai & Europe work permit visas — 98% success rate. Air tickets, Umrah packages, student visa. Free consultation.",
     images: [
       {
-        url: "https://www.eammu.com/preview-banner.webp",
+        url: "https://eammu.com/preview-banner.webp",
         width: 1200,
         height: 630,
         alt: "Eammu Holidays – Best Online Travel and Visa Agency Bangladesh 2026",
@@ -172,7 +172,7 @@ export const metadata = {
     title: "Best Online Travel & Visa Agency Bangladesh 2026 | Eammu Holidays",
     description:
       "Canada, UK, USA, Dubai, Schengen visa from Bangladesh — 98% success rate. Air tickets, Umrah, student visa, work permit. IATA-accredited. Free consultation.",
-    images: ["https://www.eammu.com/preview-banner.webp"],
+    images: ["https://eammu.com/preview-banner.webp"],
   },
 
   icons: {
@@ -207,7 +207,7 @@ const structuredData = {
     // ── 1. TravelAgency / LocalBusiness (primary)
     {
       "@type": ["TravelAgency", "LocalBusiness"],
-      "@id": "https://www.eammu.com/#organization",
+      "@id": "https://eammu.com/#organization",
       name: "Eammu Holidays",
       alternateName: [
         "Eammu Travel Agency Bangladesh",
@@ -215,16 +215,16 @@ const structuredData = {
         "Eammu Holidays Cumilla",
         "Eammu Holidays Dhaka",
       ],
-      url: "https://www.eammu.com",
+      url: "https://eammu.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.eammu.com/emf.jpg",
+        url: "https://eammu.com/emf.jpg",
         width: 200,
         height: 200,
       },
       image: {
         "@type": "ImageObject",
-        url: "https://www.eammu.com/preview-banner.webp",
+        url: "https://eammu.com/preview-banner.webp",
         width: 1200,
         height: 630,
       },
@@ -300,7 +300,7 @@ const structuredData = {
             itemOffered: {
               "@type": "Service",
               name: "Canada Visa Processing",
-              url: "https://www.eammu.com/visa",
+              url: "https://eammu.com/visa",
               description: "Canada tourist, student, PR and work permit visa processing from Bangladesh",
             },
           },
@@ -310,7 +310,7 @@ const structuredData = {
             itemOffered: {
               "@type": "Service",
               name: "UK Visa Processing",
-              url: "https://www.eammu.com/visa",
+              url: "https://eammu.com/visa",
             },
           },
           {
@@ -319,7 +319,7 @@ const structuredData = {
             itemOffered: {
               "@type": "Service",
               name: "USA Visa Assistance & Interview Preparation",
-              url: "https://www.eammu.com/target-usa-visa-interview-preparation",
+              url: "https://eammu.com/target-usa-visa-interview-preparation",
             },
           },
           {
@@ -328,7 +328,7 @@ const structuredData = {
             itemOffered: {
               "@type": "Service",
               name: "Dubai / UAE Visa",
-              url: "https://www.eammu.com/visa/dubai-residents",
+              url: "https://eammu.com/visa/dubai-residents",
             },
           },
           {
@@ -337,7 +337,7 @@ const structuredData = {
             itemOffered: {
               "@type": "Service",
               name: "Schengen Visa Processing",
-              url: "https://www.eammu.com/visa",
+              url: "https://eammu.com/visa",
             },
           },
           {
@@ -346,7 +346,7 @@ const structuredData = {
             itemOffered: {
               "@type": "Service",
               name: "Europe Work Permit – Poland, Romania, Portugal",
-              url: "https://www.eammu.com/visa",
+              url: "https://eammu.com/visa",
             },
           },
           {
@@ -355,7 +355,7 @@ const structuredData = {
             itemOffered: {
               "@type": "Service",
               name: "Student Visa Consultancy",
-              url: "https://www.eammu.com/study-abroad/student-visa",
+              url: "https://eammu.com/study-abroad/student-visa",
             },
           },
           {
@@ -364,7 +364,7 @@ const structuredData = {
             itemOffered: {
               "@type": "Service",
               name: "Umrah Packages Bangladesh",
-              url: "https://www.eammu.com/our-services/tour-packages",
+              url: "https://eammu.com/our-services/tour-packages",
             },
           },
           {
@@ -373,7 +373,7 @@ const structuredData = {
             itemOffered: {
               "@type": "Service",
               name: "International Air Ticket Booking",
-              url: "https://www.eammu.com/flight-booking",
+              url: "https://eammu.com/flight-booking",
             },
           },
           {
@@ -382,7 +382,7 @@ const structuredData = {
             itemOffered: {
               "@type": "Service",
               name: "Australia Visa Processing",
-              url: "https://www.eammu.com/visa",
+              url: "https://eammu.com/visa",
             },
           },
         ],
@@ -400,9 +400,9 @@ const structuredData = {
     // ── 2. Multiple branch LocalBusiness nodes
     {
       "@type": "LocalBusiness",
-      "@id": "https://www.eammu.com/#branch-dubai",
+      "@id": "https://eammu.com/#branch-dubai",
       name: "Eammu Holidays – Dubai Office",
-      parentOrganization: { "@id": "https://www.eammu.com/#organization" },
+      parentOrganization: { "@id": "https://eammu.com/#organization" },
       address: {
         "@type": "PostalAddress",
         streetAddress: "Business Bay",
@@ -411,13 +411,13 @@ const structuredData = {
       },
       telephone: "+971507078334",
       email: "dubai@eammu.com",
-      url: "https://www.eammu.com/contact/travel-agency-dubai",
+      url: "https://eammu.com/contact/travel-agency-dubai",
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://www.eammu.com/#branch-armenia",
+      "@id": "https://eammu.com/#branch-armenia",
       name: "Eammu Holidays – Yerevan Office",
-      parentOrganization: { "@id": "https://www.eammu.com/#organization" },
+      parentOrganization: { "@id": "https://eammu.com/#organization" },
       address: {
         "@type": "PostalAddress",
         streetAddress: "Lambron 39",
@@ -426,13 +426,13 @@ const structuredData = {
       },
       telephone: "+37494810585",
       email: "armenia@eammu.com",
-      url: "https://www.eammu.com/contact/travel-agency-armenia",
+      url: "https://eammu.com/contact/travel-agency-armenia",
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://www.eammu.com/#branch-georgia",
+      "@id": "https://eammu.com/#branch-georgia",
       name: "Eammu Holidays – Tbilisi Office",
-      parentOrganization: { "@id": "https://www.eammu.com/#organization" },
+      parentOrganization: { "@id": "https://eammu.com/#organization" },
       address: {
         "@type": "PostalAddress",
         streetAddress: "Levan Gotua Street #3",
@@ -441,26 +441,26 @@ const structuredData = {
       },
       telephone: "+995574446218",
       email: "georgia@eammu.com",
-      url: "https://www.eammu.com/contact/travel-agency-georgia",
+      url: "https://eammu.com/contact/travel-agency-georgia",
     },
 
     // ── 3. WebPage
     {
       "@type": "WebPage",
-      "@id": "https://www.eammu.com/online-travel-agency-bangladesh#webpage",
-      url: "https://www.eammu.com/online-travel-agency-bangladesh",
+      "@id": "https://eammu.com/online-travel-agency-bangladesh#webpage",
+      url: "https://eammu.com/online-travel-agency-bangladesh",
       name: "Best Online Travel Agency in Bangladesh 2026 | Eammu Holidays",
       description:
         "Eammu Holidays is Bangladesh's #1 IATA-accredited travel and visa agency. Canada, UK, USA, Schengen, Dubai, Australia & Europe work permit visas with 98% success rate.",
-      isPartOf: { "@id": "https://www.eammu.com/#website" },
-      about: { "@id": "https://www.eammu.com/#organization" },
-      breadcrumb: { "@id": "https://www.eammu.com/online-travel-agency-bangladesh#breadcrumb" },
+      isPartOf: { "@id": "https://eammu.com/#website" },
+      about: { "@id": "https://eammu.com/#organization" },
+      breadcrumb: { "@id": "https://eammu.com/online-travel-agency-bangladesh#breadcrumb" },
       inLanguage: "en-US",
       datePublished: "2023-01-01",
       dateModified: "2026-06-01",
       potentialAction: {
         "@type": "ReadAction",
-        target: "https://www.eammu.com/online-travel-agency-bangladesh",
+        target: "https://eammu.com/online-travel-agency-bangladesh",
       },
       speakable: {
         "@type": "SpeakableSpecification",
@@ -471,15 +471,15 @@ const structuredData = {
     // ── 4. Website with SiteLinksSearchBox
     {
       "@type": "WebSite",
-      "@id": "https://www.eammu.com/#website",
-      url: "https://www.eammu.com",
+      "@id": "https://eammu.com/#website",
+      url: "https://eammu.com",
       name: "Eammu Holidays",
-      publisher: { "@id": "https://www.eammu.com/#organization" },
+      publisher: { "@id": "https://eammu.com/#organization" },
       potentialAction: {
         "@type": "SearchAction",
         target: {
           "@type": "EntryPoint",
-          urlTemplate: "https://www.eammu.com/visa?q={search_term_string}",
+          urlTemplate: "https://eammu.com/visa?q={search_term_string}",
         },
         "query-input": "required name=search_term_string",
       },
@@ -488,19 +488,19 @@ const structuredData = {
     // ── 5. BreadcrumbList
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.eammu.com/online-travel-agency-bangladesh#breadcrumb",
+      "@id": "https://eammu.com/online-travel-agency-bangladesh#breadcrumb",
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://www.eammu.com",
+          item: "https://eammu.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Online Travel Agency Bangladesh",
-          item: "https://www.eammu.com/online-travel-agency-bangladesh",
+          item: "https://eammu.com/online-travel-agency-bangladesh",
         },
       ],
     },
@@ -589,14 +589,14 @@ const structuredData = {
           position: 1,
           name: "Free Consultation",
           text: "Contact Eammu Holidays via WhatsApp (+8801631312524) or walk into their Cumilla or Dhaka office for a free visa eligibility consultation.",
-          url: "https://www.eammu.com/contact/travel-agency-bangladesh",
+          url: "https://eammu.com/contact/travel-agency-bangladesh",
         },
         {
           "@type": "HowToStep",
           position: 2,
           name: "Document Checklist",
           text: "Receive a tailored document checklist for your target visa type — Canada, UK, USA, Schengen, Dubai, or any other country.",
-          url: "https://www.eammu.com/travel-resources/visa-checklist-generator",
+          url: "https://eammu.com/travel-resources/visa-checklist-generator",
         },
         {
           "@type": "HowToStep",
@@ -627,16 +627,16 @@ const structuredData = {
       itemListOrder: "https://schema.org/ItemListUnordered",
       numberOfItems: 10,
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Canada Visa Processing from Bangladesh", url: "https://www.eammu.com/visa" },
-        { "@type": "ListItem", position: 2, name: "UK Visa Bangladesh", url: "https://www.eammu.com/visa" },
-        { "@type": "ListItem", position: 3, name: "USA Visa Interview Preparation Bangladesh", url: "https://www.eammu.com/target-usa-visa-interview-preparation" },
-        { "@type": "ListItem", position: 4, name: "Schengen Visa Bangladesh", url: "https://www.eammu.com/visa" },
-        { "@type": "ListItem", position: 5, name: "Dubai UAE Visa for Bangladeshi Citizens", url: "https://www.eammu.com/visa/dubai-residents" },
-        { "@type": "ListItem", position: 6, name: "Europe Work Permit Bangladesh 2026", url: "https://www.eammu.com/visa" },
-        { "@type": "ListItem", position: 7, name: "Australia Visa Bangladesh", url: "https://www.eammu.com/visa" },
-        { "@type": "ListItem", position: 8, name: "Student Visa Consultancy Bangladesh", url: "https://www.eammu.com/study-abroad/student-visa" },
-        { "@type": "ListItem", position: 9, name: "Umrah Packages Bangladesh 2026", url: "https://www.eammu.com/our-services/tour-packages" },
-        { "@type": "ListItem", position: 10, name: "International Air Ticket Booking Bangladesh", url: "https://www.eammu.com/flight-booking" },
+        { "@type": "ListItem", position: 1, name: "Canada Visa Processing from Bangladesh", url: "https://eammu.com/visa" },
+        { "@type": "ListItem", position: 2, name: "UK Visa Bangladesh", url: "https://eammu.com/visa" },
+        { "@type": "ListItem", position: 3, name: "USA Visa Interview Preparation Bangladesh", url: "https://eammu.com/target-usa-visa-interview-preparation" },
+        { "@type": "ListItem", position: 4, name: "Schengen Visa Bangladesh", url: "https://eammu.com/visa" },
+        { "@type": "ListItem", position: 5, name: "Dubai UAE Visa for Bangladeshi Citizens", url: "https://eammu.com/visa/dubai-residents" },
+        { "@type": "ListItem", position: 6, name: "Europe Work Permit Bangladesh 2026", url: "https://eammu.com/visa" },
+        { "@type": "ListItem", position: 7, name: "Australia Visa Bangladesh", url: "https://eammu.com/visa" },
+        { "@type": "ListItem", position: 8, name: "Student Visa Consultancy Bangladesh", url: "https://eammu.com/study-abroad/student-visa" },
+        { "@type": "ListItem", position: 9, name: "Umrah Packages Bangladesh 2026", url: "https://eammu.com/our-services/tour-packages" },
+        { "@type": "ListItem", position: 10, name: "International Air Ticket Booking Bangladesh", url: "https://eammu.com/flight-booking" },
       ],
     },
   ],
@@ -1475,7 +1475,7 @@ export default function OnlineTravelAgencyBangladeshPage() {
                     className="text-gray-700 text-sm leading-relaxed mb-4 italic"
                     itemProp="reviewBody"
                   >
-                    "{t.text}"
+                    {t.text}
                   </p>
                   <div className="flex justify-between items-end">
                     <div>

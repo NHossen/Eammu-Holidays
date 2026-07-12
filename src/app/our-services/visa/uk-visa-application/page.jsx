@@ -1,7 +1,7 @@
 import UkVisa from '@/Components/Server/VisaCountry/UkVisa/UkVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "UK Visa Requirements, Fees, and Application | Tourist, Student & Work Visa Support",
@@ -25,7 +25,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/uk-visa-application",
+      "https://eammu.com/our-services/visa/uk-visa-application",
   },
 
   robots: {
@@ -47,7 +47,7 @@ export const metadata = {
       "Professional UK visa support for Bangladeshi travelers. Tourist, student, work, and visit visa guidance with documents, fees, and application assistance.",
 
     url:
-      "https://www.eammu.com/our-services/visa/uk-visa-application",
+      "https://eammu.com/our-services/visa/uk-visa-application",
 
     siteName: "Eammu Holidays",
 

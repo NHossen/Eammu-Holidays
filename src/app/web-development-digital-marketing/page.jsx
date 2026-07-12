@@ -6,7 +6,7 @@ import React from 'react'
 import OurCoreServices from '@/Components/Client/eammuGroupClient/EammuMarketing/OurCoreServices/OurCoreServices'
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -32,7 +32,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/web-development-digital-marketing",
+      "https://eammu.com/web-development-digital-marketing",
   },
 
   robots: {
@@ -48,7 +48,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/web-development-digital-marketing",
+    url: "https://eammu.com/web-development-digital-marketing",
     siteName: "Eammu Holidays",
 
     title:
@@ -93,7 +93,7 @@ export default function page() {
       provider: {
         "@type": "Organization",
         name: "Eammu Holidays",
-        url: "https://www.eammu.com"
+        url: "https://eammu.com"
       },
       areaServed: ["Bangladesh", "UAE", "Worldwide"]
     }),

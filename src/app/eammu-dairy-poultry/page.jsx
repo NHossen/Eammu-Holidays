@@ -1,7 +1,7 @@
 import EammuDairy from '@/Components/Client/eammuGroupClient/EammuDairy/EammuDairy'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Eammu Dairy & Poultry | Quality Farm Products, Production & Supply",
@@ -23,7 +23,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/eammu-dairy-poultry",
+    canonical: "https://eammu.com/eammu-dairy-poultry",
   },
 
   robots: {
@@ -43,7 +43,7 @@ export const metadata = {
     description:
       "High-quality dairy and poultry products from Eammu. Fresh milk, eggs, and farm-based food supply with strict hygiene standards in Bangladesh.",
 
-    url: "https://www.eammu.com/eammu-dairy-poultry",
+    url: "https://eammu.com/eammu-dairy-poultry",
 
     siteName: "Eammu Holidays",
 

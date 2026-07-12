@@ -1,7 +1,7 @@
 import RussiaVisa from '@/Components/Server/VisaCountry/RussiaVisa/RussiaVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Russia Visa Requirements, Fees, and Application | Tourist, Business & Student Visa Support",
@@ -24,7 +24,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/russia-visa-application",
+      "https://eammu.com/our-services/visa/russia-visa-application",
   },
 
   robots: {
@@ -46,7 +46,7 @@ export const metadata = {
       "Professional Russia visa support for Bangladeshi travelers. Tourist, business, and student visa guidance with documents, fees, and invitation support.",
 
     url:
-      "https://www.eammu.com/our-services/visa/russia-visa-application",
+      "https://eammu.com/our-services/visa/russia-visa-application",
 
     siteName: "Eammu Holidays",
 

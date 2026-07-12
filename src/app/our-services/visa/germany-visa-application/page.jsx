@@ -1,7 +1,7 @@
 import GermanyVisa from '@/Components/Server/VisaCountry/GermanyVisa/GermanyVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Germany Visa Requirements, Fees, and Application | Schengen Tourist, Student & Work Visa Support",
@@ -25,7 +25,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/germany-visa-application",
+      "https://eammu.com/our-services/visa/germany-visa-application",
   },
 
   robots: {
@@ -47,7 +47,7 @@ export const metadata = {
       "Professional Germany visa support for Bangladeshi applicants. Schengen tourist, student, and work visa guidance with documents, fees, and embassy support.",
 
     url:
-      "https://www.eammu.com/our-services/visa/germany-visa-application",
+      "https://eammu.com/our-services/visa/germany-visa-application",
 
     siteName: "Eammu Holidays",
 

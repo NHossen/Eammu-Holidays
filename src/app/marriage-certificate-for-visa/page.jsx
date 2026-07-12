@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
   title: { default: "Marriage Certificate for Visa 2026 | MOFA Attestation Guide Bangladesh | Eammu Holidays" },
   description:
     "How to use a marriage certificate for a visa application from Bangladesh. 2026 guide covering Nikah Nama registration, MOFA attestation, spouse visa documents, and embassy requirements for Schengen, UK, USA, Canada & Dubai — by Eammu Holidays.",
@@ -22,18 +22,18 @@ export const metadata = {
     "union parishad marriage certificate",
     "marriage certificate apostille bangladesh",
   ],
-  alternates: { canonical: "https://www.eammu.com/travel-resources/marriage-certificate-for-visa" },
+  alternates: { canonical: "https://eammu.com/travel-resources/marriage-certificate-for-visa" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   openGraph: {
     type: "article",
-    url: "https://www.eammu.com/travel-resources/marriage-certificate-for-visa",
+    url: "https://eammu.com/travel-resources/marriage-certificate-for-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Marriage Certificate for Visa 2026 | Eammu Holidays",
     description: "How to obtain, translate, and attest a marriage certificate for visa applications from Bangladesh — Nikah Nama registration, MOFA attestation, and spouse visa requirements.",
-    images: [{ url: "https://www.eammu.com/preview-banner.webp", width: 1200, height: 630, alt: "Marriage Certificate for Visa — Eammu Holidays" }],
+    images: [{ url: "https://eammu.com/preview-banner.webp", width: 1200, height: 630, alt: "Marriage Certificate for Visa — Eammu Holidays" }],
   },
-  twitter: { card: "summary_large_image", site: "@eammuholidays", title: "Marriage Certificate for Visa 2026 | Eammu Holidays", images: ["https://www.eammu.com/preview-banner.webp"] },
+  twitter: { card: "summary_large_image", site: "@eammuholidays", title: "Marriage Certificate for Visa 2026 | Eammu Holidays", images: ["https://eammu.com/preview-banner.webp"] },
   icons: { icon: "/emf.jpg", shortcut: "/emf.jpg", apple: "/emf.jpg" },
   category: "travel",
 };
@@ -43,22 +43,22 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://www.eammu.com/travel-resources/marriage-certificate-for-visa#article",
+      "@id": "https://eammu.com/travel-resources/marriage-certificate-for-visa#article",
       headline: "Marriage Certificate for Visa 2026 — Registration, Translation & MOFA Attestation Guide for Bangladesh",
       description: "How to obtain, translate, and attest a marriage certificate for a visa application from Bangladesh — covering Nikah Nama, Union Parishad registration, MOFA attestation, and spouse visa use.",
-      image: "https://www.eammu.com/preview-banner.webp",
-      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://www.eammu.com" },
-      publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" } },
+      image: "https://eammu.com/preview-banner.webp",
+      author: { "@type": "Organization", name: "Eammu Holidays", url: "https://eammu.com" },
+      publisher: { "@type": "Organization", name: "Eammu Holidays", logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" } },
       datePublished: "2026-01-10",
       dateModified: "2026-06-01",
-      mainEntityOfPage: "https://www.eammu.com/travel-resources/marriage-certificate-for-visa",
+      mainEntityOfPage: "https://eammu.com/travel-resources/marriage-certificate-for-visa",
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-        { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://www.eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "Marriage Certificate for Visa", item: "https://www.eammu.com/travel-resources/marriage-certificate-for-visa" },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+        { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://eammu.com/travel-resources" },
+        { "@type": "ListItem", position: 3, name: "Marriage Certificate for Visa", item: "https://eammu.com/travel-resources/marriage-certificate-for-visa" },
       ],
     },
   ],
@@ -86,7 +86,7 @@ export default function MarriageCertificateForVisaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <div className="sr-only" aria-hidden="true">
         <h1>Marriage Certificate for Visa 2026 — MOFA Attestation Guide Bangladesh | Eammu Holidays</h1>
-        <nav aria-label="Breadcrumb"><ol><li><a href="https://www.eammu.com">Home</a></li><li><a href="https://www.eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://www.eammu.com/travel-resources/marriage-certificate-for-visa">Marriage Certificate for Visa</a></li></ol></nav>
+        <nav aria-label="Breadcrumb"><ol><li><a href="https://eammu.com">Home</a></li><li><a href="https://eammu.com/travel-resources">Travel Resources</a></li><li><a href="https://eammu.com/travel-resources/marriage-certificate-for-visa">Marriage Certificate for Visa</a></li></ol></nav>
       </div>
 
       <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">

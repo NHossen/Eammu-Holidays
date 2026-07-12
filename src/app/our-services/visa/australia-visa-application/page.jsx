@@ -5,7 +5,7 @@
 import AustraliaVisa from '@/Components/Server/VisaCountry/AustraliaVisa/AustraliaVisa'
 import React from 'react'
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Australia Visa Requirements, Fees, and Application | Tourist & Student Visa Support",
@@ -28,7 +28,7 @@ export const metadata = {
 
   alternates: {
     canonical:
-      "https://www.eammu.com/our-services/visa/australia-visa-application",
+      "https://eammu.com/our-services/visa/australia-visa-application",
   },
 
   robots: {
@@ -50,7 +50,7 @@ export const metadata = {
       "Get professional Australia visa support for tourist and student visas. Learn requirements, fees, documents, and application steps.",
 
     url:
-      "https://www.eammu.com/our-services/visa/australia-visa-application",
+      "https://eammu.com/our-services/visa/australia-visa-application",
 
     siteName: "Eammu Holidays",
 

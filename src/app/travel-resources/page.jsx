@@ -5,7 +5,7 @@ import React from 'react'
    STRUCTURED DATA (JSON-LD)
 ───────────────────────────────────────────────────────────────────────────── */
 
-const SITE_URL = "https://www.eammu.com"
+const SITE_URL = "https://eammu.com"
 const PAGE_URL = `${SITE_URL}/travel-resources`
 const LOGO_URL = `${SITE_URL}/eammu-logo.png`
 

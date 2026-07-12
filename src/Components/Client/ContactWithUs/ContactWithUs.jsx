@@ -18,7 +18,7 @@ const GLOBAL_CONTACT = {
   email: "info@eammu.com",
 };
 
-const SITE_URL = "https://www.eammu.com"; // TODO: confirm production domain
+const SITE_URL = "https://eammu.com"; // TODO: confirm production domain
 
 const socialLinks = [
   { name: "Facebook", href: "https://facebook.com/eammutourism", color: "blue" },

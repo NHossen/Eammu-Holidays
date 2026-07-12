@@ -13,7 +13,7 @@ import {
 // CONSTANTS
 // ─────────────────────────────────────────────────────────────────────────────
 // ✅ FIX: Removed phone number that was leaked in source comment
-const BASE_URL = "https://www.eammu.com";
+const BASE_URL = "https://eammu.com";
 const WHATSAPP_NUMBER = "8801631312524";
 
 // ─────────────────────────────────────────────────────────────────────────────

@@ -28,7 +28,7 @@ import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
 // METADATA
 // ─────────────────────────────────────────────────────────────────────────────
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title: {
     default:
@@ -81,7 +81,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/travel-insurance",
+    canonical: "https://eammu.com/travel-insurance",
   },
 
   robots: {
@@ -98,7 +98,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/travel-insurance",
+    url: "https://eammu.com/travel-insurance",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -141,10 +141,10 @@ export const metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  "@id": "https://www.eammu.com/#organization",
+  "@id": "https://eammu.com/#organization",
   name: "Eammu Holidays",
-  url: "https://www.eammu.com",
-  logo: { "@type": "ImageObject", url: "https://www.eammu.com/emf.jpg" },
+  url: "https://eammu.com",
+  logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
   description:
     "Bangladesh's leading travel agency offering travel insurance, visa consultancy, flight booking, and tour packages.",
   aggregateRating: {
@@ -162,8 +162,8 @@ const organizationSchema = {
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://www.eammu.com/travel-insurance/#webpage",
-  url: "https://www.eammu.com/travel-insurance",
+  "@id": "https://eammu.com/travel-insurance/#webpage",
+  url: "https://eammu.com/travel-insurance",
   name: "Travel Insurance Bangladesh 2026 — Best Plans for International Travel | Eammu Holidays",
   description:
     "Compare and buy travel insurance from Bangladesh. Medical emergencies, Schengen coverage, trip cancellation, baggage loss & more.",
@@ -179,21 +179,21 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home",          item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "Our Services",  item: "https://www.eammu.com/our-services" },
-    { "@type": "ListItem", position: 3, name: "Travel Insurance Bangladesh 2026", item: "https://www.eammu.com/travel-insurance" },
+    { "@type": "ListItem", position: 1, name: "Home",          item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Our Services",  item: "https://eammu.com/our-services" },
+    { "@type": "ListItem", position: 3, name: "Travel Insurance Bangladesh 2026", item: "https://eammu.com/travel-insurance" },
   ],
 };
 
 const insuranceServiceSchema = {
   "@context": "https://schema.org",
   "@type": "InsuranceAgency",
-  "@id": "https://www.eammu.com/travel-insurance/#agency",
+  "@id": "https://eammu.com/travel-insurance/#agency",
   name: "Eammu Holidays Travel Insurance",
-  url: "https://www.eammu.com/travel-insurance",
+  url: "https://eammu.com/travel-insurance",
   description:
     "Travel insurance plans for Bangladeshi travelers — medical emergency, Schengen visa insurance, trip cancellation, baggage loss, and annual multi-trip coverage.",
-  provider: { "@id": "https://www.eammu.com/#organization" },
+  provider: { "@id": "https://eammu.com/#organization" },
   areaServed: { "@type": "Country", name: "Bangladesh" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -294,7 +294,7 @@ const howToSchema = {
   name: "How to Buy Travel Insurance from Bangladesh",
   description: "Step-by-step guide to purchasing travel insurance from Bangladesh for international travel.",
   step: [
-    { "@type": "HowToStep", position: 1, name: "Choose your destination and travel dates", text: "Your destination determines the required coverage level. Schengen travel requires minimum €30,000. USA and Canada require at least USD 100,000 medical coverage.", url: "https://www.eammu.com/travel-insurance" },
+    { "@type": "HowToStep", position: 1, name: "Choose your destination and travel dates", text: "Your destination determines the required coverage level. Schengen travel requires minimum €30,000. USA and Canada require at least USD 100,000 medical coverage.", url: "https://eammu.com/travel-insurance" },
     { "@type": "HowToStep", position: 2, name: "Select your insurance plan type", text: "Choose single trip (one journey), annual multi-trip (multiple trips per year), or Schengen-specific insurance. Consider your age, pre-existing conditions, and activities planned." },
     { "@type": "HowToStep", position: 3, name: "Compare coverage and premium", text: "Compare medical coverage limits, trip cancellation amounts, baggage limits, and excess/deductible amounts. Higher coverage = higher premium but better protection." },
     { "@type": "HowToStep", position: 4, name: "Purchase and receive your certificate", text: "Complete the purchase with traveler details. Receive your insurance certificate instantly — required for Schengen visa applications and some other visa types." },

@@ -104,7 +104,7 @@ export default function AboutClient({
 
       {/* ── Hidden SEO metadata for crawlers ── */}
       <meta itemProp="name" content="Eammu Holidays" />
-      <meta itemProp="url" content="https://www.eammu.com" />
+      <meta itemProp="url" content="https://eammu.com" />
       <meta
         itemProp="description"
         content="Eammu Holidays is a trusted travel and visa consultancy in Bangladesh offering student visa, Umrah packages, holiday tours, and immigration consulting with 95% visa success rate."

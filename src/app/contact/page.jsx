@@ -3,7 +3,7 @@ import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
 import React from 'react';
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Eammu: Best Travel Agency in Bangladesh",
@@ -33,7 +33,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/contact",
+    canonical: "https://eammu.com/contact",
   },
 
   robots: {
@@ -49,7 +49,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/contact",
+    url: "https://eammu.com/contact",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title: "Contact Eammu Holidays – Global Travel & Visa Experts",
@@ -86,9 +86,9 @@ const organizationSchema = {
   "@type": "TravelAgency",
   name: "Eammu Holidays",
   alternateName: ["Eammu Tours", "Eammu Immigration Services"],
-  url: "https://www.eammu.com",
-  logo: "https://www.eammu.com/logo.png",
-  image: "https://www.eammu.com/preview-banner.webp",
+  url: "https://eammu.com",
+  logo: "https://eammu.com/logo.png",
+  image: "https://eammu.com/preview-banner.webp",
   description:
     "Eammu Holidays is a globally trusted travel and visa consultancy founded in 2022, offering student visa processing, Umrah packages, holiday tours, immigration consulting, and work permits from offices in Bangladesh, UAE, Armenia, and Georgia.",
   foundingDate: "2022",
@@ -164,7 +164,7 @@ const organizationSchema = {
     {
       "@type": "TravelAgency",
       name: "Eammu Holidays Dubai",
-      url: "https://www.eammu.com/contact/travel-agency-dubai",
+      url: "https://eammu.com/contact/travel-agency-dubai",
       telephone: "+971507078334",
       email: "dubai@eammu.com",
       address: {
@@ -177,7 +177,7 @@ const organizationSchema = {
     {
       "@type": "TravelAgency",
       name: "Eammu Holidays Armenia",
-      url: "https://www.eammu.com/contact/travel-agency-armenia",
+      url: "https://eammu.com/contact/travel-agency-armenia",
       telephone: "+37494810585",
       email: "armenia@eammu.com",
       address: {
@@ -190,7 +190,7 @@ const organizationSchema = {
     {
       "@type": "TravelAgency",
       name: "Eammu Holidays Georgia",
-      url: "https://www.eammu.com/contact/travel-agency-georgia",
+      url: "https://eammu.com/contact/travel-agency-georgia",
       telephone: "+995574446218",
       email: "georgia@eammu.com",
       address: {
@@ -250,8 +250,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-    { "@type": "ListItem", position: 2, name: "Contact", item: "https://www.eammu.com/contact" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+    { "@type": "ListItem", position: 2, name: "Contact", item: "https://eammu.com/contact" },
   ],
 };
 
@@ -310,16 +310,16 @@ const webPageSchema = {
   name: "Contact Eammu Holidays",
   description:
     "Contact page for Eammu Holidays – travel and visa consultancy with offices in Bangladesh, Dubai, Armenia, and Georgia.",
-  url: "https://www.eammu.com/contact",
+  url: "https://eammu.com/contact",
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eammu.com" },
-      { "@type": "ListItem", position: 2, name: "Contact", item: "https://www.eammu.com/contact" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
+      { "@type": "ListItem", position: 2, name: "Contact", item: "https://eammu.com/contact" },
     ],
   },
   inLanguage: "en-US",
-  isPartOf: { "@type": "WebSite", url: "https://www.eammu.com", name: "Eammu Holidays" },
+  isPartOf: { "@type": "WebSite", url: "https://eammu.com", name: "Eammu Holidays" },
 };
 
 export default function ContactPage() {

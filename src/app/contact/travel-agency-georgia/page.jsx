@@ -8,7 +8,7 @@ import React from 'react';
 ───────────────────────────────────────────────────────────────────────────── */
 
 export const metadata = {
-  metadataBase: new URL("https://www.eammu.com"),
+  metadataBase: new URL("https://eammu.com"),
 
   title:
     "Eammu: Travel Agency in Bangladesh and georgia",
@@ -59,7 +59,7 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: "https://www.eammu.com/contact/travel-agency-georgia",
+    canonical: "https://eammu.com/contact/travel-agency-georgia",
   },
 
   robots: {
@@ -76,7 +76,7 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://www.eammu.com/contact/travel-agency-georgia",
+    url: "https://eammu.com/contact/travel-agency-georgia",
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
@@ -112,12 +112,12 @@ const jsonLd = {
   "@graph": [
     {
       "@type": ["LocalBusiness", "TravelAgency"],
-      "@id": "https://www.eammu.com/contact/travel-agency-georgia#business",
+      "@id": "https://eammu.com/contact/travel-agency-georgia#business",
       "name": "Eammu Holidays — Tbilisi Georgia Branch",
       "alternateName": "Eammu Holidays Georgia",
       "description":
         "Eammu Holidays Georgia is a licensed travel and visa consultancy at Floor 5, Levan Gotua Street #3, Tbilisi. We specialise in Georgia TRC (Temporary Residence Permit), business visa, student university admissions, guided tours to Kazbegi, Batumi, Kakheti, and Mtskheta, and Schengen/UK visa processing for Georgia-based clients.",
-      "url": "https://www.eammu.com/contact/travel-agency-georgia",
+      "url": "https://eammu.com/contact/travel-agency-georgia",
       "telephone": "+995574446218",
       "email": "georgia@eammu.com",
       "address": {
@@ -163,7 +163,7 @@ const jsonLd = {
       ],
       "knowsLanguage": ["en", "bn", "ka"],
       "sameAs": ["https://wa.me/995574446218", "https://www.facebook.com/eammuholidays"],
-      "image": "https://www.eammu.com/preview-banner.webp",
+      "image": "https://eammu.com/preview-banner.webp",
     },
     {
       "@type": "FAQPage",
@@ -229,9 +229,9 @@ const jsonLd = {
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://www.eammu.com" },
-        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.eammu.com/contact" },
-        { "@type": "ListItem", "position": 3, "name": "Travel Agency Georgia", "item": "https://www.eammu.com/contact/travel-agency-georgia" },
+        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://eammu.com" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://eammu.com/contact" },
+        { "@type": "ListItem", "position": 3, "name": "Travel Agency Georgia", "item": "https://eammu.com/contact/travel-agency-georgia" },
       ],
     },
   ],
