@@ -69,21 +69,15 @@ const BASE_URL = "https://www.eammu.com";
 
 // ── HOME PAGE SEO METADATA ────────────────────────────────────────────────────
 export const metadata = {
-  // 🔴 FIX: root layout.jsx sets `title.template = "%s | Eammu Holidays"`.
-  // A plain string title here gets the template applied ON TOP of it, which
-  // produced a doubled brand suffix in the actual <title> tag:
-  //   "Visa Services & Travel Agency Bangladesh | Eammu Holidays | Eammu Holidays"
-  // `absolute` opts this page out of the template and renders the exact string.
+
   title: {
-    absolute: "Visa Services & Travel Agency Bangladesh | Eammu Holidays",
+    absolute: "Travel Agency Bangladesh | Visa, Hotel, Air Ticket",
   },
 
   // ✅ FIX: Trimmed to ~152 chars — Google shows ~155 max
   description:
-    "Apply for tourist, student & Schengen visas from Bangladesh and Dubai. Book Umrah 2026, Dubai tours & international flights. IATA-accredited agency. Call: +880 1631 312524.",
+    "Bangladesh and Dubai leading travel agency providing tourist, student & Schengen visa services, international air tickets, Dubai tours, holiday packages, and worldwide travel solutions.",
 
-  // ✅ NOTE: Google ignores <meta name="keywords"> since 2009.
-  // Kept only for Bing compatibility — safe to remove if desired.
   keywords: [
     "travel agency Bangladesh",
     "best travel agency Bangladesh",
@@ -135,9 +129,12 @@ export const metadata = {
 
   openGraph: {
     // ✅ FIX: More accurate OG title — visa/tours is the core offering
-    title: "Eammu Holidays — Visa, Tours & Umrah Packages from Bangladesh",
-    description:
-      "Apply for visas, book Umrah packages, holiday tours & international flights with Eammu Holidays. IATA-accredited. Offices in Bangladesh, Dubai, Armenia & Georgia.",
+
+  title: "Eammu Holidays | Bangladesh & Dubai Visa, Air Tickets & Holiday Packages",
+
+  description:
+    "Bangladesh and Dubai leading travel agency providing tourist, student & Schengen visa services, international air tickets, Dubai tours, holiday packages, and worldwide travel solutions. IATA-accredited.",
+
     url: BASE_URL,
     siteName: "Eammu Holidays",
     locale: "en_US",
@@ -167,17 +164,6 @@ export const metadata = {
   },
 };
 
-// ── HOME PAGE STRUCTURED DATA ─────────────────────────────────────────────────
-// 🔴 FIX: The WebSite (#website) and TravelAgency/Organization (#organization)
-// nodes that used to live here have been REMOVED. layout.jsx's `globalSchema`
-// already declares nodes with those exact same @id values, site-wide. Two
-// JSON-LD <script> blocks on the same page sharing one @id is a genuine
-// conflict — Google's parser merges/resolves @id graphs across ALL <script
-// type="application/ld+json"> tags in a single document, so having two
-// different payloads under "#website" / "#organization" is undefined
-// behavior (Google may pick either one, or flag the conflict). Page-level
-// schema should only ever REFERENCE those entities via { "@id": "..." },
-// never redefine them.
 const homepageSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -194,11 +180,7 @@ const homepageSchema = {
       url: BASE_URL,
       name: "Eammu Holidays – Visa Services, Umrah 2026, Tours & Flights from Bangladesh",
       isPartOf: { "@id": `${BASE_URL}/#website` },
-      // 🔴 FIX: "about" should point to the entity the page is about, not to
-      // a separate /about page wrapped in an ad-hoc AboutPage stub (which had
-      // no real properties and wasn't connected to anything). The homepage is
-      // about the organization itself — reference the real Organization node
-      // that's already declared once in layout.jsx.
+
       about: { "@id": `${BASE_URL}/#organization` },
       description:
         "Bangladesh's leading IATA-accredited travel agency for visa services, Umrah packages, international tour packages, and flight booking.",
@@ -267,11 +249,7 @@ const homepageSchema = {
       ],
     },
 
-    // ⚠️ FLAG (left as-is, needs a content decision — see chat notes):
-    // HowTo schema. Google's structured-data policy requires markup to
-    // reflect content that's actually visible on the page. Confirm a visual
-    // "how to apply" walkthrough exists somewhere on this page, or move this
-    // block to the page where that content really lives (e.g. /visa).
+   
     {
       "@type": "HowTo",
       name: "How to Apply for a Visa Through Eammu Holidays",

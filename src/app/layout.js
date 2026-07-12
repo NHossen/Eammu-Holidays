@@ -26,17 +26,14 @@ export const metadata = {
     // "%s | Eammu Holidays" suffix. Pages that already include the full
     // brand string themselves (like the homepage) should use
     // `title: { absolute: "..." }` to opt out of this template — see page.jsx.
-    default: "Tourist Visa & Travel Agency Bangladesh | Eammu Holidays",
-    template: "%s | Eammu Holidays",
+    default: "Travel Agency Bangladesh | Eammu Holidays",
   },
 
   description:
-    "Eammu Holidays is Bangladesh's IATA-accredited travel agency for tourist visas, student visas, Umrah packages 2026, international flights & tour packages to Dubai, Europe, Georgia & Armenia. Offices in Dhaka, Cumilla, Dubai, Yerevan & Tbilisi.",
+    "Bangladesh's IATA-accredited travel agency for tourist visas, student visas, Umrah packages 2026, international flights & tour packages to Dubai, Europe, Georgia & Armenia. Offices in Dhaka, Cumilla, Dubai, Yerevan & Tbilisi.",
 
   keywords: [
     "Eammu Holidays",
-    "eammu travel",
-    "eammu.com",
     "travel agency Bangladesh",
     "best travel agency in Bangladesh",
     "travel agency Dhaka",
@@ -104,7 +101,7 @@ export const metadata = {
     type: "website",
     url: BASE_URL,
     siteName: "Eammu Holidays",
-    title: "Eammu Holidays | Visa, Tours & Travel Experts from Bangladesh",
+    title: "Visa, Tours & Travel Experts from Bangladesh |Eammu Holidays",
     description:
       "Apply for visas, book flights & explore premium holiday packages with Eammu Holidays. IATA-accredited agency with offices in Bangladesh, Dubai, Armenia & Georgia.",
     images: [

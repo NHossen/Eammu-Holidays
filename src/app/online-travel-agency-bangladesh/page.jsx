@@ -1,4 +1,3 @@
-
 // Server Component — no 'use client' — maximum SEO indexing
 
 import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
@@ -10,7 +9,7 @@ export const metadata = {
   metadataBase: new URL("https://www.eammu.com"),
 
   title: {
-    default: "Travel Agency in Bangladesh | Eammu Holidays",
+    default: "Travel Agency Bangladesh | visa, tours, and flight booking",
   },
 
   description:
@@ -152,7 +151,7 @@ export const metadata = {
     siteName: "Eammu Holidays",
     locale: "en_US",
     title:
-      "Best Online Travel & Visa Agency in Bangladesh 2026 | Eammu Holidays",
+      "Best Online Travel Agency in Bangladesh 2026 | Eammu Holidays",
     description:
       "IATA-accredited travel agency in Bangladesh since 2012. Canada, UK, USA, Schengen, Dubai & Europe work permit visas — 98% success rate. Air tickets, Umrah packages, student visa. Free consultation.",
     images: [
@@ -182,9 +181,6 @@ export const metadata = {
     apple: "/emf.jpg",
   },
 
-  verification: {
-    google: "YOUR_GOOGLE_SITE_VERIFICATION_TOKEN",
-  },
 
   category: "travel",
 
@@ -392,11 +388,11 @@ const structuredData = {
         ],
       },
       sameAs: [
-        "https://www.facebook.com/eammuholidays",
+        "https://www.facebook.com/eammutourism",
         "https://www.instagram.com/eammuholidays",
-        "https://www.linkedin.com/company/eammuholidays",
+        "https://www.linkedin.com/company/eammu-immigration-services",
         "https://twitter.com/eammuholidays",
-        "https://www.youtube.com/@eammuholidays",
+        "https://www.youtube.com/@eammutours",
         "https://eammu.com",
       ],
     },
@@ -947,34 +943,6 @@ export default function OnlineTravelAgencyBangladeshPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-
-      {/* ── Hidden semantic crawler block ── */}
-      <div className="sr-only" aria-hidden="true">
-        <h1>Travel Agency in Bangladesh</h1>
-        <p>
-          Eammu Holidays is Bangladesh's most trusted IATA-accredited online travel agency and visa
-          consultancy since 2012, with offices in Cumilla, Dhaka, Dubai, Yerevan Armenia, and
-          Tbilisi Georgia. Services: Canada visa, UK visa, USA visa, Schengen visa, Dubai UAE visa,
-          Australia visa, India e-visa, Europe work permit (Poland, Romania, Portugal), student visa,
-          education consultancy, Umrah packages, air ticket booking, and holiday tours.
-          4.9/5 rating, 98% visa success rate, 5,000+ happy clients.
-          Phone: +8801631312524. Email: bangladesh@eammu.com.
-        </p>
-        <p>
-          Keywords: travel agency bangladesh, online travel agency bangladesh, visa agency bangladesh,
-          best travel agency bangladesh 2026, IATA travel agency bangladesh, visa consultancy bangladesh,
-          canada visa bangladesh, uk visa bangladesh, usa visa bangladesh, schengen visa bangladesh,
-          dubai visa bangladesh, europe work permit bangladesh, student visa bangladesh, umrah package bangladesh,
-          air ticket booking bangladesh, tour operator bangladesh, immigration consultant bangladesh,
-          travel agency cumilla, travel agency dhaka, eammu holidays bangladesh.
-        </p>
-        <nav aria-label="Breadcrumb">
-          <ol>
-            <li><a href="https://www.eammu.com">Home</a></li>
-            <li><a href="https://www.eammu.com/online-travel-agency-bangladesh">Online Travel Agency Bangladesh</a></li>
-          </ol>
-        </nav>
-      </div>
 
       <main
         className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans"

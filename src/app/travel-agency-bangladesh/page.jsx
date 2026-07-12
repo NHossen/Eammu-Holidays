@@ -8,9 +8,9 @@ const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 // ─── METADATA ────────────────────────────────────────────────────────────────
 export const metadata = {
   title:
-    "Travel Agency in Bangladesh | Visa, Air Ticket & Tour Packages — Eammu Holidays",
+    "Bangladesh Travel Agency | Visa, Air Ticket & Tour Packages — Eammu Holidays",
   description:
-    "Eammu Holidays is an IATA-accredited travel agency in Bangladesh offering visa processing, international air tickets, tour packages, Umrah, study abroad consultancy, and travel insurance from Dhaka, Cumilla, and Chittagong.",
+    "Bangladesh's leading IATA-accredited travel agency offering visa processing, international air tickets, holiday tour packages, Umrah, study abroad consultancy, and travel insurance. Eammu Holidays serves clients from Dhaka, Cumilla, Chattogram, Dubai, and worldwide.",
   keywords: [
     "travel agency Bangladesh",
     "best travel agency in Bangladesh",
@@ -144,7 +144,7 @@ const primaryServices = [
   },
   {
     title: "Umrah Packages from Bangladesh",
-    href: "/our-services/umrah-packages",
+    href: "/our-services",
     icon: "🕌",
     text:
       "Umrah travel planning from Bangladesh including flight, hotel, transport, visa guidance, and group support for a smoother spiritual journey to Makkah and Madinah.",

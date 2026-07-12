@@ -34,11 +34,11 @@ const HeroSection = () => {
   Bangladesh's Trusted Online Travel Agency <span className="text-[#ffcc00]">Since 2012</span>
 </h1>
                 <p className="text-sm md:text-base leading-relaxed mb-5 opacity-90">
-  Eammu Holidays is a leading{' '}
+  Bangladesh's leading{' '}
   <Link href="/online-travel-agency-bangladesh" className="hover:text-[#ffcc00]">
-    online travel agency in Bangladesh
+    online travel agency
   </Link>
-  , specializing in visa processing, international air ticket booking, holiday
+  , Eammu Holidays specializes in visa processing, international air ticket booking, holiday
   and Umrah packages, travel insurance, hotel reservations, and Europe work
   permit support.
 </p>
