@@ -547,7 +547,7 @@ const ArmeniaVisa = () => {
             <div className="space-y-6 mb-8">
               <SidebarContact label="UAE / Dubai Hotline" val="+971 50 707 8334" href="tel:+971507078334" />
               <SidebarContact label="Armenia Office (Yerevan)" val="+374 94 810 585" href="tel:+37494810585" />
-              <SidebarContact label="Bangladesh Hotline" val="+880 1701 699 743" href="tel:+8801701699743" />
+              <SidebarContact label="Bangladesh Hotline" val="+880 1701 699 743" href="tel:+971507078334" />
               <SidebarContact label="Email Us" val="info@eammu.com" href="mailto:info@eammu.com" />
             </div>
 

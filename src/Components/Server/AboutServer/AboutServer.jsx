@@ -4,7 +4,7 @@ const heroSlides = [
   {
     id: 1,
     image: "/the-love-island.webp",
-    badge: "Since 2022",
+    badge: "Since 2012",
     highlight: "Eammu Holidays",
     title: "Trusted Travel & Visa Agency — Bangladesh, Dubai & Worldwide",
     boldText: "Eammu Holidays",
@@ -106,7 +106,7 @@ const faqs = [
   {
     question: "Does Eammu Holidays offer 24/7 customer support?",
     answer:
-      "Yes. Our support team is available 24/7 via WhatsApp (+8801701699743) and email (info@eammu.com) to assist with visa applications, tour bookings, and any travel queries.",
+      "Yes. Our support team is available 24/7 via WhatsApp (+971507078334) and email (info@eammu.com) to assist with visa applications, tour bookings, and any travel queries.",
   },
   {
     question: "What services does Eammu Holidays offer?",
@@ -138,7 +138,7 @@ const trustBadges = [
 ];
 
 const officeLocations = [
-  { city: "Dhaka", country: "Bangladesh", flag: "🇧🇩", phone: "+8801701699743" },
+  { city: "Dhaka", country: "Bangladesh", flag: "🇧🇩", phone: "+971507078334" },
   { city: "Dubai", country: "UAE", flag: "🇦🇪", phone: "+971507078334" },
   { city: "Yerevan", country: "Armenia", flag: "🇦🇲", phone: "+8801631312524" },
   { city: "Tbilisi", country: "Georgia", flag: "🇬🇪", phone: "+8801631312524" },

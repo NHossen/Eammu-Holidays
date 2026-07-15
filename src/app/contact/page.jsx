@@ -85,17 +85,17 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
   name: "Eammu Holidays",
-  alternateName: ["Eammu Tours", "Eammu Immigration Services"],
+  alternateName: ["Eammu Tours", "Eammu Holidays"],
   url: "https://eammu.com",
   logo: "https://eammu.com/logo.png",
   image: "https://eammu.com/preview-banner.webp",
   description:
-    "Eammu Holidays is a globally trusted travel and visa consultancy founded in 2022, offering student visa processing, Umrah packages, holiday tours, immigration consulting, and work permits from offices in Bangladesh, UAE, Armenia, and Georgia.",
-  foundingDate: "2022",
+    "Eammu Holidays is a globally trusted travel and visa consultancy founded in 2012, offering student visa processing, Umrah packages, holiday tours, immigration consulting, and work permits from offices in Bangladesh, UAE, Armenia, and Georgia.",
+  foundingDate: "2012",
   slogan: "Connecting Dreams to Destinations Worldwide",
   areaServed: ["BD", "AE", "AM", "GE", "GB", "CA", "US", "AU"],
   email: "info@eammu.com",
-  telephone: "+8801701699743",
+  telephone: "+971507078334",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Office No-178, 1st Floor, Gomoti Tower, Cantonment",
@@ -126,7 +126,7 @@ const organizationSchema = {
   contactPoint: [
     {
       "@type": "ContactPoint",
-      telephone: "+8801701699743",
+      telephone: "+971507078334",
       contactType: "customer service",
       areaServed: "BD",
       availableLanguage: ["English", "Bengali"],
@@ -273,7 +273,7 @@ const faqSchema = {
       name: "How can I apply for a visa through Eammu Holidays?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Contact us via WhatsApp (+8801701699743), email (info@eammu.com), or visit any of our offices. Our certified consultants handle student visas, tourist visas, and work permits for UK, USA, Canada, UAE, and Europe.",
+        text: "Contact us via WhatsApp (+971507078334), email (info@eammu.com), or visit any of our offices. Our certified consultants handle student visas, tourist visas, and work permits for UK, USA, Canada, UAE, and Europe.",
       },
     },
     {
@@ -281,7 +281,7 @@ const faqSchema = {
       name: "Does Eammu Holidays offer 24/7 support?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Our WhatsApp support (+8801701699743) is available 24/7. Office hours are 9AM–9PM (BD time) Sunday to Thursday.",
+        text: "Yes. Our WhatsApp support (+971507078334) is available 24/7. Office hours are 9AM–9PM (BD time) Sunday to Thursday.",
       },
     },
     {
@@ -289,7 +289,7 @@ const faqSchema = {
       name: "What is the phone number for Eammu Holidays Bangladesh?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can reach Eammu Holidays Bangladesh at +8801631312524 or +8801701699743. For UAE: +971507078334.",
+        text: "You can reach Eammu Holidays Bangladesh at +8801631312524 or +971507078334. For UAE: +971507078334.",
       },
     },
     {

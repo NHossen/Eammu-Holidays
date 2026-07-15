@@ -369,7 +369,7 @@ export default function VisaCheckerHome() {
       setResult(data);
       if (data.visa_status) { saveRecent(pp, dd, data.visa_status); window.dispatchEvent(new Event("eammu_recent_update")); }
     } catch {
-      setError("Visa Details Not Available. Please Contact - info@visaexpresshub.com");
+      setError("Visa Details Not Available. Please Contact - info@eammu.com");
     } finally {
       setLoading(false);
     }

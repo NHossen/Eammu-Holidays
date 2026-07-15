@@ -213,7 +213,7 @@ const DEAL_FAQS = [
   },
   {
     q: "How do I claim an offer or travel deal from Eammu Holidays?",
-    a: "Contact us via WhatsApp (+8801701699743) or email (info@eammu.com) mentioning the offer name. Our team confirms availability and guides you through booking — typically within 2 hours. Deals are subject to availability and stated validity periods.",
+    a: "Contact us via WhatsApp (+971507078334) or email (info@eammu.com) mentioning the offer name. Our team confirms availability and guides you through booking — typically within 2 hours. Deals are subject to availability and stated validity periods.",
   },
   {
     q: "Do group or family travel bookings get special deals?",
@@ -465,8 +465,8 @@ const Offers = () => {
       <section aria-label="Quick contact for travel and visa deals" className="bg-[#005a31] py-4">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-5 md:gap-10 text-white text-xs md:text-sm">
-            <a href="tel:+8801701699743" className="flex items-center gap-2 font-bold hover:text-[#ffcc00] transition">
-              📞 +8801701699743
+            <a href="tel:+971507078334" className="flex items-center gap-2 font-bold hover:text-[#ffcc00] transition">
+              📞 +971507078334
             </a>
             <a href="https://wa.me/8801701699743" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-bold hover:text-[#ffcc00] transition">
               💬 WhatsApp 24/7 — Claim Any Deal

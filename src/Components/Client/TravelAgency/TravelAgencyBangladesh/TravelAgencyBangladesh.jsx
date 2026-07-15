@@ -18,7 +18,7 @@ import {
 const slides = [
   {
     image: "https://images.unsplash.com/photo-1590603740183-980e7f6920eb?auto=format&fit=crop&q=80",
-    badge: "Trusted Excellence Since 2022",
+    badge: "Trusted Excellence Since 2012",
     title: "Leading Travel Agency in Bangladesh",
     desc: "ভিসা প্রসেসিং থেকে বিশ্বভ্রমণ—আপনার প্রতিটি স্বপ্ন পূরণে Eammu Holidays আছে আপনার পাশে।",
     cta: "/visa",
@@ -322,7 +322,7 @@ const TravelAgencyBangladesh = () => {
               {slides[currentSlide].ctaText} <ArrowRight size={18} />
             </Link>
             <a
-              href="tel:+8801701699743"
+              href="tel:+971507078334"
               className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white hover:text-[#005a31] px-10 py-4 rounded-2xl font-black text-base transition-all flex items-center justify-center gap-2"
             >
               <PhoneCall size={18} /> কল করুন
@@ -700,7 +700,7 @@ const TravelAgencyBangladesh = () => {
               বাংলাদেশের মধ্যে ভ্রমণের জন্য Cox's Bazar, Sajek Valley, Sundarbans ও Srimangal-সহ সেরা ট্যুর প্যাকেজও আমাদের কাছে পাওয়া যায়। ভিসা সংক্রান্ত যেকোনো গাইডের জন্য আমাদের{" "}
               <Link href="/visa/visa-guide" className="text-[#005a31] font-bold hover:underline">Visa Guide</Link> ও{" "}
               <Link href="/blogs" className="text-[#005a31] font-bold hover:underline">Travel Blog</Link> পড়ুন।
-              যোগাযোগ: <a href="tel:+8801701699743" className="text-[#005a31] font-bold hover:underline">+880 1701-699743</a> (Cumilla) |{" "}
+              যোগাযোগ: <a href="tel:+971507078334" className="text-[#005a31] font-bold hover:underline">+880 1701-699743</a> (Cumilla) |{" "}
               <a href="https://wa.me/8801631312524" className="text-[#005a31] font-bold hover:underline">+880 1631-312524</a> (Dhaka / WhatsApp)
             </p>
           </div>
@@ -752,7 +752,7 @@ const TravelAgencyBangladesh = () => {
             <MessageCircle size={18} /> WhatsApp করুন
           </a>
           <a
-            href="tel:+8801701699743"
+            href="tel:+971507078334"
             className="w-full sm:w-auto bg-white/10 border border-white/30 text-white px-10 py-4 rounded-2xl font-bold text-sm hover:bg-white/20 transition flex items-center justify-center gap-2"
           >
             <PhoneCall size={18} /> কল করুন

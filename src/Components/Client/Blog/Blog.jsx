@@ -584,7 +584,7 @@ const Blogs = () => {
             </p>
             <p className="text-gray-500 leading-relaxed text-sm max-w-4xl">
               With <strong>10,000+ happy clients</strong> and a <strong>95% visa success rate</strong>, Eammu
-              Holidays has been helping Bangladeshis travel the world since 2022 — from student visas to luxury
+              Holidays has been helping Bangladeshis travel the world since 2012 — from student visas to luxury
               holiday tours. Our expert visa consultants hold AIRC certification and have successfully processed
               applications for 50+ countries including the UK, USA, Canada, Australia, Schengen, and the UAE.
               Browse our guides, stay informed, and contact our experts for a free consultation.
@@ -875,7 +875,7 @@ const Blogs = () => {
               <p>
                 <strong className="text-gray-800">Eammu Holidays</strong> is a ATAB-registered travel and visa consultancy based in Dhaka, Bangladesh, specializing in{" "}
                 <strong>student visa processing for UK, USA, Canada, and Australia</strong>, Schengen visa applications,{" "}
-                <strong>Umrah and Hajj packages</strong>, and affordable holiday tours across Europe, Southeast Asia, and the Middle East. Since 2022, we have successfully processed over 10,000 visa applications with a{" "}
+                <strong>Umrah and Hajj packages</strong>, and affordable holiday tours across Europe, Southeast Asia, and the Middle East. Since 2012, we have successfully processed over 10,000 visa applications with a{" "}
                 <strong>95% success rate</strong>.
               </p>
               <p>

@@ -183,7 +183,7 @@ const organizationSchema = {
   logo: "https://eammu.com/logo.png",
   description:
     "Bangladesh's trusted travel and visa consultancy offering exclusive travel deals on student visa processing, Umrah packages, holiday tours, and international flights.",
-  telephone: "+8801701699743",
+  telephone: "+971507078334",
   email: "info@eammu.com",
   address: {
     "@type": "PostalAddress",
@@ -222,7 +222,7 @@ const faqSchema = {
       name: "How do I claim an offer from Eammu Holidays?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Simply contact Eammu Holidays via WhatsApp (+8801701699743) or email (info@eammu.com) mentioning the offer code or name. Our team will confirm availability and guide you through the booking process.",
+        text: "Simply contact Eammu Holidays via WhatsApp (+971507078334) or email (info@eammu.com) mentioning the offer code or name. Our team will confirm availability and guide you through the booking process.",
       },
     },
     {

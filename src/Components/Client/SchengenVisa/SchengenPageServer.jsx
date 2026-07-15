@@ -19,7 +19,7 @@ const jsonLd = {
         'Professional Schengen visa application assistance for UAE residents. We handle document preparation, appointment booking, cover letters, SOP, and full embassy submission support from Dubai and Abu Dhabi.',
       provider: {
         '@type': 'Organization',
-        name: 'Visa Express Hub',
+        name: 'Eammu Holidays',
         url: 'https://www.visaexpresshub.ae',
         telephone: '+971-4-000-0000',
         logo: 'https://www.visaexpresshub.ae/logo.png',
@@ -948,7 +948,7 @@ export default function SchengenPageServer() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-widest text-amber-500 mb-2">
-                  Visa Express Hub — Fees Updated June 2024 · EES Update 2025
+                  Eammu Holidays — Fees Updated June 2024 · EES Update 2025
                 </p>
                 <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3 leading-tight">
                   Schengen Visa from UAE <span className="text-amber-500">2026</span> — Complete Guide
@@ -1043,7 +1043,7 @@ export default function SchengenPageServer() {
                 📋 Get Document Checklist
               </Link>
             </div>
-            <p className="text-amber-800 text-xs mt-5">🔒 Your information is secure. Visa Express Hub is a registered visa consultancy based in Dubai, UAE.</p>
+            <p className="text-amber-800 text-xs mt-5">🔒 Your information is secure. Eammu Holidays is a registered visa consultancy based in Dubai, UAE.</p>
           </div>
         </div>
 

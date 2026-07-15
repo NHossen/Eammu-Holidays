@@ -839,7 +839,7 @@ const goToGuide = () => {
             <article className="seo-panel">
               <h2 className="seo-panel-title">Check Visa Requirements Before You Fly</h2>
               <p style={{ fontSize: 14, color: "#475569", lineHeight: 1.75, margin: "0 0 14px" }}>
-                The Visa Express Hub visa checker is a free online tool for travelers who want to know their visa status before booking international flights. Select your passport nationality and destination country to instantly see whether you need a visa, can apply for an e-visa, qualify for visa on arrival, need an ETA, or can travel visa-free for a set number of days.
+                The Eammu Holidays visa checker is a free online tool for travelers who want to know their visa status before booking international flights. Select your passport nationality and destination country to instantly see whether you need a visa, can apply for an e-visa, qualify for visa on arrival, need an ETA, or can travel visa-free for a set number of days.
               </p>
               <p style={{ fontSize: 14, color: "#475569", lineHeight: 1.75, margin: "0 0 14px" }}>
                 Our tool is particularly popular with travelers from Bangladesh, India, Pakistan, Nepal, Sri Lanka, and the Philippines checking requirements for Canada, the UK, USA, Schengen countries, UAE, Malaysia, Thailand, Turkey, Australia, and Japan.

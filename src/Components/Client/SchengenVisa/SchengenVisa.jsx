@@ -19,7 +19,7 @@ const jsonLd = {
       description: 'Professional Schengen visa application assistance for UAE residents.',
       provider: {
         '@type': 'Organization',
-        name: 'Visa Express Hub',
+        name: 'Eammu Holidays',
         url: 'https://www.visaexpresshub.ae',
         telephone: '+971-4-000-0000',
         address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressCountry: 'AE' },
@@ -310,7 +310,7 @@ export default function SchengenVisaPage() {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-widest text-amber-500 mb-2">Visa Express Hub — Updated June 2026</p>
+                <p className="text-[11px] font-bold uppercase tracking-widest text-amber-500 mb-2">Eammu Holidays — Updated June 2026</p>
                 <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3 leading-tight">
                   Schengen Visa from UAE <span className="text-amber-500">2026</span> — Complete Guide, Fees & Requirements
                 </h1>

@@ -245,7 +245,7 @@ export default function AboutClient({
             </div>
 
             <p className="text-gray-600 leading-relaxed">
-              Founded in 2022, <strong>Eammu Holidays</strong> is a professional global travel and
+              Founded in 2012, <strong>Eammu Holidays</strong> is a professional global travel and
               visa consultancy headquartered in <strong>Dhaka, Bangladesh</strong>, with branch
               offices in <strong>Dubai (UAE)</strong>, <strong>Yerevan (Armenia)</strong>, and{" "}
               <strong>Tbilisi (Georgia)</strong>.
@@ -291,7 +291,7 @@ export default function AboutClient({
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-              <p className="text-white font-bold text-sm">Since 2022 · 4 Global Offices</p>
+              <p className="text-white font-bold text-sm">Since 2012 · 4 Global Offices</p>
             </div>
           </motion.div>
         </section>
@@ -570,7 +570,7 @@ export default function AboutClient({
               <div>
                 <h4 className="font-bold text-gray-800 text-sm">Call / WhatsApp</h4>
                 <p className="text-xs text-gray-500 mt-1">+8801631312524</p>
-                <p className="text-xs text-gray-500">+8801701699743</p>
+                <p className="text-xs text-gray-500">+971507078334</p>
                 <p className="text-xs text-gray-500">+971507078334 (UAE)</p>
               </div>
             </div>

@@ -22,7 +22,7 @@ const topActivities = [
   },
   { 
     title: 'DESERT SAFARI', 
-    img: 'https://cdn.hotairballoonindubai.com/wp-content/uploads/2022/06/Morning-Bliss-Balloon-Ride-Home-Page-thumbnail-820x520.jpg', 
+    img: 'https://cdn.hotairballoonindubai.com/wp-content/uploads/2012/06/Morning-Bliss-Balloon-Ride-Home-Page-thumbnail-820x520.jpg', 
     alt: 'Morning Hot Air Balloon and Desert Safari in Dubai',
     link: '/tour-packages',
     waMsg: 'I want to book the Desert Safari' 

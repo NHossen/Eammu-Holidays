@@ -75,7 +75,7 @@ const EammuSocialResponsibility = () => {
             icon={<Users size={40} className="text-blue-500" />}
             title="Volunteering Programs"
             desc="Empowering youth and our employees to participate in social reform, disaster relief, and cleaning drives."
-            img="https://www.associationsonline.com/wp-content/uploads/2022/08/amo-blog-votunteer-programs.jpg"
+            img="https://www.associationsonline.com/wp-content/uploads/2012/08/amo-blog-votunteer-programs.jpg"
           />
         </div>
       </section>
@@ -117,7 +117,7 @@ const EammuSocialResponsibility = () => {
         <h2 className="text-3xl font-black text-[#005a31] text-center mb-12">Glimpses of Our Work</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <GalleryImg src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" />
-          <GalleryImg src="https://www.oceans-research.com/wp-content/uploads/2022/01/Short-term.jpg" />
+          <GalleryImg src="https://www.oceans-research.com/wp-content/uploads/2012/01/Short-term.jpg" />
           <GalleryImg src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=600&q=80" />
           <GalleryImg src="https://images.unsplash.com/photo-1509059852496-f3822ae057bf?auto=format&fit=crop&w=600&q=80" />
         </div>

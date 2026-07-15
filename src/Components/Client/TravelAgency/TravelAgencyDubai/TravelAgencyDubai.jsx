@@ -332,7 +332,7 @@ const TravelAgencyDubai = () => {
             </h2>
             <div className="space-y-4 text-slate-600 text-base leading-relaxed">
               <p>
-                When searching for a <strong>travel agency in Dubai</strong>, reliability and speed are non-negotiable. Eammu Holidays' Business Bay office is a <strong>DED-licensed travel and visa consultancy</strong> serving UAE residents, expatriates, and international clients since 2022. We process <strong>UAE Golden Visa</strong>, <strong>Dubai resident visas for Albania, Andorra, Armenia, Serbia, and Kosovo</strong>, Schengen, UK, USA, Canada, and India visas — all under one roof.
+                When searching for a <strong>travel agency in Dubai</strong>, reliability and speed are non-negotiable. Eammu Holidays' Business Bay office is a <strong>DED-licensed travel and visa consultancy</strong> serving UAE residents, expatriates, and international clients since 2012. We process <strong>UAE Golden Visa</strong>, <strong>Dubai resident visas for Albania, Andorra, Armenia, Serbia, and Kosovo</strong>, Schengen, UK, USA, Canada, and India visas — all under one roof.
               </p>
               <p>
                 Our team of certified visa consultants maintains a <strong>high approval rate</strong> through meticulous document preparation, embassy relationship management, and priority appointment access. Whether you're a Bangladeshi expatriate in Dubai planning a Europe trip or a professional seeking a <Link href="/visa/dubai-residents" className="text-[#004d2c] font-bold hover:underline">UAE residency upgrade</Link>, we have the expertise to get your visa approved.

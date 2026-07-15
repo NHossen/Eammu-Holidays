@@ -729,7 +729,7 @@ const TargetUsaInterview = () => {
                 </div>
                 <div>
                   <p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-1">Call / WhatsApp</p>
-                  <p className="text-gray-800 font-black text-lg">+8801701699743</p>
+                  <p className="text-gray-800 font-black text-lg">+971507078334</p>
                   <p className="text-gray-500 font-bold text-sm">+971507078334 (UAE)</p>
                 </div>
               </div>

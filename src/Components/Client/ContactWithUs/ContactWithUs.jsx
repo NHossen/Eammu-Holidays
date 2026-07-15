@@ -13,8 +13,8 @@ import { motion, AnimatePresence } from "framer-motion";
    headquarters number/email.
 ───────────────────────────────────────────── */
 const GLOBAL_CONTACT = {
-  phone: "+8801701699743",
-  whatsapp: "+8801701699743",
+  phone: "+971507078334",
+  whatsapp: "+971507078334",
   email: "info@eammu.com",
 };
 
@@ -44,7 +44,7 @@ const offices = [
     badge: "Global Headquarters",
     address: "New York, United States of America",
     phone: ["+1 (000) 000-0000"], // TODO: add real US number
-    whatsapp: "+8801701699743", // TODO: add dedicated US WhatsApp if available
+    whatsapp: "+971507078334", // TODO: add dedicated US WhatsApp if available
     email: ["usa@eammu.com", "info@eammu.com"], // TODO: confirm usa@eammu.com is live
     hours: "Mon–Fri: 9AM–6PM (EST)", // TODO: confirm hours
     // Paste the link you copied from Google Maps "Share" here
@@ -61,7 +61,7 @@ const offices = [
     flag: "🇧🇩",
     badge: "Headquarters",
     address: "Office No-178, 1st Floor, Gomoti Tower, Cantonment, Cumilla, Bangladesh",
-    phone: ["+8801631312524", "+8801701699743"],
+    phone: ["+8801631312524", "+971507078334"],
     whatsapp: "+8801631312524",
     email: ["bangladesh@eammu.com", "info@eammu.com"],
     hours: "Sun–Thu: 9AM–9PM (BD Time)",
@@ -79,8 +79,8 @@ const offices = [
     flag: "🇧🇩",
     badge: "Branch Office",
     address: "Gulshan Avenue, Dhaka, Bangladesh",
-    phone: ["+8801701699743"], // TODO: add dedicated Dhaka branch number
-    whatsapp: "+8801701699743",
+    phone: ["+971507078334"], // TODO: add dedicated Dhaka branch number
+    whatsapp: "+971507078334",
     email: ["dhaka@eammu.com", "info@eammu.com"], // TODO: confirm dhaka@eammu.com is live
     hours: "Sun–Thu: 9AM–9PM (BD Time)", // TODO: confirm hours
     // Paste the link you copied from Google Maps "Share" here
@@ -182,7 +182,7 @@ const whyContactUs = [
   { icon: "🌍", title: "6 Global Offices", desc: "Local support across the USA, Bangladesh, UAE, Armenia, and Georgia." },
   { icon: "🎓", title: "Certified Consultants", desc: "All our visa consultants are professionally trained and certified." },
   { icon: "🕐", title: "24/7 WhatsApp Support", desc: "Round-the-clock assistance for urgent visa and travel queries." },
-  { icon: "💯", title: "10,000+ Happy Clients", desc: "Trusted by thousands of travelers from Bangladesh and beyond since 2022." },
+  { icon: "💯", title: "10,000+ Happy Clients", desc: "Trusted by thousands of travelers from Bangladesh and beyond since 2012." },
 ];
 
 const faqs = [

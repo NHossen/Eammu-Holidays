@@ -6,7 +6,7 @@ export const metadata = {
   title: "Travel Agency Bangladesh | Eammu Holidays",
 
   description:
-    "Eammu Holidays is a leading international travel and visa consultancy founded in 2022, serving clients from Bangladesh, Dubai, UAE, Armenia & Georgia. We offer student visa processing, Umrah packages, holiday tours, and immigration consulting with a 95% visa success rate.",
+    "Eammu Holidays is a leading international travel and visa consultancy founded in 2012, serving clients from Bangladesh, Dubai, UAE, Armenia & Georgia. We offer student visa processing, Umrah packages, holiday tours, and immigration consulting with a 95% visa success rate.",
 
   keywords: [
     "about Eammu Holidays",
@@ -36,7 +36,7 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "About Eammu Holidays | Trusted Travel & Visa Agency Since 2022",
+    title: "About Eammu Holidays | Trusted Travel & Visa Agency Since 2012",
     description:
       "Meet the team behind Eammu Holidays – a globally trusted travel & visa consultancy helping thousands explore the world from Bangladesh, UAE, Armenia & Georgia. 95% visa success rate.",
     url: "https://eammu.com/about",
@@ -83,14 +83,14 @@ const organizationSchema = {
   image: "https://eammu.com/preview-banner.webp",
   description:
     "Eammu Holidays is a professional global travel agency offering visa assistance, holiday packages, student visa services, Umrah packages, and international relocation solutions from Bangladesh, Dubai, UAE, Armenia & Georgia.",
-  foundingDate: "2022",
+  foundingDate: "2012",
   slogan: "Connecting Dreams to Destinations Worldwide",
   numberOfEmployees: { "@type": "QuantitativeValue", value: "50" },
   areaServed: ["BD", "AE", "AM", "GE", "GB", "CA", "US", "AU"],
   contactPoint: [
     {
       "@type": "ContactPoint",
-      telephone: "+8801701699743",
+      telephone: "+971507078334",
       contactType: "customer service",
       availableLanguage: ["English", "Bengali"],
       contactOption: "TollFree",
@@ -191,7 +191,7 @@ const faqSchema = {
       name: "Does Eammu Holidays offer 24/7 customer support?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Our support team is available 24/7 via WhatsApp (+8801701699743) and email (info@eammu.com).",
+        text: "Yes. Our support team is available 24/7 via WhatsApp (+971507078334) and email (info@eammu.com).",
       },
     },
     {

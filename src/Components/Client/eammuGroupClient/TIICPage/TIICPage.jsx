@@ -332,7 +332,7 @@ const TIICPage = () => {
             Cumilla's Most Trusted <span className="text-[#005a31]">IELTS & Immigration Center</span>
           </h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-4xl">
-            <strong>Target IELTS & Immigration Center (TIIC)</strong> operates under <strong>Eammu Holidays</strong> at <strong>Gomoti Tower, 1st Floor, Cumilla Cantonment</strong>. Since 2022, TIIC has trained 5,000+ students in <strong>IELTS Academic & General Training</strong>, <strong>PTE Academic</strong>, and Spoken English — achieving a highest band of 8.5 and a 98% visa success rate. Our British Council-trained instructors use weekly mock tests, personalised feedback, and AI-powered PTE software to ensure every student reaches their target band score.
+            <strong>Target IELTS & Immigration Center (TIIC)</strong> operates under <strong>Eammu Holidays</strong> at <strong>Gomoti Tower, 1st Floor, Cumilla Cantonment</strong>. Since 2012, TIIC has trained 5,000+ students in <strong>IELTS Academic & General Training</strong>, <strong>PTE Academic</strong>, and Spoken English — achieving a highest band of 8.5 and a 98% visa success rate. Our British Council-trained instructors use weekly mock tests, personalised feedback, and AI-powered PTE software to ensure every student reaches their target band score.
           </p>
           <p className="text-gray-500 text-sm leading-relaxed max-w-4xl">
             Beyond exam preparation, TIIC provides <strong>complete study abroad consultancy</strong> for UK, USA, Canada, and Australia — from university selection and application to{" "}
@@ -616,7 +616,7 @@ const TIICPage = () => {
             <p>
               <strong className="text-gray-800">Target IELTS & Immigration Center (TIIC)</strong> is Cumilla's most trusted IELTS preparation and study abroad consultancy, operating under{" "}
               <Link href="/contact/travel-agency-bangladesh" className="text-[#005a31] font-bold hover:underline">Eammu Holidays</Link> at{" "}
-              <strong>Gomoti Tower, 1st Floor, Cumilla Cantonment</strong>. Since 2022, TIIC has trained 5,000+ students achieving a highest IELTS band of 8.5 — using British Council-pattern mock tests, personalised feedback, and AI-powered PTE software. Our CELTA-certified trainers cover all four IELTS skills and provide module-specific strategies for both Academic and General Training candidates.
+              <strong>Gomoti Tower, 1st Floor, Cumilla Cantonment</strong>. Since 2012, TIIC has trained 5,000+ students achieving a highest IELTS band of 8.5 — using British Council-pattern mock tests, personalised feedback, and AI-powered PTE software. Our CELTA-certified trainers cover all four IELTS skills and provide module-specific strategies for both Academic and General Training candidates.
             </p>
             <p>
               TIIC provides complete{" "}
@@ -631,7 +631,7 @@ const TIICPage = () => {
               <Link href="/travel-resources/visa-checklist-generator" className="text-[#005a31] font-bold hover:underline">Visa Checklist Generator</Link> to prepare your application. Read our{" "}
               <Link href="/blogs" className="text-[#005a31] font-bold hover:underline">Travel & Visa Blog</Link> for the latest IELTS tips and student visa guides. TIIC services are also available through our{" "}
               <Link href="/contact/travel-agency-dubai" className="text-[#005a31] font-bold hover:underline">Dubai office</Link> for UAE-based students.
-              Contact: <a href="tel:+8801701699743" className="text-[#005a31] font-bold hover:underline">+880 1701-699743</a> |{" "}
+              Contact: <a href="tel:+971507078334" className="text-[#005a31] font-bold hover:underline">+880 1701-699743</a> |{" "}
               <a href="https://wa.me/8801701699743" className="text-[#005a31] font-bold hover:underline">WhatsApp</a>
             </p>
           </div>
@@ -681,7 +681,7 @@ const TIICPage = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+8801701699743"
+              href="tel:+971507078334"
               className="bg-white text-[#005a31] px-10 py-4 rounded-2xl font-black flex items-center justify-center gap-2 hover:bg-orange-500 hover:text-white transition-all shadow-xl text-sm"
             >
               <PhoneCall size={18} /> CALL: +880 1701 699743

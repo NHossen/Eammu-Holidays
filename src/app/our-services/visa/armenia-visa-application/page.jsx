@@ -130,7 +130,7 @@ const jsonLd = {
         "name": "Eammu Holidays",
         "url": "https://eammu.com",
         "logo": "https://eammu.com/logo.png",
-        "telephone": ["+971507078334", "+37494810585", "+8801701699743"],
+        "telephone": ["+971507078334", "+37494810585", "+971507078334"],
         "email": "info@eammu.com",
         "address": [
           {

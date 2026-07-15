@@ -724,7 +724,7 @@ const offices = [
     city: "Cumilla, Bangladesh",
     label: "Head Office – Bangladesh",
     address: "Office No-178, 1st Floor, Gomoti Tower, Cantonment Road, Cumilla-3500",
-    phone: "+8801631312524, +8801701699743",
+    phone: "+8801631312524, +971507078334",
     whatsapp: "+8801631312524",
     email: "bangladesh@eammu.com",
     href: "/contact/travel-agency-bangladesh",
@@ -1003,7 +1003,7 @@ export default function OnlineTravelAgencyBangladeshPage() {
               className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight tracking-tight"
               itemProp="name"
             >
-              #1 Online Travel &amp; Visa Agency in{" "}
+              Travel &amp; Visa Agency in{" "}
               <span className="text-orange-400">Bangladesh</span> — 2026
             </h1>
 

@@ -111,7 +111,7 @@ const jsonLd = {
       "description":
         "Eammu Holidays main branch in Cumilla Cantonment, Bangladesh. Specialises in visa processing for UK, USA, Canada, Dubai & Schengen, Umrah packages, student visa consultancy, domestic tour packages, and flight bookings.",
       "url": "https://eammu.com/contact/travel-agency-bangladesh",
-      "telephone": "+8801701699743",
+      "telephone": "+971507078334",
       "email": "info@eammu.com",
       "address": {
         "@type": "PostalAddress",
@@ -142,7 +142,7 @@ const jsonLd = {
       "contactPoint": [
         {
           "@type": "ContactPoint",
-          "telephone": "+8801701699743",
+          "telephone": "+971507078334",
           "contactType": "customer service",
           "availableLanguage": ["Bengali", "English"],
         },

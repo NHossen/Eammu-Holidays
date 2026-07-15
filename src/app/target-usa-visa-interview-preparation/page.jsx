@@ -62,7 +62,7 @@ const jsonLd = {
       description:
         "Bangladesh's #1 USA visa interview coaching center for F1, B1/B2, and F2 applicants. Expert coaching, DS-160 review, mock interviews, and SEVIS fee guidance.",
       url: "https://eammu.com/target-usa-visa-interview-preparation",
-      telephone: ["+8801701699743", "+971507078334"],
+      telephone: ["+971507078334", "+971507078334"],
       email: "info@eammu.com",
       address: {
         "@type": "PostalAddress",

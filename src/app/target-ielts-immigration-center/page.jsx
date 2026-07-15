@@ -120,7 +120,7 @@ const jsonLd = {
       "description":
         "Target IELTS & Immigration Center (TIIC) is Cumilla's most trusted IELTS Academic & General Training, PTE Academic, and Study Abroad consultancy, operating under Eammu Holidays at Gomoti Tower, Cumilla Cantonment, Bangladesh.",
       "url": "https://eammu.com/target-ielts-immigration-center",
-      "telephone": "+8801701699743",
+      "telephone": "+971507078334",
       "email": "info@eammu.com",
       "address": {
         "@type": "PostalAddress",
