@@ -35,10 +35,10 @@ const offices = [
         flag: "🇧🇩",
         badge: "Branch Office",
         accent: "#005a31",
-        address: "Gulshan Avenue, Dhaka, Bangladesh",
+        address: "Our Dhaka office is currently under renovation.",
         hours: "Sun–Thu: 9AM–9PM (BD Time)",
         // Paste the link you copied from Google Maps "Share" here
-        mapLink: "https://maps.app.goo.gl/ANah7V16vQWGacCy8",
+        mapLink: "https://maps.app.goo.gl",
     },
     {
         holding: "Eammu Holidays - UAE",

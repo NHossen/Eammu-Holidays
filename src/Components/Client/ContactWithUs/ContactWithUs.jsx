@@ -13,7 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
    headquarters number/email.
 ───────────────────────────────────────────── */
 const GLOBAL_CONTACT = {
-  phone: "+971507078334",
+  phone: "+8801631312524",
   whatsapp: "+971507078334",
   email: "info@eammu.com",
 };
@@ -43,9 +43,9 @@ const offices = [
     flag: "🇺🇸",
     badge: "Global Headquarters",
     address: "New York, United States of America",
-    phone: ["+1 (000) 000-0000"], // TODO: add real US number
-    whatsapp: "+971507078334", // TODO: add dedicated US WhatsApp if available
-    email: ["usa@eammu.com", "info@eammu.com"], // TODO: confirm usa@eammu.com is live
+    phone: ["+1 (646) 240 6439"], // TODO: add real US number
+    whatsapp: "+8801631312524", // TODO: add dedicated US WhatsApp if available
+    email: ["info@eammu.com"], // TODO: confirm usa@eammu.com is live
     hours: "Mon–Fri: 9AM–6PM (EST)", // TODO: confirm hours
     // Paste the link you copied from Google Maps "Share" here
     mapLink: "https://maps.app.goo.gl/iTW2XsRCHqMq47hi7",
@@ -78,13 +78,13 @@ const offices = [
     location: "Dhaka, Bangladesh",
     flag: "🇧🇩",
     badge: "Branch Office",
-    address: "Gulshan Avenue, Dhaka, Bangladesh",
-    phone: ["+971507078334"], // TODO: add dedicated Dhaka branch number
+    address: "Our Dhaka office is currently under renovation.",
+    phone: ["+8801631312524"], // TODO: add dedicated Dhaka branch number
     whatsapp: "+971507078334",
-    email: ["dhaka@eammu.com", "info@eammu.com"], // TODO: confirm dhaka@eammu.com is live
+    email: ["info@eammu.com"], // TODO: confirm dhaka@eammu.com is live
     hours: "Sun–Thu: 9AM–9PM (BD Time)", // TODO: confirm hours
     // Paste the link you copied from Google Maps "Share" here
-    mapLink: "https://maps.app.goo.gl/ANah7V16vQWGacCy8",
+    mapLink: "https://maps.app.goo.gl/",
     lat: 23.7925,
     lng: 90.4078,
     website: "/contact/travel-agency-dhaka",
