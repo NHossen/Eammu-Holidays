@@ -129,7 +129,7 @@ export default function SponsorLetterSamplePage() {
             <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight">Sponsor Letter Sample for <span className="text-orange-400">Visa</span> — 2026 Format</h1>
             <p className="text-lg md:text-xl text-green-50/90 max-w-3xl mx-auto leading-relaxed mb-8">Complete guide and ready-to-adapt <strong className="text-white">affidavit of support / sponsor letter template</strong> for visa applications from Bangladesh — required elements, notarisation rules, and supporting documents for Schengen, UK, USA, Canada & Dubai applications.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20drafting%20a%20sponsor%20letter%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Sponsor Letter Drafted</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20drafting%20a%20sponsor%20letter%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Sponsor Letter Drafted</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View Visa Services →</Link>
             </div>
           </div>
@@ -198,7 +198,7 @@ export default function SponsorLetterSamplePage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Need a Sponsor Letter Drafted Correctly?</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Eammu Holidays drafts notarisation-ready sponsor letters and full affidavit of support documents, consistent with your other visa application materials.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20a%20sponsor%20letter%20drafted%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Sponsor Letter (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20a%20sponsor%20letter%20drafted%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Sponsor Letter (WhatsApp)</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View All Visa Services →</Link>
             </div>
           </section>

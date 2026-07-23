@@ -109,7 +109,7 @@ export default function BankStatementPreparePage() {
               A step-by-step guide to getting, cleaning, and presenting your <strong className="text-white">bank statement for a visa application</strong> from Bangladesh in 2026 — mistakes to avoid, red flags visa officers look for, and how Eammu Holidays can help you get it right.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20preparing%20bank%20statement%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Free Statement Review</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20preparing%20bank%20statement%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Free Statement Review</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View Visa Services →</Link>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function BankStatementPreparePage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Let Eammu Holidays Review Your Bank Statement</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Our visa consultants review your bank statement before submission, identify weaknesses, and guide you on presenting your finances in the strongest possible way.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20preparing%20bank%20statement%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Free Statement Review (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20preparing%20bank%20statement%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Free Statement Review (WhatsApp)</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View All Visa Services →</Link>
             </div>
           </section>

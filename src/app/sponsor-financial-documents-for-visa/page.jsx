@@ -116,7 +116,7 @@ export default function SponsorFinancialDocumentsPage() {
               Using a <strong className="text-white">parent, spouse, sibling, employer, or overseas host</strong> as your financial sponsor? This guide covers every document embassies require — bank statements, affidavit of support, sponsor letter, relationship proof, and MOFA attestation — for visa applications from Bangladesh.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20with%20sponsor%20documents%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Document Help</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20with%20sponsor%20documents%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Document Help</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View Visa Services →</Link>
             </div>
           </div>
@@ -189,7 +189,7 @@ export default function SponsorFinancialDocumentsPage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Need Help Preparing Your Sponsor Documents?</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Eammu Holidays drafts sponsor letters, affidavits of support, and complete document packages for visa applications — with a 98% approval rate from Bangladesh.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20with%20sponsor%20documents%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Sponsor Document Help (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20with%20sponsor%20documents%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Sponsor Document Help (WhatsApp)</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View All Visa Services →</Link>
             </div>
           </section>

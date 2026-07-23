@@ -92,7 +92,7 @@ const EammuDairy = () => {
 
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 px-6 sm:px-0">
                 <a
-                  href="https://wa.me/8801631312524"
+                  href="https://wa.me/8801701699743"
                   className="w-full sm:w-auto bg-white text-green-900 px-8 py-4 rounded-2xl font-bold text-base sm:text-lg flex items-center justify-center gap-3 hover:bg-orange-500 hover:text-white transition-all shadow-xl"
                 >
                   <MessageCircle size={22} /> Order Now
@@ -250,7 +250,7 @@ const EammuDairy = () => {
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
               <a
-                href="https://wa.me/8801631312524"
+                href="https://wa.me/8801701699743"
                 className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[#005a31] text-white px-8 py-4 rounded-full hover:bg-orange-500 hover:scale-105 transition-all duration-300 shadow-xl font-bold"
               >
                 <PhoneCall size={20} />
@@ -269,7 +269,7 @@ const EammuDairy = () => {
       </section>
 
       {/* Mobile Floating Button */}
-      <a href="https://wa.me/8801631312524" className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 md:hidden animate-bounce">
+      <a href="https://wa.me/8801701699743" className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 md:hidden animate-bounce">
          <MessageCircle size={24} />
       </a>
     </div>

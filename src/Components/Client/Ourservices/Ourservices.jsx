@@ -202,7 +202,7 @@ const OurServices = () => {
             {/* CTA Buttons */}
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801631312524?text=Hello%2C%20I%20need%20visa%20services"
+                href="https://wa.me/8801701699743?text=Hello%2C%20I%20need%20visa%20services"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all"
                 aria-label="Chat on WhatsApp with Eammu Holidays visa expert"
               >
@@ -571,7 +571,7 @@ const OurServices = () => {
           </div>
           <div className="flex flex-wrap justify-center gap-4 flex-shrink-0">
             <a
-              href="https://wa.me/8801631312524?text=Hello%2C%20I%20would%20like%20to%20book%20a%20service"
+              href="https://wa.me/8801701699743?text=Hello%2C%20I%20would%20like%20to%20book%20a%20service"
               className="bg-[#005a31] text-white px-8 py-4 rounded-xl font-bold hover:bg-orange-500 transition-all shadow-md text-center"
               aria-label="Talk to a visa expert on WhatsApp"
             >

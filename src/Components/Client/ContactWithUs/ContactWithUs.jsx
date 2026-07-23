@@ -13,7 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
    headquarters number/email.
 ───────────────────────────────────────────── */
 const GLOBAL_CONTACT = {
-  phone: "+8801631312524",
+  phone: "+8801701699743",
   whatsapp: "+971507078334",
   email: "info@eammu.com",
 };
@@ -44,7 +44,7 @@ const offices = [
     badge: "Global Headquarters",
     address: "New York, United States of America",
     phone: ["+1 (646) 240 6439"], // TODO: add real US number
-    whatsapp: "+8801631312524", // TODO: add dedicated US WhatsApp if available
+    whatsapp: "+8801701699743", // TODO: add dedicated US WhatsApp if available
     email: ["info@eammu.com"], // TODO: confirm usa@eammu.com is live
     hours: "Mon–Fri: 9AM–6PM (EST)", // TODO: confirm hours
     // Paste the link you copied from Google Maps "Share" here
@@ -61,8 +61,8 @@ const offices = [
     flag: "🇧🇩",
     badge: "Headquarters",
     address: "Office No-178, 1st Floor, Gomoti Tower, Cantonment, Cumilla, Bangladesh",
-    phone: ["+8801631312524", "+971507078334"],
-    whatsapp: "+8801631312524",
+    phone: ["+8801701699743", "+971507078334"],
+    whatsapp: "+8801701699743",
     email: ["bangladesh@eammu.com", "info@eammu.com"],
     hours: "Sun–Thu: 9AM–9PM (BD Time)",
     // Paste the link you copied from Google Maps "Share" here
@@ -79,7 +79,7 @@ const offices = [
     flag: "🇧🇩",
     badge: "Branch Office",
     address: "Our Dhaka office is currently under renovation.",
-    phone: ["+8801631312524"], // TODO: add dedicated Dhaka branch number
+    phone: ["+8801701699743"], // TODO: add dedicated Dhaka branch number
     whatsapp: "+971507078334",
     email: ["info@eammu.com"], // TODO: confirm dhaka@eammu.com is live
     hours: "Sun–Thu: 9AM–9PM (BD Time)", // TODO: confirm hours

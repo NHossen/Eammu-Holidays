@@ -274,7 +274,7 @@ export default function SpouseVisaDocumentsPage() {
 
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801631312524?text=I%20need%20help%20with%20spouse%20visa%20documents"
+                href="https://wa.me/8801701699743?text=I%20need%20help%20with%20spouse%20visa%20documents"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 rel="noopener noreferrer"
               >
@@ -417,7 +417,7 @@ export default function SpouseVisaDocumentsPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801631312524?text=I%20need%20help%20with%20my%20spouse%20visa%20application"
+                href="https://wa.me/8801701699743?text=I%20need%20help%20with%20my%20spouse%20visa%20application"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 rel="noopener noreferrer"
               >

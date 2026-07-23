@@ -213,7 +213,7 @@ export default function WorkPermitSlugClient({ slug, staticMeta }) {
               Free Eligibility Check <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href={`https://wa.me/8801631312524?text=I'm interested in the ${c.name} work permit`}
+              href={`https://wa.me/8801701699743?text=I'm interested in the ${c.name} work permit`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white font-semibold px-6 py-3 rounded-xl border border-white/15 transition-colors"
@@ -441,7 +441,7 @@ export default function WorkPermitSlugClient({ slug, staticMeta }) {
               Book Free Consultation <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href={`https://wa.me/8801631312524?text=Hi, I need help with a ${c.name} work permit.`}
+              href={`https://wa.me/8801701699743?text=Hi, I need help with a ${c.name} work permit.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white/80 hover:bg-white text-gray-950 font-semibold px-7 py-3.5 rounded-xl transition-colors"

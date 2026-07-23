@@ -114,11 +114,11 @@ const organizationSchema = {
     addressCountry: "BD",
     postalCode: "3500",
   },
-  telephone: "+8801631312524",
+  telephone: "+8801701699743",
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer support",
-    telephone: "+8801631312524",
+    telephone: "+8801701699743",
     availableLanguage: ["Bengali", "English"],
     hoursAvailable: {
       "@type": "OpeningHoursSpecification",

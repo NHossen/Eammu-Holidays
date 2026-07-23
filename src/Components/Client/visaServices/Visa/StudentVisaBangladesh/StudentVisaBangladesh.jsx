@@ -639,7 +639,7 @@ const StudentVisaBangladesh = () => {
             <address className="not-italic space-y-4">
               <ContactInfo icon={<FaMapMarkerAlt />} text="Gomoti Tower (4th Floor), Cantonment, Cumilla, Bangladesh" />
               <ContactInfo icon={<FaClock />} text="Saturday – Thursday, 10 AM – 7 PM" />
-              <ContactInfo icon={<FaHeadset />} text="+8801631312524" />
+              <ContactInfo icon={<FaHeadset />} text="+8801701699743" />
             </address>
           </div>
           <div
@@ -662,7 +662,7 @@ const StudentVisaBangladesh = () => {
       <footer className={`${SECTION_Y_SM} text-center px-4`}>
         <motion.div whileHover={{ scale: 1.02 }}>
           <a
-            href="https://wa.me/8801631312524"
+            href="https://wa.me/8801701699743"
             className="inline-flex items-center gap-3 bg-[#005a31] text-white px-8 md:px-14 py-4 md:py-5 rounded-2xl text-base md:text-xl font-black shadow-xl hover:bg-orange-600 transition-all uppercase"
             rel="noopener noreferrer"
             aria-label="Contact Eammu Holidays on WhatsApp for free student visa counseling"

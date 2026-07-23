@@ -441,7 +441,7 @@ const TouristVisaBangladesh = () => {
             <address className="not-italic space-y-6">
               <ContactInfo icon={<FaMapMarkerAlt />} text="Gomoti Tower (4th Floor), Cantonment, Cumilla, Bangladesh" />
               <ContactInfo icon={<FaBuilding />} text="Branch offices: Dhaka & Dubai, UAE" />
-              <ContactInfo icon={<FaHeadset />} text="+8801631312524" />
+              <ContactInfo icon={<FaHeadset />} text="+8801701699743" />
               <ContactInfo icon={<FaClock />} text="Saturday – Thursday, 10 AM – 7 PM" />
             </address>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -543,7 +543,7 @@ const TouristVisaBangladesh = () => {
             Get a free tourist visa assessment from Bangladesh&apos;s most trusted consultancy.
           </p>
           <a
-            href="https://wa.me/8801631312524"
+            href="https://wa.me/8801701699743"
             className="inline-flex items-center gap-3 bg-[#005a31] text-white px-12 py-6 rounded-[2rem] text-lg font-black shadow-2xl hover:bg-orange-600 transition-all"
             rel="noopener noreferrer"
             aria-label="Contact Eammu Holidays on WhatsApp for free tourist visa assessment"

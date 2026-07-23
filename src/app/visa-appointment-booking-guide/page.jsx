@@ -126,7 +126,7 @@ export default function VisaAppointmentBookingGuidePage() {
               How to book a <strong className="text-white">Schengen, UK, USA, Canada, Dubai or Australia</strong> visa appointment from Bangladesh — covering VFS Global, TLScontact, USTRAVELDOCS, IRCC portals, slot availability strategies, and Eammu Holidays' 14+ years of appointment booking expertise.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20booking%20a%20visa%20appointment" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Book My Appointment</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20booking%20a%20visa%20appointment" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Book My Appointment</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View Visa Services →</Link>
             </div>
           </div>
@@ -218,7 +218,7 @@ export default function VisaAppointmentBookingGuidePage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Struggling to Get an Appointment Slot?</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Eammu Holidays monitors VFS and embassy portals daily and books your slot the moment it opens. Bangladesh's IATA-accredited visa agency with 14+ years of experience.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20booking%20a%20visa%20appointment" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Appointment Help (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20booking%20a%20visa%20appointment" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Appointment Help (WhatsApp)</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View All Visa Services →</Link>
             </div>
           </section>

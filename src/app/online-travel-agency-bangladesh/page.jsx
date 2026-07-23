@@ -230,7 +230,7 @@ const structuredData = {
       },
       description:
         "Eammu Holidays is Bangladesh's #1 IATA-accredited online travel and visa agency since 2012, with offices in Cumilla, Dhaka, Dubai, Armenia, and Georgia. We process Canada, UK, USA, Schengen, Dubai, Australia, and Europe work permit visas with a 98% success rate. Services include air ticket booking, Umrah packages, holiday tours, student visa consultancy, and overseas work permits.",
-      telephone: "+8801631312524",
+      telephone: "+8801701699743",
       email: "bangladesh@eammu.com",
       foundingDate: "2012",
       priceRange: "$$",
@@ -530,7 +530,7 @@ const structuredData = {
           name: "What is the cost of a Dubai visa for Bangladeshi citizens?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Dubai visa prices for Bangladeshi citizens vary by duration: 14-day, 30-day, and 90-day options are available. Prices change frequently based on UAE immigration policy. Contact Eammu Holidays at +8801631312524 or visit their Dubai office (+971507078334) for the latest 2026 UAE visit visa prices.",
+            text: "Dubai visa prices for Bangladeshi citizens vary by duration: 14-day, 30-day, and 90-day options are available. Prices change frequently based on UAE immigration policy. Contact Eammu Holidays at +8801701699743 or visit their Dubai office (+971507078334) for the latest 2026 UAE visit visa prices.",
           },
         },
         {
@@ -546,7 +546,7 @@ const structuredData = {
           name: "Where are Eammu Holidays offices in Bangladesh?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Eammu Holidays' main Bangladesh office is at Office No-178, 1st Floor, Gomoti Tower, Cantonment Road, Cumilla (Phone: +8801631312524). They serve clients across Dhaka, Chittagong, Sylhet, and all of Bangladesh. International offices are located in Dubai (UAE), Yerevan (Armenia), and Tbilisi (Georgia).",
+            text: "Eammu Holidays' main Bangladesh office is at Office No-178, 1st Floor, Gomoti Tower, Cantonment Road, Cumilla (Phone: +8801701699743). They serve clients across Dhaka, Chittagong, Sylhet, and all of Bangladesh. International offices are located in Dubai (UAE), Yerevan (Armenia), and Tbilisi (Georgia).",
           },
         },
         {
@@ -588,7 +588,7 @@ const structuredData = {
           "@type": "HowToStep",
           position: 1,
           name: "Free Consultation",
-          text: "Contact Eammu Holidays via WhatsApp (+8801631312524) or walk into their Cumilla or Dhaka office for a free visa eligibility consultation.",
+          text: "Contact Eammu Holidays via WhatsApp (+8801701699743) or walk into their Cumilla or Dhaka office for a free visa eligibility consultation.",
           url: "https://eammu.com/contact/travel-agency-bangladesh",
         },
         {
@@ -724,8 +724,8 @@ const offices = [
     city: "Cumilla, Bangladesh",
     label: "Head Office – Bangladesh",
     address: "Office No-178, 1st Floor, Gomoti Tower, Cantonment Road, Cumilla-3500",
-    phone: "+8801631312524, +971507078334",
-    whatsapp: "+8801631312524",
+    phone: "+8801701699743, +971507078334",
+    whatsapp: "+8801701699743",
     email: "bangladesh@eammu.com",
     href: "/contact/travel-agency-bangladesh",
     hours: "Sat–Thu: 9am–8pm",
@@ -808,7 +808,7 @@ const faqItems = [
   },
   {
     q: "What is the cost of a Dubai visa for Bangladeshi citizens?",
-    a: "Dubai visa prices for Bangladeshi citizens vary by duration (14-day, 30-day, 90-day) and change with UAE immigration policy. Contact Eammu Holidays at +8801631312524 or our Dubai office at +971507078334 for the latest 2026 UAE visit visa prices.",
+    a: "Dubai visa prices for Bangladeshi citizens vary by duration (14-day, 30-day, 90-day) and change with UAE immigration policy. Contact Eammu Holidays at +8801701699743 or our Dubai office at +971507078334 for the latest 2026 UAE visit visa prices.",
   },
   {
     q: "Can Eammu Holidays help with student visa applications from Bangladesh?",
@@ -1039,7 +1039,7 @@ export default function OnlineTravelAgencyBangladeshPage() {
 
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801631312524?text=Hello%2C%20I%20need%20visa%20consultation"
+                href="https://wa.me/8801701699743?text=Hello%2C%20I%20need%20visa%20consultation"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 aria-label="Free visa consultation on WhatsApp – Eammu Holidays Bangladesh"
                 rel="noopener noreferrer"
@@ -1057,7 +1057,7 @@ export default function OnlineTravelAgencyBangladeshPage() {
 
             {/* Contact strip */}
             <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs text-green-200">
-              <a href="tel:+8801631312524" className="hover:text-white transition-colors flex items-center gap-1" aria-label="Call Bangladesh office">
+              <a href="tel:+8801701699743" className="hover:text-white transition-colors flex items-center gap-1" aria-label="Call Bangladesh office">
                 📞 Bangladesh: +880 1631 312524
               </a>
               <a href="tel:+971507078334" className="hover:text-white transition-colors flex items-center gap-1" aria-label="Call Dubai office">
@@ -1160,7 +1160,7 @@ export default function OnlineTravelAgencyBangladeshPage() {
                   ))}
                 </ul>
                 <a
-                  href="https://wa.me/8801631312524"
+                  href="https://wa.me/8801701699743"
                   className="mt-6 block bg-orange-500 hover:bg-orange-600 text-white font-bold text-center py-3 rounded-xl text-sm transition-all"
                   aria-label="WhatsApp Eammu Holidays Bangladesh"
                   rel="noopener noreferrer"
@@ -1289,7 +1289,7 @@ export default function OnlineTravelAgencyBangladeshPage() {
             </div>
             <div className="mt-10 text-center">
               <a
-                href="https://wa.me/8801631312524?text=I%20want%20to%20start%20my%20visa%20application"
+                href="https://wa.me/8801701699743?text=I%20want%20to%20start%20my%20visa%20application"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl text-sm transition-all shadow-lg inline-block"
                 aria-label="Start your visa application with Eammu Holidays Bangladesh"
                 rel="noopener noreferrer"
@@ -1534,7 +1534,7 @@ export default function OnlineTravelAgencyBangladeshPage() {
             </div>
             <p className="mt-6 text-sm text-gray-500 text-center">
               🌐 Can't visit in person?{" "}
-              <a href="https://wa.me/8801631312524" className="text-[#005a31] font-semibold hover:text-orange-500 transition-colors" rel="noopener noreferrer">
+              <a href="https://wa.me/8801701699743" className="text-[#005a31] font-semibold hover:text-orange-500 transition-colors" rel="noopener noreferrer">
                 WhatsApp us
               </a>{" "}
               or email{" "}
@@ -1665,7 +1665,7 @@ export default function OnlineTravelAgencyBangladeshPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801631312524?text=Hello%2C%20I%20need%20visa%20consultation%20from%20Eammu%20Holidays"
+                href="https://wa.me/8801701699743?text=Hello%2C%20I%20need%20visa%20consultation%20from%20Eammu%20Holidays"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 aria-label="Talk to a visa expert at Eammu Holidays on WhatsApp"
                 rel="noopener noreferrer"
@@ -1673,7 +1673,7 @@ export default function OnlineTravelAgencyBangladeshPage() {
                 💬 Talk to a Visa Expert (WhatsApp)
               </a>
               <a
-                href="tel:+8801631312524"
+                href="tel:+8801701699743"
                 className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base"
                 aria-label="Call Eammu Holidays Bangladesh"
               >
@@ -1690,7 +1690,7 @@ export default function OnlineTravelAgencyBangladeshPage() {
 
             {/* Bottom contact row */}
             <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap justify-center gap-6 text-xs text-green-200">
-              <a href="tel:+8801631312524" className="hover:text-white transition-colors">📞 Bangladesh: +880 1631 312524</a>
+              <a href="tel:+8801701699743" className="hover:text-white transition-colors">📞 Bangladesh: +880 1631 312524</a>
               <a href="tel:+971507078334" className="hover:text-white transition-colors">📞 Dubai: +971 50 707 8334</a>
               <a href="mailto:bangladesh@eammu.com" className="hover:text-white transition-colors">✉️ bangladesh@eammu.com</a>
               <span>🌐 www.eammu.com</span>

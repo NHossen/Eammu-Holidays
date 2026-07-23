@@ -110,7 +110,7 @@ export default function EmbassyAppointmentTipsPage() {
             <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight">Embassy Appointment Tips — <span className="text-orange-400">2026 Guide</span></h1>
             <p className="text-lg md:text-xl text-green-50/90 max-w-3xl mx-auto leading-relaxed mb-8">How to get <strong className="text-white">visa appointment slots fast</strong>, what to bring on appointment day, how to handle rescheduling, and what visa applicants in Bangladesh get wrong — expert guidance from Eammu Holidays.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20booking%20embassy%20appointment" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Book My Appointment</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20booking%20embassy%20appointment" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Book My Appointment</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View Visa Services →</Link>
             </div>
           </div>
@@ -164,7 +164,7 @@ export default function EmbassyAppointmentTipsPage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Can't Get an Appointment Slot?</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Eammu Holidays monitors VFS portals daily and books slots the moment they open. We handle the entire appointment process for you.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20can't%20get%20a%20visa%20appointment%20slot" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Appointment Help (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20can't%20get%20a%20visa%20appointment%20slot" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Appointment Help (WhatsApp)</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View All Visa Services →</Link>
             </div>
           </section>

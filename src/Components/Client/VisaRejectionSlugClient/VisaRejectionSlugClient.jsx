@@ -810,7 +810,7 @@ const [activeType, setActiveType] = useState(initialVisaType || "tourist");
                     98% approval rate across 1,00,000+ processed applications.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a href="https://wa.me/8801631312524" className="inline-flex items-center gap-2 px-5 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-black text-sm transition-colors">
+                    <a href="https://wa.me/8801701699743" className="inline-flex items-center gap-2 px-5 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-black text-sm transition-colors">
                       <MessageSquare size={15} /> WhatsApp Our Experts
                     </a>
                     <Link href="/travel-resources/visa-checklist-generator" className="inline-flex items-center gap-2 px-5 py-3 border border-amber-300 text-amber-800 rounded-xl font-black text-sm hover:bg-amber-100 transition-colors">
@@ -896,7 +896,7 @@ const [activeType, setActiveType] = useState(initialVisaType || "tourist");
                       you build a stronger reapplication or appeal within the required timeframe.
                       Contact our Dubai office for a free assessment.
                     </p>
-                    <a href="https://wa.me/8801631312524" className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-purple-500 text-white rounded-xl text-sm font-black hover:bg-purple-600 transition-colors">
+                    <a href="https://wa.me/8801701699743" className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-purple-500 text-white rounded-xl text-sm font-black hover:bg-purple-600 transition-colors">
                       <MessageSquare size={14} /> Discuss Your Refusal
                     </a>
                   </div>
@@ -1089,7 +1089,7 @@ const [activeType, setActiveType] = useState(initialVisaType || "tourist");
                 Our visa consultants specialise in {natName} applications for {destName}.
                 98% approval rate · Dubai office · 24-hr review.
               </p>
-              <a href="https://wa.me/8801631312524"
+              <a href="https://wa.me/8801701699743"
                 className="block w-full py-4 bg-red-500 hover:bg-red-400 text-white font-black rounded-xl text-sm transition-colors mb-3">
                 Talk to Expert →
               </a>

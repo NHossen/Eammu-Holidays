@@ -140,8 +140,8 @@ const trustBadges = [
 const officeLocations = [
   { city: "Dhaka", country: "Bangladesh", flag: "🇧🇩", phone: "+971507078334" },
   { city: "Dubai", country: "UAE", flag: "🇦🇪", phone: "+971507078334" },
-  { city: "Yerevan", country: "Armenia", flag: "🇦🇲", phone: "+8801631312524" },
-  { city: "Tbilisi", country: "Georgia", flag: "🇬🇪", phone: "+8801631312524" },
+  { city: "Yerevan", country: "Armenia", flag: "🇦🇲", phone: "+8801701699743" },
+  { city: "Tbilisi", country: "Georgia", flag: "🇬🇪", phone: "+8801701699743" },
 ];
 
 export default function AboutServer() {

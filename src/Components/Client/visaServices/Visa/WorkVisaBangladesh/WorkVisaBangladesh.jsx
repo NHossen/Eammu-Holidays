@@ -48,7 +48,7 @@ export default function WorkVisaBangladesh() {
       "addressCountry": "BD"
     },
     "contactPoint": [
-      { "@type": "ContactPoint", "telephone": "+8801631312524", "contactType": "customer service" }
+      { "@type": "ContactPoint", "telephone": "+8801701699743", "contactType": "customer service" }
     ]
   };
 
@@ -87,7 +87,7 @@ export default function WorkVisaBangladesh() {
               Get expert guidance for <strong>work visa applications from Bangladesh</strong>. We specialize in <strong>Skilled Worker Visas</strong>, <strong>LMIA Permits</strong>, and <strong>European Work Contracts</strong>.
             </p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-              <a href="https://wa.me/8801631312524" className="bg-white text-[#004d2a] px-10 py-4 rounded-2xl font-black hover:bg-orange-500 hover:text-white transition-all shadow-2xl flex items-center justify-center gap-2 text-sm md:text-base uppercase tracking-tighter">
+              <a href="https://wa.me/8801701699743" className="bg-white text-[#004d2a] px-10 py-4 rounded-2xl font-black hover:bg-orange-500 hover:text-white transition-all shadow-2xl flex items-center justify-center gap-2 text-sm md:text-base uppercase tracking-tighter">
                 Eligibility Check <FaArrowRight />
               </a>
             </div>
@@ -216,7 +216,7 @@ export default function WorkVisaBangladesh() {
             <div className="space-y-6">
               <ContactInfo icon={<FaMapMarkerAlt />} text="Gomoti Tower, Cantonment, Cumilla" />
               <ContactInfo icon={<FaClock />} text="Sat - Thu: 10:00 AM - 7:00 PM" />
-              <ContactInfo icon={<FaHeadset />} text="+8801631312524" />
+              <ContactInfo icon={<FaHeadset />} text="+8801701699743" />
             </div>
           </div>
           <div className="flex-1 w-full bg-slate-100 h-72 md:h-[400px] rounded-[3rem] flex items-center justify-center relative overflow-hidden group">
@@ -230,7 +230,7 @@ export default function WorkVisaBangladesh() {
         <motion.div whileHover={{ scale: 1.02 }}>
             <h2 className="text-3xl md:text-4xl font-black text-[#004d2a] mb-10 tracking-tighter uppercase italic underline decoration-orange-400 decoration-4">Ready to start?</h2>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <a href="https://wa.me/8801631312524" className="bg-[#004d2a] text-white px-12 py-5 rounded-2xl text-lg font-black shadow-2xl hover:bg-orange-500 transition-all flex items-center justify-center gap-3">
+              <a href="https://wa.me/8801701699743" className="bg-[#004d2a] text-white px-12 py-5 rounded-2xl text-lg font-black shadow-2xl hover:bg-orange-500 transition-all flex items-center justify-center gap-3">
                 WhatsApp Us <FaArrowRight />
               </a>
             </div>

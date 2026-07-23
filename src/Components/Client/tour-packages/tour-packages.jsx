@@ -96,7 +96,7 @@ const TourPackages = () => {
           {tour.description}
         </p>
         <a
-          href={`https://wa.me/8801631312524?text=Hello%2C%20I%20would%20like%20to%20book%20a%20${encodeURIComponent(tour.name)}%20tour.`}
+          href={`https://wa.me/8801701699743?text=Hello%2C%20I%20would%20like%20to%20book%20a%20${encodeURIComponent(tour.name)}%20tour.`}
           target="_blank"
           rel="noopener noreferrer"
           className="w-full bg-[#005a31] text-white font-semibold py-3 rounded-xl hover:bg-[#003e24] transition-all text-center flex items-center justify-center gap-2"
@@ -265,7 +265,7 @@ const TourPackages = () => {
               Back to Home
             </Link>
             <a
-              href="https://wa.me/8801631312524"
+              href="https://wa.me/8801701699743"
               className="px-8 py-3 rounded-xl bg-[#005a31] text-white font-semibold hover:shadow-lg transition"
             >
               Contact Support

@@ -11,7 +11,7 @@ export const metadata = {
   },
 
   description:
-    "Apply for a tourist visa from Bangladesh in 2026. Expert assistance for USA B1/B2, UK Standard Visitor, Canada V-1, Schengen 29-country, Dubai, Japan, and 200+ destinations. 98% approval rate. Free document checklist. Call +8801631312524.",
+    "Apply for a tourist visa from Bangladesh in 2026. Expert assistance for USA B1/B2, UK Standard Visitor, Canada V-1, Schengen 29-country, Dubai, Japan, and 200+ destinations. 98% approval rate. Free document checklist. Call +8801701699743.",
 
   keywords: [
     "tourist visa from Bangladesh",
@@ -113,7 +113,7 @@ const organizationSchema = {
     addressCountry: "BD",
     postalCode: "3500",
   },
-  telephone: "+8801631312524",
+  telephone: "+8801701699743",
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
@@ -207,7 +207,7 @@ const faqSchema = {
       name: "Can Eammu Holidays help with visa rejection recovery?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Eammu Holidays offers a dedicated rejection recovery service. Our consultants analyse your previous refusal letter, identify the specific grounds for rejection, rebuild your financial and home-tie documentation, and resubmit a stronger application. Contact our Cumilla office or WhatsApp +8801631312524 to book a free rejection assessment.",
+        text: "Yes. Eammu Holidays offers a dedicated rejection recovery service. Our consultants analyse your previous refusal letter, identify the specific grounds for rejection, rebuild your financial and home-tie documentation, and resubmit a stronger application. Contact our Cumilla office or WhatsApp +8801701699743 to book a free rejection assessment.",
       },
     },
     {

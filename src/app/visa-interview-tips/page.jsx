@@ -117,7 +117,7 @@ export default function VisaInterviewTipsPage() {
               Expert preparation guide for <strong className="text-white">USA, Canada, UK, Schengen & Australia</strong> visa interviews from Bangladesh — common questions with ideal answers, do's and don'ts, and what visa officers are actually looking for.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20visa%20interview%20preparation%20help" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Interview Coaching (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20visa%20interview%20preparation%20help" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Interview Coaching (WhatsApp)</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View Visa Services →</Link>
             </div>
           </div>
@@ -190,7 +190,7 @@ export default function VisaInterviewTipsPage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Want a Mock Visa Interview?</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Eammu Holidays coaches clients through mock embassy interview sessions — tailored to your specific visa type, country, and application profile. Build confidence before your real appointment.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20visa%20interview%20coaching" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Book Interview Coaching (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20visa%20interview%20coaching" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Book Interview Coaching (WhatsApp)</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View All Visa Services →</Link>
             </div>
           </section>

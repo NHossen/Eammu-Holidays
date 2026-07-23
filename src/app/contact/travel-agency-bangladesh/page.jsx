@@ -148,7 +148,7 @@ const jsonLd = {
         },
         {
           "@type": "ContactPoint",
-          "telephone": "+8801631312524",
+          "telephone": "+8801701699743",
           "contactType": "customer support",
           "contactOption": "TollFree",
           "availableLanguage": ["Bengali"],
@@ -167,7 +167,7 @@ const jsonLd = {
       "image": "https://eammu.com/preview-banner.webp",
       "sameAs": [
         "https://www.facebook.com/eammuholidays",
-        "https://wa.me/8801631312524",
+        "https://wa.me/8801701699743",
       ],
     },
     // ── Branch 2 — Mirpur 12, Dhaka
@@ -179,7 +179,7 @@ const jsonLd = {
       "description":
         "Eammu Holidays Dhaka branch at Mirpur 12. Full-service travel agency offering visa processing, international tour packages, Umrah deals, student visa support, and flight booking for Dhaka clients.",
       "url": "https://eammu.com/contact/travel-agency-bangladesh",
-      "telephone": "+8801631312524",
+      "telephone": "+8801701699743",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Mirpur 12",

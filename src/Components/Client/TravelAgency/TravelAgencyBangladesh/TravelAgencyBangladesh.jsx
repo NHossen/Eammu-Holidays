@@ -62,7 +62,7 @@ const branches = [
     name: "Mirpur 12, Dhaka",
     address: "Mirpur 12, Dhaka, Bangladesh",
     phone: "+880 1631-312524",
-    whatsapp: "8801631312524",
+    whatsapp: "8801701699743",
     hours: "শনি–বৃহঃ: সকাল ৯টা–রাত ৮টা",
     hoursEn: "Sat–Thu: 9AM–8PM",
     map: "https://maps.google.com/?q=Mirpur+12+Dhaka+Bangladesh",
@@ -565,7 +565,7 @@ const TravelAgencyBangladesh = () => {
 
           <div className="flex flex-col sm:flex-row gap-3 mt-10">
             <a
-              href="https://wa.me/8801631312524"
+              href="https://wa.me/8801701699743"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-3xl font-black shadow-xl hover:bg-green-600 transition"
@@ -662,7 +662,7 @@ const TravelAgencyBangladesh = () => {
         </div>
         <div className="text-center mt-10">
           <a
-            href="https://wa.me/8801631312524"
+            href="https://wa.me/8801701699743"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#005a31] text-white px-10 py-4 rounded-2xl font-black hover:bg-green-800 transition shadow-lg uppercase tracking-wide text-sm"
@@ -701,7 +701,7 @@ const TravelAgencyBangladesh = () => {
               <Link href="/visa/visa-guide" className="text-[#005a31] font-bold hover:underline">Visa Guide</Link> ও{" "}
               <Link href="/blogs" className="text-[#005a31] font-bold hover:underline">Travel Blog</Link> পড়ুন।
               যোগাযোগ: <a href="tel:+971507078334" className="text-[#005a31] font-bold hover:underline">+880 1701-699743</a> (Cumilla) |{" "}
-              <a href="https://wa.me/8801631312524" className="text-[#005a31] font-bold hover:underline">+880 1631-312524</a> (Dhaka / WhatsApp)
+              <a href="https://wa.me/8801701699743" className="text-[#005a31] font-bold hover:underline">+880 1631-312524</a> (Dhaka / WhatsApp)
             </p>
           </div>
           <div className="flex flex-wrap gap-2 mt-5">
@@ -744,7 +744,7 @@ const TravelAgencyBangladesh = () => {
         </div>
         <div className="relative z-10 flex flex-col sm:flex-row gap-3 justify-center mt-8">
           <a
-            href="https://wa.me/8801631312524"
+            href="https://wa.me/8801701699743"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto bg-[#25D366] text-white px-10 py-4 rounded-2xl font-black text-sm hover:bg-green-400 transition shadow-lg flex items-center justify-center gap-2"
@@ -823,7 +823,7 @@ const TourCard = ({ img, title, duration, price, location, features, icon }) => 
         ))}
       </ul>
       <a
-        href="https://wa.me/8801631312524"
+        href="https://wa.me/8801701699743"
         target="_blank"
         rel="noopener noreferrer"
         className="block text-center bg-slate-100 hover:bg-[#005a31] hover:text-white text-[#005a31] py-4 rounded-2xl font-black transition-all text-sm"

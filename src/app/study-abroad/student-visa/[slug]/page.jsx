@@ -1686,7 +1686,7 @@ export default async function StudentVisaSlugPage({ params }) {
 
   const d = visadata[cleanSlug];
   const countryName = country.country;
-  const whatsappUrl = `https://wa.me/8801631312524?text=${encodeURIComponent(`Hi, I want to apply for a ${countryName} Student Visa. I checked the guide on Eammu Holidays.`)}`;
+  const whatsappUrl = `https://wa.me/8801701699743?text=${encodeURIComponent(`Hi, I want to apply for a ${countryName} Student Visa. I checked the guide on Eammu Holidays.`)}`;
   const schemas = buildSchemas(country, d, cleanSlug);
 
   if (!d) {

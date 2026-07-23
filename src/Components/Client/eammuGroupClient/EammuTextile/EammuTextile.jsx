@@ -50,7 +50,7 @@ const EammuTextile = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
               <a 
-                href="https://wa.me/8801631312524" 
+                href="https://wa.me/8801701699743" 
                 className="w-full sm:w-auto bg-[#005a31] text-white px-10 py-5 rounded-2xl font-black flex items-center justify-center gap-3 hover:bg-orange-600 transition-all hover:shadow-2xl active:scale-95"
               >
                 Start Production <ArrowUpRight size={20} />
@@ -193,7 +193,7 @@ const EammuTextile = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <a href="https://wa.me/8801631312524" className="bg-white text-slate-900 px-12 py-5 rounded-2xl font-black shadow-2xl hover:bg-orange-500 hover:text-white transition-all active:scale-95 flex items-center justify-center gap-3">
+            <a href="https://wa.me/8801701699743" className="bg-white text-slate-900 px-12 py-5 rounded-2xl font-black shadow-2xl hover:bg-orange-500 hover:text-white transition-all active:scale-95 flex items-center justify-center gap-3">
               Consult a Production Expert
             </a>
             <Link href="/" className="px-12 py-5 rounded-2xl font-black border-2 border-white/20 hover:bg-white/10 transition-colors">

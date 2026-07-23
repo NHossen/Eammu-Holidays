@@ -569,7 +569,7 @@ export default function AboutClient({
               <span className="text-2xl">📞</span>
               <div>
                 <h4 className="font-bold text-gray-800 text-sm">Call / WhatsApp</h4>
-                <p className="text-xs text-gray-500 mt-1">+8801631312524</p>
+                <p className="text-xs text-gray-500 mt-1">+8801701699743</p>
                 <p className="text-xs text-gray-500">+971507078334</p>
                 <p className="text-xs text-gray-500">+971507078334 (UAE)</p>
               </div>

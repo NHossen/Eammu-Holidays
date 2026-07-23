@@ -1038,7 +1038,7 @@ export default async function CountryVisaPage({ params }) {
   const d = visadata[cleanSlug];
   const countryName = country.country;
   const whatsappMsg = encodeURIComponent(`Hi, I want to apply for a ${countryName} Visa. I checked the requirements on Eammu Holidays.`);
-  const whatsappUrl = `https://wa.me/8801631312524?text=${whatsappMsg}`;
+  const whatsappUrl = `https://wa.me/8801701699743?text=${whatsappMsg}`;
 
   // ── FALLBACK: country exists but no visa data yet ──
   if (!d) {

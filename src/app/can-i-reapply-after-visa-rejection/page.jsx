@@ -104,7 +104,7 @@ export default function CanIReapplyPage() {
             <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight">Can I <span className="text-orange-400">Reapply</span> After a Visa Rejection?</h1>
             <p className="text-lg md:text-xl text-green-50/90 max-w-3xl mx-auto leading-relaxed mb-8">Yes — but timing and preparation matter enormously. This guide covers <strong className="text-white">when to reapply, how long to wait, and exactly what to fix</strong> for Schengen, UK, USA, Canada, and Dubai visa reapplications from Bangladesh, with expert guidance from Eammu Holidays.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20want%20to%20reapply%20for%20a%20visa%20after%20rejection" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Reapplication Help</a>
+              <a href="https://wa.me/8801701699743?text=I%20want%20to%20reapply%20for%20a%20visa%20after%20rejection" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Reapplication Help</a>
               <Link href="/visa-rejection" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">Visa Rejection Services →</Link>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function CanIReapplyPage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Ready to Reapply the Right Way?</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Eammu Holidays reviews your refusal letter, rebuilds your application, and times your reapplication strategically to maximise your chances of approval.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20want%20to%20reapply%20for%20a%20visa%20after%20rejection" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Reapplication Help (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20want%20to%20reapply%20for%20a%20visa%20after%20rejection" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Reapplication Help (WhatsApp)</a>
               <Link href="/visa-rejection" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">Visa Rejection Services →</Link>
             </div>
           </section>

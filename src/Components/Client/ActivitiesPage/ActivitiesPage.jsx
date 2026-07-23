@@ -9,7 +9,7 @@ import TopActivities from './TopActivities/TopActivities';
 
 
 const ActivitiesPage = () => {
-  const whatsappNumber = "+8801631312524";
+  const whatsappNumber = "+8801701699743";
   
   // State for Hero, Tabs, and Pagination
 

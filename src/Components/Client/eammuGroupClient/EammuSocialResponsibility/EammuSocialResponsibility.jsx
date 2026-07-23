@@ -138,7 +138,7 @@ const EammuSocialResponsibility = () => {
             <a href="/contact" className=" bg-[#005a31] text-white px-10 py-4 rounded-2xl font-bold hover:bg-orange-500 transition-all shadow-xl active:scale-95">
               Register as Volunteer
             </a>
-            <a href="https://wa.me/8801631312524" className=" bg-orange-50 text-orange-600 border border-orange-200 px-10 py-4 rounded-2xl font-bold hover:bg-orange-100 transition-all">
+            <a href="https://wa.me/8801701699743" className=" bg-orange-50 text-orange-600 border border-orange-200 px-10 py-4 rounded-2xl font-bold hover:bg-orange-100 transition-all">
               Request Collaboration
             </a>
           </div>

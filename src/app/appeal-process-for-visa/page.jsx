@@ -447,7 +447,7 @@ export default function VisaAppealProcessPage() {
 
             <div className={`flex flex-wrap justify-center gap-4 ${reveal}`} style={{ animationDelay: "240ms" }}>
               <a
-                href="https://wa.me/8801631312524?text=My%20visa%20was%20rejected%2C%20I%20need%20help"
+                href="https://wa.me/8801701699743?text=My%20visa%20was%20rejected%2C%20I%20need%20help"
                 className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 rel="noopener noreferrer"
               >
@@ -807,7 +807,7 @@ export default function VisaAppealProcessPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801631312524?text=I%20want%20a%20free%20review%20of%20my%20visa%20refusal%20letter"
+                href="https://wa.me/8801701699743?text=I%20want%20a%20free%20review%20of%20my%20visa%20refusal%20letter"
                 className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 rel="noopener noreferrer"
               >

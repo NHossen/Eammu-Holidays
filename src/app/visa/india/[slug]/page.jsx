@@ -14,7 +14,7 @@ import {
 // ─────────────────────────────────────────────────────────────────────────────
 // ✅ FIX: Removed phone number that was leaked in source comment
 const BASE_URL = "https://eammu.com";
-const WHATSAPP_NUMBER = "8801631312524";
+const WHATSAPP_NUMBER = "8801701699743";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // DATA FETCHERS

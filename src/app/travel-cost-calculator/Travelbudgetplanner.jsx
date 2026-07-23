@@ -1142,7 +1142,7 @@ export default function TravelBudgetPlanner() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/8801631312524"
+              href="https://wa.me/8801701699743"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] text-white px-10 py-4 rounded-2xl font-black text-sm hover:bg-green-400 transition shadow-lg flex items-center justify-center gap-2"

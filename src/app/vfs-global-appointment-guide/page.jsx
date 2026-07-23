@@ -107,7 +107,7 @@ export default function VFSGlobalGuidePage() {
             <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight">VFS Global <span className="text-orange-400">Bangladesh Guide</span> — 2026</h1>
             <p className="text-lg md:text-xl text-green-50/90 max-w-3xl mx-auto leading-relaxed mb-8">Everything you need to know about using <strong className="text-white">VFS Global Dhaka</strong> for your visa application — which countries it serves, step-by-step process, fees, tracking, and common mistakes — by Eammu Holidays, Bangladesh's IATA-accredited travel agency.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20with%20VFS%20appointment" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get VFS Help</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20with%20VFS%20appointment" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get VFS Help</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View Visa Services →</Link>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function VFSGlobalGuidePage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Need Help with Your VFS Appointment?</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Eammu Holidays books VFS appointments, prepares complete document packs, and guides clients through the entire submission process — from first contact to passport collection.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20with%20my%20VFS%20visa%20application" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get VFS Help (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20with%20my%20VFS%20visa%20application" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get VFS Help (WhatsApp)</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View All Visa Services →</Link>
             </div>
           </section>

@@ -122,7 +122,7 @@ export default function VisaServicesPage() {
             End-to-end support for <strong>student, work, and tourist visas</strong>, Hajj & Umrah, and group travel.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://wa.me/8801631312524" className="bg-white text-[#005a31] px-10 py-4 rounded-full font-bold shadow-xl hover:bg-green-50 transition">WhatsApp Consultation</a>
+            <a href="https://wa.me/8801701699743" className="bg-white text-[#005a31] px-10 py-4 rounded-full font-bold shadow-xl hover:bg-green-50 transition">WhatsApp Consultation</a>
             <Link href="/" className="bg-transparent border-2 border-white px-10 py-4 rounded-full font-bold hover:bg-white/10 transition">Back to Home</Link>
           </div>
         </div>

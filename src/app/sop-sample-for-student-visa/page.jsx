@@ -106,7 +106,7 @@ export default function SOPSampleStudentVisaPage() {
             <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight">SOP for Student Visa — <span className="text-orange-400">Sample & Full Guide 2026</span></h1>
             <p className="text-lg md:text-xl text-green-50/90 max-w-3xl mx-auto leading-relaxed mb-8">How to write a <strong className="text-white">Statement of Purpose (SOP) for a student visa</strong> from Bangladesh — complete 6-paragraph structure guide, sample format, key writing tips, and expert review from Eammu Holidays for Canada, UK, Australia, USA & Schengen applications.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20writing%20SOP%20for%20student%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get SOP Review</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20writing%20SOP%20for%20student%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get SOP Review</a>
               <Link href="/student-visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">Student Visa Services →</Link>
             </div>
           </div>
@@ -171,7 +171,7 @@ export default function SOPSampleStudentVisaPage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Need Help Writing Your Student Visa SOP?</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Eammu Holidays writes and reviews SOPs for Canada, UK, Australia, and USA student visa applications — personalised to your story, aligned with your documents, and optimised for approval.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20writing%20my%20student%20visa%20SOP" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get SOP Help (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20writing%20my%20student%20visa%20SOP" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get SOP Help (WhatsApp)</a>
               <Link href="/student-visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">Student Visa Services →</Link>
             </div>
           </section>

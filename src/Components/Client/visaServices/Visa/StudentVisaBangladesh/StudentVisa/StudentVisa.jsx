@@ -631,7 +631,7 @@ export default function StudentVisa() {
               universities in Canada, UK, Australia, Germany, and 200+ more countries.
             </p>
             <a
-              href={`https://wa.me/8801631312524?text=${encodeURIComponent(
+              href={`https://wa.me/8801701699743?text=${encodeURIComponent(
                 "Hi, I need help with my student visa application.",
               )}`}
               className="inline-flex items-center gap-3 px-8 py-4 bg-green-600 hover:bg-green-500 text-white rounded-xl font-black transition-all text-sm shadow-xl shadow-green-900/20"

@@ -49,7 +49,7 @@ const EammuEvent = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
               <a 
-                href="https://wa.me/8801631312524" 
+                href="https://wa.me/8801701699743" 
                 className="w-full sm:w-auto bg-[#005a31] text-white px-8 py-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-orange-600 transition-all hover:shadow-xl active:scale-95"
               >
                 Book Consultation <ArrowRight size={18} />
@@ -117,7 +117,7 @@ const EammuEvent = () => {
               <p className="text-sm leading-relaxed mb-6 opacity-90">
                 Our central management hub coordinates premium logistics across all districts.
               </p>
-              <a href="https://wa.me/8801631312524" className="block text-center w-full py-4 bg-orange-500 hover:bg-orange-600 rounded-xl font-black transition-all shadow-lg active:scale-95 uppercase tracking-tighter text-sm">
+              <a href="https://wa.me/8801701699743" className="block text-center w-full py-4 bg-orange-500 hover:bg-orange-600 rounded-xl font-black transition-all shadow-lg active:scale-95 uppercase tracking-tighter text-sm">
                 Request Office Meeting
               </a>
             </div>
@@ -189,7 +189,7 @@ const EammuEvent = () => {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a 
-                href="https://wa.me/8801631312524"
+                href="https://wa.me/8801701699743"
                 className="bg-orange-500 hover:bg-orange-600 text-white px-12 py-5 rounded-2xl font-black flex items-center justify-center gap-3 transition-all active:scale-95"
               >
                 <PhoneCall size={20} /> START NOW

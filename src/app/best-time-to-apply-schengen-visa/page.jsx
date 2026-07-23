@@ -232,7 +232,7 @@ export default function BestTimeSchengenVisaPage() {
 
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801631312524?text=I%20want%20help%20booking%20my%20Schengen%20visa%20appointment"
+                href="https://wa.me/8801701699743?text=I%20want%20help%20booking%20my%20Schengen%20visa%20appointment"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 rel="noopener noreferrer"
               >
@@ -388,7 +388,7 @@ export default function BestTimeSchengenVisaPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801631312524?text=I%20need%20help%20planning%20my%20Schengen%20visa%20timing"
+                href="https://wa.me/8801701699743?text=I%20need%20help%20planning%20my%20Schengen%20visa%20timing"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 rel="noopener noreferrer"
               >

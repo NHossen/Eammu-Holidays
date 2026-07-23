@@ -196,7 +196,7 @@ const Footer = () => {
                             </a>{' '}
                             or call{' '}
                             <a
-                                href="tel:+8801631312524"
+                                href="tel:+8801701699743"
                                 itemProp="telephone"
                                 className="text-[#005a31] font-medium hover:underline"
                             >

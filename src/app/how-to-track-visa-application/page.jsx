@@ -113,7 +113,7 @@ export default function TrackVisaApplicationPage() {
               Step-by-step guide to checking your <strong className="text-white">visa application status online</strong> for Schengen, UK, USA, Canada, Dubai, and Australia — tracking portals, reference numbers, what each status message means, and typical processing timelines from Bangladesh.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20tracking%20my%20visa%20application" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Application Help</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20tracking%20my%20visa%20application" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Application Help</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View Visa Services →</Link>
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function TrackVisaApplicationPage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Applied and Worried About Your Status?</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Eammu Holidays monitors visa applications for clients and provides real-time status updates. If you applied independently and need help understanding a status message or delay — contact us.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20tracking%20my%20visa%20application" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Application Help (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20tracking%20my%20visa%20application" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Application Help (WhatsApp)</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View All Visa Services →</Link>
             </div>
           </section>

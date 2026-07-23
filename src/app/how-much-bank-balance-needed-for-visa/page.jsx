@@ -109,7 +109,7 @@ export default function HowMuchBankBalancePage() {
               Country-wise minimum bank balance requirements for <strong className="text-white">Schengen, UK, USA, Canada, Dubai, Australia, Malaysia & Thailand</strong> visa applications from Bangladesh — with BDT estimates, statement duration, and insider tips from Eammu Holidays.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20with%20bank%20balance%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Free Bank Statement Review</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20with%20bank%20balance%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Free Bank Statement Review</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View Visa Services →</Link>
             </div>
           </div>
@@ -190,7 +190,7 @@ export default function HowMuchBankBalancePage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Is Your Bank Balance Enough for a Visa?</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Get a free document review from Eammu Holidays' visa consultants. We've helped thousands of Bangladeshi travellers present their finances correctly — and achieve a 98% visa success rate.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20with%20bank%20balance%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Free Document Review (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20with%20bank%20balance%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Free Document Review (WhatsApp)</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View All Visa Services →</Link>
             </div>
           </section>

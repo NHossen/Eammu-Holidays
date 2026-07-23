@@ -115,7 +115,7 @@ export default function BankSolvencyCertificatePage() {
               What is a <strong className="text-white">bank solvency certificate</strong>, how to get one from Bangladeshi banks, what it must contain, and when embassies require it — full guide by Eammu Holidays based on 14+ years of visa processing experience.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20with%20solvency%20certificate%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Document Guidance</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20with%20solvency%20certificate%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Document Guidance</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View Visa Services →</Link>
             </div>
           </div>
@@ -206,7 +206,7 @@ export default function BankSolvencyCertificatePage() {
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">Need Help Getting Your Bank Certificate Right?</h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">Eammu Holidays reviews your solvency certificate and bank statement before submission to ensure they meet embassy standards — and advises your bank branch on the exact format required.</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524?text=I%20need%20help%20with%20solvency%20certificate%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Help Now (WhatsApp)</a>
+              <a href="https://wa.me/8801701699743?text=I%20need%20help%20with%20solvency%20certificate%20for%20visa" className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base" rel="noopener noreferrer">💬 Get Help Now (WhatsApp)</a>
               <Link href="/visa" className="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold px-8 py-4 rounded-xl transition-all text-sm md:text-base">View All Visa Services →</Link>
             </div>
           </section>

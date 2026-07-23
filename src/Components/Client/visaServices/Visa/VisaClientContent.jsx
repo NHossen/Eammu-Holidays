@@ -624,7 +624,7 @@ export default function VisaClientContent() {
                     </Link>
                   )}
                   <a
-                    href={`https://wa.me/8801631312524?text=Interested%20in%20${route.name}`}
+                    href={`https://wa.me/8801701699743?text=Interested%20in%20${route.name}`}
                     className="bg-[#005a31] text-white py-2.5 px-6 rounded-xl block font-bold hover:bg-black transition"
                   >
                     Get deal now

@@ -299,7 +299,7 @@ export default function MessageFromLeadingTeam() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-3">
-              <a href="https://wa.me/8801631312524"
+              <a href="https://wa.me/8801701699743"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#f5c800] text-[#003d22] font-black rounded-full hover:bg-yellow-300 transition shadow-lg text-sm">
                 📞 WhatsApp the Team
               </a>
@@ -586,7 +586,7 @@ export default function MessageFromLeadingTeam() {
               our team in Dubai is ready. 98% approval rate · Embassy-verified documents · 24-hr review.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="https://wa.me/8801631312524"
+              <a href="https://wa.me/8801701699743"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#f5c800] text-[#003d22] font-black rounded-full hover:bg-yellow-300 transition shadow-xl text-sm">
                 📞 WhatsApp / Call Now
               </a>

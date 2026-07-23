@@ -141,7 +141,7 @@ const organizationSchema = {
     },
     {
       "@type": "ContactPoint",
-      telephone: "+8801631312524",
+      telephone: "+8801701699743",
       contactType: "sales",
       areaServed: "BD",
       availableLanguage: ["English", "Bengali"],
@@ -289,7 +289,7 @@ const faqSchema = {
       name: "What is the phone number for Eammu Holidays Bangladesh?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can reach Eammu Holidays Bangladesh at +8801631312524 or +971507078334. For UAE: +971507078334.",
+        text: "You can reach Eammu Holidays Bangladesh at +8801701699743 or +971507078334. For UAE: +971507078334.",
       },
     },
     {

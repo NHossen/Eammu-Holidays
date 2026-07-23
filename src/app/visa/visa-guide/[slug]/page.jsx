@@ -569,7 +569,7 @@ const originData      = visaBySlug.get(origSlug);
   const whatsappMsg = encodeURIComponent(
     `Hello, I need help applying for a ${dest} visa as a ${orig} citizen. I reviewed the requirements on eammu.com.`
   );
-  const whatsappUrl = `https://wa.me/8801631312524?text=${whatsappMsg}`;
+  const whatsappUrl = `https://wa.me/8801701699743?text=${whatsappMsg}`;
 
   // Related visa guides for sidebar (first 6 other destinations for same origin)
   const relatedDestinations = visaData

@@ -1285,7 +1285,7 @@ export default function VisaGuideClient({
 
                   {/* WhatsApp CTA */}
                   <a
-                    href={`https://wa.me/8801631312524?text=${encodeURIComponent(`Hello, I am a ${fromName || passportName} citizen and need help applying for a ${toName || destName} visa.`)}`}
+                    href={`https://wa.me/8801701699743?text=${encodeURIComponent(`Hello, I am a ${fromName || passportName} citizen and need help applying for a ${toName || destName} visa.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2.5 w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-black transition-all shadow-lg shadow-emerald-900/30 active:scale-95 group mb-2.5"
@@ -1401,7 +1401,7 @@ export default function VisaGuideClient({
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href={`https://wa.me/8801631312524?text=${encodeURIComponent(`Hello, I am a ${fromName || passportName} citizen and need help applying for a ${toName || destName} visa.`)}`}
+                  href={`https://wa.me/8801701699743?text=${encodeURIComponent(`Hello, I am a ${fromName || passportName} citizen and need help applying for a ${toName || destName} visa.`)}`}
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-black transition-all shadow-xl shadow-emerald-900/30 active:scale-95 text-sm"
                 >

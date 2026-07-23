@@ -280,7 +280,7 @@ export default function DS160FormGuidePage() {
 
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801631312524?text=I%20need%20help%20with%20DS-160%20form"
+                href="https://wa.me/8801701699743?text=I%20need%20help%20with%20DS-160%20form"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 rel="noopener noreferrer"
               >
@@ -452,7 +452,7 @@ export default function DS160FormGuidePage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801631312524?text=I%20want%20to%20join%20Target%20USA%20program"
+                href="https://wa.me/8801701699743?text=I%20want%20to%20join%20Target%20USA%20program"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 rel="noopener noreferrer"
               >
