@@ -976,7 +976,7 @@ export default function OnlineTravelAgencyBangladeshPage() {
                 <li className="text-green-500" aria-hidden="true">/</li>
                 <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
                   <span className="text-white font-semibold" itemProp="name" aria-current="page">
-                    Online Travel Agency Bangladesh
+                    Travel Agency Bangladesh
                   </span>
                   <meta itemProp="position" content="2" />
                 </li>
@@ -1000,19 +1000,18 @@ export default function OnlineTravelAgencyBangladeshPage() {
             </div>
 
             <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight tracking-tight"
-              itemProp="name"
-            >
-              Travel &amp; Visa Agency in{" "}
-              <span className="text-orange-400">Bangladesh</span> — 2026
-            </h1>
+  className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight tracking-tight"
+  itemProp="name"
+>
+  <span className="text-orange-400">Travel Agency Bangladesh</span> — Visa, Tours & Flight Tickets
+</h1>
 
             <p
               className="text-lg md:text-xl text-green-50/90 max-w-4xl mx-auto leading-relaxed mb-8 speakable-intro"
               itemProp="description"
             >
-              <strong className="text-white">Eammu Holidays</strong> is Bangladesh's most trusted{" "}
-              <strong className="text-white">online travel agency and visa consultancy</strong> —
+              <strong className="text-white">Eammu Holidays</strong> is most trusted{" "}
+              <strong className="text-white">online travel agency (OTA) in Bangladesh </strong> —
               IATA-accredited since 2012, with offices in{" "}
               <strong className="text-white">Cumilla, Dhaka, Dubai, Armenia &amp; Georgia</strong>.
               We process <strong className="text-white">Canada, UK, USA, Schengen, Dubai, Australia &amp; Europe work permit</strong>{" "}

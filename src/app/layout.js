@@ -9,28 +9,24 @@ import ServiceWorkerRegister from "@/Components/ServiceWorkerRegister";
 const BASE_URL = "https://eammu.com";
 
 // ── Font setup ────────────────────────────────────────────────────────────────
-// ✅ FIX: Removed Geist_Mono — monospace font loaded globally on every page
-// even though it's only used on code-heavy pages. Load it per-page if needed.
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
+const BRAND_NAME = "Eammu Holidays - Travel Agency Bangladesh";
+
 // ── GLOBAL / FALLBACK SEO METADATA ───────────────────────────────────────────
 export const metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    // Every inner page that sets a plain string title auto-gets the
-    // "%s | Eammu Holidays" suffix. Pages that already include the full
-    // brand string themselves (like the homepage) should use
-    // `title: { absolute: "..." }` to opt out of this template — see page.jsx.
     default: "Travel Agency Bangladesh | Eammu Holidays",
   },
 
   description:
-    "Bangladesh's IATA-accredited travel agency for tourist visas, student visas, Umrah packages 2026, international flights & tour packages to Dubai, Europe, Georgia & Armenia. Offices in Dhaka, Cumilla, Dubai, Yerevan & Tbilisi.",
+    "Travel Agency in Bangladesh for tourist visas, student visas, Umrah packages 2026, international flights & tour packages to Dubai, Europe, Georgia & Armenia. Offices in Dhaka, Cumilla, Dubai, Yerevan & Tbilisi.",
 
   keywords: [
     "Eammu Holidays",
@@ -57,23 +53,12 @@ export const metadata = {
     "Cox's Bazar tour package",
     "international holiday packages Bangladesh",
     "luxury tour packages Bangladesh",
-    "desert safari Dubai",
-    "cheap flight booking Bangladesh",
-    "international flight ticket Bangladesh",
-    "online flight booking Dhaka",
-    "best travel agency Dubai",
-    "Bangladesh travel agency Dubai",
-    "international travel agency UAE",
-    "education consultancy Bangladesh",
-    "study abroad Bangladesh",
-    "student visa consultancy",
   ],
 
-  authors: [{ name: "Eammu Holidays", url: BASE_URL }],
-  creator: "Eammu Holidays",
-  publisher: "Eammu Holidays",
+  authors: [{ name: BRAND_NAME, url: BASE_URL }],
+  creator: BRAND_NAME,
+  publisher: BRAND_NAME,
   category: "travel",
-
 
   alternates: {
     canonical: BASE_URL,
@@ -100,15 +85,12 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: BASE_URL,
-    siteName: "Eammu Holidays",
-    title: "Visa, Tours & Travel Experts from Bangladesh |Eammu Holidays",
+    siteName: BRAND_NAME,
+    title: "Travel Agency Bangladesh | Eammu Holidays",
     description:
-      "Apply for visas, book flights & explore premium holiday packages with Eammu Holidays. IATA-accredited agency with offices in Bangladesh, Dubai, Armenia & Georgia.",
+      "Travel Agency in Bangladesh - Eammu Holidays for tourist visas, student visas, Umrah packages 2026, international flights & tour packages to Dubai, Europe, Georgia & Armenia. Offices in Dhaka, Cumilla, Dubai, Yerevan & Tbilisi.",
     images: [
       {
-        // ✅ FIX: Changed from flight_eammu_offer.webp (a promotional banner)
-        // to preview-banner.webp (brand image) — consistent with page.jsx OG image.
-        // All pages that don't set their own OG image inherit this fallback.
         url: `${BASE_URL}/preview-banner.webp`,
         width: 1200,
         height: 630,
@@ -127,15 +109,12 @@ export const metadata = {
     title: "Eammu Holidays | Visa, Tours & Umrah Packages from Bangladesh",
     description:
       "Book tourist visas, Umrah packages 2026, international flights & holiday tours with Eammu Holidays – IATA-accredited travel partner from Bangladesh.",
-    // ✅ FIX: Unified with OG image for consistent cross-platform branding
     images: [`${BASE_URL}/preview-banner.webp`],
   },
 
   icons: {
     icon: [
       { url: "/emf.jpg", type: "image/jpeg" },
-      // ✅ FIX: Removed flight_eammu_offer.webp as 32x32 favicon.
-      // A landscape banner image makes a broken/unrecognisable tab icon.
       // Add a proper 32x32 square icon file here when available:
       // { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
@@ -143,15 +122,18 @@ export const metadata = {
     apple: [{ url: "/emf.jpg", sizes: "180x180", type: "image/jpeg" }],
   },
 
-   other: {
+  // ✅ FIX: merged the two separate `other` objects that existed before —
+  // the second one was silently overwriting the first at build time,
+  // wiping out geo.*, DC.*, theme-color, and rating on every page.
+  other: {
     "geo.region": "BD",
     "geo.placename": "Cumilla, Bangladesh",
     "geo.position": "23.4607;91.1809",
     ICBM: "23.4607, 91.1809",
-    "DC.title": "Eammu Holidays",
+    "DC.title": BRAND_NAME,
     "DC.description":
       "Bangladesh's leading IATA-accredited travel agency for visa, tours, Umrah, and flight booking.",
-    "DC.publisher": "Eammu Holidays",
+    "DC.publisher": BRAND_NAME,
     "DC.language": "en",
     "DC.coverage": "Worldwide",
     "DC.subject":
@@ -163,14 +145,11 @@ export const metadata = {
     "mobile-web-app-capable": "yes",
   },
 
- manifest: "/manifest.json",
+  manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Eammu Holidays",
-  },
-  other: {
-    "mobile-web-app-capable": "yes",
+    title: BRAND_NAME,
   },
 };
 
@@ -186,9 +165,9 @@ const globalSchema = {
       "@type": "WebSite",
       "@id": `${BASE_URL}/#website`,
       url: BASE_URL,
-      name: "Eammu Holidays",
+      name: BRAND_NAME,
       alternateName: [
-        "Eammu",
+        "Eammu - Travel Agency Bangladesh",
         "Eammu Travel",
         "Eammu Holiday",
         "Travel Agency Bangladesh",
@@ -211,20 +190,17 @@ const globalSchema = {
     {
       "@type": "Organization",
       "@id": `${BASE_URL}/#organization`,
-      name: "Eammu Holidays",
+      name: BRAND_NAME,
       url: BASE_URL,
       logo: {
         "@type": "ImageObject",
-        // ✅ FIX: Unified @id and url — both now point to the same file.
-        // @id must be a stable URI (not a file path), using /#logo as convention.
         "@id": `${BASE_URL}/#logo`,
         url: `${BASE_URL}/emf.jpg`,
         contentUrl: `${BASE_URL}/emf.jpg`,
         width: 200,
         height: 200,
-        caption: "Eammu Holidays",
+        caption: BRAND_NAME,
       },
-      // ✅ FIX: image now back-references the corrected logo @id
       image: { "@id": `${BASE_URL}/#logo` },
       description:
         "Premium IATA-accredited travel agency providing visa services, Umrah packages, tour packages, and flight bookings across Bangladesh, UAE, Armenia, and Georgia.",
@@ -276,7 +252,9 @@ const globalSchema = {
     {
       "@type": ["TravelAgency", "LocalBusiness"],
       "@id": `${BASE_URL}/#localbusiness`,
-      name: "Eammu Holidays",
+      // ✅ FIX: was "Eammu Holidays" — now matches WebSite/Organization name
+      // exactly so Google isn't given conflicting brand-name signals.
+      name: BRAND_NAME,
       url: BASE_URL,
       image: `${BASE_URL}/preview-banner.webp`,
       telephone: "+8801701699743",
@@ -409,8 +387,6 @@ const globalSchema = {
         "Naeem Hossen is the Founder and CEO of Eammu Holidays and Visa Express Hub, and the founding figure of Eammu Group. Based in Bangladesh, he leads a global travel and visa services network with offices in Cumilla, Dubai, Yerevan, and Tbilisi.",
       url: `${BASE_URL}/about`,
       worksFor: { "@id": `${BASE_URL}/#organization` },
-      // Founding relationship is correctly expressed FROM the Organization
-      // side (see Eammu Group's `founder` property below), not here.
       nationality: {
         "@type": "Country",
         name: "Bangladesh",
@@ -453,9 +429,6 @@ export default function RootLayout({ children }) {
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
       </head>
       <body className="antialiased">
-        {/* ✅ JSON-LD stays as a plain <script> tag (not next/script) —
-            structured data must be present verbatim in the initial HTML for
-            crawlers, so it should never be deferred or strategy-managed. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(globalSchema) }}
@@ -463,10 +436,7 @@ export default function RootLayout({ children }) {
 
         <Header />
 
-        {/* ✅ SINGLE <main> landmark for the entire site. page.jsx (and every
-            other page) must NOT render its own <main> — they render directly
-            into this one. */}
-            <ServiceWorkerRegister />
+        <ServiceWorkerRegister />
         <main id="main-content" role="main">
           {children}
         </main>
@@ -475,9 +445,6 @@ export default function RootLayout({ children }) {
         <Scroll />
         <Footer />
 
-        {/* Kept as a plain <script> tag (not next/script) — AdSense's
-            verification/crawler didn't pick it up when loaded via
-            next/script, so reverted to the standard tag it expects. */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3033816186833488"

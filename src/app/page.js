@@ -66,6 +66,7 @@ const HomeSeoLinks = dynamic(
 
 
 const BASE_URL = "https://eammu.com";
+const BRAND_NAME = "Eammu Holidays - Travel Agency Bangladesh";
 
 // ── HOME PAGE SEO METADATA ────────────────────────────────────────────────────
 export const metadata = {
@@ -74,9 +75,8 @@ export const metadata = {
     absolute: "Travel Agency Bangladesh | Visa, Hotel, Air Ticket",
   },
 
-  // ✅ FIX: Trimmed to ~152 chars — Google shows ~155 max
   description:
-    "Bangladesh and Dubai leading travel agency providing tourist, student & Schengen visa services, international air tickets, Dubai tours, holiday packages, and worldwide travel solutions.",
+    "Leading travel agency in Bangladesh and Dubai providing tourist, student & Schengen visa services, international air tickets, Dubai tours, holiday packages, and worldwide travel solutions.",
 
   keywords: [
     "travel agency Bangladesh",
@@ -104,7 +104,6 @@ export const metadata = {
     "visa agent Bangladesh",
   ],
 
-  // ✅ FIX: Explicit robots directive
   robots: {
     index: true,
     follow: true,
@@ -119,7 +118,6 @@ export const metadata = {
 
   alternates: {
     canonical: BASE_URL,
-    // ✅ FIX: Added hreflang for Bengali and default — critical for BD audience
     languages: {
       "bn-BD": `${BASE_URL}/bn`,
       "en-US": BASE_URL,
@@ -128,20 +126,17 @@ export const metadata = {
   },
 
   openGraph: {
-    // ✅ FIX: More accurate OG title — visa/tours is the core offering
+    title: "Eammu Holidays | Bangladesh & Dubai Visa, Air Tickets & Holiday Packages",
 
-  title: "Eammu Holidays | Bangladesh & Dubai Visa, Air Tickets & Holiday Packages",
-
-  description:
-    "Bangladesh and Dubai leading travel agency providing tourist, student & Schengen visa services, international air tickets, Dubai tours, holiday packages, and worldwide travel solutions. IATA-accredited.",
+    description:
+      "Bangladesh and Dubai leading travel agency providing tourist, student & Schengen visa services, international air tickets, Dubai tours, holiday packages, and worldwide travel solutions. IATA-accredited.",
 
     url: BASE_URL,
-    siteName: "Eammu Holidays",
+    siteName: BRAND_NAME,
     locale: "en_US",
     type: "website",
     images: [
       {
-        // ✅ KEPT: Absolute URL is correct
         url: `${BASE_URL}/preview-banner.webp`,
         width: 1200,
         height: 630,
@@ -155,11 +150,9 @@ export const metadata = {
     card: "summary_large_image",
     site: "@eammuholidays",
     creator: "@eammuholidays",
-    // ✅ FIX: Aligned with OG title for consistent social branding
     title: "Eammu Holidays | Visa, Umrah 2026 & Tours from Bangladesh",
     description:
       "Apply for visas, book Umrah packages & holiday tours with Bangladesh's IATA-accredited travel agency. Call: +880 1631 312524.",
-    // ✅ FIX: Unified image with OG for consistent cross-platform branding
     images: [`${BASE_URL}/preview-banner.webp`],
   },
 };
@@ -185,8 +178,6 @@ const homepageSchema = {
       description:
         "Bangladesh's leading IATA-accredited travel agency for visa services, Umrah packages, international tour packages, and flight booking.",
       inLanguage: "en-US",
-      // ✅ FIX: speakable cssSelector values must match actual rendered DOM elements
-      // Ensure your HeroSection renders an <h1> and sections render <h2> tags
       speakable: {
         "@type": "SpeakableSpecification",
         cssSelector: ["h1", "h2", ".speakable"],
@@ -204,7 +195,10 @@ const homepageSchema = {
       "@type": "ItemList",
       name: "Eammu Holidays – Travel Services & Tools",
       url: BASE_URL,
-      numberOfItems: 6,
+      // ✅ FIX: numberOfItems now matches the actual item count (5).
+      // If you intended 6 items, restore a position-3 entry below
+      // (e.g. Umrah Package 2026) and bump this back to 6.
+      numberOfItems: 5,
       itemListElement: [
         {
           "@type": "ListItem",
@@ -222,9 +216,12 @@ const homepageSchema = {
             "Real-time visa processing time tracker for all major embassies and destinations.",
           url: `${BASE_URL}/travel-resources/visa-processing-time-tracker`,
         },
+        // ✅ FIX: renumbered 4→3, 5→4, 6→5 to close the gap left by the
+        // missing position-3 item — sequential positions are required by
+        // the ItemList spec, and Google's Rich Results Test rejects gaps.
         {
           "@type": "ListItem",
-          position: 4,
+          position: 3,
           name: "International Tour Packages",
           description:
             "Holiday tour packages to Georgia, Armenia, Dubai, Europe, and Cox's Bazar.",
@@ -232,7 +229,7 @@ const homepageSchema = {
         },
         {
           "@type": "ListItem",
-          position: 5,
+          position: 4,
           name: "Flight Booking",
           description:
             "Cheap international and domestic flight ticket booking from Bangladesh.",
@@ -240,7 +237,7 @@ const homepageSchema = {
         },
         {
           "@type": "ListItem",
-          position: 6,
+          position: 5,
           name: "Student Visa & Education Consultancy",
           description:
             "Student visa processing and overseas education consultancy for studying abroad.",
@@ -249,7 +246,6 @@ const homepageSchema = {
       ],
     },
 
-   
     {
       "@type": "HowTo",
       name: "How to Apply for a Visa Through Eammu Holidays",
@@ -287,10 +283,10 @@ const homepageSchema = {
       ],
     },
 
-    // ⚠️ FLAG (left as-is, needs a content decision — see chat notes):
-    // FAQPage schema. Same visible-content requirement as HowTo above —
-    // make sure these exact Q&As appear as real, readable content on the
-    // homepage (e.g. an FAQ accordion section), or relocate this block.
+    // ⚠️ FLAG (unchanged, still needs your content decision):
+    // FAQPage schema. These exact Q&As need to appear as real, readable
+    // content on the homepage (e.g. an FAQ accordion section), or Google
+    // may treat this as unrepresented/spammy structured data.
     {
       "@type": "FAQPage",
       mainEntity: [
@@ -379,14 +375,12 @@ const homepageSchema = {
           addressCountry: "SA",
         },
       },
-      // ✅ organizer @id resolves against the Organization node in layout.jsx
       organizer: { "@id": `${BASE_URL}/#organization` },
       offers: {
         "@type": "Offer",
         url: `${BASE_URL}/visa`,
         availability: "https://schema.org/InStock",
         priceCurrency: "BDT",
-        // ✅ FIX: validFrom updated to current year to avoid stale offer signal
         validFrom: "2026-06-01",
         validThrough: "2026-12-31",
       },
@@ -398,19 +392,15 @@ const homepageSchema = {
 export default function Home() {
   return (
     <>
-      {/* ✅ Schema — fragment এর শুরুতে, main এর বাইরে */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }}
       />
 
-      {/* ✅ LandingModal — নিজেই 3s delay করে, DOM এ কিছু add করে না */}
       <LandingModal />
 
-      {/* ✅ ABOVE THE FOLD — eager load */}
       <HeroSection />
 
-      {/* ✅ FIX: Added aria-label to VisaCheckerHome section (was bare before) */}
       <section id="student-visa" aria-label="Student Visa Country Search">
         <CountrySearchBar />
       </section>
@@ -419,12 +409,10 @@ export default function Home() {
         <VisaCheckerHome />
       </section>
 
-      {/* ✅ FIX: SpecialDayBanner now wrapped in a semantic section */}
       <section id="special-offers-banner" aria-label="Special Day Promotions and Offers">
         <SpecialDayBanner />
       </section>
 
-      {/* ✅ BELOW THE FOLD — lazy load, skeleton দেখায় */}
       <section id="visa-processing-time-tracker" aria-label="Visa Processing Time Tracker">
         <VisaSearchBar />
       </section>
@@ -465,7 +453,6 @@ export default function Home() {
         <Our_Succsses_State />
       </section>
 
-      {/* SEO Internal Link Mesh */}
       <section id="seo-links" aria-label="Visa and Travel Resources">
         <HomeSeoLinks />
       </section>
