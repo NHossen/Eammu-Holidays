@@ -441,7 +441,7 @@ const TouristVisaBangladesh = () => {
             <address className="not-italic space-y-6">
               <ContactInfo icon={<FaMapMarkerAlt />} text="Gomoti Tower (4th Floor), Cantonment, Cumilla, Bangladesh" />
               <ContactInfo icon={<FaBuilding />} text="Branch offices: Dhaka & Dubai, UAE" />
-              <ContactInfo icon={<FaHeadset />} text="+8801701699743" />
+              <ContactInfo icon={<FaHeadset />} text="+8801631312524" />
               <ContactInfo icon={<FaClock />} text="Saturday – Thursday, 10 AM – 7 PM" />
             </address>
             <div className="mt-8 flex flex-wrap gap-3">

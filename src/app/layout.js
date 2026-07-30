@@ -205,7 +205,7 @@ const globalSchema = {
       description:
         "Premium IATA-accredited travel agency providing visa services, Umrah packages, tour packages, and flight bookings across Bangladesh, UAE, Armenia, and Georgia.",
       email: "info@eammu.com",
-      telephone: "+8801701699743",
+      telephone: "+8801631312524",
       foundingLocation: {
         "@type": "Place",
         name: "Cumilla, Bangladesh",
@@ -219,7 +219,7 @@ const globalSchema = {
       contactPoint: [
         {
           "@type": "ContactPoint",
-          telephone: "+8801701699743",
+          telephone: "+8801631312524",
           contactType: "customer service",
           areaServed: "BD",
           availableLanguage: ["English", "Bengali"],
@@ -257,7 +257,7 @@ const globalSchema = {
       name: BRAND_NAME,
       url: BASE_URL,
       image: `${BASE_URL}/preview-banner.webp`,
-      telephone: "+8801701699743",
+      telephone: "+8801631312524",
       email: "info@eammu.com",
       priceRange: "$$",
       currenciesAccepted: "BDT, USD, AED",

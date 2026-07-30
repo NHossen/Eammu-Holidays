@@ -639,7 +639,7 @@ const StudentVisaBangladesh = () => {
             <address className="not-italic space-y-4">
               <ContactInfo icon={<FaMapMarkerAlt />} text="Gomoti Tower (4th Floor), Cantonment, Cumilla, Bangladesh" />
               <ContactInfo icon={<FaClock />} text="Saturday – Thursday, 10 AM – 7 PM" />
-              <ContactInfo icon={<FaHeadset />} text="+8801701699743" />
+              <ContactInfo icon={<FaHeadset />} text="+8801631312524" />
             </address>
           </div>
           <div

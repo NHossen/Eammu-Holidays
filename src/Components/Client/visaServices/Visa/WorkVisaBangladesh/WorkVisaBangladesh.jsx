@@ -48,7 +48,7 @@ export default function WorkVisaBangladesh() {
       "addressCountry": "BD"
     },
     "contactPoint": [
-      { "@type": "ContactPoint", "telephone": "+8801701699743", "contactType": "customer service" }
+      { "@type": "ContactPoint", "telephone": "+8801631312524", "contactType": "customer service" }
     ]
   };
 
@@ -216,7 +216,7 @@ export default function WorkVisaBangladesh() {
             <div className="space-y-6">
               <ContactInfo icon={<FaMapMarkerAlt />} text="Gomoti Tower, Cantonment, Cumilla" />
               <ContactInfo icon={<FaClock />} text="Sat - Thu: 10:00 AM - 7:00 PM" />
-              <ContactInfo icon={<FaHeadset />} text="+8801701699743" />
+              <ContactInfo icon={<FaHeadset />} text="+8801631312524" />
             </div>
           </div>
           <div className="flex-1 w-full bg-slate-100 h-72 md:h-[400px] rounded-[3rem] flex items-center justify-center relative overflow-hidden group">
