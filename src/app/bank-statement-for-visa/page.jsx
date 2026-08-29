@@ -11,29 +11,26 @@ export const metadata = {
 
   title: {
     default:
-      "Bank Statement Requirement for Visa 2026 | How Much Balance Needed | Eammu Holidays",
+      "Bank Statement for Visa in Bangladesh — Requirements & Balance Guide (2026) | Eammu Holidays",
   },
 
   description:
-    "How much bank balance is required for a visa from Bangladesh? Complete 2026 guide to bank statement requirements for Canada, UK, USA, Schengen, Dubai & Australia visas — minimum balance, transaction history, and solvency certificate tips from Eammu Holidays.",
+    "What bank statement do you need for a visa from Bangladesh, and how much balance is enough? A practical guide covering statement duration, transaction history, solvency certificates, and sponsor documents for Schengen, UK, USA, Canada, Dubai & Australia visas.",
 
   keywords: [
     "bank statement for visa bangladesh",
     "bank statement requirement for visa",
     "how much bank balance needed for visa",
-    "minimum bank balance for canada visa",
-    "minimum bank balance for uk visa",
-    "minimum bank balance for schengen visa",
-    "bank solvency certificate for visa",
-    "bank statement for tourist visa bangladesh",
-    "fund showing for visa bangladesh",
-    "bank statement format for visa",
-    "how many months bank statement for visa",
-    "bank balance requirement schengen visa bangladesh",
+    "bank statement for schengen visa bangladesh",
+    "bank statement for uk visa bangladesh",
+    "bank statement for canada visa bangladesh",
+    "bank statement for usa visa bangladesh",
     "bank statement for dubai visa bangladesh",
-    "financial proof for visa application",
-    "bank certificate for visa bangladesh",
-    "solvency certificate format bangladesh",
+    "how many months bank statement for visa",
+    "bank statement format for visa",
+    "fund showing for visa bangladesh",
+    "sponsor bank statement for visa",
+    "sudden deposit visa rejection",
   ],
 
   alternates: {
@@ -57,9 +54,9 @@ export const metadata = {
     url: "https://eammu.com/bank-statement-for-visa",
     siteName: "Eammu Holidays",
     locale: "en_US",
-    title: "Bank Statement Requirement for Visa 2026 — Complete Guide | Eammu Holidays",
+    title: "Bank Statement for Visa in Bangladesh — Requirements & Balance Guide",
     description:
-      "How much bank balance do you need for Canada, UK, USA, Schengen, Dubai & Australia visas from Bangladesh? Full 2026 breakdown with solvency certificate guidance.",
+      "How much bank balance and how many months of statement do you actually need for a Schengen, UK, USA, Canada, Dubai, or Australia visa? A grounded, no-fluff guide.",
     images: [
       {
         url: "https://eammu.com/preview-banner.webp",
@@ -74,9 +71,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@eammuholidays",
-    title: "Bank Statement Requirement for Visa 2026 | Eammu Holidays",
+    title: "Bank Statement for Visa in Bangladesh — Requirements & Balance Guide",
     description:
-      "Minimum bank balance & statement requirements for Canada, UK, USA, Schengen, Dubai & Australia visas from Bangladesh — explained.",
+      "Statement duration, balance expectations, and common mistakes for Schengen, UK, USA, Canada, Dubai & Australia visa applications from Bangladesh.",
     images: ["https://eammu.com/preview-banner.webp"],
   },
 
@@ -89,6 +86,167 @@ export const metadata = {
   category: "travel",
 };
 
+const LAST_UPDATED = "August 2026";
+const WHATSAPP_NUMBER = "8801631312524";
+const WHATSAPP_TEXT = encodeURIComponent(
+  "I need help with my bank statement / financial documents for my visa"
+);
+
+// ─── Content data ──────────────────────────────────────────────────────────
+
+const faqs = [
+  {
+    q: "How much bank balance is required for a visa from Bangladesh?",
+    a: "There is no single number that applies to every visa. It depends on the destination country, visa category, trip length, and your individual circumstances — including whether a sponsor is involved. Check the official checklist for your specific visa rather than relying on a generic figure.",
+  },
+  {
+    q: "How many months of bank statement are needed for a visa application?",
+    a: "This varies by embassy and visa type. Some checklists ask for 3 months, others for 6 months or longer. Confirm the exact requirement for the destination and visa category you're applying under.",
+  },
+  {
+    q: "What is a bank solvency certificate, and do I need one alongside my bank statement?",
+    a: "A solvency certificate is a separate, point-in-time letter from your bank confirming your current balance and standing. Some visa checklists ask for it in addition to a bank statement, some don't mention it at all. See our dedicated guide on bank solvency certificates for a full breakdown.",
+  },
+  {
+    q: "Can a sponsor's bank statement be used for a visa application?",
+    a: "Many visa categories allow a sponsor's financial documents when the applicant themselves doesn't hold sufficient funds — typically alongside a sponsorship letter and evidence of the relationship. Whether this is accepted, and what supporting documents are needed, depends on the specific visa program.",
+  },
+  {
+    q: "Will a sudden large deposit in my account hurt my visa application?",
+    a: "It can raise questions. Visa officers reviewing transaction history often look for consistency over time, and an unexplained lump-sum deposit shortly before applying is a common reason financial documents get scrutinised or challenged. Being able to explain the source of any large deposit helps.",
+  },
+  {
+    q: "Does a higher bank balance guarantee visa approval?",
+    a: "No. A strong, well-explained financial picture is one factor among several that a visa officer considers — alongside ties to your home country, travel history, and the overall application. There's no balance amount that guarantees approval.",
+  },
+  {
+    q: "Should I get my bank statement stamped and signed?",
+    a: "Yes — most embassies expect an official bank statement carrying the bank's stamp and an authorised signature, not just a printout or PDF from online banking, though this can vary. Confirm what format your bank offers and what the visa checklist specifically asks for.",
+  },
+  {
+    q: "What's the difference between a bank statement and a solvency certificate?",
+    a: "A bank statement shows transaction history over a period (commonly 3–6 months). A solvency certificate is a separate, point-in-time declaration of your current balance and standing. Some visa checklists ask for one, some for the other, and some for both.",
+  },
+];
+
+const whyItMatters = [
+  "Confirms you can cover your own trip costs — travel, accommodation, and living expenses",
+  "Shows a pattern of income or savings, not just a single balance figure",
+  "Helps demonstrate you're not likely to overstay or seek unauthorised work",
+  "Supports other parts of the application, like ties to your home country",
+];
+
+const whatOfficersLookAt = [
+  {
+    title: "Consistency over time",
+    desc: "A steady balance built up over months generally reads better than one large, isolated deposit right before applying.",
+  },
+  {
+    title: "Source of income",
+    desc: "Regular salary credits, business income, or remittances help explain where the money in the account actually comes from.",
+  },
+  {
+    title: "Balance relative to the trip",
+    desc: "Whether the funds shown reasonably cover the length and nature of the planned trip, not just an arbitrary number.",
+  },
+  {
+    title: "Consistency across documents",
+    desc: "Names, account numbers, and figures should match between your bank statement, solvency certificate (if used), and other financial documents.",
+  },
+];
+
+const destinationNotes = [
+  {
+    flag: "🇪🇺",
+    country: "Schengen Visa",
+    note: "Financial-proof expectations are set by the specific Schengen consulate handling your application, not a single EU-wide number. Some consulates focus on bank statements alone; others also request a solvency letter. Confirm with the consulate you're applying through.",
+    href: "/visa",
+  },
+  {
+    flag: "🇬🇧",
+    country: "UK Visa",
+    note: "UK visa guidance generally expects funds to be genuinely available and held for a period before application, with unexplained large deposits often questioned. Exact rules differ by visa category — check the current UKVI guidance for your route.",
+    href: "/visa",
+  },
+  {
+    flag: "🇨🇦",
+    country: "Canada Visa",
+    note: "There's no single published minimum for most visitor visas; officers assess whether funds reasonably cover the trip. Some study programs use specific financial instruments (like a GIC) instead of a plain bank statement — check the requirement for your program.",
+    href: "/visa",
+  },
+  {
+    flag: "🇺🇸",
+    country: "USA Visa (B1/B2)",
+    note: "There's no published minimum balance. Consular officers weigh overall financial stability and ties to Bangladesh alongside the bank statement — a moderate, well-explained balance can matter more than a large one with no history.",
+    href: "/target-usa-visa-interview-preparation",
+  },
+  {
+    flag: "🇦🇪",
+    country: "Dubai / UAE Visa",
+    note: "Financial evidence expectations vary by visa type and duration. Some applications are supported by a bank statement, some by a solvency certificate, and requirements can differ across visa categories.",
+    href: "/visa/dubai-residents",
+  },
+  {
+    flag: "🇦🇺",
+    country: "Australia Visa",
+    note: "Evidence should show you can support your stay — travel, accommodation, and living costs — plus ties to Bangladesh. Requirements vary by visa subclass, so check the specific subclass you're applying under.",
+    href: "/visa",
+  },
+];
+
+const strengthTips = [
+  {
+    icon: "📅",
+    title: "Build Balance Over Time, Not Right Before Applying",
+    desc: "A steady balance maintained for at least a few months generally looks more credible than a lump sum deposited just before submission.",
+  },
+  {
+    icon: "📄",
+    title: "Get an Official, Stamped Statement",
+    desc: "Ask your bank for a statement covering the period your visa checklist requires, carrying the bank's stamp and an authorised signature.",
+  },
+  {
+    icon: "💳",
+    title: "Show Where the Money Comes From",
+    desc: "Regular salary deposits, business income, or remittances help explain your balance better than an unexplained one-time credit.",
+  },
+  {
+    icon: "👨‍👩‍👧",
+    title: "Sponsor Statements Need Supporting Documents",
+    desc: "If a sponsor is funding the trip, include their bank statement plus a sponsorship letter and proof of relationship — see our sponsor documents guide.",
+  },
+  {
+    icon: "🧾",
+    title: "Keep a Solvency Certificate Ready if Asked",
+    desc: "Some checklists request a separate solvency/balance certificate alongside the statement. Check whether yours does before you assume the statement alone is enough.",
+  },
+  {
+    icon: "🗣️",
+    title: "Be Ready to Explain Any Unusual Transaction",
+    desc: "If you can't avoid a large or unusual deposit, keep documentation (like a loan agreement, sale deed, or salary letter) ready to explain it if asked.",
+  },
+];
+
+const mistakes = [
+  "Depositing a large lump sum right before applying with no transaction history to back it up",
+  "Submitting an unstamped printout instead of an official bank statement",
+  "Name on the statement not matching the passport exactly",
+  "Ignoring the specific number of months requested and submitting whatever the bank prints by default",
+  "Not including sponsor documents when the account isn't in the applicant's own name",
+  "Assuming a generic 'safe' balance figure instead of checking the actual requirement for the destination and visa type",
+  "Inconsistent figures between the bank statement and a solvency certificate, if both are submitted",
+  "Not being able to explain the source of a specific deposit if asked",
+];
+
+const relatedLinks = [
+  { label: "Bank Solvency Certificate Guide", href: "/travel-resources/bank-solvency-certificate-for-visa" },
+  { label: "How Much Bank Balance Is Needed for a Visa", href: "/travel-resources/how-much-bank-balance-needed-for-visa" },
+  { label: "How to Prepare a Bank Statement", href: "/travel-resources/bank-statement-for-visa-how-to-prepare" },
+  { label: "Sponsor Financial Documents for Visa", href: "/travel-resources/sponsor-financial-documents-for-visa" },
+  { label: "Visa Checklist Generator", href: "/travel-resources/visa-checklist-generator" },
+  { label: "All Visa Services", href: "/visa" },
+];
+
 // ─── Structured Data ───────────────────────────────────────────────────────────
 const structuredData = {
   "@context": "https://schema.org",
@@ -96,9 +254,9 @@ const structuredData = {
     {
       "@type": "Article",
       "@id": "https://eammu.com/bank-statement-for-visa#article",
-      headline: "Bank Statement Requirement for Visa 2026 — How Much Balance Do You Need?",
+      headline: "Bank Statement for Visa in Bangladesh — Requirements & Balance Guide",
       description:
-        "Complete 2026 guide to bank statement and minimum balance requirements for Canada, UK, USA, Schengen, Dubai, and Australia visa applications from Bangladesh.",
+        "What bank statement and balance a visa application from Bangladesh actually needs, how officers read it, and how it differs from a solvency certificate.",
       image: "https://eammu.com/preview-banner.webp",
       author: { "@type": "Organization", name: "Eammu Holidays", url: "https://eammu.com" },
       publisher: {
@@ -107,7 +265,7 @@ const structuredData = {
         logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
       },
       datePublished: "2026-01-10",
-      dateModified: "2026-06-01",
+      dateModified: "2026-08-01",
       mainEntityOfPage: "https://eammu.com/bank-statement-for-visa",
     },
     {
@@ -115,134 +273,35 @@ const structuredData = {
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://eammu.com" },
         { "@type": "ListItem", position: 2, name: "Travel Resources", item: "https://eammu.com/travel-resources" },
-        { "@type": "ListItem", position: 3, name: "Bank Statement for Visa", item: "https://eammu.com/bank-statement-for-visa" },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Bank Statement for Visa",
+          item: "https://eammu.com/bank-statement-for-visa",
+        },
       ],
     },
     {
       "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "How much bank balance is required for a Schengen visa from Bangladesh?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Most Schengen embassies expect proof of funds covering at least €60–100 per day of your stay, plus return flight and accommodation costs. A maintained balance of BDT 3–5 lakh for at least 30–60 days is commonly recommended, though exact requirements vary by embassy.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How many months of bank statement are needed for a visa application?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Most embassies request 6 months of bank statements showing consistent balance and transaction history. Some, like certain Schengen countries, may accept 3 months, while UK and Canada often prefer 6 months of clean statements.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What is a bank solvency certificate and is it required for visa?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "A bank solvency certificate is an official letter from your bank confirming your account balance and financial standing on a specific date. Many embassies, including Schengen countries and Dubai, require this alongside your regular bank statement.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Can a sponsor's bank statement be used for visa application from Bangladesh?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes, most embassies accept a sponsor's bank statement (parent, spouse, or sibling) along with an affidavit of support, sponsor letter, and proof of relationship documents such as a birth certificate or marriage certificate.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Will sudden large deposits in my bank account hurt my visa application?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. Visa officers carefully review transaction history, and a sudden large deposit shortly before applying can raise red flags about the source of funds. It's best to maintain a steady balance for at least 2–3 months before applying.",
-          },
-        },
-      ],
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
     },
   ],
 };
 
-const countryRequirements = [
-  {
-    flag: "🇪🇺",
-    country: "Schengen Visa",
-    months: "3 months",
-    note: "Proof of funds covering daily expenses (approx. €60–100/day), accommodation & return ticket. A maintained balance of BDT 3–5 lakh is commonly recommended.",
-    href: "/visa",
-  },
-  {
-    flag: "🇨🇦",
-    country: "Canada Visa",
-    months: "6 months",
-    note: "No fixed amount, but visa officers look for funds covering the entire trip plus a buffer. GIC (Guaranteed Investment Certificate) is required for some student visas.",
-    href: "/visa",
-  },
-  {
-    flag: "🇬🇧",
-    country: "UK Visa",
-    months: "6 months",
-    note: "UKVI requires funds to be held for at least 28 consecutive days without dipping below the required level, with no unexplained large deposits.",
-    href: "/visa",
-  },
-  {
-    flag: "🇺🇸",
-    country: "USA Visa (B1/B2)",
-    months: "6 months",
-    note: "No minimum balance specified, but consular officers assess overall financial stability and ties to Bangladesh. Strong, steady balances support approval.",
-    href: "/target-usa-visa-interview-preparation",
-  },
-  {
-    flag: "🇦🇪",
-    country: "Dubai / UAE Visa",
-    months: "3-6 months",
-    note: "Bank solvency certificate often required showing sufficient balance for the visit duration. Requirements vary by visa type and duration (14/30/90-day).",
-    href: "/visa/dubai-residents",
-  },
-  {
-    flag: "🇦🇺",
-    country: "Australia Visa",
-    months: "6 months",
-    note: "Evidence of funds to support your stay, including travel, accommodation, and living costs, plus proof of return ties to Bangladesh.",
-    href: "/visa",
-  },
-];
-
-const tips = [
-  {
-    icon: "📅",
-    title: "Maintain Balance for 2–3 Months Minimum",
-    desc: "Avoid depositing large sums right before applying. Visa officers review transaction history and sudden deposits can trigger scrutiny or rejection.",
-  },
-  {
-    icon: "📄",
-    title: "Request an Official Bank Statement & Solvency Certificate",
-    desc: "Ask your bank for a stamped, signed statement covering 6 months along with a solvency/balance confirmation certificate dated close to your application date.",
-  },
-  {
-    icon: "💳",
-    title: "Show Consistent Income, Not Just Balance",
-    desc: "Regular salary deposits, business income, or remittances demonstrate financial stability better than a one-time lump sum.",
-  },
-  {
-    icon: "👨‍👩‍👧",
-    title: "Sponsor Statements Need Supporting Documents",
-    desc: "If a sponsor is funding your trip, include their bank statement, an affidavit of support, sponsor letter, and proof of relationship (birth/marriage certificate).",
-  },
-  {
-    icon: "🏦",
-    title: "Use a Reputable Bank with Online Verification",
-    desc: "Statements from well-known Bangladeshi banks with verifiable stamps and online verification codes are processed faster and trusted more by embassies.",
-  },
-  {
-    icon: "🚫",
-    title: "Avoid Borrowed Money Without Explanation",
-    desc: "If funds were borrowed, be prepared to explain the source honestly if asked — undisclosed loans used as 'show money' are a common rejection reason.",
-  },
-];
+function SectionHeading({ children, id }) {
+  return (
+    <h2
+      id={id}
+      className="text-2xl md:text-3xl font-extrabold text-[#005a31] mb-5 border-l-8 border-orange-500 pl-5 scroll-mt-24"
+    >
+      {children}
+    </h2>
+  );
+}
 
 export default function BankStatementForVisaPage() {
   return (
@@ -252,24 +311,7 @@ export default function BankStatementForVisaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <div className="sr-only" aria-hidden="true">
-        <h1>Bank Statement Requirement for Visa 2026 — How Much Balance Do You Need? | Eammu Holidays</h1>
-        <p>
-          Complete guide to bank statement and minimum balance requirements for Canada, UK, USA,
-          Schengen, Dubai, and Australia visa applications from Bangladesh. Includes solvency
-          certificate, sponsor statement, and transaction history tips. By Eammu Holidays —
-          IATA-accredited visa agency in Bangladesh.
-        </p>
-        <nav aria-label="Breadcrumb">
-          <ol>
-            <li><a href="https://eammu.com">Home</a></li>
-            <li><a href="https://eammu.com/travel-resources">Travel Resources</a></li>
-            <li><a href="https://eammu.com/travel-resources/bank-statement-for-visa">Bank Statement for Visa</a></li>
-          </ol>
-        </nav>
-      </div>
-
-      <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">
+      <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans py-7">
         {/* ── HERO ── */}
         <section className="bg-gradient-to-br from-[#002d18] via-[#004526] to-[#006b3a] text-white py-16 px-4">
           <div className="max-w-5xl mx-auto text-center">
@@ -284,29 +326,27 @@ export default function BankStatementForVisaPage() {
             </nav>
 
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-xs font-bold mb-6">
-              📊 2026 Guide · Updated by Eammu Holidays
+              📊 Updated {LAST_UPDATED} · Eammu Holidays
             </div>
 
             <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight tracking-tight">
-              Bank Statement &amp; Balance Requirement for{" "}
-              <span className="text-orange-400">Visa</span> — 2026 Guide
+              Bank Statement for <span className="text-orange-400">Visa</span> — What You Actually Need
             </h1>
 
             <p className="text-lg md:text-xl text-green-50/90 max-w-3xl mx-auto leading-relaxed mb-8">
-              How much money should be in your bank account for a{" "}
-              <strong className="text-white">Canada, UK, USA, Schengen, Dubai, or Australia visa</strong>?
-              This guide breaks down minimum balance expectations, statement duration, solvency
-              certificates, and sponsor documentation — based on Eammu Holidays' 14+ years of
-              visa processing experience in Bangladesh.
+              How much bank balance is enough, how many months of statement to submit, and what visa
+              officers are really checking — a grounded guide for Schengen, UK, USA, Canada, Dubai,
+              and Australia visa applications from Bangladesh.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801701699743?text=I%20need%20help%20with%20bank%20statement%20for%20visa"
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`}
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 rel="noopener noreferrer"
+                target="_blank"
               >
-                💬 Get Free Document Review
+                💬 Get Document Guidance
               </a>
               <Link
                 href="/visa"
@@ -320,57 +360,85 @@ export default function BankStatementForVisaPage() {
 
         <div className="max-w-5xl mx-auto px-4 md:px-6 py-16 space-y-16">
 
-          {/* ── INTRO ── */}
-          <section>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-[#005a31] mb-5 border-l-8 border-orange-500 pl-5">
-              Why Bank Statements Matter for Visa Applications
-            </h2>
+          {/* QUICK ANSWER */}
+          <section aria-labelledby="quick-answer" className="bg-white border-2 border-[#005a31]/20 rounded-2xl p-6 md:p-8 shadow-sm">
+            <h2 id="quick-answer" className="text-xl font-black text-[#005a31] mb-3">Quick Answer</h2>
+            <p className="text-gray-700 leading-relaxed">
+              There's no single bank balance figure that applies to every visa. Embassies generally want to see that you can genuinely cover your trip — through a bank statement showing consistent balance and income over a period (commonly 3–6 months, depending on the destination), not just a large number on a single day. Exact statement duration, balance expectations, and whether a separate solvency certificate is also needed depend on the destination country and visa category — always confirm against the current official checklist.
+            </p>
+          </section>
+
+          {/* TOC */}
+          <nav aria-label="Table of contents" className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+            <h2 className="text-lg font-black text-[#005a31] mb-4">On This Page</h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-600 list-disc list-inside">
+              <li><a href="#why-it-matters" className="hover:text-[#005a31]">Why Bank Statements Matter</a></li>
+              <li><a href="#what-officers-check" className="hover:text-[#005a31]">What Visa Officers Actually Look At</a></li>
+              <li><a href="#by-destination" className="hover:text-[#005a31]">Requirements by Destination</a></li>
+              <li><a href="#how-much" className="hover:text-[#005a31]">How Much Balance Is Enough</a></li>
+              <li><a href="#months" className="hover:text-[#005a31]">How Many Months of Statement</a></li>
+              <li><a href="#statement-vs-solvency" className="hover:text-[#005a31]">Statement vs Solvency Certificate</a></li>
+              <li><a href="#sponsors" className="hover:text-[#005a31]">Using a Sponsor's Statement</a></li>
+              <li><a href="#deposits" className="hover:text-[#005a31]">Sudden Deposits &amp; Source of Funds</a></li>
+              <li><a href="#tips" className="hover:text-[#005a31]">Tips to Strengthen Your Documents</a></li>
+              <li><a href="#mistakes" className="hover:text-[#005a31]">Common Mistakes</a></li>
+              <li><a href="#faq" className="hover:text-[#005a31]">FAQ</a></li>
+            </ul>
+          </nav>
+
+          {/* WHY IT MATTERS */}
+          <section id="why-it-matters">
+            <SectionHeading>Why Bank Statements Matter for Visa Applications</SectionHeading>
             <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
               <p>
-                For most international visa applications — whether{" "}
+                For most visa categories — whether{" "}
                 <Link href="/visa" className="text-[#005a31] font-semibold hover:text-orange-500">Schengen</Link>,{" "}
                 <Link href="/visa" className="text-[#005a31] font-semibold hover:text-orange-500">Canada</Link>, or{" "}
                 <Link href="/visa/dubai-residents" className="text-[#005a31] font-semibold hover:text-orange-500">Dubai</Link> —
-                a <strong>bank statement</strong> is the primary way visa officers verify that you can
-                financially support your trip without overstaying or working illegally.
+                a bank statement is one of the main ways an embassy checks whether you can support your own trip.
               </p>
+              <ul className="list-disc list-inside space-y-1.5 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+                {whyItMatters.map((w) => (
+                  <li key={w}>{w}</li>
+                ))}
+              </ul>
               <p>
-                Embassies are not just looking at the number on the page. They examine{" "}
-                <strong className="text-[#005a31]">transaction history, salary patterns, deposit
-                frequency, and the overall financial picture</strong>. A high balance with no
-                history of income can sometimes be more suspicious than a moderate, consistently
-                maintained balance.
-              </p>
-              <p>
-                At Eammu Holidays, our consultants review your bank statement before submission and
-                advise on what to add — like a solvency certificate, sponsor documents, or income
-                proof — to strengthen your{" "}
-                <Link href="/visa-rejection" className="text-[#005a31] font-semibold hover:text-orange-500">visa application</Link>.
+                Officers aren't only reading the final balance line. They're reading the story the statement tells — where the money came from, how it built up, and whether that story is consistent with the rest of the application.
               </p>
             </div>
           </section>
 
-          {/* ── COUNTRY TABLE ── */}
-          <section>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-[#005a31] mb-3 border-l-8 border-orange-500 pl-5">
-              Bank Statement Requirements by Country (2026)
-            </h2>
-            <p className="text-gray-600 mb-8 text-lg">
-              General guidelines based on common embassy practice. Always confirm exact figures
-              with our consultants as requirements can change.
+          {/* WHAT OFFICERS LOOK AT */}
+          <section id="what-officers-check">
+            <SectionHeading>What Visa Officers Actually Look At</SectionHeading>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {whatOfficersLookAt.map((item) => (
+                <article key={item.title} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                  <h3 className="font-black text-[#005a31] text-base mb-2">{item.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                </article>
+              ))}
+            </div>
+            <p className="text-sm text-gray-500 mt-4">
+              A high balance with no visible income history can sometimes raise more questions than a moderate, well-explained, consistently maintained balance.
+            </p>
+          </section>
+
+          {/* BY DESTINATION */}
+          <section id="by-destination">
+            <SectionHeading>Bank Statement Expectations by Destination</SectionHeading>
+            <p className="text-gray-600 mb-6 text-sm">
+              Financial-proof rules are set by each destination's immigration authority or the specific consulate handling your case, and they change over time. The notes below are general starting points — always confirm against the current official checklist before applying.
             </p>
             <div className="space-y-4">
-              {countryRequirements.map((c) => (
+              {destinationNotes.map((c) => (
                 <article
                   key={c.country}
-                  className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-green-200 transition-all flex flex-col md:flex-row md:items-center gap-4"
+                  className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-green-200 transition-all flex flex-col md:flex-row md:items-start gap-4"
                 >
                   <div className="flex items-center gap-3 md:w-48 flex-shrink-0">
-                    <span className="text-2xl">{c.flag}</span>
-                    <div>
-                      <h3 className="font-black text-gray-900 text-sm">{c.country}</h3>
-                      <p className="text-xs text-orange-500 font-semibold">{c.months} statement</p>
-                    </div>
+                    <span className="text-2xl" aria-hidden="true">{c.flag}</span>
+                    <h3 className="font-black text-gray-900 text-sm">{c.country}</h3>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed flex-1">{c.note}</p>
                   <Link
@@ -384,15 +452,99 @@ export default function BankStatementForVisaPage() {
             </div>
           </section>
 
-          {/* ── TIPS ── */}
-          <section>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-[#005a31] mb-3 border-l-8 border-orange-500 pl-5">
-              6 Tips to Strengthen Your Financial Documents
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-              {tips.map((t) => (
+          {/* HOW MUCH */}
+          <section id="how-much">
+            <SectionHeading>How Much Bank Balance Is Enough?</SectionHeading>
+            <div className="space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                There's no fixed number that works for every visa. What counts as "enough" depends on several factors together:
+              </p>
+              <ul className="list-disc list-inside space-y-1.5 text-gray-700 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+                <li>Destination country's specific financial-proof requirement</li>
+                <li>Visa category (tourist, student, business, family visit, etc.)</li>
+                <li>Length of the planned trip or stay</li>
+                <li>Estimated accommodation and airfare costs</li>
+                <li>Number of travelers relying on the same funds</li>
+                <li>Your regular income and account activity</li>
+                <li>Whether a sponsor is involved, and their financial position</li>
+              </ul>
+              <p>
+                For a figure specific to your case, check our{" "}
+                <Link href="/travel-resources/how-much-bank-balance-needed-for-visa" className="text-[#005a31] font-semibold hover:text-orange-500">
+                  dedicated bank balance guide
+                </Link>{" "}
+                or the official checklist for your visa type, rather than relying on a number you saw somewhere online.
+              </p>
+            </div>
+          </section>
+
+          {/* MONTHS */}
+          <section id="months">
+            <SectionHeading>How Many Months of Bank Statement Are Needed?</SectionHeading>
+            <p className="text-gray-700 leading-relaxed">
+              This also varies. Some visa checklists ask for 3 months of statements, others for 6 months or more. Rather than assuming a default, request the statement duration the specific checklist for your destination and visa category actually asks for — submitting more than requested rarely hurts, but submitting less than requested can lead to a request for additional documents or delays.
+            </p>
+          </section>
+
+          {/* STATEMENT VS SOLVENCY */}
+          <section id="statement-vs-solvency">
+            <SectionHeading>Bank Statement vs Solvency Certificate</SectionHeading>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <article className="bg-white p-6 rounded-2xl border-2 border-[#005a31] shadow-sm">
+                <h3 className="font-black text-[#005a31] text-lg mb-3">📄 Bank Statement</h3>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li>Shows transaction history over a period (commonly 3–6 months)</li>
+                  <li>Reflects deposits, withdrawals, and running balance</li>
+                  <li>Helps show income pattern, not just a single figure</li>
+                  <li>Often available online, or stamped from a branch</li>
+                </ul>
+              </article>
+              <article className="bg-white p-6 rounded-2xl border-2 border-orange-400 shadow-sm">
+                <h3 className="font-black text-orange-500 text-lg mb-3">🏦 Solvency Certificate</h3>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li>A point-in-time confirmation of current balance and standing</li>
+                  <li>Issued separately, on bank letterhead, on request</li>
+                  <li>Usually needs an in-person branch visit</li>
+                  <li>Some checklists request it in addition to a statement</li>
+                </ul>
+              </article>
+            </div>
+            <p className="text-sm text-gray-500 mt-4">
+              Whether you need one, the other, or both depends entirely on the checklist for your visa. See our{" "}
+              <Link href="/travel-resources/bank-solvency-certificate-for-visa" className="text-[#005a31] font-semibold hover:text-orange-500">
+                full solvency certificate guide
+              </Link>{" "}
+              for details on getting one in Bangladesh.
+            </p>
+          </section>
+
+          {/* SPONSORS */}
+          <section id="sponsors">
+            <SectionHeading>Using a Sponsor's Bank Statement</SectionHeading>
+            <p className="text-gray-700 leading-relaxed">
+              If someone else — a parent, spouse, or other family member — is funding the trip, many visa categories accept the sponsor's bank statement alongside a sponsorship letter and evidence of the relationship (such as a birth or marriage certificate). What's specifically required varies by visa program, so check the current checklist. See our{" "}
+              <Link href="/travel-resources/sponsor-financial-documents-for-visa" className="text-[#005a31] font-semibold hover:text-orange-500">
+                sponsor financial documents guide
+              </Link>{" "}
+              for a fuller breakdown.
+            </p>
+          </section>
+
+          {/* DEPOSITS */}
+          <section id="deposits">
+            <SectionHeading>Sudden Deposits and Source of Funds</SectionHeading>
+            <p className="text-gray-700 leading-relaxed">
+              A large, unexplained deposit shortly before applying is one of the more common reasons financial documents get questioned — not because a fresh deposit is automatically disqualifying, but because it breaks the pattern the rest of the statement shows. If a lump-sum credit is unavoidable (a bonus, an asset sale, a loan), keep documentation ready to explain it if asked. This guide does not recommend, and won't describe, ways to disguise or misrepresent the source of funds — that's a genuine risk to the application, not a workaround.
+            </p>
+          </section>
+
+          {/* TIPS */}
+          <section id="tips">
+            <SectionHeading>Tips to Strengthen Your Financial Documents</SectionHeading>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+              {strengthTips.map((t) => (
                 <article key={t.title} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                  <div className="text-3xl mb-3">{t.icon}</div>
+                  <div className="text-3xl mb-3" aria-hidden="true">{t.icon}</div>
                   <h3 className="font-black text-[#005a31] text-base mb-2">{t.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{t.desc}</p>
                 </article>
@@ -400,40 +552,46 @@ export default function BankStatementForVisaPage() {
             </div>
           </section>
 
-          {/* ── FAQ ── */}
-          <section>
+          {/* MISTAKES */}
+          <section id="mistakes">
+            <SectionHeading>Common Mistakes to Avoid</SectionHeading>
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+              <div className="space-y-2">
+                {mistakes.map((item) => (
+                  <div key={item} className="flex gap-3 items-start">
+                    <span className="text-red-500 font-black flex-shrink-0" aria-hidden="true">✕</span>
+                    <p className="text-gray-700 text-sm">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section id="faq">
             <h2 className="text-2xl md:text-3xl font-black text-[#005a31] mb-8 text-center">
               Frequently Asked <span className="text-orange-500">Questions</span>
             </h2>
             <div className="space-y-4">
-              {structuredData["@graph"][2].mainEntity.map((item) => (
-                <details key={item.name} className="border border-gray-200 rounded-2xl p-5 group bg-white">
+              {faqs.map((f) => (
+                <details key={f.q} className="border border-gray-200 rounded-2xl p-5 group bg-white">
                   <summary className="font-bold text-[#005a31] cursor-pointer list-none flex justify-between items-center gap-4">
-                    <span>{item.name}</span>
-                    <span className="text-orange-500 text-xl flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
+                    <span>{f.q}</span>
+                    <span className="text-orange-500 text-xl flex-shrink-0 group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                   </summary>
-                  <p className="mt-3 text-gray-600 text-sm leading-relaxed">{item.acceptedAnswer.text}</p>
+                  <p className="mt-3 text-gray-600 text-sm leading-relaxed">{f.a}</p>
                 </details>
               ))}
             </div>
           </section>
 
-          {/* ── RELATED RESOURCES ── */}
+          {/* RELATED RESOURCES */}
           <section>
             <h2 className="text-xl font-black text-[#005a31] mb-6 text-center">
               Related <span className="text-orange-500">Visa Resources</span>
             </h2>
             <nav className="flex flex-wrap justify-center gap-2.5" aria-label="Related visa resources">
-              {[
-                { label: "Visa Checklist Generator", href: "/travel-resources/visa-checklist-generator" },
-                { label: "Visa Processing Time Tracker", href: "/travel-resources/visa-processing-time-tracker" },
-                { label: "Police Clearance Certificate Guide", href: "/travel-resources" },
-                { label: "Spouse Visa Documents", href: "/spouse-visa-documents" },
-                { label: "Visa Rejection Help", href: "/visa-rejection" },
-                { label: "Common Visa Rejection Reasons", href: "/visa-rejection/common-reasons" },
-                { label: "All Visa Services", href: "/visa" },
-                { label: "Visa Guide 2026", href: "/visa/visa-guide" },
-              ].map((lnk) => (
+              {relatedLinks.map((lnk) => (
                 <Link
                   key={lnk.href}
                   href={lnk.href}
@@ -445,22 +603,27 @@ export default function BankStatementForVisaPage() {
             </nav>
           </section>
 
-          {/* ── CTA ── */}
+          {/* LAST UPDATED */}
+          <p className="text-center text-xs text-gray-400">
+            Last updated: {LAST_UPDATED}. Financial requirements are set by each embassy or consulate and can change — always confirm current rules with the relevant authority before applying.
+          </p>
+
+          {/* CTA */}
           <section className="bg-[#005a31] text-white rounded-3xl p-10 text-center">
             <h2 className="text-2xl md:text-3xl font-black text-orange-400 mb-4">
               Not Sure if Your Bank Statement Is Strong Enough?
             </h2>
             <p className="text-lg max-w-2xl mx-auto text-green-50/90 leading-relaxed mb-8">
-              Get a free document review from Eammu Holidays' visa consultants — Bangladesh's
-              IATA-accredited travel agency with a 98% visa success rate.
+              Eammu Holidays can review your bank statement and financial documents before submission, and help you confirm the exact checklist for your destination and visa type.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/8801701699743?text=I%20need%20a%20free%20document%20review%20for%20my%20visa"
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_TEXT}`}
                 className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-sm md:text-base"
                 rel="noopener noreferrer"
+                target="_blank"
               >
-                💬 Free Document Review (WhatsApp)
+                💬 Get Document Review (WhatsApp)
               </a>
               <Link
                 href="/visa"

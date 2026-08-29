@@ -430,7 +430,7 @@ export default function DS160FormGuidePage() {
         </nav>
       </div>
 
-      <main className="min-h-screen mt-8 bg-[#f8fafc] text-gray-800 font-sans">
+      <main className="min-h-screen pt-8 bg-[#f8fafc] text-gray-800 font-sans">
         {/* ── HERO ── */}
         <section className="bg-gradient-to-br from-[#0a2540] via-[#0d3a66] to-[#1e5a96] text-white py-16 px-4">
           <div className="max-w-5xl mx-auto text-center">

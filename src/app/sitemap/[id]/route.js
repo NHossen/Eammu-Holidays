@@ -1,16 +1,43 @@
 // app/sitemap/[id]/route.js  (eammu.com)
 // FIXES:
-//  1. Removed ?type= query params from processingTimeRoutes & rejectionRoutes
-//     → Google treats ?param= URLs as duplicates; use path-based slugs instead
-//  2. BUILD_TIME moved inside getAllRoutes() so it's fresh per cold-start
-//  3. Added /schengen-visa (exists in build output, was missing)
-//  4. Static count is now exactly 83 (82 original + /schengen-visa)
+//  1. staticCount = 83, path-based processing/rejection routes (no ?type=)
+//  2. BUILD_TIME per-call, in-process cache
+//  3. Added /schengen-visa static route
+//  4. RESTORED: visa-rejection dynamic routes
+//  5. MERGED: visa-checker country-pair + guide-type pages, previously
+//     served from visa.eammu.com (app/sitemap.js + app/sitemap/_shared.js +
+//     generate-sitemap.mjs). Those files/folders are now OBSOLETE for this
+//     domain — this single auto-chunking route replaces them.
+//     Country list for visa-checker is fetched from api.eammu.com
+//     (fetchVisaCheckerCountries), matching the original _shared.js source —
+//     kept separate from the MongoDB getCountries() used by e-visa /
+//     dubai-resident / india-visa / rejection routes.
 
 import { NextResponse }   from 'next/server';
 import rawVisaData        from "@/app/data/countries.json";
 import rawStudentData     from "@/app/data/studentvisadata.json";
 import { createSlug }     from "@/app/lib/utils";
 import { getCountries }   from "@/app/lib/sitemap-data";
+
+// MERGED: visa-checker country list MUST come from api.eammu.com (not MongoDB
+// getCountries() directly) — matches the original visa.eammu.com _shared.js source.
+const VISA_CHECKER_API_BASE = "https://api.eammu.com/api/v1";
+const VISA_CHECKER_API_KEY  = process.env.NEXT_PUBLIC_EAMMU_API_KEY;
+
+async function fetchVisaCheckerCountries() {
+  try {
+    const res = await fetch(
+      `${VISA_CHECKER_API_BASE}/countries?api_key=${VISA_CHECKER_API_KEY}`,
+      { next: { revalidate: 86400 } } // Vercel edge-cached 24h, same as original
+    );
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.countries || [];
+  } catch (err) {
+    console.error('[eammu-sitemap] api.eammu.com fetch error:', err.message);
+    return [];
+  }
+}
 
 export const URLS_PER_SHARD = 45_000;
 export const dynamic        = 'force-dynamic';
@@ -21,11 +48,10 @@ export const revalidate     = 86400;
 const BASE_URL         = "https://eammu.com";
 const PAGE_SIZE        = 45_000;
 
-// FIX 1: Removed ?type= query params — use path segments instead
-// Old: /dest-national-visa-processing-time-for-nat?type=sticker
-// New: /dest-national-visa-processing-time-for-nat/sticker
 const PROCESSING_TYPES = ["sticker", "e-visa", "transit", "sticker-extended"];
 const REJECTION_TYPES  = ["tourist", "student", "work", "transit", "business", "family"];
+// MERGED from visa.eammu.com _shared.js — same 6 guide types
+const GUIDE_SLUGS      = ["visa-required", "e-visa", "visa-on-arrival", "eta", "visa-free", "no-admission"];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function toArray(json) {
@@ -85,7 +111,6 @@ async function getAllRoutes() {
     return _cachedRoutes;
   }
 
-  // FIX 2: BUILD_TIME is now per-call, not module-load time
   const BUILD_TIME = new Date().toISOString();
 
   // ── JSON data ──────────────────────────────────────────────────────────────
@@ -94,9 +119,21 @@ async function getAllRoutes() {
   const visaSlugs    = uniqueSlugs(visaData,    "slug", "country", "name", "title", "destination");
   const studentSlugs = uniqueSlugs(studentData, "slug", "country", "name", "title");
 
-  // ── MongoDB data ───────────────────────────────────────────────────────────
+  // ── MongoDB data (used by e-visa / dubai-resident / india-visa / rejection) ─
   const countries  = await getCountries();
   const mongoSlugs = countries.map(c => createSlug(c.country)).filter(Boolean);
+
+  // ── api.eammu.com data (used ONLY by visa-checker pair/guide routes) ───────
+  const apiCountries = await fetchVisaCheckerCountries();
+  const apiSlugsSeen = new Set();
+  const visaCheckerSlugs = [];
+  for (const c of apiCountries) {
+    const slug = createSlug(c.country);
+    if (slug && !apiSlugsSeen.has(slug)) {
+      apiSlugsSeen.add(slug);
+      visaCheckerSlugs.push(slug);
+    }
+  }
 
   // ── Static routes — 83 total ───────────────────────────────────────────────
   // Count verified against build output: 83 static ○ pages (excluding /_not-found, /robots.txt)
@@ -183,41 +220,37 @@ async function getAllRoutes() {
     fmt("/scholarships",                                                 0.8,  "weekly",  BUILD_TIME),
     fmt("/visa/dubai-residents",                                         0.8,  "weekly",  BUILD_TIME),
     fmt("/visa/india",                                                   0.8,  "weekly",  BUILD_TIME),
-    // FIX 3: Added /schengen-visa — exists in build output, was missing from sitemap 
     fmt("/schengen-visa",                                                0.8,  "monthly", BUILD_TIME),
     fmt("/travel-agency-bangladesh",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/visa-checker",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/travel-insurance",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/travel-cost-calculator",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/travel-agency-delhi",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/travel-agency-dhaka",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/travel-agency-sharjah",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/travel-agency-abu-dhabi",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/appeal-process-for-visa",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/bank-solvency-certificate-for-visa",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/bank-statement-for-visa",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/bank-statement-for-visa-how-to-prepare",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/best-time-to-apply-schengen-visa",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/can-i-reapply-after-visa-rejection",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/common-reasons",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/ds-160-form-guide",                                     0.8,  "monthly", BUILD_TIME),
+    fmt("/visa-checker",                                                 0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-insurance",                                             0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-cost-calculator",                                       0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-agency-delhi",                                          0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-agency-dhaka",                                          0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-agency-sharjah",                                        0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-agency-abu-dhabi",                                      0.8,  "monthly", BUILD_TIME),
+    fmt("/appeal-process-for-visa",                                      0.8,  "monthly", BUILD_TIME),
+    fmt("/bank-solvency-certificate-for-visa",                           0.8,  "monthly", BUILD_TIME),
+    fmt("/bank-statement-for-visa",                                      0.8,  "monthly", BUILD_TIME),
+    fmt("/bank-statement-for-visa-how-to-prepare",                       0.8,  "monthly", BUILD_TIME),
+    fmt("/best-time-to-apply-schengen-visa",                             0.8,  "monthly", BUILD_TIME),
+    fmt("/can-i-reapply-after-visa-rejection",                           0.8,  "monthly", BUILD_TIME),
+    fmt("/common-reasons",                                               0.8,  "monthly", BUILD_TIME),
+    fmt("/ds-160-form-guide",                                            0.8,  "monthly", BUILD_TIME),
     fmt("/embassy-appointment-tips",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/how-many-times-can-i-apply-for-visa",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/how-much-bank-balance-needed-for-visa",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/how-to-track-visa-application",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/marriage-certificate-for-visa",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/police-clearance-certificate",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/sop-sample-for-student-visa",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/sponsor-financial-documents-for-visa",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/sponsor-letter-sample-for-visa",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/spouse-visa-documents",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/travel-itinerary-for-visa-how-to-make",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/vfs-global-appointment-guide",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/visa-appointment-booking-guide",                                     0.8,  "monthly", BUILD_TIME),
-    fmt("/visa-interview-tips",                                     0.8,  "monthly", BUILD_TIME),
-  
-    
-
+    fmt("/how-many-times-can-i-apply-for-visa",                          0.8,  "monthly", BUILD_TIME),
+    fmt("/how-much-bank-balance-needed-for-visa",                        0.8,  "monthly", BUILD_TIME),
+    fmt("/how-to-track-visa-application",                                0.8,  "monthly", BUILD_TIME),
+    fmt("/marriage-certificate-for-visa",                                0.8,  "monthly", BUILD_TIME),
+    fmt("/police-clearance-certificate",                                 0.8,  "monthly", BUILD_TIME),
+    fmt("/sop-sample-for-student-visa",                                  0.8,  "monthly", BUILD_TIME),
+    fmt("/sponsor-financial-documents-for-visa",                         0.8,  "monthly", BUILD_TIME),
+    fmt("/sponsor-letter-sample-for-visa",                               0.8,  "monthly", BUILD_TIME),
+    fmt("/spouse-visa-documents",                                        0.8,  "monthly", BUILD_TIME),
+    fmt("/travel-itinerary-for-visa-how-to-make",                        0.8,  "monthly", BUILD_TIME),
+    fmt("/vfs-global-appointment-guide",                                 0.8,  "monthly", BUILD_TIME),
+    fmt("/visa-appointment-booking-guide",                               0.8,  "monthly", BUILD_TIME),
+    fmt("/visa-interview-tips",                                          0.8,  "monthly", BUILD_TIME),
   ];
 
   // ── JSON-based dynamic routes  ──────────────────────────────────────────────
@@ -235,10 +268,7 @@ async function getAllRoutes() {
       .map(nat => fmt(`/visa/visa-guide/${dest}-visa-for-${nat}`, 0.8, "monthly", BUILD_TIME))
   );
 
-  // FIX 1: Replaced ?type= query params with path segments
-  // Old: /dest-national-visa-processing-time-for-nat?type=sticker  ← Google ignores
-  // New: /dest-national-visa-processing-time-for-nat/sticker        ← Google indexes
-  // ⚠️  Your [slug]/page.js must read the type from the last path segment, not searchParams
+  // Path-based: dest-nat-type (one URL per type, no query params)
   const processingTimeRoutes = visaSlugs.flatMap(dest =>
     visaSlugs
       .filter(nat => nat !== dest)
@@ -280,10 +310,7 @@ async function getAllRoutes() {
     fmt(`/visa/india/${slug}`, 0.8, "monthly", BUILD_TIME)
   );
 
-  // FIX 1: Replaced ?type= with path segment
-  // Old: /nat-visa-rejection-rate-for-dest?type=tourist  ← Google ignores
-  // New: /nat-visa-rejection-rate-for-dest-tourist        ← Google indexes
-  // ⚠️  Your [slug]/page.js must parse the type from the slug string, not searchParams
+  // RESTORED — path-based, no ?type= query param
   const rejectionRoutes = mongoSlugs.flatMap(nat =>
     mongoSlugs
       .filter(dest => dest !== nat)
@@ -299,6 +326,28 @@ async function getAllRoutes() {
       )
   );
 
+  // ── MERGED from visa.eammu.com: visa-checker country pairs + guide pages ───
+  // Was: /sitemap/pairs-N, /sitemap/guides-N on visa.eammu.com (hardcoded chunks).
+  // Now folded into this single auto-chunking route. Country list is fetched
+  // from api.eammu.com (visaCheckerSlugs above) — NOT the MongoDB getCountries().
+  const visaCheckerPairRoutes = visaCheckerSlugs.flatMap(nat =>
+    visaCheckerSlugs
+      .filter(dest => dest !== nat)
+      .map(dest =>
+        fmt(`/visa-checker/${nat}-visa-for-${dest}`, 0.7, "weekly", BUILD_TIME)
+      )
+  );
+
+  const visaCheckerGuideRoutes = visaCheckerSlugs.flatMap(nat =>
+    visaCheckerSlugs
+      .filter(dest => dest !== nat)
+      .flatMap(dest =>
+        GUIDE_SLUGS.map(guide =>
+          fmt(`/visa-checker/${nat}-visa-for-${dest}/${guide}`, 0.6, "weekly", BUILD_TIME)
+        )
+      )
+  );
+
   const total =
     staticRoutes.length +
     studentVisaRoutes.length +
@@ -309,20 +358,24 @@ async function getAllRoutes() {
     scholarshipRoutes.length +
     dubaiResidentRoutes.length +
     indiaVisaRoutes.length +
-    rejectionRoutes.length;
+    rejectionRoutes.length +
+    visaCheckerPairRoutes.length +
+    visaCheckerGuideRoutes.length;
 
   console.log(`[eammu-sitemap] Built:
-    static:          ${staticRoutes.length}
-    student:         ${studentVisaRoutes.length}
-    visaSlug:        ${visaSlugRoutes.length}
-    visaGuide:       ${visaGuideRoutes.length}
-    processing:      ${processingTimeRoutes.length}
-    e-visa:          ${eVisaRoutes.length}
-    scholarships:    ${scholarshipRoutes.length}
-    dubai-resident:  ${dubaiResidentRoutes.length}
-    india-visa:      ${indiaVisaRoutes.length}
-    rejection:       ${rejectionRoutes.length}
-    TOTAL:           ${total}`);
+    static:            ${staticRoutes.length}
+    student:           ${studentVisaRoutes.length}
+    visaSlug:          ${visaSlugRoutes.length}
+    visaGuide:         ${visaGuideRoutes.length}
+    processing:        ${processingTimeRoutes.length}
+    e-visa:            ${eVisaRoutes.length}
+    scholarships:      ${scholarshipRoutes.length}
+    dubai-resident:    ${dubaiResidentRoutes.length}
+    india-visa:        ${indiaVisaRoutes.length}
+    rejection:         ${rejectionRoutes.length}
+    visa-checker-pair: ${visaCheckerPairRoutes.length}
+    visa-checker-guide:${visaCheckerGuideRoutes.length}
+    TOTAL:             ${total}`);
 
   _cachedRoutes = [
     ...staticRoutes,
@@ -335,6 +388,8 @@ async function getAllRoutes() {
     ...dubaiResidentRoutes,
     ...indiaVisaRoutes,
     ...rejectionRoutes,
+    ...visaCheckerPairRoutes,
+    ...visaCheckerGuideRoutes,
   ];
   _cacheBuiltAt = Date.now();
 
