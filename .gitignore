@@ -44,3 +44,4 @@ next-env.d.ts
 all_sitemaps.txt
 verify_sitemap.txt
 *.txt
+!public/8b379408be724ca589bc9bbd8ee2f77d.txt
