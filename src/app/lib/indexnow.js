@@ -1,5 +1,5 @@
 // lib/indexnow.js
-const INDEXNOW_KEY = process.env.INDEXNOW_KEY;
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY || "8b379408be724ca589bc9bbd8ee2f77d";
 const HOST = "eammu.com";
 
 async function submitToIndexNow(urls) {
