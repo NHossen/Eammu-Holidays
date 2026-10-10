@@ -7,7 +7,6 @@ import CountrySearchBar from "@/Components/Client/visaServices/Visa/StudentVisaB
 import SpecialDayBanner from "@/Components/Client/HeroHome/SpecialDayBanner/SpecialDayBanner";
 import VisaCheckerHome from "@/Components/Visacheckerhome/Visacheckerhome";
 
-
 // ── BELOW THE FOLD — lazy load (first load bundle ছোট রাখে) ─────────────────
 const VisaSearchBar = dynamic(
   () => import("@/Components/Client/VisaProcessingTimeTracker/VisaSearchBar/VisaSearchBar"),
@@ -61,16 +60,14 @@ const Our_Succsses_State = dynamic(
 
 const HomeSeoLinks = dynamic(
   () => import("@/Components/HomeSeoLinks/HomeSeoLinks"),
-  { loading: () => null } // SEO links — visible placeholder দরকার নেই
+  { loading: () => null }
 );
-
 
 const BASE_URL = "https://eammu.com";
 const BRAND_NAME = "Eammu Holidays - Travel Agency Bangladesh";
 
 // ── HOME PAGE SEO METADATA ────────────────────────────────────────────────────
 export const metadata = {
-
   title: {
     absolute: "Travel Agency Bangladesh | Visa, Hotel, Air Ticket",
   },
@@ -127,10 +124,8 @@ export const metadata = {
 
   openGraph: {
     title: "Eammu Holidays | Bangladesh & Dubai Visa, Air Tickets & Holiday Packages",
-
     description:
       "Bangladesh and Dubai leading travel agency providing tourist, student & Schengen visa services, international air tickets, Dubai tours, holiday packages, and worldwide travel solutions. IATA-accredited.",
-
     url: BASE_URL,
     siteName: BRAND_NAME,
     locale: "en_US",
@@ -173,7 +168,6 @@ const homepageSchema = {
       url: BASE_URL,
       name: "Eammu Holidays – Visa Services, Umrah 2026, Tours & Flights from Bangladesh",
       isPartOf: { "@id": `${BASE_URL}/#website` },
-
       about: { "@id": `${BASE_URL}/#organization` },
       description:
         "Bangladesh's leading IATA-accredited travel agency for visa services, Umrah packages, international tour packages, and flight booking.",
@@ -195,9 +189,6 @@ const homepageSchema = {
       "@type": "ItemList",
       name: "Eammu Holidays – Travel Services & Tools",
       url: BASE_URL,
-      // ✅ FIX: numberOfItems now matches the actual item count (5).
-      // If you intended 6 items, restore a position-3 entry below
-      // (e.g. Umrah Package 2026) and bump this back to 6.
       numberOfItems: 5,
       itemListElement: [
         {
@@ -216,9 +207,6 @@ const homepageSchema = {
             "Real-time visa processing time tracker for all major embassies and destinations.",
           url: `${BASE_URL}/travel-resources/visa-processing-time-tracker`,
         },
-        // ✅ FIX: renumbered 4→3, 5→4, 6→5 to close the gap left by the
-        // missing position-3 item — sequential positions are required by
-        // the ItemList spec, and Google's Rich Results Test rejects gaps.
         {
           "@type": "ListItem",
           position: 3,
@@ -283,10 +271,6 @@ const homepageSchema = {
       ],
     },
 
-    // ⚠️ FLAG (unchanged, still needs your content decision):
-    // FAQPage schema. These exact Q&As need to appear as real, readable
-    // content on the homepage (e.g. an FAQ accordion section), or Google
-    // may treat this as unrepresented/spammy structured data.
     {
       "@type": "FAQPage",
       mainEntity: [

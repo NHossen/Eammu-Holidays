@@ -15,21 +15,30 @@ const geistSans = Geist({
   display: "swap",
 });
 
+// ✅ Brand names optimized for global SEO & SERP presentation
+const SITE_NAME = "Eammu - Travel agency Bangladesh";
 const BRAND_NAME = "Eammu Holidays - Travel Agency Bangladesh";
+const PAGE_TITLE = "Eammu Holidays - online Travel agency (OTA)";
 
 // ── GLOBAL / FALLBACK SEO METADATA ───────────────────────────────────────────
 export const metadata = {
   metadataBase: new URL(BASE_URL),
 
+  // ✅ Fixes Google Search Snippet Brand Header (Site Name)
+  siteName: SITE_NAME,
+
   title: {
-    default: "Travel Agency Bangladesh | Eammu Holidays",
+    default: PAGE_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
 
   description:
-    "Travel Agency in Bangladesh for tourist visas, student visas, Umrah packages 2026, international flights & tour packages to Dubai, Europe, Georgia & Armenia. Offices in Dhaka, Cumilla, Dubai, Yerevan & Tbilisi.",
+    "Eammu Holidays - online Travel agency (OTA) in Bangladesh for tourist visas, student visas, Umrah packages 2026, international flights & tour packages to Dubai, Europe, Georgia & Armenia. Offices in Dhaka, Cumilla, Dubai, Yerevan & Tbilisi.",
 
   keywords: [
     "Eammu Holidays",
+    "Eammu Travel Agency",
+    "Eammu online travel agency",
     "travel agency Bangladesh",
     "best travel agency in Bangladesh",
     "travel agency Dhaka",
@@ -85,10 +94,10 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: BASE_URL,
-    siteName: BRAND_NAME,
-    title: "Travel Agency Bangladesh | Eammu Holidays",
+    siteName: SITE_NAME,
+    title: PAGE_TITLE,
     description:
-      "Travel Agency in Bangladesh - Eammu Holidays for tourist visas, student visas, Umrah packages 2026, international flights & tour packages to Dubai, Europe, Georgia & Armenia. Offices in Dhaka, Cumilla, Dubai, Yerevan & Tbilisi.",
+      "Eammu Holidays - online Travel agency (OTA) in Bangladesh for tourist visas, student visas, Umrah packages 2026, international flights & tour packages to Dubai, Europe, Georgia & Armenia. Offices in Dhaka, Cumilla, Dubai, Yerevan & Tbilisi.",
     images: [
       {
         url: `${BASE_URL}/preview-banner.webp`,
@@ -106,9 +115,9 @@ export const metadata = {
     card: "summary_large_image",
     site: "@eammuholidays",
     creator: "@eammuholidays",
-    title: "Eammu Holidays | Visa, Tours & Umrah Packages from Bangladesh",
+    title: PAGE_TITLE,
     description:
-      "Book tourist visas, Umrah packages 2026, international flights & holiday tours with Eammu Holidays – IATA-accredited travel partner from Bangladesh.",
+      "Book tourist visas, Umrah packages 2026, international flights & holiday tours with Eammu Holidays – online Travel agency (OTA) from Bangladesh.",
     images: [`${BASE_URL}/preview-banner.webp`],
   },
 
@@ -122,15 +131,12 @@ export const metadata = {
     apple: [{ url: "/emf.jpg", sizes: "180x180", type: "image/jpeg" }],
   },
 
-  // ✅ FIX: merged the two separate `other` objects that existed before —
-  // the second one was silently overwriting the first at build time,
-  // wiping out geo.*, DC.*, theme-color, and rating on every page.
   other: {
     "geo.region": "BD",
     "geo.placename": "Cumilla, Bangladesh",
     "geo.position": "23.4607;91.1809",
     ICBM: "23.4607, 91.1809",
-    "DC.title": BRAND_NAME,
+    "DC.title": SITE_NAME,
     "DC.description":
       "Bangladesh's leading IATA-accredited travel agency for visa, tours, Umrah, and flight booking.",
     "DC.publisher": BRAND_NAME,
@@ -149,7 +155,7 @@ export const metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: BRAND_NAME,
+    title: SITE_NAME,
   },
 };
 
@@ -160,15 +166,17 @@ export const viewport = {
 const globalSchema = {
   "@context": "https://schema.org",
   "@graph": [
-    // 1. WebSite — enables Google Sitelinks Search Box
+    // 1. WebSite — enables Google Sitelinks Search Box & Site Name Recognition
     {
       "@type": "WebSite",
       "@id": `${BASE_URL}/#website`,
       url: BASE_URL,
-      name: BRAND_NAME,
+      name: SITE_NAME,
       alternateName: [
-        "Eammu - Travel Agency Bangladesh",
-        "Eammu Travel",
+        "Eammu",
+        "Eammu Holidays",
+        "Eammu Holidays - online Travel agency (OTA)",
+        "Eammu Travel Agency",
         "Eammu Holiday",
         "Travel Agency Bangladesh",
       ],
@@ -190,7 +198,8 @@ const globalSchema = {
     {
       "@type": "Organization",
       "@id": `${BASE_URL}/#organization`,
-      name: BRAND_NAME,
+      name: SITE_NAME,
+      alternateName: ["Eammu Holidays", "Eammu Group"],
       url: BASE_URL,
       logo: {
         "@type": "ImageObject",
@@ -199,7 +208,7 @@ const globalSchema = {
         contentUrl: `${BASE_URL}/emf.jpg`,
         width: 200,
         height: 200,
-        caption: BRAND_NAME,
+        caption: SITE_NAME,
       },
       image: { "@id": `${BASE_URL}/#logo` },
       description:
@@ -252,9 +261,8 @@ const globalSchema = {
     {
       "@type": ["TravelAgency", "LocalBusiness"],
       "@id": `${BASE_URL}/#localbusiness`,
-      // ✅ FIX: was "Eammu Holidays" — now matches WebSite/Organization name
-      // exactly so Google isn't given conflicting brand-name signals.
-      name: BRAND_NAME,
+      name: SITE_NAME,
+      alternateName: ["Eammu Holidays"],
       url: BASE_URL,
       image: `${BASE_URL}/preview-banner.webp`,
       telephone: "+8801631312524",
@@ -375,16 +383,16 @@ const globalSchema = {
       },
     },
 
-    // 4. Person — Naeem Hossen, Founder & CEO
+    // 4. Person — Executive Director / Founder
     {
       "@type": "Person",
       "@id": `${BASE_URL}/#naeem-hossen`,
       name: "Naeem Hossen",
       givenName: "Naeem",
       familyName: "Hossen",
-      jobTitle: "Founder & CEO",
+      jobTitle: "Executive Director & Founder",
       description:
-        "Naeem Hossen is the Founder and CEO of Eammu Holidays and Visa Express Hub, and the founding figure of Eammu Group. Based in Bangladesh, he leads a global travel and visa services network with offices in Cumilla, Dubai, Yerevan, and Tbilisi.",
+        "Naeem Hossen is the Executive Director and Founder of Eammu Holidays and Visa Express Hub, leading a global travel and visa services network with offices in Cumilla, Dubai, Yerevan, and Tbilisi.",
       url: `${BASE_URL}/about`,
       worksFor: { "@id": `${BASE_URL}/#organization` },
       nationality: {
