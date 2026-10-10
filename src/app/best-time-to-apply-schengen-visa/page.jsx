@@ -15,7 +15,7 @@ export const metadata = {
   },
 
   description:
-    "When is the best time to apply for a Schengen visa from Bangladesh in 2026? Avoid embassy peak-season delays, learn the 15-day processing window, the 6-month/15-day application rule, and seasonal booking tips from Eammu Holidays.",
+    "When is the best time to apply for a Schengen visa from Bangladesh in 2026? Avoid embassy peak-season delays, learn the 15-day processing window, the 6-month/15-day application rule, which country to apply to, visa fees, and seasonal booking tips from Eammu Holidays.",
 
   keywords: [
     "best time to apply schengen visa",
@@ -30,6 +30,9 @@ export const metadata = {
     "schengen visa summer rush",
     "europe visa best time to apply bangladesh",
     "schengen visa slot booking bangladesh",
+    "schengen visa fee bangladesh",
+    "which country to apply schengen visa multiple countries",
+    "schengen visa documents required bangladesh",
   ],
 
   alternates: {
@@ -85,6 +88,41 @@ export const metadata = {
 };
 
 // ─── Structured Data ───────────────────────────────────────────────────────────
+const faqItems = [
+  {
+    q: "How early can I apply for a Schengen visa before my trip?",
+    a: "You can apply for a Schengen visa up to 6 months before your intended travel date, and no later than 15 calendar days before departure. Applying around 2-3 months ahead is generally recommended for a comfortable buffer.",
+  },
+  {
+    q: "What is the busiest season for Schengen visa applications from Bangladesh?",
+    a: "Peak season for Schengen visa applications is typically from April to August, coinciding with the European summer travel season, as well as the weeks leading up to major holidays like Christmas and Eid travel periods.",
+  },
+  {
+    q: "Why is it harder to get a Schengen visa appointment during summer?",
+    a: "Embassies and visa application centers in Dhaka receive significantly more applications during the European summer (June-August) and around major holidays, leading to longer waits for appointment slots and processing.",
+  },
+  {
+    q: "Does applying early guarantee faster Schengen visa approval?",
+    a: "Applying early doesn't change the standard processing time (typically 15 working days), but it gives you a buffer in case of delays, additional document requests, or appointment rescheduling — reducing stress before your travel date.",
+  },
+  {
+    q: "Which country's embassy should I apply to if I'm visiting several Schengen countries?",
+    a: "For a short-stay visa covering multiple countries, you apply through the embassy or VAC of your main destination — the country where you'll spend the most days. If your time is split evenly, you apply to the country you enter first. For long-stay visas, you apply to the country where you intend to live or stay the longest.",
+  },
+  {
+    q: "What is the Schengen visa fee for Bangladeshi applicants?",
+    a: "The standard short-stay Schengen visa fee is set by the EU and is generally around €90 for adults and €45 for children aged 6-12, with no fee for children under 6. Service charges from the visa application centre are usually added on top, so always confirm the exact total with your VAC or with Eammu Holidays before paying.",
+  },
+  {
+    q: "What documents do I need ready before booking my Schengen visa appointment?",
+    a: "At minimum you'll need a passport valid for at least 3 months beyond your planned departure from the Schengen Area, a completed application form, travel/medical insurance covering the Schengen Area, flight and hotel bookings, and proof of sufficient funds such as a bank statement. Requirements can vary slightly by destination country.",
+  },
+  {
+    q: "Can Eammu Holidays help me book a Schengen visa appointment?",
+    a: "Yes. Eammu Holidays assists with Schengen visa appointment booking, document preparation, and embassy submission — helping you navigate appointment availability and avoid common timing mistakes.",
+  },
+];
+
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -102,7 +140,7 @@ const structuredData = {
         logo: { "@type": "ImageObject", url: "https://eammu.com/emf.jpg" },
       },
       datePublished: "2026-01-20",
-      dateModified: "2026-06-01",
+      dateModified: "2026-09-02",
       mainEntityOfPage: "https://eammu.com/best-time-to-apply-schengen-visa",
     },
     {
@@ -115,48 +153,11 @@ const structuredData = {
     },
     {
       "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "How early can I apply for a Schengen visa before my trip?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "You can apply for a Schengen visa up to 6 months before your intended travel date, and no later than 15 calendar days before departure. Applying around 2-3 months ahead is generally recommended for a comfortable buffer.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "What is the busiest season for Schengen visa applications from Bangladesh?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Peak season for Schengen visa applications is typically from April to August, coinciding with the European summer travel season, as well as the weeks leading up to major holidays like Christmas and Eid travel periods.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Why is it harder to get a Schengen visa appointment during summer?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Embassies and visa application centers in Dhaka receive significantly more applications during the European summer (June-August) and around major holidays, leading to longer waits for appointment slots and processing.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Does applying early guarantee faster Schengen visa approval?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Applying early doesn't change the standard processing time (typically 15 working days), but it gives you a buffer in case of delays, additional document requests, or appointment rescheduling — reducing stress before your travel date.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Can Eammu Holidays help me book a Schengen visa appointment?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes. Eammu Holidays assists with Schengen visa appointment booking, document preparation, and embassy submission — helping you navigate appointment availability and avoid common timing mistakes.",
-          },
-        },
-      ],
+      mainEntity: faqItems.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
     },
   ],
 };
@@ -175,6 +176,17 @@ const peakSeasons = [
   { icon: "📚", title: "August – September (Academic Intake)", desc: "Though primarily for student visas, this period sees increased overall visa center traffic as academic-year travel overlaps with tourist season." },
 ];
 
+const documentChecklist = [
+  "Passport valid for at least 3 months beyond your planned departure from the Schengen Area, with at least 2 blank pages",
+  "Completed and signed Schengen visa application form",
+  "Recent passport-size photo meeting Schengen photo specifications",
+  "Travel or medical insurance valid across the Schengen Area with adequate coverage",
+  "Confirmed flight reservation (round trip)",
+  "Hotel booking or accommodation proof for the full stay",
+  "Proof of sufficient funds — bank statement and, where applicable, a sponsor letter",
+  "Cover letter and travel itinerary explaining the purpose of your visit",
+];
+
 export default function BestTimeSchengenVisaPage() {
   return (
     <>
@@ -188,8 +200,9 @@ export default function BestTimeSchengenVisaPage() {
         <p>
           Timing guide for Bangladeshi applicants on when to apply for a Schengen visa to avoid
           appointment delays. Covers the 6-month application window, the 15-day minimum, peak
-          season periods (April-August summer, holiday season, Eid travel), and appointment
-          booking tips from Eammu Holidays — IATA-accredited visa agency in Bangladesh.
+          season periods (April-August summer, holiday season, Eid travel), which country's
+          embassy to apply to, required documents, visa fees, and appointment booking tips from
+          Eammu Holidays — IATA-accredited visa agency in Bangladesh.
         </p>
         <nav aria-label="Breadcrumb">
           <ol>
@@ -202,7 +215,7 @@ export default function BestTimeSchengenVisaPage() {
 
       <main className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">
         {/* ── HERO ── */}
-        <section className="bg-gradient-to-br from-[#1a2f5c] via-[#22407a] to-[#2e5aa8] text-white py-16 px-4">
+        <section className="bg-gradient-to-br from-[#1a2f5c] via-[#22407a] to-[#2e5aa8] text-white pt-28 md:pt-32 pb-16 px-4">
           <div className="max-w-5xl mx-auto text-center">
             <nav aria-label="Breadcrumb" className="mb-6">
               <ol className="flex justify-center gap-2 text-xs text-blue-200 flex-wrap">
@@ -250,8 +263,23 @@ export default function BestTimeSchengenVisaPage() {
 
         <div className="max-w-5xl mx-auto px-4 md:px-6 py-16 space-y-16">
 
+          {/* ── TOC ── */}
+          <nav aria-label="Table of contents" className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+            <h2 className="text-sm font-black text-[#22407a] mb-3 uppercase tracking-wide">On This Page</h2>
+            <ol className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-600 list-decimal list-inside">
+              <li><a href="#application-window" className="hover:text-[#22407a]">The Application Window</a></li>
+              <li><a href="#timeline" className="hover:text-[#22407a]">When Should You Apply? Timeline</a></li>
+              <li><a href="#peak-seasons" className="hover:text-[#22407a]">Peak Seasons to Avoid</a></li>
+              <li><a href="#which-country" className="hover:text-[#22407a]">Which Country's Embassy to Apply To</a></li>
+              <li><a href="#documents" className="hover:text-[#22407a]">Documents to Have Ready</a></li>
+              <li><a href="#fees" className="hover:text-[#22407a]">Schengen Visa Fees</a></li>
+              <li><a href="#tips" className="hover:text-[#22407a]">Practical Timing Tips</a></li>
+              <li><a href="#faq" className="hover:text-[#22407a]">Frequently Asked Questions</a></li>
+            </ol>
+          </nav>
+
           {/* ── INTRO ── */}
-          <section>
+          <section id="application-window">
             <h2 className="text-2xl md:text-3xl font-extrabold text-[#22407a] mb-5 border-l-8 border-orange-500 pl-5">
               The Schengen Visa Application Window
             </h2>
@@ -270,7 +298,9 @@ export default function BestTimeSchengenVisaPage() {
                 itself — it's{" "}
                 <strong className="text-[#22407a]">getting an appointment slot</strong> at the
                 Visa Application Centre (VAC) in Dhaka. During peak months, slots can be booked
-                out weeks in advance.
+                out weeks in advance, and consular staff routinely note that incomplete or
+                incorrect paperwork is what turns a busy season into a rejected or delayed
+                application — so accuracy matters just as much as timing.
               </p>
               <p>
                 At <Link href="/visa" className="text-[#22407a] font-semibold hover:text-orange-500">Eammu Holidays</Link>,
@@ -285,7 +315,7 @@ export default function BestTimeSchengenVisaPage() {
           </section>
 
           {/* ── TIMELINE ── */}
-          <section>
+          <section id="timeline">
             <h2 className="text-2xl md:text-3xl font-extrabold text-[#22407a] mb-3 border-l-8 border-orange-500 pl-5">
               When Should You Apply? Timeline Breakdown
             </h2>
@@ -300,7 +330,7 @@ export default function BestTimeSchengenVisaPage() {
           </section>
 
           {/* ── PEAK SEASONS ── */}
-          <section>
+          <section id="peak-seasons">
             <h2 className="text-2xl md:text-3xl font-extrabold text-[#22407a] mb-3 border-l-8 border-orange-500 pl-5">
               Peak Seasons to Avoid (or Plan Around)
             </h2>
@@ -319,33 +349,116 @@ export default function BestTimeSchengenVisaPage() {
             </div>
           </section>
 
+          {/* ── NEW: WHICH COUNTRY TO APPLY TO ── */}
+          <section id="which-country" className="bg-white rounded-3xl border border-blue-100 shadow-sm p-6 md:p-10">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#22407a] mb-4">
+              Which Country's Embassy Should You Apply To?
+            </h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                If your trip covers only one Schengen country, this is simple — you apply to that
+                country's embassy or VAC. Things get more specific if you're{" "}
+                <strong className="text-[#22407a]">visiting several countries on one trip</strong>:
+                for a short-stay visa, you apply through the embassy or visa centre of your{" "}
+                <strong className="text-[#22407a]">main destination</strong> — the country where
+                you'll spend the most days. If your time is split evenly across countries, you
+                apply to the country you plan to enter first.
+              </p>
+              <p>
+                For long-stay (national/Type D) visas — such as study or long-term work permits —
+                you apply to the country where you intend to live or stay the longest, and
+                requirements can differ noticeably between countries. Applications are generally
+                submitted through an authorised visa application centre such as VFS Global,
+                TLScontact, or BLS International, or directly at the embassy or consulate,
+                depending on the destination country.
+              </p>
+              <p>
+                Getting this wrong is a common, avoidable cause of delay — our team at Eammu
+                Holidays confirms the correct embassy for your itinerary before you book any
+                appointment.
+              </p>
+            </div>
+          </section>
+
+          {/* ── NEW: DOCUMENT CHECKLIST ── */}
+          <section id="documents">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#22407a] mb-3 border-l-8 border-orange-500 pl-5">
+              Documents to Have Ready Before You Book
+            </h2>
+            <p className="text-gray-600 mt-3 mb-6">
+              Booking your appointment before your paperwork is ready is one of the biggest causes
+              of rescheduling during peak season. Confirm you can produce the following before you
+              book:
+            </p>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {documentChecklist.map((item) => (
+                <li key={item} className="flex items-start gap-3 bg-white rounded-xl border border-gray-100 shadow-sm p-4">
+                  <span className="text-blue-600 font-black">✓</span>
+                  <span className="text-sm text-gray-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-gray-700 mt-6 leading-relaxed">
+              Exact requirements vary slightly by destination country, so always cross-check with
+              our{" "}
+              <Link href="/travel-resources/visa-checklist-generator" className="text-[#22407a] font-semibold hover:text-orange-500">
+                visa checklist
+              </Link>{" "}
+              or your Eammu Holidays consultant before your appointment date.
+            </p>
+          </section>
+
+          {/* ── NEW: FEES ── */}
+          <section id="fees" className="bg-white rounded-3xl p-8 md:p-10 border border-gray-100 shadow-sm">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#22407a] mb-5 border-l-8 border-orange-500 pl-5">
+              Schengen Visa Fees
+            </h2>
+            <div className="space-y-3 text-gray-700 leading-relaxed">
+              <p>
+                The standard short-stay Schengen visa fee is set at the EU level and is generally{" "}
+                <strong className="text-[#22407a]">around €90 for adults</strong> and{" "}
+                <strong className="text-[#22407a]">around €45 for children aged 6–12</strong>,
+                with <strong className="text-[#22407a]">no fee for children under 6</strong>. The
+                visa application centre typically adds its own service charge on top of this
+                government fee.
+              </p>
+              <p>
+                Fees can change, and long-stay (national) visa fees vary by country and purpose,
+                so always confirm the current total with the relevant VAC, embassy, or your Eammu
+                Holidays consultant before making payment.
+              </p>
+            </div>
+          </section>
+
           {/* ── PRACTICAL TIPS ── */}
-          <section className="bg-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-sm">
+          <section id="tips" className="bg-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-sm">
             <h2 className="text-2xl md:text-3xl font-extrabold text-[#22407a] mb-5 border-l-8 border-orange-500 pl-5">
               Practical Tips for Smooth Schengen Visa Timing
             </h2>
             <ul className="space-y-3 text-gray-700 text-lg leading-relaxed list-none">
               <li className="flex gap-3"><span className="text-[#22407a] font-black">→</span> Aim to apply <strong>2-3 months before travel</strong> — early enough to absorb delays, late enough that your documents (bank statements, bookings) remain valid and current.</li>
               <li className="flex gap-3"><span className="text-[#22407a] font-black">→</span> If traveling during <strong>April-August</strong>, try to book your appointment at least 4-6 weeks earlier than you normally would.</li>
+              <li className="flex gap-3"><span className="text-[#22407a] font-black">→</span> Double-check your passport is valid for at least <strong>3 months beyond your planned departure</strong> from the Schengen Area before you book — an expiring passport is a common, avoidable rejection reason.</li>
               <li className="flex gap-3"><span className="text-[#22407a] font-black">→</span> Have all documents — including <Link href="/travel-resources/bank-statement-for-visa" className="text-[#22407a] font-semibold hover:text-orange-500">bank statements</Link> and <Link href="/travel-resources/police-clearance-certificate" className="text-[#22407a] font-semibold hover:text-orange-500">PCC</Link> if needed — ready before booking your appointment to avoid rescheduling.</li>
               <li className="flex gap-3"><span className="text-[#22407a] font-black">→</span> Avoid applying exactly at the 15-day minimum — unexpected delays leave no room for error.</li>
+              <li className="flex gap-3"><span className="text-[#22407a] font-black">→</span> Build a little flexibility into your travel dates where possible — peak-season backlogs at the embassy or VAC are outside your control, but a buffer of a few extra days protects your itinerary.</li>
               <li className="flex gap-3"><span className="text-[#22407a] font-black">→</span> Work with a consultant who tracks VAC appointment availability in real time, rather than checking manually and risking missed slots.</li>
             </ul>
           </section>
 
           {/* ── FAQ ── */}
-          <section>
+          <section id="faq">
             <h2 className="text-2xl md:text-3xl font-black text-[#22407a] mb-8 text-center">
               Frequently Asked <span className="text-orange-500">Questions</span>
             </h2>
             <div className="space-y-4">
-              {structuredData["@graph"][2].mainEntity.map((item) => (
-                <details key={item.name} className="border border-gray-200 rounded-2xl p-5 group bg-white">
+              {faqItems.map((item) => (
+                <details key={item.q} className="border border-gray-200 rounded-2xl p-5 group bg-white">
                   <summary className="font-bold text-[#22407a] cursor-pointer list-none flex justify-between items-center gap-4">
-                    <span>{item.name}</span>
+                    <span>{item.q}</span>
                     <span className="text-orange-500 text-xl flex-shrink-0 group-open:rotate-45 transition-transform">+</span>
                   </summary>
-                  <p className="mt-3 text-gray-600 text-sm leading-relaxed">{item.acceptedAnswer.text}</p>
+                  <p className="mt-3 text-gray-600 text-sm leading-relaxed">{item.a}</p>
                 </details>
               ))}
             </div>

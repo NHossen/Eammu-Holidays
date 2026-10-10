@@ -4,9 +4,9 @@ import Image from 'next/image';
 
 const bgSlides = [
   { url: "/bg-main-theme.webp",        alt: "Sylhet tea garden tour Bangladesh" },
-  { url: "/the-love-island.webp",      alt: "International student visa consultancy Bangladesh" },
+  { url: "/beautiful.webp",      alt: "International student visa consultancy Bangladesh" },
   { url: "/desert_kamel_egypt.jpg",    alt: "Desert travel experience and tour packages" },
-  { url: "/ileand-2.png",              alt: "Maldives luxury island resort packages Bangladesh" },
+  { url: "/blue-villa-beautiful-sea-hotel.webp",              alt: "Maldives luxury island resort packages Bangladesh" },
 ];
 
 export default function BackgroundSlider() {

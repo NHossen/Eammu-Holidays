@@ -25,6 +25,57 @@ import CountrySelector from './CountrySelector';
 import StudySearch from './StudySearch';
 import ProcessingCountrySelector from './Processingcountryselector';
 
+// ─── WhatsApp config ──────────────────────────────────────────────────────────
+const WHATSAPP_NUMBER = "8801631312524"; // +880 1631-312524
+const buildWhatsAppLink = (message) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+// Message + button label for each WhatsApp tab (bottom centre button)
+const WHATSAPP_CTA = {
+  flight: {
+    label: "Talk to an Advisor",
+    message: [
+      "Hello Eammu Holidays, I would like to inquire about flight bookings.",
+      "",
+      "Route (From → To):",
+      "Travel date:",
+      "Return date (if round trip):",
+      "Passengers:",
+      "Preferred airline (or cheapest):",
+    ].join("\n"),
+  },
+  tour: {
+    label: "Talk to an Advisor",
+    message: [
+      "Hello Eammu Holidays, I would like to inquire about tour packages.",
+      "",
+      "Destination:",
+      "Travel month:",
+      "Number of travellers:",
+      "Budget:",
+    ].join("\n"),
+  },
+  activities: {
+    label: "Talk to an Advisor",
+    message: [
+      "Hello Eammu Holidays, I would like to inquire about things to do and activities.",
+      "",
+      "City / Country:",
+      "Preferred activities:",
+      "Date:",
+      "Number of people:",
+    ].join("\n"),
+  },
+};
+
+function WhatsAppIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  );
+}
+
 // ─── eammu API ────────────────────────────────────────────────────────────────
 const EAMMU_KEY  = process.env.NEXT_PUBLIC_EAMMU_API_KEY;
 const EAMMU_BASE = "https://api.eammu.com/api/v1";
@@ -172,6 +223,94 @@ function VisaCountryInput({ label, placeholder, value, onChange, excludeCode }) 
 }
 // ─── end eammu helpers ────────────────────────────────────────────────────────
 
+// ─── One-line info row (Flight / Tours / Activities) ─────────────────────────
+// Left: icon + title + subtitle · Divider · Right: label + content
+function InfoRow({ icon: Icon, iconClass = 'text-slate-700', title, subtitle, rightLabel, children }) {
+  return (
+    <div className="w-full max-w-4xl mx-auto flex flex-col md:flex-row md:items-center gap-3 md:gap-0 pb-1">
+      {/* Left */}
+      <div className="flex items-center gap-3 md:w-[300px] shrink-0 md:pr-5">
+        <div className={`w-11 h-11 shrink-0 rounded-xl bg-slate-100 flex items-center justify-center ${iconClass}`}>
+          <Icon size={20} />
+        </div>
+        <div className="text-left min-w-0">
+          <h2 className="text-[13px] sm:text-[15px] font-black text-gray-900 tracking-tight leading-tight">
+            {title}
+          </h2>
+          <p className="text-[11px] sm:text-xs text-gray-500 font-medium leading-snug mt-0.5">
+            {subtitle}
+          </p>
+        </div>
+      </div>
+
+      {/* Divider (desktop) */}
+      <div className="hidden md:block w-px self-stretch bg-slate-200" />
+
+      {/* Right */}
+      <div className="min-w-0 flex-1 md:pl-5 border-t border-slate-100 md:border-t-0 pt-3 md:pt-0 text-left">
+        <p className="text-[10px] sm:text-[11px] font-black uppercase text-slate-400 tracking-widest mb-1.5">
+          {rightLabel}
+        </p>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+// Airline logo with text fallback if the image can't load
+const AIRLINE_PARTNERS = [
+  { code: 'BS', name: 'US-Bangla'        },
+  { code: 'VQ', name: 'NovoAir'          },
+  { code: '2A', name: 'Air Astra'        },
+  { code: 'BG', name: 'Biman Bangladesh' },
+  { code: 'EK', name: 'Emirates'         },
+  { code: 'QR', name: 'Qatar Airways'    },
+  { code: 'EY', name: 'Etihad Airways'   },
+  { code: 'TK', name: 'Turkish Airlines' },
+  { code: 'SV', name: 'Saudia'           },
+  { code: 'FZ', name: 'flydubai'         },
+];
+
+function AirlineLogo({ code, name }) {
+  const [failed, setFailed] = useState(false);
+  return (
+    <div className="shrink-0 h-7 flex items-center" title={name}>
+      {failed ? (
+        <span className="text-[10px] sm:text-[11px] font-black text-slate-500 whitespace-nowrap">{name}</span>
+      ) : (
+        <img
+          src={`https://pics.avs.io/160/48/${code}.png`}
+          alt={name}
+          loading="lazy"
+          onError={() => setFailed(true)}
+          className="h-5 sm:h-6 w-auto object-contain"
+        />
+      )}
+    </div>
+  );
+}
+
+const TOUR_DESTINATIONS = [
+  { name: 'Dubai',     flag: 'https://flagcdn.com/w40/ae.png' },
+  { name: 'Turkey',    flag: 'https://flagcdn.com/w40/tr.png' },
+  { name: 'Thailand',  flag: 'https://flagcdn.com/w40/th.png' },
+  { name: 'Malaysia',  flag: 'https://flagcdn.com/w40/my.png' },
+  { name: 'Maldives',  flag: 'https://flagcdn.com/w40/mv.png' },
+  { name: 'Armenia',   flag: 'https://flagcdn.com/w40/am.png' },
+  { name: 'Georgia',   flag: 'https://flagcdn.com/w40/ge.png' },
+  { name: 'Singapore', flag: 'https://flagcdn.com/w40/sg.png' },
+];
+
+const ACTIVITY_TYPES = [
+  { icon: '🏜️', label: 'Desert Safari' },
+  { icon: '🎢', label: 'Theme Parks'   },
+  { icon: '🏙️', label: 'City Tours'    },
+  { icon: '🚤', label: 'Cruises'       },
+  { icon: '🎟️', label: 'Attractions'   },
+  { icon: '🏄', label: 'Water Sports'  },
+];
+// ─── end info row helpers ─────────────────────────────────────────────────────
+
 const TABS = [
   { id: 'visa',         label: 'Visa',              icon: Globe,         activeColor: 'text-green-700',  underline: 'bg-green-500'  },
   { id: 'flight',       label: 'Flight',            icon: Plane,         activeColor: 'text-blue-700',   underline: 'bg-blue-500'   },
@@ -179,6 +318,8 @@ const TABS = [
   { id: 'scholarships', label: 'Scholarships',      icon: BookOpen,      activeColor: 'text-amber-700',  underline: 'bg-amber-400'  },
   { id: 'templates',    label: 'Templates',         icon: FileText,      activeColor: 'text-rose-600',   underline: 'bg-rose-500'   },
   { id: 'processing',   label: 'Visa Processing',   icon: Clock,         activeColor: 'text-yellow-600', underline: 'bg-yellow-500' },
+  { id: 'tour',         label: 'Tours',             icon: Palmtree,      activeColor: 'text-teal-700',   underline: 'bg-teal-500'   },
+  { id: 'activities',   label: 'Activities',        icon: Ticket,        activeColor: 'text-orange-600', underline: 'bg-orange-500' },
 ];
 
 const VISA_TYPES_CAT = [
@@ -225,7 +366,6 @@ export default function TravelMenu() {
   const [origin, setOrigin]           = useState('bangladesh');
   const [destination, setDestination] = useState('canada');
   const [searchTerm, setSearchTerm]   = useState('');
-  const [isInteracting, setIsInteracting] = useState(false);
   const [animatingTab, setAnimatingTab]   = useState('visa');
 
   // For processing tab
@@ -248,7 +388,25 @@ export default function TravelMenu() {
   // Countries list (loaded via API or imported)
   const countriesList = countries; // alias for clarity
 
+  // Menu bar scroll + arrow state
   const scrollRef = useRef(null);
+  const [canScrollLeft,  setCanScrollLeft]  = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const updateArrows = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  };
+
+  useEffect(() => {
+    updateArrows();
+    window.addEventListener('resize', updateArrows);
+    return () => window.removeEventListener('resize', updateArrows);
+  }, []);
+
+  const showArrows = canScrollLeft || canScrollRight;
 
   const filteredStudyCountries = useMemo(() => {
     return countriesList.filter(c =>
@@ -292,7 +450,7 @@ export default function TravelMenu() {
   };
   // ──────────────────────────────────────────────────────────────────────────
 
-// ── Derived visa-guide slug & href ────────────────────────────────────────
+  // ── Derived visa-guide slug & href ────────────────────────────────────────
   const visaStatusMeta = resolveVisaStatus(visaResult?.visa_status);
 
   const visaGuideSlug = visaResult
@@ -324,28 +482,45 @@ export default function TravelMenu() {
     }
   };
 
-  const handleTabClick = (tabId) => {
+  const handleTabClick = (tabId, e) => {
     setActiveTab(tabId);
     setSearchTerm('');
     setShowSuggestions(false);
     setAnimatingTab(tabId);
     setTimeout(() => setAnimatingTab(null), 700);
+
+    // Bring the clicked tab into view inside the menu bar
+    if (e?.currentTarget?.scrollIntoView) {
+      e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
   };
+
+  const whatsappCta = WHATSAPP_CTA[activeTab] || null;
 
   return (
     <div className="w-full max-w-6xl mx-auto p-2 font-sans relative mt-24 mb-4">
       
       {/* 1. FLOATING MENU BAR */}
       <div className="relative z-20 flex justify-center px-2">
-        <div className="flex items-center bg-white border border-gray-100 shadow-xl rounded-2xl p-1 w-full sm:w-auto">
+        <div className="flex items-center bg-white border border-gray-100 shadow-xl rounded-2xl p-1 w-full sm:w-auto max-w-full sm:max-w-2xl md:max-w-3xl">
           
-          <button onClick={() => scroll('left')} className="p-1.5 cursor-pointer hover:bg-gray-50 rounded-xl shrink-0 sm:hidden">
-            <ChevronLeft size={16} className="text-gray-400" />
-          </button>
+          {showArrows && (
+            <button
+              onClick={() => scroll('left')}
+              disabled={!canScrollLeft}
+              aria-label="Scroll menu left"
+              className={`p-1.5 rounded-xl shrink-0 transition-all ${
+                canScrollLeft ? 'cursor-pointer hover:bg-gray-100' : 'opacity-30 cursor-default'
+              }`}
+            >
+              <ChevronLeft size={18} className="text-gray-500" />
+            </button>
+          )}
 
           <div 
             ref={scrollRef}
-            className="flex items-center overflow-x-auto no-scrollbar scroll-smooth flex-nowrap px-1"
+            onScroll={updateArrows}
+            className="flex items-center overflow-x-auto no-scrollbar scroll-smooth flex-nowrap px-1 min-w-0 flex-1"
             style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
           >
             {TABS.map((tab) => {
@@ -356,7 +531,7 @@ export default function TravelMenu() {
               return (
                 <button
                   key={tab.id}
-                  onClick={() => handleTabClick(tab.id)}
+                  onClick={(e) => handleTabClick(tab.id, e)}
                   className="flex-shrink-0 cursor-pointer relative flex flex-col items-center px-4 sm:px-6 py-1.5 transition-all outline-none"
                 >
                   <motion.div
@@ -382,9 +557,18 @@ export default function TravelMenu() {
             })}
           </div>
 
-          <button onClick={() => scroll('right')} className="p-1.5 cursor-pointer hover:bg-gray-50 rounded-xl shrink-0 sm:hidden">
-            <ChevronRight size={16} className="text-gray-400" />
-          </button>
+          {showArrows && (
+            <button
+              onClick={() => scroll('right')}
+              disabled={!canScrollRight}
+              aria-label="Scroll menu right"
+              className={`p-1.5 rounded-xl shrink-0 transition-all ${
+                canScrollRight ? 'cursor-pointer hover:bg-gray-100' : 'opacity-30 cursor-default'
+              }`}
+            >
+              <ChevronRight size={18} className="text-gray-500" />
+            </button>
+          )}
         </div>
       </div>
 
@@ -443,7 +627,7 @@ export default function TravelMenu() {
                 )}
 
                 {/* ── Result card ── */}
-              {visaResult && (() => {
+                {visaResult && (() => {
                   const meta = visaStatusMeta;
                   const color = meta?.color || "#10b981";
                   const light = meta?.light || "#ecfdf5";
@@ -547,29 +731,22 @@ export default function TravelMenu() {
 
             {/* ════════════════ FLIGHT TAB ════════════════ */}
             {activeTab === 'flight' && (
-              <div className="space-y-2 w-full text-center">
+              <InfoRow
+                icon={Plane}
+                iconClass="text-blue-900"
+                title="Book with Expert Support"
+                subtitle="Official airline tickets with instant confirmation."
+                rightLabel="Our official airline partners"
+              >
                 <div
-                  className={`w-full relative rounded-xl bg-white/40 overflow-hidden transition-all duration-300 ease-in-out
-                    ${isInteracting ? 'h-[380px] sm:h-[520px] z-50' : 'h-[220px] sm:h-[110px] z-10'}`}
-                  onMouseEnter={() => setIsInteracting(true)}
-                  onMouseLeave={() => setIsInteracting(false)}
+                  className="flex items-center gap-4 sm:gap-5 overflow-x-auto no-scrollbar"
+                  style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
                 >
-                  <div className="w-full h-full overflow-y-auto overflow-x-hidden">
-                    <iframe
-                      src="/travelpayouts.html"
-                      scrolling="yes"
-                      className="w-full h-[900px] border-0"
-                      style={{ background: 'transparent', display: 'block' }}
-                    />
-                  </div>
-                  {!isInteracting && (
-                    <div
-                      className="absolute inset-0 z-20 cursor-pointer"
-                      onClick={() => setIsInteracting(true)}
-                    />
-                  )}
+                  {AIRLINE_PARTNERS.map(a => (
+                    <AirlineLogo key={a.code} code={a.code} name={a.name} />
+                  ))}
                 </div>
-              </div>
+              </InfoRow>
             )}
 
             {/* ════════════════ SCHOLARSHIPS TAB ════════════════ */}
@@ -717,115 +894,143 @@ export default function TravelMenu() {
             )}
 
             {/* ════════════════ PROCESSING TAB ════════════════ */}
-{activeTab === 'processing' && (
-  <div className="space-y-3 w-full">
-    <h2 className="text-sm sm:text-lg font-black text-gray-800 text-center tracking-tight leading-none">
-      Visa Processing Time Tracker
-    </h2>
+            {activeTab === 'processing' && (
+              <div className="space-y-3 w-full">
+                <h2 className="text-sm sm:text-lg font-black text-gray-800 text-center tracking-tight leading-none">
+                  Visa Processing Time Tracker
+                </h2>
 
-    <div className="flex flex-col md:flex-row items-stretch md:items-center gap-2 max-w-4xl mx-auto w-full">
+                <div className="flex flex-col md:flex-row items-stretch md:items-center gap-2 max-w-4xl mx-auto w-full">
 
-      {/* Your Passport */}
-      <ProcessingCountrySelector
-        label="Your Passport"
-        value={procOrigin}
-        onChange={setProcOrigin}
-        exclude={procDestination}
-        recentKey="recent_proc_origin"
-      />
+                  {/* Your Passport */}
+                  <ProcessingCountrySelector
+                    label="Your Passport"
+                    value={procOrigin}
+                    onChange={setProcOrigin}
+                    exclude={procDestination}
+                    recentKey="recent_proc_origin"
+                  />
 
-      <div className="hidden md:flex shrink-0 px-1">
-        <ChevronRightIcon size={14} className="text-slate-300" />
-      </div>
-
-      {/* Destination */}
-      <ProcessingCountrySelector
-        label="Destination"
-        value={procDestination}
-        onChange={setProcDestination}
-        exclude={procOrigin}
-        recentKey="recent_proc_dest"
-      />
-  
-
-      {/* Visa Type */}
-      <div className="md:w-40 bg-slate-50/70 px-3 py-1.5 rounded-xl border border-slate-100 text-left">
-        <p className="text-[8px] font-black uppercase text-yellow-600 leading-none mb-0.5">Visa Type</p>
-        <select
-          value={visaType}
-          onChange={e => setVisaType(e.target.value)}
-          className="bg-transparent cursor-pointer text-[13px] font-bold outline-none w-full appearance-none text-yellow-700"
-        >
-          {VISA_TYPES_CAT.map(v => (
-            <option key={v.value} value={v.value}>{v.label}</option>
-          ))}
-        </select>
-      </div>
-    </div>
-
-    {/* Popular Destinations */}
-    <div className="w-full max-w-4xl mx-auto">
-      <div className="flex items-center justify-between mb-2">
-        <p className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Popular Destinations</p>
-        <div className="h-[1px] flex-1 bg-slate-100 ml-4" />
-      </div>
-      <div className="grid grid-cols-4 md:grid-cols-8 gap-2">
-        {PROCESSING_COUNTRIES.map(c => (
-          <Link
-            key={c.name}
-            href={`/travel-resources/visa-processing-time-tracker/${procOrigin.replace(/\s+/g, "-")}-national-visa-processing-time-for-${c.name.toLowerCase().replace(/\s+/g, "-")}-${visaType}`}
-            className="group flex flex-col items-center gap-1 bg-white border border-gray-100 rounded-xl p-2 hover:border-yellow-400 hover:shadow-sm transition-all"
-          >
-            <img src={c.flag} alt={c.name} className="w-8 h-5 object-cover rounded-sm" />
-            <span className="text-[9px] font-black text-gray-700 text-center leading-tight">{c.name}</span>
-            <span className="text-[8px] font-bold text-yellow-600 text-center leading-tight">{c.time}</span>
-          </Link>
-        ))}
-      </div>
-    </div>
-  </div>
-)}
-
-            {/* ════════════════ TOUR TAB ════════════════ */}
-            {activeTab === 'tour' && (
-              <div className="space-y-3 w-full text-center">
-                <h2 className="text-sm sm:text-lg font-black text-gray-800 tracking-tight leading-none">Find Best Tour Packages</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-w-2xl mx-auto w-full">
-                  <div className="bg-slate-50 border border-slate-100 p-2.5 rounded-xl text-left">
-                    <p className="text-[8px] font-black uppercase text-amber-700 leading-none mb-0.5">Destination</p>
-                    <p className="text-[13px] font-bold">Search Packages...</p>
+                  <div className="hidden md:flex shrink-0 px-1">
+                    <ChevronRightIcon size={14} className="text-slate-300" />
                   </div>
-                  <div className="bg-slate-50 border border-slate-100 p-2.5 rounded-xl text-left">
-                    <p className="text-[8px] font-black uppercase text-amber-700 leading-none mb-0.5">Month</p>
-                    <p className="text-[13px] font-bold">Anytime</p>
+
+                  {/* Destination */}
+                  <ProcessingCountrySelector
+                    label="Destination"
+                    value={procDestination}
+                    onChange={setProcDestination}
+                    exclude={procOrigin}
+                    recentKey="recent_proc_dest"
+                  />
+
+                  {/* Visa Type */}
+                  <div className="md:w-40 bg-slate-50/70 px-3 py-1.5 rounded-xl border border-slate-100 text-left">
+                    <p className="text-[8px] font-black uppercase text-yellow-600 leading-none mb-0.5">Visa Type</p>
+                    <select
+                      value={visaType}
+                      onChange={e => setVisaType(e.target.value)}
+                      className="bg-transparent cursor-pointer text-[13px] font-bold outline-none w-full appearance-none text-yellow-700"
+                    >
+                      {VISA_TYPES_CAT.map(v => (
+                        <option key={v.value} value={v.value}>{v.label}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Popular Destinations */}
+                <div className="w-full max-w-4xl mx-auto">
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Popular Destinations</p>
+                    <div className="h-[1px] flex-1 bg-slate-100 ml-4" />
+                  </div>
+                  <div className="grid grid-cols-4 md:grid-cols-8 gap-2">
+                    {PROCESSING_COUNTRIES.map(c => (
+                      <Link
+                        key={c.name}
+                        href={`/travel-resources/visa-processing-time-tracker/${procOrigin.replace(/\s+/g, "-")}-national-visa-processing-time-for-${c.name.toLowerCase().replace(/\s+/g, "-")}-${visaType}`}
+                        className="group flex flex-col items-center gap-1 bg-white border border-gray-100 rounded-xl p-2 hover:border-yellow-400 hover:shadow-sm transition-all"
+                      >
+                        <img src={c.flag} alt={c.name} className="w-8 h-5 object-cover rounded-sm" />
+                        <span className="text-[9px] font-black text-gray-700 text-center leading-tight">{c.name}</span>
+                        <span className="text-[8px] font-bold text-yellow-600 text-center leading-tight">{c.time}</span>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>
             )}
 
+            {/* ════════════════ TOUR TAB ════════════════ */}
+            {activeTab === 'tour' && (
+              <InfoRow
+                icon={Palmtree}
+                iconClass="text-teal-700"
+                title="Find Best Tour Packages"
+                subtitle="Custom packages with hotels, transfers and visa support."
+                rightLabel="Popular destinations"
+              >
+                <div
+                  className="flex items-center gap-2 overflow-x-auto no-scrollbar"
+                  style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
+                >
+                  {TOUR_DESTINATIONS.map(d => (
+                    <div
+                      key={d.name}
+                      className="shrink-0 flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-full pl-1.5 pr-2.5 py-1"
+                    >
+                      <img src={d.flag} alt="" className="w-4 h-3 object-cover rounded-[2px]" />
+                      <span className="text-[10px] sm:text-[11px] font-bold text-slate-600 whitespace-nowrap">{d.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </InfoRow>
+            )}
+
             {/* ════════════════ ACTIVITIES TAB ════════════════ */}
             {activeTab === 'activities' && (
-              <div className="space-y-3 w-full text-center">
-                <h2 className="text-sm sm:text-lg font-black text-gray-800 tracking-tight leading-none">Discover Things to Do</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-w-2xl mx-auto w-full">
-                  <div className="bg-slate-50 border border-slate-100 p-2.5 rounded-xl text-left">
-                    <p className="text-[8px] font-black uppercase text-rose-600 leading-none mb-0.5">Location</p>
-                    <p className="text-[13px] font-bold">City or Activity...</p>
-                  </div>
-                  <div className="bg-slate-50 border border-slate-100 p-2.5 rounded-xl text-left">
-                    <p className="text-[8px] font-black uppercase text-rose-600 leading-none mb-0.5">Category</p>
-                    <p className="text-[13px] font-bold">Adventure & Fun</p>
-                  </div>
+              <InfoRow
+                icon={Ticket}
+                iconClass="text-orange-600"
+                title="Discover Things to Do"
+                subtitle="Book tickets, tours and experiences for your trip."
+                rightLabel="Popular activities"
+              >
+                <div
+                  className="flex items-center gap-2 overflow-x-auto no-scrollbar"
+                  style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
+                >
+                  {ACTIVITY_TYPES.map(a => (
+                    <div
+                      key={a.label}
+                      className="shrink-0 flex items-center gap-1.5 bg-slate-50 border border-slate-100 rounded-full px-2.5 py-1"
+                    >
+                      <span className="text-sm leading-none">{a.icon}</span>
+                      <span className="text-[10px] sm:text-[11px] font-bold text-slate-600 whitespace-nowrap">{a.label}</span>
+                    </div>
+                  ))}
                 </div>
-              </div>
+              </InfoRow>
             )}
 
           </motion.div>
         </AnimatePresence>
 
         {/* ── OVERLAPPING CTA BUTTON ── */}
-        {activeTab !== 'flight' && (
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex justify-center w-full px-8">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex justify-center w-full px-8">
+          {whatsappCta ? (
+            /* Flight / Tours / Activities: green WhatsApp button, same position as "Check Visa Now" */
+            <a
+              href={buildWhatsAppLink(whatsappCta.message)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-64 bg-[#25D366] hover:bg-[#1ebe5a] text-white py-3 sm:py-3.5 rounded-xl font-black text-xs sm:text-sm uppercase shadow-xl text-center active:scale-95 transition-all flex items-center justify-center gap-2"
+            >
+              <WhatsAppIcon size={18} />
+              {whatsappCta.label}
+            </a>
+          ) : (
             <Link 
               href={
                 activeTab === 'visa'
@@ -835,9 +1040,7 @@ export default function TravelMenu() {
                   : activeTab === 'study'        ? '/study-abroad/student-visa'
                   : activeTab === 'scholarships' ? '/scholarships'
                   : activeTab === 'templates'    ? '/travel-resources'
-                  : activeTab === 'processing'   ? `/travel-resources/visa-processing-time-tracker/${procOrigin.replace(/\s+/g, "-")}-national-visa-processing-time-for-${procDestination.replace(/\s+/g, "-")}-${visaType}`
-                  : activeTab === 'tour'         ? '/our-services/tour-packages'
-                  :                               '/our-services/things-to-do'
+                  :                               `/travel-resources/visa-processing-time-tracker/${procOrigin.replace(/\s+/g, "-")}-national-visa-processing-time-for-${procDestination.replace(/\s+/g, "-")}-${visaType}`
               }
               onClick={(e) => {
                 // On visa tab: first click fires the API check; second click navigates
@@ -856,12 +1059,10 @@ export default function TravelMenu() {
                 : activeTab === 'study'        ? 'Search Study'
                 : activeTab === 'scholarships' ? 'Find Scholarships'
                 : activeTab === 'templates'    ? 'Download Templates'
-                : activeTab === 'processing'   ? 'Track Processing'
-                : activeTab === 'tour'         ? 'Search Tour'
-                :                               'Search Activities'}
+                :                               'Track Processing'}
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

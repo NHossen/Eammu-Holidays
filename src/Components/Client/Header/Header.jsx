@@ -80,14 +80,14 @@ export default function Header() {
       </div>
 
       {/* ================= NAVBAR ================= */}
-      <nav className="fixed top-13 md:top-9 left-0 w-full z-50 glass-liquid-water transition-all duration-300">
+      <nav className="fixed top-13 md:top-9 left-0 w-full z-50 bg-[#fdfffc] transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 h-16 sm:h-16 flex items-center justify-between">
           
           {/* Logo Section */}
           <div className="flex items-center gap-4">
             <button 
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden p-2 -ml-2 text-[#005a31] hover:bg-green-50 rounded-full transition-colors"
+              className="lg:hidden p-2 -ml-2 bg-[#005a31] text-white hover:bg-[#00a45a] rounded-[14px] transition-colors"
             >
               <Menu size={28} />
             </button>
