@@ -431,7 +431,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} antialiased`}>
       <head>
-        <meta name="google-adsense-account" content="ca-pub-3033816186833488" />
+        <meta name="google-adsense-account" content="ca-pub-2867368240211709" />
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
@@ -455,7 +455,7 @@ export default function RootLayout({ children }) {
 
         <script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3033816186833488"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2867368240211709"
           crossOrigin="anonymous"
         />
       </body>

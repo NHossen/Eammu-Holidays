@@ -1,113 +1,96 @@
 "use client";
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import Image from 'next/image';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-const topActivities = [
-  { 
-    title: 'SYLHET TOUR', 
-    img: 'https://ttg.com.bd/uploads/tours/plans/207_ratargul_swamp_forest_sylhetjpg.jpg', 
-    alt: 'Ratargul Swamp Forest boat tour in Sylhet - Eammu Holidays',
-    link: '/tour-packages',
-    waMsg: 'I want to book the Sylhet Tour' 
-  },
-  { 
-    title: 'DHAKA TOUR', 
-    img: 'https://res.klook.com/images/w_1200,h_630,c_fill,q_65/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/wxekabbs9sdnofxhjgqe/Dhaka%20Fantasy%20Kingdom%20Tour.jpg', 
-    alt: 'Fantasy Kingdom and Dhaka City Day Tour Packages',
-    link: '/tour-packages',
-    waMsg: 'I want to book the Dhaka Tour' 
-  },
-  { 
-    title: 'DESERT SAFARI', 
-    img: 'https://cdn.hotairballoonindubai.com/wp-content/uploads/2012/06/Morning-Bliss-Balloon-Ride-Home-Page-thumbnail-820x520.jpg', 
-    alt: 'Morning Hot Air Balloon and Desert Safari in Dubai',
-    link: '/tour-packages',
-    waMsg: 'I want to book the Desert Safari' 
-  },
-  { 
-    title: 'ARMENIA CITY', 
-    img: 'https://southtravels.com/public/uploads/MZcyf88tObOWPA5x3wSCXBHA0t3jxXpKyJYC7Bji.jpeg', 
-    alt: 'Armenia City Sightseeing and Cultural Heritage Tour',
-    link: '/visa-services/armenia-visa-application',
-    waMsg: 'I want to book the Armenia City Tour' 
-  },
-  { 
-    title: 'GEORGIA WINE', 
-    img: 'https://cdn.yourholiday.me/static/dynimg/itinerary/64/600x300/2969418-2969417_georgia.jpg', 
-    alt: 'Georgia Wine Tasting and Caucasus Mountain Exploration Tour',
-    link: '/visa-services/georgia-visa-application',
-    waMsg: 'I want to book the Georgia Wine Tour' 
-  },
-];
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ACTIVITIES } from "../activitiesData";
 
 export default function TopActivities() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
   const carouselRef = useRef(null);
 
-  // Automatic slide movement every 5 seconds
+  // Automatic slide movement every 4 seconds (paused on hover/focus, off for reduced motion)
   useEffect(() => {
+    if (paused) return undefined;
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return undefined;
+    }
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % topActivities.length);
+      setCurrentIndex((prev) => (prev + 1) % ACTIVITIES.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [paused]);
 
   // Sync scroll position with the active index
   useEffect(() => {
     const container = carouselRef.current;
     if (container && container.children[currentIndex]) {
       const activeItem = container.children[currentIndex];
-      container.scrollTo({ 
-        left: activeItem.offsetLeft - container.offsetLeft, 
-        behavior: "smooth" 
+      container.scrollTo({
+        left: activeItem.offsetLeft - container.offsetLeft,
+        behavior: "smooth",
       });
     }
   }, [currentIndex]);
 
   return (
-    <div className="bg-white py-10 px-4">
-      <div className="max-w-7xl mx-auto relative">
-        {/* Header matching your visual style */}
-        <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl md:text-2xl font-bold text-[#004d2c] tracking-tight">
+    <div
+      id="top-activities"
+      className="scroll-mt-24 bg-white px-4 py-10"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+    >
+      <div className="relative mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="mb-6 flex items-center gap-4">
+          <h2 className="text-xl font-bold tracking-tight text-[#004d2c] md:text-2xl">
             TOP ACTIVITIES
           </h2>
           <div className="h-[2px] w-20 bg-[#004d2c]" />
         </div>
+        <p className="mb-6 max-w-3xl text-sm text-gray-600">
+          Day tours and signature experiences in Bangladesh, Dubai, Armenia and Georgia. Select a card
+          to learn more, or scroll to the activity guides below for details.
+        </p>
 
         {/* Carousel Container */}
-        <div 
-          ref={carouselRef} 
-          className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 hide-scrollbar"
+        <div
+          ref={carouselRef}
+          className="hide-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4"
         >
-          {topActivities.map((activity, index) => (
-            <motion.div 
-              key={index} 
-              className="snap-center min-w-[90%] sm:min-w-[60%] md:min-w-[45%] lg:min-w-[32%] aspect-[3/1.3] rounded-xl overflow-hidden relative shadow-md bg-gray-100" 
+          {ACTIVITIES.map((activity, index) => (
+            <motion.div
+              key={activity.id}
+              className="relative aspect-[3/1.3] min-w-[90%] snap-center overflow-hidden rounded-xl bg-gray-100 shadow-md sm:min-w-[60%] md:min-w-[45%] lg:min-w-[32%]"
               whileHover={{ scale: 1.01 }}
             >
-              <Link href={activity.link || "#"} className="block w-full h-full relative">
-                {/* Next.js Optimized Image */}
+              <Link
+                href={activity.link || "#"}
+                aria-label={`${activity.title} – ${activity.region}`}
+                className="relative block h-full w-full focus-visible:outline focus-visible:outline-4 focus-visible:-outline-offset-4 focus-visible:outline-[#005a31]"
+              >
                 <img
-                  src={activity.img} 
-                  alt={activity.alt} 
-                  fill 
-                  className="object-cover" /* Changed to object-cover to avoid stretching */
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  src={activity.img}
+                  alt={activity.alt}
+                  width={600}
+                  height={260}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
-                
+
                 {/* Dark Overlay & Text */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent flex items-end p-4">
+                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 via-transparent p-4">
                   <div>
-                    <p className="text-green-400 text-[10px] uppercase font-bold tracking-widest mb-1">
-                      Premium Choice
+                    <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-green-400">
+                      {activity.region}
                     </p>
-                    <p className="text-white font-bold text-sm md:text-lg uppercase">
+                    <h3 className="text-sm font-bold uppercase text-white md:text-lg">
                       {activity.title}
-                    </p>
+                    </h3>
                   </div>
                 </div>
               </Link>
@@ -117,21 +100,25 @@ export default function TopActivities() {
 
         {/* Navigation Buttons */}
         <button
-          className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg text-gray-800 z-30 hover:bg-gray-50 border border-gray-100"
-          onClick={() => setCurrentIndex((prev) => (prev - 1 + topActivities.length) % topActivities.length)}
+          type="button"
+          aria-label="Previous activity"
+          className="absolute -left-5 top-1/2 z-30 hidden -translate-y-1/2 rounded-full border border-gray-100 bg-white p-2 text-gray-800 shadow-lg hover:bg-gray-50 md:flex"
+          onClick={() => setCurrentIndex((prev) => (prev - 1 + ACTIVITIES.length) % ACTIVITIES.length)}
         >
           <ChevronLeft size={24} />
         </button>
-        
+
         <button
-          className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-lg text-gray-800 z-30 hover:bg-gray-50 border border-gray-100"
-          onClick={() => setCurrentIndex((prev) => (prev + 1) % topActivities.length)}
+          type="button"
+          aria-label="Next activity"
+          className="absolute -right-5 top-1/2 z-30 hidden -translate-y-1/2 rounded-full border border-gray-100 bg-white p-2 text-gray-800 shadow-lg hover:bg-gray-50 md:flex"
+          onClick={() => setCurrentIndex((prev) => (prev + 1) % ACTIVITIES.length)}
         >
           <ChevronRight size={24} />
         </button>
       </div>
 
-      {/* Tailwind helper to hide scrollbars while keeping functionality */}
+      {/* Hide scrollbars while keeping scroll functionality */}
       <style jsx global>{`
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
