@@ -1,10 +1,10 @@
 import EammuDairy from '@/Components/Client/eammuGroupClient/EammuDairy/EammuDairy'
 import React from 'react'
+
 export const metadata = {
   metadataBase: new URL("https://eammu.com"),
 
-  title:
-    "Eammu Dairy & Poultry | Quality Farm Products, Production & Supply",
+  title: "Eammu Dairy & Poultry | Quality Farm Products, Production & Supply",
 
   description:
     "Eammu Dairy & Poultry provides high-quality dairy and poultry products with hygienic production standards. Learn about our fresh milk supply, eggs, poultry farming services, quality control, and sustainable farming practices in Bangladesh.",
@@ -39,16 +39,11 @@ export const metadata = {
 
   openGraph: {
     title: "Eammu Dairy & Poultry | Fresh & Hygienic Farm Products",
-
     description:
       "High-quality dairy and poultry products from Eammu. Fresh milk, eggs, and farm-based food supply with strict hygiene standards in Bangladesh.",
-
     url: "https://eammu.com/eammu-dairy-poultry",
-
     siteName: "Eammu Holidays",
-
     type: "website",
-
     images: [
       {
         url: "/eammu_banner_four.webp",
@@ -67,10 +62,11 @@ export const metadata = {
     images: ["/eammu_banner_four.webp"],
   },
 };
-export default function page() {
+
+export default function Page() {
   return (
-    <div>
+    <main>
       <EammuDairy />
-    </div>
+    </main>
   )
 }

@@ -431,10 +431,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} antialiased`}>
       <head>
-        
-        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-        <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        {/* AdSense related preconnects removed temporarily for traffic recovery */}
       </head>
       <body className="antialiased">
         <script
