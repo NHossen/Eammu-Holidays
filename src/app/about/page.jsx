@@ -1,235 +1,140 @@
-import HomeSeoLinks from '@/Components/HomeSeoLinks/HomeSeoLinks';
-import AboutServer from '@/Components/Server/AboutServer/AboutServer';
-import React from 'react';
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
+import AboutServer, {
+  CONTACT,
+  FOUNDING_YEAR,
+  SERVICE_MARKETS,
+  SITE,
+  faqs,
+} from "@/Components/Server/AboutServer/AboutServer";
+
+const PAGE_URL = `${SITE}/about`;
+const ORG_ID = `${SITE}/#organization`;
 
 export const metadata = {
-  title: "Travel Agency Bangladesh | Eammu Holidays",
-
+  metadataBase: new URL(SITE),
+  // `absolute` prevents a root-layout title template from appending the brand twice.
+  title: { absolute: "About Eammu Holidays | Travel, Visa & Study Abroad Consultancy" },
   description:
-    "Eammu Holidays is a leading international travel and visa consultancy founded in 2012, serving clients from Bangladesh, Dubai, UAE, Armenia & Georgia. We offer student visa processing, Umrah packages, holiday tours, and immigration consulting with a 95% visa success rate.",
-
-  keywords: [
-    "about Eammu Holidays",
-    "travel agency Bangladesh",
-    "visa consultancy Bangladesh",
-    "Dubai travel agency",
-    "international tour operator Bangladesh",
-    "Umrah travel agency Bangladesh",
-    "student visa consultancy Bangladesh",
-    "immigration consultant Bangladesh",
-    "visa service Bangladesh",
-    "travel agency Dhaka",
-    "eammu holidays about",
-    "best travel agency Bangladesh 2024",
-    "trusted visa service provider",
-    "global travel agency Bangladesh",
-    "holiday packages Bangladesh",
-    "work permit Bangladesh",
-    "Canada visa Bangladesh",
-    "UK student visa Bangladesh",
-  ],
-
-  metadataBase: new URL("https://eammu.com"),
-
-  alternates: {
-    canonical: "https://eammu.com/about",
-  },
-
+    "Bangladesh-based travel, study abroad and visa consultancy serving Dhaka, Chattogram, Sylhet and nationwide, with flights, tours, Umrah and international visa guidance.",
+  alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "About Eammu Holidays | Trusted Travel & Visa Agency Since 2012",
+    title: "About Eammu Holidays | Travel, Visa & Study Abroad Consultancy",
     description:
-      "Meet the team behind Eammu Holidays – a globally trusted travel & visa consultancy helping thousands explore the world from Bangladesh, UAE, Armenia & Georgia. 95% visa success rate.",
-    url: "https://eammu.com/about",
+      "Meet Eammu Holidays: international travel, overseas education and visa guidance with transparent advice, from Bangladesh to the world.",
+    url: PAGE_URL,
     siteName: "Eammu Holidays",
     locale: "en_US",
+    type: "website",
     images: [
       {
         url: "/preview-banner.webp",
         width: 1200,
         height: 630,
-        alt: "Eammu Holidays – Trusted Travel and Visa Consultancy Bangladesh",
+        alt: "Eammu Holidays travel, visa and overseas education consultancy",
       },
     ],
-    type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
-    title: "About Eammu Holidays | Trusted Travel & Visa Agency",
+    title: "About Eammu Holidays",
     description:
-      "Leading travel & visa consultancy from Bangladesh with 95% visa success rate. Student visas, Umrah, tours, and more.",
+      "Travel, visa and overseas education guidance from Bangladesh. Air tickets, tours, Umrah and study abroad support.",
     images: ["/preview-banner.webp"],
   },
-
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
 };
 
-// JSON-LD Structured Data
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "TravelAgency",
-  name: "Eammu Holidays",
-  url: "https://eammu.com",
-  logo: "https://eammu.com/logo.png",
-  image: "https://eammu.com/preview-banner.webp",
-  description:
-    "Eammu Holidays is a professional global travel agency offering visa assistance, holiday packages, student visa services, Umrah packages, and international relocation solutions from Bangladesh, Dubai, UAE, Armenia & Georgia.",
-  foundingDate: "2012",
-  slogan: "Connecting Dreams to Destinations Worldwide",
-  numberOfEmployees: { "@type": "QuantitativeValue", value: "50" },
-  areaServed: ["BD", "AE", "AM", "GE", "GB", "CA", "US", "AU"],
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: "+971507078334",
-      contactType: "customer service",
-      availableLanguage: ["English", "Bengali"],
-      contactOption: "TollFree",
-    },
-    {
-      "@type": "ContactPoint",
-      telephone: "+971507078334",
-      contactType: "customer service",
-      areaServed: "AE",
-    },
-  ],
-  address: {
-    "@type": "PostalAddress",
-    addressCountry: "BD",
-    addressLocality: "Dhaka",
-  },
-  sameAs: [
-    "https://www.facebook.com/eammuholidays",
-    "https://www.instagram.com/eammuholidays",
-  ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Eammu Holidays Services",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Student Visa Consultancy",
-          description:
-            "Professional student visa processing for UK, USA, Canada, Australia with documentation and interview preparation.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Umrah Packages",
-          description:
-            "All-inclusive Umrah travel packages from Bangladesh with flights, hotel, and visa.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Holiday Tour Packages",
-          description:
-            "Custom holiday packages to destinations across Europe, Asia, and the Middle East.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Immigration & Work Permit",
-          description:
-            "Immigration consulting and work permit assistance for UAE, Canada, and Europe.",
-        },
-      },
-    ],
-  },
-};
+/* ───────── JSON-LD: one @graph, entities linked by @id ───────── */
 
-const breadcrumbSchema = {
+const service = (id, name, description) => ({
+  "@type": "Service",
+  "@id": `${PAGE_URL}#${id}`,
+  name,
+  description,
+  provider: { "@id": ORG_ID },
+  areaServed: { "@type": "Country", name: "Bangladesh" },
+});
+
+const graph = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
+  "@graph": [
     {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://eammu.com",
+      "@type": ["Organization", "TravelAgency"],
+      "@id": ORG_ID,
+      name: "Eammu Holidays",
+      url: SITE,
+      logo: `${SITE}/logo.png`,
+      image: `${SITE}/preview-banner.webp`,
+      description:
+        "Travel, overseas education and visa consultancy originating from Bangladesh, offering air ticketing, tour packages, Umrah travel and global mobility guidance.",
+      slogan: "Connecting You To The World",
+      // Only emitted once FOUNDING_YEAR is confirmed in AboutServer.jsx
+      ...(FOUNDING_YEAR ? { foundingDate: FOUNDING_YEAR } : {}),
+      email: CONTACT.email,
+      telephone: CONTACT.phone,
+      areaServed: SERVICE_MARKETS.map((m) => m.code),
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          telephone: CONTACT.phone,
+          email: CONTACT.email,
+          availableLanguage: ["English", "Bengali"],
+        },
+      ],
+      sameAs: [
+        "https://www.facebook.com/eammuholidays",
+        "https://www.instagram.com/eammuholidays",
+      ],
+      // No address, employee count, rating or review data: none verified.
     },
     {
-      "@type": "ListItem",
-      position: 2,
-      name: "About Us",
-      item: "https://eammu.com/about",
+      "@type": "AboutPage",
+      "@id": `${PAGE_URL}#webpage`,
+      url: PAGE_URL,
+      name: "About Eammu Holidays",
+      inLanguage: "en",
+      isPartOf: { "@type": "WebSite", "@id": `${SITE}/#website`, url: SITE, name: "Eammu Holidays" },
+      about: { "@id": ORG_ID },
+      breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
+      primaryImageOfPage: { "@type": "ImageObject", url: `${SITE}/preview-banner.webp` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${PAGE_URL}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+        { "@type": "ListItem", position: 2, name: "About Us", item: PAGE_URL },
+      ],
+    },
+    service("education", "Overseas education consultancy", "Guidance for students from Bangladesh on course and university selection, applications, SOP, financial documents and student visa preparation."),
+    service("tourist-visa", "Tourist and visitor visa guidance", "Document checklists, itinerary preparation and application guidance for tourist and family visit visas."),
+    service("air-ticketing", "International air ticketing", "One-way, return, multi-city, group and corporate flight reservations and ticketing."),
+    service("tours", "International tour packages", "Customised holiday, family, honeymoon and group tours worldwide and within Bangladesh."),
+    service("umrah", "Umrah travel services", "Umrah travel planning including flights, hotels and travel coordination."),
+    {
+      "@type": "FAQPage",
+      "@id": `${PAGE_URL}#faq`,
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
     },
   ],
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Why travel with Eammu Holidays?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "With years of international experience and offices in Bangladesh, Dubai, Armenia, and Georgia, we provide ethical, transparent, and comprehensive visa and travel solutions with a 95% visa success rate.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Does Eammu Holidays offer 24/7 customer support?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Our support team is available 24/7 via WhatsApp (+971507078334) and email (info@eammu.com).",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What services does Eammu Holidays offer?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Eammu Holidays offers student visa processing, Umrah packages, holiday tour packages, immigration consulting, work permit assistance, event management, IT services, fashion, dairy & agro, and textile services.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is Eammu Holidays' visa success rate?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Eammu Holidays maintains a 95% visa success rate across all categories including student visas, tourist visas, and work permits.",
-      },
-    },
-  ],
-};
+// Escape "<" so no string value can close the script tag.
+const jsonLd = JSON.stringify(graph).replace(/</g, "\\u003c");
 
 export default function AboutPage() {
   return (
     <>
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <AboutServer />
       <HomeSeoLinks />
     </>

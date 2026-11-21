@@ -5,6 +5,7 @@ import Footer from "@/Components/Server/Footer/Footer";
 import WhatsAppFloatingButton from "@/Components/Client/WhatsAppFloatingButton/WhatsAppFloatingButton";
 import Scroll from "@/Components/Client/Scroll/Scroll";
 import ServiceWorkerRegister from "@/Components/ServiceWorkerRegister";
+import CustomCursor from "@/Components/CustomCursor/CustomCursor";
 
 const BASE_URL = "https://eammu.com";
 
@@ -440,7 +441,7 @@ export default function RootLayout({ children }) {
         />
 
         <Header />
-
+        <CustomCursor />
         <ServiceWorkerRegister />
         <main id="main-content" role="main">
           {children}
