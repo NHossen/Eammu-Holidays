@@ -55,6 +55,7 @@ const VISA_GUIDES = [
       { label: "Qatar Work Visa", href: "/our-services/visa/qatar-visa-application" },
       { label: "Dubai / UAE Work Visa", href: "/our-services/visa/dubai-visa-application" },
       { label: "Malaysia Work Visa", href: "/our-services/visa/malaysia-visa-application" },
+      { label: "Europe Work Visa", href: "/our-services/visa/europe-visa-application" },
       { label: "All Work Visa Services", href: "/our-services/visa-services/work-visa-from-bangladesh" },
     ],
   },
@@ -85,8 +86,10 @@ const VISA_GUIDES = [
     icon: "🇪🇺",
     color: "#DC2626",
     description: "Schengen & European country visas",
-    href: "/visa-checker",
+    href: "/schengen-visa",
     links: [
+      { label: "Schengen Visa Guide", href: "/schengen-visa" },
+      { label: "Europe Visa Application", href: "/our-services/visa/europe-visa-application" },
       { label: "Germany Visa", href: "/visa-checker/india-visa-for-germany/visa-required" },
       { label: "Spain Visa", href: "/visa-checker/india-visa-for-spain/visa-required" },
       { label: "Portugal Visa", href: "/visa-checker/india-visa-for-portugal/visa-required" },
@@ -95,7 +98,7 @@ const VISA_GUIDES = [
       { label: "Montenegro Visa For Bangladeshi", href: "/visa-checker/bangladesh-visa-for-montenegro/visa-required" },
       { label: "Kosovo Visa For Indian Nationals", href: "/visa-checker/india-visa-for-kosovo/visa-required" },
       { label: "Cyprus Visa For Indian", href: "/visa-checker/india-visa-for-cyprus/visa-required" },
-      { label: "Schengen Visa Guide", href: "/schengen-visa" },
+      { label: "Best Time to Apply for Schengen", href: "/best-time-to-apply-schengen-visa" },
       { label: "Europe Visa Overview", href: "/visa-checker/india-visa-for-italy/visa-required" },
     ],
   },
@@ -187,7 +190,7 @@ const VISA_GUIDE_SLUGS = [
   { label: "Thailand Visa for Bangladesh", href: "/visa-checker/bangladesh-visa-for-thailand/e-visa" },
   { label: "Serbia Visa for Bangladesh", href: "/visa/visa-guide/serbia-visa-for-bangladesh" },
   { label: "Armenia Visa for Bangladesh", href: "/visa/visa-guide/armenia-visa-for-bangladesh" },
-  { label: "Portugal Visa for Bangladesh", href: "/visa-checker/portugal-visa-for-bangladesh/visa-required" },
+  { label: "Portugal Visa for Bangladesh", href: "/visa-checker/bangladesh-visa-for-portugal/visa-required" },
   { label: "Bangladesh Visa for Morocco", href: "/visa/visa-guide/bangladesh-visa-for-morocco" },
   { label: "Check All Visa Requirements", href: "/visa-checker" },
 ];
@@ -234,6 +237,7 @@ const INDIA_HUB = {
     { label: "Germany Visa for India", href: "/visa/india/germany" },
     { label: "Japan Visa for India", href: "/visa/india/japan" },
     { label: "Turkey Visa for India", href: "/visa/india/turkey" },
+    { label: "UAE Visa for India", href: "/visa/india/united-arab-emirates" },
     { label: "Malaysia Visa for India", href: "/visa-checker/india-visa-for-malaysia/e-visa" },
   ],
 };
@@ -265,11 +269,11 @@ const POPULAR_DESTINATIONS = [
   { label: "Armenia", href: "/visa-checker/india-visa-for-armenia/e-visa", flag: "🇦🇲" },
   { label: "Thailand", href: "/visa-checker/india-visa-for-thailand/e-visa", flag: "🇹🇭" },
   { label: "South Korea", href: "/visa/dubai-residents/south-korea", flag: "🇰🇷" },
-  { label: "Portugal", href: "/visa/dubai-residents/portugal", flag: "🇵🇹" },
+  { label: "Serbia", href: "/visa/dubai-residents/serbia", flag: "🇷🇸" },
   { label: "Qatar", href: "/visa-checker/india-visa-for-qatar/e-visa", flag: "🇶🇦" },
 ];
 
-// Study abroad
+// Study abroad (student visa pages)
 const STUDY_ABROAD = [
   { label: "Study in USA", href: "/study-abroad/student-visa/united-states", flag: "🇺🇸" },
   { label: "Study in UK", href: "/study-abroad/student-visa/united-kingdom", flag: "🇬🇧" },
@@ -284,6 +288,52 @@ const STUDY_ABROAD = [
   { label: "Study in Albania", href: "/study-abroad/student-visa/albania", flag: "🇦🇱" },
   { label: "Study in Andorra", href: "/study-abroad/student-visa/andorra", flag: "🇦🇩" },
   { label: "All Student Visas", href: "/study-abroad/student-visa", flag: "🌐" },
+];
+
+// NEW — Study destination hubs: /study/[country] + the pages every hub shares.
+// [slug, label, flag, optional visa-requirements page override]
+const STUDY_DESTINATIONS = [
+  ["usa", "USA", "🇺🇸", "f1-student-visa-requirements-bangladesh"],
+  ["uk", "United Kingdom", "🇬🇧", "uk-student-visa-requirements-bangladesh"],
+  ["canada", "Canada", "🇨🇦"],
+  ["australia", "Australia", "🇦🇺"],
+  ["hungary", "Hungary", "🇭🇺"],
+  ["finland", "Finland", "🇫🇮"],
+  ["lithuania", "Lithuania", "🇱🇹"],
+  ["serbia", "Serbia", "🇷🇸"],
+  ["georgia", "Georgia", "🇬🇪"],
+  ["armenia", "Armenia", "🇦🇲"],
+  ["albania", "Albania", "🇦🇱"],
+  ["montenegro", "Montenegro", "🇲🇪"],
+  ["cyprus", "Cyprus", "🇨🇾"],
+  ["romania", "Romania", "🇷🇴"],
+  ["russia", "Russia", "🇷🇺"],
+  ["china", "China", "🇨🇳"],
+  ["south-korea", "South Korea", "🇰🇷"],
+  ["malaysia", "Malaysia", "🇲🇾"],
+].map(([slug, label, flag, visaPage]) => ({
+  slug,
+  label: `Study in ${label}`,
+  href: `/study/${slug}`,
+  flag,
+  links: [
+    { label: "From Bangladesh", href: `/study/${slug}/study-in-${slug}-from-bangladesh` },
+    { label: "Without IELTS", href: `/study/${slug}/study-in-${slug}-without-ielts` },
+    { label: "Tuition Fees", href: `/study/${slug}/tuition-fees-in-${slug}-for-bangladeshi-students` },
+    { label: "Scholarships", href: `/study/${slug}/scholarships-in-${slug}-for-bangladeshi-students` },
+    { label: "Visa Requirements", href: `/study/${slug}/${visaPage || "student-visa-requirements-bangladesh"}` },
+    { label: "Intake Dates", href: `/study/${slug}/${slug}-intake-dates` },
+  ],
+}));
+
+// NEW — Education consultancy landing pages
+const EDUCATION_CONSULTANCY = [
+  { label: "Education Consultancy in Bangladesh", href: "/education-consultancy-bangladesh", flag: "🇧🇩" },
+  { label: "Education Consultancy in Dhaka", href: "/education-consultancy-dhaka", flag: "🇧🇩" },
+  { label: "Education Consultancy in Chattogram", href: "/education-consultancy-chattogram", flag: "🇧🇩" },
+  { label: "Education Consultancy in Cumilla", href: "/education-consultancy-cumilla", flag: "🇧🇩" },
+  { label: "Education Consultancy in Sylhet", href: "/education-consultancy-sylhet", flag: "🇧🇩" },
+  { label: "IELTS & Immigration Center", href: "/target-ielts-immigration-center", flag: "📝" },
 ];
 
 // Scholarships
@@ -303,16 +353,17 @@ const SCHOLARSHIPS = [
 ];
 
 // Processing times: /travel-resources/visa-processing-time-tracker/[nationality]-national-visa-processing-time-for-[country]-[type]
+// (type is always one of: sticker | e-visa | transit | sticker-extended)
 const PROCESSING_TIMES = [
   { label: "Bangladesh → Andorra Visa Processing Time (Sticker)", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-andorra-sticker" },
   { label: "Bangladesh → Albania Visa Processing Time (Transit)", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-albania-transit" },
   { label: "Bangladesh → Armenia Visa Processing Time (E-Visa)", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-armenia-e-visa" },
-  { label: "Bangladesh → UK Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-united-kingdom" },
-  { label: "Bangladesh → USA Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-usa" },
-  { label: "Bangladesh → Germany Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-germany" },
-  { label: "Bangladesh → Australia Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-australia" },
-  { label: "Bangladesh → Japan Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-japan" },
-  { label: "India → Canada Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-canada" },
+  { label: "Bangladesh → UK Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-united-kingdom-sticker" },
+  { label: "Bangladesh → USA Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-united-states-sticker" },
+  { label: "Bangladesh → Germany Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-germany-sticker" },
+  { label: "Bangladesh → Australia Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-australia-sticker" },
+  { label: "Bangladesh → Japan Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/bangladesh-national-visa-processing-time-for-japan-sticker" },
+  { label: "India → Canada Visa Processing Time", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-canada-sticker" },
   { label: "India → Armenia Visa Processing Time (E-Visa)", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-armenia-e-visa" },
   { label: "India → Montenegro Visa Processing Time (Sticker)", href: "/travel-resources/visa-processing-time-tracker/india-national-visa-processing-time-for-montenegro-sticker" },
   { label: "Sri Lanka → Albania Visa Processing Time (E-Visa)", href: "/travel-resources/visa-processing-time-tracker/sri-lanka-national-visa-processing-time-for-albania-e-visa" },
@@ -349,6 +400,7 @@ const TOOLS = [
   { label: "Study Abroad Guide", href: "/study-abroad", icon: "🎓", desc: "Complete guide to studying outside Bangladesh" },
   { label: "Schengen Visa Guide", href: "/schengen-visa", icon: "🇪🇺", desc: "Requirements & tips for all Schengen countries" },
   { label: "Flight Booking", href: "/flight-booking", icon: "✈️", desc: "Book flights to any destination worldwide" },
+  { label: "Scholarship Finder", href: "/scholarships", icon: "🏅", desc: "Browse scholarships by destination country" },
 ];
 
 // Visa Checker — extended country pairs: /visa-checker/[nationality]-visa-for-[country]/[visaType]
@@ -361,7 +413,8 @@ const VISA_CHECKER_PAIRS = [
   { label: "Bangladesh Visa for Sri Lanka", href: "/visa-checker/bangladesh-visa-for-srilanka/eta" },
   { label: "Bangladesh Visa for Bhutan", href: "/visa-checker/bangladesh-visa-for-bhutan/visa-free" },
   { label: "Bangladesh Visa for Montenegro", href: "/visa-checker/bangladesh-visa-for-montenegro/visa-required" },
-  { label: "Bangladesh Visa for Portugal", href: "/visa-checker/portugal-visa-for-bangladesh/visa-required" },
+  { label: "Bangladesh Visa for Portugal", href: "/visa-checker/bangladesh-visa-for-portugal/visa-required" },
+  { label: "Bangladesh Visa for Georgia", href: "/visa-checker/bangladesh-visa-for-georgia/visa-required" },
   { label: "Israel Visa for Bangladesh", href: "/visa-checker/israel-visa-for-bangladesh/no-admission" },
   { label: "India Visa for Albania", href: "/visa-checker/india-visa-for-albania/e-visa" },
   { label: "India Visa for Armenia", href: "/visa-checker/india-visa-for-armenia/e-visa" },
@@ -396,6 +449,7 @@ const DOCUMENT_GUIDES = [
       { label: "Sponsor Financial Documents for Visa", href: "/sponsor-financial-documents-for-visa" },
       { label: "Marriage Certificate for Visa", href: "/marriage-certificate-for-visa" },
       { label: "Spouse Visa Documents", href: "/spouse-visa-documents" },
+      { label: "Police Clearance Certificate", href: "/police-clearance-certificate" },
       { label: "SOP Sample for Student Visa", href: "/sop-sample-for-student-visa" },
     ],
   },
@@ -440,9 +494,34 @@ const OFFICE_CONTACTS = [
 const OFFICE_LOCATIONS = [
   { label: "Travel Agency in Abu Dhabi", href: "/travel-agency-abu-dhabi", flag: "🇦🇪" },
   { label: "Travel Agency in Bangladesh", href: "/travel-agency-bangladesh", flag: "🇧🇩" },
+  { label: "Online Travel Agency Bangladesh", href: "/online-travel-agency-bangladesh", flag: "🇧🇩" },
   { label: "Travel Agency in Delhi", href: "/travel-agency-delhi", flag: "🇮🇳" },
   { label: "Travel Agency in Dhaka", href: "/travel-agency-dhaka", flag: "🇧🇩" },
   { label: "Travel Agency in Sharjah", href: "/travel-agency-sharjah", flag: "🇦🇪" },
+];
+
+// NEW — Tours, other services, company & group pages
+const TRAVEL_SERVICES = [
+  { label: "Tour Packages", href: "/our-services/tour-packages", flag: "🧳" },
+  { label: "Things to Do", href: "/our-services/things-to-do", flag: "🗺️" },
+  { label: "Flight Booking", href: "/flight-booking", flag: "✈️" },
+  { label: "Special Offers", href: "/offers", flag: "🏷️" },
+  { label: "Event Management", href: "/event-management", flag: "🎉" },
+  { label: "Web Development & Digital Marketing", href: "/web-development-digital-marketing", flag: "💻" },
+];
+
+const COMPANY_PAGES = [
+  { label: "About Eammu", href: "/about", flag: "🏢" },
+  { label: "Our Leading Team", href: "/our-leading-team", flag: "👥" },
+  { label: "Testimonials", href: "/testimonials", flag: "⭐" },
+  { label: "Blogs", href: "/blogs", flag: "📰" },
+  { label: "News Feeds", href: "/news-feeds", flag: "📡" },
+  { label: "Careers", href: "/careers", flag: "💼" },
+  { label: "Eammu Fashion", href: "/eammu-fashion", flag: "👗" },
+  { label: "Eammu Store", href: "/eammu-fashion/eammu-store", flag: "🛍️" },
+  { label: "Eammu Textile", href: "/eammu-textile-bangladesh", flag: "🧵" },
+  { label: "Eammu Dairy & Poultry", href: "/eammu-dairy-poultry", flag: "🐄" },
+  { label: "Social Responsibility", href: "/eammu-social-responsibility", flag: "🤝" },
 ];
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://eammu.com";
@@ -473,13 +552,14 @@ function buildStructuredData() {
         url: SITE_URL,
         description:
           "IATA-accredited travel agency in Bangladesh offering visa services, tour packages, flight booking, and study abroad guidance.",
-        areaServed: ["Bangladesh", "United Arab Emirates", "India"],
+        areaServed: ["Bangladesh", "United Arab Emirates", "India", "Armenia", "Georgia"],
         serviceType: [
           "Tourist Visa Services",
           "Student Visa Services",
           "Work Visa Services",
           "E-Visa Services",
           "Europe Visa Services",
+          "Study Abroad Consultancy",
           "Tour Packages",
           "Flight Booking",
           "Travel Insurance",
@@ -495,11 +575,15 @@ function buildStructuredData() {
       toItemList("E-Visa Requirement Guides — Eammu Holidays", E_VISA_GUIDES),
       toItemList("Travel Tools & Resources — Eammu Holidays", TOOLS),
       toItemList("Study Abroad Guides — Eammu Holidays", STUDY_ABROAD),
+      toItemList("Study Destinations — Eammu Holidays", STUDY_DESTINATIONS),
+      toItemList("Education Consultancy — Eammu Holidays", EDUCATION_CONSULTANCY),
       toItemList("Scholarships by Country — Eammu Holidays", SCHOLARSHIPS),
       toItemList("Visa Processing Time Data — Eammu Holidays", PROCESSING_TIMES),
       toItemList("Visa Rejection Rate Data — Eammu Holidays", REJECTION_RATES),
       toItemList("Visa Document & Application Guides — Eammu Holidays", allDocGuideLinks),
       toItemList("Office & Local Agency Pages — Eammu Holidays", allOfficeLinks),
+      toItemList("Travel Services — Eammu Holidays", TRAVEL_SERVICES),
+      toItemList("About Eammu & Group Pages — Eammu Holidays", COMPANY_PAGES),
     ],
   };
 }
@@ -510,7 +594,7 @@ function buildStructuredData() {
 
 // Converts a hex color to an rgba() string so every accent color can be used
 // as a soft tint (backgrounds, borders) without hand-picking a separate
-// pastel shade for each of the ~15 section colors below.
+// pastel shade for each of the ~18 section colors below.
 function hexToRgba(hex, alpha) {
   const clean = hex.replace("#", "");
   const full = clean.length === 3 ? clean.split("").map((c) => c + c).join("") : clean;
@@ -538,8 +622,6 @@ function SectionLabel({ children, color = "#0057FF" }) {
 
 // Subsection heading. Renders as <h3> so the outline nests correctly under
 // the single <h2> that introduces this whole block (see component root).
-// `color` gives every section its own accent (label text + "view all" link)
-// so the long page reads as clearly separated, colorful sections.
 function SectionHeading({ label, title, subtitle, href, linkLabel, color = "#0057FF" }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
@@ -566,10 +648,7 @@ function SectionHeading({ label, title, subtitle, href, linkLabel, color = "#005
 }
 
 // Wraps every major section in a soft, color-tinted card: light background
-// wash + thin border + a 4px colored left accent. Keeps the design simple
-// (no gradients, no heavy shadows) while making each section immediately
-// scannable and visually distinct as you scroll — and fully responsive via
-// fluid padding.
+// wash + thin border + a 4px colored left accent.
 function SectionWrap({ id, color = "#0057FF", children }) {
   return (
     <div
@@ -586,8 +665,7 @@ function SectionWrap({ id, color = "#0057FF", children }) {
   );
 }
 
-// Compact, row-based pill link, tinted with the section's accent color so
-// every "column list" reads as a colorful, scannable horizontal row.
+// Compact, row-based pill link, tinted with the section's accent color.
 function PillLink({ href, children, accent = "#0057FF" }) {
   return (
     <Link
@@ -604,8 +682,7 @@ function PillLink({ href, children, accent = "#0057FF" }) {
   );
 }
 
-// Same pill, with a leading icon — used for icon-labelled rows (processing
-// times, rejection rates).
+// Same pill, with a leading icon — used for icon-labelled rows.
 function PillLinkIcon({ href, icon, children, accent = "#0057FF" }) {
   return (
     <Link
@@ -752,9 +829,45 @@ function CountryChip({ href, flag, label, accent = "#0057FF" }) {
   );
 }
 
+// NEW — one card per study destination: flag + hub link, then a row of
+// pill links to the most-searched pages under that hub.
+function StudyCountryCard({ country, accent = "#4F46E5" }) {
+  return (
+    <div
+      className="bg-white rounded-xl p-4 border border-l-4 hover:shadow-md transition-shadow duration-200"
+      style={{ borderColor: hexToRgba(accent, 0.16), borderLeftColor: accent }}
+    >
+      <Link
+        href={country.href}
+        className="flex items-center gap-2 mb-3 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 rounded"
+      >
+        <span
+          className="text-xl w-9 h-9 flex items-center justify-center rounded-lg shrink-0"
+          style={{ backgroundColor: hexToRgba(accent, 0.12) }}
+          aria-hidden="true"
+        >
+          {country.flag}
+        </span>
+        <span className="text-[0.9rem] font-bold text-[#0D0D0D] leading-tight group-hover:opacity-70 transition-opacity">
+          {country.label}
+        </span>
+        <span aria-hidden="true" style={{ color: accent }} className="ml-auto text-[12px] font-bold">
+          →
+        </span>
+      </Link>
+      <div className="flex flex-wrap gap-1.5">
+        {country.links.map((l) => (
+          <PillLink key={l.href} href={l.href} accent={accent}>
+            {l.label}
+          </PillLink>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // Shows the first `initialCount` pill links, tucking the rest behind a native
-// <details> disclosure. No JS required, fully crawlable/indexable, and keeps
-// the visible page from looking like an auto-generated link dump.
+// <details> disclosure. No JS required, fully crawlable/indexable.
 function ExpandablePills({ items, initialCount = 10, accent = "#0057FF" }) {
   const visible = items.slice(0, initialCount);
   const rest = items.slice(initialCount);
@@ -787,10 +900,8 @@ function ExpandablePills({ items, initialCount = 10, accent = "#0057FF" }) {
   );
 }
 
-// Same disclosure pattern, but for flag-chip country lists. Uses a
-// horizontal, wrapping flex row so every "country chip" section on the page
-// reads as the same style of flowing row regardless of chip count.
-function ExpandableChips({ items, initialCount = 16, accent = "#0057FF" }) {
+// Same disclosure pattern, but for flag-chip country lists.
+function ExpandableChips({ items, initialCount = 16, accent = "#0057FF", noun = "countries" }) {
   const visible = items.slice(0, initialCount);
   const rest = items.slice(initialCount);
   return (
@@ -806,7 +917,7 @@ function ExpandableChips({ items, initialCount = 16, accent = "#0057FF" }) {
             style={{ color: accent, borderColor: accent }}
             className="list-none cursor-pointer inline-flex text-[12px] font-semibold bg-white border rounded-lg px-3 py-1.5 transition-all duration-150 hover:shadow-md"
           >
-            <span className="group-open:hidden">Show {rest.length} more countries</span>
+            <span className="group-open:hidden">Show {rest.length} more {noun}</span>
             <span className="hidden group-open:inline">Show fewer</span>
           </summary>
           <div className="flex flex-wrap gap-1.5 mt-2">
@@ -820,9 +931,38 @@ function ExpandableChips({ items, initialCount = 16, accent = "#0057FF" }) {
   );
 }
 
-// Row-based (flex-wrap) version of the icon-labelled lists — used for
-// processing times / rejection rates. Card gets a colored left accent to
-// match its SectionHeading.
+// NEW — expandable grid of StudyCountryCards (first N visible, rest in <details>).
+function ExpandableStudyCards({ items, initialCount = 6, accent = "#4F46E5" }) {
+  const visible = items.slice(0, initialCount);
+  const rest = items.slice(initialCount);
+  return (
+    <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+        {visible.map((c) => (
+          <StudyCountryCard key={c.slug} country={c} accent={accent} />
+        ))}
+      </div>
+      {rest.length > 0 && (
+        <details className="group mt-3 [&_summary::-webkit-details-marker]:hidden">
+          <summary
+            style={{ color: accent, borderColor: accent }}
+            className="list-none cursor-pointer inline-flex text-[12px] font-semibold bg-white border rounded-lg px-3 py-1.5 transition-all duration-150 hover:shadow-md"
+          >
+            <span className="group-open:hidden">Show {rest.length} more study destinations</span>
+            <span className="hidden group-open:inline">Show fewer</span>
+          </summary>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 mt-3">
+            {rest.map((c) => (
+              <StudyCountryCard key={c.slug} country={c} accent={accent} />
+            ))}
+          </div>
+        </details>
+      )}
+    </div>
+  );
+}
+
+// Row-based (flex-wrap) version of the icon-labelled lists.
 function ExpandableIconPills({ items, icon, initialCount = 6, color = "#0057FF" }) {
   const visible = items.slice(0, initialCount);
   const rest = items.slice(initialCount);
@@ -860,8 +1000,7 @@ function ExpandableIconPills({ items, icon, initialCount = 6, color = "#0057FF" 
   );
 }
 
-// Compact bordered list used for the document-guide categories — row-based,
-// each card carrying its own accent color.
+// Compact bordered list used for the document-guide categories.
 function GuideGroupCard({ group, color = "#EA580C" }) {
   return (
     <div
@@ -883,6 +1022,23 @@ function GuideGroupCard({ group, color = "#EA580C" }) {
           <PillLink key={l.href} href={l.href} accent={color}>
             {l.label}
           </PillLink>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Small white card with a titled row of chips (used by offices + services).
+function ChipGroupCard({ title, items, accent }) {
+  return (
+    <div
+      className="bg-white border border-l-4 rounded-xl p-3.5"
+      style={{ borderColor: hexToRgba(accent, 0.16), borderLeftColor: accent }}
+    >
+      <p className="text-[11px] font-bold text-[#6B7280] mb-2.5">{title}</p>
+      <div className="flex flex-wrap gap-1.5">
+        {items.map((o) => (
+          <CountryChip key={o.href} href={o.href} flag={o.flag} label={o.label} accent={accent} />
         ))}
       </div>
     </div>
@@ -911,8 +1067,7 @@ export default function HomeSeoLinks() {
       <div className="max-w-7xl mx-auto">
 
         {/* ── SECTION INTRO / HERO ─────────────────────────────────────── */}
-        {/* This is the only heading in the block — kept at h2 so it nests under
-            the page's existing h1 instead of competing with it. Every
+        {/* The only h2 in the block — nests under the page's h1. Every
             sub-section below uses h3, so the outline reads h1 → h2 → h3. */}
         <div
           className="mb-8 rounded-2xl p-5 sm:p-7 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5"
@@ -929,7 +1084,7 @@ export default function HomeSeoLinks() {
               Complete Visa &amp; Travel Resource Hub
             </h2>
             <p className="text-[0.83rem] sm:text-[0.9rem] text-[#4B5563] mt-1.5 leading-relaxed">
-              IATA-accredited visa assistance from Bangladesh — tourist, student, work &amp; e-visas, Europe &amp; Schengen guidance, document preparation guides, study abroad support, local offices, and free travel planning tools.
+              IATA-accredited visa assistance from Bangladesh — tourist, student, work &amp; e-visas, Europe &amp; Schengen guidance, study abroad destinations, education consultancy, document preparation guides, tour packages, local offices, and free travel planning tools.
             </p>
             <p className="text-[11px] text-[#9CA3AF] mt-2">
               Visa rules change often — this hub is reviewed and refreshed monthly. Last reviewed: {lastUpdated}.
@@ -1061,11 +1216,11 @@ export default function HomeSeoLinks() {
             </div>
           </SectionWrap>
 
-          {/* 9. STUDY ABROAD */}
+          {/* 9. STUDY ABROAD (student visa pages) */}
           <SectionWrap id="study-abroad" color="#4F46E5">
             <SectionHeading
               label="Study Abroad"
-              title="Study Abroad Destinations"
+              title="Study Abroad Student Visas"
               subtitle="Student visa guidance for popular academic destinations"
               href="/study-abroad"
               linkLabel="Full study guide"
@@ -1086,7 +1241,37 @@ export default function HomeSeoLinks() {
             </div>
           </SectionWrap>
 
-          {/* 10. SCHOLARSHIPS */}
+          {/* 10. NEW — STUDY DESTINATION HUBS (/study/[country]) */}
+          <SectionWrap id="study-destinations" color="#6366F1">
+            <SectionHeading
+              label="Study Destinations"
+              title="Study in Europe, Asia, Canada, UK, USA & Australia"
+              subtitle="Fees, universities, scholarships, intake dates and visa steps for Bangladeshi students — one hub per country"
+              href="/study-abroad"
+              linkLabel="Study abroad guide"
+              color="#6366F1"
+            />
+            <ExpandableStudyCards items={STUDY_DESTINATIONS} initialCount={6} accent="#6366F1" />
+          </SectionWrap>
+
+          {/* 11. NEW — EDUCATION CONSULTANCY */}
+          <SectionWrap id="education-consultancy" color="#0EA5E9">
+            <SectionHeading
+              label="Education Consultancy"
+              title="Education Consultancy in Bangladesh"
+              subtitle="Meet an Eammu education advisor in your city, or prepare for IELTS with our team"
+              href="/education-consultancy-bangladesh"
+              linkLabel="Education consultancy"
+              color="#0EA5E9"
+            />
+            <div className="flex flex-wrap gap-1.5">
+              {EDUCATION_CONSULTANCY.map((e) => (
+                <CountryChip key={e.href} href={e.href} flag={e.flag} label={e.label} accent="#0EA5E9" />
+              ))}
+            </div>
+          </SectionWrap>
+
+          {/* 12. SCHOLARSHIPS */}
           <SectionWrap id="scholarships" color="#16A34A">
             <SectionHeading
               label="Scholarships"
@@ -1107,7 +1292,7 @@ export default function HomeSeoLinks() {
             </div>
           </SectionWrap>
 
-          {/* 11. DOCUMENT & APPLICATION GUIDES */}
+          {/* 13. DOCUMENT & APPLICATION GUIDES */}
           <SectionWrap id="document-guides" color="#EA580C">
             <SectionHeading
               label="Step-by-Step Help"
@@ -1122,7 +1307,7 @@ export default function HomeSeoLinks() {
             </div>
           </SectionWrap>
 
-          {/* 12. TOOLS & RESOURCES */}
+          {/* 14. TOOLS & RESOURCES */}
           <SectionWrap id="visa-tools" color="#0D9488">
             <SectionHeading
               label="Free Tools"
@@ -1139,7 +1324,7 @@ export default function HomeSeoLinks() {
             </div>
           </SectionWrap>
 
-          {/* 13. PROCESSING TIMES */}
+          {/* 15. PROCESSING TIMES */}
           <SectionWrap id="processing-times" color="#9333EA">
             <SectionHeading
               label="Processing Data"
@@ -1152,7 +1337,7 @@ export default function HomeSeoLinks() {
             <ExpandableIconPills items={PROCESSING_TIMES} icon="⏱" initialCount={6} color="#9333EA" />
           </SectionWrap>
 
-          {/* 14. REJECTION RATES */}
+          {/* 16. REJECTION RATES */}
           <SectionWrap id="rejection-rates" color="#E11D48">
             <SectionHeading
               label="Rejection Stats"
@@ -1165,7 +1350,7 @@ export default function HomeSeoLinks() {
             <ExpandableIconPills items={REJECTION_RATES} icon="📊" initialCount={6} color="#E11D48" />
           </SectionWrap>
 
-          {/* 15. OFFICES & LOCAL LANDING PAGES */}
+          {/* 17. OFFICES & LOCAL LANDING PAGES */}
           <SectionWrap id="our-offices" color="#65A30D">
             <SectionHeading
               label="Where We Are"
@@ -1176,28 +1361,42 @@ export default function HomeSeoLinks() {
               color="#65A30D"
             />
             <div className="flex flex-col gap-3">
-              <div
-                className="bg-white border border-l-4 rounded-xl p-3.5"
-                style={{ borderColor: hexToRgba("#65A30D", 0.16), borderLeftColor: "#65A30D" }}
-              >
-                <p className="text-[11px] font-bold text-[#6B7280] mb-2.5">Contact a Regional Office</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {OFFICE_CONTACTS.map((o) => (
-                    <CountryChip key={o.href} href={o.href} flag={o.flag} label={o.label} accent="#65A30D" />
-                  ))}
-                </div>
-              </div>
-              <div
-                className="bg-white border border-l-4 rounded-xl p-3.5"
-                style={{ borderColor: hexToRgba("#0EA5E9", 0.16), borderLeftColor: "#0EA5E9" }}
-              >
-                <p className="text-[11px] font-bold text-[#6B7280] mb-2.5">Travel Agency Near You</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {OFFICE_LOCATIONS.map((o) => (
-                    <CountryChip key={o.href} href={o.href} flag={o.flag} label={o.label} accent="#0EA5E9" />
-                  ))}
-                </div>
-              </div>
+              <ChipGroupCard title="Contact a Regional Office" items={OFFICE_CONTACTS} accent="#65A30D" />
+              <ChipGroupCard title="Travel Agency Near You" items={OFFICE_LOCATIONS} accent="#0EA5E9" />
+            </div>
+          </SectionWrap>
+
+          {/* 18. NEW — TOURS & MORE SERVICES */}
+          <SectionWrap id="travel-services" color="#F59E0B">
+            <SectionHeading
+              label="More Services"
+              title="Tours, Flights & Other Services"
+              subtitle="Holiday packages, things to do, flights, events and digital services from Eammu"
+              href="/our-services"
+              linkLabel="All services"
+              color="#F59E0B"
+            />
+            <div className="flex flex-wrap gap-1.5">
+              {TRAVEL_SERVICES.map((s) => (
+                <CountryChip key={s.href} href={s.href} flag={s.flag} label={s.label} accent="#D97706" />
+              ))}
+            </div>
+          </SectionWrap>
+
+          {/* 19. NEW — ABOUT EAMMU & GROUP */}
+          <SectionWrap id="about-eammu" color="#475569">
+            <SectionHeading
+              label="About Eammu"
+              title="About Eammu, Our Team & Group Companies"
+              subtitle="Who we are, what clients say, latest news, careers, and the wider Eammu group"
+              href="/about"
+              linkLabel="About us"
+              color="#475569"
+            />
+            <div className="flex flex-wrap gap-1.5">
+              {COMPANY_PAGES.map((c) => (
+                <CountryChip key={c.href} href={c.href} flag={c.flag} label={c.label} accent="#475569" />
+              ))}
             </div>
           </SectionWrap>
 

@@ -1,30 +1,39 @@
-import IndiaVisa from '@/Components/Server/VisaCountry/IndiaVisa/IndiaVisa'
-import React from 'react'
+import IndiaVisa from "@/Components/Server/VisaCountry/IndiaVisa/IndiaVisa";
+// NOTE: adjust this import path to wherever HomeSeoLinks lives in your project.
+
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
+
+const PAGE_URL = "https://eammu.com/our-services/visa/india-visa-application";
+
+const TITLE =
+  "India Visa from Bangladesh & Dubai: Requirements, Fees & Application | Eammu Holidays";
+
+const DESCRIPTION =
+  "Planning an India visa application from Bangladesh or Dubai? Compare e-Visa and regular visa routes, document checklists, government fees, processing times and common rejection reasons, with application support from Eammu Holidays.";
+
 export const metadata = {
   metadataBase: new URL("https://eammu.com"),
 
-  title:
-    "India Visa Requirements, Fees, and Application | Tourist, Medical & Business Visa Support",
-
-  description:
-    "Check India visa requirements, fees, and application process from Bangladesh with Eammu Holidays. Get expert support for tourist visa, medical visa, business visa, required documents, appointment guidance, and fast processing assistance.",
+  title: TITLE,
+  description: DESCRIPTION,
 
   keywords: [
-    "India visa requirements",
-    "India visa fees Bangladesh",
     "India visa application",
-    "India tourist visa Bangladesh",
-    "India medical visa Bangladesh",
-    "India business visa Bangladesh",
-    "Apply India visa from Bangladesh",
-    "India visa documents",
+    "India visa requirements",
+    "India visa from Bangladesh",
+    "India visa from Dubai",
+    "India visa for UAE residents",
+    "India e-Visa",
+    "India tourist visa",
+    "India medical visa",
+    "India business visa",
+    "India visa fees",
     "India visa processing time",
-    "Eammu Holidays India visa"
+    "Eammu Holidays India visa",
   ],
 
   alternates: {
-    canonical:
-      "https://eammu.com/our-services/visa/india-visa-application",
+    canonical: PAGE_URL,
   },
 
   robots: {
@@ -35,49 +44,47 @@ export const metadata = {
       follow: true,
       "max-image-preview": "large",
       "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
 
   openGraph: {
-    title:
-      "India Visa Requirements, Fees, and Application | Tourist, Medical & Business Visa Support",
-
+    title: TITLE,
     description:
-      "Professional India visa support for Bangladeshi travelers. Tourist, medical, and business visa guidance with documents, fees, and application assistance.",
-
-    url:
-      "https://eammu.com/our-services/visa/india-visa-application",
-
+      "India visa guidance for Bangladeshi passport holders and UAE residents: visa types, document checklists, fees, processing and application support.",
+    url: PAGE_URL,
     siteName: "Eammu Holidays",
-
+    locale: "en_US",
     type: "website",
-
     images: [
       {
         url: "/eammu_banner_four.webp",
         width: 1200,
         height: 630,
-        alt: "India visa requirements fees and application support",
+        alt: "Eammu Holidays India visa application guidance for Bangladesh and Dubai",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-
-    title:
-      "India Visa Requirements, Fees, and Application",
-
+    title: "India Visa from Bangladesh & Dubai | Requirements, Fees & Process",
     description:
-      "Tourist, medical, and business visa support for India from Bangladesh.",
-
-    images: ["/eammu_banner_four.webp"],
+      "e-Visa and regular visa routes, document checklists, fees and processing for India, with support from Eammu Holidays.",
+    images: [
+      {
+        url: "/eammu_banner_four.webp",
+        alt: "Eammu Holidays India visa application guidance for Bangladesh and Dubai",
+      },
+    ],
   },
 };
-export default function page() {
+
+export default function Page() {
   return (
-    <div>
+    <>
       <IndiaVisa />
-    </div>
-  )
+      <HomeSeoLinks />
+    </>
+  );
 }

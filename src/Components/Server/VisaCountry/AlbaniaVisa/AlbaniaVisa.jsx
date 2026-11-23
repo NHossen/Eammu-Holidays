@@ -1,809 +1,1120 @@
-"use client";
-import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
-  CheckCircle, Globe, ShieldCheck, FileText, 
-  HelpCircle, Clock, Wallet, TrendingUp, PlayCircle,
-  ArrowRight, ChevronDown, ChevronRight, AlertTriangle,
-  MapPin, Star, Users, Award, Briefcase, Home, Plane,
-  Phone, Mail, MessageCircle, ExternalLink, Info,
-  CheckSquare, XCircle, Calendar, DollarSign
-} from 'lucide-react';
+  Check,
+  ChevronDown,
+  ChevronRight,
+  ExternalLink,
+  Info,
+  Mail,
+  MessageCircle,
+  Phone,
+} from "lucide-react";
 
-/* ─────────────────────────────────────────────
-   SEO SCHEMA HELPER  (rendered as JSON-LD)
-───────────────────────────────────────────── */
-const SchemaScript = () => {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "How long does Albania visa processing take?", "acceptedAnswer": { "@type": "Answer", "text": "Albania e-Visa (Type C) processing takes 15–20 working days. Express service may be available for €50 extra." } },
-      { "@type": "Question", "name": "Can I get an Albania visa from Dubai?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. UAE residents can apply online via the official e-visa portal or through Eammu Holidays consultancy from Dubai." } },
-      { "@type": "Question", "name": "What is the Albania work permit fee?", "acceptedAnswer": { "@type": "Answer", "text": "Temporary Work Visa starts at €100; Permanent Work Visa at €150. Consultancy fees apply separately." } }
-    ]
-  };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+/* ═════════════════════════════════════════════════════════════
+   AlbaniaVisa — Server Component (no hooks, no "use client")
+   ═════════════════════════════════════════════════════════════ */
+
+const SITE_URL = "https://eammu.com";
+const PAGE_URL = `${SITE_URL}/our-services/visa/albania-visa-application`;
+const LAST_REVIEWED = "2026-11-23"; // update whenever you re-verify the content
+
+const OFFICIAL_EVISA = "https://e-visa.al";
+const OFFICIAL_MFA =
+  "https://punetejashtme.gov.al/en/informacione-mbi-regjimin-e-vizave-te-shtetasve-te-huaj/";
+
+const CONTACT = {
+  whatsapp:
+    "https://wa.me/37494810585?text=Hello%20Eammu%20Holidays%2C%20I%20need%20help%20with%20an%20Albania%20visa.",
+  uaePhone: { label: "UAE", display: "+971 50 707 8334", href: "tel:+971507078334" },
+  armeniaPhone: { label: "Armenia", display: "+374 94 810585", href: "tel:+37494810585" },
+  bdPhone: { label: "Bangladesh", display: "+880 1701 699 743", href: "tel:+8801701699743" },
+  email: "info@eammu.com",
 };
 
-/* ─────────────────────────────────────────────
-   INTERNAL NAV LINKS DATA
-───────────────────────────────────────────── */
-const relatedPages = [
-  { label: "Europe Visa Application", href: "/our-services/visa/europe-visa-application", icon: <Globe size={16}/> },
-  { label: "Schengen Visa Guide", href: "/our-services/visa/schengen-visa", icon: <MapPin size={16}/> },
-  { label: "UAE Residence Visa", href: "/our-services/visa/uae-residence-visa", icon: <Home size={16}/> },
-  { label: "Work Permit Services", href: "/our-services/visa/work-permit", icon: <Briefcase size={16}/> },
-  { label: "Digital Nomad Permits", href: "/our-services/visa/digital-nomad-visa", icon: <Globe size={16}/> },
-  { label: "Flight Reservations", href: "/our-services/travel/flight-reservation", icon: <Plane size={16}/> },
+/* ───────────────────────── Content data ───────────────────────── */
+
+const TOC = [
+  ["overview", "Albania visa overview"],
+  ["visa-types", "Visa types"],
+  ["requirements", "Document requirements"],
+  ["fees", "Visa fees and costs"],
+  ["processing-time", "Processing time"],
+  ["how-to-apply", "Application steps"],
+  ["from-dubai", "Albania visa from Dubai"],
+  ["rejection", "Visa rejection"],
+  ["travel-information", "Travel information"],
+  ["why-eammu", "How Eammu helps"],
+  ["faq", "FAQ"],
 ];
 
-/* ─────────────────────────────────────────────
-   MAIN COMPONENT
-───────────────────────────────────────────── */
-const AlbaniaVisa = () => {
-  const [activeTab, setActiveTab] = useState("tourist");
+const OVERVIEW = [
+  {
+    q: "What is an Albania visa?",
+    a: "An Albania visa is an entry authorisation issued by the Albanian authorities to foreign nationals who are not visa-exempt. For most visitors the relevant document is the Type C short-stay visa, which can be requested online through the official e-Visa portal. Longer stays for work, study or family reasons fall under the Type D long-stay category and are followed by a residence procedure inside Albania.",
+  },
+  {
+    q: "Is Albania part of the Schengen Area?",
+    a: "No. Albania is a candidate for EU membership but is not in the Schengen Area, so it has its own visa rules and its own application system. A Schengen visa does not authorise travel to Albania by itself, although Albanian rules recognise some valid Schengen, US and UK visas as a basis for visa-free entry under specific conditions. Always confirm the current conditions on the official pages before you travel.",
+  },
+  {
+    q: "Who needs an Albania visa?",
+    a: "It depends on your passport, your purpose of travel and any qualifying visa or residence permit you hold. Citizens of many countries can enter without a visa for short stays, while others must apply in advance. Check your nationality on the official e-Visa portal or the Albanian Ministry for Europe and Foreign Affairs page before booking anything.",
+  },
+  {
+    q: "Albania visa for Bangladeshi citizens",
+    a: "Bangladeshi passport holders should plan on applying for a visa before travel unless an official exemption clearly applies to them. Most visitors use the Type C short-stay e-Visa. Because Bangladeshi applicants are often asked to show strong evidence of funds, employment or business, and ties to Bangladesh, document preparation matters more than the form itself.",
+  },
+  {
+    q: "Albania visa for UAE residents and Dubai-based expatriates",
+    a: "Living in the UAE does not on its own exempt you from an Albania visa. The rule that applies is based on your passport. Your UAE residence permit still plays an important role as supporting evidence: it shows where you live, work and are settled. Some valid visas or long-term residence documents may create an exemption in certain cases, so verify your exact situation on the official pages before relying on it.",
+  },
+];
 
-  return (
-    <>
-      <SchemaScript />
-      <main className="bg-white min-h-screen font-sans text-slate-900 py-6">
+const VISA_TYPES = [
+  {
+    badge: "Type C",
+    title: "Tourist visa",
+    purpose: "Holidays, sightseeing, visiting friends or family, short leisure trips.",
+    stay: "Up to 90 days within any 180-day period.",
+    eligibility: "Applicants whose nationality requires a visa and who are not covered by an exemption.",
+    notes:
+      "Usually requested online at e-visa.al. Typical supporting documents include a passport, photo, proof of funds, accommodation and travel insurance. This visa does not allow employment in Albania.",
+  },
+  {
+    badge: "Type C",
+    title: "Business visa",
+    purpose: "Meetings, conferences, trade events, short business visits.",
+    stay: "Up to 90 days within any 180-day period.",
+    eligibility: "Business travelers whose nationality requires a visa and whose visit does not involve employment in Albania.",
+    notes:
+      "Expect to provide an invitation or a company letter explaining the trip, along with your normal travel documents. Business owners should be ready with company registration and financial records.",
+  },
+  {
+    badge: "Type A",
+    title: "Airport transit visa",
+    purpose: "Changing planes at an Albanian airport without entering the country.",
+    stay: "Limited to the transit period and the international zone of the airport.",
+    eligibility: "Only travelers from nationalities that are required to hold a transit visa.",
+    notes:
+      "You will normally need proof of onward travel and any entry permission for your final destination. If you are leaving the airport, Type A is not the right category.",
+  },
+  {
+    badge: "Type D",
+    title: "Long-stay visa",
+    purpose: "Stays above 90 days, such as work, study or family reunification.",
+    stay: "Set by the issuing authority and linked to the purpose of the stay.",
+    eligibility: "Applicants with a qualifying purpose and the supporting documents the Albanian authorities require for that purpose.",
+    notes:
+      "A Type D visa is an entry visa. After arrival, holders usually need to complete a residence permit procedure. Documents such as police certificates, degrees or civil records often need apostille or legalisation and Albanian translation.",
+  },
+  {
+    badge: "Work",
+    title: "Employment and work-related residence",
+    purpose: "Working for an Albanian employer or running a business in Albania.",
+    stay: "Granted as a residence and work authorisation, not as a tourist visa.",
+    eligibility: "Foreign nationals with a job offer or a business activity, subject to Albanian labour and migration rules.",
+    notes:
+      "This is a residence and work permit procedure, usually combined with a Type D visa where one is required. A tourist or short-stay visa cannot be used for employment. Requirements are set by Albanian law and may change, so confirm them with the competent authorities.",
+  },
+  {
+    badge: "Residence",
+    title: "Remote-worker (digital nomad) residence",
+    purpose: "Living in Albania while working remotely for clients or employers outside Albania.",
+    stay: "Granted as a residence permit, not as a short-stay visa.",
+    eligibility: "Remote workers who can document foreign income or contracts, subject to current Albanian rules.",
+    notes:
+      "Albania does not issue a tourist visa for this purpose. Eligibility, income evidence and the exact procedure are defined by the Albanian authorities and have been updated over time, so check the latest official guidance. See our dedicated digital nomad visa page for a broader overview.",
+  },
+];
 
-  
-        {/* ── HERO ── */}
-        <section className="relative pt-16 pb-20 px-6 lg:px-12 overflow-hidden">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-50 rounded-full blur-3xl -z-10 opacity-50" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange-50 rounded-full blur-3xl -z-10 opacity-50" />
+const GENERAL_DOCS = [
+  "Passport valid for the whole stay, with blank pages and in good condition",
+  "Completed online application with details matching your passport",
+  "Passport-style photo that follows the e-Visa portal’s specifications",
+  "Proof of the purpose of travel, such as an itinerary or invitation",
+  "Accommodation booking or host details in Albania",
+  "Travel medical insurance covering your stay",
+  "Proof of sufficient funds for the trip",
+  "Return or onward travel booking",
+  "Payment receipt for the government visa fee",
+];
 
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              {/* Trust Badge */}
-              <div className="inline-flex items-center gap-2 bg-emerald-50 text-[#005a31] px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest mb-5 border border-emerald-200">
-                <ShieldCheck size={13}/> Official Albania Visa Consultants · 2026
-              </div>
+const NATIONALITY_DOCS = [
+  {
+    title: "Bangladeshi applicants",
+    note: "Albanian authorities decide by passport nationality, so these items are often reviewed closely.",
+    items: [
+      "Bangladeshi passport and a copy of the data page",
+      "National ID card (NID) copy",
+      "Bank statements with a clear income and balance history",
+      "Evidence of ties to Bangladesh, such as a job letter, trade licence or property papers",
+      "Tax documents (TIN certificate or tax returns) where available",
+      "Any previous visas and travel history",
+    ],
+  },
+  {
+    title: "UAE residents",
+    note: "Your UAE status supports your application but does not replace the visa rule for your passport.",
+    items: [
+      "Valid UAE residence permit and Emirates ID copy",
+      "Passport with sufficient validity for the trip",
+      "Salary certificate and NOC from the employer, if employed",
+      "Recent UAE bank statements",
+      "Company trade licence, if you own or manage a business",
+      "Return flight reservation back to the UAE",
+    ],
+  },
+];
 
-              {/* H1 — primary keyword */}
-              <h1 className="text-4xl md:text-6xl lg:text-[4.5rem] font-black text-[#005a31] mb-5 leading-[1.05] tracking-tight">
-                Albania Visa<br/>
-                <span className="text-[#ff6b00]">Application 2026</span>
-              </h1>
+const PROFILE_DOCS = [
+  {
+    title: "Employed applicants",
+    items: [
+      "Employment letter stating position, salary and joining date",
+      "Approved leave letter or NOC",
+      "Last 3 to 6 months of payslips",
+      "Bank statements showing salary credits",
+    ],
+  },
+  {
+    title: "Business owners",
+    items: [
+      "Trade licence and company registration papers",
+      "Company bank statements and personal bank statements",
+      "Tax or VAT records",
+      "Letter explaining the purpose of the trip",
+    ],
+  },
+  {
+    title: "Self-employed applicants",
+    items: [
+      "Business or freelance registration, if applicable",
+      "Invoices or contracts that show regular income",
+      "Personal and business bank statements",
+      "Tax filings where available",
+    ],
+  },
+  {
+    title: "Sponsored applicants",
+    items: [
+      "Sponsor’s letter confirming they will cover costs",
+      "Sponsor’s passport or ID, and proof of relationship",
+      "Sponsor’s bank statements and proof of income",
+      "Your own proof of employment or study",
+    ],
+  },
+  {
+    title: "Students",
+    items: [
+      "Student ID or enrolment certificate",
+      "Letter from the school or university",
+      "Parent or guardian bank statements and consent letter",
+      "Proof of the family’s financial support",
+    ],
+  },
+  {
+    title: "Family visitors",
+    items: [
+      "Invitation letter from the host in Albania",
+      "Host’s ID or residence document copy",
+      "Proof of relationship, such as a marriage or birth certificate",
+      "Host’s address and accommodation details",
+    ],
+  },
+];
 
-              {/* SEO-rich intro paragraph */}
-              <p className="text-lg text-slate-600 mb-5 max-w-xl leading-relaxed">
-                Apply for your <strong>Albania E-Visa (Type C)</strong>, <strong>Work Permit (Type D)</strong>, or <strong>Digital Nomad Unique Permit</strong> with expert support from Eammu Holidays — the trusted immigration consultancy for UAE, Bangladesh, and Armenia residents. Fast processing, 97.8% success rate, 100% online.
-              </p>
+const FEE_ROWS = [
+  {
+    item: "Government visa fee",
+    who: "Albanian authorities, paid on the official portal",
+    note: "The amount depends on your nationality and the visa category. Published figures differ between websites, so use the amount shown on e-visa.al when you apply. The fee is normally not refundable if the application is refused.",
+  },
+  {
+    item: "Service or consultancy fee",
+    who: "Eammu Holidays",
+    note: "A separate fee for guidance, document review and application support. It is agreed with you in advance and is never part of the government fee.",
+  },
+  {
+    item: "Translation and certification",
+    who: "Translators, notaries or attestation offices",
+    note: "Mainly relevant for long-stay or residence procedures where documents may need apostille, legalisation or Albanian translation.",
+  },
+  {
+    item: "Travel insurance",
+    who: "Insurance provider",
+    note: "Price depends on your age, trip length and cover level. Make sure the policy covers medical expenses for the whole stay.",
+  },
+  {
+    item: "Flights and accommodation",
+    who: "Airlines, hotels or hosts",
+    note: "Reservations can support an application, but avoid paying for non-refundable tickets until you have a decision.",
+  },
+  {
+    item: "Other possible expenses",
+    who: "Various",
+    note: "Photos, printing, courier, bank statement stamping and currency conversion charges.",
+  },
+];
 
-              {/* Key facts for SEO snippet */}
-              <ul className="space-y-2 mb-8">
-                {[
-                  "Processing time: 15–20 working days (express available)",
-                  "Valid Schengen/US/UK visa holders enter Albania visa-free",
-                  "Work permits from €100 | Tourist e-visa from €30",
-                  "Albania welcomed 10 million+ tourists in 2025",
-                ].map((f, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-slate-700 font-medium">
-                    <CheckCircle size={15} className="text-[#ff6b00] shrink-0"/>
-                    {f}
-                  </li>
-                ))}
-              </ul>
+const PROCESS_STEPS = [
+  {
+    title: "Determine whether you need a visa",
+    text: "Check your passport on the official e-Visa portal or the Ministry for Europe and Foreign Affairs page. Confirm whether you are exempt, and whether a valid Schengen, US or UK visa or another residence document changes your position.",
+  },
+  {
+    title: "Select the correct visa category",
+    text: "Choose Type C for a short tourist or business trip, Type A for airport transit only, or Type D when you plan to stay longer for work, study or family reasons.",
+  },
+  {
+    title: "Prepare supporting documents",
+    text: "Use the checklists on this page as a starting point. Scan documents clearly, and make sure names, dates and figures are consistent across every document.",
+  },
+  {
+    title: "Complete the official application",
+    text: "Fill in the form on the official portal. Enter details exactly as they appear in your passport and upload the requested files in the accepted format.",
+  },
+  {
+    title: "Pay the applicable government fee",
+    text: "Pay on the official portal and keep the receipt. Be careful with websites that look similar to the official system.",
+  },
+  {
+    title: "Submit the application",
+    text: "Review everything once more before you submit. Errors can be difficult to correct after submission.",
+  },
+  {
+    title: "Monitor the application status",
+    text: "Keep your application reference and check your email, including spam folders, for requests for more information.",
+  },
+  {
+    title: "Receive the decision",
+    text: "If approved, check every detail on the visa, such as name, passport number, validity and number of entries, before you book non-refundable travel.",
+  },
+];
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://wa.me/37494810585"
-                   className="bg-[#005a31] hover:bg-[#ff6b00] text-white px-8 py-4 rounded-2xl font-black text-base shadow-xl transition-all flex items-center justify-center gap-3">
-                  <MessageCircle size={20}/> Apply via WhatsApp
-                </a>
-                <a href="tel:+971507078334"
-                   className="bg-white border-2 border-slate-200 hover:border-[#005a31] text-[#005a31] px-8 py-4 rounded-2xl font-black text-base transition-all flex items-center justify-center gap-3">
-                  <Phone size={18}/> Call UAE Hotline
-                </a>
-              </div>
-            </div>
+const DUBAI_POINTS = [
+  {
+    title: "UAE residence permit",
+    text: "Keep your residence permit and Emirates ID valid for the whole planned trip. They show you have a lawful base in the UAE and a reason to return.",
+  },
+  {
+    title: "Bangladeshi passport holders in Dubai",
+    text: "Your passport nationality decides the Albanian visa rule. Be ready to show proof of your life in the UAE, such as work, family and housing, together with your passport and residence documents.",
+  },
+  {
+    title: "Employment and salary documents",
+    text: "A recent salary certificate, an employer NOC or leave approval, and payslips help show that your trip is temporary and that you have a job to return to.",
+  },
+  {
+    title: "Bank statements",
+    text: "Statements covering recent months should show regular income and a balance that fits the cost of your trip. Large unexplained deposits can raise questions.",
+  },
+  {
+    title: "Itinerary, hotel and flights",
+    text: "A realistic day-by-day itinerary, a hotel booking and a return flight to the UAE make your plan easy to understand. Our flight reservation service can help with this.",
+  },
+  {
+    title: "Travel insurance",
+    text: "Choose a policy that covers medical expenses in Albania for the entire stay and keep a copy of the certificate with your documents.",
+  },
+];
 
-            {/* Hero Image */}
-            <div className="relative order-1 lg:order-2">
-              <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white ring-1 ring-slate-100">
-                <img
-                  src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200"
-                  alt="Albania coastline — Albania Visa Application 2026"
-                  className="w-full h-[320px] md:h-[460px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#005a31]/60 via-transparent to-transparent flex items-end p-8">
-                  <div className="text-white">
-                    <p className="font-black text-2xl">🇦🇱 Republic of Albania</p>
-                    <p className="text-sm text-white/80 font-medium">Balkans · Europe · Open for Business</p>
-                  </div>
-                </div>
-              </div>
-              {/* Floating stats */}
-              <div className="absolute -bottom-5 -left-5 bg-white p-5 rounded-3xl shadow-xl border border-slate-50 hidden md:block">
-                <p className="text-[#005a31] font-black text-3xl">97.8%</p>
-                <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Approval Rate</p>
-              </div>
-              <div className="absolute -top-5 -right-5 bg-[#ff6b00] p-5 rounded-3xl shadow-xl hidden md:block">
-                <p className="text-white font-black text-2xl">10M+</p>
-                <p className="text-white/80 text-[10px] font-bold uppercase tracking-widest">Tourists 2025</p>
-              </div>
-            </div>
-          </div>
-        </section>
+const REJECTION_REASONS = [
+  {
+    reason: "Incomplete documentation",
+    prep: "Use a checklist and confirm that every requested file is uploaded, readable and in the accepted format.",
+  },
+  {
+    reason: "Insufficient financial evidence",
+    prep: "Show regular income and a balance that realistically covers the trip. Add sponsor documents if someone else is paying.",
+  },
+  {
+    reason: "Inconsistent application details",
+    prep: "Compare names, dates, job titles and addresses across your passport, application, bank statements and letters.",
+  },
+  {
+    reason: "Weak or unclear travel purpose",
+    prep: "Write a short cover letter and provide an itinerary and bookings that match the stated purpose.",
+  },
+  {
+    reason: "Inadequate supporting documents",
+    prep: "Include proof of employment, business or study, and evidence that connects you to your country of residence.",
+  },
+  {
+    reason: "Previous immigration violations",
+    prep: "Do not hide earlier overstays or refusals. Answer questions honestly and add a short explanation if relevant.",
+  },
+];
 
-        {/* ── METRICS ── */}
-        <section className="py-10 px-6 bg-slate-50 border-y border-slate-100">
-          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-            <MetricBox icon={<Clock/>} label="Processing Time" value="15–20 Days" sub="Express available"/>
-            <MetricBox icon={<Wallet/>} label="Work Visa From" value="€100" sub="Type D Permit"/>
-            <MetricBox icon={<TrendingUp/>} label="Success Rate" value="97.8%" sub="All visa types"/>
-            <MetricBox icon={<Globe/>} label="Application" value="100% Online" sub="Apply from anywhere"/>
-          </div>
-        </section>
+const TRAVEL_INFO = [
+  {
+    title: "Tirana",
+    text: "Tirana is the capital and the main arrival point for most visitors. Skanderbeg Square, the Blloku district, the Bunk’Art museums and the Dajti Ekspres cable car are popular stops, and the city works well as a base for day trips.",
+  },
+  {
+    title: "Best time to visit",
+    text: "Spring (April to June) and early autumn (September to October) are generally comfortable for city visits and sightseeing. Summer is the main beach season along the coast and is typically hot, especially inland.",
+  },
+  {
+    title: "Accommodation",
+    text: "Visa officers usually want to see where you will stay. Choose a booking that can be cancelled free of charge, or provide a host’s address with an invitation letter.",
+  },
+  {
+    title: "Flight reservations",
+    text: "Check current routes from Dubai or your departure city, as options often include a connection. Use a reservation you can change or cancel until your visa is approved.",
+  },
+  {
+    title: "Travel insurance",
+    text: "Take a policy that covers medical care for the full duration of the trip. Keep the certificate ready for the application and for travel.",
+  },
+  {
+    title: "Planning considerations",
+    text: "Budget for the visa fee, insurance, flights, accommodation, local transport and daily expenses. Allow extra time before departure in case the visa takes longer than expected.",
+  },
+];
 
-        {/* ── INTERNAL LINK NAVIGATION (SEO) ── */}
-        <section className="py-10 px-6">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4">Related Visa Services</p>
-            <div className="flex flex-wrap gap-3">
-              {relatedPages.map((p) => (
-                <a key={p.href} href={p.href}
-                   className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:border-[#005a31] hover:text-[#005a31] text-slate-600 px-4 py-2 rounded-xl text-sm font-bold transition-all">
-                  {p.icon} {p.label} <ExternalLink size={11}/>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
+const EAMMU_SERVICES = [
+  "Visa consultation based on your passport and purpose",
+  "Step-by-step application guidance",
+  "Personalised document checklist",
+  "Document review before submission",
+  "Travel itinerary assistance",
+  "Flight reservation assistance",
+  "Hotel booking assistance",
+  "Travel insurance guidance",
+  "Application support through the official process",
+];
 
-        {/* ── VISA TYPES TAB SECTION ── */}
-        <section className="py-20 px-6 bg-white" id="visa-types">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-black text-[#005a31] uppercase tracking-tighter mb-3">
-                Albania Visa Types 2026
-              </h2>
-              <p className="text-slate-500 max-w-2xl mx-auto">
-                Albania issues three official visa categories under Law No. 79/2021 "On Foreigners." Choose the correct type before applying to avoid rejection.
-              </p>
-              <div className="h-1.5 w-20 bg-[#ff6b00] mx-auto rounded-full mt-4"/>
-            </div>
+const RELATED = [
+  {
+    label: "Europe visa application",
+    href: "/our-services/visa/europe-visa-application",
+    desc: "Plan a wider European trip and compare visa routes.",
+  },
+  {
+    label: "Schengen visa",
+    href: "/our-services/visa/schengen-visa",
+    desc: "If your route includes Schengen countries, you need a separate Schengen visa.",
+  },
+  {
+    label: "UAE residence visa",
+    href: "/our-services/visa/uae-residence-visa",
+    desc: "Residence visa support for people living or moving to the UAE.",
+  },
+  {
+    label: "Work permit",
+    href: "/our-services/visa/work-permit",
+    desc: "Guidance on work permits and employment-based visas.",
+  },
+  {
+    label: "Digital nomad visa",
+    href: "/our-services/visa/digital-nomad-visa",
+    desc: "Residence options for remote workers.",
+  },
+  {
+    label: "Flight reservation",
+    href: "/our-services/travel/flight-reservation",
+    desc: "Flight reservations for visa applications.",
+  },
+];
 
-            {/* Tab selector */}
-            <div className="flex flex-wrap gap-3 justify-center mb-10">
-              {[
-                { key: "tourist", label: "Type C — Tourist / Short Stay" },
-                { key: "work", label: "Type D — Work / Long Stay" },
-                { key: "nomad", label: "Unique Permit — Digital Nomad" },
-                { key: "transit", label: "Type A — Airport Transit" },
-              ].map((t) => (
-                <button key={t.key} onClick={() => setActiveTab(t.key)}
-                  className={`px-5 py-3 rounded-xl font-black text-sm uppercase tracking-wide transition-all border-2 ${
-                    activeTab === t.key
-                      ? "bg-[#005a31] text-white border-[#005a31] shadow-lg"
-                      : "bg-white text-slate-500 border-slate-200 hover:border-[#005a31]"
-                  }`}>
-                  {t.label}
-                </button>
-              ))}
-            </div>
+const FAQS = [
+  {
+    q: "Can I apply for an Albania visa from Dubai?",
+    a: "Yes. If you need a visa, you can usually apply online through the official e-Visa portal while you are in the UAE. Eammu Holidays can guide you through the documents and the application, but the visa is issued by the Albanian authorities.",
+  },
+  {
+    q: "Do Bangladeshi citizens need a visa for Albania?",
+    a: "Bangladeshi passport holders should generally expect to need a visa unless an official exemption clearly applies. Check the official e-Visa portal and the Ministry for Europe and Foreign Affairs page for the latest rules before you plan your trip.",
+  },
+  {
+    q: "How long can I stay in Albania on a Type C visa?",
+    a: "A Type C short-stay visa allows stays of up to 90 days within any 180-day period. The visa itself states the validity and the number of entries granted to you.",
+  },
+  {
+    q: "How much is the Albania visa fee?",
+    a: "The government fee depends on your nationality and visa category, and different websites quote different amounts. The reliable figure is the one shown on the official portal when you apply. Eammu’s service fee is separate and is agreed with you in advance.",
+  },
+  {
+    q: "How long does the Albania visa take?",
+    a: "Processing times are set by the Albanian authorities and are measured in working days. They can be longer during busy periods or when extra checks are needed, so apply well before your travel date and do not buy non-refundable tickets until the visa is approved.",
+  },
+  {
+    q: "Can I work in Albania on a tourist visa?",
+    a: "No. A tourist or short-stay visa does not allow employment. Working in Albania requires the proper work and residence authorisation under Albanian law.",
+  },
+  {
+    q: "Is there an Albania digital nomad visa?",
+    a: "Albania offers a residence option for remote workers, but it is a residence permit procedure rather than a tourist visa. Requirements can change, so confirm the current rules before you apply.",
+  },
+  {
+    q: "Does a Schengen visa let me enter Albania?",
+    a: "Albania is not in the Schengen Area. Under Albanian rules, holders of certain valid Schengen, US or UK visas may enter without applying for an Albania visa, under specific conditions. Check the official page for the current conditions that apply to you.",
+  },
+  {
+    q: "Why do Albania visa applications get rejected?",
+    a: "Common causes include incomplete documents, weak financial evidence, inconsistent details, an unclear travel purpose and previous immigration problems. Careful preparation reduces avoidable mistakes, but no one can guarantee approval.",
+  },
+  {
+    q: "What does Eammu Holidays do, and what does it not do?",
+    a: "Eammu Holidays is a private travel and visa consultancy. We help with guidance, document checks, itineraries and bookings. We are not the Albanian government or an embassy, we do not decide visa outcomes, and we cannot guarantee approval or processing times.",
+  },
+];
 
-            {/* Tab Content */}
-            {activeTab === "tourist" && (
-              <VisaTypeCard
-                badge="Type C E-Visa"
-                title="Albania Short-Stay Tourist & Business Visa"
-                color="#005a31"
-                highlight="Most popular for UAE residents & Bangladeshi nationals"
-                description="The Albania Type C E-Visa is issued electronically and allows a stay of up to 90 days within any 180-day period. It covers tourism, family visits, business meetings, medical treatment, and cultural events. Applications are submitted online — no embassy visit required."
-                facts={[
-                  { label: "Stay Allowed", value: "Up to 90 days in 180 days" },
-                  { label: "Validity Window", value: "180 days from issue" },
-                  { label: "Entries", value: "Single or Multiple" },
-                  { label: "Processing", value: "15–20 working days" },
-                  { label: "Fee", value: "From €30 (varies by nationality)" },
-                  { label: "Application", value: "100% online at e-visa.al" },
-                ]}
-                docs={[
-                  "Valid passport (6+ months validity beyond intended stay)",
-                  "Biometric photo (47x36mm / 555×425px, 300DPI)",
-                  "Confirmed round-trip flight reservation",
-                  "Hotel booking or host address in Albania",
-                  "Travel health insurance (minimum €30,000 coverage)",
-                  "Bank statements — last 6 months (€50/day minimum funds)",
-                  "Proof of employment or business license",
-                  "Cover letter explaining purpose of visit",
-                  "Residence permit copy (if applying outside home country)",
-                ]}
-                warnings={[
-                  "E-Visa does NOT permit working in Albania",
-                  "Application must be submitted from OUTSIDE Albania",
-                  "Payment is non-refundable if rejected",
-                  "12% rejection rate in 2025 — incorrect docs is #1 cause",
-                ]}
-              />
-            )}
+/* ───────────────────────── Structured data ───────────────────────── */
 
-            {activeTab === "work" && (
-              <VisaTypeCard
-                badge="Type D Visa + Work Permit"
-                title="Albania Work Visa & Long-Stay Permit"
-                color="#1e40af"
-                highlight="Required for any employment exceeding 90 days"
-                description="The Albania Type D Work Visa is required for foreign nationals intending to work in Albania for more than 90 days. It is issued as a stamp visa or electronic format and entitles the holder to apply for a Residence Permit after entry. Work permits are valid for 1 year and can be renewed up to 3 years. Processing takes 15–30 working days."
-                facts={[
-                  { label: "Stay Allowed", value: "90 days initial + residency" },
-                  { label: "Permit Duration", value: "1 year (renewable to 3 years)" },
-                  { label: "Temporary Work Visa", value: "€100" },
-                  { label: "Permanent Work Visa", value: "€150" },
-                  { label: "Processing Time", value: "15–30 working days" },
-                  { label: "Pathway to PR", value: "After 5 years of employment" },
-                ]}
-                docs={[
-                  "Signed Type D visa application form",
-                  "Valid passport (with 6+ months remaining validity)",
-                  "Formal employment contract (attested)",
-                  "Degree/Diploma — notarized and translated into Albanian",
-                  "Health certificate confirming fitness to work",
-                  "Company registration / National Registration Center extract",
-                  "Police clearance certificate (apostilled + Albanian translation)",
-                  "Biometric photos (official specifications)",
-                  "Health insurance for the duration of stay",
-                  "Proof of accommodation in Albania",
-                ]}
-                warnings={[
-                  "Documents must be translated into Albanian by a licensed translator",
-                  "Cannot convert Tourist Visa to Work Permit inside Albania",
-                  "EU/Schengen citizens are exempt from work permit requirements",
-                  "Employer must prove no qualified Albanian candidate was available",
-                ]}
-              />
-            )}
+// Safe JSON-LD serialisation: prevents "</script>" or HTML comments from breaking out of the tag.
+const toJsonLd = (data) =>
+  JSON.stringify(data)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e")
+    .replace(/&/g, "\\u0026")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
 
-            {activeTab === "nomad" && (
-              <VisaTypeCard
-                badge="Unique Permit (Remote Worker)"
-                title="Albania Digital Nomad Visa — Unique Permit"
-                color="#7c3aed"
-                highlight="Live in Albania up to 1 year — remote income only"
-                description="Albania does not have a visa officially labelled 'Digital Nomad Visa,' but remote workers use a legal pathway: a Type D Long-Stay Visa followed by a Unique Permit for Residence. This allows you to live in Albania for up to 1 year (renewable) while working for clients outside Albania. Albania's flat 15% income tax and low cost of living make it one of Europe's best digital nomad destinations."
-                facts={[
-                  { label: "Permit Duration", value: "1 year (renewable)" },
-                  { label: "Minimum Monthly Income", value: "~€1,000 (remote clients)" },
-                  { label: "Income Tax Rate", value: "15% (flat rate)" },
-                  { label: "Processing Time", value: "~30 days" },
-                  { label: "Albania Residence Permits Issued 2025", value: "45,000 (+25% YoY)" },
-                  { label: "Eligibility", value: "Must work for non-Albanian employers" },
-                ]}
-                docs={[
-                  "Type D visa application form (if your nationality requires it)",
-                  "Valid passport with sufficient remaining validity",
-                  "Proof of remote employment (contract, client invoices, letters)",
-                  "Bank statements showing regular income (~€1,000+/month)",
-                  "Criminal record certificate (apostilled + Albanian translation)",
-                  "Proof of accommodation in Albania (lease or property deed)",
-                  "Health insurance valid in Albania",
-                  "Biometric passport photos",
-                ]}
-                warnings={[
-                  "Must not have Albanian-source income for this permit",
-                  "Criminal record certificate is the most common rejection reason",
-                  "Visa-exempt nationals can apply after arriving in Albania",
-                  "Tax registration in Albania required within 30 days of residency",
-                ]}
-              />
-            )}
+const JsonLd = ({ data }) => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: toJsonLd(data) }}
+  />
+);
 
-            {activeTab === "transit" && (
-              <VisaTypeCard
-                badge="Type A Visa"
-                title="Albania Airport Transit Visa"
-                color="#b45309"
-                highlight="For transit through Tirana International Airport"
-                description="The Type A Airport Transit Visa allows the holder to remain in the international zone of Tirana's Mother Teresa Airport while waiting for a connecting flight. It does not grant entry into Albania. It can be issued for one, two, or multiple entries. Validity matches the layover and flight reservation period."
-                facts={[
-                  { label: "Zone", value: "International airport zone only" },
-                  { label: "Entries", value: "Single, double, or multiple" },
-                  { label: "Validity", value: "Matches flight layover" },
-                  { label: "Entry to Albania", value: "Not permitted" },
-                  { label: "Application", value: "Online or at consulate" },
-                  { label: "Fee", value: "Varies by nationality" },
-                ]}
-                docs={[
-                  "Valid passport",
-                  "Confirmed onward flight reservation",
-                  "Visa/entry permit for final destination country",
-                  "Biometric photo",
-                  "Completed application form",
-                ]}
-                warnings={[
-                  "Does not permit leaving the transit zone",
-                  "Required only for certain nationalities",
-                  "Check with airline before travel — they verify this pre-boarding",
-                ]}
-              />
-            )}
-          </div>
-        </section>
-
-        {/* ── VIDEO GUIDES ── */}
-        <section className="py-20 px-6 bg-slate-50 border-y border-slate-100">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-black text-[#005a31] uppercase tracking-tighter mb-3">
-                Albania Visa Video Guides
-              </h2>
-              <p className="text-slate-500">Step-by-step walkthroughs by our immigration experts</p>
-              <div className="h-1.5 w-20 bg-[#ff6b00] mx-auto rounded-full mt-4"/>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <VideoCard id="98fSRoZIkWs" title="Avoid Visa Rejection" desc="Top 8 reasons Albania e-Visa applications get rejected and how to prevent them." />
-              <VideoCard id="mVo9V7RR5fE" title="Apply from Dubai (UAE)" desc="Complete step-by-step guide for UAE & GCC residents applying for Albania visa." />
-              <VideoCard id="NrSjr1GnotY" title="Fast-Track Processing" desc="How express service delivers Albania visa approval in 10 working days." />
-            </div>
-          </div>
-        </section>
-
-        {/* ── VISA PROGRAMS POSTER GRID ── */}
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-[#005a31] mb-3 uppercase tracking-tighter">
-              Albania <span className="text-[#ff6b00]">Visa Programs</span>
-            </h2>
-            <p className="text-slate-500 mb-10 max-w-2xl">Four official immigration pathways to suit every purpose — from a beach holiday to long-term residency.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <PosterCard img="https://i.ytimg.com/vi/mVo9V7RR5fE/maxresdefault.jpg" type="Tourist" title="Type C E-Visa" sub="Up to 90 days" href="/our-services/visa/albania-visa-application" />
-              <PosterCard img="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=800" type="Business" title="Work Permit D" sub="1–3 years" href="/our-services/visa/work-permit" />
-              <PosterCard img="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800" type="Remote Work" title="Digital Nomad" sub="Unique Permit" href="/our-services/visa/digital-nomad-visa" />
-              <PosterCard img="https://images.unsplash.com/photo-1520106212299-d99c443e4568?q=80&w=800" type="Long-term" title="Residency" sub="5+ Year Path" href="/our-services/visa/albania-visa-application" />
-            </div>
-          </div>
-        </section>
-
-        {/* ── MAIN CONTENT + SIDEBAR ── */}
-        <section className="py-20 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14">
-          
-          <div className="lg:col-span-8 space-y-16">
-
-            {/* DOCUMENT CHECKLIST */}
-            <div id="documents">
-              <div className="flex items-center gap-4 mb-10">
-                <div className="bg-[#005a31] p-4 rounded-[1.25rem] text-white shadow-lg">
-                  <FileText size={30}/>
-                </div>
-                <div>
-                  <h2 className="text-3xl font-black uppercase tracking-tight">Document Checklist</h2>
-                  <p className="text-slate-400 font-medium text-sm mt-1">Requirements vary by nationality · Updated April 2026</p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <DocCard title="Identity & Travel" items={[
-                  "Passport (valid 6+ months beyond stay)",
-                  "National ID digital scan",
-                  "2 biometric photos (47×36mm, 300DPI)",
-                  "Signed visa application form",
-                ]}/>
-                <DocCard title="Logistics & Itinerary" items={[
-                  "Detailed travel itinerary",
-                  "Round-trip flight reservation",
-                  "Hotel booking or host address",
-                  "Travel insurance (min €30,000)",
-                ]}/>
-                <DocCard title="Financial & Work" items={[
-                  "6–12 months bank statements",
-                  "Proof of employment or business",
-                  "Proof of ties to home country",
-                  "Statement of Purpose (recommended)",
-                ]}/>
-                <DocCard title="Correspondence" items={[
-                  "Cover letter (purpose of visit)",
-                  "Appointment confirmation",
-                  "Police clearance (Type D only)",
-                  "Invitation letter (if applicable)",
-                ]}/>
-                <div className="bg-[#005a31] md:col-span-2 p-7 rounded-[2rem] shadow-xl text-white relative overflow-hidden">
-                  <h4 className="text-[#ff6b00] font-black text-xs uppercase tracking-[0.2em] mb-5">Work Permit (Type D) — Additional Docs</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {["Attested employment contract", "Notarized degree/diploma", "Health certificate (fit to work)", "Company registration extract", "Albanian-translated documents", "Employer labor market test proof"].map((d,i)=>(
-                      <div key={i} className="flex items-center gap-2 text-sm text-white/90 font-medium">
-                        <CheckCircle size={14} className="text-[#ff6b00] shrink-0"/> {d}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="absolute -right-8 -bottom-8 opacity-10"><ShieldCheck size={160}/></div>
-                </div>
-              </div>
-
-              {/* Important note */}
-              <div className="mt-8 p-7 bg-amber-50 border border-amber-100 rounded-2xl flex gap-5 items-start">
-                <div className="bg-amber-500 text-white p-3 rounded-xl shrink-0"><AlertTriangle size={24}/></div>
-                <div>
-                  <p className="font-black text-amber-800 uppercase text-xs tracking-widest mb-1">⚠ Important — 2026 Update</p>
-                  <p className="text-sm text-amber-900 leading-relaxed">
-                    Albania now requires <strong>biometric photos uploaded digitally</strong> — paper applications are being phased out. All Type D Work Permit documents must be <strong>translated into Albanian</strong> by a licensed translator. Our Dubai office provides certified translation and appointment scheduling as part of our full package.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* VISA-FREE CONDITIONS */}
-            <div className="bg-emerald-50 rounded-[2.5rem] p-8 md:p-12 border border-emerald-100">
-              <h3 className="text-2xl font-black text-[#005a31] mb-2 tracking-tight uppercase">Who Can Enter Albania Visa-Free?</h3>
-              <p className="text-slate-500 text-sm mb-6">Under Albanian Law No. 79/2021 and Council of Ministers Decision No. 858/2021</p>
-              <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  { t: "Schengen Visa Holders", d: "Valid multiple-entry Schengen visa previously used in a Schengen state. Must leave Albania within 3 days of visa expiry." },
-                  { t: "US / UK / EU Visa Holders", d: "Valid multiple-entry US, UK, or EU residence permit holders — entry for up to 90 days." },
-                  { t: "UAE Golden Visa (10-year)", d: "High-tier UAE residency permits qualify for visa-free entry into Albania." },
-                  { t: "American Citizens", d: "US passport holders get up to 365 days visa-free — the longest exemption window." },
-                ].map((x,i)=>(
-                  <div key={i} className="bg-white p-5 rounded-2xl border border-emerald-100">
-                    <p className="font-black text-[#005a31] mb-1 flex items-center gap-2"><CheckCircle size={15} className="text-[#ff6b00]"/> {x.t}</p>
-                    <p className="text-sm text-slate-500 leading-relaxed">{x.d}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 p-4 bg-white border border-red-100 rounded-2xl">
-                <p className="text-sm text-red-700 font-semibold flex items-center gap-2">
-                  <XCircle size={16} className="shrink-0 text-red-500"/>
-                  <span><strong>Overstay Warning (2026):</strong> Albania applies fines of €100–€500 and a <strong>5-year entry ban</strong> for overstays. E-gate digital tracking at Tirana Airport launched January 2026.</span>
-                </p>
-              </div>
-            </div>
-
-            {/* STEP BY STEP PROCESS */}
-            <div id="how-to-apply">
-              <h3 className="text-3xl font-black text-[#005a31] uppercase tracking-tight mb-8">
-                How to Apply for Albania E-Visa — Step by Step
-              </h3>
-              <div className="space-y-4">
-                {[
-                  { step: "01", title: "Check Eligibility", desc: "Verify whether your nationality requires a visa. Many nationalities can apply via the e-visa.al portal. If you hold a valid Schengen, US, or UK visa, you may qualify for visa-free entry." },
-                  { step: "02", title: "Gather Documents", desc: "Prepare all required documents: passport, biometric photo (555×425px, 300DPI), insurance, bank statements, hotel confirmation, and flight reservation." },
-                  { step: "03", title: "Submit Online Application", desc: "Apply at the official Albanian e-visa portal (e-visa.al) while outside Albania. Complete all fields accurately — inconsistencies are the top rejection cause." },
-                  { step: "04", title: "Pay the Visa Fee", desc: "Pay the government visa fee online. This fee is non-refundable regardless of outcome. Fees start at €30 for Type C and €100 for Type D." },
-                  { step: "05", title: "Track & Wait", desc: "Standard processing is 15–20 working days. Do not contact the embassy during processing. You'll receive an email notification with your application code." },
-                  { step: "06", title: "Receive & Print E-Visa", desc: "Upon approval, your e-Visa arrives by email in PDF format. Print a copy or save it digitally. Present it at the Albanian border alongside your passport." },
-                ].map((s, i) => (
-                  <div key={i} className="flex gap-5 p-6 bg-white border border-slate-100 rounded-2xl hover:border-[#005a31] hover:shadow-md transition-all">
-                    <div className="bg-[#005a31] text-white font-black text-lg w-12 h-12 rounded-2xl flex items-center justify-center shrink-0">{s.step}</div>
-                    <div>
-                      <p className="font-black text-[#005a31] uppercase tracking-wide text-sm mb-1">{s.title}</p>
-                      <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* REJECTION REASONS */}
-            <div className="bg-red-50 border border-red-100 rounded-[2.5rem] p-8 md:p-12">
-              <h3 className="text-2xl font-black text-red-700 uppercase tracking-tight mb-2">Top Albania Visa Rejection Reasons</h3>
-              <p className="text-slate-500 text-sm mb-6">Albania's rejection rate reached 12% in 2025. Here's why — and how we prevent it for our clients.</p>
-              <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  { bad: "Invalid or expired travel insurance", fix: "We source compliant €30,000 coverage instantly" },
-                  { bad: "Insufficient proof of financial means", fix: "We advise exact bank statement format required" },
-                  { bad: "Incorrect biometric photo format", fix: "We verify 555×425px, 300DPI compliance" },
-                  { bad: "No proof of accommodation", fix: "We provide hotel vouchers accepted by Albanian portal" },
-                  { bad: "Weak ties to home country", fix: "We help draft a strong Statement of Purpose" },
-                  { bad: "Inconsistent information across documents", fix: "We cross-check every document before submission" },
-                ].map((r, i) => (
-                  <div key={i} className="bg-white p-5 rounded-2xl border border-red-50">
-                    <p className="text-red-600 font-bold text-sm flex items-start gap-2 mb-2">
-                      <XCircle size={15} className="shrink-0 mt-0.5"/> {r.bad}
-                    </p>
-                    <p className="text-emerald-700 font-bold text-xs flex items-start gap-2">
-                      <CheckCircle size={13} className="shrink-0 mt-0.5"/> <em>Eammu fix: {r.fix}</em>
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* EXPANDED FAQ */}
-            <div id="faq">
-              <h3 className="text-3xl font-black text-[#005a31] uppercase tracking-tight mb-2">
-                Albania Visa FAQs 2026
-              </h3>
-              <p className="text-slate-400 text-sm mb-8">Frequently asked questions from UAE, Bangladesh & Armenia applicants</p>
-              <div className="space-y-3">
-                {[
-                  { q: "How long is the Albania E-Visa valid?", a: "A Type C E-Visa allows up to 90 days within a 180-day period. The visa window (entry timeframe) is typically 180 days from the issue date. Single or multiple entries are available depending on your profile." },
-                  { q: "Can I convert a Tourist Visa to a Work Permit inside Albania?", a: "No. Albania requires a Type D Work Visa to be applied for from your country of residence or nearest Albanian consulate before traveling for employment. Attempting to change status inside Albania is not permitted." },
-                  { q: "Are bank statements mandatory for Albania E-Visa?", a: "Yes. You must demonstrate financial sufficiency — usually €50 per day per adult. A 6–12 month bank statement showing regular income and a positive balance is required. Sponsored travelers may use a guarantor's statements." },
-                  { q: "Do documents need to be translated into Albanian?", a: "For the Type C E-Visa, English language documents are generally accepted. However, for Work Permits (Type D) and Residency applications, all key documents — including degrees, police clearances, and contracts — must be notarized and officially translated into Albanian." },
-                  { q: "Is Albania in the Schengen Area?", a: "No, Albania is not yet a Schengen member as of 2026. However, it grants visa-free access to holders of valid Schengen, US, UK, EU, and select UAE residency documents. Albania is currently an EU candidate country." },
-                  { q: "What is the Albania Digital Nomad 'Unique Permit'?", a: "Albania's Unique Permit for remote workers allows you to live in Albania for up to 1 year while earning income from non-Albanian clients. It requires proof of ~€1,000/month income and a clean criminal record. Albania's 15% flat tax rate is a major financial advantage for nomads." },
-                  { q: "What happens if I overstay my Albania visa?", a: "Overstaying results in fines of €100–€500 and a 5-year ban from re-entering Albania. Since January 2026, Albania uses digital e-gate tracking at Tirana Airport, making overstays much harder to conceal." },
-                  { q: "Can Eammu Holidays help with flight and hotel booking for visa purposes?", a: "Yes. As a full-service travel agency, we issue visa-purpose flight reservations and hotel vouchers that meet the Albanian immigration portal's exact requirements — accepted without issue." },
-                  { q: "How do I apply for an Albania visa from Dubai (UAE)?", a: "UAE residents can apply via the official Albania e-visa portal online, or use our Dubai-based consultancy service at Eammu Holidays. We handle document review, photo compliance, insurance, and submission for UAE, GCC, and South Asian applicants." },
-                  { q: "What is Albania's e-visa approval rate?", a: "Albania's overall e-visa approval rate is strong. Our clients at Eammu Holidays maintain a 97.8% success rate. The national rejection rate was 12% in 2025, primarily due to document errors — which our pre-submission review eliminates." },
-                ].map((f, i) => (
-                  <FAQBox key={i} q={f.q} a={f.a}/>
-                ))}
-              </div>
-            </div>
-
-            {/* WHY CHOOSE ALBANIA */}
-            <div className="bg-[#005a31] text-white p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden">
-              <h3 className="text-2xl font-black uppercase tracking-tight mb-2">Why Move or Travel to Albania in 2026?</h3>
-              <p className="text-white/70 text-sm mb-8">Albania is one of Europe's fastest-growing destinations for tourists, remote workers, and businesses.</p>
-              <div className="grid md:grid-cols-3 gap-6 relative z-10">
-                {[
-                  { icon: <DollarSign size={24}/>, t: "Low Cost of Living", d: "Average monthly costs €600–€900. Significantly cheaper than Western Europe or UAE." },
-                  { icon: <Award size={24}/>, t: "15% Flat Income Tax", d: "One of Europe's lowest tax rates, making it ideal for entrepreneurs and freelancers." },
-                  { icon: <Globe size={24}/>, t: "10M+ Annual Tourists", d: "Albania welcomed over 10 million tourists in 2025, a record driven by EU candidate status." },
-                  { icon: <Plane size={24}/>, t: "Easy Accessibility", d: "Regular flights from Dubai, Istanbul, Rome, and Vienna. Tirana Airport expanding for 2026." },
-                  { icon: <Star size={24}/>, t: "EU Candidate Country", d: "Albania's EU accession path makes it a strategic base for businesses targeting European markets." },
-                  { icon: <Users size={24}/>, t: "Growing Expat Community", d: "45,000 new residence permits issued in 2025 — a 25% year-on-year rise in expats choosing Albania." },
-                ].map((x, i) => (
-                  <div key={i} className="bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/10">
-                    <div className="text-[#ff6b00] mb-3">{x.icon}</div>
-                    <p className="font-black mb-1">{x.t}</p>
-                    <p className="text-white/60 text-xs leading-relaxed">{x.d}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="absolute -right-20 -bottom-20 opacity-5"><Globe size={300}/></div>
-            </div>
-
-            {/* RELATED SERVICES LINKS (internal SEO) */}
-            <div className="border border-slate-100 rounded-[2rem] p-8">
-              <h3 className="text-xl font-black text-[#005a31] uppercase tracking-tight mb-6">Explore Related Visa Services</h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                {[
-                  { label: "Europe Visa Application Guide", href: "/our-services/visa/europe-visa-application", desc: "Schengen, UK, and multi-country European visas" },
-                  { label: "UAE Work & Residence Visa", href: "/our-services/visa/uae-residence-visa", desc: "Dubai & Abu Dhabi residence permit services" },
-                  { label: "Schengen Visa from Dubai", href: "/our-services/visa/schengen-visa", desc: "French, German, Italian, and other Schengen visas" },
-                  { label: "Work Permit Consultancy", href: "/our-services/visa/work-permit", desc: "International employment visa across 40+ countries" },
-                  { label: "Digital Nomad Visa Guide", href: "/our-services/visa/digital-nomad-visa", desc: "Remote work permits: Albania, Georgia, Portugal" },
-                  { label: "Flight Reservation for Visa", href: "/our-services/travel/flight-reservation", desc: "Visa-purpose confirmed bookings accepted by embassies" },
-                ].map((l, i) => (
-                  <a key={i} href={l.href}
-                     className="flex items-start gap-3 p-4 bg-slate-50 hover:bg-emerald-50 border border-transparent hover:border-emerald-200 rounded-2xl transition-all group">
-                    <ChevronRight size={16} className="text-[#ff6b00] mt-1 shrink-0 group-hover:translate-x-1 transition-transform"/>
-                    <div>
-                      <p className="font-black text-[#005a31] text-sm">{l.label}</p>
-                      <p className="text-xs text-slate-400 mt-0.5">{l.desc}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-          </div>
-
-          {/* ── STICKY SIDEBAR ── */}
-          <aside className="lg:col-span-4 lg:sticky lg:top-8 self-start space-y-6">
-            {/* Contact Card */}
-            <div className="bg-[#005a31] text-white p-8 rounded-[2.5rem] shadow-2xl shadow-emerald-900/20 relative overflow-hidden">
-              <h3 className="text-lg font-black mb-1 text-[#ff6b00] italic">Eammu Holidays</h3>
-              <p className="text-white/60 text-xs mb-8 uppercase tracking-widest font-bold">Immigration Consultancy</p>
-              <div className="space-y-7">
-                <SidebarContact label="UAE Support" val="+971 50 707 8334" href="tel:+971507078334"/>
-                <SidebarContact label="Armenia Office" val="+374 94 810585" href="tel:+37494810585"/>
-                <SidebarContact label="BD Hotline" val="+880 1701 699 743" href="tel:+971507078334"/>
-                <SidebarContact label="Email Us" val="info@eammu.com" href="mailto:info@eammu.com"/>
-              </div>
-              <a href="https://wa.me/37494810585"
-                 className="mt-8 block w-full bg-[#ff6b00] text-white text-center py-4 rounded-2xl font-black uppercase tracking-widest hover:bg-white hover:text-[#005a31] transition-all shadow-lg">
-                💬 Chat on WhatsApp
-              </a>
-              <div className="absolute -top-16 -right-16 w-48 h-48 bg-white/5 rounded-full"/>
-            </div>
-
-            {/* Quick Visa Fee Table */}
-            <div className="bg-white border border-slate-100 rounded-[2rem] p-6">
-              <h4 className="font-black text-[#005a31] uppercase tracking-wide text-sm mb-4">Albania Visa Fees 2026</h4>
-              <div className="space-y-3">
-                {[
-                  { type: "Type C E-Visa (Tourist)", fee: "From €30", color: "text-emerald-700" },
-                  { type: "Type A (Transit)", fee: "Varies", color: "text-slate-500" },
-                  { type: "Type D (Work — Temporary)", fee: "€100", color: "text-blue-700" },
-                  { type: "Type D (Work — Permanent)", fee: "€150", color: "text-purple-700" },
-                  { type: "Express Processing", fee: "+€50", color: "text-[#ff6b00]" },
-                  { type: "Appeal Fee (if rejected)", fee: "€20", color: "text-red-600" },
-                ].map((r, i) => (
-                  <div key={i} className="flex justify-between items-center py-2 border-b border-slate-50 last:border-0">
-                    <span className="text-xs text-slate-500 font-medium">{r.type}</span>
-                    <span className={`font-black text-sm ${r.color}`}>{r.fee}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="text-[10px] text-slate-300 mt-4 font-medium">Government fees subject to change. Consultancy fees apply separately.</p>
-            </div>
-
-            {/* Trust Box */}
-            <div className="bg-slate-50 border border-slate-100 rounded-[2rem] p-6 text-center">
-              <div className="w-14 h-14 rounded-2xl bg-white shadow border border-slate-100 flex items-center justify-center text-[#005a31] mx-auto mb-4">
-                <ShieldCheck size={28}/>
-              </div>
-              <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em] mb-1">Global Immigration</p>
-              <p className="text-[#005a31] font-black italic text-xl tracking-tighter">Eammu Holidays</p>
-              <div className="flex items-center justify-center gap-1 mt-3">
-                {[1,2,3,4,5].map(s=><Star key={s} size={13} fill="#ff6b00" className="text-[#ff6b00]"/>)}
-                <span className="text-xs text-slate-400 ml-1 font-bold">4.9/5 — 1,200+ reviews</span>
-              </div>
-            </div>
-
-            {/* Quick links sidebar */}
-            <div className="bg-white border border-slate-100 rounded-[2rem] p-6">
-              <h4 className="font-black text-slate-400 uppercase tracking-widest text-[10px] mb-4">Page Navigation</h4>
-              {[
-                ["#visa-types", "Visa Types Overview"],
-                ["#documents", "Document Checklist"],
-                ["#how-to-apply", "Application Steps"],
-                ["#faq", "FAQs"],
-              ].map(([href, label]) => (
-                <a key={href} href={href}
-                   className="flex items-center gap-2 py-2 text-sm text-slate-500 hover:text-[#005a31] font-semibold border-b border-slate-50 last:border-0 transition-colors">
-                  <ChevronRight size={13} className="text-[#ff6b00]"/> {label}
-                </a>
-              ))}
-            </div>
-          </aside>
-        </section>
-
-        {/* ── FOOTER CTA STRIP ── */}
-        <section className="bg-[#ff6b00] py-16 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">
-              Ready to Apply for Your Albania Visa?
-            </h2>
-            <p className="text-white/80 mb-8 text-lg">
-              Expert guidance from application to approval. 97.8% success rate across UAE, Bangladesh, and Armenian applicants.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/37494810585"
-                 className="bg-white text-[#ff6b00] px-8 py-4 rounded-2xl font-black uppercase tracking-wide shadow-xl hover:bg-[#005a31] hover:text-white transition-all">
-                Start WhatsApp Application
-              </a>
-              <a href="mailto:info@eammu.com"
-                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-2xl font-black uppercase tracking-wide hover:bg-white hover:text-[#ff6b00] transition-all">
-                Email for Consultation
-              </a>
-            </div>
-          </div>
-        </section>
-      {/* ── BREADCRUMB (SEO) ── */}
-        <nav aria-label="Breadcrumb" className="bg-slate-50 border-b border-slate-100 px-6 py-22">
-          <ol className="max-w-7xl mx-auto flex items-center gap-2 text-xs text-slate-400 font-semibold flex-wrap">
-            <li><Link href="/" className="hover:text-[#005a31] transition-colors">Home</Link></li>
-            <li><ChevronRight size={12}/></li>
-            <li><Link href="/our-services" className="hover:text-[#005a31] transition-colors">Our Services</Link></li>
-            <li><ChevronRight size={12}/></li>
-            <li><Link href="/visa" className="hover:text-[#005a31] transition-colors">Visa Services</Link></li>
-            <li><ChevronRight size={12}/></li>
-            <li className="text-[#005a31]">Albania Visa Application</li>
-          </ol>
-        </nav>
-
-      </main>
-    </>
-  );
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${PAGE_URL}#webpage`,
+      url: PAGE_URL,
+      name: "Albania Visa Application from Bangladesh & Dubai",
+      description:
+        "Albania visa types, document checklists, fees, processing time and application steps for Bangladeshi and UAE-based travelers.",
+      inLanguage: "en",
+      dateModified: LAST_REVIEWED,
+      isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: SITE_URL, name: "Eammu Holidays" },
+      breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
+      about: { "@id": `${PAGE_URL}#service` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${PAGE_URL}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Albania visa application", item: PAGE_URL },
+      ],
+    },
+    {
+      "@type": "TravelAgency",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Eammu Holidays",
+      url: SITE_URL,
+      email: CONTACT.email,
+      telephone: "+971507078334",
+    },
+    {
+      "@type": "Service",
+      "@id": `${PAGE_URL}#service`,
+      name: "Albania visa application consultancy",
+      serviceType: "Visa consultation and application support",
+      description:
+        "Guidance, document review and application support for travelers applying for an Albania visa. Eammu Holidays is a private consultancy and does not issue visas.",
+      provider: { "@id": `${SITE_URL}/#organization` },
+      areaServed: [
+        { "@type": "Country", name: "Bangladesh" },
+        { "@type": "Country", name: "United Arab Emirates" },
+      ],
+      url: PAGE_URL,
+    },
+  ],
 };
 
-/* ─────────────────────────────────────────────
-   HELPER COMPONENTS
-───────────────────────────────────────────── */
+/* ───────────────────────── Reusable server sections ───────────────────────── */
 
-const MetricBox = ({ icon, label, value, sub }) => (
-  <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
-    <div className="text-[#ff6b00] mb-3">{React.cloneElement(icon, { size: 26 })}</div>
-    <span className="text-[9px] text-slate-400 font-black uppercase tracking-widest mb-0.5">{label}</span>
-    <span className="text-[#005a31] font-black text-sm md:text-base leading-tight">{value}</span>
-    {sub && <span className="text-[9px] text-slate-300 font-bold mt-0.5">{sub}</span>}
+const linkFocus =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#005a31]";
+
+const btnPrimary = `inline-flex items-center justify-center gap-2 rounded-lg bg-[#005a31] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[#00431f] ${linkFocus}`;
+const btnAccent = `inline-flex items-center justify-center gap-2 rounded-lg bg-[#ffb800] px-6 py-3 text-base font-semibold text-slate-900 transition-colors hover:bg-[#e6a500] ${linkFocus}`;
+const btnOutline = `inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-[#005a31] transition-colors hover:border-[#005a31] ${linkFocus}`;
+
+const Section = ({ id, title, intro, children }) => (
+  <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-24 border-t border-slate-200 pt-12 first:border-t-0 first:pt-0">
+    <h2 id={`${id}-title`} className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+      {title}
+    </h2>
+    {intro ? <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600">{intro}</p> : null}
+    <div className="mt-8">{children}</div>
+  </section>
+);
+
+const CheckList = ({ items }) => (
+  <ul className="space-y-2.5">
+    {items.map((item) => (
+      <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-700">
+        <Check aria-hidden="true" size={16} className="mt-0.5 shrink-0 text-[#005a31]" />
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+);
+
+const Callout = ({ children }) => (
+  <div className="flex gap-3 rounded-xl border border-[#ffb800]/60 bg-[#fff8e1] p-4 text-sm leading-relaxed text-slate-800">
+    <Info aria-hidden="true" size={18} className="mt-0.5 shrink-0 text-[#8a6100]" />
+    <div>{children}</div>
   </div>
 );
 
-const VideoCard = ({ id, title, desc }) => (
-  <div className="bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm">
-    <div className="aspect-video">
-      <iframe className="w-full h-full" src={`https://www.youtube.com/embed/${id}`} title={title} allowFullScreen loading="lazy"/>
-    </div>
-    <div className="p-5">
-      <h4 className="font-black text-[#005a31] uppercase mb-1 text-sm leading-tight">{title}</h4>
-      <p className="text-slate-400 text-xs font-medium leading-relaxed">{desc}</p>
-    </div>
-  </div>
-);
-
-const PosterCard = ({ img, type, title, sub, href }) => (
-  <a href={href} className="relative w-full min-h-[380px] rounded-[2.5rem] overflow-hidden group shadow-xl bg-slate-100 flex flex-col justify-end block">
-    <img src={img} alt={`Albania ${title} visa`} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
-    <div className="absolute inset-0 bg-gradient-to-t from-[#005a31] via-[#005a31]/10 to-transparent opacity-90"/>
-    <div className="relative z-10 p-7 w-full">
-      <span className="text-[#ff6b00] font-black text-[10px] uppercase tracking-[0.2em] bg-white/10 backdrop-blur px-3 py-1 rounded-lg mb-3 inline-block">{type}</span>
-      <h4 className="text-white font-black text-2xl uppercase tracking-tighter leading-tight">{title}</h4>
-      <p className="text-white/60 text-xs font-semibold mt-1">{sub}</p>
-      <div className="w-0 group-hover:w-10 h-1 bg-[#ff6b00] mt-3 transition-all duration-500 rounded-full"/>
-    </div>
+const ExternalA = ({ href, children }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`inline-flex items-center gap-1 font-semibold text-[#005a31] underline underline-offset-2 hover:text-[#00431f] ${linkFocus}`}
+  >
+    {children}
+    <ExternalLink aria-hidden="true" size={14} />
   </a>
 );
 
-const DocCard = ({ title, items }) => (
-  <div className="bg-slate-50 p-6 rounded-[2rem] border border-slate-100 hover:border-emerald-200 transition-colors">
-    <h4 className="text-[#ff6b00] font-black text-[10px] uppercase tracking-[0.2em] mb-5">{title}</h4>
-    <div className="space-y-3">
-      {items.map((item, i) => (
-        <div key={i} className="flex items-start gap-2">
-          <CheckCircle size={14} className="text-[#ff6b00] shrink-0 mt-0.5"/>
-          <span className="text-sm font-semibold text-slate-600 leading-snug">{item}</span>
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
-const VisaTypeCard = ({ badge, title, color, highlight, description, facts, docs, warnings }) => (
-  <div className="bg-white border border-slate-100 rounded-[2rem] overflow-hidden shadow-sm">
-    <div className="p-1" style={{ backgroundColor: color }}>
-      <div className="bg-white/10 text-white text-center py-2 rounded-t-[1.75rem]">
-        <span className="font-black text-xs uppercase tracking-widest">{badge}</span>
-      </div>
-    </div>
-    <div className="p-8">
-      <h3 className="text-2xl font-black text-slate-800 mb-1">{title}</h3>
-      <p className="text-[#ff6b00] font-black text-xs uppercase tracking-wide mb-4">{highlight}</p>
-      <p className="text-slate-500 text-sm leading-relaxed mb-8">{description}</p>
-
-      <div className="grid md:grid-cols-3 gap-6 mb-8">
-        <div>
-          <h4 className="font-black text-xs uppercase tracking-widest text-slate-400 mb-4">Key Facts</h4>
-          <div className="space-y-3">
-            {facts.map((f, i) => (
-              <div key={i} className="flex flex-col">
-                <span className="text-[10px] text-slate-300 font-black uppercase tracking-widest">{f.label}</span>
-                <span className="font-black text-slate-700 text-sm">{f.value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="md:col-span-2">
-          <h4 className="font-black text-xs uppercase tracking-widest text-slate-400 mb-4">Required Documents</h4>
-          <div className="grid sm:grid-cols-2 gap-2">
-            {docs.map((d, i) => (
-              <div key={i} className="flex items-start gap-2 text-sm text-slate-600 font-medium">
-                <CheckCircle size={13} className="text-[#ff6b00] shrink-0 mt-0.5"/> {d}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-red-50 border border-red-100 rounded-2xl p-5">
-        <p className="font-black text-red-700 text-xs uppercase tracking-widest mb-3 flex items-center gap-2">
-          <AlertTriangle size={13}/> Important Notes
-        </p>
-        <div className="space-y-2">
-          {warnings.map((w, i) => (
-            <div key={i} className="flex items-start gap-2 text-xs text-red-600 font-semibold">
-              <XCircle size={12} className="shrink-0 mt-0.5"/> {w}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const SidebarContact = ({ label, val, href }) => (
-  <div className="relative pl-5">
-    <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-[#ff6b00] rounded-full"/>
-    <p className="text-[#ff6b00] text-[9px] font-black uppercase tracking-widest mb-0.5">{label}</p>
-    <a href={href} className="text-base font-bold hover:text-[#ff6b00] transition-colors">{val}</a>
-  </div>
-);
-
-const FAQBox = ({ q, a }) => (
-  <details className="group bg-white border border-slate-100 rounded-2xl p-5 open:shadow-md transition-all">
-    <summary className="flex justify-between items-start cursor-pointer font-black text-[#005a31] text-sm uppercase tracking-tight list-none gap-4">
-      <span className="leading-snug">{q}</span>
-      <ChevronDown size={18} className="text-[#ff6b00] shrink-0 group-open:rotate-180 transition-transform mt-0.5"/>
-    </summary>
-    <p className="mt-4 text-sm text-slate-500 font-medium leading-relaxed border-l-2 border-[#ff6b00] pl-4">
-      {a}
+const ContactCard = () => (
+  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 className="text-lg font-bold text-slate-900">Talk to Eammu Holidays</h2>
+    <p className="mt-1 text-sm text-slate-600">
+      Ask about your passport, your purpose of travel and the documents you will need.
     </p>
-  </details>
+    <ul className="mt-5 space-y-3 text-sm">
+      {[CONTACT.uaePhone, CONTACT.armeniaPhone, CONTACT.bdPhone].map((p) => (
+        <li key={p.href} className="flex items-center justify-between gap-3">
+          <span className="text-slate-500">{p.label}</span>
+          <a href={p.href} className={`font-semibold text-slate-900 hover:text-[#005a31] ${linkFocus}`}>
+            {p.display}
+          </a>
+        </li>
+      ))}
+      <li className="flex items-center justify-between gap-3">
+        <span className="text-slate-500">Email</span>
+        <a href={`mailto:${CONTACT.email}`} className={`break-all font-semibold text-slate-900 hover:text-[#005a31] ${linkFocus}`}>
+          {CONTACT.email}
+        </a>
+      </li>
+    </ul>
+    <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className={`${btnAccent} mt-6 w-full`}>
+      <MessageCircle aria-hidden="true" size={18} />
+      Chat on WhatsApp
+    </a>
+  </div>
 );
 
-export default AlbaniaVisa;
+/* ───────────────────────── Main component ───────────────────────── */
+
+export default function AlbaniaVisa() {
+  return (
+    <>
+      <JsonLd data={structuredData} />
+
+      <main className="bg-white font-sans text-slate-800">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="border-b border-slate-100 bg-slate-50">
+          <ol className="mx-auto flex max-w-7xl flex-wrap items-center gap-1.5 px-4 py-3 text-sm text-slate-500 sm:px-6 lg:px-8">
+            <li>
+              <Link href="/" className={`hover:text-[#005a31] ${linkFocus}`}>
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">
+              <ChevronRight size={14} />
+            </li>
+            <li aria-current="page" className="font-medium text-slate-800">
+              Albania visa application
+            </li>
+          </ol>
+        </nav>
+
+        {/* Hero */}
+        <header className="border-b border-slate-200 bg-white">
+          <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-16">
+            <div className="lg:col-span-7">
+              <p className="text-sm font-semibold text-[#005a31]">
+                Visa consultancy for travelers from Bangladesh and the UAE
+              </p>
+              <h1 className="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                Albania visa application from Bangladesh and Dubai
+              </h1>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+                Find out which Albania visa you need, which documents to prepare, what the costs usually include and how
+                the e-Visa process works. Eammu Holidays helps Bangladeshi citizens and UAE residents prepare a clear,
+                well-documented application.
+              </p>
+
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
+                  <MessageCircle aria-hidden="true" size={18} />
+                  Ask about your Albania visa
+                </a>
+                <a href={CONTACT.uaePhone.href} className={btnOutline}>
+                  <Phone aria-hidden="true" size={18} />
+                  Call the UAE office
+                </a>
+              </div>
+
+              <p className="mt-5 max-w-2xl text-sm leading-relaxed text-slate-500">
+                Eammu Holidays is a private consultancy. We are not an embassy or a government body, and visa decisions
+                are made only by the Albanian authorities.
+              </p>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+                <Image
+                  src="/eammu_banner_four.webp"
+                  alt="Eammu Holidays travel and visa consultancy banner for Albania visa applications"
+                  width={1200}
+                  height={630}
+                  priority
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="aspect-[1200/630] h-auto w-full object-cover"
+                />
+                <div className="border-t border-slate-200 bg-white p-5">
+                  <h2 className="text-base font-bold text-slate-900">Key points at a glance</h2>
+                  <div className="mt-3">
+                    <CheckList
+                      items={[
+                        "Type C short-stay visa: up to 90 days in any 180 days",
+                        "Apply online on the official portal, e-visa.al",
+                        "Government fees and processing time depend on your nationality and case",
+                        "A tourist visa does not allow work in Albania",
+                      ]}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        {/* Content + sidebar */}
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 py-12 sm:px-6 lg:grid-cols-12 lg:gap-14 lg:px-8 lg:py-16">
+          <div className="space-y-14 lg:col-span-8">
+            {/* A. Overview */}
+            <Section
+              id="overview"
+              title="Albania visa overview"
+              intro="Short answers to the questions applicants ask most often, written for Bangladeshi passport holders and people living in the UAE."
+            >
+              <div className="space-y-6">
+                {OVERVIEW.map((o) => (
+                  <article key={o.q}>
+                    <h3 className="text-lg font-semibold text-slate-900">{o.q}</h3>
+                    <p className="mt-2 text-base leading-relaxed text-slate-600">{o.a}</p>
+                  </article>
+                ))}
+              </div>
+              <div className="mt-6">
+                <Callout>
+                  Check the official sources before you apply:{" "}
+                  <ExternalA href={OFFICIAL_EVISA}>Albania e-Visa portal</ExternalA> and the{" "}
+                  <ExternalA href={OFFICIAL_MFA}>Ministry for Europe and Foreign Affairs visa regime page</ExternalA>.
+                  Rules can change, and the official sources always take priority over this page.
+                </Callout>
+              </div>
+            </Section>
+
+            {/* B. Visa types */}
+            <Section
+              id="visa-types"
+              title="Albania visa types"
+              intro="Albania uses visa categories A, C and D. Work and remote-worker stays are handled through residence procedures, not through a tourist visa."
+            >
+              <div className="grid gap-5 md:grid-cols-2">
+                {VISA_TYPES.map((v) => (
+                  <article key={v.title} className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <span className="inline-flex w-fit rounded-md bg-[#005a31]/10 px-2.5 py-1 text-xs font-semibold text-[#005a31]">
+                      {v.badge}
+                    </span>
+                    <h3 className="mt-3 text-lg font-semibold text-slate-900">{v.title}</h3>
+                    <dl className="mt-4 space-y-3 text-sm leading-relaxed">
+                      <div>
+                        <dt className="font-semibold text-slate-900">Purpose</dt>
+                        <dd className="text-slate-600">{v.purpose}</dd>
+                      </div>
+                      <div>
+                        <dt className="font-semibold text-slate-900">Stay</dt>
+                        <dd className="text-slate-600">{v.stay}</dd>
+                      </div>
+                      <div>
+                        <dt className="font-semibold text-slate-900">Who it is for</dt>
+                        <dd className="text-slate-600">{v.eligibility}</dd>
+                      </div>
+                      <div>
+                        <dt className="font-semibold text-slate-900">Application notes</dt>
+                        <dd className="text-slate-600">{v.notes}</dd>
+                      </div>
+                    </dl>
+                  </article>
+                ))}
+              </div>
+              <p className="mt-6 text-sm leading-relaxed text-slate-600">
+                Looking at a longer stay? Read our guides on{" "}
+                <Link href="/our-services/visa/work-permit" className={`font-semibold text-[#005a31] underline underline-offset-2 ${linkFocus}`}>
+                  work permits
+                </Link>{" "}
+                and the{" "}
+                <Link href="/our-services/visa/digital-nomad-visa" className={`font-semibold text-[#005a31] underline underline-offset-2 ${linkFocus}`}>
+                  digital nomad visa
+                </Link>
+                .
+              </p>
+            </Section>
+
+            {/* C. Requirements */}
+            <Section
+              id="requirements"
+              title="Albania visa requirements and document checklists"
+              intro="The official portal lists the final requirements for your case. The checklists below separate general documents from nationality-specific and profile-specific documents."
+            >
+              <h3 className="text-lg font-semibold text-slate-900">General documents for a Type C visa</h3>
+              <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <CheckList items={GENERAL_DOCS} />
+              </div>
+
+              <h3 className="mt-10 text-lg font-semibold text-slate-900">Nationality and residence-specific documents</h3>
+              <div className="mt-4 grid gap-5 md:grid-cols-2">
+                {NATIONALITY_DOCS.map((d) => (
+                  <article key={d.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h4 className="text-base font-semibold text-slate-900">{d.title}</h4>
+                    <p className="mt-1 mb-4 text-sm text-slate-500">{d.note}</p>
+                    <CheckList items={d.items} />
+                  </article>
+                ))}
+              </div>
+
+              <h3 className="mt-10 text-lg font-semibold text-slate-900">Documents by applicant profile</h3>
+              <div className="mt-4 grid gap-5 sm:grid-cols-2">
+                {PROFILE_DOCS.map((d) => (
+                  <article key={d.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h4 className="mb-4 text-base font-semibold text-slate-900">{d.title}</h4>
+                    <CheckList items={d.items} />
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-6">
+                <Callout>
+                  <strong>Government requirement vs. Eammu recommendation:</strong> the passport, application, photo, fee
+                  and any documents requested on the portal are official requirements. Items such as a cover letter, a
+                  clear itinerary or employer letters are recommendations from Eammu Holidays to make your case easier to
+                  understand. If you need a reservation to support your application, see our{" "}
+                  <Link href="/our-services/travel/flight-reservation" className={`font-semibold text-[#005a31] underline underline-offset-2 ${linkFocus}`}>
+                    flight reservation service
+                  </Link>
+                  .
+                </Callout>
+              </div>
+            </Section>
+
+            {/* D. Fees */}
+            <Section
+              id="fees"
+              title="Albania visa fees and other costs"
+              intro="The total cost of an Albania visa has several parts. Only the government fee is set by Albania, and it varies by nationality and visa category."
+            >
+              <div className="overflow-x-auto rounded-2xl border border-slate-200">
+                <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+                  <caption className="sr-only">Albania visa cost breakdown</caption>
+                  <thead className="bg-[#005a31] text-white">
+                    <tr>
+                      <th scope="col" className="px-4 py-3 font-semibold">Cost</th>
+                      <th scope="col" className="px-4 py-3 font-semibold">Who charges it</th>
+                      <th scope="col" className="px-4 py-3 font-semibold">What to know</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200 bg-white">
+                    {FEE_ROWS.map((r) => (
+                      <tr key={r.item} className="align-top">
+                        <th scope="row" className="px-4 py-3 font-semibold text-slate-900">{r.item}</th>
+                        <td className="px-4 py-3 text-slate-600">{r.who}</td>
+                        <td className="px-4 py-3 leading-relaxed text-slate-600">{r.note}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                We do not list a fixed government fee here because it depends on your nationality, the visa category and
+                official changes. Confirm the amount on the{" "}
+                <ExternalA href={OFFICIAL_EVISA}>official e-Visa portal</ExternalA> before you pay.
+              </p>
+            </Section>
+
+            {/* E. Processing time */}
+            <Section
+              id="processing-time"
+              title="Albania visa processing time"
+              intro="Processing is handled by the Albanian authorities and is counted in working days. No agency can guarantee a decision date or an outcome."
+            >
+              <div className="grid gap-5 md:grid-cols-2">
+                <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-base font-semibold text-slate-900">Standard processing</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    Official guidance and the portal show the expected processing period for your application. Treat it
+                    as an estimate rather than a promise, and check the portal for the current figure.
+                  </p>
+                </article>
+                <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-base font-semibold text-slate-900">Additional verification</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    Officials may request more documents or clarification. Answering quickly and clearly helps avoid
+                    additional delay.
+                  </p>
+                </article>
+                <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-base font-semibold text-slate-900">Why times vary</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    Time depends on your nationality, visa type, the quality of your documents, public holidays, and how
+                    busy the system is during the travel season.
+                  </p>
+                </article>
+                <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-base font-semibold text-slate-900">When to apply</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    Apply well ahead of your planned departure, and keep flights and hotels flexible until you have a
+                    decision. Do not rely on a last-minute approval.
+                  </p>
+                </article>
+              </div>
+            </Section>
+
+            {/* F. Process */}
+            <Section
+              id="how-to-apply"
+              title="How to apply for an Albania visa, step by step"
+              intro="This is the general sequence for a short-stay e-Visa. Long-stay and residence procedures follow additional steps."
+            >
+              <ol className="space-y-4">
+                {PROCESS_STEPS.map((s, i) => (
+                  <li key={s.title} className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <span
+                      aria-hidden="true"
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#005a31] text-sm font-bold text-white"
+                    >
+                      {i + 1}
+                    </span>
+                    <div>
+                      <h3 className="text-base font-semibold text-slate-900">{s.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-slate-600">{s.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-6 text-sm text-slate-600">
+                Official links:{" "}
+                <ExternalA href={OFFICIAL_EVISA}>Albania e-Visa portal</ExternalA>
+                {" · "}
+                <ExternalA href={OFFICIAL_MFA}>Ministry for Europe and Foreign Affairs</ExternalA>
+              </p>
+            </Section>
+
+            {/* G. Dubai */}
+            <Section
+              id="from-dubai"
+              title="Albania visa from Dubai for UAE residents"
+              intro="Many of our applicants live and work in the UAE, including a large number of Bangladeshi expatriates. This is how to prepare."
+            >
+              <div className="grid gap-5 md:grid-cols-2">
+                {DUBAI_POINTS.map((p) => (
+                  <article key={p.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h3 className="text-base font-semibold text-slate-900">{p.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{p.text}</p>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <h3 className="text-lg font-semibold text-slate-900">Application procedure from the UAE</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  The procedure is the same as for other applicants: confirm your visa requirement, prepare documents,
+                  complete the online application and pay the fee. Our Dubai office can review your documents with you
+                  before you submit, help with itineraries and reservations, and answer questions along the way.
+                </p>
+                <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                  <a href={CONTACT.uaePhone.href} className={btnPrimary}>
+                    <Phone aria-hidden="true" size={18} />
+                    Call Dubai: {CONTACT.uaePhone.display}
+                  </a>
+                  <Link href="/our-services/visa/uae-residence-visa" className={btnOutline}>
+                    UAE residence visa services
+                  </Link>
+                </div>
+              </div>
+            </Section>
+
+            {/* H. Rejection */}
+            <Section
+              id="rejection"
+              title="Albania visa rejection: common reasons and how to prepare"
+              intro="Refusals usually trace back to documents or information that do not clearly support the purpose of the trip. Careful preparation reduces avoidable problems but cannot guarantee approval."
+            >
+              <div className="grid gap-4 md:grid-cols-2">
+                {REJECTION_REASONS.map((r) => (
+                  <article key={r.reason} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <h3 className="text-base font-semibold text-slate-900">{r.reason}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      <span className="font-semibold text-[#005a31]">How to prepare: </span>
+                      {r.prep}
+                    </p>
+                  </article>
+                ))}
+              </div>
+              <p className="mt-6 text-sm leading-relaxed text-slate-600">
+                If your application is refused, read the decision notice carefully and check the official portal for any
+                review or appeal options. Do not reapply with the same documents without fixing the problem.
+              </p>
+            </Section>
+
+            {/* I. Travel info */}
+            <Section
+              id="travel-information"
+              title="Albania travel information"
+              intro="Practical points to plan around once your visa plan is clear."
+            >
+              <div className="grid gap-5 md:grid-cols-2">
+                {TRAVEL_INFO.map((t) => (
+                  <article key={t.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h3 className="text-base font-semibold text-slate-900">{t.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{t.text}</p>
+                  </article>
+                ))}
+              </div>
+              <p className="mt-6 text-sm leading-relaxed text-slate-600">
+                Combining Albania with other countries? Albania is outside the Schengen Area, so a trip that also
+                includes Schengen countries needs a{" "}
+                <Link href="/our-services/visa/schengen-visa" className={`font-semibold text-[#005a31] underline underline-offset-2 ${linkFocus}`}>
+                  Schengen visa
+                </Link>{" "}
+                as well. See our{" "}
+                <Link href="/our-services/visa/europe-visa-application" className={`font-semibold text-[#005a31] underline underline-offset-2 ${linkFocus}`}>
+                  Europe visa application guide
+                </Link>{" "}
+                for multi-country trips.
+              </p>
+            </Section>
+
+            {/* J. Why Eammu */}
+            <Section
+              id="why-eammu"
+              title="How Eammu Holidays can help"
+              intro="Eammu Holidays is a travel and visa consultancy with offices in Dubai, Dhaka, Cumilla, Yerevan and Tbilisi. This is what we do for Albania applicants."
+            >
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <CheckList items={EAMMU_SERVICES} />
+              </div>
+              <div className="mt-6">
+                <Callout>
+                  <strong>What we do not do:</strong> we are not the Albanian government, an embassy or an official
+                  representative, we do not issue visas, and we cannot guarantee approval or a processing time. Our role
+                  is to help you prepare a clear and accurate application.
+                </Callout>
+              </div>
+            </Section>
+
+            {/* FAQ */}
+            <Section
+              id="faq"
+              title="Albania visa FAQ"
+              intro="Answers to common questions from applicants in Bangladesh and the UAE."
+            >
+              <div className="space-y-3">
+                {FAQS.map((f) => (
+                  <details key={f.q} className="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
+                    <summary
+                      className={`flex cursor-pointer list-none items-start justify-between gap-4 rounded-xl p-5 text-base font-semibold text-slate-900 [&::-webkit-details-marker]:hidden ${linkFocus}`}
+                    >
+                      <span>{f.q}</span>
+                      <ChevronDown
+                        aria-hidden="true"
+                        size={20}
+                        className="mt-0.5 shrink-0 text-[#005a31] transition-transform group-open:rotate-180"
+                      />
+                    </summary>
+                    <p className="px-5 pb-5 text-sm leading-relaxed text-slate-600">{f.a}</p>
+                  </details>
+                ))}
+              </div>
+            </Section>
+
+            {/* Related services */}
+            <section aria-labelledby="related-title" className="border-t border-slate-200 pt-12">
+              <h2 id="related-title" className="text-2xl font-bold tracking-tight text-slate-900">
+                Related Eammu services
+              </h2>
+              <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+                {RELATED.map((r) => (
+                  <li key={r.href}>
+                    <Link
+                      href={r.href}
+                      className={`flex h-full items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-[#005a31] ${linkFocus}`}
+                    >
+                      <ChevronRight aria-hidden="true" size={18} className="mt-0.5 shrink-0 text-[#ffb800]" />
+                      <span>
+                        <span className="block text-sm font-semibold text-[#005a31]">{r.label}</span>
+                        <span className="mt-0.5 block text-sm text-slate-600">{r.desc}</span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
+
+          {/* Sidebar: sticky on large screens, normal flow on mobile */}
+          <aside aria-label="Page navigation and contact" className="space-y-6 lg:col-span-4 lg:sticky lg:top-6 lg:self-start">
+            <ContactCard />
+            <nav aria-label="On this page" className="rounded-2xl border border-slate-200 bg-white p-6">
+              <h2 className="text-base font-bold text-slate-900">On this page</h2>
+              <ul className="mt-3 divide-y divide-slate-100 text-sm">
+                {TOC.map(([id, label]) => (
+                  <li key={id}>
+                    <a href={`#${id}`} className={`block py-2 text-slate-600 hover:text-[#005a31] ${linkFocus}`}>
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <p className="px-1 text-xs leading-relaxed text-slate-500">
+              Last reviewed: {LAST_REVIEWED}. Visa rules, fees and processing times are set by the Albanian authorities and
+              can change. Always confirm on the official sources.
+            </p>
+          </aside>
+        </div>
+
+        {/* Final CTA */}
+        <section aria-labelledby="cta-title" className="bg-[#005a31]">
+          <div className="mx-auto max-w-4xl px-4 py-14 text-center sm:px-6 lg:px-8">
+            <h2 id="cta-title" className="text-2xl font-bold text-white sm:text-3xl">
+              Planning to apply for an Albania visa?
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-white/85">
+              Tell us your passport, where you live and when you plan to travel. We will help you understand the
+              documents you need before you apply.
+            </p>
+            <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+              <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className={btnAccent}>
+                <MessageCircle aria-hidden="true" size={18} />
+                Message us on WhatsApp
+              </a>
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/60 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-white hover:text-[#005a31] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                <Mail aria-hidden="true" size={18} />
+                Email {CONTACT.email}
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}
