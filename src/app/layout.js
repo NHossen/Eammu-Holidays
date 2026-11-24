@@ -16,21 +16,20 @@ const geistSans = Geist({
   display: "swap",
 });
 
-// ✅ Brand names optimized for global SEO & SERP presentation
-const SITE_NAME = "Eammu - Travel agency Bangladesh";
-const BRAND_NAME = "Eammu Holidays - Travel Agency Bangladesh";
+// ✅ ONE consistent site name everywhere (this is what Google should show)
+const SITE_NAME = "Eammu Holidays - Travel Agency Bangladesh";
+const BRAND_NAME = "Eammu Holidays";
 const PAGE_TITLE = "Eammu Holidays - online Travel agency (OTA)";
 
 // ── GLOBAL / FALLBACK SEO METADATA ───────────────────────────────────────────
 export const metadata = {
   metadataBase: new URL(BASE_URL),
 
-  // ✅ Fixes Google Search Snippet Brand Header (Site Name)
-  siteName: SITE_NAME,
+  // ❌ REMOVED: top-level `siteName` is not a valid Next.js metadata field
 
   title: {
     default: PAGE_TITLE,
-    template: `%s | ${SITE_NAME}`,
+    template: `%s | ${BRAND_NAME}`,
   },
 
   description:
@@ -122,14 +121,14 @@ export const metadata = {
     images: [`${BASE_URL}/preview-banner.webp`],
   },
 
+  
   icons: {
     icon: [
-      { url: "/emf.jpg", type: "image/jpeg" },
-      // Add a proper 32x32 square icon file here when available:
-      // { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/public/icons/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
-    shortcut: "/emf.jpg",
-    apple: [{ url: "/emf.jpg", sizes: "180x180", type: "image/jpeg" }],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/public/icons/icon-192.png", sizes: "180x180", type: "image/png" }],
   },
 
   other: {
@@ -145,7 +144,7 @@ export const metadata = {
     "DC.coverage": "Worldwide",
     "DC.subject":
       "Travel Agency, Visa Services, Tour Packages, Umrah, Flight Booking",
-    "theme-color": "#0f172a",
+    // ❌ REMOVED duplicate "theme-color" (already set in `viewport` below)
     "color-scheme": "light dark",
     rating: "general",
     language: "English",
@@ -156,7 +155,7 @@ export const metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: SITE_NAME,
+    title: BRAND_NAME,
   },
 };
 
@@ -167,20 +166,13 @@ export const viewport = {
 const globalSchema = {
   "@context": "https://schema.org",
   "@graph": [
-    // 1. WebSite — enables Google Sitelinks Search Box & Site Name Recognition
+    // 1. WebSite — this is what Google reads for the Site Name
     {
       "@type": "WebSite",
       "@id": `${BASE_URL}/#website`,
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
       name: SITE_NAME,
-      alternateName: [
-        "Eammu",
-        "Eammu Holidays",
-        "Eammu Holidays - online Travel agency (OTA)",
-        "Eammu Travel Agency",
-        "Eammu Holiday",
-        "Travel Agency Bangladesh",
-      ],
+      alternateName: ["Eammu Holidays", "Eammu"],
       description:
         "Bangladesh's leading IATA-accredited travel agency for visa services, tour packages, Umrah, and flight booking.",
       publisher: { "@id": `${BASE_URL}/#organization` },
@@ -200,16 +192,16 @@ const globalSchema = {
       "@type": "Organization",
       "@id": `${BASE_URL}/#organization`,
       name: SITE_NAME,
-      alternateName: ["Eammu Holidays", "Eammu Group"],
-      url: BASE_URL,
+      alternateName: ["Eammu Holidays", "Eammu"],
+      url: `${BASE_URL}/`,
       logo: {
         "@type": "ImageObject",
         "@id": `${BASE_URL}/#logo`,
-        url: `${BASE_URL}/emf.jpg`,
-        contentUrl: `${BASE_URL}/emf.jpg`,
-        width: 200,
-        height: 200,
-        caption: SITE_NAME,
+        url: `${BASE_URL}/icon.png`,
+        contentUrl: `${BASE_URL}/icon.png`,
+        width: 192,
+        height: 192,
+        caption: BRAND_NAME,
       },
       image: { "@id": `${BASE_URL}/#logo` },
       description:
@@ -264,7 +256,7 @@ const globalSchema = {
       "@id": `${BASE_URL}/#localbusiness`,
       name: SITE_NAME,
       alternateName: ["Eammu Holidays"],
-      url: BASE_URL,
+      url: `${BASE_URL}/`,
       image: `${BASE_URL}/preview-banner.webp`,
       telephone: "+8801631312524",
       email: "info@eammu.com",
@@ -315,13 +307,9 @@ const globalSchema = {
           closes: "22:00",
         },
       ],
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "320",
-        bestRating: "5",
-        worstRating: "1",
-      },
+      // ❌ REMOVED aggregateRating: fake/unverified ratings that are not shown
+      // on the page violate Google's guidelines and can cause a manual action.
+      // Add it back only if you display real reviews on the page.
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Travel Services by Eammu Holidays",

@@ -42,8 +42,12 @@ const TOC = [
   ["processing-time", "Processing time"],
   ["how-to-apply", "Application steps"],
   ["from-dubai", "Albania visa from Dubai"],
+  ["other-nationalities", "Other UAE-based nationalities"],
+  ["entry-rules", "Entry rules: e-Visa or visa-free"],
   ["rejection", "Visa rejection"],
+  ["extension-overstay", "Extension and overstay"],
   ["travel-information", "Travel information"],
+  ["sample-itinerary", "Sample 7-day itinerary"],
   ["why-eammu", "How Eammu helps"],
   ["faq", "FAQ"],
 ];
@@ -220,6 +224,15 @@ const PROFILE_DOCS = [
       "Host’s ID or residence document copy",
       "Proof of relationship, such as a marriage or birth certificate",
       "Host’s address and accommodation details",
+    ],
+  },
+  {
+    title: "Children and minors",
+    items: [
+      "Child’s passport and birth certificate",
+      "Parents’ passport copies and proof of relationship",
+      "Written parental consent if a child travels with one parent or someone else",
+      "Parents’ employment and bank documents for financial support",
     ],
   },
 ];
@@ -416,6 +429,11 @@ const RELATED = [
     href: "/our-services/travel/flight-reservation",
     desc: "Flight reservations for visa applications.",
   },
+  {
+    label: "Armenia visa application",
+    href: "/our-services/visa/armenia-visa-application",
+    desc: "Combining Albania with a trip to Yerevan? See the Armenia visa guide.",
+  },
 ];
 
 const FAQS = [
@@ -461,6 +479,117 @@ const FAQS = [
   },
 ];
 
+const NATIONALITY_GUIDE = [
+  {
+    title: "Indian passport holders in the UAE",
+    text: "Check the country list on the official e-Visa portal and any exemption linked to a valid Schengen, US or UK visa. If you need a Type C e-Visa, prepare your Indian passport, UAE residence permit, salary certificate and recent bank statements.",
+  },
+  {
+    title: "Pakistani passport holders in the UAE",
+    text: "Confirm whether your passport requires a visa. If it does, prepare your Pakistani passport, CNIC copy, UAE residence permit, employer letter and bank statements, plus a clear itinerary and bookings.",
+  },
+  {
+    title: "Filipino passport holders in the UAE",
+    text: "Visa rules depend on your passport, so verify them on the official pages first. Prepare your Philippine passport, UAE residence permit, employment certificate, bank statements and travel insurance.",
+  },
+  {
+    title: "Nepali and Sri Lankan passport holders in the UAE",
+    text: "Check your nationality on the e-Visa portal before booking. If a visa is required, applicants usually need the passport, UAE residence documents, proof of employment and funds, and accommodation details.",
+  },
+  {
+    title: "Arab and other expatriates in the UAE",
+    text: "Some nationalities may enter Albania for short stays without a visa, while others must apply. Do not assume that your UAE residence permit changes the rule. The passport you travel on decides it.",
+  },
+  {
+    title: "Bangladeshi passport holders",
+    text: "Bangladeshi applicants should plan for a visa before travel and prepare strong evidence of funds, employment or business, and ties to Bangladesh or the UAE. See the Bangladesh section of the checklists above.",
+  },
+];
+
+const ENTRY_ROWS = [
+  {
+    situation: "Your passport requires a visa",
+    meaning: "You need approval before you travel, normally a Type C e-Visa for a short visit.",
+    action: "Apply on the official e-Visa portal with complete documents and wait for the decision.",
+  },
+  {
+    situation: "You hold a qualifying Schengen, US or UK visa",
+    meaning: "Albanian rules may allow visa-free entry under specific conditions, such as the type, validity and earlier use of that visa.",
+    action: "Check the exact conditions on the Ministry for Europe and Foreign Affairs page before you rely on it.",
+  },
+  {
+    situation: "You live in the UAE on a non-exempt passport",
+    meaning: "Your residence permit supports the application but does not replace the visa rule for your passport.",
+    action: "Apply as a UAE resident and attach residence, employment and financial documents.",
+  },
+  {
+    situation: "You only change planes in Albania",
+    meaning: "Some nationalities need a Type A airport transit visa even if they never leave the airport.",
+    action: "Check transit rules for your passport and confirm with your airline.",
+  },
+  {
+    situation: "You plan to work or live in Albania",
+    meaning: "A tourist visa is not enough. Longer stays use a Type D visa and a residence or work permit procedure.",
+    action: "Contact us before you travel so the correct procedure is chosen from the start.",
+  },
+];
+
+const BORDER_CHECKS = [
+  "Passport with sufficient validity for your stay",
+  "Your approved e-Visa, printed or saved on your phone",
+  "Return or onward ticket",
+  "Accommodation details for your stay",
+  "Proof of funds, in case officers ask",
+  "Travel insurance certificate",
+];
+
+const SAMPLE_ITINERARY = [
+  { day: "Day 1", title: "Arrive in Tirana", text: "Check in, then walk Skanderbeg Square and the Blloku district." },
+  { day: "Day 2", title: "Tirana", text: "Visit the Bunk’Art museums and take the Dajti Ekspres cable car." },
+  { day: "Day 3", title: "Krujë and Durrës", text: "Day trip to the old town of Krujë and the coastal city of Durrës." },
+  { day: "Day 4", title: "Berat", text: "Explore the old Ottoman quarter and the hilltop castle." },
+  { day: "Day 5", title: "Gjirokastër", text: "Visit the stone old town and its castle." },
+  { day: "Day 6", title: "Sarandë, Butrint and Ksamil", text: "See the ancient site of Butrint and the beaches near Ksamil." },
+  { day: "Day 7", title: "Return and departure", text: "Travel back to Tirana and fly out." },
+];
+
+const MORE_FAQS = [
+  {
+    q: "Can I get an Albania visa on arrival?",
+    a: "Do not plan on it. If your passport requires a visa, plan to have the approved visa before you fly, unless an official source confirms a different procedure for your case. Check the official portal before booking.",
+  },
+  {
+    q: "Is a multiple-entry Albania visa available?",
+    a: "A Type C visa can be issued for one or more entries depending on the decision. The visa itself shows the number of entries and the validity period granted to you.",
+  },
+  {
+    q: "How early should I apply for an Albania visa?",
+    a: "Apply well before your planned departure date and allow extra time for requests for more documents. Keep flights and hotels flexible until the visa is approved.",
+  },
+  {
+    q: "Is an invitation letter needed for the Albania visa?",
+    a: "It depends on your purpose of travel and the portal’s current requirements. A letter is especially useful for business and family visits, and a host’s address with an invitation can support an accommodation record.",
+  },
+  {
+    q: "Can I use a flight reservation for the application?",
+    a: "Many applicants use changeable reservations until the visa is decided. Make sure the dates and names match your application and itinerary, and avoid paying for non-refundable tickets before approval.",
+  },
+  {
+    q: "Can Indian, Pakistani or Filipino residents of the UAE apply from Dubai?",
+    a: "Yes, if their passport requires a visa they can generally apply online from the UAE. The rule depends on the passport, not on UAE residence, so confirm it on the official portal first.",
+  },
+  {
+    q: "Do children need a visa for Albania?",
+    a: "If the child’s passport requires a visa, yes. Prepare the birth certificate, parents’ passport copies and a consent letter if the child does not travel with both parents.",
+  },
+  {
+    q: "Can I extend my stay in Albania?",
+    a: "Extensions are decided by the Albanian authorities and must be requested before your authorised stay ends. They are not guaranteed, so plan your dates carefully from the start.",
+  },
+];
+
+const ALL_FAQS = [...FAQS, ...MORE_FAQS];
+
 /* ───────────────────────── Structured data ───────────────────────── */
 
 // Safe JSON-LD serialisation: prevents "</script>" or HTML comments from breaking out of the tag.
@@ -486,12 +615,12 @@ const structuredData = {
       "@type": "WebPage",
       "@id": `${PAGE_URL}#webpage`,
       url: PAGE_URL,
-      name: "Albania Visa Application from Bangladesh & Dubai",
+      name: "Albania Visa Application 2026 for Bangladesh & Dubai",
       description:
-        "Albania visa types, document checklists, fees, processing time and application steps for Bangladeshi and UAE-based travelers.",
+        "Albania visa types, document checklists, fees, processing time, entry rules and application steps for Bangladeshi and UAE-based travelers.",
       inLanguage: "en",
       dateModified: LAST_REVIEWED,
-      isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: SITE_URL, name: "Eammu Holidays" },
+      isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}#website`, url: SITE_URL, name: "Eammu Holidays" },
       breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
       about: { "@id": `${PAGE_URL}#service` },
     },
@@ -505,11 +634,21 @@ const structuredData = {
     },
     {
       "@type": "TravelAgency",
-      "@id": `${SITE_URL}/#organization`,
+      "@id": `${SITE_URL}#organization`,
       name: "Eammu Holidays",
       url: SITE_URL,
+      logo: `${SITE_URL}/logo.png`,
       email: CONTACT.email,
-      telephone: "+971507078334",
+      telephone: ["+971507078334", "+37494810585", "+8801701699743"],
+      address: [
+        { "@type": "PostalAddress", addressCountry: "AE", addressLocality: "Dubai" },
+        { "@type": "PostalAddress", addressCountry: "AM", addressLocality: "Yerevan" },
+        { "@type": "PostalAddress", addressCountry: "BD", addressLocality: "Dhaka" },
+      ],
+      sameAs: [
+        "https://www.facebook.com/eammuholidays",
+        "https://www.instagram.com/eammuholidays",
+      ],
     },
     {
       "@type": "Service",
@@ -517,13 +656,22 @@ const structuredData = {
       name: "Albania visa application consultancy",
       serviceType: "Visa consultation and application support",
       description:
-        "Guidance, document review and application support for travelers applying for an Albania visa. Eammu Holidays is a private consultancy and does not issue visas.",
-      provider: { "@id": `${SITE_URL}/#organization` },
+        "Guidance, document review and application support for travelers applying for an Albania visa from Bangladesh or the UAE. Eammu Holidays is a private consultancy and does not issue visas.",
+      provider: { "@id": `${SITE_URL}#organization` },
       areaServed: [
         { "@type": "Country", name: "Bangladesh" },
         { "@type": "Country", name: "United Arab Emirates" },
       ],
       url: PAGE_URL,
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${PAGE_URL}#faq`,
+      mainEntity: ALL_FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
     },
   ],
 };
@@ -642,7 +790,7 @@ export default function AlbaniaVisa() {
                 Albania visa application from Bangladesh and Dubai
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
-                Find out which Albania visa you need, which documents to prepare, what the costs usually include and how
+                Find out which Albania visa or e-Visa you need, which documents to prepare, what the costs usually include and how
                 the e-Visa process works. Eammu Holidays helps Bangladeshi citizens and UAE residents prepare a clear,
                 well-documented application.
               </p>
@@ -949,6 +1097,59 @@ export default function AlbaniaVisa() {
               </div>
             </Section>
 
+            {/* Other nationalities + entry rules */}
+            <Section
+              id="other-nationalities"
+              title="Albania visa for Indian, Pakistani, Filipino and other UAE-based nationalities"
+              intro="Albania decides visa requirements by passport nationality, so the answer differs for each community living in the UAE. Use these notes to prepare, then confirm your passport on the official portal."
+            >
+              <div className="grid gap-5 md:grid-cols-2">
+                {NATIONALITY_GUIDE.map((n) => (
+                  <article key={n.title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h3 className="text-base font-semibold text-slate-900">{n.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{n.text}</p>
+                  </article>
+                ))}
+              </div>
+            </Section>
+
+            <Section
+              id="entry-rules"
+              title="Albania entry rules: e-Visa or visa-free entry"
+              intro="Whether you need to apply depends on your passport, your purpose and any qualifying visa you hold. This table summarises the common situations."
+            >
+              <div className="overflow-x-auto rounded-2xl border border-slate-200">
+                <table className="w-full min-w-[680px] border-collapse text-left text-sm">
+                  <caption className="sr-only">Albania entry situations and what to do</caption>
+                  <thead className="bg-[#005a31] text-white">
+                    <tr>
+                      <th scope="col" className="px-4 py-3 font-semibold">Your situation</th>
+                      <th scope="col" className="px-4 py-3 font-semibold">What it means</th>
+                      <th scope="col" className="px-4 py-3 font-semibold">What to do</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200 bg-white">
+                    {ENTRY_ROWS.map((r) => (
+                      <tr key={r.situation} className="align-top">
+                        <th scope="row" className="px-4 py-3 font-semibold text-slate-900">{r.situation}</th>
+                        <td className="px-4 py-3 leading-relaxed text-slate-600">{r.meaning}</td>
+                        <td className="px-4 py-3 leading-relaxed text-slate-600">{r.action}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 className="mt-10 text-lg font-semibold text-slate-900">What to have ready at the Albanian border</h3>
+              <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <CheckList items={BORDER_CHECKS} />
+              </div>
+              <p className="mt-5 text-sm leading-relaxed text-slate-600">
+                Border officers decide on entry, and an approved visa does not guarantee admission. Visa on arrival should
+                not be assumed for visa-required passports.
+              </p>
+            </Section>
+
             {/* H. Rejection */}
             <Section
               id="rejection"
@@ -969,6 +1170,35 @@ export default function AlbaniaVisa() {
               <p className="mt-6 text-sm leading-relaxed text-slate-600">
                 If your application is refused, read the decision notice carefully and check the official portal for any
                 review or appeal options. Do not reapply with the same documents without fixing the problem.
+              </p>
+            </Section>
+
+            {/* Extension and overstay */}
+            <Section
+              id="extension-overstay"
+              title="Albania visa extension and overstay"
+              intro="Staying within your authorised period matters for this trip and for future visa applications."
+            >
+              <div className="grid gap-5 md:grid-cols-2">
+                <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-base font-semibold text-slate-900">Extending your stay</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    Extensions are decided by the Albanian authorities and must be requested before your authorised stay
+                    ends. They are not guaranteed, and a tourist visa cannot be turned into permission to work.
+                  </p>
+                </article>
+                <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-base font-semibold text-slate-900">Overstaying</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    Overstaying can lead to fines, difficulty with future visa applications and possible entry bans. The
+                    exact penalties are set by Albanian law, so check the official sources rather than relying on figures
+                    from unofficial websites.
+                  </p>
+                </article>
+              </div>
+              <p className="mt-5 text-sm leading-relaxed text-slate-600">
+                For a Type C visa, count your days carefully against the 90-days-in-180 rule and keep your return ticket
+                aligned with the dates on your visa.
               </p>
             </Section>
 
@@ -1000,6 +1230,36 @@ export default function AlbaniaVisa() {
               </p>
             </Section>
 
+            {/* Sample itinerary */}
+            <Section
+              id="sample-itinerary"
+              title="Sample 7-day Albania itinerary for your visa application"
+              intro="A clear itinerary helps explain your trip. This is a sample you can adapt. Make sure dates, cities and bookings match what you submit."
+            >
+              <ol className="space-y-3">
+                {SAMPLE_ITINERARY.map((d) => (
+                  <li key={d.day} className="flex gap-4 rounded-xl border border-slate-200 bg-white p-4">
+                    <span className="w-14 shrink-0 text-sm font-bold text-[#005a31]">{d.day}</span>
+                    <div>
+                      <h3 className="text-base font-semibold text-slate-900">{d.title}</h3>
+                      <p className="mt-0.5 text-sm leading-relaxed text-slate-600">{d.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-5 text-sm leading-relaxed text-slate-600">
+                Need help with reservations? See our{" "}
+                <Link href="/our-services/travel/flight-reservation" className={`font-semibold text-[#005a31] underline underline-offset-2 ${linkFocus}`}>
+                  flight reservation service
+                </Link>
+                . Planning to continue to the Caucasus? Our{" "}
+                <Link href="/our-services/visa/armenia-visa-application" className={`font-semibold text-[#005a31] underline underline-offset-2 ${linkFocus}`}>
+                  Armenia visa guide
+                </Link>{" "}
+                covers Yerevan.
+              </p>
+            </Section>
+
             {/* J. Why Eammu */}
             <Section
               id="why-eammu"
@@ -1025,7 +1285,7 @@ export default function AlbaniaVisa() {
               intro="Answers to common questions from applicants in Bangladesh and the UAE."
             >
               <div className="space-y-3">
-                {FAQS.map((f) => (
+                {ALL_FAQS.map((f) => (
                   <details key={f.q} className="group rounded-xl border border-slate-200 bg-white open:shadow-sm">
                     <summary
                       className={`flex cursor-pointer list-none items-start justify-between gap-4 rounded-xl p-5 text-base font-semibold text-slate-900 [&::-webkit-details-marker]:hidden ${linkFocus}`}

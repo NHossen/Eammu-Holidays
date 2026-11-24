@@ -1,30 +1,59 @@
-import KosovoVisa from '@/Components/Server/VisaCountry/KosovoVisa/KosovoVisa'
-import React from 'react'
+import HomeSeoLinks from "@/Components/HomeSeoLinks/HomeSeoLinks";
+import KosovoVisa from "@/Components/Server/VisaCountry/KosovoVisa/KosovoVisa";
+
+const PAGE_URL = "https://eammu.com/our-services/visa/kosovo-visa-application";
+const OG_IMAGE = "/eammu_kosovo_banner.webp";
+const OG_ALT =
+  "Eammu Holidays Kosovo sticker visa guide for Bangladeshi citizens and UAE residents";
+
 export const metadata = {
   metadataBase: new URL("https://eammu.com"),
 
-  title:
-    "Kosovo Visa Requirements for Bangladeshi Citizens | Embassy & Support",
+  title: "Kosovo Visa for Bangladeshis & UAE Residents 2026 | Eammu",
 
   description:
-    "Apply for your Kosovo visa in Dhaka with Eammu Holidays. Get expert help with Kosovo tourist, business, and transit visa requirements, fees, and application guidance for Bangladeshi passport holders.",
+    "Kosovo visa guide for Bangladeshi passport holders: sticker visa process, Type C and Type D visas, document checklist, fees, processing time and rejection tips. Application support from Eammu Holidays.",
 
   keywords: [
-    "Kosovo visa requirements for Bangladeshi",
+    // Primary
+    "Kosovo visa application",
+    "Kosovo visa for Bangladeshi citizens",
+    "Kosovo sticker visa",
+    "Kosovo tourist visa",
+    "Kosovo visa requirements",
+    "apply Kosovo visa 2026",
+    // Geo-targeted
+    "Kosovo visa from Bangladesh",
+    "Kosovo visa for Bangladeshi in Dubai",
+    "Kosovo visa from Dubai",
+    "Kosovo visa from UAE",
+    "Kosovo visa for UAE residents",
+    "Kosovo visa for Indians in Dubai",
+    "Kosovo visa for Pakistanis in Dubai",
+    "Kosovo visa for Filipinos in Dubai",
+    // Intent
+    "Kosovo visa fee",
     "Kosovo visa fee Bangladesh",
-    "Kosovo embassy in Dhaka",
-    "Apply Kosovo visa from Bangladesh",
-    "Kosovo tourist visa for Bangladeshis",
-    "Kosovo visa application form",
-    "Schengen visa entry to Kosovo",
-    "Kosovo business visa Bangladesh",
-    "Balkan visa support Bangladesh",
-    "Eammu Holidays Kosovo visa"
+    "Kosovo visa documents required",
+    "Kosovo visa processing time",
+    "Kosovo visa rejection reasons",
+    "Kosovo visa with Schengen visa",
+    "Kosovo visa exemption Schengen residence permit",
+    "Kosovo visa on arrival",
+    "Kosovo e-visa",
+    // Long-tail
+    "how to apply Kosovo visa from Bangladesh",
+    "Kosovo Type C visa",
+    "Kosovo Type D visa",
+    "Kosovo business visa",
+    "Kosovo family visit visa",
+    "Pristina travel visa support",
+    "Kosovo visa consultancy",
+    "Eammu Holidays Kosovo visa",
   ],
 
   alternates: {
-    canonical:
-      "https://eammu.com/our-services/visa/kosovo-visa-application",
+    canonical: PAGE_URL,
   },
 
   robots: {
@@ -35,49 +64,47 @@ export const metadata = {
       follow: true,
       "max-image-preview": "large",
       "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
 
   openGraph: {
-    title:
-      "Kosovo Visa for Bangladeshis | Document Checklist & Fees",
-
+    title: "Kosovo Visa for Bangladeshis & UAE Residents 2026 | Eammu Holidays",
     description:
-      "Expert assistance for Kosovo visa applications in Bangladesh. We provide updated information on required documents, embassy appointments in Dhaka, and processing times.",
-
-    url:
-      "https://eammu.com/our-services/visa/kosovo-visa-application",
-
+      "Kosovo sticker visa process, documents, fees and processing time for Bangladeshi passport holders in Bangladesh and the UAE.",
+    url: PAGE_URL,
     siteName: "Eammu Holidays",
-
+    locale: "en_US",
     type: "website",
-
     images: [
       {
-        url: "/eammu_kosovo_banner.webp",
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Kosovo visa application support and requirements for Bangladeshis",
+        alt: OG_ALT,
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-
-    title:
-      "Apply for Kosovo Visa from Bangladesh",
-
+    title: "Kosovo Visa for Bangladeshis & UAE Residents 2026",
     description:
-      "Complete support for your Kosovo visa application. Learn about fees, documents, and the submission process at the Kosovo Embassy in Dhaka.",
-
-    images: ["/eammu_kosovo_banner.webp"],
+      "Kosovo sticker visa requirements, documents, fees and application steps, with support from Eammu Holidays.",
+    images: [{ url: OG_IMAGE, alt: OG_ALT }],
   },
+
+  authors: [{ name: "Eammu Holidays", url: "https://eammu.com" }],
+  creator: "Eammu Holidays",
+  publisher: "Eammu Holidays",
+  category: "Travel & Visa Services",
 };
-export default function page() {
+
+export default function Page() {
   return (
-    <div>
+    <>
       <KosovoVisa />
-    </div>
-  )
+      <HomeSeoLinks />
+    </>
+  );
 }
