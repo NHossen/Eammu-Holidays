@@ -9,11 +9,79 @@ const TEXT_SELECTOR =
   "input:not([type='submit']):not([type='button']):not([type='checkbox']):not([type='radio']):not([type='range']), textarea, [contenteditable='true'], [data-cursor='text']";
 
 const MAX_ACTIVE_RIPPLES = 28;
+
+// Touch settings
 const TRAIL_MIN_DISTANCE = 20; // px the finger must travel before a new trail ripple
 const TRAIL_MIN_INTERVAL = 32; // ms between trail ripples
 const HOLD_PULSE_INTERVAL = 650; // ms between pulses while finger rests
 
+// Desktop settings
+const MOUSE_TRAIL_MIN_DISTANCE = 70; // px the mouse must travel before a new trail ripple
+const MOUSE_TRAIL_MIN_INTERVAL = 110; // ms between mouse trail ripples
+const MOUSE_HOLD_PULSE_INTERVAL = 700; // ms between pulses while mouse button is held
+
 const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+
+/**
+ * Shared water ripple builder (used by both desktop and touch).
+ * kind: 'tap' | 'link' | 'trail' | 'hold' | 'mtrail'
+ */
+function spawnRipple(container, x, y, kind, strength = 1, reduceMotion = false) {
+  if (!container) return;
+
+  // keep the DOM small so low-end devices stay smooth
+  while (container.childElementCount > MAX_ACTIVE_RIPPLES) {
+    container.firstElementChild?.remove();
+  }
+
+  const group = document.createElement("span");
+  group.className = `cc-w cc-w-${kind}`;
+  group.style.left = `${x}px`;
+  group.style.top = `${y}px`;
+  group.style.setProperty("--s", strength.toFixed(2));
+
+  let ringCount = 2;
+  if (reduceMotion) ringCount = 1;
+  else if (kind === "tap") ringCount = 3;
+  else if (kind === "link") ringCount = 4;
+  else if (kind === "mtrail") ringCount = 1;
+
+  for (let i = 0; i < ringCount; i++) {
+    const ring = document.createElement("i");
+    ring.className = "cc-w-ring";
+    ring.style.animationDelay = `${i * 0.11}s`;
+    ring.style.setProperty("--i", i);
+    group.appendChild(ring);
+  }
+
+  if (!reduceMotion && (kind === "tap" || kind === "link")) {
+    // soft splash flash at the contact point
+    const core = document.createElement("i");
+    core.className = "cc-w-core";
+    group.appendChild(core);
+
+    // little droplets that fly outward
+    const drops = kind === "link" ? 12 : 7;
+    const baseDist = kind === "link" ? 34 : 26;
+    const offset = Math.random() * Math.PI * 2;
+    for (let i = 0; i < drops; i++) {
+      const angle =
+        offset + (i / drops) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+      const dist = baseDist + Math.random() * 34;
+      const drop = document.createElement("i");
+      drop.className = "cc-w-drop";
+      drop.style.setProperty("--dx", `${(Math.cos(angle) * dist).toFixed(1)}px`);
+      drop.style.setProperty("--dy", `${(Math.sin(angle) * dist).toFixed(1)}px`);
+      drop.style.setProperty("--ds", (0.6 + Math.random() * 0.7).toFixed(2));
+      drop.style.animationDelay = `${(Math.random() * 0.06).toFixed(2)}s`;
+      group.appendChild(drop);
+    }
+  }
+
+  container.appendChild(group);
+  // remove after the longest animation has finished
+  window.setTimeout(() => group.remove(), 1600);
+}
 
 export default function CustomCursor() {
   // 'mouse' | 'touch' | 'none'
@@ -22,7 +90,7 @@ export default function CustomCursor() {
   const rootRef = useRef(null);
   const ringRef = useRef(null);
   const dotRef = useRef(null);
-  const touchContainerRef = useRef(null);
+  const rippleLayerRef = useRef(null); // shared ripple container (desktop + touch)
   const fingerRef = useRef(null);
 
   // Detect device (mouse vs touch screen)
@@ -43,14 +111,15 @@ export default function CustomCursor() {
     return () => mq.removeEventListener("change", update);
   }, []);
 
-  // 1. Desktop mouse cursor logic (unchanged)
+  // 1. Desktop mouse cursor + water click ripple logic
   useEffect(() => {
     if (deviceType !== "mouse") return;
 
     const root = rootRef.current;
     const ring = ringRef.current;
     const dot = dotRef.current;
-    if (!root || !ring || !dot) return;
+    const layer = rippleLayerRef.current;
+    if (!root || !ring || !dot || !layer) return;
 
     document.documentElement.classList.add("cc-on");
 
@@ -61,9 +130,13 @@ export default function CustomCursor() {
 
     const mouse = { x: -100, y: -100 };
     const pos = { x: -100, y: -100 };
+    const lastTrail = { x: -100, y: -100, t: 0 };
     let firstMove = true;
     let rafId = 0;
     let currentState = "default";
+    let holdTimer = 0;
+    let isDown = false;
+    let downIsLink = false;
 
     const setState = (next) => {
       if (next === currentState) return;
@@ -78,6 +151,19 @@ export default function CustomCursor() {
       return "default";
     };
 
+    const stopHoldPulse = () => {
+      window.clearInterval(holdTimer);
+      holdTimer = 0;
+    };
+
+    const startHoldPulse = () => {
+      stopHoldPulse();
+      holdTimer = window.setInterval(() => {
+        if (!isDown) return;
+        spawnRipple(layer, mouse.x, mouse.y, "hold", 1, reduceMotion);
+      }, MOUSE_HOLD_PULSE_INTERVAL);
+    };
+
     const onMouseMove = (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
@@ -85,6 +171,9 @@ export default function CustomCursor() {
       if (firstMove) {
         pos.x = mouse.x;
         pos.y = mouse.y;
+        lastTrail.x = mouse.x;
+        lastTrail.y = mouse.y;
+        lastTrail.t = performance.now();
         firstMove = false;
       }
 
@@ -92,16 +181,55 @@ export default function CustomCursor() {
       setState(getState(e.target));
 
       dot.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0) translate(-50%, -50%)`;
+
+      // soft water trail while moving the mouse
+      if (!reduceMotion) {
+        const now = performance.now();
+        const dist = Math.hypot(mouse.x - lastTrail.x, mouse.y - lastTrail.y);
+        const dt = now - lastTrail.t;
+        if (dist >= MOUSE_TRAIL_MIN_DISTANCE && dt >= MOUSE_TRAIL_MIN_INTERVAL) {
+          const speed = dist / Math.max(dt, 1);
+          const strength = clamp(0.7 + speed * 0.25, 0.7, 1.3);
+          lastTrail.x = mouse.x;
+          lastTrail.y = mouse.y;
+          lastTrail.t = now;
+          spawnRipple(layer, mouse.x, mouse.y, "mtrail", strength, reduceMotion);
+        }
+      }
     };
 
-    const onMouseDown = () => {
+    const onMouseDown = (e) => {
+      if (e.button !== 0 && e.button !== 2) return;
+
       root.dataset.pressed = "true";
+      isDown = true;
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+
+      const state = getState(e.target);
+      downIsLink = state === "link";
+
+      // bigger splash on links/buttons, normal splash anywhere else
+      spawnRipple(
+        layer,
+        e.clientX,
+        e.clientY,
+        downIsLink ? "link" : "tap",
+        1,
+        reduceMotion
+      );
+      startHoldPulse();
     };
+
     const onMouseUp = () => {
       root.dataset.pressed = "false";
+      isDown = false;
+      stopHoldPulse();
     };
     const onLeave = () => {
       root.dataset.visible = "false";
+      isDown = false;
+      stopHoldPulse();
     };
     const onEnter = () => {
       root.dataset.visible = "true";
@@ -125,6 +253,7 @@ export default function CustomCursor() {
 
     return () => {
       cancelAnimationFrame(rafId);
+      stopHoldPulse();
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mousedown", onMouseDown);
       window.removeEventListener("mouseup", onMouseUp);
@@ -137,7 +266,7 @@ export default function CustomCursor() {
   // 2. Mobile touch + scroll water ripple logic
   useEffect(() => {
     if (deviceType !== "touch") return;
-    const container = touchContainerRef.current;
+    const container = rippleLayerRef.current;
     const finger = fingerRef.current;
     if (!container || !finger) return;
 
@@ -152,60 +281,11 @@ export default function CustomCursor() {
     let rafId = 0;
     let holdTimer = 0;
 
-    // Build a ripple "group": several concentric rings + optional droplets
-    const spawn = (x, y, kind, strength = 1) => {
-      // keep the DOM small so low-end phones stay smooth
-      while (container.childElementCount > MAX_ACTIVE_RIPPLES) {
-        container.firstElementChild?.remove();
-      }
-
-      const group = document.createElement("span");
-      group.className = `cc-w cc-w-${kind}`;
-      group.style.left = `${x}px`;
-      group.style.top = `${y}px`;
-      group.style.setProperty("--s", strength.toFixed(2));
-
-      const ringCount = reduceMotion ? 1 : kind === "tap" ? 3 : kind === "hold" ? 2 : 2;
-      for (let i = 0; i < ringCount; i++) {
-        const ring = document.createElement("i");
-        ring.className = "cc-w-ring";
-        ring.style.animationDelay = `${i * 0.11}s`;
-        ring.style.setProperty("--i", i);
-        group.appendChild(ring);
-      }
-
-      if (!reduceMotion && kind === "tap") {
-        // soft splash flash at the contact point
-        const core = document.createElement("i");
-        core.className = "cc-w-core";
-        group.appendChild(core);
-
-        // little droplets that fly outward
-        const drops = 7;
-        const offset = Math.random() * Math.PI * 2;
-        for (let i = 0; i < drops; i++) {
-          const angle = offset + (i / drops) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
-          const dist = 26 + Math.random() * 30;
-          const drop = document.createElement("i");
-          drop.className = "cc-w-drop";
-          drop.style.setProperty("--dx", `${(Math.cos(angle) * dist).toFixed(1)}px`);
-          drop.style.setProperty("--dy", `${(Math.sin(angle) * dist).toFixed(1)}px`);
-          drop.style.setProperty("--ds", (0.6 + Math.random() * 0.7).toFixed(2));
-          drop.style.animationDelay = `${(Math.random() * 0.06).toFixed(2)}s`;
-          group.appendChild(drop);
-        }
-      }
-
-      container.appendChild(group);
-      // remove after the longest animation has finished
-      window.setTimeout(() => group.remove(), 1500);
-    };
-
     const startHoldPulse = () => {
       window.clearInterval(holdTimer);
       holdTimer = window.setInterval(() => {
         if (!touching) return;
-        spawn(target.x, target.y, "hold", 1);
+        spawnRipple(container, target.x, target.y, "hold", 1, reduceMotion);
       }, HOLD_PULSE_INTERVAL);
     };
 
@@ -230,7 +310,7 @@ export default function CustomCursor() {
       finger.style.transform = `translate3d(${t.clientX}px, ${t.clientY}px, 0) translate(-50%, -50%)`;
       finger.dataset.active = "true";
 
-      spawn(t.clientX, t.clientY, "tap", 1);
+      spawnRipple(container, t.clientX, t.clientY, "tap", 1, reduceMotion);
       startHoldPulse();
     };
 
@@ -257,7 +337,7 @@ export default function CustomCursor() {
       last.y = t.clientY;
       last.t = now;
 
-      spawn(t.clientX, t.clientY, "trail", strength);
+      spawnRipple(container, t.clientX, t.clientY, "trail", strength, reduceMotion);
 
       // restart hold timer so it only pulses when the finger rests
       startHoldPulse();
@@ -367,10 +447,21 @@ export default function CustomCursor() {
           height: 44px;
           border-color: rgba(253, 224, 71, 0.95);
           background: rgba(253, 224, 71, 0.05);
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          box-shadow:
+            0 2px 8px rgba(0, 0, 0, 0.1),
+            0 0 16px rgba(253, 224, 71, 0.35);
+          animation: ccLiquid 2.4s ease-in-out infinite;
         }
         .cc-root[data-state="link"] .cc-dot {
           transform: scale(0.6);
+        }
+
+        /* liquid wobble while hovering links */
+        @keyframes ccLiquid {
+          0%, 100% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+          25%      { border-radius: 56% 44% 52% 48% / 48% 54% 46% 52%; }
+          50%      { border-radius: 46% 54% 44% 56% / 54% 46% 56% 44%; }
+          75%      { border-radius: 52% 48% 56% 44% / 46% 52% 48% 54%; }
         }
 
         .cc-root[data-state="text"] .cc-ring {
@@ -395,12 +486,12 @@ export default function CustomCursor() {
           transform: scale(0.8);
         }
 
-        /* ---------------- Mobile water ripple styles ---------------- */
+        /* ---------------- Water ripple styles (desktop + mobile) ---------------- */
         .cc-touch-layer {
           position: fixed;
           inset: 0;
           pointer-events: none;
-          z-index: 2147483647;
+          z-index: 2147483646;
           overflow: hidden;
         }
 
@@ -434,7 +525,7 @@ export default function CustomCursor() {
           opacity: 1;
         }
 
-        /* A ripple group sits at the touch point; its children animate */
+        /* A ripple group sits at the touch/click point; its children animate */
         .cc-w {
           position: fixed;
           width: 0;
@@ -468,14 +559,32 @@ export default function CustomCursor() {
           animation: ccRipple 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* tap ripples travel farther, trails stay tighter, hold pulses are gentle */
+        /* tap ripples travel farther, link clicks the farthest, trails stay tighter, hold pulses are gentle */
         .cc-w-tap .cc-w-ring {
           --max: 4.4;
           animation-duration: 1.25s;
         }
+        .cc-w-link .cc-w-ring {
+          --max: 5.6;
+          animation-duration: 1.45s;
+          border-color: rgba(253, 224, 71, 0.95);
+          box-shadow:
+            0 0 20px rgba(253, 224, 71, 0.45),
+            inset 0 0 14px rgba(255, 255, 255, 0.38),
+            0 0 0 1px rgba(255, 255, 255, 0.16);
+        }
         .cc-w-trail .cc-w-ring {
           --max: calc(2.2 * var(--s, 1));
           animation-duration: 0.95s;
+        }
+        .cc-w-mtrail .cc-w-ring {
+          --max: calc(1.7 * var(--s, 1));
+          animation-duration: 0.9s;
+          border-width: 1px;
+          border-color: rgba(253, 224, 71, 0.5);
+          box-shadow:
+            0 0 8px rgba(253, 224, 71, 0.2),
+            inset 0 0 8px rgba(255, 255, 255, 0.2);
         }
         .cc-w-hold .cc-w-ring {
           --max: 3;
@@ -491,6 +600,10 @@ export default function CustomCursor() {
         .cc-w-ring:nth-child(3) {
           border-width: 0.75px;
           filter: blur(0.4px);
+        }
+        .cc-w-ring:nth-child(4) {
+          border-width: 0.5px;
+          filter: blur(0.6px);
         }
 
         @keyframes ccRipple {
@@ -525,6 +638,11 @@ export default function CustomCursor() {
           opacity: 0;
           animation: ccCore 0.55s ease-out forwards;
         }
+        .cc-w-link .cc-w-core {
+          width: 40px;
+          height: 40px;
+          margin: -20px 0 0 -20px;
+        }
 
         @keyframes ccCore {
           0% {
@@ -537,7 +655,7 @@ export default function CustomCursor() {
           }
         }
 
-        /* droplets thrown outward on tap */
+        /* droplets thrown outward on click/tap */
         .cc-w-drop {
           position: absolute;
           left: 0;
@@ -575,8 +693,22 @@ export default function CustomCursor() {
           .cc-w-ring {
             animation-duration: 0.5s !important;
           }
+          .cc-root[data-state="link"] .cc-ring {
+            animation: none;
+          }
         }
       `}</style>
+
+      {/* Shared water ripple layer (desktop clicks + mobile touches) */}
+      <div className="cc-touch-layer" aria-hidden="true">
+        {deviceType === "touch" && (
+          <div ref={fingerRef} className="cc-finger" data-active="false" />
+        )}
+        <div
+          ref={rippleLayerRef}
+          style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
+        />
+      </div>
 
       {/* Desktop cursor */}
       {deviceType === "mouse" && (
@@ -594,17 +726,6 @@ export default function CustomCursor() {
           <div ref={dotRef} className="cc-dot-wrap">
             <div className="cc-dot" />
           </div>
-        </div>
-      )}
-
-      {/* Mobile water touch layer */}
-      {deviceType === "touch" && (
-        <div className="cc-touch-layer" aria-hidden="true">
-          <div ref={fingerRef} className="cc-finger" data-active="false" />
-          <div
-            ref={touchContainerRef}
-            style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
-          />
         </div>
       )}
     </>

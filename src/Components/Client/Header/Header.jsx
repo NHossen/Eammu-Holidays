@@ -211,7 +211,7 @@ export default function Header() {
               { label: "Visa",    icon: FileText,  path: "/visa-checker",  bg: "bg-green-50",  iconColor: "text-[#005a31]" },
               { label: "Flight",  icon: Plane,     path: "/flight-booking",               bg: "bg-sky-50",    iconColor: "text-sky-600"   },
               { label: "Tour",    icon: Palmtree,  path: "/our-services/tour-packages",   bg: "bg-orange-50", iconColor: "text-orange-500"},
-              { label: "Umrah",   icon: ShieldCheck, path: "/our-services/umrah-packages",bg: "bg-amber-50",  iconColor: "text-amber-600" },
+              { label: "Umrah",   icon: ShieldCheck, path: "/umrah",bg: "bg-amber-50",  iconColor: "text-amber-600" },
             ].map((tile) => (
               <Link
                 key={tile.label}

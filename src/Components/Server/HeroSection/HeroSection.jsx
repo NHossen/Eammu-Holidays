@@ -30,17 +30,17 @@ const HeroSection = () => {
             <div className="max-w-5xl mx-auto px-4 w-full flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 items-center">
 
               <div className="text-white text-center lg:text-left">
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-  Bangladesh's Trusted Online Travel Agency <span className="text-[#ffcc00]">Since 2012</span>
+                <h1 className="text-xl sm:text-2xl md:text-2xl font-bold mb-4">
+  Eammu Holidays is a trusted online travel agency since <span className="text-[#ffcc00]">Since 2012</span>
 </h1>
                 <p className="text-sm md:text-base leading-relaxed mb-5 opacity-90">
-  Bangladesh's leading{' '}
-  <Link href="/online-travel-agency-bangladesh" className="hover:text-[#ffcc00]">
+  Eammu Holidays is a leading{' '}
+  <Link href="/online-travel-agency" className="hover:text-[#ffcc00]">
     online travel agency
-  </Link>
-  , Eammu Holidays specializes in visa processing, international air ticket booking, holiday
-  and Umrah packages, travel insurance, hotel reservations, and Europe work
-  permit support.
+  </Link>{' '}
+  specializing in international flight ticket booking, hotel reservations, visa
+  processing, holiday and Umrah packages, travel insurance, Europe work permit
+  support, and higher study abroad guidance.
 </p>
                 <HeroButtons />
                 <div className="flex flex-wrap justify-center lg:justify-start gap-3 text-xs">
